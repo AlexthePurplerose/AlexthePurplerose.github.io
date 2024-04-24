@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於實數的構造、大小關係、四則運算與完備性">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-04-24T12:43:13.000Z">
-<meta property="article:modified_time" content="2024-04-24T13:46:44.022Z">
+<meta property="article:modified_time" content="2024-04-24T13:56:40.718Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-04-24 20:43:13 / 修改時間：21:46:44" itemprop="dateCreated datePublished" datetime="2024-04-24T20:43:13+08:00">2024-04-24</time>
+              <time title="創建時間：2024-04-24 20:43:13 / 修改時間：21:56:40" itemprop="dateCreated datePublished" datetime="2024-04-24T20:43:13+08:00">2024-04-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,37 +225,37 @@
 <h1 id="建構實數"><font color=#800080>建構實數</font></h1>
 </center>
 <p>這裡我們假設我們已經熟悉有理數的構造與性質了，我們希望從有理數開始建構實數。(若要看如何建構自然數與有理數，可以點[這裡])<br></p>
-<h3 id="有理數的區間"><font color=#b8860b>有理數的區間</font></h3>
+<h2 id="有理數的區間"><font color=#b8860b>有理數的區間</font></h2>
 <p>首先，這裡會定義兩種區間<br></p>
-<h5 id="定義-1開區間-open-interval"><font color=#008000><u>定義
-1：開區間 (Open Interval)</u></font></h5>
+<h3 id="定義-1-1開區間-open-interval"><font color=#008000><u>定義
+1-1：開區間 (Open Interval)</u></font></h3>
 <p>對於有理數<span
 class="math inline">\(a&lt;b\)</span>，定義其中的開區間為<span
 class="math inline">\((a,b)=\{x|a&lt;x&lt;b\}\)</span>。</p>
-<h5 id="定義-2閉區間-closed-interval"><font color=#008000><u>定義
-2：閉區間 (Closed Interval)</u></font></h5>
+<h3 id="定義-1-2閉區間-closed-interval"><font color=#008000><u>定義
+1-2：閉區間 (Closed Interval)</u></font></h3>
 <p>對於有理數<span
 class="math inline">\(a&lt;b\)</span>，定義其中的開區間為<span
 class="math inline">\([a,b]=\{x|a\leq x\leq b\}\)</span>。</p>
-<h5 id="註記-3"><font color=#0000FF><u>註記 3</u></font></h5>
+<h3 id="註記-1-3"><font color=#0000FF><u>註記 1-3</u></font></h3>
 <p>在以上的兩個定義中，因為還沒定義有理數以外的數如何比大小，所以集合中蒐集的<span
 class="math inline">\(x\)</span>都只有有理數。</p>
-<h5
-id="註記-4有理數的稠密性-denseness-of-rational-numbers"><font color=#0000FF><u>註記
-4：有理數的稠密性 (Denseness of Rational Numbers)</u></font></h5>
+<h3
+id="註記-2有理數的稠密性-denseness-of-rational-numbers"><font color=#0000FF><u>註記
+2：有理數的稠密性 (Denseness of Rational Numbers)</u></font></h3>
 <p>任何兩個有理數之間都有有理數。寫作數學語言就是： <span
 class="math display">\[\forall p,q\in\mathbb{Q}, \exists
 r\in\mathbb{Q}\mbox{ such that }r\in (p,q)\]</span></p>
-<h3 id="有理數列的極限"><font color=#b8860b>有理數列的極限</font></h3>
-<h5 id="定義-5幾乎所有-almost-all"><font color=#008000><u>定義
-5：幾乎所有 (Almost All)</u></font></h5>
+<h2 id="有理數列的極限"><font color=#b8860b>有理數列的極限</font></h2>
+<h3 id="定義-3幾乎所有-almost-all"><font color=#008000><u>定義
+3：幾乎所有 (Almost All)</u></font></h3>
 <p>一命題對於幾乎所有<span
 class="math inline">\(n\)</span>都成立的意思是除了有限多個<span
 class="math inline">\(n\)</span>以外，此命題對所有<span
 class="math inline">\(n\)</span>都成立。</p>
-<h5
-id="定義-6數列的極限-limits-of-sequences"><font color=#008000><u>定義
-6：數列的極限 (Limits of Sequences)</u></font></h5>
+<h3
+id="定義-4數列的極限-limits-of-sequences"><font color=#008000><u>定義
+4：數列的極限 (Limits of Sequences)</u></font></h3>
 <p>給定有理數列<span
 class="math inline">\(a_1,a_2,\cdots\)</span>及另一有理數<span
 class="math inline">\(r\)</span>，如果每個包含<span
@@ -265,6 +265,15 @@ class="math inline">\(a_n\)</span>，則稱數列<span
 class="math inline">\(a_n\)</span>的極限是<span
 class="math inline">\(r\)</span>，記為 <span
 class="math display">\[\lim_{n\to\infty}a_n=r\]</span></p>
+<h3 id="定義-5巢狀區間-nested-intervals"><font color=#008000><u>定義
+5：巢狀區間 (Nested Intervals)</u></font></h3>
+<p>給定一系列有理閉區間<span
+class="math inline">\([a_1,b_1],[a_2,b_2],\cdots\)</span>。如果這些區間符合：
+<br>1. <span
+class="math inline">\([a_{n+1},b_{n+1}]\subseteq[a_n,b_n]\)</span> for
+all <span class="math inline">\(n\in\mathbb{N}\)</span> <br>2. <span
+class="math inline">\(\lim\limits_{n\to\infty}(b_n-a_n)=0\)</span>
+<br>那麼這樣的一系列區間就稱為巢狀區間。</p>
 
     </div>
 
@@ -347,12 +356,13 @@ class="math display">\[\lim_{n\to\infty}a_n=r\]</span></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E6%A7%8B%E5%AF%A6%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">建構實數</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E5%8D%80%E9%96%93"><span class="nav-number">1.0.1.</span> <span class="nav-text">有理數的區間</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E9%96%8B%E5%8D%80%E9%96%93-open-interval"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">定義
-1：開區間 (Open Interval)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E9%96%89%E5%8D%80%E9%96%93-closed-interval"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">定義
-2：閉區間 (Closed Interval)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text">註記 3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E7%A8%A0%E5%AF%86%E6%80%A7-denseness-of-rational-numbers"><span class="nav-number">1.0.1.0.4.</span> <span class="nav-text">註記
-4：有理數的稠密性 (Denseness of Rational Numbers)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90"><span class="nav-number">1.0.2.</span> <span class="nav-text">有理數列的極限</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%B9%BE%E4%B9%8E%E6%89%80%E6%9C%89-almost-all"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">定義
-5：幾乎所有 (Almost All)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limits-of-sequences"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">定義
-6：數列的極限 (Limits of Sequences)</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E6%A7%8B%E5%AF%A6%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">建構實數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E5%8D%80%E9%96%93"><span class="nav-number">1.1.</span> <span class="nav-text">有理數的區間</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E9%96%8B%E5%8D%80%E9%96%93-open-interval"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
+1-1：開區間 (Open Interval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2%E9%96%89%E5%8D%80%E9%96%93-closed-interval"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義
+1-2：閉區間 (Closed Interval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E7%A8%A0%E5%AF%86%E6%80%A7-denseness-of-rational-numbers"><span class="nav-number">1.1.4.</span> <span class="nav-text">註記
+2：有理數的稠密性 (Denseness of Rational Numbers)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90"><span class="nav-number">1.2.</span> <span class="nav-text">有理數列的極限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%B9%BE%E4%B9%8E%E6%89%80%E6%9C%89-almost-all"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
+3：幾乎所有 (Almost All)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limits-of-sequences"><span class="nav-number">1.2.2.</span> <span class="nav-text">定義
+4：數列的極限 (Limits of Sequences)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93-nested-intervals"><span class="nav-number">1.2.3.</span> <span class="nav-text">定義
+5：巢狀區間 (Nested Intervals)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
