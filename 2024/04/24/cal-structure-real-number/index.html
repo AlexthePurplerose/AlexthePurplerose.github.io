@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/intervals.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/limits.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/nested_intervals.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/Dedekind.jpg">
 <meta property="article:published_time" content="2024-04-24T12:43:13.000Z">
-<meta property="article:modified_time" content="2024-04-24T14:53:43.499Z">
+<meta property="article:modified_time" content="2024-04-24T15:40:53.223Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -197,7 +198,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-04-24 20:43:13 / 修改時間：22:53:43" itemprop="dateCreated datePublished" datetime="2024-04-24T20:43:13+08:00">2024-04-24</time>
+              <time title="創建時間：2024-04-24 20:43:13 / 修改時間：23:40:53" itemprop="dateCreated datePublished" datetime="2024-04-24T20:43:13+08:00">2024-04-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,8 +263,9 @@ r\in\mathbb{Q}\mbox{ such that }r\in (p,q)\]</span></p>
 class="math inline">\(n\)</span>都成立的意思是除了有限多個<span
 class="math inline">\(n\)</span>以外，此命題對所有<span
 class="math inline">\(n\)</span>都成立。</p>
-<h3 id="定義-4數列的極限-limit-of-sequences"><font color=#008000><u>定義
-4：數列的極限 (Limit of Sequences)</u></font></h3>
+<h3
+id="定義-4有理數列的極限-limit-of-sequences"><font color=#008000><u>定義
+4：有理數列的極限 (Limit of Sequences)</u></font></h3>
 <p>給定有理數列<span
 class="math inline">\(a_1,a_2,\cdots\)</span>及另一有理數<span
 class="math inline">\(r\)</span>，如果每個包含<span
@@ -304,6 +306,53 @@ class="math inline">\(r\)</span>也會落在接下來的所有區間之外(見�
 <center>
 圖3
 </center>
+<h2 id="戴德金分割"><font color=#b8860b>戴德金分割</font></h2>
+<h3 id="定義-6戴德金分割-dedekind-cut"><font color=#008000><u>定義
+6：戴德金分割 (Dedekind Cut)</u></font></h3>
+<p>給定一串有理巢狀區間，我們將所有有理數分成以下三個類別：
+<br>第一組(1st Class)：所有在「幾乎所有區間左側」的有理數<span
+class="math inline">\(r\)</span>
+(由上註記5-1知此即在某一區間左側的有理數<span
+class="math inline">\(r\)</span>)。 <br>第二組(2nd
+Class)：所有在「每一個區間中」的有理數<span
+class="math inline">\(r\)</span>。 <br>第三組(3rd
+Class)：所有在「幾乎所有區間右側」的有理數<span
+class="math inline">\(r\)</span>
+(由上註記5-1知此即在某一區間右側的有理數<span
+class="math inline">\(r\)</span>)。</p>
+<img src="Dedekind.jpg" width="25%" height="25%">
+<center>
+圖4 Richard Dedekind
+</center>
+<h3 id="註記-6-1"><font color=#0000FF><u>註記 6-1</u></font></h3>
+<p>第二組不是空的就是只有一個有理數。<br>
+<font color=#8b4513><u>證明</u></font>：如果第二組中有兩相異有理數<span
+class="math inline">\(r&lt;r&#39;\)</span>，則<span
+class="math inline">\(\lim\limits_{n\to\infty}(b_n-a_n)\geq|r-r&#39;|&gt;0\)</span>，這和巢狀區間的定義矛盾。<font size="1">QED</font></p>
+<h3 id="註記-6-2"><font color=#0000FF><u>註記 6-2</u></font></h3>
+<p>若第二組非空，則第一組中的所有數<span
+class="math inline">\(&lt;\)</span>第二組中的所有數<span
+class="math inline">\(&lt;\)</span>第三組中的所有數</p>
+<h3
+id="定義-7巢狀區間的標記identification-of-nested-intervals"><font color=#008000><u>定義
+7：巢狀區間的標記(Identification of Nested Intervals)</u></font></h3>
+<p>若巢狀區間<span
+class="math inline">\(\{[a_n,b_n]\}_{n=1}^\infty\)</span>的第二組非空，則由註記6-2知第二組僅能有一個有理數。令該有理數為<span
+class="math inline">\(r\)</span>，我們將這串巢狀區間標記為<span
+class="math inline">\(r\)</span>，記為 <span
+class="math display">\[r\sim\{[a_n,b_n]\}\]</span></p>
+<h3
+id="定義-7-1巢狀區間的等價equivalence-of-nested-intervals"><font color=#008000><u>定義
+7-1：巢狀區間的等價(Equivalence of Nested Intervals)</u></font></h3>
+<p>若兩串巢狀區間給出一樣的戴德金分割(即三個類組都相同)，我們說這兩串巢狀區間等價。</p>
+<h3 id="例-7-1-1"><font color=#ffa500><u>例 7-1-1</u></font></h3>
+<p>考慮兩串巢狀區間 <span
+class="math display">\[J_n=[r-\frac{1}{n},r+\frac{1}{n}]\]</span> <span
+class="math display">\[J&#39;_n=[r-\frac{2}{n},r+\frac{2}{n}]\]</span>
+很容易可以看出這兩串巢狀區間等價。</p>
+<h2 id="實數的大小關係"><font color=#b8860b>實數的大小關係</font></h2>
+<h3 id="定義-8實數real-numbers"><font color=#008000><u>定義 8：實數(Real
+Numbers)</u></font></h3>
 
     </div>
 
@@ -390,10 +439,14 @@ class="math inline">\(r\)</span>也會落在接下來的所有區間之外(見�
 1-1：開區間 (Open Interval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2%E9%96%89%E5%8D%80%E9%96%93-closed-interval"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義
 1-2：閉區間 (Closed Interval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E7%A8%A0%E5%AF%86%E6%80%A7-denseness-of-rational-numbers"><span class="nav-number">1.1.4.</span> <span class="nav-text">註記
 2：有理數的稠密性 (Denseness of Rational Numbers)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90"><span class="nav-number">1.2.</span> <span class="nav-text">有理數列的極限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%B9%BE%E4%B9%8E%E6%89%80%E6%9C%89-almost-all"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
-3：幾乎所有 (Almost All)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-sequences"><span class="nav-number">1.2.2.</span> <span class="nav-text">定義
-4：數列的極限 (Limit of Sequences)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E9%9B%B6%E5%BA%8F%E5%88%97-null-sequence"><span class="nav-number">1.2.3.</span> <span class="nav-text">定義
+3：幾乎所有 (Almost All)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-sequences"><span class="nav-number">1.2.2.</span> <span class="nav-text">定義
+4：有理數列的極限 (Limit of Sequences)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E9%9B%B6%E5%BA%8F%E5%88%97-null-sequence"><span class="nav-number">1.2.3.</span> <span class="nav-text">定義
 4-1：零序列 (Null Sequence)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93-nested-intervals"><span class="nav-number">1.2.4.</span> <span class="nav-text">定義
-5：巢狀區間 (Nested Intervals)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">1.2.5.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li></ol></li></ol></div>
+5：巢狀區間 (Nested Intervals)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">1.2.5.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2"><span class="nav-number">1.3.</span> <span class="nav-text">戴德金分割</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2-dedekind-cut"><span class="nav-number">1.3.1.</span> <span class="nav-text">定義
+6：戴德金分割 (Dedekind Cut)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">註記 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">註記 6-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93%E7%9A%84%E6%A8%99%E8%A8%98identification-of-nested-intervals"><span class="nav-number">1.3.4.</span> <span class="nav-text">定義
+7：巢狀區間的標記(Identification of Nested Intervals)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-1%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93%E7%9A%84%E7%AD%89%E5%83%B9equivalence-of-nested-intervals"><span class="nav-number">1.3.5.</span> <span class="nav-text">定義
+7-1：巢狀區間的等價(Equivalence of Nested Intervals)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-1-1"><span class="nav-number">1.3.6.</span> <span class="nav-text">例 7-1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%97%9C%E4%BF%82"><span class="nav-number">1.4.</span> <span class="nav-text">實數的大小關係</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E5%AF%A6%E6%95%B8real-numbers"><span class="nav-number">1.4.1.</span> <span class="nav-text">定義 8：實數(Real
+Numbers)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
