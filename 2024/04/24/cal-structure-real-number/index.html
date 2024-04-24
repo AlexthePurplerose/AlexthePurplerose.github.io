@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於實數的構造、大小關係、四則運算與完備性">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-04-24T12:43:13.000Z">
-<meta property="article:modified_time" content="2024-04-24T13:17:39.479Z">
+<meta property="article:modified_time" content="2024-04-24T13:34:21.551Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-04-24 20:43:13 / 修改時間：21:17:39" itemprop="dateCreated datePublished" datetime="2024-04-24T20:43:13+08:00">2024-04-24</time>
+              <time title="創建時間：2024-04-24 20:43:13 / 修改時間：21:34:21" itemprop="dateCreated datePublished" datetime="2024-04-24T20:43:13+08:00">2024-04-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,18 +222,32 @@
       
         這份筆記是關於實數的構造、大小關係、四則運算與完備性 <span id="more"></span>
 <center>
-<h2 id="建構實數">建構實數</h2>
+<h2 id="建構實數"><font color=#800080>建構實數</font></h2>
 </center>
 <p>這裡我們假設我們已經熟悉有理數的構造與性質了，我們希望從有理數開始建構實數。(若要看如何建構自然數與有理數，可以點[這裡])<br></p>
 <h4
-id="有理數的區間-interval-of-rational-numbers"><font color=#008000>有理數的區間
+id="有理數的區間-interval-of-rational-numbers"><font color=#b8860b>有理數的區間
 (Interval of Rational Numbers)</font></h4>
-<p>這裡會定義兩種區間<br></p>
+<p>首先，這裡會定義兩種區間<br></p>
 <h6 id="定義-1開區間-open-interval"><font color=#008000>定義 1：開區間
 (Open Interval)</font></h6>
 <p>對於有理數<span
 class="math inline">\(a&lt;b\)</span>，定義其中的開區間為<span
 class="math inline">\((a,b)=\{x|a&lt;x&lt;b\}\)</span>。</p>
+<h6 id="定義-2閉區間-closed-interval"><font color=#008000>定義 2：閉區間
+(Closed Interval)</font></h6>
+<p>對於有理數<span
+class="math inline">\(a&lt;b\)</span>，定義其中的開區間為<span
+class="math inline">\([a,b]=\{x|a\leq x\leq b\}\)</span>。</p>
+<h6 id="註記-3"><font color=#0000FF>註記 3</font></h6>
+<p>在以上的兩個定義中，因為還沒定義有理數以外的數如何比大小，所以集合中蒐集的<span
+class="math inline">\(x\)</span>都只有有理數。</p>
+<h6
+id="註記-4有理數的稠密性-denseness-of-rational-numbers"><font color=#0000FF>註記
+4：有理數的稠密性 (Denseness of Rational Numbers)</font></h6>
+<p>任何兩個有理數之間都有有理數。寫作數學語言就是：<br> <span
+class="math display">\[\forall p,q\in\mathbb{Q}, \exists
+r\in\mathbb{Q}\mbox{ such that }r\in (p,q)\]</span></p>
 
     </div>
 
@@ -318,7 +332,9 @@ class="math inline">\((a,b)=\{x|a&lt;x&lt;b\}\)</span>。</p>
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E6%A7%8B%E5%AF%A6%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">建構實數</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E5%8D%80%E9%96%93-interval-of-rational-numbers"><span class="nav-number">1.0.1.</span> <span class="nav-text">有理數的區間
 (Interval of Rational Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E9%96%8B%E5%8D%80%E9%96%93-open-interval"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">定義 1：開區間
-(Open Interval)</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+(Open Interval)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E9%96%89%E5%8D%80%E9%96%93-closed-interval"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">定義 2：閉區間
+(Closed Interval)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.0.1.0.3.</span> <span class="nav-text">註記 3</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E7%A8%A0%E5%AF%86%E6%80%A7-denseness-of-rational-numbers"><span class="nav-number">1.0.1.0.4.</span> <span class="nav-text">註記
+4：有理數的稠密性 (Denseness of Rational Numbers)</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
