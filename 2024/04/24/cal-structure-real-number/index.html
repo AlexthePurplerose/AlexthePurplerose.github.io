@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於實數的構造、大小關係、四則運算、完備性。並討論實數數列的收斂性以及實數集合的上下界性質。">
+  <meta name="description" content="這份筆記是關於實數的構造、大小關係、四則運算及完備性。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微積分：實數的構造">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於實數的構造、大小關係、四則運算、完備性。並討論實數數列的收斂性以及實數集合的上下界性質。">
+<meta property="og:description" content="這份筆記是關於實數的構造、大小關係、四則運算及完備性。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/intervals.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/limits.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/nested_intervals.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/Dedekind.jpg">
 <meta property="article:published_time" content="2024-04-24T12:43:13.000Z">
-<meta property="article:modified_time" content="2024-04-24T15:40:53.223Z">
+<meta property="article:modified_time" content="2024-04-24T16:44:03.465Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -196,10 +196,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-04-24 20:43:13 / 修改時間：23:40:53" itemprop="dateCreated datePublished" datetime="2024-04-24T20:43:13+08:00">2024-04-24</time>
+              <time title="創建時間：2024-04-24 20:43:13" itemprop="dateCreated datePublished" datetime="2024-04-24T20:43:13+08:00">2024-04-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-04-25 00:44:03" itemprop="dateModified" datetime="2024-04-25T00:44:03+08:00">2024-04-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -225,14 +231,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        這份筆記是關於實數的構造、大小關係、四則運算、完備性。並討論實數數列的收斂性以及實數集合的上下界性質。
-<span id="more"></span>
+        這份筆記是關於實數的構造、大小關係、四則運算及完備性。 <span id="more"></span><br>
+這裡我們假設我們已經熟悉有理數的構造與性質了，我們希望從有理數開始建構實數。(若要看如何建構自然數與有理數，可以點[這裡])<br>
 <center>
-<h1 id="建構實數"><font color=#800080>建構實數</font></h1>
+<h1 id="有理數的區間"><font color=#b8860b>有理數的區間</font></h1>
 </center>
-<p>這裡我們假設我們已經熟悉有理數的構造與性質了，我們希望從有理數開始建構實數。(若要看如何建構自然數與有理數，可以點[這裡])<br></p>
-<h2 id="有理數的區間"><font color=#b8860b>有理數的區間</font></h2>
 <p>首先，這裡會定義兩種區間<br></p>
+<h2
+id="定義1有理數的區間-intervals-of-rational-numbers"><font color=#008000><u>定義1：有理數的區間
+(Intervals of Rational Numbers)</u></font></h2>
 <h3 id="定義-1-1開區間-open-interval"><font color=#008000><u>定義
 1-1：開區間 (Open Interval)</u></font></h3>
 <p>對於有理數<span
@@ -250,22 +257,24 @@ class="math inline">\([a,b]=\{x|a\leq x\leq b\}\)</span>(見下圖1)。</p>
 <h3 id="註記-1-3"><font color=#0000FF><u>註記 1-3</u></font></h3>
 <p>在以上的兩個定義中，因為還沒定義有理數以外的數如何比大小，所以集合中蒐集的<span
 class="math inline">\(x\)</span>都只有有理數。</p>
-<h3
+<h2
 id="註記-2有理數的稠密性-denseness-of-rational-numbers"><font color=#0000FF><u>註記
-2：有理數的稠密性 (Denseness of Rational Numbers)</u></font></h3>
+2：有理數的稠密性 (Denseness of Rational Numbers)</u></font></h2>
 <p>任何兩個有理數之間都有有理數。寫作數學語言就是： <span
 class="math display">\[\forall p,q\in\mathbb{Q}, \exists
 r\in\mathbb{Q}\mbox{ such that }r\in (p,q)\]</span></p>
-<h2 id="有理數列的極限"><font color=#b8860b>有理數列的極限</font></h2>
-<h3 id="定義-3幾乎所有-almost-all"><font color=#008000><u>定義
-3：幾乎所有 (Almost All)</u></font></h3>
+<center>
+<h1 id="有理數列的極限"><font color=#b8860b>有理數列的極限</font></h1>
+</center>
+<h2 id="定義-3幾乎所有-almost-all"><font color=#008000><u>定義
+3：幾乎所有 (Almost All)</u></font></h2>
 <p>一命題對於幾乎所有<span
 class="math inline">\(n\)</span>都成立的意思是除了有限多個<span
 class="math inline">\(n\)</span>以外，此命題對所有<span
 class="math inline">\(n\)</span>都成立。</p>
-<h3
+<h2
 id="定義-4有理數列的極限-limit-of-sequences"><font color=#008000><u>定義
-4：有理數列的極限 (Limit of Sequences)</u></font></h3>
+4：有理數列的極限 (Limit of Sequences)</u></font></h2>
 <p>給定有理數列<span
 class="math inline">\(a_1,a_2,\cdots\)</span>及另一有理數<span
 class="math inline">\(r\)</span>，如果每個包含<span
@@ -284,8 +293,8 @@ class="math display">\[\lim_{n\to\infty}a_n=r\]</span></p>
 <p>若<span
 class="math inline">\(\lim\limits_{n\to\infty}a_n=0\)</span>。則稱<span
 class="math inline">\(\{a_n\}\)</span>為零序列。</p>
-<h3 id="定義-5巢狀區間-nested-intervals"><font color=#008000><u>定義
-5：巢狀區間 (Nested Intervals)</u></font></h3>
+<h2 id="定義-5巢狀區間-nested-intervals"><font color=#008000><u>定義
+5：巢狀區間 (Nested Intervals)</u></font></h2>
 <p>給定一系列有理閉區間<span
 class="math inline">\([a_1,b_1],[a_2,b_2],\cdots\)</span>。如果這些區間符合：
 <br>1. <span
@@ -306,9 +315,11 @@ class="math inline">\(r\)</span>也會落在接下來的所有區間之外(見�
 <center>
 圖3
 </center>
-<h2 id="戴德金分割"><font color=#b8860b>戴德金分割</font></h2>
-<h3 id="定義-6戴德金分割-dedekind-cut"><font color=#008000><u>定義
-6：戴德金分割 (Dedekind Cut)</u></font></h3>
+<center>
+<h1 id="戴德金分割"><font color=#b8860b>戴德金分割</font></h1>
+</center>
+<h2 id="定義-6戴德金分割-dedekind-cut"><font color=#008000><u>定義
+6：戴德金分割 (Dedekind Cut)</u></font></h2>
 <p>給定一串有理巢狀區間，我們將所有有理數分成以下三個類別：
 <br>第一組(1st Class)：所有在「幾乎所有區間左側」的有理數<span
 class="math inline">\(r\)</span>
@@ -333,26 +344,165 @@ class="math inline">\(\lim\limits_{n\to\infty}(b_n-a_n)\geq|r-r&#39;|&gt;0\)</sp
 <p>若第二組非空，則第一組中的所有數<span
 class="math inline">\(&lt;\)</span>第二組中的所有數<span
 class="math inline">\(&lt;\)</span>第三組中的所有數</p>
-<h3
+<h2
 id="定義-7巢狀區間的標記identification-of-nested-intervals"><font color=#008000><u>定義
-7：巢狀區間的標記(Identification of Nested Intervals)</u></font></h3>
+7：巢狀區間的標記(Identification of Nested Intervals)</u></font></h2>
 <p>若巢狀區間<span
 class="math inline">\(\{[a_n,b_n]\}_{n=1}^\infty\)</span>的第二組非空，則由註記6-2知第二組僅能有一個有理數。令該有理數為<span
 class="math inline">\(r\)</span>，我們將這串巢狀區間標記為<span
 class="math inline">\(r\)</span>，記為 <span
 class="math display">\[r\sim\{[a_n,b_n]\}\]</span></p>
-<h3
-id="定義-7-1巢狀區間的等價equivalence-of-nested-intervals"><font color=#008000><u>定義
-7-1：巢狀區間的等價(Equivalence of Nested Intervals)</u></font></h3>
+<h2
+id="定義-8巢狀區間的等價equivalence-of-nested-intervals"><font color=#008000><u>定義
+8：巢狀區間的等價(Equivalence of Nested Intervals)</u></font></h2>
 <p>若兩串巢狀區間給出一樣的戴德金分割(即三個類組都相同)，我們說這兩串巢狀區間等價。</p>
-<h3 id="例-7-1-1"><font color=#ffa500><u>例 7-1-1</u></font></h3>
+<h3 id="例-8-1"><font color=#ffa500><u>例 8-1</u></font></h3>
 <p>考慮兩串巢狀區間 <span
 class="math display">\[J_n=[r-\frac{1}{n},r+\frac{1}{n}]\]</span> <span
 class="math display">\[J&#39;_n=[r-\frac{2}{n},r+\frac{2}{n}]\]</span>
 很容易可以看出這兩串巢狀區間等價。</p>
-<h2 id="實數的大小關係"><font color=#b8860b>實數的大小關係</font></h2>
-<h3 id="定義-8實數real-numbers"><font color=#008000><u>定義 8：實數(Real
+<center>
+<h1 id="實數的大小關係"><font color=#b8860b>實數的大小關係</font></h1>
+</center>
+<h2 id="定義-9實數real-numbers"><font color=#008000><u>定義 9：實數(Real
+Numbers)</u></font></h2>
+<p>一串巢狀區間<span
+class="math inline">\([a_n,b_n]\)</span>可能不會夾出一個有理數(意即第二組為空)。我們定義它夾出一個數<span
+class="math inline">\(x\)</span>，即<span
+class="math inline">\(x\sim\{[a_n,b_n]\}\)</span>。所有被有理數巢狀區間夾出來的數，我們稱為實數。</p>
+<h2
+id="定義-10實數的大小關係ordering-of-real-numbers"><font color=#008000><u>定義
+10：實數的大小關係(Ordering of Real Numbers)</u></font></h2>
+<h3
+id="定義-10-1實數與有理數的大小關係ordering-between-real-and-rational-numbers"><font color=#008000><u>定義
+10-1：實數與有理數的大小關係(Ordering between Real and Rational
 Numbers)</u></font></h3>
+<p>給定巢狀區間<span
+class="math inline">\(\{[a_n,b_n]\}\)</span>與實數<span
+class="math inline">\(x\sim\{[a_n,b_n]\}\)</span>及有理數<span
+class="math inline">\(r\)</span>。則我們定義： <br>1. <span
+class="math inline">\(r&lt;x\)</span> <span
+class="math inline">\(\Leftrightarrow\)</span> <span
+class="math inline">\(r\)</span>在第一組 <span
+class="math inline">\(\Leftrightarrow\)</span> 對於<u>幾乎所有</u><span
+class="math inline">\(n\)</span>，有<span
+class="math inline">\(r&lt;a_n\)</span> <br>2. <span
+class="math inline">\(r=x\)</span> <span
+class="math inline">\(\Leftrightarrow\)</span> <span
+class="math inline">\(r\)</span>在第二組 <span
+class="math inline">\(\Leftrightarrow\)</span> 對於<u>所有</u><span
+class="math inline">\(n\)</span>，有<span class="math inline">\(a_n\leq
+r\leq b_n\)</span> <br>3. <span class="math inline">\(r&gt;x\)</span>
+<span class="math inline">\(\Leftrightarrow\)</span> <span
+class="math inline">\(r\)</span>在第三組 <span
+class="math inline">\(\Leftrightarrow\)</span> 對於<u>幾乎所有</u><span
+class="math inline">\(n\)</span>，有<span
+class="math inline">\(r&gt;b_n\)</span></p>
+<h3
+id="定義-10-2實數間的大小關係ordering-between-real-numbers"><font color=#008000><u>定義
+10-2：實數間的大小關係(Ordering between Real Numbers)</u></font></h3>
+<p>給定兩串有理巢狀區間及兩實數<span
+class="math inline">\(x\sim\{[a_n,b_n]\}\)</span>, <span
+class="math inline">\(y\sim\{[\alpha_n,\beta_n]\}\)</span>。則我們定義：
+<br>1. <span class="math inline">\(x&lt;y\)</span> <span
+class="math inline">\(\Leftrightarrow\)</span> 存在<span
+class="math inline">\(r\in\mathbb{Q}\)</span>使得<span
+class="math inline">\(x&lt;r&lt;y\)</span> <span
+class="math inline">\(\Leftrightarrow\)</span> 存在<span
+class="math inline">\(r\in\mathbb{Q}\)</span>使得<span
+class="math inline">\(r\)</span>在<span
+class="math inline">\(\{[a_n,b_n]\}\)</span>的第三組，且在<span
+class="math inline">\(\{[\alpha_n,\beta_n]\}\)</span>的第一組 <br>2.
+<span class="math inline">\(x=y\)</span> <span
+class="math inline">\(\Leftrightarrow\)</span> <span
+class="math inline">\(\{[a_n,b_n]\}\)</span>和<span
+class="math inline">\(\{[\alpha_n,\beta_n]\}\)</span>等價 <br>3. <span
+class="math inline">\(x&gt;y\)</span> <span
+class="math inline">\(\Leftrightarrow\)</span> <span
+class="math inline">\(y&lt;x\)</span></p>
+<h3 id="註記-10-3"><font color=#0000FF><u>註記 10-3</u></font></h3>
+<p>很容易可以看出實數的大小關係定義和原本有理數的大小關係是相容的。意即對於有理數<span
+class="math inline">\(r,s\)</span>，若本來在有理數大小關係的定義下有<span
+class="math inline">\(r&gt;s\)</span>，則在實數大小關係的定義下也有<span
+class="math inline">\(r&gt;s\)</span> (<span
+class="math inline">\(r=s\)</span>和<span
+class="math inline">\(r&lt;s\)</span>同理)。</p>
+<h2 id="定理-11"><font color=#ff1493><u>定理 11</u></font></h2>
+<p>給定兩實數<span class="math inline">\(x,y\)</span>。若<span
+class="math inline">\(x\neq y\)</span>，則<span
+class="math inline">\(x&gt;y\)</span>或<span
+class="math inline">\(x&lt;y\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\(y\in\mathbb{Q}\)</span>，則由定義<span
+class="math inline">\(y\)</span>落在<span
+class="math inline">\(x\sim\{[a_n,b_n]\}\)</span>的第一組或第三組中，前者有<span
+class="math inline">\(y&lt;x\)</span>，後者有<span
+class="math inline">\(y&gt;x\)</span>(定義9-1)(若<span
+class="math inline">\(y\)</span>落在第二組中的話就有<span
+class="math inline">\(x=y\)</span>了，與假設不符。)<br> 若<span
+class="math inline">\(y\notin\mathbb{Q}\)</span>，則<span
+class="math inline">\(x\)</span>的第二組和<span
+class="math inline">\(y\)</span>的第二組都是空的(定義8)，又由<span
+class="math inline">\(x\neq y\)</span>知<span
+class="math inline">\(x\sim\{[a_n,b_n]\}\)</span>和<span
+class="math inline">\(y\sim\{[\alpha_n,\beta_n]\}\)</span>給出不同的戴德金分割。故存在<span
+class="math inline">\(r\in\mathbb{Q}\)</span>使得<span
+class="math inline">\(r\in(x\)</span>的第一組<span
+class="math inline">\()\cap(y\)</span>的第三組<span
+class="math inline">\()\)</span>或<span
+class="math inline">\(r\in(x\)</span>的第三組<span
+class="math inline">\()\cap(y\)</span>的第一組<span
+class="math inline">\()\)</span>。前者給出<span
+class="math inline">\(x&gt;y\)</span>，後者給出<span
+class="math inline">\(x&lt;y\)</span>。<font size="1">QED</font></p>
+<h2
+id="定義-12實數的區間intervals-of-real-numbers"><font color=#008000><u>定義
+12：實數的區間(Intervals of Real Numbers)</u></font></h2>
+<p>給定實數<span
+class="math inline">\(x&lt;y\)</span>，我們現在可以定義開區間 <span
+class="math display">\[(x,y)=\{r|r\in\mathbb{R},x&lt;r&lt;y\}\]</span>
+及閉區間 <span class="math display">\[[x,y]=\{r|r\in\mathbb{R},x\leq
+r\leq y\}\]</span></p>
+<center>
+<h1 id="實數的四則運算"><font color=#b8860b>實數的四則運算</font></h1>
+</center>
+<h2
+id="定義13實數的四則運算arithmetic-of-real-numbers"><font color=#008000><u>定義13：實數的四則運算(Arithmetic
+of Real Numbers)</u></font></h2>
+<p>給定實數<span
+class="math inline">\(x\sim\{[a_n,b_n]\}\)</span>及<span
+class="math inline">\(y\sim\{[\alpha_n,\beta_n]\}\)</span>，我們可以定義以下的運算：</p>
+<h3
+id="定義13-1實數的加減法addition-and-subtraction-of-real-numbers"><font color=#008000><u>定義13-1：實數的加減法(Addition
+and Subtraction of Real Numbers)</u></font></h3>
+<p>定義 <span class="math display">\[x\pm
+y\sim\{[a_n\pm\alpha_n,b_n\pm\beta_n]\}\]</span></p>
+<h3
+id="定義13-2實數的乘法multiplication-of-real-numbers"><font color=#008000><u>定義13-2：實數的乘法(Multiplication
+of Real Numbers)</u></font></h3>
+<p>當<span class="math inline">\(y&gt;0\)</span>時，我們定義 <span
+class="math display">\[xy\sim\{[a_n\alpha_n,b_n\beta_n]\}\]</span>
+其他狀況只有區間端點前後順序不同，在此不贅述。</p>
+<h3
+id="定義13-3實數的除法division-of-real-numbers"><font color=#008000><u>定義13-3：實數的除法(Division
+of Real Numbers)</u></font></h3>
+<p>當<span class="math inline">\(x&gt;0\)</span>時，我們定義 <span
+class="math display">\[\frac{1}{x}\sim\{[\frac{1}{a_n},\frac{1}{b_n}]\}\]</span>
+<span
+class="math inline">\(x&lt;0\)</span>時只有區間端點前後順序不同，在此不贅述。<br>
+(<span class="math inline">\(x=0\)</span>時不定義<span
+class="math inline">\(1/x\)</span>)</p>
+<h3 id="註記-13-4"><font color=#0000FF><u>註記 13-4</u></font></h3>
+<p><span class="math display">\[x&lt;y\Leftrightarrow
+0&lt;y-x\]</span></p>
+<center>
+<h1 id="實數的完備性"><font color=#b8860b>實數的完備性</font></h1>
+</center>
+<h2
+id="定理-14實數的完備性-completeness-of-real-numbers"><font color=#ff1493><u>定理
+14：實數的完備性 (Completeness of Real Numbers)</u></font></h2>
+<p>任何實數的巢狀區間都會夾出一個實數。<br>
+<font color=#8b4513><u>證明</u></font>：</p>
 
     </div>
 
@@ -435,18 +585,29 @@ Numbers)</u></font></h3>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E6%A7%8B%E5%AF%A6%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">建構實數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E5%8D%80%E9%96%93"><span class="nav-number">1.1.</span> <span class="nav-text">有理數的區間</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E9%96%8B%E5%8D%80%E9%96%93-open-interval"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E5%8D%80%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">有理數的區間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E5%8D%80%E9%96%93-intervals-of-rational-numbers"><span class="nav-number">1.1.</span> <span class="nav-text">定義1：有理數的區間
+(Intervals of Rational Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E9%96%8B%E5%8D%80%E9%96%93-open-interval"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
 1-1：開區間 (Open Interval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2%E9%96%89%E5%8D%80%E9%96%93-closed-interval"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義
-1-2：閉區間 (Closed Interval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E7%A8%A0%E5%AF%86%E6%80%A7-denseness-of-rational-numbers"><span class="nav-number">1.1.4.</span> <span class="nav-text">註記
-2：有理數的稠密性 (Denseness of Rational Numbers)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90"><span class="nav-number">1.2.</span> <span class="nav-text">有理數列的極限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%B9%BE%E4%B9%8E%E6%89%80%E6%9C%89-almost-all"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
-3：幾乎所有 (Almost All)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-sequences"><span class="nav-number">1.2.2.</span> <span class="nav-text">定義
-4：有理數列的極限 (Limit of Sequences)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E9%9B%B6%E5%BA%8F%E5%88%97-null-sequence"><span class="nav-number">1.2.3.</span> <span class="nav-text">定義
-4-1：零序列 (Null Sequence)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93-nested-intervals"><span class="nav-number">1.2.4.</span> <span class="nav-text">定義
-5：巢狀區間 (Nested Intervals)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">1.2.5.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2"><span class="nav-number">1.3.</span> <span class="nav-text">戴德金分割</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2-dedekind-cut"><span class="nav-number">1.3.1.</span> <span class="nav-text">定義
-6：戴德金分割 (Dedekind Cut)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">註記 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">註記 6-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93%E7%9A%84%E6%A8%99%E8%A8%98identification-of-nested-intervals"><span class="nav-number">1.3.4.</span> <span class="nav-text">定義
-7：巢狀區間的標記(Identification of Nested Intervals)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-1%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93%E7%9A%84%E7%AD%89%E5%83%B9equivalence-of-nested-intervals"><span class="nav-number">1.3.5.</span> <span class="nav-text">定義
-7-1：巢狀區間的等價(Equivalence of Nested Intervals)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-1-1"><span class="nav-number">1.3.6.</span> <span class="nav-text">例 7-1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%97%9C%E4%BF%82"><span class="nav-number">1.4.</span> <span class="nav-text">實數的大小關係</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E5%AF%A6%E6%95%B8real-numbers"><span class="nav-number">1.4.1.</span> <span class="nav-text">定義 8：實數(Real
-Numbers)</span></a></li></ol></li></ol></li></ol></div>
+1-2：閉區間 (Closed Interval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E7%A8%A0%E5%AF%86%E6%80%A7-denseness-of-rational-numbers"><span class="nav-number">1.2.</span> <span class="nav-text">註記
+2：有理數的稠密性 (Denseness of Rational Numbers)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90"><span class="nav-number">2.</span> <span class="nav-text">有理數列的極限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%B9%BE%E4%B9%8E%E6%89%80%E6%9C%89-almost-all"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+3：幾乎所有 (Almost All)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-sequences"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+4：有理數列的極限 (Limit of Sequences)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E9%9B%B6%E5%BA%8F%E5%88%97-null-sequence"><span class="nav-number">2.2.1.</span> <span class="nav-text">定義
+4-1：零序列 (Null Sequence)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93-nested-intervals"><span class="nav-number">2.3.</span> <span class="nav-text">定義
+5：巢狀區間 (Nested Intervals)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2"><span class="nav-number">3.</span> <span class="nav-text">戴德金分割</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2-dedekind-cut"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+6：戴德金分割 (Dedekind Cut)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">註記 6-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93%E7%9A%84%E6%A8%99%E8%A8%98identification-of-nested-intervals"><span class="nav-number">3.2.</span> <span class="nav-text">定義
+7：巢狀區間的標記(Identification of Nested Intervals)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93%E7%9A%84%E7%AD%89%E5%83%B9equivalence-of-nested-intervals"><span class="nav-number">3.3.</span> <span class="nav-text">定義
+8：巢狀區間的等價(Equivalence of Nested Intervals)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-8-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">例 8-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%97%9C%E4%BF%82"><span class="nav-number">4.</span> <span class="nav-text">實數的大小關係</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E5%AF%A6%E6%95%B8real-numbers"><span class="nav-number">4.1.</span> <span class="nav-text">定義 9：實數(Real
+Numbers)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E5%AF%A6%E6%95%B8%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%97%9C%E4%BF%82ordering-of-real-numbers"><span class="nav-number">4.2.</span> <span class="nav-text">定義
+10：實數的大小關係(Ordering of Real Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10-1%E5%AF%A6%E6%95%B8%E8%88%87%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%97%9C%E4%BF%82ordering-between-real-and-rational-numbers"><span class="nav-number">4.2.1.</span> <span class="nav-text">定義
+10-1：實數與有理數的大小關係(Ordering between Real and Rational
+Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10-2%E5%AF%A6%E6%95%B8%E9%96%93%E7%9A%84%E5%A4%A7%E5%B0%8F%E9%97%9C%E4%BF%82ordering-between-real-numbers"><span class="nav-number">4.2.2.</span> <span class="nav-text">定義
+10-2：實數間的大小關係(Ordering between Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10-3"><span class="nav-number">4.2.3.</span> <span class="nav-text">註記 10-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">4.3.</span> <span class="nav-text">定理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-12%E5%AF%A6%E6%95%B8%E7%9A%84%E5%8D%80%E9%96%93intervals-of-real-numbers"><span class="nav-number">4.4.</span> <span class="nav-text">定義
+12：實數的區間(Intervals of Real Numbers)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E7%9A%84%E5%9B%9B%E5%89%87%E9%81%8B%E7%AE%97"><span class="nav-number">5.</span> <span class="nav-text">實數的四則運算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A913%E5%AF%A6%E6%95%B8%E7%9A%84%E5%9B%9B%E5%89%87%E9%81%8B%E7%AE%97arithmetic-of-real-numbers"><span class="nav-number">5.1.</span> <span class="nav-text">定義13：實數的四則運算(Arithmetic
+of Real Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A913-1%E5%AF%A6%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B8%9B%E6%B3%95addition-and-subtraction-of-real-numbers"><span class="nav-number">5.1.1.</span> <span class="nav-text">定義13-1：實數的加減法(Addition
+and Subtraction of Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A913-2%E5%AF%A6%E6%95%B8%E7%9A%84%E4%B9%98%E6%B3%95multiplication-of-real-numbers"><span class="nav-number">5.1.2.</span> <span class="nav-text">定義13-2：實數的乘法(Multiplication
+of Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A913-3%E5%AF%A6%E6%95%B8%E7%9A%84%E9%99%A4%E6%B3%95division-of-real-numbers"><span class="nav-number">5.1.3.</span> <span class="nav-text">定義13-3：實數的除法(Division
+of Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-4"><span class="nav-number">5.1.4.</span> <span class="nav-text">註記 13-4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E7%9A%84%E5%AE%8C%E5%82%99%E6%80%A7"><span class="nav-number">6.</span> <span class="nav-text">實數的完備性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14%E5%AF%A6%E6%95%B8%E7%9A%84%E5%AE%8C%E5%82%99%E6%80%A7-completeness-of-real-numbers"><span class="nav-number">6.1.</span> <span class="nav-text">定理
+14：實數的完備性 (Completeness of Real Numbers)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
