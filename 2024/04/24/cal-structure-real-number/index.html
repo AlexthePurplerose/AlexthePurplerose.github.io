@@ -31,8 +31,9 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/limits.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/nested_intervals.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/Dedekind.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/24/cal-structure-real-number/completeness.jpg">
 <meta property="article:published_time" content="2024-04-24T12:43:13.000Z">
-<meta property="article:modified_time" content="2024-04-24T16:44:03.465Z">
+<meta property="article:modified_time" content="2024-04-25T12:48:12.064Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -204,7 +205,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-04-25 00:44:03" itemprop="dateModified" datetime="2024-04-25T00:44:03+08:00">2024-04-25</time>
+                <time title="修改時間：2024-04-25 20:48:12" itemprop="dateModified" datetime="2024-04-25T20:48:12+08:00">2024-04-25</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,8 +274,8 @@ class="math inline">\(n\)</span>都成立的意思是除了有限多個<span
 class="math inline">\(n\)</span>以外，此命題對所有<span
 class="math inline">\(n\)</span>都成立。</p>
 <h2
-id="定義-4有理數列的極限-limit-of-sequences"><font color=#008000><u>定義
-4：有理數列的極限 (Limit of Sequences)</u></font></h2>
+id="定義-4有理數列的極限-limit-of-rational-numeber-sequences"><font color=#008000><u>定義
+4：有理數列的極限 (Limit of Rational Numeber Sequences)</u></font></h2>
 <p>給定有理數列<span
 class="math inline">\(a_1,a_2,\cdots\)</span>及另一有理數<span
 class="math inline">\(r\)</span>，如果每個包含<span
@@ -437,12 +438,12 @@ class="math inline">\(y\in\mathbb{Q}\)</span>，則由定義<span
 class="math inline">\(y\)</span>落在<span
 class="math inline">\(x\sim\{[a_n,b_n]\}\)</span>的第一組或第三組中，前者有<span
 class="math inline">\(y&lt;x\)</span>，後者有<span
-class="math inline">\(y&gt;x\)</span>(定義9-1)(若<span
+class="math inline">\(y&gt;x\)</span>(定義10-1)(若<span
 class="math inline">\(y\)</span>落在第二組中的話就有<span
 class="math inline">\(x=y\)</span>了，與假設不符。)<br> 若<span
 class="math inline">\(y\notin\mathbb{Q}\)</span>，則<span
 class="math inline">\(x\)</span>的第二組和<span
-class="math inline">\(y\)</span>的第二組都是空的(定義8)，又由<span
+class="math inline">\(y\)</span>的第二組都是空的(定義9)，又由<span
 class="math inline">\(x\neq y\)</span>知<span
 class="math inline">\(x\sim\{[a_n,b_n]\}\)</span>和<span
 class="math inline">\(y\sim\{[\alpha_n,\beta_n]\}\)</span>給出不同的戴德金分割。故存在<span
@@ -495,14 +496,92 @@ class="math inline">\(1/x\)</span>)</p>
 <h3 id="註記-13-4"><font color=#0000FF><u>註記 13-4</u></font></h3>
 <p><span class="math display">\[x&lt;y\Leftrightarrow
 0&lt;y-x\]</span></p>
+<h2
+id="定義14絕對值absolute-value"><font color=#008000><u>定義14：絕對值(Absolute
+Value)</u></font></h2>
+<p>給定一實數<span class="math inline">\(x\)</span>，定義<span
+class="math inline">\(|x|=\left\{
+\begin{aligned}
+x&amp;,\mbox{ if }x\geq 0\\
+-x&amp;,\mbox{ if }x&lt;0
+\end{aligned}
+\right.\)</span></p>
+<center>
+<h1 id="實數數列的極限"><font color=#b8860b>實數數列的極限</font></h1>
+</center>
+<h2
+id="定義15實數數列的極限limit-of-real-numeber-sequences"><font color=#008000><u>定義15：實數數列的極限(Limit
+of Real Numeber Sequences)</u></font></h2>
+<p>和有理數數列極限的定義類似，給定實數列<span
+class="math inline">\(a_1,a_2,\cdots\)</span>及另一實數<span
+class="math inline">\(r\)</span>，如果每個包含<span
+class="math inline">\(r\)</span>的實數區間<span
+class="math inline">\([a,b]\)</span>都包含幾乎所有<span
+class="math inline">\(a_n\)</span>，則稱數列<span
+class="math inline">\(a_n\)</span>的極限是<span
+class="math inline">\(r\)</span>(見上圖2)。記為 <span
+class="math display">\[\lim_{n\to\infty}a_n=r\]</span></p>
+<h3
+id="定義15-1實數數列的極限的等價定義"><font color=#008000><u>定義15-1：實數數列的極限的等價定義</u></font></h3>
+<span
+class="math inline">\(\lim\limits_{n\to\infty}x_n=x\)</span>可以等價定義為：<br>
+<center>
+<font color=#ff0000><span
+class="math inline">\(\forall\epsilon&gt;0\)</span>，都有<span
+class="math inline">\(|x-x_n|&lt;\epsilon\)</span></font>，<font color=#00c3ff>對於幾乎所有<span
+class="math inline">\(n\)</span></font>。<br>
+(<font color=#ff0000>每個包含<span
+class="math inline">\(x\)</span>的區間</font>，<font color=#00c3ff>都包含幾乎所有<span
+class="math inline">\(x_n\)</span></font>。)
+</center>
 <center>
 <h1 id="實數的完備性"><font color=#b8860b>實數的完備性</font></h1>
 </center>
 <h2
-id="定理-14實數的完備性-completeness-of-real-numbers"><font color=#ff1493><u>定理
-14：實數的完備性 (Completeness of Real Numbers)</u></font></h2>
-<p>任何實數的巢狀區間都會夾出一個實數。<br>
-<font color=#8b4513><u>證明</u></font>：</p>
+id="定理16實數的完備性-completeness-of-real-numbers"><font color=#ff1493><u>定理16：實數的完備性
+(Completeness of Real Numbers)</u></font></h2>
+<p>任何實數的巢狀區間都會夾出一個實數(實數是指有理數巢狀區間夾出來的數，見定義9)。<br>
+<font color=#8b4513><u>證明</u></font>：給定一個數<span
+class="math inline">\(x\sim\{[x_n,y_n]\}\)</span>，其中<span
+class="math inline">\(x_n,y_n\in\mathbb{R}\)</span>，<span
+class="math inline">\(x_n\leq
+y_n\)</span>。我們想構造一串有理數巢狀區間<span
+class="math inline">\(\{[a_n,b_n]\}\)</span>使得對於所有自然數<span
+class="math inline">\(n\)</span>有<span
+class="math inline">\([x_n,y_n]\subseteq[a_n,b_n]\)</span>(見下圖5)。</p>
+<img src="completeness.jpg" width="50%" height="50%">
+<center>
+圖5
+</center>
+<p>我們令<span class="math inline">\(a_n\)</span>是小於等於<span
+class="math inline">\(x_n\)</span>且形如<span
+class="math inline">\(\frac{p}{2^n}\)</span>的最大有理數，<span
+class="math inline">\(b_n\)</span>是大於等於<span
+class="math inline">\(y_n\)</span>且形如<span
+class="math inline">\(\frac{q}{2^n}\)</span>的最大有理數。因為形如<span
+class="math inline">\(\frac{k}{2^l}\)</span>形式的有理數是稠密的，故當<span
+class="math inline">\(y_n-x_n\to 0\)</span>時，會有<span
+class="math inline">\(b_n-a_n\to 0\)</span>，所以<span
+class="math inline">\(\{[a_n,b_n]\}\)</span>是一個巢狀區間，於是它會夾出一個實數<span
+class="math inline">\(x&#39;\)</span>(見定義9)。如果<span
+class="math inline">\(x&#39;\)</span>落在某個<span
+class="math inline">\([x_m,y_m]\)</span>外，則不失一般性可以令<span
+class="math inline">\(x&#39;&lt;x_m\)</span>，則存在<span
+class="math inline">\(r\in\mathbb{Q}\)</span>使得<span
+class="math inline">\(x&lt;r&lt;x_m\)</span>。然而也會有<span
+class="math inline">\(b_n\)</span>使得<span
+class="math inline">\(x&lt;b_n&lt;r\)</span>，所以給定<span
+class="math inline">\(n&gt;m\)</span>，有 <span
+class="math display">\[y_n\leq b_n&lt;r&lt;x_m\leq x_n\]</span>
+這和<span class="math inline">\(x_n\leq y_n\)</span>的假設矛盾，故<span
+class="math inline">\(x&#39;\)</span>落在所有的<span
+class="math inline">\(\{[x_n,y_n]\}\)</span>中，即<span
+class="math inline">\(x&#39;\)</span>落在<span
+class="math inline">\(\{[x_n,y_n]\}\)</span>第二組中(定義6)。但同時<span
+class="math inline">\(x\)</span>也在<span
+class="math inline">\(\{[x_n,y_n]\}\)</span>第二組中，但註記6-1說第二組至多只能有一個數，故有<span
+class="math inline">\(x=x&#39;\in\mathbb{R}\Rightarrow\)</span>
+實數的巢狀區間一定會夾出一個實數。<font size="1">QED</font></p>
 
     </div>
 
@@ -590,8 +669,8 @@ id="定理-14實數的完備性-completeness-of-real-numbers"><font color=#ff149
 1-1：開區間 (Open Interval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2%E9%96%89%E5%8D%80%E9%96%93-closed-interval"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義
 1-2：閉區間 (Closed Interval)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E7%A8%A0%E5%AF%86%E6%80%A7-denseness-of-rational-numbers"><span class="nav-number">1.2.</span> <span class="nav-text">註記
 2：有理數的稠密性 (Denseness of Rational Numbers)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90"><span class="nav-number">2.</span> <span class="nav-text">有理數列的極限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%B9%BE%E4%B9%8E%E6%89%80%E6%9C%89-almost-all"><span class="nav-number">2.1.</span> <span class="nav-text">定義
-3：幾乎所有 (Almost All)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-sequences"><span class="nav-number">2.2.</span> <span class="nav-text">定義
-4：有理數列的極限 (Limit of Sequences)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E9%9B%B6%E5%BA%8F%E5%88%97-null-sequence"><span class="nav-number">2.2.1.</span> <span class="nav-text">定義
+3：幾乎所有 (Almost All)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%9C%89%E7%90%86%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-rational-numeber-sequences"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+4：有理數列的極限 (Limit of Rational Numeber Sequences)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E9%9B%B6%E5%BA%8F%E5%88%97-null-sequence"><span class="nav-number">2.2.1.</span> <span class="nav-text">定義
 4-1：零序列 (Null Sequence)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93-nested-intervals"><span class="nav-number">2.3.</span> <span class="nav-text">定義
 5：巢狀區間 (Nested Intervals)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2"><span class="nav-number">3.</span> <span class="nav-text">戴德金分割</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2-dedekind-cut"><span class="nav-number">3.1.</span> <span class="nav-text">定義
 6：戴德金分割 (Dedekind Cut)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">註記 6-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%B7%A2%E7%8B%80%E5%8D%80%E9%96%93%E7%9A%84%E6%A8%99%E8%A8%98identification-of-nested-intervals"><span class="nav-number">3.2.</span> <span class="nav-text">定義
@@ -606,8 +685,10 @@ Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" hre
 of Real Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A913-1%E5%AF%A6%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B8%9B%E6%B3%95addition-and-subtraction-of-real-numbers"><span class="nav-number">5.1.1.</span> <span class="nav-text">定義13-1：實數的加減法(Addition
 and Subtraction of Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A913-2%E5%AF%A6%E6%95%B8%E7%9A%84%E4%B9%98%E6%B3%95multiplication-of-real-numbers"><span class="nav-number">5.1.2.</span> <span class="nav-text">定義13-2：實數的乘法(Multiplication
 of Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A913-3%E5%AF%A6%E6%95%B8%E7%9A%84%E9%99%A4%E6%B3%95division-of-real-numbers"><span class="nav-number">5.1.3.</span> <span class="nav-text">定義13-3：實數的除法(Division
-of Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-4"><span class="nav-number">5.1.4.</span> <span class="nav-text">註記 13-4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E7%9A%84%E5%AE%8C%E5%82%99%E6%80%A7"><span class="nav-number">6.</span> <span class="nav-text">實數的完備性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14%E5%AF%A6%E6%95%B8%E7%9A%84%E5%AE%8C%E5%82%99%E6%80%A7-completeness-of-real-numbers"><span class="nav-number">6.1.</span> <span class="nav-text">定理
-14：實數的完備性 (Completeness of Real Numbers)</span></a></li></ol></li></ol></div>
+of Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-4"><span class="nav-number">5.1.4.</span> <span class="nav-text">註記 13-4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A914%E7%B5%95%E5%B0%8D%E5%80%BCabsolute-value"><span class="nav-number">5.2.</span> <span class="nav-text">定義14：絕對值(Absolute
+Value)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90"><span class="nav-number">6.</span> <span class="nav-text">實數數列的極限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A915%E5%AF%A6%E6%95%B8%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90limit-of-real-numeber-sequences"><span class="nav-number">6.1.</span> <span class="nav-text">定義15：實數數列的極限(Limit
+of Real Numeber Sequences)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A915-1%E5%AF%A6%E6%95%B8%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">6.1.1.</span> <span class="nav-text">定義15-1：實數數列的極限的等價定義</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E7%9A%84%E5%AE%8C%E5%82%99%E6%80%A7"><span class="nav-number">7.</span> <span class="nav-text">實數的完備性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%8616%E5%AF%A6%E6%95%B8%E7%9A%84%E5%AE%8C%E5%82%99%E6%80%A7-completeness-of-real-numbers"><span class="nav-number">7.1.</span> <span class="nav-text">定理16：實數的完備性
+(Completeness of Real Numbers)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
