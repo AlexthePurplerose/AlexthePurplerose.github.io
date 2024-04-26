@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/26/cal-real-function/conti-def.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/26/cal-real-function/non-conti.jpg">
 <meta property="article:published_time" content="2024-04-26T12:26:25.000Z">
-<meta property="article:modified_time" content="2024-04-26T13:37:55.166Z">
+<meta property="article:modified_time" content="2024-04-26T13:57:52.613Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -196,7 +196,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-04-26 20:26:25 / 修改時間：21:37:55" itemprop="dateCreated datePublished" datetime="2024-04-26T20:26:25+08:00">2024-04-26</time>
+              <time title="創建時間：2024-04-26 20:26:25 / 修改時間：21:57:52" itemprop="dateCreated datePublished" datetime="2024-04-26T20:26:25+08:00">2024-04-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -306,7 +306,7 @@ class="math inline">\(\mathbb{R}\)</span>上並不一致連續。</p>
 <p>若函數<span class="math inline">\(f\)</span>在區間<span
 class="math inline">\(I=[a,b]\)</span>上連續，則<span
 class="math inline">\(f\)</span>在<span
-class="math inline">\(I\)</span>上一致連續。</p>
+class="math inline">\(I\)</span>上一致連續。<br></p>
 <p><font color=#8b4513><u>證明</u></font>：使用反證法。假設<span
 class="math inline">\(\exists\epsilon&gt;0\)</span> s.t. <span
 class="math inline">\(\forall\delta&gt;0\)</span>都能找到<span
@@ -346,6 +346,48 @@ class="math display">\[
 class="math inline">\(|f(x_{n_{k&#39;}})-f(y_{n_{k&#39;}})|&lt;\epsilon\)</span>。這和(☆)矛盾。故<span
 class="math inline">\(f\)</span>在<span
 class="math inline">\(I\)</span>中一致連續。<font size="1">QED</font></p>
+<center>
+<h1 id="中間值定理"><font color=#b8860b>中間值定理</font></h1>
+</center>
+<h2
+id="定理-5中間值定理-intermediate-balue-thoerem"><font color=#ff1493><u>定理
+5：中間值定理 (Intermediate Balue Thoerem)</u></font></h2>
+<p>若函數<span class="math inline">\(f\)</span>在區間<span
+class="math inline">\(I=[a,b]\)</span>上連續，則令<span
+class="math inline">\(a,b\in I\)</span>, <span
+class="math inline">\(\eta\)</span>為任意界在<span
+class="math inline">\(f(a)\)</span>和<span
+class="math inline">\(f(b)\)</span>之間的數，則存在一數<span
+class="math inline">\(\xi\in[a,b]\)</span>使得<span
+class="math inline">\(f(\xi)=\eta\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\alpha=f(a),\beta=f(b)\)</span>，給定<span
+class="math inline">\(r\)</span>使<span
+class="math inline">\(\alpha&lt;r&lt;\beta\)</span>。令<span
+class="math inline">\(S=\{x|x\in
+I,f(x)&lt;r\}\)</span>，則我們知道以下幾件事： <br>1. <span
+class="math inline">\(S\)</span>有界。這很明顯，因為<span
+class="math inline">\(S\subseteq I\)</span>。由<a
+href="https://alexthepurplerose.github.io/2024/04/26/cal-bound/">這裡</a>的定理4知道<span
+class="math inline">\(S\)</span>有最小上界，令其為<span
+class="math inline">\(\xi\)</span>。 <br>2. 如果<span
+class="math inline">\(\xi\in S\)</span>，則<span
+class="math inline">\(f(\xi)&lt;r\)</span>。令<span
+class="math inline">\(\epsilon=\frac{r-f(\xi)}{2}&gt;0\)</span>。由於<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\xi\)</span>連續，故存在<span
+class="math inline">\(\delta&gt;0\)</span> s.t. <span
+class="math inline">\(|x-\xi|&lt;\delta\)</span>時有<span
+class="math inline">\(|f(x)-f(\xi)|&lt;\epsilon\)</span>，故有 <span
+class="math display">\[
+\begin{aligned}
+f(x)&amp;&lt;f(\xi)+\epsilon\;(f(x)\in(f(\xi)-\epsilon,f(\xi)+\epsilon))\\
+&amp;=f(\xi)+\frac{r-f(\xi)}{2}=\frac{r+f(\xi)}{2}&lt;r
+\end{aligned}
+\]</span> 故對於<span
+class="math inline">\(x\in(\xi,\xi+\delta)\)</span>(<span
+class="math inline">\(x&gt;\xi\)</span>)都有<span
+class="math inline">\(f(x)&lt;r\)</span>。</p>
 
     </div>
 
@@ -432,7 +474,8 @@ class="math inline">\(I\)</span>中一致連續。<font size="1">QED</font></p>
 (Domain and Range)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A92%E9%80%A3%E7%BA%8C-continuous"><span class="nav-number">1.2.</span> <span class="nav-text">定義2：連續
 (Continuous)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">例2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">註記 2-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A92-3%E5%9C%A8%E6%9F%90%E5%8D%80%E9%96%93%E9%80%A3%E7%BA%8C-continuous-on-intervals"><span class="nav-number">1.2.3.</span> <span class="nav-text">定義2-3：在某區間連續
 (COntinuous on Intervals)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A92-4%E9%80%A3%E7%BA%8C%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.2.4.</span> <span class="nav-text">定義2-4：連續的等價定義</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A93%E4%B8%80%E8%87%B4%E9%80%A3%E7%BA%8C-uniformly-continuous"><span class="nav-number">1.3.</span> <span class="nav-text">定義3：一致連續
-(Uniformly Continuous)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">例3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B3-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">例3-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
+(Uniformly Continuous)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">例3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B3-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">例3-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%AD%E9%96%93%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">中間值定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E4%B8%AD%E9%96%93%E5%80%BC%E5%AE%9A%E7%90%86-intermediate-balue-thoerem"><span class="nav-number">2.1.</span> <span class="nav-text">定理
+5：中間值定理 (Intermediate Balue Thoerem)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
