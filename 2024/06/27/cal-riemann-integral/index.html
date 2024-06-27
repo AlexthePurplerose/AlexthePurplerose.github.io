@@ -32,8 +32,9 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/refine.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/rie-ref.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/rie-int.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/mean.jpg">
 <meta property="article:published_time" content="2024-06-27T07:01:10.000Z">
-<meta property="article:modified_time" content="2024-06-27T13:38:26.297Z">
+<meta property="article:modified_time" content="2024-06-27T14:09:30.120Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -199,7 +200,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-06-27 15:01:10 / 修改時間：21:38:26" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
+              <time title="創建時間：2024-06-27 15:01:10 / 修改時間：22:09:30" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -444,6 +445,40 @@ class="math inline">\(\int_a^b f(x)dx\geq\int_a^b g(x)dx\)</span>
 class="math inline">\(\int_a^b f=-\int_b^a
 f\)</span>，則定理2-1可以擴展到所有<span
 class="math inline">\(c\)</span>上。</p>
+<h2
+id="定理-3積分均值定理-mean-value-theorem-of-integral"><font color=#ff1493><u>定理
+3：積分均值定理 (Mean Value Theorem of Integral)</u></font></h2>
+<p>在<span class="math inline">\([a,b]\)</span>上，存在<span
+class="math inline">\(\xi\in[a,b]\)</span> s.t. <span
+class="math inline">\(\frac{1}{b-a}\int_a^b
+f(x)dx=f(\xi)\)</span>(見下圖6)。</p>
+<img src="mean.jpg" width="50%" height="50%">
+<center>
+圖6
+</center>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(m\)</span>為<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上的極小值，<span
+class="math inline">\(M\)</span>為<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上的極大值。故對於所有<span
+class="math inline">\(x\in[a,b]\)</span>，有<span
+class="math inline">\(m\leq f(x)\leq M\)</span>。而由定義知 <span
+class="math display">\[
+\begin{aligned}
+&amp;m(b-a)\leq\int_a^b f(x)dx\leq M(b-a)\\
+\Rightarrow&amp;m\leq\frac{1}{b-a}\int_a^b f(x)dx\leq M
+\end{aligned}
+\]</span> 由中間值定理(<a
+href="https://alexthepurplerose.github.io/2024/04/26/cal-real-function/">這裡</a>的定理5)知有<span
+class="math inline">\(\xi\in[a,b]\)</span> s.t. <span
+class="math inline">\(f(\xi)=\frac{1}{b-a}\int_a^b
+f(x)dx\)</span>。<font size="1">QED</font></p>
+<h2
+id="定理-4廣義積分均值定理-generalized-mean-value-theorem-of-integral"><font color=#ff1493><u>定理
+4：廣義積分均值定理 (Generalized Mean Value Theorem of
+Integral)</u></font></h2>
 
     </div>
 
@@ -530,7 +565,10 @@ class="math inline">\(c\)</span>上。</p>
 (Riemann Integral)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-1%E9%BB%8E%E6%9B%BC%E5%92%8C-riemann-sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義1-1：黎曼和
 (Riemann Sum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-2%E9%BB%8E%E6%9B%BC%E7%A9%8D%E5%88%86-riemann-integral"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義1-2：黎曼積分
 (Riemann Integral)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">定理 1-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-3-1%E7%B2%BE%E5%8C%96-refinement"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">定義1-3-1：精化
-(Refinement)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B1-4"><span class="nav-number">1.1.4.</span> <span class="nav-text">例1-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B1-5"><span class="nav-number">1.1.5.</span> <span class="nav-text">例1-5</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B3%AA"><span class="nav-number">2.</span> <span class="nav-text">積分的基本性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">2.1.</span> <span class="nav-text">定理 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%982-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記2-1</span></a></li></ol></li></ol></li></ol></div>
+(Refinement)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B1-4"><span class="nav-number">1.1.4.</span> <span class="nav-text">例1-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B1-5"><span class="nav-number">1.1.5.</span> <span class="nav-text">例1-5</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B3%AA"><span class="nav-number">2.</span> <span class="nav-text">積分的基本性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">2.1.</span> <span class="nav-text">定理 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%982-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3%E7%A9%8D%E5%88%86%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86-mean-value-theorem-of-integral"><span class="nav-number">2.2.</span> <span class="nav-text">定理
+3：積分均值定理 (Mean Value Theorem of Integral)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4%E5%BB%A3%E7%BE%A9%E7%A9%8D%E5%88%86%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86-generalized-mean-value-theorem-of-integral"><span class="nav-number">2.3.</span> <span class="nav-text">定理
+4：廣義積分均值定理 (Generalized Mean Value Theorem of
+Integral)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
