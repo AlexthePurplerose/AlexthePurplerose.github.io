@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/rie-ref.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/rie-int.jpg">
 <meta property="article:published_time" content="2024-06-27T07:01:10.000Z">
-<meta property="article:modified_time" content="2024-06-27T08:44:07.906Z">
+<meta property="article:modified_time" content="2024-06-27T11:33:28.251Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -199,7 +199,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-06-27 15:01:10 / 修改時間：16:44:07" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
+              <time title="創建時間：2024-06-27 15:01:10 / 修改時間：19:33:28" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,7 +250,7 @@ F_n&amp;=f(\xi_1)\Delta x_1+f(\xi_2)\Delta x_2+\cdots+f(\xi_n)\Delta
 x_n\\
 &amp;=\sum_{i=1}^n f(\xi_i)\Delta x_i
 \end{aligned}
-\]</span> 我們將上述的和稱為黎曼和，見下圖1。</p>
+\]</span> 我們將上述的和稱為黎曼和(見下圖1)。</p>
 <img src="rie-sum.jpg" width="50%" height="50%">
 <center>
 圖1
@@ -284,7 +284,7 @@ class="math inline">\(S_n\)</span>和<span
 class="math inline">\(S_N\)</span>是兩個點集。)若<span
 class="math inline">\(S_m\subseteq S_N\)</span>，則稱<span
 class="math inline">\(S_N\)</span>是<span
-class="math inline">\(S_n\)</span>的精化。見下圖3。</p>
+class="math inline">\(S_n\)</span>的精化(見下圖3)。</p>
 <img src="refine.jpg" width="50%" height="50%">
 <center>
 圖3
@@ -359,7 +359,40 @@ class="math inline">\(S_m\)</span>的精化。故 <span
 class="math display">\[|F_n-F_m|\leq|F_n-F_{n+m}|+|F_{n+m}-F_n|\leq
 2\epsilon(b-a)\]</span> 而<span
 class="math inline">\(2\epsilon(b-a)\)</span>可以任意小，故<span
-class="math inline">\(\{F_n\}\)</span>是柯西序列，故其收斂，即黎曼積分(極限值)存在。</p>
+class="math inline">\(\{F_n\}\)</span>是柯西序列，故其收斂，即黎曼積分(極限值)存在。令此極限值為<span
+class="math inline">\(F\)</span>。</p>
+<p><br>2. 我們希望說明極限值與<span
+class="math inline">\(x_i\)</span>及<span
+class="math inline">\(\xi_i\)</span>的選取無關。給定另一個<span
+class="math inline">\(S_{n&#39;}\)</span>，<span
+class="math inline">\(\Delta
+S_{n&#39;}&lt;\delta\)</span>，其會對應到一個<span
+class="math inline">\(F_{n&#39;}\)</span>，且由上一步知會收斂到極限<span
+class="math inline">\(F_{n&#39;}\to F&#39;\)</span>。我們希望說明<span
+class="math inline">\(F=F&#39;\)</span>，即<span
+class="math inline">\(\forall \epsilon&gt;0\)</span>有<span
+class="math inline">\(|F-F&#39;|&lt;\epsilon\)</span>。(此即同時證明極限值和<span
+class="math inline">\(x_i\)</span>及<span
+class="math inline">\(\xi_i\)</span>的選取都無關。)<br>
+我們在上一部中證過當<span
+class="math inline">\(n,n&#39;\)</span>夠大時總有<span
+class="math inline">\(|F_n-F_{n&#39;}|&lt;2\epsilon(b-a)\)</span>。故當<span
+class="math inline">\(F_n\to F\)</span>, <span
+class="math inline">\(F_{n&#39;}\to F&#39;\)</span>時，也會有<span
+class="math inline">\(|F-F&#39;|&lt;2\epsilon(b-a)\)</span>。在此讓<span
+class="math inline">\(2\epsilon(b-a)\)</span>任意小，故有<span
+class="math inline">\(F=F&#39;\)</span>。<font size="1">QED</font></p>
+<h3 id="例1-4"><font color=#ffa500><u>例1-4</u></font></h3>
+<p>考慮常數函數<span
+class="math inline">\(f(x)=c\)</span>，我們想求其在<span
+class="math inline">\([a,b]\)</span>上的積分。即 <span
+class="math display">\[\sum_{i=1}^n f(\xi_i)\Delta
+x_i=c\sum_{i=1}^n\Delta x_i=c(b-a)\]</span></p>
+<h3 id="例1-5"><font color=#ffa500><u>例1-5</u></font></h3>
+<p>考慮函數<span class="math inline">\(f(x)=x^\alpha\)</span>，其中<span
+class="math inline">\(\alpha\)</span>為整數且<span
+class="math inline">\(\alpha\neq-1\)</span>。令<span
+class="math inline">\(q=\sqrt[n]{\frac{b}{a}}\)</span>。</p>
 
     </div>
 
@@ -446,7 +479,7 @@ class="math inline">\(\{F_n\}\)</span>是柯西序列，故其收斂，即黎曼
 (Riemann Integral)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-1%E9%BB%8E%E6%9B%BC%E5%92%8C-riemann-sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義1-1：黎曼和
 (Riemann Sum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-2%E9%BB%8E%E6%9B%BC%E7%A9%8D%E5%88%86-riemann-integral"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義1-2：黎曼積分
 (Riemann Integral)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">定理 1-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-3-1%E7%B2%BE%E5%8C%96-refinement"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">定義1-3-1：精化
-(Refinement)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+(Refinement)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B1-4"><span class="nav-number">1.1.4.</span> <span class="nav-text">例1-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B1-5"><span class="nav-number">1.1.5.</span> <span class="nav-text">例1-5</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
