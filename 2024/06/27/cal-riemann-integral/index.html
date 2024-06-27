@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/rie-ref.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/rie-int.jpg">
 <meta property="article:published_time" content="2024-06-27T07:01:10.000Z">
-<meta property="article:modified_time" content="2024-06-27T08:33:43.789Z">
+<meta property="article:modified_time" content="2024-06-27T08:44:07.906Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -199,7 +199,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-06-27 15:01:10 / 修改時間：16:33:43" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
+              <time title="創建時間：2024-06-27 15:01:10 / 修改時間：16:44:07" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -302,7 +302,7 @@ href="https://alexthepurplerose.github.io/2024/04/26/cal-real-function/">這裡<
 class="math inline">\(\forall\epsilon&gt;0\)</span>, <span
 class="math inline">\(\exists\delta&gt;0\)</span> s.t. 當<span
 class="math inline">\(|x-y|&lt;\delta\)</span>時，總是有<span
-class="math inline">\(|f(x)-f(y)|&lt;\epsilon\)</span>。考慮點<span
+class="math inline">\(|f(x)-f(y)|&lt;\epsilon\)</span>(☆)。考慮點<span
 class="math inline">\(\xi_i\in[x_{i-1},x_i]\)</span>, <span
 class="math inline">\(\eta_j\in[y_{j-1},y_j]\)</span>，有 <span
 class="math display">\[F_n=\sum_{i=1}^n f(\xi_i)\Delta x_i\]</span>
@@ -338,6 +338,28 @@ y_j\subseteq\Delta x_i}^n (f(\xi_i)-f(\eta_j))\Delta y_j\right|\]</span>
 <center>
 圖5
 </center>
+<p>又令<span class="math inline">\(\max\limits_{1\leq i\leq n}(\Delta
+x_i)&lt;\delta\)</span> ((☆)處的<span
+class="math inline">\(\delta\)</span>)，則由一致連續的假設有<span
+class="math inline">\(f(\xi_i)-f(\eta_j)&lt;\epsilon\)</span>，且有<span
+class="math inline">\(\Delta y_j&lt;b-a\)</span>，故對於所有<span
+class="math inline">\(S_n\)</span>的精化<span
+class="math inline">\(S_N\)</span>，會有<span
+class="math inline">\(|F_n-F_N|&lt;\epsilon(b-a)\)</span>。<br>
+而由黎曼積分的定義知<span class="math inline">\(\Delta S_n\to
+0\)</span>(在此記<span class="math inline">\(\Delta
+S_n=\max\limits_{1\leq i\leq n}(\Delta x_i)\)</span>)，故必存在<span
+class="math inline">\(N\)</span>使得當<span
+class="math inline">\(n,m&gt;N\)</span>時，<span
+class="math inline">\(\Delta S_n,\Delta
+S_m&lt;\delta\)</span>。定義<span class="math inline">\(S_{n+m}=S_n\cup
+S_m\)</span>，則<span class="math inline">\(S_{n+m}\)</span>是<span
+class="math inline">\(S_n\)</span>和<span
+class="math inline">\(S_m\)</span>的精化。故 <span
+class="math display">\[|F_n-F_m|\leq|F_n-F_{n+m}|+|F_{n+m}-F_n|\leq
+2\epsilon(b-a)\]</span> 而<span
+class="math inline">\(2\epsilon(b-a)\)</span>可以任意小，故<span
+class="math inline">\(\{F_n\}\)</span>是柯西序列，故其收斂，即黎曼積分(極限值)存在。</p>
 
     </div>
 
