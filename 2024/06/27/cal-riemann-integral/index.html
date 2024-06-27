@@ -29,8 +29,9 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/rie-sum.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/riemann.jpeg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/refine.jpg">
 <meta property="article:published_time" content="2024-06-27T07:01:10.000Z">
-<meta property="article:modified_time" content="2024-06-27T07:47:38.742Z">
+<meta property="article:modified_time" content="2024-06-27T08:08:08.501Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -196,7 +197,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-06-27 15:01:10 / 修改時間：15:47:38" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
+              <time title="創建時間：2024-06-27 15:01:10 / 修改時間：16:08:08" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -270,7 +271,32 @@ class="math display">\[\int_a^b f(x)dx\]</span></p>
 <p>定義1-2中的極限總是存在，且此極限與<span
 class="math inline">\(x_i\)</span>與<span
 class="math inline">\(\xi_i\)</span>的選取無關。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：底下分兩步驟證明。</p>
+<p><font color=#8b4513><u>證明</u></font>：底下分兩步驟證明。 <br>1.
+我們希望說明極限存在。在此之前我們定義一件事：</p>
+<h4 id="定義1-3-1精化-refinement"><font color=#008000><u>定義1-3-1：精化
+(Refinement)</u></font></h4>
+<p>給定兩個<span class="math inline">\([a,b]\)</span>的分割<span
+class="math inline">\(S_n\)</span>和<span
+class="math inline">\(S_N\)</span>(我們用子區間端點的點集來描述區間的分割，故<span
+class="math inline">\(S_n\)</span>和<span
+class="math inline">\(S_N\)</span>是兩個點集。)若<span
+class="math inline">\(S_m\subseteq S_N\)</span>，則稱<span
+class="math inline">\(S_N\)</span>是<span
+class="math inline">\(S_n\)</span>的精化。見下圖3。</p>
+<img src="refine.jpg" width="50%" height="50%">
+<center>
+圖3
+</center>
+<p>今給定<span class="math inline">\([a,b]\)</span>上的兩個分割<span
+class="math inline">\(S_n=\{x_i\}_{i=0}^n\)</span>和<span
+class="math inline">\(S_N=\{y_j\}_{j=0}^N\)</span>，其中<span
+class="math inline">\(S_N\)</span>是<span
+class="math inline">\(S_n\)</span>的精化。又我們知道由於<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上連續，故<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上一致連續(見<a
+href="https://alexthepurplerose.github.io/2024/04/26/cal-real-function/">這裡</a>的定理4)。</p>
 
     </div>
 
@@ -356,7 +382,8 @@ class="math inline">\(\xi_i\)</span>的選取無關。<br></p>
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E7%9A%84%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.</span> <span class="nav-text">積分的定義</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91%E9%BB%8E%E6%9B%BC%E7%A9%8D%E5%88%86-riemann-integral"><span class="nav-number">1.1.</span> <span class="nav-text">定義1：黎曼積分
 (Riemann Integral)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-1%E9%BB%8E%E6%9B%BC%E5%92%8C-riemann-sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義1-1：黎曼和
 (Riemann Sum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-2%E9%BB%8E%E6%9B%BC%E7%A9%8D%E5%88%86-riemann-integral"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義1-2：黎曼積分
-(Riemann Integral)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">定理 1-3</span></a></li></ol></li></ol></li></ol></div>
+(Riemann Integral)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">定理 1-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-3-1%E7%B2%BE%E5%8C%96-refinement"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">定義1-3-1：精化
+(Refinement)</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
