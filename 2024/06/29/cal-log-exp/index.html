@@ -20,18 +20,22 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="永蔚的上課筆記與小小文欄">
-<meta property="og:type" content="website">
-<meta property="og:title" content="永蔚Alex">
-<meta property="og:url" content="https://alexthepurplerose.github.io/categories/%E7%AD%86%E8%A8%98/%E6%A9%9F%E7%8E%87/index.html">
+  <meta name="description" content="這份筆記是關於對數函數與指數函數的定義與性質。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微積分：對數函數與指數函數">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2024/06/29/cal-log-exp/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="永蔚的上課筆記與小小文欄">
+<meta property="og:description" content="這份筆記是關於對數函數與指數函數的定義與性質。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2024-06-29T08:34:20.000Z">
+<meta property="article:modified_time" content="2024-06-29T08:58:10.061Z">
 <meta property="article:author" content="SemperLux">
-<meta property="article:tag" content="Spongebob, LectureNotes, Feelings, 海綿寶寶, 上課筆記, 心情札記">
+<meta property="article:tag" content="Lecture_Notes">
+<meta property="article:tag" content="Calculus">
+<meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/categories/%E7%AD%86%E8%A8%98/%E6%A9%9F%E7%8E%87/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2024/06/29/cal-log-exp/">
 
 
 <script id="page-configurations">
@@ -39,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>分類: 機率 | 永蔚Alex</title>
+  <title>微積分：對數函數與指數函數 | 永蔚Alex</title>
   
 
 
@@ -158,51 +162,150 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">機率
-          <small>分類</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/06/29/cal-log-exp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SemperLux">
+      <meta itemprop="description" content="永蔚的上課筆記與小小文欄">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永蔚Alex">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微積分：對數函數與指數函數
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2024-06-29 16:34:20 / 修改時間：16:58:10" itemprop="dateCreated datePublished" datetime="2024-06-29T16:34:20+08:00">2024-06-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%BE%AE%E7%A9%8D%E5%88%86/" itemprop="url" rel="index"><span itemprop="name">微積分</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+        <p>這份筆記是關於對數函數與指數函數的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="對數函數"><font color=#b8860b>對數函數</font></h1>
+</center>
+<h2 id="定義-1對數函數-logarithm-function"><font color=#008000><u>定義
+1：對數函數 (Logarithm Function)</u></font></h2>
+<p>對於<span class="math inline">\(x&gt;0\)</span>，我們將對數函數定義為
+<span class="math display">\[
+\log x=\int_1^x\frac{1}{u}du
+\]</span></p>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<p>易知 <span class="math display">\[\log
+1=\int_1^1\frac{1}{u}du=0\]</span> 及 <span class="math display">\[\log
+b-\log a=\int_a^b\frac{1}{u}du\]</span></p>
+<h2 id="性質-2"><font color=#0000FF><u>性質 2</u></font></h2>
+<p>對於所有<span class="math inline">\(x,y&gt;0\)</span>，有<span
+class="math inline">\(\log(xy)=\log x+\log y\)</span><br></p>
+<p><font color=#8b4513><u>證明</u></font>：原式等價於說明<span
+class="math inline">\(\log(xy)-\log y=\log x\)</span>，即 <span
+class="math display">\[
+\int_y^{xy}\frac{1}{u}du=\int_1^x\frac{1}{u}du
+\]</span> 假定<span class="math inline">\(x&gt;1\)</span>，則考慮<span
+class="math inline">\([1,x]\)</span>的分割<span
+class="math inline">\(\{1,u_1,u_2,\cdots,u_n\}\)</span>，及<span
+class="math inline">\(\xi_i\in[u_{i-1},u_i]\)</span>。由黎曼積分的定義有
+<span class="math display">\[
+\int_1^x\frac{1}{u}du=\lim_{n\to\infty}\sum_{i=1}^n\frac{1}{\xi_i}\Delta
+u_i
+\]</span> 令<span class="math inline">\(v_i=yu_i\)</span>, <span
+class="math inline">\(\eta_i=y\xi_i\)</span>。我們知道<span
+class="math inline">\(\{v_i\}\)</span>是<span
+class="math inline">\([y,xy]\)</span>的分割，有 <span
+class="math display">\[
+\sum_{i=1}^n\frac{1}{\eta_1}\Delta v_i=\sum_{i=1}^n\frac{1}{\xi_i}\Delta
+u_i
+\]</span> (<span class="math inline">\(y\)</span>消掉了)故有 <span
+class="math display">\[
+\int_y^{xy}\frac{1}{u}du=\int_1^x\frac{1}{u}du
+\]</span> 而當<span
+class="math inline">\(0&lt;x&lt;1\)</span>時，考慮<span
+class="math inline">\(\frac{1}{x}\)</span>。因為<span
+class="math inline">\(\frac{1}{x}&gt;1\)</span>，故由上推論知 <span
+class="math display">\[
+\log \frac{1}{x}+\log x=\log\frac{x}{x}=\log 1=0
+\]</span> (上面推論與<span class="math inline">\(y\)</span>是否大於<span
+class="math inline">\(1\)</span>無關，故在此<span
+class="math inline">\(x&lt;1\)</span>亦無妨)則有 <span
+class="math display">\[
+\begin{aligned}
+\log x+\log y&amp;=\log x+\log\frac{1}{x}\cdot xy\\
+&amp;=\log x+\log\frac{1}{x}+\log xy=\log xy
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="推論-2-1"><font color=#0000FF><u>推論 2-1</u></font></h3>
+<p>由以上性質易得對於整數<span class="math inline">\(n\)</span>，有<span
+class="math inline">\(\log x^n=n\log x\)</span>。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-04-18T00:33:15+08:00"
-              content="2024-04-18">
-          04-18
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
+              <a href="/tags/Calculus/" rel="tag"># Calculus</a>
+              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/04/18/2023-probability/" itemprop="url">
-            <span itemprop="name">2023李志煌 機率導論筆記</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/06/27/cal-riemann-integral/" rel="prev" title="微積分：黎曼積分">
+      <i class="fa fa-chevron-left"></i> 微積分：黎曼積分
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -255,6 +358,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8D%E6%95%B8%E5%87%BD%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">對數函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%B0%8D%E6%95%B8%E5%87%BD%E6%95%B8-logarithm-function"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：對數函數 (Logarithm Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2"><span class="nav-number">1.2.</span> <span class="nav-text">性質 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">推論 2-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
