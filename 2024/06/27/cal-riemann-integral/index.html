@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/rie-int.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/mean.jpg">
 <meta property="article:published_time" content="2024-06-27T07:01:10.000Z">
-<meta property="article:modified_time" content="2024-06-27T14:09:30.120Z">
+<meta property="article:modified_time" content="2024-06-29T08:25:24.363Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -198,10 +198,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-06-27 15:01:10 / 修改時間：22:09:30" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
+              <time title="創建時間：2024-06-27 15:01:10" itemprop="dateCreated datePublished" datetime="2024-06-27T15:01:10+08:00">2024-06-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-06-29 16:25:24" itemprop="dateModified" datetime="2024-06-29T16:25:24+08:00">2024-06-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -231,12 +237,10 @@
 <center>
 <h1 id="積分的定義"><font color=#b8860b>積分的定義</font></h1>
 </center>
-<h2
-id="定義1黎曼積分-riemann-integral"><font color=#008000><u>定義1：黎曼積分
-(Riemann Integral)</u></font></h2>
-<h3
-id="定義1-1黎曼和-riemann-sum"><font color=#008000><u>定義1-1：黎曼和
-(Riemann Sum)</u></font></h3>
+<h2 id="定義-1黎曼積分-riemann-integral"><font color=#008000><u>定義
+1：黎曼積分 (Riemann Integral)</u></font></h2>
+<h3 id="定義-1-1黎曼和-riemann-sum"><font color=#008000><u>定義
+1-1：黎曼和 (Riemann Sum)</u></font></h3>
 <p>令<span class="math inline">\(f(x)\)</span>為在區間<span
 class="math inline">\([a,b]\)</span>上的連續函數。將<span
 class="math inline">\([a,b]\)</span>分成<span
@@ -256,9 +260,8 @@ x_n\\
 <center>
 圖1
 </center>
-<h3
-id="定義1-2黎曼積分-riemann-integral"><font color=#008000><u>定義1-2：黎曼積分
-(Riemann Integral)</u></font></h3>
+<h3 id="定義-1-2黎曼積分-riemann-integral"><font color=#008000><u>定義
+1-2：黎曼積分 (Riemann Integral)</u></font></h3>
 <p>在上述定義1-1的黎曼和中，令<span
 class="math inline">\(n\to\infty\)</span>且<span
 class="math inline">\(\max\limits_{1\leq i\leq n} (\Delta x_i)\to
@@ -383,13 +386,13 @@ class="math inline">\(F_{n&#39;}\to F&#39;\)</span>時，也會有<span
 class="math inline">\(|F-F&#39;|&lt;2\epsilon(b-a)\)</span>。在此讓<span
 class="math inline">\(2\epsilon(b-a)\)</span>任意小，故有<span
 class="math inline">\(F=F&#39;\)</span>。<font size="1">QED</font></p>
-<h3 id="例1-4"><font color=#ffa500><u>例1-4</u></font></h3>
+<h3 id="例-1-4"><font color=#ffa500><u>例 1-4</u></font></h3>
 <p>考慮常數函數<span
 class="math inline">\(f(x)=c\)</span>，我們想求其在<span
 class="math inline">\([a,b]\)</span>上的積分。即 <span
 class="math display">\[\sum_{i=1}^n f(\xi_i)\Delta
 x_i=c\sum_{i=1}^n\Delta x_i=c(b-a)\]</span></p>
-<h3 id="例1-5"><font color=#ffa500><u>例1-5</u></font></h3>
+<h3 id="例-1-5"><font color=#ffa500><u>例 1-5</u></font></h3>
 <p>考慮函數<span class="math inline">\(f(x)=x^\alpha\)</span>，其中<span
 class="math inline">\(\alpha\)</span>為整數且<span
 class="math inline">\(\alpha\neq-1\)</span>。令<span
@@ -440,7 +443,7 @@ class="math inline">\([a,b]\)</span>上有<span
 class="math inline">\(f(x)\geq g(x)\)</span>，則<span
 class="math inline">\(\int_a^b f(x)dx\geq\int_a^b g(x)dx\)</span>
 <br>以上性質皆由定義可證，在此證略。</p>
-<h3 id="註記2-1"><font color=#0000FF><u>註記2-1</u></font></h3>
+<h3 id="註記-2-1"><font color=#0000FF><u>註記 2-1</u></font></h3>
 <p>若在<span class="math inline">\(a&gt;b\)</span>時定義<span
 class="math inline">\(\int_a^b f=-\int_b^a
 f\)</span>，則定理2-1可以擴展到所有<span
@@ -479,6 +482,59 @@ f(x)dx\)</span>。<font size="1">QED</font></p>
 id="定理-4廣義積分均值定理-generalized-mean-value-theorem-of-integral"><font color=#ff1493><u>定理
 4：廣義積分均值定理 (Generalized Mean Value Theorem of
 Integral)</u></font></h2>
+<p>給定函數<span class="math inline">\(p(x)\)</span>使得對於所有<span
+class="math inline">\(x\in[a,b]\)</span>都有<span
+class="math inline">\(p(x)\geq 0\)</span>。則存在<span
+class="math inline">\(\xi\in[a,b]\)</span> s.t. <span
+class="math display">\[
+f(\xi)=\frac{\int_a^b p(x)f(x)dx}{\int_a^b p(x)dx}
+\]</span> (即類似加權平均的概念)<br></p>
+<p><font color=#8b4513><u>證明</u></font>：同定理3，有<span
+class="math inline">\(m\leq f(x)\leq M\)</span>，則<span
+class="math inline">\(mp(x)\leq p(x)f(x)\leq Mp(x)\)</span>，故有 <span
+class="math display">\[
+\begin{aligned}
+&amp;m\int_a^b p(x)dx\leq \int_a^b p(x)f(x)dx\leq M\int_a^b p(x)dx\\
+\Rightarrow&amp;m\leq m\leq\frac{\int_a^b p(x)f(x)dx}{\int_a^b
+p(x)dx}\leq M
+\end{aligned}
+\]</span> 由中間值定理知存在<span
+class="math inline">\(\xi\in[a,b]\)</span> s.t. <span
+class="math inline">\(f(\xi)=\frac{\int_a^b p(x)f(x)dx}{\int_a^b
+p(x)dx}\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="不定積分"><font color=#b8860b>不定積分</font></h1>
+</center>
+<h2 id="定義-5不定積分-indefinite-integral"><font color=#008000><u>定義
+5：不定積分 (Indefinite Integral)</u></font></h2>
+<p>給定在<span class="math inline">\([a,b]\)</span>上連續的函數<span
+class="math inline">\(f(x)\)</span>，則定義 <span
+class="math display">\[
+\phi(x)=\int_a^x f(t)dt, x\in[a,b]
+\]</span> 是<span class="math inline">\(f\)</span>的不定積分。</p>
+<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
+<p>函數<span class="math inline">\(f(x)\)</span>的不定積分是<span
+class="math inline">\(x\)</span>的函數。</p>
+<h2 id="引理-6"><font color=#0000FF><u>引理 6</u></font></h2>
+<p>令<span class="math inline">\(\phi\)</span>是連續函數<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上的不定積分，則<span
+class="math inline">\(\phi\)</span>在<span
+class="math inline">\([a,b]\)</span>上連續。<br></p>
+<font color=#8b4513><u>證明</u></font>：由定義<span
+class="math inline">\(\phi(x)=\int_a^x f(t)dt\)</span>，有 $$
+<span class="math display">\[\begin{aligned}
+|\phi(x)-\phi(y)|&amp;=\left|\int_x^y f(t)dt\right|\\
+&amp;=|f(\xi)(y-x)|\mbox{  (積分均值定理(定理3))}\\
+&amp;\leq |f(\xi)||y-x|
+\end{aligned}\]</span>
+<p>對於某個<span class="math inline">\(\xi\in[x,y]\)</span>。<span
+class="math inline">\(y\to x\)</span>時，有<span
+class="math inline">\(f(\xi)\to f(x)\)</span>。故當<span
+class="math inline">\(x\to y\)</span>時，有 <span
+class="math inline">\(|\phi(x)-\phi(y)|\to 0\)</span>。可知<span
+class="math inline">\(\phi\)</span>在<span
+class="math inline">\([a,b]\)</span>上連續。<font size="1">QED</font></p>
 
     </div>
 
@@ -561,14 +617,15 @@ Integral)</u></font></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E7%9A%84%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.</span> <span class="nav-text">積分的定義</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91%E9%BB%8E%E6%9B%BC%E7%A9%8D%E5%88%86-riemann-integral"><span class="nav-number">1.1.</span> <span class="nav-text">定義1：黎曼積分
-(Riemann Integral)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-1%E9%BB%8E%E6%9B%BC%E5%92%8C-riemann-sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義1-1：黎曼和
-(Riemann Sum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-2%E9%BB%8E%E6%9B%BC%E7%A9%8D%E5%88%86-riemann-integral"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義1-2：黎曼積分
-(Riemann Integral)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">定理 1-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-3-1%E7%B2%BE%E5%8C%96-refinement"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">定義1-3-1：精化
-(Refinement)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B1-4"><span class="nav-number">1.1.4.</span> <span class="nav-text">例1-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B1-5"><span class="nav-number">1.1.5.</span> <span class="nav-text">例1-5</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B3%AA"><span class="nav-number">2.</span> <span class="nav-text">積分的基本性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">2.1.</span> <span class="nav-text">定理 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%982-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3%E7%A9%8D%E5%88%86%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86-mean-value-theorem-of-integral"><span class="nav-number">2.2.</span> <span class="nav-text">定理
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E7%9A%84%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.</span> <span class="nav-text">積分的定義</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E9%BB%8E%E6%9B%BC%E7%A9%8D%E5%88%86-riemann-integral"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：黎曼積分 (Riemann Integral)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E9%BB%8E%E6%9B%BC%E5%92%8C-riemann-sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
+1-1：黎曼和 (Riemann Sum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2%E9%BB%8E%E6%9B%BC%E7%A9%8D%E5%88%86-riemann-integral"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義
+1-2：黎曼積分 (Riemann Integral)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">定理 1-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-3-1%E7%B2%BE%E5%8C%96-refinement"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">定義1-3-1：精化
+(Refinement)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-4"><span class="nav-number">1.1.4.</span> <span class="nav-text">例 1-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-5"><span class="nav-number">1.1.5.</span> <span class="nav-text">例 1-5</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B3%AA"><span class="nav-number">2.</span> <span class="nav-text">積分的基本性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">2.1.</span> <span class="nav-text">定理 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3%E7%A9%8D%E5%88%86%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86-mean-value-theorem-of-integral"><span class="nav-number">2.2.</span> <span class="nav-text">定理
 3：積分均值定理 (Mean Value Theorem of Integral)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4%E5%BB%A3%E7%BE%A9%E7%A9%8D%E5%88%86%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86-generalized-mean-value-theorem-of-integral"><span class="nav-number">2.3.</span> <span class="nav-text">定理
 4：廣義積分均值定理 (Generalized Mean Value Theorem of
-Integral)</span></a></li></ol></li></ol></div>
+Integral)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E5%AE%9A%E7%A9%8D%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">不定積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E4%B8%8D%E5%AE%9A%E7%A9%8D%E5%88%86-indefinite-integral"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+5：不定積分 (Indefinite Integral)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-6"><span class="nav-number">3.2.</span> <span class="nav-text">引理 6</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

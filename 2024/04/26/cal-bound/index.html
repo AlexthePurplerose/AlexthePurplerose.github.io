@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/04/26/cal-bound/bound.jpg">
 <meta property="article:published_time" content="2024-04-25T19:28:07.000Z">
-<meta property="article:modified_time" content="2024-06-27T06:58:34.691Z">
+<meta property="article:modified_time" content="2024-06-29T08:16:04.594Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-06-27 14:58:34" itemprop="dateModified" datetime="2024-06-27T14:58:34+08:00">2024-06-27</time>
+                <time title="修改時間：2024-06-29 16:16:04" itemprop="dateModified" datetime="2024-06-29T16:16:04+08:00">2024-06-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,15 +233,14 @@
 <h1
 id="最大上界與最小下界"><font color=#b8860b>最大上界與最小下界</font></h1>
 </center>
-<h2
-id="定義1上下界-upper-and-lower-bounds"><font color=#008000><u>定義1：上下界
-(Upper and Lower Bounds)</u></font></h2>
+<h2 id="定義-1上下界-upper-and-lower-bounds"><font color=#008000><u>定義
+1：上下界 (Upper and Lower Bounds)</u></font></h2>
 <p>給定一個實數集合<span class="math inline">\(S\)</span>。</p>
-<h3 id="定義1-1上界-upper-bound"><font color=#008000><u>定義1-1：上界
+<h3 id="定義-1-1上界-upper-bound"><font color=#008000><u>定義 1-1：上界
 (Upper Bound)</u></font></h3>
 <p>將集合<span class="math inline">\(S\)</span>的上界定義為 <span
 class="math display">\[B=\{b|x\leq b,\forall x\in S\}\]</span></p>
-<h3 id="定義1-2下界-lower-bound"><font color=#008000><u>定義1-2：下界
+<h3 id="定義-1-2下界-lower-bound"><font color=#008000><u>定義 1-2：下界
 (Lower Bound)</u></font></h3>
 <p>將集合<span class="math inline">\(S\)</span>的下界定義為 <span
 class="math display">\[A=\{a|x\geq a,\forall x\in S\}\]</span></p>
@@ -249,22 +248,22 @@ class="math display">\[A=\{a|x\geq a,\forall x\in S\}\]</span></p>
 <p>注意集合的上界<span class="math inline">\(B\)</span>和下界<span
 class="math inline">\(A\)</span>都是<u>集合</u>。</p>
 <h2
-id="定義2最大下界和最小上界-greatest-lower-bound-and-least-upper-bound"><font color=#008000><u>定義2：最大下界和最小上界
-(Greatest Lower Bound and Least Upper Bound)</u></font></h2>
+id="定義-2最大下界和最小上界-greatest-lower-bound-and-least-upper-bound"><font color=#008000><u>定義
+2：最大下界和最小上界 (Greatest Lower Bound and Least Upper
+Bound)</u></font></h2>
 <p>給定實數集合<span class="math inline">\(S\)</span>，其下界為<span
 class="math inline">\(A\)</span>，上界為<span
 class="math inline">\(B\)</span>。</p>
 <h3
-id="定義2-1最大下界-greatest-lower-bound"><font color=#008000><u>定義2-1：最大下界
-(Greatest Lower Bound)</u></font></h3>
+id="定義-2-1最大下界-greatest-lower-bound"><font color=#008000><u>定義
+2-1：最大下界 (Greatest Lower Bound)</u></font></h3>
 <p>如果一個下界中的元素<span class="math inline">\(\tilde{y}\in
 A\)</span>大於等於其他所有下界的元素(<span class="math inline">\(\forall
 a\in A, \tilde{y}\geq a\)</span>)，則稱<span
 class="math inline">\(\tilde{y}\)</span>為<span
 class="math inline">\(S\)</span>的最大下界。</p>
-<h3
-id="定義2-2最小上界-least-upper-bound"><font color=#008000><u>定義2-2：最小上界
-(Least Upper Bound)</u></font></h3>
+<h3 id="定義-2-2最小上界-least-upper-bound"><font color=#008000><u>定義
+2-2：最小上界 (Least Upper Bound)</u></font></h3>
 <p>如果一個上界中的元素<span class="math inline">\(\tilde{x}\in
 A\)</span>小於等於其他所有下界的元素(<span class="math inline">\(\forall
 b\in B, \tilde{x}\leq b\)</span>)，則稱<span
@@ -276,7 +275,7 @@ class="math inline">\(S=\{1,\frac{1}{2},\frac{1}{3},\frac{1}{4},\cdots\}\)</span
 class="math inline">\(S\)</span>有上界<span
 class="math inline">\(1\)</span>，下界<span
 class="math inline">\(0\)</span>。</p>
-<h2 id="引理3"><font color=#0000FF><u>引理3</u></font></h2>
+<h2 id="引理-3"><font color=#0000FF><u>引理 3</u></font></h2>
 <p>若<span class="math inline">\(S\)</span>的最小上界<span
 class="math inline">\(b\)</span>存在且<span
 class="math inline">\(b\notin S\)</span>，則<span
@@ -292,7 +291,7 @@ class="math inline">\(b\)</span>就不是「最小」上界了，矛盾。<font 
 <center>
 圖1
 </center>
-<h3 id="推論3-1"><font color=#0000FF><u>推論3-1</u></font></h3>
+<h3 id="推論-3-1"><font color=#0000FF><u>推論 3-1</u></font></h3>
 <p>在引理3的假設之下，<span
 class="math inline">\(\{x_n\}\)</span>存在一個收斂到<span
 class="math inline">\(b\)</span>的子序列<span
@@ -426,13 +425,14 @@ class="math inline">\(b\)</span>是最小上界。<font size="1">QED</font></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E4%B8%8A%E7%95%8C%E8%88%87%E6%9C%80%E5%B0%8F%E4%B8%8B%E7%95%8C"><span class="nav-number">1.</span> <span class="nav-text">最大上界與最小下界</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91%E4%B8%8A%E4%B8%8B%E7%95%8C-upper-and-lower-bounds"><span class="nav-number">1.1.</span> <span class="nav-text">定義1：上下界
-(Upper and Lower Bounds)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-1%E4%B8%8A%E7%95%8C-upper-bound"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義1-1：上界
-(Upper Bound)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A91-2%E4%B8%8B%E7%95%8C-lower-bound"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義1-2：下界
-(Lower Bound)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A92%E6%9C%80%E5%A4%A7%E4%B8%8B%E7%95%8C%E5%92%8C%E6%9C%80%E5%B0%8F%E4%B8%8A%E7%95%8C-greatest-lower-bound-and-least-upper-bound"><span class="nav-number">1.2.</span> <span class="nav-text">定義2：最大下界和最小上界
-(Greatest Lower Bound and Least Upper Bound)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A92-1%E6%9C%80%E5%A4%A7%E4%B8%8B%E7%95%8C-greatest-lower-bound"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義2-1：最大下界
-(Greatest Lower Bound)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A92-2%E6%9C%80%E5%B0%8F%E4%B8%8A%E7%95%8C-least-upper-bound"><span class="nav-number">1.2.2.</span> <span class="nav-text">定義2-2：最小上界
-(Least Upper Bound)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-3"><span class="nav-number">1.2.3.</span> <span class="nav-text">例 2-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%863"><span class="nav-number">1.3.</span> <span class="nav-text">引理3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%963-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">推論3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E4%B8%8A%E7%95%8C%E8%88%87%E6%9C%80%E5%B0%8F%E4%B8%8B%E7%95%8C"><span class="nav-number">1.</span> <span class="nav-text">最大上界與最小下界</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E4%B8%8A%E4%B8%8B%E7%95%8C-upper-and-lower-bounds"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：上下界 (Upper and Lower Bounds)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E4%B8%8A%E7%95%8C-upper-bound"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義 1-1：上界
+(Upper Bound)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2%E4%B8%8B%E7%95%8C-lower-bound"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義 1-2：下界
+(Lower Bound)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E6%9C%80%E5%A4%A7%E4%B8%8B%E7%95%8C%E5%92%8C%E6%9C%80%E5%B0%8F%E4%B8%8A%E7%95%8C-greatest-lower-bound-and-least-upper-bound"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：最大下界和最小上界 (Greatest Lower Bound and Least Upper
+Bound)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E6%9C%80%E5%A4%A7%E4%B8%8B%E7%95%8C-greatest-lower-bound"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
+2-1：最大下界 (Greatest Lower Bound)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-2%E6%9C%80%E5%B0%8F%E4%B8%8A%E7%95%8C-least-upper-bound"><span class="nav-number">1.2.2.</span> <span class="nav-text">定義
+2-2：最小上界 (Least Upper Bound)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-3"><span class="nav-number">1.2.3.</span> <span class="nav-text">例 2-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">引理 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">推論 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
