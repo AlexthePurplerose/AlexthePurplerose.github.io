@@ -22,7 +22,7 @@
 
   <meta name="description" content="這份筆記是關於微分的定義與性質，以及微積分基本定理。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微積分：微積分基本定理">
+<meta property="og:title" content="微積分：微分與微積分基本定理">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/06/30/cal-differ/index.html">
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於微分的定義與性質，以及微積分基本定理。">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/30/cal-differ/rolle.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/06/30/cal-differ/lips.jpeg">
 <meta property="article:published_time" content="2024-06-30T06:49:17.000Z">
-<meta property="article:modified_time" content="2024-07-03T07:20:54.287Z">
+<meta property="article:modified_time" content="2024-07-03T13:16:15.650Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -52,7 +52,7 @@
   };
 </script>
 
-  <title>微積分：微積分基本定理 | 永蔚Alex</title>
+  <title>微積分：微分與微積分基本定理 | 永蔚Alex</title>
   
 
 
@@ -186,7 +186,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          微積分：微積分基本定理
+          微積分：微分與微積分基本定理
         </h1>
 
         <div class="post-meta">
@@ -203,7 +203,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-07-03 15:20:54" itemprop="dateModified" datetime="2024-07-03T15:20:54+08:00">2024-07-03</time>
+                <time title="修改時間：2024-07-03 21:16:15" itemprop="dateModified" datetime="2024-07-03T21:16:15+08:00">2024-07-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -310,7 +310,8 @@ f(x)\)</span>。<font size="1">QED</font></p>
 class="math inline">\(x_0\)</span>可微，則<span
 class="math inline">\(f\)</span>在<span
 class="math inline">\(x_0\)</span>連續。<br></p>
-<p>由<span class="math inline">\(f\)</span>可微知以下極限存在： <span
+<p><font color=#8b4513><u>證明</u></font>：由<span
+class="math inline">\(f\)</span>可微知以下極限存在： <span
 class="math display">\[
 \lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}=f&#39;(x_0)
 \]</span> 我們希望說明<span class="math inline">\(|h|\to
@@ -402,8 +403,8 @@ class="math display">\[
 <span class="math display">\[
 f&#39;(\xi)=\frac{f(x_2)-f(x_1)}{x_2-x_1}
 \]</span> <font size="1">QED</font></p>
-<h2 id="性質-5均值定理應用-i"><font color=#0000FF><u>性質
-5：均值定理應用 I</u></font></h2>
+<h2 id="性質-5均值定理應用i"><font color=#0000FF><u>性質
+5：均值定理應用I</u></font></h2>
 <p>若對所有<span class="math inline">\(x\)</span>，有<span
 class="math inline">\(f&#39;(x)&gt;0\)</span>，則<span
 class="math inline">\(f\)</span>嚴格遞增。<br></p>
@@ -412,8 +413,8 @@ class="math inline">\(y&gt;x\)</span>，則由均值定理知存在<span
 class="math inline">\(x&lt;\xi&lt;y\)</span>使得<span
 class="math inline">\(f(y)-f(x)=\underbrace{f&#39;(\xi)}_{&gt;0}\underbrace{(y-x)}_{&gt;0}&gt;0\)</span>，故知<span
 class="math inline">\(f\)</span>嚴格遞增。<font size="1">QED</font></p>
-<h2 id="性質-6均值定理應用-ii"><font color=#0000FF><u>性質
-6：均值定理應用 II</u></font></h2>
+<h2 id="性質-6均值定理應用ii"><font color=#0000FF><u>性質
+6：均值定理應用II</u></font></h2>
 <p>若對所有<span class="math inline">\(x\)</span>，有<span
 class="math inline">\(f&#39;(x)&lt;0\)</span>，則<span
 class="math inline">\(f\)</span>嚴格遞減。<br></p>
@@ -436,7 +437,7 @@ class="math inline">\(\alpha\)</span>階的利普希茨連續函數。</p>
 class="math inline">\(\alpha&gt;1\)</span>的階數是沒有意義的。若<span
 class="math inline">\(\alpha&gt;1\)</span>，則 <span
 class="math display">\[
-\frac{|f(y)-f(x)|}{|y-x|}\leq M|y-x|^{alpha-1}
+\frac{|f(y)-f(x)|}{|y-x|}\leq M|y-x|^{\alpha-1}
 \]</span> 對於所有<span class="math inline">\(x\)</span>，當<span
 class="math inline">\(y\to x\)</span>時，則 <span
 class="math display">\[
@@ -447,8 +448,8 @@ class="math inline">\(M|y-x|^{\alpha-1}\to 0\)</span>。故<span
 class="math inline">\(f&#39;(x)=0\)</span>, <span
 class="math inline">\(\forall x\)</span>。即知<span
 class="math inline">\(f\)</span>是常數函數。</p>
-<h2 id="性質-8均值定理應用-iii"><font color=#0000FF><u>性質
-8：均值定理應用 III</u></font></h2>
+<h2 id="性質-8均值定理應用iii"><font color=#0000FF><u>性質
+8：均值定理應用III</u></font></h2>
 <p>若對於所有<span class="math inline">\(x\)</span>，有<span
 class="math inline">\(|f&#39;(x)|\leq M\)</span>，則<span
 class="math inline">\(f\)</span>是<span
@@ -467,6 +468,143 @@ class="math inline">\(1\)</span>階利普希茨連續函數。<font size="1">QED
 0}\frac{\Delta y}{\Delta x}
 \]</span> 其中<span class="math inline">\(\Delta x=h\)</span>, <span
 class="math inline">\(\Delta y=f(x+h)-f(x)\)</span>。</p>
+<h2
+id="定理-10一次近似-approximation-of-first-order"><font color=#ff1493><u>定理
+10：一次近似 (Approximation of First Order)</u></font></h2>
+<p>固定<span class="math inline">\(x\)</span>，考慮函數<span
+class="math inline">\(\epsilon(h)\)</span>為一個<span
+class="math inline">\(h\)</span>的函數，定義為 <span
+class="math display">\[
+\epsilon(h)=\frac{f(x+h)-f(x)}{h}-f&#39;(x):=\frac{\Delta y}{\Delta
+x}-f&#39;(x)
+\]</span> 有<span class="math inline">\(\Delta y=f&#39;(x)\Delta
+x+\epsilon(h)\Delta x\)</span>。我們希望在一定條件下說明<span
+class="math inline">\(\epsilon\Delta x\)</span>比<span
+class="math inline">\(f&#39;(x)\Delta
+x\)</span>小得多(我們等等會說這是什麼意思)。<br></p>
+<p><font color=#8b4513><u>說明</u></font>：由定義有<span
+class="math inline">\(f(x+h)=f(x)+f&#39;(x)h+\epsilon(h)h\)</span>。</p>
+<h3
+id="定義-10-1線性項與誤差項-linear-part-and-error-term"><font color=#008000><u>定義
+10-1：線性項與誤差項 (Linear Part and Error Term)</u></font></h3>
+<p>我們將<span
+class="math inline">\(f(x)+f&#39;(x)h\)</span>稱為線性項，<span
+class="math inline">\(\epsilon(h)h\)</span>稱為誤差項。<br></p>
+<p>回到一次近似，假設<span class="math inline">\(|f&#39;&#39;(x)|\leq
+M\)</span>, <span class="math inline">\(\forall
+x\)</span>。而由均值定理知存在<span
+class="math inline">\(\xi\in(x,x+h)\)</span>使得 <span
+class="math display">\[
+\begin{aligned}
+\epsilon(h)h&amp;=\left(\frac{f(x+h)-f(x)}{h}-f&#39;(x)\right)h\\
+&amp;=(f&#39;(\xi)-f&#39;(x))h\\
+&amp;\leq M|h|^2
+\end{aligned}
+\]</span> 最後一步是因為由均值定理有<span
+class="math inline">\(f&#39;(\xi)-f&#39;(x)=f&#39;&#39;(w)|\xi-x|\)</span>，對於某個<span
+class="math inline">\(w\in(x,\xi)\)</span>。而又<span
+class="math inline">\(f&#39;&#39;(w)\leq M\)</span>, <span
+class="math inline">\(|\xi-x|\leq h\)</span>，故<span
+class="math inline">\((f&#39;(\xi)-f&#39;(x))h\leq
+M|h|^2\)</span>。於是知道<span
+class="math inline">\(\epsilon(h)h\)</span>小於<span
+class="math inline">\(f&#39;(x)h\)</span>的<span
+class="math inline">\(\frac{M}{f&#39;(x)}h\)</span>倍。但<span
+class="math inline">\(\frac{M}{f&#39;(x)}\)</span>是常數(<span
+class="math inline">\(x\)</span>是固定的)，故可以大致理解為<span
+class="math inline">\(\epsilon(h)h\)</span>約是<span
+class="math inline">\(f&#39;(x)h\)</span>的<span
+class="math inline">\(h\)</span>倍。故當<span class="math inline">\(h\to
+0\)</span>時，可見<span
+class="math inline">\(\epsilon(h)h\)</span>比<span
+class="math inline">\(f&#39;(x)h\)</span>小很多。<br></p>
+<p>於是，大約可以有一次近似： <span class="math display">\[
+f(x+h)\approx f(x)+f&#39;(x)h
+\]</span> ，若<span class="math inline">\(|f&#39;&#39;(x)|\leq
+M\)</span>。固定<span class="math inline">\(x\)</span>，可見這是<span
+class="math inline">\(h\)</span>的一次函數，故稱一次近似。</p>
+<center>
+<h1
+id="微積分基本定理ii"><font color=#b8860b>微積分基本定理II</font></h1>
+</center>
+<h2
+id="定理-11微積分基本定理ii-fundamental-theorem-of-calculus-ii"><font color=#ff1493><u>定理
+11：微積分基本定理II (Fundamental Theorem of Calculus
+II)</u></font></h2>
+<p>給定連續函數<span
+class="math inline">\(f(x)\)</span>，若存在函數<span
+class="math inline">\(F(x)\)</span>使得<span
+class="math inline">\(F&#39;(x)=f(x)\)</span>，則 <span
+class="math display">\[
+\int_a^b f(x)dx=F(b)-F(a)
+\]</span></p>
+<h3 id="定義-11-1原函數-primitive-function"><font color=#008000><u>定義
+11-1：原函數 (Primitive Function)</u></font></h3>
+<p>如上的<span class="math inline">\(F(x)\)</span>稱為<span
+class="math inline">\(f(x)\)</span>的原函數。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：首先，我們知道<span
+class="math inline">\(\phi(x)-\int_a^x f(t)dt\)</span>一定是<span
+class="math inline">\(f\)</span>的原函數。然後，我們需要一個引理：</p>
+<h3 id="引理-11-2"><font color=#0000FF><u>引理 11-2</u></font></h3>
+<p>若函數<span
+class="math inline">\(F_1&#39;=F_2&#39;=f\)</span>，則存在某個常數<span
+class="math inline">\(c\)</span>使得<span
+class="math inline">\(F_1=F_2+c\)</span>。<br></p>
+<p><font color=#8b4513><u>引理的證明</u></font>：由<span
+class="math inline">\((F_1-F_2)&#39;=0\)</span>(這件事情可以見底下的性質12)知<span
+class="math inline">\(F_1-F_2=c\)</span>(若是有<span
+class="math inline">\(f&#39;(x)=0\)</span>, <span
+class="math inline">\(\forall x\)</span>，則由均值定理知存在<span
+class="math inline">\(\xi\)</span>使得<span
+class="math inline">\(f(y)-f(x)=\underbrace{f&#39;(\xi)}_{=0}(y-x)=0\)</span>，故<span
+class="math inline">\(f(x)=f(y)\)</span>, <span
+class="math inline">\(\forall x,y\)</span>，即<span
+class="math inline">\(f(x)\)</span>為常數函數。)<font size="1">QED</font></p>
+<p>回到微積分基本定理II，給定<span
+class="math inline">\(F\)</span>是<span
+class="math inline">\(f\)</span>的另一個原函數，故由引理有<span
+class="math inline">\(\phi(x)=F(x)+c\)</span>，對於某些常數<span
+class="math inline">\(c\)</span>。故有 <span class="math display">\[
+\begin{aligned}
+&amp;\phi(a)=F(a)+c\\
+\Rightarrow&amp; c=-F(a) \mbox{ (}\phi(a)=\int_a^a f(t)dt=0\mbox{)}\\
+\Rightarrow&amp; \phi(x)=F(x)-F(a)\\
+\Rightarrow&amp; \int_a^b f(x)dx=\phi(b)=F(b)-F(a)
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="微分的性質"><font color=#b8860b>微分的性質</font></h1>
+</center>
+<h2 id="性質-12"><font color=#0000FF><u>性質 12</u></font></h2>
+<p>給定可微函數<span class="math inline">\(f,g\)</span>及常數<span
+class="math inline">\(c\)</span>，有 <br> 1. <span
+class="math inline">\((f+g)&#39;=f&#39;+g&#39;\)</span> <br> 2. <span
+class="math inline">\((cf)&#39;=cf&#39;\)</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由定義易得。<font size="1">QED</font></p>
+<h2 id="性質-13"><font color=#0000FF><u>性質 13</u></font></h2>
+<p>給定可微函數<span class="math inline">\(f,g\)</span>，有<span
+class="math inline">\(fg\)</span>也可微且<span
+class="math inline">\((fg)&#39;=f&#39;g+fg&#39;\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：有 <span
+class="math display">\[
+\begin{aligned}
+(fg)&#39;&amp;=\lim_{h\to
+0}\frac{1}{h}\left(f(x+h)g(x+h)-f(x)g(x)\right)\\
+&amp;=\lim_{h\to
+0}\frac{1}{h}\left(f(x+h)g(x+h)-f(x+h)g(x)+f(x+h)g(x)-f(x)g(x)\right)\\
+&amp;=lim_{h\to
+0}\left(f(x+h)\frac{g(x+h)-g(x)}{h}+\frac{f(x+h)-f(x)}{h}g(x)\right)=f&#39;g+fg&#39;
+\end{aligned}
+\]</span> (<span class="math inline">\(f(x+h)\to f(x)\)</span>, <span
+class="math inline">\(\frac{g(x+h)-g(x)}{h}\to g&#39;(x)\)</span>, <span
+class="math inline">\(\frac{f(x+h)-f(x)}{h}\to f&#39;(x)\)</span>, as
+<span class="math inline">\(h\to
+0\)</span>)<font size="1">QED</font></p>
+<h3 id="性質-13-1"><font color=#0000FF><u>性質 13-1</u></font></h3>
+<p>由<span class="math inline">\(\left(\frac{f}{g}\cdot
+g\right)&#39;=f&#39;\)</span>可得 <span class="math display">\[
+\left(\frac{f}{g}\right)&#39;=\frac{f&#39;g-fg&#39;}{g^2}
+\]</span></p>
 
     </div>
 
@@ -553,11 +691,16 @@ class="math inline">\(\Delta y=f(x+h)-f(x)\)</span>。</p>
 (Differentiation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">例 1-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">例 1-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3-1"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">註記 1-3-1</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E7%A9%8D%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86i"><span class="nav-number">2.</span> <span class="nav-text">微積分基本定理I</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E5%BE%AE%E7%A9%8D%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86i-fundamental-theorem-of-calculus-i"><span class="nav-number">2.1.</span> <span class="nav-text">定理
 2：微積分基本定理I (Fundamental Theorem of Calculus I)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E8%88%87%E9%80%A3%E7%BA%8C%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">微分與連續性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">3.1.</span> <span class="nav-text">定理 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">微分均值定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4%E5%BE%AE%E5%88%86%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86-mean-value-theorem-of-differentiation"><span class="nav-number">4.1.</span> <span class="nav-text">定理
 4：微分均值定理 (Mean Value Theorem of Differentiation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%86-4-1%E7%BE%85%E7%88%BE%E5%AE%9A%E7%90%86-rolles-theorem"><span class="nav-number">4.1.1.</span> <span class="nav-text">引理
-4-1：羅爾定理 (Rolle&#39;s Theorem)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-5%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86%E6%87%89%E7%94%A8-i"><span class="nav-number">4.2.</span> <span class="nav-text">性質
-5：均值定理應用 I</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-6%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86%E6%87%89%E7%94%A8-ii"><span class="nav-number">4.3.</span> <span class="nav-text">性質
-6：均值定理應用 II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%88%A9%E6%99%AE%E5%B8%8C%E8%8C%A8%E9%80%A3%E7%BA%8C-lipschitz-continuous"><span class="nav-number">4.4.</span> <span class="nav-text">定義
-7：利普希茨連續 (Lipschitz Continuous)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">4.4.1.</span> <span class="nav-text">註記 7-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-8%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86%E6%87%89%E7%94%A8-iii"><span class="nav-number">4.5.</span> <span class="nav-text">性質
-8：均值定理應用 III</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E6%AC%A1%E8%BF%91%E4%BC%BC"><span class="nav-number">5.</span> <span class="nav-text">一次近似</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9"><span class="nav-number">5.1.</span> <span class="nav-text">定義 9</span></a></li></ol></li></ol></div>
+4-1：羅爾定理 (Rolle&#39;s Theorem)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-5%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86%E6%87%89%E7%94%A8i"><span class="nav-number">4.2.</span> <span class="nav-text">性質
+5：均值定理應用I</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-6%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86%E6%87%89%E7%94%A8ii"><span class="nav-number">4.3.</span> <span class="nav-text">性質
+6：均值定理應用II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%88%A9%E6%99%AE%E5%B8%8C%E8%8C%A8%E9%80%A3%E7%BA%8C-lipschitz-continuous"><span class="nav-number">4.4.</span> <span class="nav-text">定義
+7：利普希茨連續 (Lipschitz Continuous)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">4.4.1.</span> <span class="nav-text">註記 7-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-8%E5%9D%87%E5%80%BC%E5%AE%9A%E7%90%86%E6%87%89%E7%94%A8iii"><span class="nav-number">4.5.</span> <span class="nav-text">性質
+8：均值定理應用III</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E6%AC%A1%E8%BF%91%E4%BC%BC"><span class="nav-number">5.</span> <span class="nav-text">一次近似</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9"><span class="nav-number">5.1.</span> <span class="nav-text">定義 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10%E4%B8%80%E6%AC%A1%E8%BF%91%E4%BC%BC-approximation-of-first-order"><span class="nav-number">5.2.</span> <span class="nav-text">定理
+10：一次近似 (Approximation of First Order)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10-1%E7%B7%9A%E6%80%A7%E9%A0%85%E8%88%87%E8%AA%A4%E5%B7%AE%E9%A0%85-linear-part-and-error-term"><span class="nav-number">5.2.1.</span> <span class="nav-text">定義
+10-1：線性項與誤差項 (Linear Part and Error Term)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E7%A9%8D%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86ii"><span class="nav-number">6.</span> <span class="nav-text">微積分基本定理II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11%E5%BE%AE%E7%A9%8D%E5%88%86%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86ii-fundamental-theorem-of-calculus-ii"><span class="nav-number">6.1.</span> <span class="nav-text">定理
+11：微積分基本定理II (Fundamental Theorem of Calculus
+II)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11-1%E5%8E%9F%E5%87%BD%E6%95%B8-primitive-function"><span class="nav-number">6.1.1.</span> <span class="nav-text">定義
+11-1：原函數 (Primitive Function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%86-11-2"><span class="nav-number">6.1.2.</span> <span class="nav-text">引理 11-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E5%88%86%E7%9A%84%E6%80%A7%E8%B3%AA"><span class="nav-number">7.</span> <span class="nav-text">微分的性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-12"><span class="nav-number">7.1.</span> <span class="nav-text">性質 12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-13"><span class="nav-number">7.2.</span> <span class="nav-text">性質 13</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-13-1"><span class="nav-number">7.2.1.</span> <span class="nav-text">性質 13-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
