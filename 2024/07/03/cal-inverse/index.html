@@ -27,11 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於反函數的各種性質。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/03/cal-inverse/inv.jpg">
 <meta property="article:published_time" content="2024-07-03T13:27:17.000Z">
-<meta property="article:modified_time" content="2024-07-03T13:44:50.033Z">
+<meta property="article:modified_time" content="2024-07-03T14:21:22.340Z">
 <meta property="article:author" content="SemperLux">
-<meta property="article:tag" content="Spongebob, LectureNotes, Feelings, 海綿寶寶, 上課筆記, 心情札記">
+<meta property="article:tag" content="Lecture_Notes">
+<meta property="article:tag" content="Calculus">
+<meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/03/cal-inverse/inv.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/03/cal-inverse/">
 
@@ -191,7 +195,20 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-03 21:27:17 / 修改時間：21:44:50" itemprop="dateCreated datePublished" datetime="2024-07-03T21:27:17+08:00">2024-07-03</time>
+              <time title="創建時間：2024-07-03 21:27:17 / 修改時間：22:21:22" itemprop="dateCreated datePublished" datetime="2024-07-03T21:27:17+08:00">2024-07-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%BE%AE%E7%A9%8D%E5%88%86/" itemprop="url" rel="index"><span itemprop="name">微積分</span></a>
+                </span>
             </span>
 
           
@@ -215,6 +232,39 @@ f(x)=y\Leftrightarrow \phi(y)=x
 \]</span> 則稱<span class="math inline">\(\phi\)</span>是<span
 class="math inline">\(f\)</span>的反函數。</p>
 <h2 id="引理-2"><font color=#0000FF><u>引理 2</u></font></h2>
+<p>給定在<span
+class="math inline">\([a,b]\)</span>上的連續嚴格遞增函數<span
+class="math inline">\(f\)</span>，則其反函數<span
+class="math inline">\(\phi\)</span>也是連續的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們希望說明對於一個點<span
+class="math inline">\(y_0=f(x_0)\)</span>而言，給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(\delta&gt;0\)</span> s.t. <span
+class="math inline">\(|y-y_0|&lt;\delta\)</span>時總有<span
+class="math inline">\(|\phi(y)-\phi(y_0)|&lt;\epsilon\)</span>(見下圖1)。</p>
+<img src="inv.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>令<span class="math inline">\(y_1=f(x_0-\epsilon)\)</span>, <span
+class="math inline">\(y_2=f(x_0+\epsilon)\)</span>。則由<span
+class="math inline">\(f\)</span>嚴格遞增知<span
+class="math inline">\(y_1&lt;y_0&lt;y_2\)</span>。我們選定<span
+class="math inline">\(\delta\)</span>使得<span
+class="math inline">\(y_1&lt;y_0-\delta&lt;y_0&lt;y_0+\delta&lt;y_2\)</span>，則當<span
+class="math inline">\(y\in(y_0-\delta,y_0+\delta)\)</span>時，有<span
+class="math inline">\(\phi(y)\in(x_0-\epsilon,x_0+\epsilon)\)</span>。於是可知<span
+class="math inline">\(\phi\)</span>連續。<font size="1">QED</font></p>
+<h2 id="定理-2"><font color=#ff1493><u>定理 2</u></font></h2>
+<p>假設<span class="math inline">\(f\)</span>在<span
+class="math inline">\((a,b)\)</span>上可微且在<span
+class="math inline">\([a,b]\)</span>上連續，並假設對所有<span
+class="math inline">\(x\)</span>有<span
+class="math inline">\(f&#39;(x)&gt;0\)</span>(即<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\([a,b]\)</span>上嚴格遞增(<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的性質5)，也即是一對一)或<span
+class="math inline">\(f&#39;(x)&lt;0\)</span>(即嚴格遞減)。</p>
 
     </div>
 
@@ -223,6 +273,11 @@ class="math inline">\(f\)</span>的反函數。</p>
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
+              <a href="/tags/Calculus/" rel="tag"># Calculus</a>
+              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+          </div>
 
         
 
@@ -293,7 +348,7 @@ class="math inline">\(f\)</span>的反函數。</p>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%8F%8D%E5%87%BD%E6%95%B8-inverse-function"><span class="nav-number">1.</span> <span class="nav-text">定義
-1：反函數 (Inverse Function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-2"><span class="nav-number">2.</span> <span class="nav-text">引理 2</span></a></li></ol></div>
+1：反函數 (Inverse Function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-2"><span class="nav-number">2.</span> <span class="nav-text">引理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">3.</span> <span class="nav-text">定理 2</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
