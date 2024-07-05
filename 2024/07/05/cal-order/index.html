@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於函數量級的性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-07-05T07:14:39.000Z">
-<meta property="article:modified_time" content="2024-07-05T07:47:04.503Z">
+<meta property="article:modified_time" content="2024-07-05T07:52:14.693Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-05 15:14:39 / 修改時間：15:47:04" itemprop="dateCreated datePublished" datetime="2024-07-05T15:14:39+08:00">2024-07-05</time>
+              <time title="創建時間：2024-07-05 15:14:39 / 修改時間：15:52:14" itemprop="dateCreated datePublished" datetime="2024-07-05T15:14:39+08:00">2024-07-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -271,6 +271,17 @@ href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的�
 \Rightarrow&amp;\lim_{x\to\infty}\frac{a^x}{x}=\infty
 \end{aligned}
 \]</span> <font size="1">QED</font></p>
+<p><br>2. 更好的估計：考慮<span
+class="math inline">\(\phi(x)-\phi(c)\)</span>，其中<span
+class="math inline">\(c\)</span>是使<span class="math inline">\(\log
+a-\frac{1}{c}\geq\frac{1}{2}\log a\)</span>的常數，則 <span
+class="math display">\[
+\begin{aligned}
+\phi(x)-\phi(c)&amp;=\int_c^x\phi&#39;(t)dt\\
+&amp;\geq(x-c)\phi&#39;(c)\\
+&amp;\geq\frac{1}{2}(x-c)\log a
+\end{aligned}
+\]</span></p>
 
     </div>
 
