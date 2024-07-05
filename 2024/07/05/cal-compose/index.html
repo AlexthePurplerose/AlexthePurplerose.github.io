@@ -20,21 +20,22 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這裡是永蔚的泛函分析筆記！">
+  <meta name="description" content="這份筆記是關於合成函數的各種性質。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2024王振男 泛函分析筆記">
-<meta property="og:url" content="https://alexthepurplerose.github.io/2024/04/18/2024-functional-II/index.html">
+<meta property="og:title" content="微積分：合成函數">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2024/07/05/cal-compose/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這裡是永蔚的泛函分析筆記！">
+<meta property="og:description" content="這份筆記是關於合成函數的各種性質。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2024-04-17T16:28:19.000Z">
-<meta property="article:modified_time" content="2024-04-24T13:13:55.207Z">
+<meta property="article:published_time" content="2024-07-05T05:55:53.000Z">
+<meta property="article:modified_time" content="2024-07-05T06:30:53.054Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
-<meta property="article:tag" content="Functional_Analysis">
+<meta property="article:tag" content="Calculus">
+<meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/2024/04/18/2024-functional-II/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/05/cal-compose/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>2024王振男 泛函分析筆記 | 永蔚Alex</title>
+  <title>微積分：合成函數 | 永蔚Alex</title>
   
 
 
@@ -168,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/04/18/2024-functional-II/">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/07/05/cal-compose/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -181,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2024王振男 泛函分析筆記
+          微積分：合成函數
         </h1>
 
         <div class="post-meta">
@@ -190,16 +191,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2024-04-18 00:28:19" itemprop="dateCreated datePublished" datetime="2024-04-18T00:28:19+08:00">2024-04-18</time>
+              <time title="創建時間：2024-07-05 13:55:53 / 修改時間：14:30:53" itemprop="dateCreated datePublished" datetime="2024-07-05T13:55:53+08:00">2024-07-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-04-24 21:13:55" itemprop="dateModified" datetime="2024-04-24T21:13:55+08:00">2024-04-24</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -210,7 +205,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AD%86%E8%A8%98/%E6%B3%9B%E5%87%BD%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">泛函分析</span></a>
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%BE%AE%E7%A9%8D%E5%88%86/" itemprop="url" rel="index"><span itemprop="name">微積分</span></a>
                 </span>
             </span>
 
@@ -225,7 +220,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這裡是永蔚的泛函分析筆記！<span id="more"></span></p>
+        <p>這份筆記是關於合成函數的各種性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="鏈鎖律"><font color=#b8860b>鏈鎖律</font></h1>
+</center>
+<h2 id="定義-1合成函數-composition-function"><font color=#008000><u>定義
+1：合成函數 (Composition Function)</u></font></h2>
+<p>給定<span class="math inline">\(\phi:[a,b]\to
+[\alpha,\beta]\)</span>及定義在<span
+class="math inline">\([\alpha,\beta]\)</span>上的函數<span
+class="math inline">\(g\)</span>。則定義在<span
+class="math inline">\([a,b]\)</span>上的函數<span
+class="math inline">\(f=g(\phi(x))\)</span>是一個合成函數。</p>
+<h2 id="定理-2鏈鎖律-chain-rule"><font color=#ff1493><u>定理 2：鏈鎖律
+(Chain Rule)</u></font></h2>
+<p>給定可微函數<span class="math inline">\(g(x),
+\phi(x)\)</span>，則合成函數<span
+class="math inline">\(f(x)=g(\phi(x))\)</span>也可微，且 <span
+class="math display">\[
+f&#39;(x)=\phi&#39;(x)g&#39;(\phi(x))
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：首先，給定一個<span
+class="math inline">\(x\)</span>。由於<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(\phi(x)\)</span>可微，故用前面一次近似的符號(<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的定理10)，有
+<span class="math display">\[
+\epsilon=\frac{\Delta g}{\Delta\phi}-g&#39;(\phi)
+\]</span> (是把<span class="math inline">\(g\)</span>想成<span
+class="math inline">\(\phi\)</span>的函數)可以發現<span
+class="math inline">\(\epsilon\)</span>是<span
+class="math inline">\(\Delta \phi\)</span>的函數(<span
+class="math inline">\(\phi=\phi(x)\)</span>是給定的)，且<span
+class="math inline">\(\Delta\phi\to 0\)</span>時<span
+class="math inline">\(\epsilon(\Delta\phi)\to 0\)</span>。而上式可以寫成
+<span class="math display">\[
+\Delta g=(g&#39;(\phi)+\epsilon)\Delta\phi
+\]</span> 類似的，用<span
+class="math inline">\(\phi(x)\)</span>的一次近似，有 <span
+class="math display">\[
+\Delta\phi=(\phi&#39;(x)+\eta)\Delta x
+\]</span> 且<span class="math inline">\(\Delta x\to 0\)</span>時<span
+class="math inline">\(\eta\to 0\)</span>。故有 <span
+class="math display">\[
+\frac{\Delta g}{\Delta
+x}=(g&#39;(\phi)+\epsilon)\frac{\Delta\phi}{\Delta
+x}=(g&#39;(\phi)+\epsilon)(\phi&#39;(x)+\eta)
+\]</span> 而當<span class="math inline">\(\Delta x\to 0\)</span>時<span
+class="math inline">\(\eta\to 0\)</span>, <span
+class="math inline">\(\Delta\phi\to 0\)</span>且<span
+class="math inline">\(\epsilon\to 0\)</span>。故當<span
+class="math inline">\(\Delta x\to 0\)</span>時有 <span
+class="math display">\[
+\frac{\Delta g}{\Delta x}=g&#39;(\phi)\phi&#39;
+\]</span> 而由定義<span class="math inline">\(\frac{\Delta g}{\Delta
+x}=f&#39;\)</span>，證畢。<font size="1">QED</font></p>
+<h3 id="註記-2-1"><font color=#0000FF><u>註記 2-1</u></font></h3>
+<p>通常鏈鎖律也會寫成 <span class="math display">\[
+\frac{df}{dx}=\frac{dg}{d\phi}\cdot\frac{d\phi}{dx}
+\]</span></p>
+<h4 id="註記-2-1-1"><font color=#0000FF><u>註記 2-1-1</u></font></h4>
+<p>用這個形式可以推導出反函數的微分(<a
+href="https://alexthepurplerose.github.io/2024/07/03/cal-inverse/">這裡</a>的定理3)，推出來的形式會是
+<span class="math display">\[
+(f^{-1})&#39;=\frac{1}{f&#39;(f^{-1})}
+\]</span></p>
 
     </div>
 
@@ -236,7 +295,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
-              <a href="/tags/Functional-Analysis/" rel="tag"># Functional_Analysis</a>
+              <a href="/tags/Calculus/" rel="tag"># Calculus</a>
+              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
           </div>
 
         
@@ -245,13 +305,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/04/18/2023-functional-I/" rel="prev" title="2023蕭欽玉 泛函分析筆記">
-      <i class="fa fa-chevron-left"></i> 2023蕭欽玉 泛函分析筆記
+    <a href="/2024/07/04/Magic-Conch-Shell/" rel="prev" title="從神奇海螺論宗教與荒謬">
+      <i class="fa fa-chevron-left"></i> 從神奇海螺論宗教與荒謬
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/04/18/2023-geometry-intro/" rel="next" title="2023郭孝豪 幾何學導論筆記">
-      2023郭孝豪 幾何學導論筆記 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -310,6 +367,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%8F%88%E9%8E%96%E5%BE%8B"><span class="nav-number">1.</span> <span class="nav-text">鏈鎖律</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%90%88%E6%88%90%E5%87%BD%E6%95%B8-composition-function"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：合成函數 (Composition Function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E9%8F%88%E9%8E%96%E5%BE%8B-chain-rule"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2：鏈鎖律
+(Chain Rule)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1-1"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">註記 2-1-1</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
