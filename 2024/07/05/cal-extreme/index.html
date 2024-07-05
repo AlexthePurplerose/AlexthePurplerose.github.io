@@ -20,13 +20,15 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="這份筆記是關於函數極值的性質。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="微積分：極值">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/07/05/cal-extreme/index.html">
 <meta property="og:site_name" content="永蔚Alex">
+<meta property="og:description" content="這份筆記是關於函數極值的性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-07-05T06:35:18.000Z">
-<meta property="article:modified_time" content="2024-07-05T06:36:03.426Z">
+<meta property="article:modified_time" content="2024-07-05T07:11:27.855Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -191,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-05 14:35:18 / 修改時間：14:36:03" itemprop="dateCreated datePublished" datetime="2024-07-05T14:35:18+08:00">2024-07-05</time>
+              <time title="創建時間：2024-07-05 14:35:18 / 修改時間：15:11:27" itemprop="dateCreated datePublished" datetime="2024-07-05T14:35:18+08:00">2024-07-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,7 +220,84 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>這份筆記是關於函數極值的性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="二階導數檢驗法"><font color=#b8860b>二階導數檢驗法</font></h1>
+</center>
+<h2 id="回想-1"><font color=#0000FF><u>回想 1</u></font></h2>
+<p>給定函數<span class="math inline">\(f\)</span>在<span
+class="math inline">\((a,b)\)</span>可微，在<span
+class="math inline">\([a,b]\)</span>連續，則若<span
+class="math inline">\(\xi\in[a,b]\)</span>使得<span
+class="math inline">\(f\)</span>有在<span
+class="math inline">\([a,b]\)</span>上的最大值(或最小值)，則<span
+class="math inline">\(f&#39;(\xi)=0\)</span>(見<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的引理4-1(羅爾定理))。</p>
+<h2 id="定義-2相對極值-relative-extreme"><font color=#008000><u>定義
+2：相對極值 (Relative Extreme)</u></font></h2>
+<h3 id="定義-2-1相對極大值-relative-maximum"><font color=#008000><u>定義
+2-1：相對極大值 (Relative Maximum)</u></font></h3>
+<p>我們說<span class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(\xi\)</span>有相對極大值，若存在一個<span
+class="math inline">\(\xi\)</span>的鄰域使得在其中所有的<span
+class="math inline">\(x\)</span>有<span class="math inline">\(f(x)\leq
+f(\xi)\)</span>。</p>
+<h3 id="定義-2-2相對極小值-relative-minimum"><font color=#008000><u>定義
+2-2：相對極小值 (Relative Minimum)</u></font></h3>
+<p>我們說<span class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(\xi\)</span>有相對極小值，若存在一個<span
+class="math inline">\(\xi\)</span>的鄰域使得在其中所有的<span
+class="math inline">\(x\)</span>有<span class="math inline">\(f(x)\geq
+f(\xi)\)</span>。</p>
+<h3 id="註記2-3"><font color=#0000FF><u>註記2-3</u></font></h3>
+<p>須注意以下兩點： <br>1. 若<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\xi\)</span>有極值，則<span
+class="math inline">\(f&#39;(\xi)=0\)</span>。 <br>2. 就算<span
+class="math inline">\(f&#39;(\xi)=0\)</span>，<span
+class="math inline">\(f\)</span>也<u>不一定</u>在<span
+class="math inline">\(\xi\)</span>有極值(如考慮<span
+class="math inline">\(f(x)=x^3\)</span>雖然<span
+class="math inline">\(\xi=0\)</span>時<span
+class="math inline">\(f&#39;(\xi)=0\)</span>，但<span
+class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(\xi\)</span>沒有極值)。</p>
+<h2
+id="定理-3二階導數檢驗法-second-derivative-test"><font color=#ff1493><u>定理
+3：二階導數檢驗法 (Second Derivative Test)</u></font></h2>
+<p>若<span class="math inline">\(f&#39;(\xi)=0\)</span>，則 <br>1.
+若<span class="math inline">\(f&#39;&#39;(\xi)&gt;0\)</span>，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\xi\)</span>有相對極小值。 <br>2. 若<span
+class="math inline">\(f&#39;&#39;(\xi)&lt;0\)</span>，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\xi\)</span>有相對極大值。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們只證1.(2.同理)。<br></p>
+<p>由定義，有 <span class="math display">\[
+f&#39;&#39;(\xi)=\lim_{h\to 0}\frac{f&#39;(\xi+h)-f&#39;(\xi)}{h}&gt;0
+\]</span> 由於<span class="math inline">\(f&#39;(\xi)=0\)</span>，有
+<span class="math display">\[
+\lim_{h\to 0}\frac{f&#39;(\xi+h)}{h}&gt;0
+\]</span> 即當<span class="math inline">\(h\)</span>夠小時，<span
+class="math inline">\(f&#39;(\xi+h)\)</span>和<span
+class="math inline">\(h\)</span>同號。(意思是<span
+class="math inline">\(h\)</span>要夠小使得<span
+class="math inline">\(\frac{f&#39;(\xi+h&#39;)}{h&#39;}&gt;0\)</span>在<span
+class="math inline">\(h&#39;\in(-h,h)\)</span>時恆成立。因為<span
+class="math inline">\(f&#39;(x)\)</span>連續，我們可以找到這樣的<span
+class="math inline">\(h\)</span>。)故<span
+class="math inline">\(x&gt;\xi\)</span>時<span
+class="math inline">\(f&#39;(x)&gt;0\)</span>，<span
+class="math inline">\(x&lt;\xi\)</span>時<span
+class="math inline">\(f&#39;(x)&lt;0\)</span>(☆)。我們希望當<span
+class="math inline">\(h\)</span>足夠小時，<span
+class="math inline">\(f(\xi+h)-f(\xi)\geq 0\)</span>。<br></p>
+<p>由微分均值定理(<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的定理4)知存在<span
+class="math inline">\(\xi^*\in(\xi,\xi+h)\)</span>使得<span
+class="math inline">\(f(\xi+h)-f(\xi)=f&#39;(\xi^*)h\)</span>。而由上述(☆)式知<span
+class="math inline">\(f&#39;(\xi^*)h\geq
+0\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -301,6 +380,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E9%9A%8E%E5%B0%8E%E6%95%B8%E6%AA%A2%E9%A9%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">二階導數檢驗法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%83%B3-1"><span class="nav-number">1.1.</span> <span class="nav-text">回想 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E7%9B%B8%E5%B0%8D%E6%A5%B5%E5%80%BC-relative-extreme"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：相對極值 (Relative Extreme)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E7%9B%B8%E5%B0%8D%E6%A5%B5%E5%A4%A7%E5%80%BC-relative-maximum"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
+2-1：相對極大值 (Relative Maximum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-2%E7%9B%B8%E5%B0%8D%E6%A5%B5%E5%B0%8F%E5%80%BC-relative-minimum"><span class="nav-number">1.2.2.</span> <span class="nav-text">定義
+2-2：相對極小值 (Relative Minimum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%982-3"><span class="nav-number">1.2.3.</span> <span class="nav-text">註記2-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3%E4%BA%8C%E9%9A%8E%E5%B0%8E%E6%95%B8%E6%AA%A2%E9%A9%97%E6%B3%95-second-derivative-test"><span class="nav-number">1.3.</span> <span class="nav-text">定理
+3：二階導數檢驗法 (Second Derivative Test)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
