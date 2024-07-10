@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/09/cal-int-technique/wallis.jpg">
 <meta property="article:published_time" content="2024-07-09T07:55:14.000Z">
-<meta property="article:modified_time" content="2024-07-10T07:48:13.059Z">
+<meta property="article:modified_time" content="2024-07-10T08:49:33.780Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-07-10 15:48:13" itemprop="dateModified" datetime="2024-07-10T15:48:13+08:00">2024-07-10</time>
+                <time title="修改時間：2024-07-10 16:49:33" itemprop="dateModified" datetime="2024-07-10T16:49:33+08:00">2024-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -398,6 +398,145 @@ class="math display">\[
 <center>
 圖1 John Wallis
 </center>
+<center>
+<h1 id="有理函數的積分"><font color=#b8860b>有理函數的積分</font></h1>
+</center>
+<h2 id="定義-3有理函數-rational-functions"><font color=#008000><u>定義
+3：有理函數 (Rational Functions)</u></font></h2>
+<p>有理函數，即形如<span
+class="math inline">\(Q(x)=\frac{f(x)}{g(x)}\)</span>的函數，其中<span
+class="math inline">\(f,g\)</span>是多項式。</p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
+<p>對於我們想拿來積分的有理函數<span
+class="math inline">\(Q(x)=\frac{f(x)}{g(x)}\)</span>，我們可以有以些假設：
+<br>1. 可以假設<span class="math inline">\(\deg f&lt;\deg g\)</span>
+(不然就可以用長除法取餘式了) <br>2. 可以只考慮下列兩類的<span
+class="math inline">\(g\)</span>： <br>  1) <span
+class="math inline">\(g(x)=x^n\)</span> <br>  2) <span
+class="math inline">\(g(x)=(1+x^2)^m\)</span><br>
+(由代數基本定理知任意多項式<span
+class="math inline">\(g(x)\)</span>可以表為一堆一次多項式含二次多項式的積，且那些二次多項式沒有實根)<br>
+<font color=#8b4513><u>第2.點的說明</u></font>：我們可以考慮稍微廣一點點的狀況：
+<br> i) <span class="math inline">\(g(x)=(\alpha x+\beta)^n\)</span>
+<br> ii) <span
+class="math inline">\(g(x)=(ax^2+bx+c)^m\)</span>，其中<span
+class="math inline">\(ax^2+bx+c\)</span>是確定型二次式。</p>
+<h4
+id="定義-3-1-1確定型二次式-definite-quadratic-polynomial"><font color=#008000><u>定義
+3-1-1：確定型二次式 (Definite Quadratic Polynomial)</u></font></h4>
+<p>意思是無實根的二次式，判別式小於零。</p>
+<p>回到註記3-1的第2.點，我們將兩個狀況分開來討論積分： <br>i)
+一次式的狀況中，令<span class="math inline">\(\xi=\alpha
+x+\beta\)</span>, <span
+class="math inline">\(\frac{d\xi}{dx}=\alpha\)</span>, <span
+class="math inline">\(x=\frac{1}{\alpha}(\xi-\beta)\)</span>，則 <span
+class="math display">\[
+\int\frac{f(x)}{(\alpha
+x+\beta)^n}dx=\frac{f\left(\frac{\xi-\beta}{\alpha}\right)}{\xi^n}\cdot\frac{1}{\alpha}\cdot
+d\xi
+\]</span> 於是回到原本的狀況1)了。至於狀況1)，有 <span
+class="math display">\[
+\int\frac{1}{x^n}dx=\left\{
+\begin{aligned}
+\frac{1}{-n+1}x^{-n+1}&amp;,\mbox{ when }n&gt;1\\
+\log x&amp;,\mbox{ when }n=1
+\end{aligned}
+\right.
+\]</span> 則若<span
+class="math inline">\(f(x)=a_0+a_1x^1+\cdots+a_rx^r\)</span>，則 <span
+class="math display">\[
+\int\frac{f(x)}{x^n}dx=\int\left(\frac{a_0}{x^n}+\frac{a_1}{x^{n-1}}+\cdots+\frac{a_r}{x^{n-r}}\right)dx
+\]</span> <br>ii)我們有 <span class="math display">\[
+ax^2+bx+c=\frac{1}{a}\left(ax+\frac{b}{2}\right)^2+\frac{4ac-b^2}{4a}
+\]</span> 因為假設了<span
+class="math inline">\(ax^2+bx+c\)</span>的判別式小於零，故<span
+class="math inline">\(4ac-b^2&gt;0\)</span>，可以令<span
+class="math inline">\(d^2=\frac{1}{4}(4ac-b^2)\)</span>，故 <span
+class="math display">\[
+ax^2+bx+c=\frac{1}{a}\left(ax+\frac{b}{2}\right)+\frac{d^2}{a}
+\]</span> 令<span
+class="math inline">\(\xi=\frac{1}{d}\left(ax+\frac{b}{2}\right)\)</span>，則原式化為
+<span class="math display">\[
+\frac{d^2}{a}\left(\frac{1}{d^2}\left(ax+\frac{b}{2}\right)^2+1\right)=\frac{d^2}{a}(\xi^2+1)
+\]</span> 且<span
+class="math inline">\(\frac{d\xi}{dx}=\frac{a}{d}\)</span>，故 <span
+class="math display">\[
+\int\frac{f(x)}{(ax^2+bx+c)^m}dx=\frac{a}{d^2}\int\frac{f\left(\frac{d\xi-\frac{b}{2}}{a}\right)}{(1+\xi^2)^m}\cdot
+\frac{d}{a}\cdot d\xi
+\]</span> 這就是狀況2)了。至於狀況2)的積分，我們再分兩個細項：
+<br>a)在<span
+class="math inline">\(\int\frac{x}{(1+x^2)^m}dx\)</span>中，令<span
+class="math inline">\(\xi=1+x^2\)</span>, <span
+class="math inline">\(d\xi=2xdx\)</span>，故原式為 <span
+class="math display">\[
+\int\frac{1/2}{\xi^m}d\xi=\left\{
+\begin{aligned}
+\frac{1}{2}\log(1+x^2)&amp;,\mbox{ when }m=1\\
+\frac{-1}{2(m-1)(1+x^2)^{m-1}}&amp;,\mbox{ when }m&gt;1
+\end{aligned}
+\right.
+\]</span> <br>b)在<span
+class="math inline">\(\int\frac{1}{(1+x^2)^n}dx\)</span>中，記此積分為<span
+class="math inline">\(I_n\)</span>，有 <span class="math display">\[
+\begin{aligned}
+&amp;\frac{1}{(1+x^2)^n}=\frac{1}{(1+x^2)^{n-1}}-\frac{x^2}{(1+x^2)^n}\\
+\Rightarrow&amp;I_n=I_{n-1}-\int\frac{x^2}{(1+x^2)^n}dx
+\end{aligned}
+\]</span> 而 <span class="math display">\[
+\int\frac{x^2}{(1+x^2)^n}dx=\int\frac{x}{(1+x^2)^n}xdx
+\]</span> 使用分部積分法，其中<span
+class="math inline">\(g=\frac{x}{(1+x^2)^n}\)</span>, <span
+class="math inline">\(f&#39;=x\)</span>。故有 <span
+class="math display">\[
+I_n=\frac{x}{2(n-1)(1+x^2)^{n-1}}+\frac{2n-3}{2(n-1)}I_{n-1}
+\]</span> 然後就可以用遞迴來慢慢算出<span
+class="math inline">\(I_n\)</span>了。</p>
+<h2 id="定義-4部分分式-partial-fractions"><font color=#008000><u>定義
+4：部分分式 (Partial Fractions)</u></font></h2>
+<p>若<span class="math inline">\(g\)</span>有因式<span
+class="math inline">\((x-\alpha)^l\)</span>，則<span
+class="math inline">\(\frac{f}{(x-\alpha)^l}\)</span>可以寫成 <span
+class="math display">\[
+\frac{A_1}{x-\alpha}+\frac{A_2}{(x-\alpha)^2}+\cdots+\frac{A_l}{(x-\alpha)^l}
+\]</span> 其中<span
+class="math inline">\(A_1,A_2,\cdot,A_l\)</span>是一些常數。<br>
+而若<span class="math inline">\(g\)</span>有因式<span
+class="math inline">\((x^2+bx+c)^r=Q^r\)</span>，其中<span
+class="math inline">\(x^2+bx+c\)</span>無實根。則<span
+class="math inline">\(\frac{f}{(x^2+bx+c)^r}\)</span>可以寫成 <span
+class="math display">\[
+\frac{B_1x+c_1}{Q}+\frac{B_2x+c_2}{Q^2}+\cdots+\frac{B_rx+c_r}{Q^r}
+\]</span> 其中<span
+class="math inline">\(B_1,B_2,\cdots,B_r\)</span>及<span
+class="math inline">\(c_1,c_2,\cdots,c_r\)</span>是一些常數。<br>
+以上的這個行為稱為將有理函數寫為部分分式。</p>
+<h3 id="例-4-1"><font color=#ffa500><u>例 4-1</u></font></h3>
+<p>給定<span
+class="math inline">\(g=(x-\alpha_1)(x-\alpha_2)\cdots(x-\alpha_n)\)</span>及<span
+class="math inline">\(\deg f&lt;n\)</span>。則 <span
+class="math display">\[
+\frac{f}{g}=\frac{A_1}{x-\alpha_1}+\frac{A_2}{x-\alpha_2}+\cdots+\frac{A_n}{x-\alpha_n}
+\]</span> 其中 <span class="math display">\[
+A_i=\frac{f(\alpha_i)}{(\alpha_i-\alpha_1)(\alpha_1-\alpha_2)\cdots(\alpha_i-\alpha_{i-1})(\alpha_i-\alpha_{i+1})\cdots(\alpha_i-\alpha_n)}
+\]</span> 一般來說就是右邊通分之後分子是<span
+class="math inline">\(f\)</span>，而<span
+class="math inline">\(f\)</span>至多有<span
+class="math inline">\(n\)</span>項，<span
+class="math inline">\(A_1~A_n\)</span>是<span
+class="math inline">\(n\)</span>個未知數，故應可解。<span
+class="math inline">\((x^2+bx+c)^r\)</span>的狀況亦同。</p>
+<center>
+<h1 id="花里胡哨"><font color=#b8860b>花里胡哨</font></h1>
+</center>
+<h2 id="例-5"><font color=#ffa500><u>例 5</u></font></h2>
+<p>考慮積分 <span class="math display">\[
+\int\frac{\sin^2 x+2\cos x}{\cos^2 x+\sin x}dx
+\]</span> 令<span
+class="math inline">\(t=\tan\frac{x}{2}\)</span>，則<span
+class="math inline">\(\sin x=\frac{2t}{1+t^2}\)</span>, <span
+class="math inline">\(\cos x=\frac{1-t^2}{1+t^2}\)</span>，且<span
+class="math inline">\(\frac{dt}{dx}=\frac{1}{2\cos^2\frac{x}{2}}=\frac{1+t^2}{2}\)</span>。於是原式就化為<span
+class="math inline">\(t\)</span>的有理函數了。</p>
 
     </div>
 
@@ -484,7 +623,10 @@ class="math display">\[
 1：變數變換法 (Substitution Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E9%83%A8%E7%A9%8D%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">分部積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E5%88%86%E9%83%A8%E7%A9%8D%E5%88%86%E6%B3%95-integration-by-parts"><span class="nav-number">2.1.</span> <span class="nav-text">定理
 2：分部積分法 (Integration by Parts)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8"><span class="nav-number">2.1.1.</span> <span class="nav-text">例
 2-1：三角函數</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2-1-1%E7%93%A6%E5%88%A9%E6%96%AF%E5%85%AC%E5%BC%8F-wallis-formula"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">定理
-2-1-1：瓦利斯公式 (Wallis&#39; Formula)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+2-1-1：瓦利斯公式 (Wallis&#39; Formula)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E5%87%BD%E6%95%B8%E7%9A%84%E7%A9%8D%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">有理函數的積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E6%9C%89%E7%90%86%E5%87%BD%E6%95%B8-rational-functions"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+3：有理函數 (Rational Functions)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 3-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1-1%E7%A2%BA%E5%AE%9A%E5%9E%8B%E4%BA%8C%E6%AC%A1%E5%BC%8F-definite-quadratic-polynomial"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">定義
+3-1-1：確定型二次式 (Definite Quadratic Polynomial)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%83%A8%E5%88%86%E5%88%86%E5%BC%8F-partial-fractions"><span class="nav-number">3.2.</span> <span class="nav-text">定義
+4：部分分式 (Partial Fractions)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">例 4-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8A%B1%E9%87%8C%E8%83%A1%E5%93%A8"><span class="nav-number">4.</span> <span class="nav-text">花里胡哨</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-5"><span class="nav-number">4.1.</span> <span class="nav-text">例 5</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
