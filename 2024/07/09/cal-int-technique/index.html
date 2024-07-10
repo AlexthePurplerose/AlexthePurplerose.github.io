@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於各式積分技巧。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/09/cal-int-technique/wallis.jpg">
 <meta property="article:published_time" content="2024-07-09T07:55:14.000Z">
-<meta property="article:modified_time" content="2024-07-09T08:26:43.361Z">
+<meta property="article:modified_time" content="2024-07-10T07:48:13.059Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/09/cal-int-technique/wallis.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/09/cal-int-technique/">
 
@@ -191,10 +193,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-07-09 15:55:14 / 修改時間：16:26:43" itemprop="dateCreated datePublished" datetime="2024-07-09T15:55:14+08:00">2024-07-09</time>
+              <time title="創建時間：2024-07-09 15:55:14" itemprop="dateCreated datePublished" datetime="2024-07-09T15:55:14+08:00">2024-07-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-07-10 15:48:13" itemprop="dateModified" datetime="2024-07-10T15:48:13+08:00">2024-07-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -267,7 +275,129 @@ class="math inline">\(x=\phi(u)\)</span> (<span
 class="math inline">\(\Psi(x)=u\)</span>)，則<span
 class="math inline">\(h(\phi(u))=\frac{f(\phi(u))}{\Psi&#39;(x)}\)</span>。又<span
 class="math inline">\(\frac{d\Psi}{dx}=\frac{1}{\phi&#39;(u)}\)</span>，則<span
-class="math inline">\(h(\phi(u))=f(\phi(u))\phi&#39;(u)\)</span>，如是變寫成(★)的形式了。</p>
+class="math inline">\(h(\phi(u))=f(\phi(u))\phi&#39;(u)\)</span>，如是便寫成(★)的形式了。<br></p>
+<p><font color=#8b4513><u>定理1的證明</u></font>：我們希望說明左式的黎曼和等於右式的黎曼和。令<span
+class="math inline">\(\{x_0,\cdots,x_n\}\)</span>是<span
+class="math inline">\([a,b]\)</span>的一個分割，且令<span
+class="math inline">\(u_i=\Psi(x_i)\)</span>，則<span
+class="math inline">\(\{u_0,\cdots,u_n\}\)</span>是<span
+class="math inline">\([\alpha,\beta]\)</span>的一個分割(<span
+class="math inline">\(\Psi(a)=\alpha\)</span>, <span
+class="math inline">\(\Psi(b)=\beta\)</span>)。又令<span
+class="math inline">\(\Delta x_i=x_i-x_{i-1}\)</span>, <span
+class="math inline">\(\Delta u_i=u_i-u_{i-1}\)</span>，因為<span
+class="math inline">\(\Psi\)</span>嚴格單調，故<span
+class="math inline">\(u_i=\Psi(x_i)\neq\Psi(x_{i-1})=u_{i-1}\)</span>
+i.e. <span class="math inline">\(\Delta u_i\neq
+0\)</span>。則左式的黎曼和為 <span class="math display">\[
+\lim_{n\to\infty}\sum_{v=1}^n h(\Psi(\xi_v))\Delta x_v
+\]</span> 其中<span
+class="math inline">\(\xi_v\in[x_{v-1},x_v]\)</span>(由黎曼和的存在性知(<a
+href="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/">這裡</a>的定理1-3)<span
+class="math inline">\(\xi_v\)</span>要怎麼選都可以)，令<span
+class="math inline">\(S_v=\Psi(\xi_v)\)</span>，則上式變為 <span
+class="math display">\[
+\lim_{n\to\infty}\sum_{v=1}^n h(S_v)\times\frac{\Delta x_v}{\Delta
+u_v}\times\Delta u_v
+\]</span> 由微分均值定理(<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的定理4)知存在<span
+class="math inline">\(\eta_v\in[u_{v-1},u_v]\)</span> s.t. <span
+class="math inline">\(\frac{\Delta x_v}{\Delta
+u_v}=\phi&#39;(\eta_v)\)</span>(這裡的<span
+class="math inline">\(\phi\)</span>是<span
+class="math inline">\(\Psi\)</span>的反函數)<br> (詳細來說是 <span
+class="math display">\[
+\frac{\Delta u_v}{\Delta
+x_v}=\frac{\Psi(x_v)-\Psi(x_{v-1})}{x_v-x_{v-1}}=\Psi&#39;(r)
+\]</span> 對於某些<span
+class="math inline">\(r\in[x_{v-1},x_v]\)</span>。令<span
+class="math inline">\(\eta_v=\Psi(r)\)</span>，則 <span
+class="math display">\[
+\frac{\Delta x_v}{\Delta u_v}=\frac{1}{\Psi&#39;(r)}=\phi&#39;(\eta_v)
+\]</span> (<a
+href="https://alexthepurplerose.github.io/2024/07/03/cal-inverse/">這裡</a>的定理3或<a
+href="https://alexthepurplerose.github.io/2024/07/05/cal-compose/">這裡</a>的註記2-1-1))<br>
+反正<span class="math inline">\(\xi_v\)</span>可以任選，選擇<span
+class="math inline">\(\xi_v\)</span>使<span
+class="math inline">\(\Psi(\xi_v)=\eta_v\)</span>，即<span
+class="math inline">\(S_v=\eta_v\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+\lim_{n\to\infty}\sum_{v=1}^n h(S_v)\times\frac{\Delta x_v}{\Delta
+u_v}\times\Delta u_v&amp;=\lim_{n\to\infty}\sum_{v=1}^n
+h(\eta_v)\times\phi&#39;(\eta_v)\Delta u_v\\
+&amp;=\int_\alpha^\beta h(u)\frac{dx}{du}du
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="分部積分"><font color=#b8860b>分部積分</font></h1>
+</center>
+<h2
+id="定理-2分部積分法-integration-by-parts"><font color=#ff1493><u>定理
+2：分部積分法 (Integration by Parts)</u></font></h2>
+<p>由<span class="math inline">\((fg)&#39;=f&#39;g+fg&#39;\)</span>有
+<span class="math display">\[
+\int f&#39;g=fg-\int fg&#39;
+\]</span></p>
+<h3 id="例-2-1三角函數"><font color=#ffa500><u>例
+2-1：三角函數</u></font></h3>
+<p>由分部積分法，有 <span class="math display">\[
+\begin{aligned}
+\int \cos^n xdx&amp;=\int\cos^{n-1}x\cdot\cos xdx\\
+&amp;=\int\cos^{n-1}x\cdot(\sin x)&#39;dx\\
+&amp;=\sin x\cos^{n-1}x+(n-1)\int\cos^{n-2}x\sin^2 xdx
+\end{aligned}
+\]</span> 又<span class="math inline">\(\sin^2 x=1-\cos^2 x\)</span>，故
+<span class="math display">\[
+\int\cos^n xdx=\frac{1}{n}\cos^{n-1}x\sin
+x+\frac{n-1}{n}\int\cos^{n-2}xdx
+\]</span> 類似的有 <span class="math display">\[
+\int\sin^n xdx=-\frac{1}{n}\sin^{n-1}x\cos
+x+\frac{n-1}{n}\int\sin^{n-2}xdx
+\]</span> 於是我們就可以繼續這樣遞迴下去了。<br></p>
+<p>考慮 <span class="math display">\[
+\int_0^\frac{\pi}{2}\sin^n
+xdx=\frac{n-1}{n}\int_0^\frac{\pi}{2}\sin^{n-2}xdx
+\]</span> 則： <br>1. 若<span class="math inline">\(n=2m\)</span> (<span
+class="math inline">\(n\)</span>為偶數)，則 <span
+class="math display">\[
+\int_0^\frac{\pi}{2}\sin^{2m}xdx=\frac{2m-1}{2m}\cdot\frac{2m-3}{2m-2}\cdot\cdots\cdot\frac{1}{2}\cdot\int_0^\frac{\pi}{2}dx
+\]</span> <br>2. 若<span class="math inline">\(n=2m+1\)</span> (<span
+class="math inline">\(n\)</span>為奇數)，則 <span
+class="math display">\[
+\int_0^\frac{\pi}{2}\sin^{2m+1}xdx=\frac{2m}{2m+1}\cdot\frac{2m-2}{2m-1}\cdot\cdots\cdot\frac{2}{3}\cdot\int_0^\frac{\pi}{2}\sin
+xdx
+\]</span> 兩式相除整理，可得 <span class="math display">\[
+\frac{\pi}{2}=\frac{2\times 2}{1\times 3}\times\frac{4\times 4}{3\times
+5}\times\cdots\times\frac{\int_0^\frac{\pi}{2}\sin^{2m}xdx}{\int_0^\frac{\pi}{2}\sin^{2m+1}xdx}\mbox{
+(★★)}
+\]</span> 又在<span
+class="math inline">\([a,\frac{\pi}{2}]\)</span>中<span
+class="math inline">\(\sin x&lt;1\)</span>，故<span
+class="math inline">\(\sin^{2m-1}x\geq\sin^{2m}x\geq\sin^{2m+1}x\)</span>，故
+<span class="math display">\[
+\frac{\int_0^\frac{\pi}{2}\sin^{2m}xdx}{\int_0^\frac{\pi}{2}\sin^{2m+1}xdx}\geq
+1
+\]</span> 並且用前面的遞迴式，可以知道 <span class="math display">\[
+\frac{\int_0^\frac{\pi}{2}\sin^{2m-1}xdx}{\int_0^\frac{\pi}{2}\sin^{2m+1}xdx}=1+\frac{1}{2m}
+\]</span> 故 <span class="math display">\[
+1\leq\frac{\int_0^\frac{\pi}{2}\sin^{2m}xdx}{\int_0^\frac{\pi}{2}\sin^{2m+1}xdx}\leq\frac{\int_0^\frac{\pi}{2}\sin^{2m-1}xdx}{\int_0^\frac{\pi}{2}\sin^{2m+1}xdx}\leq
+1+\frac{1}{2m}
+\]</span> 故<span class="math inline">\(m\to\infty\)</span>時， <span
+class="math display">\[
+\frac{\int_0^\frac{\pi}{2}\sin^{2m}xdx}{\int_0^\frac{\pi}{2}\sin^{2m+1}xdx}\to
+1
+\]</span> 故由上面(★★)有：</p>
+<h4 id="定理-2-1-1瓦利斯公式-wallis-formula"><font color=#ff1493><u>定理
+2-1-1：瓦利斯公式 (Wallis' Formula)</u></font></h4>
+<p><span class="math display">\[
+\frac{\pi}{2}=\frac{2\times 2}{1\times 3}\times\frac{4\times 4}{3\times
+5}\times\cdots=\prod_{i=1}^\infty\frac{(2i)^2}{(2i-1)(2i+1)}
+\]</span></p>
+<img src="wallis.jpg" width="25%" height="25%">
+<center>
+圖1 John Wallis
+</center>
 
     </div>
 
@@ -351,7 +481,10 @@ class="math inline">\(h(\phi(u))=f(\phi(u))\phi&#39;(u)\)</span>，如是變寫�
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E8%AE%8A%E6%8F%9B"><span class="nav-number">1.</span> <span class="nav-text">變數變換</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1%E8%AE%8A%E6%95%B8%E8%AE%8A%E6%8F%9B%E6%B3%95-substitution-method"><span class="nav-number">1.1.</span> <span class="nav-text">定理
-1：變數變換法 (Substitution Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li></ol></li></ol></div>
+1：變數變換法 (Substitution Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E9%83%A8%E7%A9%8D%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">分部積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E5%88%86%E9%83%A8%E7%A9%8D%E5%88%86%E6%B3%95-integration-by-parts"><span class="nav-number">2.1.</span> <span class="nav-text">定理
+2：分部積分法 (Integration by Parts)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8"><span class="nav-number">2.1.1.</span> <span class="nav-text">例
+2-1：三角函數</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2-1-1%E7%93%A6%E5%88%A9%E6%96%AF%E5%85%AC%E5%BC%8F-wallis-formula"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">定理
+2-1-1：瓦利斯公式 (Wallis&#39; Formula)</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
