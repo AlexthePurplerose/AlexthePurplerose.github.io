@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於泰勒級數的收斂性與適用性。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-07-14T07:26:23.000Z">
-<meta property="article:modified_time" content="2024-07-14T07:27:29.308Z">
+<meta property="article:modified_time" content="2024-07-14T07:51:20.363Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-14 15:26:23 / 修改時間：15:27:29" itemprop="dateCreated datePublished" datetime="2024-07-14T15:26:23+08:00">2024-07-14</time>
+              <time title="創建時間：2024-07-14 15:26:23 / 修改時間：15:51:20" itemprop="dateCreated datePublished" datetime="2024-07-14T15:26:23+08:00">2024-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +221,51 @@
 
       
         <p>這份筆記是關於泰勒級數的收斂性與適用性。 <span id="more"></span><br></p>
+<center>
+<h1
+id="泰勒級數的適用性"><font color=#b8860b>泰勒級數的適用性</font></h1>
+</center>
+<h2 id="定理-1"><font color=#ff1493><u>定理 1</u></font></h2>
+<p>給定定義在<span class="math inline">\([a,b]\)</span>上的函數<span
+class="math inline">\(f(x)\)</span>。若對所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>與<span
+class="math inline">\(x\in(a,b)\)</span>有<span
+class="math inline">\(f^{(n)}(x)\geq 0\)</span>，則當<span
+class="math inline">\(|h|\leq b-x\)</span>時，有 <span
+class="math display">\[
+f(x+h)=\sum_{k=0}^\infty\frac{f^{(k)}(x)}{k!}h^k
+\]</span> 即函數值會等於泰勒級數值。</p>
+<p><font color=#8b4513><u>證明</u></font>：我們需要說明當<span
+class="math inline">\(n\to\infty\)</span>時，剩餘項<span
+class="math inline">\(R_n\to 0\)</span>。已知 <span
+class="math display">\[
+f(b)-f(a)=\int_a^b f&#39;(t)dt\geq\int_x^{x+h}f&#39;(t)dt
+\]</span> 令<span class="math inline">\(f(b)-f(a)=M\)</span>，則<span
+class="math inline">\(M\geq f(x+h)-f(x)\)</span> (<span
+class="math inline">\(f&#39;(x)\)</span>恆大於零，<span
+class="math inline">\(f(x)\)</span>嚴格遞增)。<br></p>
+<p>而把<span class="math inline">\(f\)</span>寫泰勒級數，有 <span
+class="math display">\[
+f(x+h)-f(x)=hf&#39;(x)+\frac{1}{2!}f&#39;&#39;(x)h^2+\cdots+\frac{1}{n!}f^{(n)}h^n+R_n
+\]</span> 故 <span class="math display">\[
+0\leq\frac{f^{(n)}(x)}{n!}\leq\frac{M}{h^n}\leq\frac{M}{(b-x)^n}
+\]</span> 使用柯西形式的<span class="math inline">\(R_n\)</span>(<a
+href="https://alexthepurplerose.github.io/2024/07/12/cal-taylor/">這裡</a>的定理10)，則
+<span class="math display">\[
+0\leq R_n=\frac{(1-\theta)^n}{n!}h^{n+1}f^{(n+1)}(x+\theta
+h)\leq\frac{(1-\theta)^n(n+1)Mh^{n+1}}{(b-x-\theta h)^{n+1}}
+\]</span> <span class="math inline">\(h\geq 0\)</span>時，選擇<span
+class="math inline">\(p&gt;0\)</span> s.t. <span
+class="math inline">\(0\leq h\leq\frac{b-x}{1+p}\)</span>，則<span
+class="math inline">\(b-x-\theta h\geq h(1+p-\theta)\)</span>。故 <span
+class="math display">\[
+0\leq
+R_n\leq\frac{Mh^{n+1}(n+1)(1+\theta)^n}{h^{n+1}(1-p-\theta)^{n+1}}\leq\frac{M(n+1)}{1+p-\theta}\left(\frac{1-\theta}{1-\theta+p}\right)^n\to
+0
+\]</span> (最後是因為<span
+class="math inline">\(1-\theta&lt;1-\theta+p\)</span>)。故<span
+class="math inline">\(h\geq 0\)</span>時<span
+class="math inline">\(R_n\to 0\)</span>。</p>
 
     </div>
 
@@ -303,6 +348,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E7%B4%9A%E6%95%B8%E7%9A%84%E9%81%A9%E7%94%A8%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">泰勒級數的適用性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1"><span class="nav-number">1.1.</span> <span class="nav-text">定理 1</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
