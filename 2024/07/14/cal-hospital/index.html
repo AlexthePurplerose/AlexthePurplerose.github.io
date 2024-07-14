@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於羅必達定理的說明。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-07-14T06:47:45.000Z">
-<meta property="article:modified_time" content="2024-07-14T07:05:15.705Z">
+<meta property="article:modified_time" content="2024-07-14T07:20:27.555Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-14 14:47:45 / 修改時間：15:05:15" itemprop="dateCreated datePublished" datetime="2024-07-14T14:47:45+08:00">2024-07-14</time>
+              <time title="創建時間：2024-07-14 14:47:45 / 修改時間：15:20:27" itemprop="dateCreated datePublished" datetime="2024-07-14T14:47:45+08:00">2024-07-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,7 +222,7 @@
       
         <p>這份筆記是關於羅必達定理的說明。 <span id="more"></span><br></p>
 <center>
-<h1 id="羅必達法則"><font color=#b8860b>羅必達法則</font></h1>
+<h1 id="交點階數"><font color=#b8860b>交點階數</font></h1>
 </center>
 <h2 id="定義-1n階交點-contact-of-n-th-order"><font color=#008000><u>定義
 1：n階交點 (Contact of n-th Order)</u></font></h2>
@@ -257,6 +257,57 @@ class="math inline">\(D(a+h)\)</span>的三階剩餘項)，故<span
 class="math inline">\(h\to 0\)</span>時<span
 class="math inline">\(D(a+h)\to
 0\)</span>。<font size="1">QED</font></p>
+<h2 id="定義-2零點階數-order-of-zero"><font color=#008000><u>定義
+2：零點階數 (Order of Zero)</u></font></h2>
+<p>我們說<span class="math inline">\(f(x)\)</span>在<span
+class="math inline">\(a\)</span>洽有<span
+class="math inline">\(n\)</span>階零點，若 <span class="math display">\[
+f(a)=f&#39;(a)=f&#39;&#39;(a)=\cdots=f^{(n-1)}(a)=0
+\]</span> 但<span class="math inline">\(f^{(n)}(a)\neq
+0\)</span>(這裡也會說<span class="math inline">\(f\)</span>在<span
+class="math inline">\(a\)</span><u>消失 (Vanish)</u>的階數是<span
+class="math inline">\(n\)</span>)。</p>
+<center>
+<h1 id="羅必達法則"><font color=#b8860b>羅必達法則</font></h1>
+</center>
+<p>考慮在<span class="math inline">\(a\)</span>洽有<span
+class="math inline">\(\nu\)</span>階零點的函數<span
+class="math inline">\(g(x)\)</span>，及在<span
+class="math inline">\(a\)</span>洽有<span
+class="math inline">\(\mu\)</span>階零點的函數<span
+class="math inline">\(f(x)\)</span>。我們想討論 <span
+class="math display">\[
+\phi(x)=\frac{f(x)}{g(x)}
+\]</span> 在<span class="math inline">\(a\)</span>附近的行為(假設<span
+class="math inline">\(g(x)\)</span>在<span
+class="math inline">\(a\)</span>附近都不是<span
+class="math inline">\(0\)</span>)。我們有：</p>
+<h2 id="定理-3羅必達法則-lhôpitals-rule"><font color=#ff1493><u>定理
+3：羅必達法則 (L'Hôpital's Rule)</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>和<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(a\)</span>消失的階數一樣(<span
+class="math inline">\(\mu=\nu\)</span>)或<span
+class="math inline">\(f\)</span>比<span
+class="math inline">\(g\)</span>多(<span
+class="math inline">\(\mu&gt;\nu\)</span>)。定義 <span
+class="math inline">\(\phi(x)=\frac{f(x)}{g(x)}\)</span>，則 <span
+class="math display">\[
+\lim_{h\to 0}\phi(a+h)=\lim_{h\to 0}\frac{f(a+h)}{g(a+h)}=\lim_{h\to
+0}\frac{f&#39;(a+h)}{g&#39;(a+h)}=\lim_{h\to
+0}\frac{f^{(v)}(a+h)}{g^{(v)}(a+h)}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：就對<span
+class="math inline">\(f\)</span>和<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(a\)</span>泰勒展開就好了。<font size="1">QED</font></p>
+<h3
+id="定義-3-1無限大的階數-order-of-infinity"><font color=#008000><u>定義
+3-1：無限大的階數 (Order of Infinity)</u></font></h3>
+<p>在上述定理3中，若<span
+class="math inline">\(\mu&lt;\nu\)</span>，則說<span
+class="math inline">\(\phi\)</span>前往無限大的階數是<span
+class="math inline">\(\nu-\mu\)</span>。</p>
 
     </div>
 
@@ -339,8 +390,11 @@ class="math inline">\(D(a+h)\to
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BE%85%E5%BF%85%E9%81%94%E6%B3%95%E5%89%87"><span class="nav-number">1.</span> <span class="nav-text">羅必達法則</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1n%E9%9A%8E%E4%BA%A4%E9%BB%9E-contact-of-n-th-order"><span class="nav-number">1.1.</span> <span class="nav-text">定義
-1：n階交點 (Contact of n-th Order)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">例 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E9%BB%9E%E9%9A%8E%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">交點階數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1n%E9%9A%8E%E4%BA%A4%E9%BB%9E-contact-of-n-th-order"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：n階交點 (Contact of n-th Order)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">例 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E9%9B%B6%E9%BB%9E%E9%9A%8E%E6%95%B8-order-of-zero"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：零點階數 (Order of Zero)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BE%85%E5%BF%85%E9%81%94%E6%B3%95%E5%89%87"><span class="nav-number">2.</span> <span class="nav-text">羅必達法則</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3%E7%BE%85%E5%BF%85%E9%81%94%E6%B3%95%E5%89%87-lh%C3%B4pitals-rule"><span class="nav-number">2.1.</span> <span class="nav-text">定理
+3：羅必達法則 (L&#39;Hôpital&#39;s Rule)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E7%84%A1%E9%99%90%E5%A4%A7%E7%9A%84%E9%9A%8E%E6%95%B8-order-of-infinity"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
+3-1：無限大的階數 (Order of Infinity)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
