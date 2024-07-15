@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/trapezoid.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/simpson.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/tsimpson.jpeg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/newton-m.jpg">
 <meta property="article:published_time" content="2024-07-15T07:57:50.000Z">
-<meta property="article:modified_time" content="2024-07-15T08:54:03.809Z">
+<meta property="article:modified_time" content="2024-07-15T12:46:38.643Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -197,7 +198,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-15 15:57:50 / 修改時間：16:54:03" itemprop="dateCreated datePublished" datetime="2024-07-15T15:57:50+08:00">2024-07-15</time>
+              <time title="創建時間：2024-07-15 15:57:50 / 修改時間：20:46:38" itemprop="dateCreated datePublished" datetime="2024-07-15T15:57:50+08:00">2024-07-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -229,7 +230,7 @@
 <h1 id="積分的計算"><font color=#b8860b>積分的計算</font></h1>
 </center>
 <h2
-id="定理-1黎曼和逼近-riemann-sum-approximation"><font color=#ff1493><u>定理
+id="定義-1黎曼和逼近-riemann-sum-approximation"><font color=#008000><u>定義
 1：黎曼和逼近 (Riemann Sum Approximation)</u></font></h2>
 <p>考慮<span class="math inline">\(\int_a^b f(x)\)</span>。把<span
 class="math inline">\([a,b]\)</span>分成<span
@@ -241,7 +242,9 @@ x_i-x_{i-1}=\frac{b-a}{n}=h
 \]</span> 令<span class="math inline">\(J=\int_a^b f(x)\)</span>，可見
 <span class="math display">\[
 J\approx f(x_1)h+f(x_2)h+\cdots+f(x_n)h
-\]</span> (這是黎曼和)則<span class="math inline">\(|J-\sum f(x_i)h|\leq
+\]</span> 這個方法稱為黎曼和逼近。</p>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<p>在黎曼和逼近中有則<span class="math inline">\(|J-\sum f(x_i)h|\leq
 O(h)\)</span>。<br></p>
 <p><font color=#8b4513><u>證明</u></font>：由積分均值定理(<a
 href="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/">這裡</a>的定理3)可知存在<span
@@ -269,9 +272,9 @@ class="math display">\[
 \end{aligned}
 \]</span> <font size="1">QED</font></p>
 <h2
-id="定理-2梯形逼近-trapezoid-approximation"><font color=#ff1493><u>定理
+id="定義-2梯形逼近-trapezoid-approximation"><font color=#008000><u>定義
 2：梯形逼近 (Trapezoid Approximation)</u></font></h2>
-<p>使用和定理1一樣的方式分割<span
+<p>使用和定義1一樣的方式分割<span
 class="math inline">\([a,b]\)</span>，在區間<span
 class="math inline">\([x_{v-1},x_v]\)</span>中作函數過<span
 class="math inline">\(x_v-h/2\)</span>的切線(見下圖1)。</p>
@@ -279,6 +282,8 @@ class="math inline">\(x_v-h/2\)</span>的切線(見下圖1)。</p>
 <center>
 圖1
 </center>
+<p>我們用梯形下方面積和來估計積分值。</p>
+<h3 id="註記-2-1"><font color=#0000FF><u>註記 2-1</u></font></h3>
 <p>一樣定義<span class="math inline">\(J=\int_a^b f(x)\)</span>，則
 <span class="math display">\[
 |J-\sum\textcolor{red}{\mbox{切線下面積}}|\leq O(h^2)
@@ -295,9 +300,9 @@ Mh^3
 \]</span> 故也有 <span class="math display">\[
 |J-\sum\textcolor{red}{\mbox{切線下面積}}|\leq O(h^2)
 \]</span> <font size="1">QED</font></p>
-<h2 id="定理-3辛普森方法-simpsons-method"><font color=#ff1493><u>定理
+<h2 id="定義-3辛普森方法-simpsons-method"><font color=#008000><u>定義
 3：辛普森方法 (Simpson's Method)</u></font></h2>
-<p>使用和定理1一樣的方式分割<span
+<p>使用和定義1一樣的方式分割<span
 class="math inline">\([a,b]\)</span>，令<span
 class="math inline">\(n=2m\)</span>，考慮經過<span
 class="math inline">\((x_{v-1}, f(x_{v-1})), (x_v,f(x_v)), (x_{v+1},
@@ -306,6 +311,8 @@ f(x_{v+1}))\)</span>三點的二次函數(見下圖2)。</p>
 <center>
 圖2
 </center>
+<p>我們用二次函數下的面積和來估計積分值。</p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
 <p>一樣定義<span class="math inline">\(J=\int_a^b f(x)\)</span>，則
 <span class="math display">\[
 |J-\sum\textcolor{red}{\mbox{二次函數下面積}}|\leq O(h^4)
@@ -332,6 +339,111 @@ f(x)=f(x_v)+f&#39;(x_v)(x-x_v)+\frac{f&#39;&#39;(x_v)}{2!}(x-x_v)^2+\frac{f&#39;
 <center>
 圖3 Thomas Simpson
 </center>
+<center>
+<h1 id="迭代"><font color=#b8860b>迭代</font></h1>
+</center>
+<p>這裡我們想考慮一個問題：給定一個函數<span
+class="math inline">\(f(x)\)</span>，我們想找到<span
+class="math inline">\(\xi\)</span>使得<span
+class="math inline">\(f(\xi)=0\)</span>。</p>
+<h2 id="定義-4牛頓法-newton-method"><font color=#008000><u>定義
+4：牛頓法 (Newton Method)</u></font></h2>
+<p>選定<span class="math inline">\(x_0\)</span>，作<span
+class="math inline">\(f\)</span>過<span
+class="math inline">\((x_0,f(x_0))\)</span>的切線，交<span
+class="math inline">\(x\)</span>軸於<span
+class="math inline">\(x_1\)</span>。再作<span
+class="math inline">\(f\)</span>過<span
+class="math inline">\((x_1,f(x_1))\)</span>的切線，如此反覆(見下圖4)。</p>
+<img src="newton-m.jpg" width="50%" height="50%">
+<center>
+圖4
+</center>
+<p>易知 <span class="math display">\[
+x_{n+1}=x_n-\frac{f(x_n)}{f&#39;(x_n)}
+\]</span> 我們想找出<span
+class="math inline">\(x_n\to\xi\)</span>的條件。</p>
+<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
+<p>令<span class="math inline">\(h_n=\xi-x_n\)</span>，則存在某個<span
+class="math inline">\(\mu\)</span>使得<span
+class="math inline">\(|h_{n+1}|\leq\mu h^2_n\)</span> (其實需要一些<span
+class="math inline">\(f\)</span>的條件，等一下會講清楚)。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+h_{n+1}=\xi-x_{n+1}=\xi-x_n-\frac{f(\xi)-f(x_n)}{f&#39;(x_n)}
+\]</span> 而由泰勒定理，存在<span
+class="math inline">\(\eta\)</span>使得 <span class="math display">\[
+f(\xi)=f(x_n)+(\xi-x_n)f&#39;(x_n)+\frac{1}{2}(\xi-x_n)^2f&#39;&#39;(\eta)
+\]</span> 塞回上式，得 <span class="math display">\[
+h_{n+1}=\frac{-f&#39;&#39;(\eta)}{2f&#39;(x_n)}h^2_n
+\]</span> 於是，如果： <br>1. 存在<span
+class="math inline">\(M\)</span>使得<span
+class="math inline">\(|f&#39;&#39;(x)|\leq M\)</span> <br>2. 存在<span
+class="math inline">\(c\)</span>使得<span
+class="math inline">\(|f&#39;(x)|\geq c&gt;0\)</span><br> 則<span
+class="math inline">\(|h_{n+1}|\leq\mu
+h^2_n\)</span>。<font size="1">QED</font></p>
+<p>於是，如果<span class="math inline">\(\mu&lt;1\)</span>，那就有<span
+class="math inline">\(x_n\to\xi\)</span>了。</p>
+<h2 id="定義-5不動點-fixed-point"><font color=#008000><u>定義 5：不動點
+(Fixed Point)</u></font></h2>
+<p>給定函數<span class="math inline">\(\phi(x)\)</span>，不動點<span
+class="math inline">\(\xi\)</span>即使得<span
+class="math inline">\(\phi(\xi)=\xi\)</span>的點。</p>
+<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
+<p>可以用不動點找根。<br></p>
+<p><font color=#8b4513><u>說明</u></font>：考慮<span
+class="math inline">\(\phi(x)=x-c(x)f(x)\)</span>，其中<span
+class="math inline">\(c(x)\)</span>是一個非零函數。若<span
+class="math inline">\(\phi\)</span>有不動點<span
+class="math inline">\(\xi\)</span>，則 <span class="math display">\[
+\xi=\phi(\xi)=\xi-c(\xi)f(\xi)
+\]</span> 於是可知<span class="math inline">\(f(\xi)=0\)</span>。</p>
+<h3 id="註記-5-2"><font color=#0000FF><u>註記 5-2</u></font></h3>
+<p>隨意找一個點<span class="math inline">\(x_0\)</span>，令<span
+class="math inline">\(x_{n+1}=\phi(x_n)\)</span>。若<span
+class="math inline">\(\{x_n\}\)</span>收斂到某個<span
+class="math inline">\(\xi\)</span>，則<span
+class="math inline">\(\xi\)</span>是不動點。</p>
+<h3 id="註記-5-3"><font color=#0000FF><u>註記 5-3</u></font></h3>
+<p>若對於在所有在某區間<span class="math inline">\(I\)</span>內的<span
+class="math inline">\(x\)</span>，且<span
+class="math inline">\(I\)</span>中有不動點<span
+class="math inline">\(\xi\)</span>。且存在某個<span
+class="math inline">\(q\)</span>使得<span
+class="math inline">\(|\phi&#39;(x)|\leq
+q&lt;1\)</span>。則對任意一個<span class="math inline">\(x_0\in
+I\)</span>，有<span class="math inline">\(x_n\to\xi\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：因為<span
+class="math inline">\(x_{n+1}-\xi=\phi(x_n)-\phi(\xi)\)</span>。我們希望說明<span
+class="math inline">\(|x_{n+1}-\xi|\leq q^n|x_1-\xi|\)</span>。我們有
+<span class="math display">\[
+\begin{aligned}
+|x_{n+1}-\xi|&amp;=|\phi(x_n)-\phi(\xi)|\\
+&amp;\leq |\phi&#39;(\eta)||x_n-\xi|\\
+&amp;\leq q|x_n-\xi|\\
+&amp;\leq\cdots\\
+&amp;\leq q^n|x_1-\xi|
+\end{aligned}
+\]</span> 中間的<span
+class="math inline">\(\eta\)</span>是微分均值定理(<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的定理4)的<span
+class="math inline">\(\phi(x_n)-\phi(\xi)=\phi&#39;(\eta)(x_n-\xi)\)</span>。故<span
+class="math inline">\(n\to\infty\)</span>時<span
+class="math inline">\(|x_{n+1}-\xi|\to 0\)</span>，即<span
+class="math inline">\(x_n\to\xi\)</span>。<font size="1">QED</font></p>
+<h3
+id="定義-5-4壓縮函數-contractive-function"><font color=#008000><u>定義
+5-4：壓縮函數 (Contractive Function)</u></font></h3>
+<p>滿足<span class="math inline">\(|\phi&#39;(x)|\leq
+q&lt;1\)</span>的函數<span
+class="math inline">\(\phi\)</span>稱為壓縮函數。<br></p>
+<p>回到找根的問題，令<span
+class="math inline">\(\phi(x)=x-c(x)f(x)\)</span>，則<span
+class="math inline">\(\phi&#39;(x)=1-c&#39;(x)f(x)-c(x)f&#39;(x)\)</span>，且<span
+class="math inline">\(\phi&#39;(\xi)=1-c&#39;(\xi)f(\xi)-c(\xi)f&#39;(\xi)\)</span>。若<span
+class="math inline">\(f(\xi)=0\)</span>，則<span
+class="math inline">\(\phi&#39;(xi)=1-c(\xi)f&#39;(\xi)\)</span>。假設</p>
 
     </div>
 
@@ -414,10 +526,13 @@ f(x)=f(x_v)+f&#39;(x_v)(x-x_v)+\frac{f&#39;&#39;(x_v)}{2!}(x-x_v)^2+\frac{f&#39;
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E7%9A%84%E8%A8%88%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text">積分的計算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1%E9%BB%8E%E6%9B%BC%E5%92%8C%E9%80%BC%E8%BF%91-riemann-sum-approximation"><span class="nav-number">1.1.</span> <span class="nav-text">定理
-1：黎曼和逼近 (Riemann Sum Approximation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E6%A2%AF%E5%BD%A2%E9%80%BC%E8%BF%91-trapezoid-approximation"><span class="nav-number">1.2.</span> <span class="nav-text">定理
-2：梯形逼近 (Trapezoid Approximation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3%E8%BE%9B%E6%99%AE%E6%A3%AE%E6%96%B9%E6%B3%95-simpsons-method"><span class="nav-number">1.3.</span> <span class="nav-text">定理
-3：辛普森方法 (Simpson&#39;s Method)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E7%9A%84%E8%A8%88%E7%AE%97"><span class="nav-number">1.</span> <span class="nav-text">積分的計算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E9%BB%8E%E6%9B%BC%E5%92%8C%E9%80%BC%E8%BF%91-riemann-sum-approximation"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：黎曼和逼近 (Riemann Sum Approximation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E6%A2%AF%E5%BD%A2%E9%80%BC%E8%BF%91-trapezoid-approximation"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：梯形逼近 (Trapezoid Approximation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E8%BE%9B%E6%99%AE%E6%A3%AE%E6%96%B9%E6%B3%95-simpsons-method"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：辛普森方法 (Simpson&#39;s Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3"><span class="nav-number">2.</span> <span class="nav-text">迭代</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E7%89%9B%E9%A0%93%E6%B3%95-newton-method"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+4：牛頓法 (Newton Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E4%B8%8D%E5%8B%95%E9%BB%9E-fixed-point"><span class="nav-number">2.2.</span> <span class="nav-text">定義 5：不動點
+(Fixed Point)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 5-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">註記 5-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-3"><span class="nav-number">2.2.3.</span> <span class="nav-text">註記 5-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-4%E5%A3%93%E7%B8%AE%E5%87%BD%E6%95%B8-contractive-function"><span class="nav-number">2.2.4.</span> <span class="nav-text">定義
+5-4：壓縮函數 (Contractive Function)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
