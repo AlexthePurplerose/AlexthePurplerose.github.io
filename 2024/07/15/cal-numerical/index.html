@@ -31,8 +31,12 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/simpson.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/tsimpson.jpeg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/newton-m.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/newton.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/stirling-a.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/stirling-b.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/15/cal-numerical/stirling.jpeg">
 <meta property="article:published_time" content="2024-07-15T07:57:50.000Z">
-<meta property="article:modified_time" content="2024-07-15T12:46:38.643Z">
+<meta property="article:modified_time" content="2024-07-16T07:12:31.798Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -196,10 +200,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-07-15 15:57:50 / 修改時間：20:46:38" itemprop="dateCreated datePublished" datetime="2024-07-15T15:57:50+08:00">2024-07-15</time>
+              <time title="創建時間：2024-07-15 15:57:50" itemprop="dateCreated datePublished" datetime="2024-07-15T15:57:50+08:00">2024-07-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-07-16 15:12:31" itemprop="dateModified" datetime="2024-07-16T15:12:31+08:00">2024-07-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -385,6 +395,10 @@ class="math inline">\(|h_{n+1}|\leq\mu
 h^2_n\)</span>。<font size="1">QED</font></p>
 <p>於是，如果<span class="math inline">\(\mu&lt;1\)</span>，那就有<span
 class="math inline">\(x_n\to\xi\)</span>了。</p>
+<img src="newton.jpg" width="25%" height="25%">
+<center>
+圖5 Isaac Newton
+</center>
 <h2 id="定義-5不動點-fixed-point"><font color=#008000><u>定義 5：不動點
 (Fixed Point)</u></font></h2>
 <p>給定函數<span class="math inline">\(\phi(x)\)</span>，不動點<span
@@ -432,9 +446,9 @@ class="math inline">\(\phi(x_n)-\phi(\xi)=\phi&#39;(\eta)(x_n-\xi)\)</span>。�
 class="math inline">\(n\to\infty\)</span>時<span
 class="math inline">\(|x_{n+1}-\xi|\to 0\)</span>，即<span
 class="math inline">\(x_n\to\xi\)</span>。<font size="1">QED</font></p>
-<h3
-id="定義-5-4壓縮函數-contractive-function"><font color=#008000><u>定義
-5-4：壓縮函數 (Contractive Function)</u></font></h3>
+<h4
+id="定義-5-3-1壓縮函數-contractive-function"><font color=#008000><u>定義
+5-3-1：壓縮函數 (Contractive Function)</u></font></h4>
 <p>滿足<span class="math inline">\(|\phi&#39;(x)|\leq
 q&lt;1\)</span>的函數<span
 class="math inline">\(\phi\)</span>稱為壓縮函數。<br></p>
@@ -443,7 +457,126 @@ class="math inline">\(\phi(x)=x-c(x)f(x)\)</span>，則<span
 class="math inline">\(\phi&#39;(x)=1-c&#39;(x)f(x)-c(x)f&#39;(x)\)</span>，且<span
 class="math inline">\(\phi&#39;(\xi)=1-c&#39;(\xi)f(\xi)-c(\xi)f&#39;(\xi)\)</span>。若<span
 class="math inline">\(f(\xi)=0\)</span>，則<span
-class="math inline">\(\phi&#39;(xi)=1-c(\xi)f&#39;(\xi)\)</span>。假設</p>
+class="math inline">\(\phi&#39;(xi)=1-c(\xi)f&#39;(\xi)\)</span>。假設<span
+class="math inline">\(f&#39;\)</span>非零，令<span
+class="math inline">\(c(x)=\frac{1}{f&#39;(x)}\)</span>，則<span
+class="math inline">\(\phi&#39;(\xi)=0\)</span>。由於<span
+class="math inline">\(\phi&#39;\)</span>連續，故有一個在<span
+class="math inline">\(\xi\)</span>附近的區間使得在區間中<span
+class="math inline">\(|\phi&#39;(x)|&lt;1\)</span>。且有 <span
+class="math display">\[
+\phi(x)=x-\frac{f(x)}{f&#39;(x)},
+\phi&#39;(x)=\frac{f(x)f&#39;&#39;(x)}{f&#39;(x)^2}
+\]</span> 沿用定義4與註記4-1中的符號，有 <span class="math display">\[
+|h_{n+1}|=|\phi(x_n)-\phi(\xi)|=|\phi&#39;(\eta)||x_n-\xi|=|\phi&#39;(\eta)||h_n|
+\]</span> 如此重複迭代，也會有註記4-1的結論。</p>
+<center>
+<h1 id="史特靈公式"><font color=#b8860b>史特靈公式</font></h1>
+</center>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>我們有一個估計<span class="math inline">\(n!\)</span>的公式，形如：
+<span class="math display">\[
+\frac{n!}{\sqrt{2\pi}n^{n+1/2}e^{-n}}\to 1
+\]</span> 當<span class="math inline">\(n\to \infty\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們會在此證明存在常數<span
+class="math inline">\(\alpha\)</span>使得 <span class="math display">\[
+\alpha n^{n+1/2}e^{-n}&lt;n!&lt;\alpha
+n^{n+1/2}e^{-n}\left(1+\frac{1}{4n}\right)
+\]</span> 至於<span
+class="math inline">\(\alpha=\sqrt{2\pi}\)</span>的證明，可以看[這裡]。<br>
+在<span class="math inline">\([1,\infty)上，\)</span>考慮<span
+class="math inline">\(\phi(x)=\log x\)</span>。定義 <span
+class="math display">\[
+A_n=\int_1^n\log xdx=n\log n-n+1
+\]</span> 我們考慮<span
+class="math inline">\(A_n\)</span>的一個逼近<span
+class="math inline">\(T_n\)</span>。具體來說，是用梯形逼近來逼近<span
+class="math inline">\(A_n\)</span>。把<span
+class="math inline">\([1,n]\)</span>分成等間距的<span
+class="math inline">\(n-1\)</span>個區間(<span
+class="math inline">\(\Delta x=1\)</span>)，令 <span
+class="math display">\[
+T_n=\frac{1}{2}(\mbox{上和}+\mbox{下和})
+\]</span> 即下圖6中的梯形面積和。</p>
+<img src="stirling-a.jpg" width="50%" height="50%">
+<center>
+圖6
+</center>
+<p>具體寫下來就是 <span class="math display">\[
+\begin{aligned}
+T_n&amp;=\log 2+\log 3+\cdots+\log(n-1)+\frac{1}{2}\log n\\
+&amp;=\log n!-\frac{1}{2}n
+\end{aligned}
+\]</span> 我們希望說明當<span
+class="math inline">\(n\)</span>很大時有<span
+class="math inline">\(A_n\approx T_n\)</span>。令<span
+class="math inline">\(a_n=A_n-T_n\)</span>，如果<span
+class="math inline">\(\{a_n\}\)</span>有界的話，那麼 <span
+class="math display">\[
+T_n=A_n\left(1-\frac{a_n}{A_n}\right)
+\]</span> 於是就有<span class="math inline">\(T_n\to
+A_n\)</span>了(當<span
+class="math inline">\(n\to\infty\)</span>時，<span
+class="math inline">\(T_n, A_n\to
+\infty\)</span>)。也就是說我們只需要說明<span
+class="math inline">\(\{a_n\}\)</span>有界就好。首先我們估計<span
+class="math inline">\(a_{n+1}-a_n\)</span>，我們有 <span
+class="math display">\[
+a_{n+1}-a_n=(A_{n+1}-A_n)-(T_{n+1}-T_n)
+\]</span> 令<span class="math inline">\(a_1=0\)</span>，由圖形易知<span
+class="math inline">\(a_n\geq 0\)</span>且單調遞增。<br> 在區間<span
+class="math inline">\([k,k+1]\)</span>中，作過<span
+class="math inline">\((k+1/2,\log (k+1/2))\)</span>的切線，如下圖7。</p>
+<img src="stirling-b.jpg" width="50%" height="50%">
+<center>
+圖7
+</center>
+<p>我們可以知道 <span class="math display">\[
+\textcolor{red}{\mbox{紅色區域}=a_{k+1}-a_k}
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+a_{k+1}-a_k&amp;&lt;\textcolor{blue}{\mbox{切線下面積}}-\mbox{梯形面積}\\
+&amp;=\log\left(k+\frac{1}{2}\right)-\frac{1}{2}\log
+k-\frac{1}{2}\log(k+1)\\
+&amp;=\frac{1}{2}\log\left(1+\frac{1}{2k}\right)-\frac{1}{2}\log\left(1+\frac{1}{2(k+1/2)}\right)\\
+&amp;=\frac{1}{2}\log\left(1+\frac{1}{2k}\right)-\frac{1}{2}\log\left(1+\frac{1}{2k+1}\right)
+\end{aligned}
+\]</span> 於是 <span class="math display">\[
+\begin{aligned}
+a_n&amp;=(a_n-a_{n-1})+(a_{n-1}-a_{n-2})+\cdots+(a_2-a_1)\\
+&amp;&lt;\frac{1}{2}\log\frac{3}{2}-\frac{1}{2}\log\left(1+\frac{1}{2n}\right)\\
+&amp;&lt;\frac{1}{2}\log\frac{3}{2}
+\end{aligned}
+\]</span> 於是知<span
+class="math inline">\(\{a_n\}\)</span>是有界的。且因為<span
+class="math inline">\(\{a_n\}\)</span>又單調遞增，故<span
+class="math inline">\(\{a_n\}\)</span>收斂(見<a
+href="https://alexthepurplerose.github.io/2024/04/25/cal-real-sequence/">這裡</a>的定理6)。令<span
+class="math inline">\(a_n\to a\)</span>，則 <span
+class="math display">\[
+a-a_n&lt;\frac{1}{2}\log\left(1+\frac{1}{2n}\right)
+\]</span> 回到<span class="math inline">\(A_n\)</span>和<span
+class="math inline">\(T_n\)</span>，因為<span
+class="math inline">\(A_n-T_n=a_n\)</span>，故有 <span
+class="math display">\[
+\begin{aligned}
+&amp;\log n!=1-a_n+\left(1+\frac{1}{2n}\right)\log n-n\\
+\Rightarrow&amp;n!=\alpha_n n^{n+1/2}e^{-n}
+\end{aligned}
+\]</span> 其中<span
+class="math inline">\(\alpha_n=e^{1-a_n}\)</span>。令<span
+class="math inline">\(\alpha=e^{1-a}\)</span>，有 <span
+class="math display">\[
+1&lt;\frac{\alpha_n}{\alpha}=e^{a-a_n}&lt;e^{\frac{1}{2}\log\left(1+\frac{1}{2n}\right)}=\sqrt{1+\frac{1}{2n}}\leq
+1+\frac{1}{4n}
+\]</span> 故有 <span class="math display">\[
+\alpha n^{n+1/2}e^{-n}&lt;n!&lt;\alpha
+n^{n+1/2}e^{-n}\left(1+\frac{1}{4n}\right)
+\]</span> <font size="1">QED</font></p>
+<img src="stirling.jpeg" width="25%" height="25%">
+<center>
+圖8 James Stirling
+</center>
 
     </div>
 
@@ -531,8 +664,8 @@ class="math inline">\(\phi&#39;(xi)=1-c(\xi)f&#39;(\xi)\)</span>。假設</p>
 2：梯形逼近 (Trapezoid Approximation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E8%BE%9B%E6%99%AE%E6%A3%AE%E6%96%B9%E6%B3%95-simpsons-method"><span class="nav-number">1.3.</span> <span class="nav-text">定義
 3：辛普森方法 (Simpson&#39;s Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3"><span class="nav-number">2.</span> <span class="nav-text">迭代</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E7%89%9B%E9%A0%93%E6%B3%95-newton-method"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 4：牛頓法 (Newton Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E4%B8%8D%E5%8B%95%E9%BB%9E-fixed-point"><span class="nav-number">2.2.</span> <span class="nav-text">定義 5：不動點
-(Fixed Point)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 5-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">註記 5-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-3"><span class="nav-number">2.2.3.</span> <span class="nav-text">註記 5-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-4%E5%A3%93%E7%B8%AE%E5%87%BD%E6%95%B8-contractive-function"><span class="nav-number">2.2.4.</span> <span class="nav-text">定義
-5-4：壓縮函數 (Contractive Function)</span></a></li></ol></li></ol></li></ol></div>
+(Fixed Point)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 5-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">註記 5-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-3"><span class="nav-number">2.2.3.</span> <span class="nav-text">註記 5-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-3-1%E5%A3%93%E7%B8%AE%E5%87%BD%E6%95%B8-contractive-function"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">定義
+5-3-1：壓縮函數 (Contractive Function)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%B2%E7%89%B9%E9%9D%88%E5%85%AC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">史特靈公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">3.1.</span> <span class="nav-text">定理 6</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
