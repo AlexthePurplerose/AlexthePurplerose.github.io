@@ -20,13 +20,15 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="這份筆記是關於無窮級數的收斂判定方式。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="微積分：無窮級數">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/07/16/cal-series/index.html">
 <meta property="og:site_name" content="永蔚Alex">
+<meta property="og:description" content="這份筆記是關於無窮級數的收斂判定方式。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-07-16T07:32:38.000Z">
-<meta property="article:modified_time" content="2024-07-16T07:34:03.560Z">
+<meta property="article:modified_time" content="2024-07-17T06:42:46.099Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -189,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-07-16 15:32:38 / 修改時間：15:34:03" itemprop="dateCreated datePublished" datetime="2024-07-16T15:32:38+08:00">2024-07-16</time>
+              <time title="創建時間：2024-07-16 15:32:38" itemprop="dateCreated datePublished" datetime="2024-07-16T15:32:38+08:00">2024-07-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-07-17 14:42:46" itemprop="dateModified" datetime="2024-07-17T14:42:46+08:00">2024-07-17</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -218,7 +226,144 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>這份筆記是關於無窮級數的收斂判定方式。 <span id="more"></span><br></p>
+<center>
+<h1 id="無窮級數"><font color=#b8860b>無窮級數</font></h1>
+</center>
+<h2
+id="定義-1無窮級數和-infinite-series-sum"><font color=#008000><u>定義
+1：無窮級數和 (Infinite Series Sum)</u></font></h2>
+<p>給定無窮數列<span class="math inline">\(\{a_n\}\)</span>，令 <span
+class="math display">\[
+S_n=a_1+\cdots+a_n
+\]</span> 若<span
+class="math inline">\(\lim\limits_{n\to\infty}S_n\)</span>存在，則說
+<span class="math display">\[
+\sum_{n=1}^\infty a_n
+\]</span> 收斂，且稱 <span class="math display">\[
+\sum_{n=1}^\infty a_n=\lim_{n\to\infty}S_n
+\]</span></p>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<p>使用定義1的記號，以下四件事是等價的： <br>1. <span
+class="math inline">\(\{S_n\}\)</span>收斂。 <br>2. <span
+class="math inline">\(\{S_n\}\)</span>是柯西序列。 <br>3. <span
+class="math inline">\(\forall\epsilon&gt;0\)</span>, <span
+class="math inline">\(\exists N\)</span> s.t. 當<span
+class="math inline">\(n,m&gt;N\)</span>時，有<span
+class="math inline">\(|S_n-S_m|&lt;\epsilon\)</span>。 <br>4.
+對於所有<span class="math inline">\(n,m\geq N\)</span>，有<span
+class="math inline">\(|a_m+a_{m+1}+\cdots+a_n|&lt;\epsilon\)</span>。</p>
+<h2 id="定理-2"><font color=#ff1493><u>定理 2</u></font></h2>
+<p>若<span class="math inline">\(\sum\limits_{n=1}^\infty
+a_n\)</span>收斂，則 <span class="math display">\[
+\lim_{n\to\infty}a_n=0
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：不然註記1-1中的第4.點馬上會爆炸。<font size="1">QED</font></p>
+<h3 id="註記-2-1"><font color=#0000FF><u>註記 2-1</u></font></h3>
+<p>定理2中的條件是「必要條件」，不是「充分條件」。</p>
+<center>
+<h1 id="交錯級數"><font color=#b8860b>交錯級數</font></h1>
+</center>
+<h2 id="定義-3"><font color=#008000><u>定義 3</u></font></h2>
+<h3
+id="定義-3-1絕對收斂-absolute-convergence"><font color=#008000><u>定義
+3-1：絕對收斂 (Absolute Convergence)</u></font></h3>
+<p>若<span class="math inline">\(\sum|a_n|\)</span>收斂，則稱<span
+class="math inline">\(\sum a_n\)</span>絕對收斂。</p>
+<h3
+id="定義-3-2條件收斂-conditionally-convergence"><font color=#008000><u>定義
+3-2：條件收斂 (Conditionally Convergence)</u></font></h3>
+<p>若<span class="math inline">\(\sum|a_n|\)</span>收斂，但<span
+class="math inline">\(\sum a_n\)</span>發散，則稱<span
+class="math inline">\(\sum a_n\)</span>條件收斂。</p>
+<h2
+id="定理-4絕對收斂判定-absolute-convergence-test"><font color=#ff1493><u>定理
+4：絕對收斂判定 (Absolute Convergence Test)</u></font></h2>
+<p>若<span class="math inline">\(\sum|a_n|\)</span>收斂，則<span
+class="math inline">\(\sum a_n\)</span>收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(\sum|a_n|\)</span>收斂，給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(N\)</span> s.t. <span class="math display">\[
+\left| |a_m|+|a_{m+1}|+\cdots+|a_n|\right|&lt;\epsilon
+\]</span> 對於所有<span class="math inline">\(n,m\geq
+N\)</span>。而由三角不等式，有 <span class="math display">\[
+|a_m|+|a_{m+1}|+\cdots+|a_n|\geq\left|
+|a_m|+|a_{m+1}|+\cdots+|a_n|\right|
+\]</span> 故 <span class="math display">\[
+|a_m+a_{m+1}+\cdots+a_n|&lt;\epsilon
+\]</span> 故<span class="math inline">\(\sum
+a_n\)</span>收斂。<font size="1">QED</font></p>
+<h2 id="定義-5交錯級數-alternating-series"><font color=#008000><u>定義
+5：交錯級數 (Alternating Series)</u></font></h2>
+<p>若<span
+class="math inline">\(\{a_n\}\)</span>的任兩相鄰項都異號，則稱<span
+class="math inline">\(\sum a_n\)</span>是交錯級數。</p>
+<h3
+id="定理-5-1交錯級數收斂判定-alternating-series-convergence-test"><font color=#ff1493><u>定理
+5-1：交錯級數收斂判定 (Alternating Series Convergence
+Test)</u></font></h3>
+<p>對於交錯級數<span class="math inline">\(\sum a_n\)</span>，若<span
+class="math inline">\(\{|a_n|\}\)</span>單調遞減到<span
+class="math inline">\(0\)</span>，則<span class="math inline">\(\sum
+a_n\)</span>收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：WLOG，令 <span
+class="math display">\[
+\sum a_n=b_1-b_2+b_3-b_4+\cdots, b_i\geq 0, b_i\to 0
+\]</span> 顯然有： <br>1. <span class="math inline">\(S_1\geq S_3\geq
+S_5\geq\cdots\geq S_{2n+1}\geq\cdots\)</span> <br>2. <span
+class="math inline">\(S_2\leq S_4\leq S_6\leq\cdots\leq
+S_{2n}\leq\cdots\)</span> <br>又<span class="math inline">\(S_1\geq
+S_{2n+1}\geq S_{2n}\geq S_2\)</span>，故<span
+class="math inline">\(\{S_{2n+1}\}\)</span>和<span
+class="math inline">\(\{S_{2n}\}\)</span>都收斂。令<span
+class="math inline">\(S_{2n+1}\to L\)</span>，<span
+class="math inline">\(S_{2n}\to L&#39;\)</span>。又 <span
+class="math display">\[
+|S_{2n+1}-S_{2n}|=|b_{2n+1}|\to 0
+\]</span> 故<span class="math inline">\(|L-L&#39;|\to 0\)</span>，<span
+class="math inline">\(\sum
+a_n\)</span>收斂。<font size="1">QED</font></p>
+<h3
+id="定理-5-2推廣版交錯級數收斂判定-generalized-alternating-series-convergence-test"><font color=#ff1493><u>定理
+5-2：推廣版交錯級數收斂判定 (Generalized Alternating Series Convergence
+Test)</u></font></h3>
+<p>若<span class="math inline">\(\{a_n\}\)</span>滿足 <span
+class="math display">\[
+\left|\sum_{k=1}^n a_n\right|\leq M,\forall n,\mbox{ for some }M
+\]</span> 且另給定一個數列<span
+class="math inline">\(\{P_n\}\)</span>恆正且單調遞減到<span
+class="math inline">\(0\)</span>。則 <span class="math display">\[
+\sum_{n=1}^\infty a_nP_n
+\]</span> 收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由<span
+class="math inline">\(\sum a_n\)</span>收斂知此級數的前<span
+class="math inline">\(n\)</span>項和為柯西序列。接著我們需要一個引理：</p>
+<h4
+id="引理-5-2-1分部求和法-summation-by-parts"><font color=#0000FF><u>引理
+5-2-1：分部求和法 (Summation by Parts)</u></font></h4>
+<p>給定<span class="math inline">\(\{a_n\},\{b_n\}\)</span>，有 <span
+class="math display">\[
+\sum_{k=1}^n a_kb_k=A_nb_n-\sum_{k=1}^{n-1}A_k(b_{k+1}-b_k)
+\]</span> 其中 <span class="math display">\[
+A_k=a_1+a_2+\cdots+a_k
+\]</span></p>
+<p><font color=#8b4513><u>引理的證明</u></font>：把式子變形一下就好。<font size="1">QED</font><br></p>
+<p>回到推廣版交錯級數收斂判定，由分部求和法，有 <span
+class="math display">\[
+\begin{aligned}
+|a_mP_m+a_{m+1}P_{m+1}+\cdots+a_nP_n|&amp;=|P_m(S_{m+1}-S_m)+\cdots+P_n(S_{n+1}-S_n)|\\
+&amp;\mbox{(where }S_n=a_1+a_2+\cdots+a_n\mbox{)}\\
+&amp;=|-P_mS_m+P_nS_{n+1}+(P_m-P_{m+1})S_{m+1}+(P_{m+1}-P_{m+2})S_{m+2}+\cdots+(P_{n-1}-P_n)S_n|\\
+&amp;\leq P_mM+P_nM+(P_m-P_{m+1}+P_{m+1}-P_{m+2}+\cdots+P_{n+1}-P_n)M\\
+&amp;=2P_mM&lt;\epsilon
+\end{aligned}
+\]</span> 最後是因為<span class="math inline">\(P_m\to
+0\)</span>。故<span class="math inline">\(\sum a_nP_n\)</span>的前<span
+class="math inline">\(n\)</span>項和是柯西序列，即其收斂。<font size="1">QED</font><br></p>
+<h4 id="註記-5-2-2"><font color=#0000FF><u>註記 5-2-2</u></font></h4>
+<p>在上面令<span
+class="math inline">\(a_k=(-1)^k\)</span>就是交錯級數檢驗法。</p>
 
     </div>
 
@@ -301,6 +446,17 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%84%A1%E7%AA%AE%E7%B4%9A%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">無窮級數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E7%84%A1%E7%AA%AE%E7%B4%9A%E6%95%B8%E5%92%8C-infinite-series-sum"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：無窮級數和 (Infinite Series Sum)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%A4%E9%8C%AF%E7%B4%9A%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">交錯級數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3"><span class="nav-number">2.1.</span> <span class="nav-text">定義 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E7%B5%95%E5%B0%8D%E6%94%B6%E6%96%82-absolute-convergence"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
+3-1：絕對收斂 (Absolute Convergence)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-2%E6%A2%9D%E4%BB%B6%E6%94%B6%E6%96%82-conditionally-convergence"><span class="nav-number">2.1.2.</span> <span class="nav-text">定義
+3-2：條件收斂 (Conditionally Convergence)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4%E7%B5%95%E5%B0%8D%E6%94%B6%E6%96%82%E5%88%A4%E5%AE%9A-absolute-convergence-test"><span class="nav-number">2.2.</span> <span class="nav-text">定理
+4：絕對收斂判定 (Absolute Convergence Test)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E4%BA%A4%E9%8C%AF%E7%B4%9A%E6%95%B8-alternating-series"><span class="nav-number">2.3.</span> <span class="nav-text">定義
+5：交錯級數 (Alternating Series)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5-1%E4%BA%A4%E9%8C%AF%E7%B4%9A%E6%95%B8%E6%94%B6%E6%96%82%E5%88%A4%E5%AE%9A-alternating-series-convergence-test"><span class="nav-number">2.3.1.</span> <span class="nav-text">定理
+5-1：交錯級數收斂判定 (Alternating Series Convergence
+Test)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5-2%E6%8E%A8%E5%BB%A3%E7%89%88%E4%BA%A4%E9%8C%AF%E7%B4%9A%E6%95%B8%E6%94%B6%E6%96%82%E5%88%A4%E5%AE%9A-generalized-alternating-series-convergence-test"><span class="nav-number">2.3.2.</span> <span class="nav-text">定理
+5-2：推廣版交錯級數收斂判定 (Generalized Alternating Series Convergence
+Test)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5-2-1%E5%88%86%E9%83%A8%E6%B1%82%E5%92%8C%E6%B3%95-summation-by-parts"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">引理
+5-2-1：分部求和法 (Summation by Parts)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-2-2"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">註記 5-2-2</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
