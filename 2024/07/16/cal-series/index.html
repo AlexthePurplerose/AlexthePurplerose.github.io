@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於無窮級數的收斂判定方式。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/16/cal-series/integral.jpg">
 <meta property="article:published_time" content="2024-07-16T07:32:38.000Z">
-<meta property="article:modified_time" content="2024-07-17T06:42:46.099Z">
+<meta property="article:modified_time" content="2024-07-18T07:23:04.652Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/16/cal-series/integral.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/16/cal-series/">
 
@@ -199,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-07-17 14:42:46" itemprop="dateModified" datetime="2024-07-17T14:42:46+08:00">2024-07-17</time>
+                <time title="修改時間：2024-07-18 15:23:04" itemprop="dateModified" datetime="2024-07-18T15:23:04+08:00">2024-07-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -360,10 +362,162 @@ class="math display">\[
 \end{aligned}
 \]</span> 最後是因為<span class="math inline">\(P_m\to
 0\)</span>。故<span class="math inline">\(\sum a_nP_n\)</span>的前<span
-class="math inline">\(n\)</span>項和是柯西序列，即其收斂。<font size="1">QED</font><br></p>
+class="math inline">\(n\)</span>項和是柯西序列，即其收斂。<font size="1">QED</font></p>
 <h4 id="註記-5-2-2"><font color=#0000FF><u>註記 5-2-2</u></font></h4>
 <p>在上面令<span
 class="math inline">\(a_k=(-1)^k\)</span>就是交錯級數檢驗法。</p>
+<h2 id="定義-6重排-rearrangement"><font color=#008000><u>定義 6：重排
+(Rearrangement)</u></font></h2>
+<p>我們說級數<span
+class="math inline">\(a_1+a_2+a_3+\cdots\)</span>可以重排成<span
+class="math inline">\(b_1+b_2+b_3+\cdots\)</span>，若<span
+class="math inline">\(a_n\)</span>中的每一項都在<span
+class="math inline">\(b_1+b_2+b_3+\cdots\)</span>中恰出現一次，且反之亦然。</p>
+<h3 id="定理-6-1"><font color=#ff1493><u>定理 6-1</u></font></h3>
+<p>若<span class="math inline">\(\sum a_n\)</span>絕對收斂，則把<span
+class="math inline">\(\sum
+a_n\)</span>任意重排都會收斂到同一個值。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：先假設<span
+class="math inline">\(a_n\geq 0\)</span>。把<span
+class="math inline">\(\{a_n\}\)</span>重排成<span
+class="math inline">\(\{b_n\}\)</span>，則令 <span
+class="math display">\[
+S_n=\sum_{k=1}^n a_{k}, T_m=\sum_{k=1}^m b_k
+\]</span> 固定<span
+class="math inline">\(n\)</span>，由定義可以找到足夠大的<span
+class="math inline">\(m\)</span> s.t. 每個<span
+class="math inline">\(a_k\)</span>, <span class="math inline">\(k\leq
+n\)</span>都出現在<span
+class="math inline">\(\{b_1,b_2,\cdots,b_m\}\)</span>中恰好一次。因為這個數列總是正的，所以<span
+class="math inline">\(S_n\leq T_m\)</span>。同理可以找到夠大的<span
+class="math inline">\(n&#39;\)</span>使得所有<span
+class="math inline">\(b_k\)</span>, <span class="math inline">\(k\leq
+m\)</span>都出現在<span
+class="math inline">\(\{a_1,a_2,\cdots,a_{n&#39;}\}\)</span>中恰好一次，且<span
+class="math inline">\(T_m\leq S_{n&#39;}\)</span>。故有 <span
+class="math display">\[
+S_n\leq T_m\leq S_{n&#39;}
+\]</span> 但<span class="math inline">\(S_n\)</span>和<span
+class="math inline">\(S_{n&#39;}\)</span>收斂到同一處，故<span
+class="math inline">\(T_m\)</span>收斂，且和<span
+class="math inline">\(S_n\)</span>收斂到同一處。<br> 如果<span
+class="math inline">\(a_n\geq 0\)</span>不總是成立，就把<span
+class="math inline">\(a_n\)</span>中正的項和負的項分開處理，兩邊會分別收斂(因為<span
+class="math inline">\(a_n\)</span>絕對收斂)，然後也會發現任意重排都會收斂到同一個值。<font size="1">QED</font></p>
+<h3 id="定理-6-2黎曼定理-riemann-theorem"><font color=#ff1493><u>定理
+6-2：黎曼定理 (Riemann Theorem)</u></font></h3>
+<p>若<span class="math inline">\(\sum
+a_n\)</span>條件收斂，則對於任意實數<span
+class="math inline">\(a\)</span>，存在一種<span
+class="math inline">\(\sum a_n\)</span>的重排<span
+class="math inline">\(a_{n&#39;}\)</span>使得<span
+class="math inline">\(\sum a_{n&#39;}=a\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：WLOG，假設<span
+class="math inline">\(a&gt;0\)</span>。考慮以下兩個集合： <br>1. <span
+class="math inline">\(\{a_{i(1)},a_{i(2)},\cdots\}\)</span>是所有正的<span
+class="math inline">\(a_n\)</span>。 <br>2. <span
+class="math inline">\(\{-a&#39;_{i(1)},-a&#39;_{i(2)},\cdots\}\)</span>是所有負的<span
+class="math inline">\(a_n\)</span>。 <br>顯然兩個集合都非空，且顯然
+<span class="math display">\[
+\sum_{k=1}^\infty a_{i(k)}\to\infty, \sum_{k=1}^\infty
+a&#39;_{i(k)}\to\infty
+\]</span> (<span class="math inline">\(\sum a_n\)</span>收斂但<span
+class="math inline">\(\sum |a_n|\)</span>發散)。且我們知道 <span
+class="math display">\[
+\begin{aligned}
+\sum a_n&amp;=\sum a_{i(k)}-\sum a&#39;_{i(k)}\\
+\sum |a_n|&amp;=\sum a_{i(k)}+\sum a&#39;_{i(k)}
+\end{aligned}
+\]</span> 令<span
+class="math inline">\(\{p_1,p_2,\cdots\}\)</span>是照順序排好的正的<span
+class="math inline">\(a_n\)</span>(原本<span class="math inline">\(\sum
+a_n\)</span>中的順序)，<span
+class="math inline">\(\{-q_1,-q_2,\cdots\}\)</span>是照順序排好的負的<span
+class="math inline">\(a_n\)</span>。首先找一個<span
+class="math inline">\(k\)</span>使得 <span class="math display">\[
+p_1+p_2+\cdots+p_{k-1}&lt;a&lt;p_1+p_2+\cdots+p_k
+\]</span> 於是讓<span
+class="math inline">\(p_1+p_2+\cdots+p_k\)</span>成為前<span
+class="math inline">\(k\)</span>項，接下來找一個<span
+class="math inline">\(m\)</span>使 <span class="math display">\[
+p_1+p_2+\cdots+p_k-q_1-q_2-\cdots-q_m&lt;a&lt;p_1+p_2+\cdots+p_k-q_1-q_2-\cdots-q_{m-1}
+\]</span> 繼續這個步驟，然後因為<span class="math inline">\(\sum
+a_n\)</span>收斂，故<span
+class="math inline">\(k\to\infty\)</span>時<span
+class="math inline">\(p_k,q_k\to
+0\)</span>，於是這個步驟繼續下去就會收斂到<span
+class="math inline">\(a\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="收斂判定"><font color=#b8860b>收斂判定</font></h1>
+</center>
+<h2 id="定理-7比較審斂法-comparison-test"><font color=#ff1493><u>定理
+7：比較審斂法 (Comparison Test)</u></font></h2>
+<p>給定<span class="math inline">\(\sum a_n\)</span>, <span
+class="math inline">\(a_n&gt;0\)</span>。若<span
+class="math inline">\(a_n\leq b_n\)</span>, <span
+class="math inline">\(\forall n\)</span>且<span
+class="math inline">\(\sum b_n\)</span>收斂，則<span
+class="math inline">\(\sum a_n\)</span>收斂；若<span
+class="math inline">\(a_n&gt;b_n&gt;0\)</span>, <span
+class="math inline">\(\forall n\)</span>且<span
+class="math inline">\(\sum b_n\)</span>發散，則<span
+class="math inline">\(\sum a_n\)</span>發散。<br></p>
+<h2 id="定理-8比率審斂法-ratio-test"><font color=#ff1493><u>定理
+8：比率審斂法 (Ratio Test)</u></font></h2>
+<p>若存在<span class="math inline">\(q\)</span>與<span
+class="math inline">\(N\)</span>使得 <span class="math display">\[
+\left|\frac{a_{n+1}}{a_n}\right|&lt;q&lt;1,\forall n\geq N
+\]</span> 則<span class="math inline">\(\sum
+a_n\)</span>絕對收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：和等比級數比較即可。<font size="1">QED</font></p>
+<h2 id="定理-9根式審斂法-root-test"><font color=#ff1493><u>定理
+9：根式審斂法 (Root Test)</u></font></h2>
+<p>若存在<span class="math inline">\(q\)</span>與<span
+class="math inline">\(N\)</span>使得 <span class="math display">\[
+\sqrt[n]{|a_n|}&lt;q&lt;1,\forall n\geq N
+\]</span> 則<span class="math inline">\(\sum
+a_n\)</span>絕對收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：和等比級數比較即可。<font size="1">QED</font></p>
+<center>
+<h1 id="積分檢驗"><font color=#b8860b>積分檢驗</font></h1>
+</center>
+<h2 id="例-10"><font color=#ffa500><u>例 10</u></font></h2>
+<p>考慮 <span class="math display">\[
+\sum_{n=1}^\infty\frac{1}{n^\alpha}
+\]</span> 則由下圖1可知 <span class="math display">\[
+\begin{aligned}
+&amp;\int_n^{n+1}\frac{1}{x^\alpha}dx&lt;\frac{1}{n^\alpha}&lt;\int_{n-1}^n\frac{1}{x^\alpha}dx\\
+\Rightarrow&amp;\int_1^{m+1}\frac{1}{x^\alpha}dx&lt;\sum_{n=1}^m\frac{1}{n^\alpha}&lt;1+\int_1^m\frac{1}{x^\alpha}dx
+\end{aligned}
+\]</span></p>
+<img src="integral.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>於是，由<a
+href="https://alexthepurplerose.github.io/2024/07/10/cal-improper-int/">這裡</a>的例5，我們知道<span
+class="math inline">\(\sum\frac{1}{n^\alpha}\)</span>收斂<span
+class="math inline">\(\Leftrightarrow\int_1^\infty\frac{1}{x^\alpha}dx\)</span>收斂<span
+class="math inline">\(\Leftrightarrow\alpha&gt;1\)</span>。</p>
+<h2 id="例-11"><font color=#ffa500><u>例 11</u></font></h2>
+<p>考慮 <span class="math display">\[
+f(x)=\frac{1}{x}, \int_1^n\frac{1}{x}dx=\log n
+\]</span> 令 <span class="math display">\[
+c_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}-\log n
+\]</span> 則存在常數<span class="math inline">\(\gamma\)</span>使得<span
+class="math inline">\(c_n\to\gamma\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令 <span
+class="math display">\[
+S_n=1+\frac{1}{2}+\frac{1}{3}+\cdots+\frac{1}{n}
+\]</span> 則由類似例10的積分檢驗我們知道 <span class="math display">\[
+S_n-\log n&gt;\log (n+1)-\log n&gt;0
+\]</span> 故<span class="math inline">\(c_n\geq 0\)</span>。但 <span
+class="math display">\[
+\frac{1}{n+1}&lt;\int_n^{n+1}\frac{dx}{x}=\log (n+1)-\log
+n=\frac{1}{n+1}+c_n+c_{n-1}
+\]</span> 故<span class="math inline">\(c_n-c_{n-1}&gt;0\)</span>，<span
+class="math inline">\(c_n\)</span>遞減，於是知<span
+class="math inline">\(c_n\)</span>收斂。<font size="1">QED</font></p>
 
     </div>
 
@@ -456,7 +610,12 @@ class="math inline">\(a_k=(-1)^k\)</span>就是交錯級數檢驗法。</p>
 Test)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5-2%E6%8E%A8%E5%BB%A3%E7%89%88%E4%BA%A4%E9%8C%AF%E7%B4%9A%E6%95%B8%E6%94%B6%E6%96%82%E5%88%A4%E5%AE%9A-generalized-alternating-series-convergence-test"><span class="nav-number">2.3.2.</span> <span class="nav-text">定理
 5-2：推廣版交錯級數收斂判定 (Generalized Alternating Series Convergence
 Test)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5-2-1%E5%88%86%E9%83%A8%E6%B1%82%E5%92%8C%E6%B3%95-summation-by-parts"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">引理
-5-2-1：分部求和法 (Summation by Parts)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-2-2"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">註記 5-2-2</span></a></li></ol></li></ol></li></ol></li></ol></div>
+5-2-1：分部求和法 (Summation by Parts)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-2-2"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">註記 5-2-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E9%87%8D%E6%8E%92-rearrangement"><span class="nav-number">2.4.</span> <span class="nav-text">定義 6：重排
+(Rearrangement)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">定理 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6-2%E9%BB%8E%E6%9B%BC%E5%AE%9A%E7%90%86-riemann-theorem"><span class="nav-number">2.4.2.</span> <span class="nav-text">定理
+6-2：黎曼定理 (Riemann Theorem)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%B6%E6%96%82%E5%88%A4%E5%AE%9A"><span class="nav-number">3.</span> <span class="nav-text">收斂判定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7%E6%AF%94%E8%BC%83%E5%AF%A9%E6%96%82%E6%B3%95-comparison-test"><span class="nav-number">3.1.</span> <span class="nav-text">定理
+7：比較審斂法 (Comparison Test)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8%E6%AF%94%E7%8E%87%E5%AF%A9%E6%96%82%E6%B3%95-ratio-test"><span class="nav-number">3.2.</span> <span class="nav-text">定理
+8：比率審斂法 (Ratio Test)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9%E6%A0%B9%E5%BC%8F%E5%AF%A9%E6%96%82%E6%B3%95-root-test"><span class="nav-number">3.3.</span> <span class="nav-text">定理
+9：根式審斂法 (Root Test)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A9%8D%E5%88%86%E6%AA%A2%E9%A9%97"><span class="nav-number">4.</span> <span class="nav-text">積分檢驗</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-10"><span class="nav-number">4.1.</span> <span class="nav-text">例 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-11"><span class="nav-number">4.2.</span> <span class="nav-text">例 11</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
