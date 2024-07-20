@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於函數的數列與級數。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/19/cal-function-series/A.jpg">
 <meta property="article:published_time" content="2024-07-19T13:35:41.000Z">
-<meta property="article:modified_time" content="2024-07-19T13:51:36.198Z">
+<meta property="article:modified_time" content="2024-07-20T08:57:11.796Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/19/cal-function-series/A.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/19/cal-function-series/">
 
@@ -191,10 +193,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-07-19 21:35:41 / 修改時間：21:51:36" itemprop="dateCreated datePublished" datetime="2024-07-19T21:35:41+08:00">2024-07-19</time>
+              <time title="創建時間：2024-07-19 21:35:41" itemprop="dateCreated datePublished" datetime="2024-07-19T21:35:41+08:00">2024-07-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-07-20 16:57:11" itemprop="dateModified" datetime="2024-07-20T16:57:11+08:00">2024-07-20</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -225,16 +233,244 @@
 <h1 id="函數數列"><font color=#b8860b>函數數列</font></h1>
 </center>
 <h2
-id="定義-1函數數列的收斂-convergence-sequence-of-functions"><font color=#008000><u>定義
-1：函數數列的收斂 (Convergence Sequence of Functions)</u></font></h2>
+id="定義-1函數數列的收斂-convergence-of-sequence-of-functions"><font color=#008000><u>定義
+1：函數數列的收斂 (Convergence of Sequence of Functions)</u></font></h2>
 <p>給定在定義在<span
 class="math inline">\([a,b]\)</span>上的一串函數<span
-class="math inline">\(\{f_n(x)\}_{n=1}^\infty\)</span>。若當<span
-class="math inline">\(n\to\infty\)</span>時，對所有<span
-class="math inline">\(x\in[a,b]\)</span>滿足<span
-class="math inline">\(f_n(x)\to f(x)\)</span>，則稱<span
+class="math inline">\(\{f_n(x)\}_{n=1}^\infty\)</span>。我們說<span
 class="math inline">\(\{f_n(x)\}\)</span>收斂到一個極限函數<span
-class="math inline">\(f(x)\)</span>。</p>
+class="math inline">\(f(x)\)</span>，若當<span
+class="math inline">\(n\to\infty\)</span>時，對所有<span
+class="math inline">\(x\in[a,b]\)</span>，有<span
+class="math inline">\(f_n(x)\to f(x)\)</span>。也可以寫成在<span
+class="math inline">\([a,b]\)</span>上<span class="math inline">\(f_n\to
+f\)</span>。<br> 或者說，給定<span
+class="math inline">\(x\in[a,b]\)</span>，若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在與<span
+class="math inline">\(x\)</span>, <span
+class="math inline">\(\epsilon\)</span>相關的<span
+class="math inline">\(N=N(x,\epsilon)\)</span>使得對於所有<span
+class="math inline">\(n,m\geq N\)</span>有 <span class="math display">\[
+|f_n(x)-f_m(x)|&lt;\epsilon
+\]</span> 則稱<span
+class="math inline">\(\{f_n\}_{n=1}^\infty\)</span>收斂到<span
+class="math inline">\(f\)</span>。</p>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<p>就算每個<span class="math inline">\(f_n\)</span>都連續，<span
+class="math inline">\(f_n\to f\)</span>的<span
+class="math inline">\(f\)</span>也不一定連續。</p>
+<h4 id="例-1-1-1"><font color=#ffa500><u>例 1-1-1</u></font></h4>
+<p>在<span class="math inline">\([0,1]\)</span>上令<span
+class="math inline">\(f_n(x)=x^n\)</span>，每個<span
+class="math inline">\(f_n\)</span>都連續，但 <span
+class="math display">\[
+f_n\to f(x)=\left\{
+\begin{aligned}
+0&amp;, x\neq 1\\
+1&amp;, x=1
+\end{aligned}
+\right.
+\]</span> 可見<span class="math inline">\(f\)</span>不連續。</p>
+<h3 id="註記-1-2"><font color=#0000FF><u>註記 1-2</u></font></h3>
+<p>可見這種收斂的定義是函數的局部性質，甚至是一個「逐點」(Pointwise)
+的性質。</p>
+<h2 id="定義-2一致收斂-uniform-convergence"><font color=#008000><u>定義
+2：一致收斂 (Uniform Convergence)</u></font></h2>
+<p>我們說<span class="math inline">\(\{f_n(x)\}\)</span>一致收斂到<span
+class="math inline">\(f(x)\)</span>，若<span
+class="math inline">\(\forall\epsilon&gt;0\)</span>, <span
+class="math inline">\(\exists N=N(\epsilon)\)</span> (<span
+class="math inline">\(N\)</span>和<span
+class="math inline">\(x\)</span>無關，只和<span
+class="math inline">\(\epsilon\)</span>有關) s.t. <span
+class="math display">\[
+|f_n(x)-f_m(x)|&lt;\epsilon\mbox{ when }n\geq N,\forall x
+\]</span></p>
+<h3 id="例-2-1"><font color=#ffa500><u>例 2-1</u></font></h3>
+<p>在<span class="math inline">\([0,1]\)</span>上令<span
+class="math inline">\(f_n(x)=x^n\)</span>，則<span
+class="math inline">\(\{f_n(x)\}\)</span>不會一致收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\epsilon=1/2\)</span>。如果<span
+class="math inline">\(f_n\)</span>一致收斂，則<span
+class="math inline">\(\forall 0\leq x&lt;1\)</span>, <span
+class="math inline">\(\exists N=N(\epsilon)\)</span> s.t. 當<span
+class="math inline">\(n\geq N\)</span>時， <span class="math display">\[
+|f_n(x)-f(x)|=|x^n-0|=|x^n|&lt;\frac{1}{2}
+\]</span> <span class="math inline">\(\Rightarrow x\)</span>夠靠近<span
+class="math inline">\(1\)</span>時就會矛盾。<font size="1">QED</font></p>
+<h2 id="引理-3"><font color=#0000FF><u>引理 3</u></font></h2>
+<p>若<span
+class="math inline">\(\{f_n(x)\}_{n=1}^\infty\)</span>定義在<span
+class="math inline">\([a,b]\)</span>上，且每個<span
+class="math inline">\(f_n\)</span>都連續，並且<span
+class="math inline">\(f_n\)</span>一致收斂到<span
+class="math inline">\(f\)</span>，則<span
+class="math inline">\(f\)</span>連續。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們希望說明對於所有<span
+class="math inline">\(\epsilon\)</span>，有<span
+class="math inline">\(\delta\)</span>使得對所有<span
+class="math inline">\(|h|&lt;\delta\)</span>，有<span
+class="math inline">\(|f(x+h)-f(x)|&lt;\epsilon\)</span>。由於<span
+class="math inline">\(f_n\)</span>一致收斂到<span
+class="math inline">\(f\)</span>，故給定<span
+class="math inline">\(\epsilon&gt;0\)</span>, <span
+class="math inline">\(\exists N=N(\epsilon)\)</span> s.t. <span
+class="math display">\[
+|f_n(y)-f_m(y)|&lt;\epsilon\mbox{ when },\forall y
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+|f(x+h)-f(x)|&amp;=|f(x+h)-f_n(x+h)+f_n(x+h)-f_n(x)+f_n(x)-f(x)|\\
+&amp;\leq |f(x+h)-f_n(x+h)|+|f_n(x+h)-f_n(x)|+|f_n(x)-f(x)|
+\end{aligned}
+\]</span> 由於<span
+class="math inline">\(|f(x+h)-f_n(x+h)|\)</span>可以任意小(一致收斂的假設)、<span
+class="math inline">\(|f_n(x+h)-f_n(x)|\)</span>可以任意小(<span
+class="math inline">\(f_n\)</span>連續)及<span
+class="math inline">\(|f_n(x)-f(x)|\)</span>可以任意小(一致收斂的假設)，故<span
+class="math inline">\(|f(x+h)-f(x)|\)</span>可以任意小，即<span
+class="math inline">\(f\)</span>連續。<font size="1">QED</font></p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
+<p>就算<span class="math inline">\(f_n\to f\)</span>不是一致收斂，<span
+class="math inline">\(f\)</span>還是能連續。</p>
+<h4 id="例-3-1-1"><font color=#ffa500><u>例 3-1-1</u></font></h4>
+<p>考慮定義在<span class="math inline">\([0,1]\)</span>上的函數 <span
+class="math display">\[
+f_n(x)=\left\{
+\begin{aligned}
+n^\alpha x &amp;,0\leq x\leq\frac{1}{n}\\
+\left(\frac{2}{n}-x\right)n^\alpha &amp;,\frac{1}{n}\leq
+x\leq\frac{2}{n}\\
+0 &amp;,\frac{2}{n}\leq x\leq 1
+\end{aligned}
+\right.
+\]</span> 函數圖形如下圖1。</p>
+<img src="A.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>顯然<span class="math inline">\(f_n(x)\to f(x)=0\)</span>，而<span
+class="math inline">\(f\)</span>連續。但若<span
+class="math inline">\(\alpha-1&gt;0\)</span>，則<span
+class="math inline">\(n^{\alpha-1}\)</span>就會越來越大，這種時候<span
+class="math inline">\(f_n\)</span>就不會一致收斂(但<span
+class="math inline">\(\alpha-1\leq 0\)</span>時還是會一致收斂)。</p>
+<center>
+<h1 id="函數級數"><font color=#b8860b>函數級數</font></h1>
+</center>
+<h2
+id="定義-4函數級數的收斂-convergence-of-series-of-functions"><font color=#008000><u>定義
+4：函數級數的收斂 (Convergence of Series of Functions)</u></font></h2>
+<p>考慮級數 <span class="math display">\[
+\sum_{k=1}^\infty g_n(x)
+\]</span> 我們說它收斂，若序列 <span class="math display">\[
+f_n(x)=\sum_{k=1}^n g_k(x)
+\]</span> 收斂。</p>
+<h2
+id="定義-5函數級數的一致收斂-uniform-convergence-of-series-of-functions"><font color=#008000><u>定義
+5：函數級數的一致收斂 (Uniform Convergence of Series of
+Functions)</u></font></h2>
+<p>考慮級數 <span class="math display">\[
+\sum_{k=1}^\infty g_n(x)
+\]</span> 我們說它一致收斂，若序列 <span class="math display">\[
+f_n(x)=\sum_{k=1}^n g_k(x)
+\]</span> 一致收斂。</p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>若對於所有的<span class="math inline">\(n\)</span>都有<span
+class="math inline">\(|g_n(x)|\leq a_n\)</span>且<span
+class="math inline">\(\sum a_n\)</span>收斂，則<span
+class="math inline">\(\sum g_n(x)\)</span>一致收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們希望說明 <span
+class="math display">\[
+f_n(x)=\sum_{k=1}^n g_k(x)
+\]</span> 一致收斂。我們由<span class="math inline">\(|g_n(x)|\leq
+a_n\)</span>有 <span class="math display">\[
+|f_n(x)-f_m(x)|=\left|\sum_{k=n+1}^m g_k(x)\right|\leq\sum_{k=n+1}^m a_k
+\]</span> 給定<span class="math inline">\(\epsilon\)</span>，若<span
+class="math inline">\(n,m\)</span>夠大(<span
+class="math inline">\(n,m\geq N\)</span>)，顯然就會有 <span
+class="math display">\[
+\sum_{k=n+1}^m a_k&lt;\epsilon
+\]</span> 且這裡的<span class="math inline">\(N\)</span>顯然與<span
+class="math inline">\(x\)</span>無關，故<span
+class="math inline">\(f_n(x)\)</span>一致收斂。<font size="1">QED</font></p>
+<h2 id="定理-7"><font color=#ff1493><u>定理 7</u></font></h2>
+<p>若 <span class="math display">\[
+f_n(x)=\sum_{k=1}^n g_k(x)
+\]</span> 一致收斂且每個<span
+class="math inline">\(g_n\)</span>都連續，則函數 <span
+class="math display">\[
+f(x)=\sum_{k=1}^\infty g_k(x)
+\]</span> 連續。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：這基本上就是上面的引理3(易知每一個<span
+class="math inline">\(f_n\)</span>都是連續的)。<font size="1">QED</font></p>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
+<p>若每個<span class="math inline">\(g_n\)</span>都連續(<span
+class="math inline">\(g_n\)</span>定義在<span
+class="math inline">\([a,b]\)</span>上)，且<span
+class="math inline">\(\sum\limits_{n=1}^\infty
+g_n(x)\)</span>一致收斂到<span
+class="math inline">\(f(x)\)</span>，則<span
+class="math inline">\(\forall c,x\in[a,b]\)</span>，有 <span
+class="math display">\[
+\int_c^x f(t)dt=\sum_{k=1}^\infty\int_c^x g_k(t)dt
+\]</span> 也就是說求和<span
+class="math inline">\(\sum\)</span>和積分<span
+class="math inline">\(\int\)</span>可以互換。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(f_n(x)=\sum\limits_{k=1}^n
+g_k(x)\)</span>一致收斂到<span
+class="math inline">\(f(x)\)</span>，故給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(N=N(\epsilon)\)</span>使得當<span
+class="math inline">\(n\geq N\)</span>時，對所有<span
+class="math inline">\(x\in[a,b]\)</span>有<span
+class="math inline">\(|f_n(x)-f(x)|&lt;\epsilon\)</span>。<br> 固定<span
+class="math inline">\(n\)</span>，則 <span class="math display">\[
+\begin{aligned}
+&amp;\left|\sum_{k=1}^n\int_c^x g_k(t)dt-\int_c^x f(t)dt\right|\\
+=&amp;\left|\int_c^x\sum_{k=1}^n g_k(t)dt-\int_c^x f(t)dt\right|\\
+&amp;\mbox{(這裡可以交換是因為只有有限項)}\\
+=&amp;\left|\int_c^x\left(\sum_{k=1}^n g_k(t)-f(t) \right)dt\right|\\
+=&amp;\left|\int_c^x(f_n(t)-f(t))dt\right|\\
+\leq&amp;\left|\int_c^x\epsilon dt\right|=\epsilon(x-c)
+\end{aligned}
+\]</span> 這可以任意小，故 <span class="math display">\[
+\sum_{k=1}^\infty\int_c^x g_k(t)=\int_c^x f(t)dt
+\]</span> <font size="1">QED</font></p>
+<h2 id="註記-9"><font color=#0000FF><u>註記 9</u></font></h2>
+<p>然而一致收斂無法保證微分的任何性質。</p>
+<h3 id="例-9-1"><font color=#ffa500><u>例 9-1</u></font></h3>
+<p>考慮 <span class="math display">\[
+f_n(x)=\frac{\sin(n^2 x)}{n}
+\]</span> 易知<span class="math inline">\(-1/n\leq f_n(x)\leq
+1/n\)</span>，顯然<span
+class="math inline">\(f_n(x)\)</span>一致收斂到<span
+class="math inline">\(f(x)=0\)</span>。然而<span
+class="math inline">\(f&#39;_n(x)=2\sin(n^2
+x)\)</span>，這甚至完全沒有收斂。</p>
+<h2 id="定理-10"><font color=#ff1493><u>定理 10</u></font></h2>
+<p>假設<span
+class="math inline">\(\{G_i(x)\}^\infty_{i=1}\)</span>是在<span
+class="math inline">\((a,b)\)</span>上的連續可微函數，且<span
+class="math inline">\(\sum\limits_{i=1}^\infty
+G_i(x)\)</span>一致收斂到<span
+class="math inline">\(F(x)\)</span>，且<span
+class="math inline">\(\sum\limits_{i=1}^\infty
+G_i&#39;(x)\)</span>一致收斂到<span
+class="math inline">\(f(x)\)</span>，則<span
+class="math inline">\(F&#39;(x)=f(x)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(\sum G_i&#39;(x)\)</span>一致收斂，由定理8知 <span
+class="math display">\[
+\begin{aligned}
+\int_a^x f(t)dt&amp;=\sum_{i=1}^\infty\int_a^x G_i&#39;(t)dt\\
+&amp;=\sum_{i=1}^\infty (G_i(x)-G_i(a))\\
+&amp;=F(x)-F(a)
+\end{aligned}
+\]</span> 由微積分基本定理(<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的定理2與定理11)知<span
+class="math inline">\(F&#39;(x)=f(x)\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -317,8 +553,12 @@ class="math inline">\(f(x)\)</span>。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B8%E6%95%B8%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">函數數列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%87%BD%E6%95%B8%E6%95%B8%E5%88%97%E7%9A%84%E6%94%B6%E6%96%82-convergence-sequence-of-functions"><span class="nav-number">1.1.</span> <span class="nav-text">定義
-1：函數數列的收斂 (Convergence Sequence of Functions)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B8%E6%95%B8%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">函數數列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%87%BD%E6%95%B8%E6%95%B8%E5%88%97%E7%9A%84%E6%94%B6%E6%96%82-convergence-of-sequence-of-functions"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：函數數列的收斂 (Convergence of Sequence of Functions)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-1-1-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">例 1-1-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E4%B8%80%E8%87%B4%E6%94%B6%E6%96%82-uniform-convergence"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：一致收斂 (Uniform Convergence)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">例 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">引理 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-3-1-1"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">例 3-1-1</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B8%E7%B4%9A%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">函數級數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E5%87%BD%E6%95%B8%E7%B4%9A%E6%95%B8%E7%9A%84%E6%94%B6%E6%96%82-convergence-of-series-of-functions"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+4：函數級數的收斂 (Convergence of Series of Functions)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%87%BD%E6%95%B8%E7%B4%9A%E6%95%B8%E7%9A%84%E4%B8%80%E8%87%B4%E6%94%B6%E6%96%82-uniform-convergence-of-series-of-functions"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+5：函數級數的一致收斂 (Uniform Convergence of Series of
+Functions)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.3.</span> <span class="nav-text">定理 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">2.4.</span> <span class="nav-text">定理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.5.</span> <span class="nav-text">定理 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9"><span class="nav-number">2.6.</span> <span class="nav-text">註記 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-9-1"><span class="nav-number">2.6.1.</span> <span class="nav-text">例 9-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">2.7.</span> <span class="nav-text">定理 10</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
