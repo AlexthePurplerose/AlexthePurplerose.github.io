@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於冪級數的性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-07-20T08:59:27.000Z">
-<meta property="article:modified_time" content="2024-07-20T09:00:13.015Z">
+<meta property="article:modified_time" content="2024-07-20T09:25:21.869Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-20 16:59:27 / 修改時間：17:00:13" itemprop="dateCreated datePublished" datetime="2024-07-20T16:59:27+08:00">2024-07-20</time>
+              <time title="創建時間：2024-07-20 16:59:27 / 修改時間：17:25:21" itemprop="dateCreated datePublished" datetime="2024-07-20T16:59:27+08:00">2024-07-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +221,74 @@
 
       
         <p>這份筆記是關於冪級數的性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="冪級數"><font color=#b8860b>冪級數</font></h1>
+</center>
+<h2 id="定義-1冪級數-power-series"><font color=#008000><u>定義 1：冪級數
+(Power Series)</u></font></h2>
+<p>即形如 <span class="math display">\[
+c_0+c_1x+c_2x^2+\cdots+c_nx^n+\cdots
+\]</span> 的級數。</p>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<p>顯然任何冪級數都在<span class="math inline">\(x=0\)</span>收斂。</p>
+<h2 id="定理-2"><font color=#ff1493><u>定理 2</u></font></h2>
+<p>給定冪級數<span
+class="math inline">\(c_0+c_1x+c_2x^2+\cdots\)</span>，假設它在<span
+class="math inline">\(x=\xi\)</span>處收斂(其中<span
+class="math inline">\(\xi\neq 0\)</span>)，則對所有<span
+class="math inline">\(|x|&lt;|\xi|\)</span>的<span
+class="math inline">\(x\)</span>，此級數都絕對收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(\sum\limits_{n=0}^\infty
+c_n\xi_n\)</span>收斂，故<span class="math inline">\(\exists
+M&gt;0\)</span> s.t. <span class="math display">\[
+|c_n\xi^n|\leq M&lt;\infty,\forall n
+\]</span> 今給定<span
+class="math inline">\(|x|&lt;|\xi|\)</span>，存在<span
+class="math inline">\(0&lt;q&lt;1\)</span> s.t. <span
+class="math inline">\(|x|\leq q|\xi|\)</span>，故 <span
+class="math display">\[
+|c_nx^n|\leq|c_n\xi^n|q^n\leq Mq^n
+\]</span> 於是知<span class="math inline">\(\sum|c_nx^n|\leq\sum
+Mq^n\)</span>收斂，故<span class="math inline">\(\sum
+c_nx^n\)</span>絕對收斂。<font size="1">QED</font></p>
+<h3 id="推論-2-1"><font color=#0000FF><u>推論 2-1</u></font></h3>
+<p>沿用定理2的符號，<span class="math inline">\(\sum\limits_{n=0}^\infty
+c_nx^n\)</span>在<span
+class="math inline">\([-\eta,\eta]\subset[-\xi,\xi]\)</span>中一致收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\(|x|\leq\eta&lt;|\xi|\)</span>，則存在<span
+class="math inline">\(0&lt;q&lt;1\)</span>使得<span
+class="math inline">\(|\eta|\leq q|\xi|\)</span>，故 <span
+class="math display">\[
+|c_nx^n|=\left|c_n\frac{\xi^n}{\xi^n}x^n\right|\leq
+M\left|\frac{x}{\xi}\right|^n\leq M\left(\frac{\eta}{|\xi|}\right)^n\leq
+Mq^n
+\]</span> 且其中<span class="math inline">\(q\)</span>與<span
+class="math inline">\(x\)</span>無關，故<span
+class="math inline">\(\sum\limits_{n=0}^\infty c_nx^n\)</span>在<span
+class="math inline">\([-\eta,\eta]\)</span>一致收斂。<font size="1">QED</font></p>
+<h2
+id="定義-3收斂半徑-radius-of-convergence"><font color=#008000><u>定義
+3：收斂半徑 (Radius of Convergence)</u></font></h2>
+<p>給定一冪級數，由定理2易知存在<span
+class="math inline">\(\rho\)</span>使得當<span
+class="math inline">\(|x|&lt;\rho\)</span>時級數收斂，<span
+class="math inline">\(|x|&gt;\rho\)</span>時級數發散。稱這樣的<span
+class="math inline">\(\rho\)</span>為此級數的收斂半徑。<br> (<span
+class="math inline">\(|x|=\rho\)</span>時，怎麼樣都沒有關係。)</p>
+<h3 id="註記-3-1"><font color=#0000FF><u> 註記 3-1</u></font></h3>
+<p>由推論2-1和<a
+href="https://alexthepurplerose.github.io/2024/07/19/cal-function-series/">這裡</a>的定理8知對於所有<span
+class="math inline">\(x\in[-\eta,\eta]\subset[-\rho,\rho]\)</span>，有
+<span class="math display">\[
+\int\sum_{n=0}^\infty c_nx^ndx=\sum_{n=0}^\infty c_n\int x^ndx
+\]</span></p>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p><span class="math inline">\(\sum c_nx^n\)</span>和<span
+class="math inline">\(\sum
+nc_{n-1}x^{n-1}\)</span>(逐項微分)的收斂半徑一樣。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：</p>
 
     </div>
 
@@ -303,6 +371,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%AA%E7%B4%9A%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">冪級數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%86%AA%E7%B4%9A%E6%95%B8-power-series"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：冪級數
+(Power Series)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">推論 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E6%94%B6%E6%96%82%E5%8D%8A%E5%BE%91-radius-of-convergence"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：收斂半徑 (Radius of Convergence)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
