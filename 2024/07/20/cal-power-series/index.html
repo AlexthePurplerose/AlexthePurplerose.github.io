@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於冪級數的性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-07-20T08:59:27.000Z">
-<meta property="article:modified_time" content="2024-07-20T09:25:21.869Z">
+<meta property="article:modified_time" content="2024-07-21T08:21:48.359Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -191,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-07-20 16:59:27 / 修改時間：17:25:21" itemprop="dateCreated datePublished" datetime="2024-07-20T16:59:27+08:00">2024-07-20</time>
+              <time title="創建時間：2024-07-20 16:59:27" itemprop="dateCreated datePublished" datetime="2024-07-20T16:59:27+08:00">2024-07-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-07-21 16:21:48" itemprop="dateModified" datetime="2024-07-21T16:21:48+08:00">2024-07-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -288,7 +294,147 @@ class="math inline">\(x\in[-\eta,\eta]\subset[-\rho,\rho]\)</span>，有
 <p><span class="math inline">\(\sum c_nx^n\)</span>和<span
 class="math inline">\(\sum
 nc_{n-1}x^{n-1}\)</span>(逐項微分)的收斂半徑一樣。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：</p>
+<p><font color=#8b4513><u>證明</u></font>：在收斂半徑中挑一個<span
+class="math inline">\(|\xi|&lt;\rho\)</span>，我們知道<span
+class="math inline">\(\sum c_n\xi^n\)</span>收斂，故存在某個<span
+class="math inline">\(M\)</span>使得對於所有的<span
+class="math inline">\(n\)</span>有<span
+class="math inline">\(|c_n\xi^n|\leq M&lt;\infty\)</span>。故有 <span
+class="math display">\[
+|c_n\xi^{n-1}|\leq\frac{M}{|\xi|}
+\]</span> 今給定<span
+class="math inline">\(0&lt;q&lt;1\)</span>，把<span
+class="math inline">\(|x|\)</span>限制在<span
+class="math inline">\(|x|\leq q|\xi|\)</span>上。則 <span
+class="math display">\[
+|c_nnx^{n-1}|\leq|c_nnq^{n-1}\xi^{n-1}|\leq\frac{M}{|\xi|}nq^{n-1}
+\]</span> 然而 <span class="math display">\[
+\sum_n\frac{M}{|\xi|}nq^{n-1}=\frac{M}{|\xi|}\sum_n nq^{n-1}
+\]</span> 使用比率檢驗(<a
+href="https://alexthepurplerose.github.io/2024/07/16/cal-series/">這裡</a>的定理8)可以發現它收斂，故<span
+class="math inline">\(\sum c_nnx^{n-1}\)</span>絕對收斂。<br>
+然後，挑一個<span class="math inline">\(\xi&#39;\)</span> s.t. <span
+class="math inline">\(|\xi|&lt;|\xi&#39;|&lt;\rho\)</span>，並有<span
+class="math inline">\(0&lt;q&lt;1\)</span> s.t. <span
+class="math inline">\(|\xi|=q|\xi&#39;|\)</span>。然後就知<span
+class="math inline">\(\sum c_nx^{n-1}n\)</span>在<span
+class="math inline">\(x=\xi\)</span>收斂。於是，可以知道對於所有<span
+class="math inline">\(x\in(-\rho,\rho)\)</span>, <span
+class="math inline">\(\sum
+c_nnx^{n-1}\)</span>都收斂。<font size="1">QED</font></p>
+<h3 id="推論-4-1"><font color=#0000FF><u> 推論 4-1</u></font></h3>
+<p>可以發現不管微分幾次收斂半徑都一樣。<br></p>
+<center>
+<h1
+id="冪級數的四則運算"><font color=#b8860b>冪級數的四則運算</font></h1>
+</center>
+<h2
+id="定義-5冪級數的加減法-addition-and-subtraction-of-power-series"><font color=#008000><u>定義
+5：冪級數的加減法 (Addition and Subtraction of Power
+Series)</u></font></h2>
+<p>即 <span class="math display">\[
+\sum a_nx^n\pm\sum b_nx^n=\sum(a_n\pm b_n)x^n
+\]</span></p>
+<h2
+id="定義-6冪級數的乘法-multiplication-of-power-series"><font color=#008000><u>定義
+6：冪級數的乘法 (Multiplication of Power Series)</u></font></h2>
+<p>即 <span class="math display">\[
+\left(\sum a_nx^n\right)\left(\sum b_nx^n\right)=\sum c_nx^n
+\]</span> 其中 <span class="math display">\[
+c_n=\sum_{k=0}^n a_kb_{n-k}
+\]</span></p>
+<h3 id="定義-6-1柯西積-cauchy-product"><font color=#008000><u>定義
+6-1：柯西積 (Cauchy Product)</u></font></h3>
+<p>定義6中的<span class="math inline">\(\{c_n\}\)</span>稱為<span
+class="math inline">\(\{a_n\}, \{b_n\}\)</span>的柯西積。</p>
+<h3 id="定理-6-2"><font color=#ff1493><u>定理 6-2</u></font></h3>
+<p>若<span class="math inline">\(x\)</span>同時落在<span
+class="math inline">\(\sum a_nx^n\)</span>和<span
+class="math inline">\(\sum b_nx^n\)</span>的收斂半徑內，則 <span
+class="math display">\[
+\left(\sum a_nx^n\right)\left(\sum b_nx^n\right)=\sum c_nx^n
+\]</span> 其中<span class="math inline">\(c_n\)</span>定義同上。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：因為<span
+class="math inline">\(\sum a_nx^n\)</span>和<span
+class="math inline">\(\sum
+b_nx^n\)</span>都絕對收斂，所以可以隨便重排沒關係(<a
+href="https://alexthepurplerose.github.io/2024/07/16/cal-series/">這裡</a>的定理6-1)。<font size="1">QED</font></p>
+<center>
+<h1 id="冪級數的唯一性"><font color=#b8860b>冪級數的唯一性</font></h1>
+</center>
+<h2 id="定理-7"><font color=#ff1493><u>定理 7</u></font></h2>
+<p>若在收斂半徑內所有的<span class="math inline">\(x\)</span>都有<span
+class="math inline">\(\sum a_nx^n=\sum b_nx^n\)</span>，則<span
+class="math inline">\(a_n=b_n,\forall n\)</span>。也就是說，若<span
+class="math inline">\(\phi(x)=\sum c_nx^n\)</span>恆為零，則<span
+class="math inline">\(c_n=0,\forall n\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由<span
+class="math inline">\(\phi(0)=0\)</span>有<span
+class="math inline">\(c_0=0\)</span>。微分一次，會有 <span
+class="math display">\[
+\begin{aligned}
+&amp;\sum c_nnx^n=0\\
+\Rightarrow&amp;c_1\times 1=0\\
+\Rightarrow&amp;c_1=0
+\end{aligned}
+\]</span> 一直重複下去，會發現所有<span
+class="math inline">\(c_n\)</span>都是<span
+class="math inline">\(0\)</span>。<font size="1">QED</font></p>
+<h2 id="註記-8泰勒定理-taylors-theorem"><font color=#0000FF><u> 註記
+8：泰勒定理 (Taylor's Theorem)</u></font></h2>
+<p>若<span class="math inline">\(f(x)=\sum a_nx^n\)</span>，則 <span
+class="math display">\[
+a_n=\frac{1}{k!}f^{(k)}(0)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：用冪級數的唯一性就有了。<font size="1">QED</font></p>
+<h3 id="例-8-1"><font color=#ffa500><u>例 8-1</u></font></h3>
+<p>考慮函數<span class="math inline">\(f(x)=(1+x)^\alpha\)</span>, <span
+class="math inline">\(\alpha\in\mathbb{R}\)</span>。我們想找到冪級數<span
+class="math inline">\(\sum c_nx^n\)</span>使得 <span
+class="math display">\[
+f(x)=\sum_{n=0}^\infty c_nx^n
+\]</span> 我們分成三個步驟： <br>1. 找出<span
+class="math inline">\(\{c_n\}\)</span>：我們已知<span
+class="math inline">\((1+x)f&#39;(x)=\alpha f(x)\)</span>，即 <span
+class="math display">\[
+\begin{aligned}
+(1+x)\left(\sum_{n=1}^\infty nc_nx^n\right)&amp;=\alpha\sum_{n=0}^\infty
+c_nx^n\\
+&amp;=c_1+(2c_2+c_1)x+(3c_3+2c_2)x^2+\cdots
+\end{aligned}
+\]</span> 比較係數有 <span class="math display">\[
+\alpha c_0=c_1,\alpha c_1=2c_2+c_1,\alpha c_2=3c_3+2c_2\cdots
+\]</span> 故有 <span class="math display">\[
+c_1=\alpha,
+c_2=\frac{\alpha(\alpha-1)}{2},c_3=\frac{\alpha(\alpha-1)(\alpha-2)}{3\times
+2},\cdots,c_n=\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}
+\]</span> <br>2. 檢查收斂半徑：我們有級數<span
+class="math inline">\(\sum\limits_{n=0}^\infty
+C^\alpha_nx^n\)</span>了，使用比率檢驗有 <span class="math display">\[
+\left|\frac{C^\alpha_{n+1}x^{n+1}}{C^\alpha_nx^n}\right|=\left|\frac{\alpha-n+1}{n}x\right|
+\]</span> 當<span class="math inline">\(n\to\infty\)</span>時，<span
+class="math inline">\(\left|\frac{\alpha-n+1}{n}x\right|\to
+|x|\)</span>，故知當<span
+class="math inline">\(|x|&lt;1\)</span>時級數收斂，收斂半徑是<span
+class="math inline">\(\rho=1\)</span>。 <br>3.
+檢查即樹是否真的收斂到函數：令<span
+class="math inline">\(g(x)=\sum\limits_{n=0}^\infty
+C^\alpha_nx^n\)</span>。我們可以知道<span
+class="math inline">\((1+x)g&#39;(x)=\alpha g(x)\)</span>且<span
+class="math inline">\(g(0)=1\)</span>。令 <span class="math display">\[
+\phi(x)=\frac{g(x)}{(1+x)^\alpha}
+\]</span> 我們知道<span
+class="math inline">\(\phi(0)=1\)</span>，我們希望說明<span
+class="math inline">\(\phi(x)\equiv 1\)</span>。<br> 我們有 <span
+class="math display">\[
+\begin{aligned}
+\phi&#39;(x)&amp;=\frac{(1+x)^\alpha
+g&#39;(x)-\alpha(1+x)^{\alpha-1}g(x)}{(1+x)^{2\alpha}}\\
+&amp;=\frac{(1+x)^{\alpha-1}}{(1+x)^{2\alpha}}\left((1+x)g&#39;(x)-\alpha
+g(x)\right)\\
+&amp;=0
+\end{aligned}
+\]</span> 故知<span class="math inline">\(\phi(x)\equiv 1\)</span>。</p>
 
     </div>
 
@@ -373,7 +519,12 @@ nc_{n-1}x^{n-1}\)</span>(逐項微分)的收斂半徑一樣。<br></p>
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%AA%E7%B4%9A%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">冪級數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%86%AA%E7%B4%9A%E6%95%B8-power-series"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：冪級數
 (Power Series)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">推論 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E6%94%B6%E6%96%82%E5%8D%8A%E5%BE%91-radius-of-convergence"><span class="nav-number">1.3.</span> <span class="nav-text">定義
-3：收斂半徑 (Radius of Convergence)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
+3：收斂半徑 (Radius of Convergence)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text"> 推論 4-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%AA%E7%B4%9A%E6%95%B8%E7%9A%84%E5%9B%9B%E5%89%87%E9%81%8B%E7%AE%97"><span class="nav-number">2.</span> <span class="nav-text">冪級數的四則運算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%86%AA%E7%B4%9A%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B8%9B%E6%B3%95-addition-and-subtraction-of-power-series"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+5：冪級數的加減法 (Addition and Subtraction of Power
+Series)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%86%AA%E7%B4%9A%E6%95%B8%E7%9A%84%E4%B9%98%E6%B3%95-multiplication-of-power-series"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+6：冪級數的乘法 (Multiplication of Power Series)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-1%E6%9F%AF%E8%A5%BF%E7%A9%8D-cauchy-product"><span class="nav-number">2.2.1.</span> <span class="nav-text">定義
+6-1：柯西積 (Cauchy Product)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">定理 6-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%AA%E7%B4%9A%E6%95%B8%E7%9A%84%E5%94%AF%E4%B8%80%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">冪級數的唯一性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">3.1.</span> <span class="nav-text">定理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8%E6%B3%B0%E5%8B%92%E5%AE%9A%E7%90%86-taylors-theorem"><span class="nav-number">3.2.</span> <span class="nav-text"> 註記
+8：泰勒定理 (Taylor&#39;s Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-8-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">例 8-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
