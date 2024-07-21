@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於無窮乘積的性質與例子。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-07-21T08:48:56.000Z">
-<meta property="article:modified_time" content="2024-07-21T08:49:45.009Z">
+<meta property="article:modified_time" content="2024-07-21T12:59:50.240Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-21 16:48:56 / 修改時間：16:49:45" itemprop="dateCreated datePublished" datetime="2024-07-21T16:48:56+08:00">2024-07-21</time>
+              <time title="創建時間：2024-07-21 16:48:56 / 修改時間：20:59:50" itemprop="dateCreated datePublished" datetime="2024-07-21T16:48:56+08:00">2024-07-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +221,105 @@
 
       
         <p>這份筆記是關於無窮乘積的性質與例子。 <span id="more"></span><br></p>
+<center>
+<h1 id="無窮乘積"><font color=#b8860b>無窮乘積</font></h1>
+</center>
+<h2
+id="定義-1無窮乘積的收斂-convergence-of-infinite-production"><font color=#008000><u>定義
+1：無窮乘積的收斂 (Convergence of Infinite Production)</u></font></h2>
+<p>令<span class="math inline">\(A_n=\prod\limits_{k=1}^n
+a_k\)</span>，若當<span class="math inline">\(n\to\infty\)</span>時<span
+class="math inline">\(A_n\to A\)</span>，則說<span
+class="math inline">\(\prod\limits_{k=1}^\infty a_k\)</span>收斂，且記
+<span class="math display">\[
+\prod_{k=1}^\infty a_k=A
+\]</span></p>
+<h2 id="引理-2"><font color=#0000FF><u>引理 2</u></font></h2>
+<p>若<span class="math inline">\(a_n&gt;0\)</span>，則<span
+class="math inline">\(\prod a_n\)</span>收斂 iff. <span
+class="math inline">\(\sum\log a_n\)</span>收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+\sum\log a_n=\log\left(\prod a_n\right)
+\]</span> 由於<span class="math inline">\(\log x\)</span>連續，故<span
+class="math inline">\(\prod a_n\)</span>收斂 iff. <span
+class="math inline">\(\sum\log
+a_n\)</span>收斂。<font size="1">QED</font></p>
+<h2 id="引理-3"><font color=#0000FF><u>引理 3</u></font></h2>
+<p>若<span class="math inline">\(\sum |a_n|\)</span>收斂，則<span
+class="math inline">\(\prod(1+a_n)\)</span>收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：WLOG，假設對所有<span
+class="math inline">\(n\)</span>有<span
+class="math inline">\(|a_n|&lt;\frac{1}{2}\)</span>(因為<span
+class="math inline">\(a_n\to 0\)</span>)。考慮<span
+class="math inline">\(\sum\log(1+a_n)\)</span>。由微分均值定理(<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的定理4)，我們知道存在<span
+class="math inline">\(0&lt;\theta&lt;1\)</span>使得 <span
+class="math display">\[
+\log(1+x)-\log 1=\frac{x}{1+\theta x}
+\]</span> 故我們可以有 <span class="math display">\[
+\sum\log(1+a_n)=\sum\frac{a_n}{1+\theta_n a_n}, 0&lt;\theta_n&lt;1
+\]</span> 又 <span class="math display">\[
+\left|\frac{a_n}{1+\theta_n
+a_n}\right|\leq\left|\frac{a_n}{1-\frac{1}{2}\theta_n}\right|\leq\left|\frac{a_n}{1-\frac{1}{2}}\right|=2|a_n|
+\]</span> 於是，由<span
+class="math inline">\(\sum|a_n|\)</span>收斂知<span
+class="math inline">\(\sum 2|a_n|\)</span>收斂，故<span
+class="math inline">\(\sum\left|\frac{a_n}{1+\theta_n
+a_n}\right|\)</span>收斂，然後有<span
+class="math inline">\(\sum\log(1+a_n)\)</span>收斂，故由引理2知<span
+class="math inline">\(\prod(1+a_n)\)</span>收斂。<font size="1">QED</font></p>
+<center>
+<h1 id="黎曼zeta函數"><font color=#b8860b>黎曼Zeta函數</font></h1>
+</center>
+<h2
+id="定義-4黎曼zeta函數-riemann-zeta-function"><font color=#008000><u>定義
+4：黎曼Zeta函數 (Riemann Zeta Function)</u></font></h2>
+<p>即 <span class="math display">\[
+\zeta(s)=\sum_{n=1}^\infty\frac{1}{n^s}
+\]</span> 我們在前面看過(<a
+href="https://alexthepurplerose.github.io/2024/07/16/cal-series/">這裡</a>的例10)級數在<span
+class="math inline">\(s&gt;1\)</span>時收斂。<br></p>
+<h2 id="引理-5"><font color=#0000FF><u>引理 5</u></font></h2>
+<p>令<span class="math inline">\(p_n\)</span>是第<span
+class="math inline">\(n\)</span>個質數，則 <span class="math display">\[
+\zeta(s)=\prod_n\frac{1}{1-p_n^{-s}}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們知道 <span
+class="math display">\[
+\frac{1}{1-\frac{1}{p^s}}=\frac{1}{p^s}+\frac{1}{p^{2s}}+\frac{1}{p^{3s}}+\cdots
+\]</span> 於是，我們知道 <span class="math display">\[
+\begin{aligned}
+\frac{1}{p_1^{-s}}\cdot\frac{1}{1-p_2^{-s}}\cdot\frac{1}{1-p_3^{-s}}\cdots=&amp;\left(1+\frac{1}{p_1^s}+\frac{1}{p_1^{2s}}+\frac{1}{p_1^{3s}}+\cdots\right)\\
+&amp;\cdot\left(1+\frac{1}{p_2^s}+\frac{1}{p_2^{2s}}+\frac{1}{p_2^{3s}}+\cdots\right)\\
+&amp;\cdot\left(1+\frac{1}{p_3^s}+\frac{1}{p_3^{2s}}+\frac{1}{p_3^{3s}}+\cdots\right)\cdots\\
+=&amp;1+\frac{1}{2^s}+\frac{1}{3^s}+\cdots
+\end{aligned}
+\]</span> 於是證畢。<font size="1">QED</font></p>
+<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
+<p>結合引理3，我們有 <span class="math display">\[
+\frac{1}{1-p^{-s}}=1+\frac{1}{p^s-1}
+\]</span> 且 <span class="math display">\[
+1+\frac{1}{p^s-1}=\frac{2}{p^s}
+\]</span> 由於<span class="math inline">\(s&gt;1\)</span>時<span
+class="math inline">\(\sum\limits_p\frac{2}{p^s}\)</span>收斂，故可知<span
+class="math inline">\(s&gt;1\)</span>時<span
+class="math inline">\(\zeta(s)\)</span>也收斂。</p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>令<span class="math inline">\(p\)</span>為質數，則 <span
+class="math display">\[
+\sum_p\frac{1}{p}
+\]</span> 發散。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：假設級數收斂，令 <span
+class="math display">\[
+\alpha_n=\frac{1}{1-p_n^{-1}}-1=\frac{p_n^{-1}}{1-p_n^{-1}}
+\]</span> 我們有<span
+class="math inline">\(0\leq\alpha_n\leq\frac{2}{p_n}\)</span>。由假設，<span
+class="math inline">\(\sum\alpha_n\)</span>收斂，由引理3知<span
+class="math inline">\(\prod(1+\alpha_n)\)</span>收斂。但由引理5知 <span
+class="math display">\[
+\prod(1+\alpha_n)=\prod\frac{1}{1-p_n^{-1}}=\sum\frac{1}{n}
+\]</span> 發散。矛盾。<font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +402,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%84%A1%E7%AA%AE%E4%B9%98%E7%A9%8D"><span class="nav-number">1.</span> <span class="nav-text">無窮乘積</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E7%84%A1%E7%AA%AE%E4%B9%98%E7%A9%8D%E7%9A%84%E6%94%B6%E6%96%82-convergence-of-infinite-production"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：無窮乘積的收斂 (Convergence of Infinite Production)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">引理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">引理 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%BB%8E%E6%9B%BCzeta%E5%87%BD%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">黎曼Zeta函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%BB%8E%E6%9B%BCzeta%E5%87%BD%E6%95%B8-riemann-zeta-function"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+4：黎曼Zeta函數 (Riemann Zeta Function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5"><span class="nav-number">2.2.</span> <span class="nav-text">引理 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.3.</span> <span class="nav-text">定理 6</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
