@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於傅立葉級數的性質與收斂性。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/period.jpg">
 <meta property="article:published_time" content="2024-07-22T06:56:09.000Z">
-<meta property="article:modified_time" content="2024-07-22T06:57:04.783Z">
+<meta property="article:modified_time" content="2024-07-22T08:21:51.534Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/period.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/">
 
@@ -193,7 +195,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-22 14:56:09 / 修改時間：14:57:04" itemprop="dateCreated datePublished" datetime="2024-07-22T14:56:09+08:00">2024-07-22</time>
+              <time title="創建時間：2024-07-22 14:56:09 / 修改時間：16:21:51" itemprop="dateCreated datePublished" datetime="2024-07-22T14:56:09+08:00">2024-07-22</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +223,208 @@
 
       
         <p>這份筆記是關於傅立葉級數的性質與收斂性。 <span id="more"></span><br></p>
+<center>
+<h1 id="週期函數"><font color=#b8860b>週期函數</font></h1>
+</center>
+<h2 id="註記-1"><font color=#0000FF><u>註記 1</u></font></h2>
+<p>我們這裡的目標是希望將函數表為 <span class="math display">\[
+f(x)=\frac{a_0}{2}+\sum_{k=1}^\infty(a_k\cos kx+b_k\sin kx)
+\]</span></p>
+<h2 id="定義-2週期-period"><font color=#008000><u>定義 2：週期
+(Period)</u></font></h2>
+<p>給定<span class="math inline">\(\mathbb{R}\)</span>上的函數<span
+class="math inline">\(f\)</span>，若對於所有<span
+class="math inline">\(x\)</span>都有<span
+class="math inline">\(f(x+T)=f(x)\)</span>，則稱<span
+class="math inline">\(T\)</span>是<span
+class="math inline">\(f\)</span>的週期。</p>
+<h3 id="註記-2-1"><font color=#0000FF><u>註記 2-1</u></font></h3>
+<p>對於整數<span class="math inline">\(m\)</span>，若<span
+class="math inline">\(T\)</span>是週期，則顯然<span
+class="math inline">\(mT\)</span>也是週期。</p>
+<h3 id="例-2-2"><font color=#ffa500><u>例 2-2</u></font></h3>
+<p>對於<span class="math inline">\(\omega&gt;0\)</span>，我們知道<span
+class="math inline">\(T=\frac{2\pi}{\omega}\)</span>是<span
+class="math inline">\(\sin\omega x\)</span>的週期。</p>
+<h3 id="註記-2-3"><font color=#0000FF><u>註記 2-3</u></font></h3>
+<p>考慮週期為<span class="math inline">\(T\)</span>的函數<span
+class="math inline">\(f\)</span>，則對所有<span
+class="math inline">\(\alpha\in\mathbb{R}\)</span>，有 <span
+class="math display">\[
+\int_{-\alpha}^{T-\alpha}f(x)dx=\int_0^T f(x)dx
+\]</span></p>
+<h2 id="註記-3"><font color=#0000FF><u>註記 3</u></font></h2>
+<p>註記1中的式子要成立的話顯然<span
+class="math inline">\(f\)</span>必須要有<span
+class="math inline">\(2\pi\)</span>週期(因為<span
+class="math inline">\(\cos k(x+2\pi)=\cos kx\)</span>,
+etc.)。或者是說，對於任意的<span
+class="math inline">\(f\)</span>，我們可以在小一點的區間上討論這個問題。例如，對於在<span
+class="math inline">\([a,b]\)</span>上的<span
+class="math inline">\(f\)</span>，我們可以把它複製到整個<span
+class="math inline">\(\mathbb{R}\)</span>上，如下圖1。</p>
+<img src="period.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>顯然除了端點以外都有<span
+class="math inline">\(f(x+T)=f(x)\)</span>，然而在端點上就會出問題。我們可以重新定義督點上的值。令<span
+class="math inline">\(\xi\)</span>是一個端點，則令 <span
+class="math display">\[
+f(\xi)=\frac{1}{2}[f(\xi^+)+f(\xi^-)]
+\]</span> 其中 <span class="math display">\[
+\begin{aligned}
+f(\xi^+)&amp;=\lim_{\epsilon\to 0^+}f(\xi+\epsilon)\\
+f(\xi^-)&amp;=\lim_{\epsilon\to 0^+}f(\xi-\epsilon)
+\end{aligned}
+\]</span>
+直覺來說，就是把兩端點的函數值平均。然後把整個函數伸縮、平移，就能直接考慮<span
+class="math inline">\([a,b]=[0,2\pi]\)</span>了。</p>
+<h3 id="定義-3-1擴展-extension"><font color=#008000><u>定義 3-1：擴展
+(Extension)</u></font></h3>
+<p>註記3中的行為稱為把<span class="math inline">\(f\)</span>從<span
+class="math inline">\([a,b]\)</span>擴展到<span
+class="math inline">\(\mathbb{R}\)</span>上。</p>
+<h2 id="定義-4頻率-frequency"><font color=#008000><u>定義 4：頻率
+(Frequency)</u></font></h2>
+<p>對於週期<span class="math inline">\(T\)</span>，我們稱<span
+class="math inline">\(\frac{1}{T}\)</span>為頻率。</p>
+<h3 id="例-4-1"><font color=#ffa500><u>例 4-1</u></font></h3>
+<p>對於<span class="math inline">\(\omega&gt;0\)</span>，我們知道<span
+class="math inline">\(\sin\omega x\)</span>的頻率是 <span
+class="math display">\[
+\frac{1}{T}=\frac{\omega}{2\pi}
+\]</span></p>
+<center>
+<h1 id="常用三角公式"><font color=#b8860b>常用三角公式</font></h1>
+</center>
+<h2
+id="定義-5複指數函數-complex-exponential-function"><font color=#008000><u>定義
+5：複指數函數 (Complex Exponential Function)</u></font></h2>
+<p>對於<span class="math inline">\(z\in\mathbb{C}\)</span>，我們定義
+<span class="math display">\[
+e^z=1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\cdots
+\]</span> 即原本實數時指數函數的泰勒級數。</p>
+<h2 id="引理-6歐拉公式-eulers-formula"><font color=#0000FF><u>引理
+6：歐拉公式 (Euler's Formula)</u></font></h2>
+<p>對於<span class="math inline">\(x\in\mathbb{R}\)</span>，有 <span
+class="math display">\[
+e^{ix}=\cos x+i\sin x
+\]</span> 其中<span class="math inline">\(i=\sqrt{-1}\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+\begin{aligned}
+e^{ix}&amp;=1+(ix)+\frac{(ix)^2}{2!}\\
+&amp;=1+ix-\frac{x^2}{2!}-\frac{ix^3}{3!}+\frac{x^4}{4!}+\frac{ix^5}{5!}+\cdots\\
+&amp;=\left(1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\cdots\right)+i\left(x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots\right)\\
+&amp;=\cos x+i\sin x
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-6-1"><font color=#0000FF><u>註記 6-1</u></font></h3>
+<p>從歐拉公式會有 <span class="math display">\[
+\begin{aligned}
+\cos x&amp;=\frac{e^{ix}+e^{-ix}}{2}\\
+\sin x&amp;=\frac{e^{ix}-e^{-ix}}{2i}
+\end{aligned}
+\]</span></p>
+<h3 id="註記-6-2"><font color=#0000FF><u>註記 6-2</u></font></h3>
+<p>回到三角級數，令 <span class="math display">\[
+S_n(x)=\frac{a_0}{2}+\sum_{k=1}^n(a_k\cos kx+b_k\sin kx)
+\]</span> 使用註記5-1-1的結果，我們有 <span class="math display">\[
+\begin{aligned}
+\cos kx&amp;=\frac{1}{2}\left(e^{ikx}+e^{-ikx}\right)\\
+\sin kx&amp;=\frac{1}{2i}\left(e^{ikx}-e^{-ikx}\right)
+\end{aligned}
+\]</span> 於是有 <span class="math display">\[
+S_n(x)=\sum_{k=-n}^n\alpha_k e^{ikx}
+\]</span> 其中 <span class="math display">\[
+\begin{aligned}
+\alpha_k&amp;=\frac{1}{2}(a_k-ib_k), k=1,2,\cdots,n\\
+\alpha_{-k}&amp;=\frac{1}{2}(a_k+ib_k), k=1,2,\cdots,n\\
+\alpha_0&amp;=\frac{a_0}{2}
+\end{aligned}
+\]</span></p>
+<h2 id="定義-7複積分-complex-integral"><font color=#008000><u>定義
+7：複積分 (Complex Integral)</u></font></h2>
+<p>對於函數<span
+class="math inline">\(r:\mathbb{R}\to\mathbb{C}\)</span>，若可以寫成<span
+class="math inline">\(r(x)=p(x)+iq(x)\)</span>，其中<span
+class="math inline">\(p,q\)</span>是實函數，則定義 <span
+class="math display">\[
+\int r(x)dx\equiv\int p(x)dx+i\int q(x)dx
+\]</span></p>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
+<p>對於所有<span class="math inline">\(n\in\mathbb{Z}\)</span>，有 <span
+class="math display">\[
+\int_{-\pi}^\pi e^{inx}dx=\left\{
+\begin{aligned}
+2\pi&amp;,n=0\\
+0&amp;,n\neq 0
+\end{aligned}
+\right.
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：<span
+class="math inline">\(n=0\)</span>時，<span
+class="math inline">\(e^{inx}=1\)</span>，結論是顯然的。<br> <span
+class="math inline">\(n\neq 0\)</span>時，我們有 <span
+class="math display">\[
+\begin{aligned}
+\int_{-\pi}^\pi e^{inx}dx&amp;=\int_{-\pi}^\pi (\cos nx+i\sin nx)dx\\
+&amp;=\int_{-\pi}^\pi \cos nxdx+i\int_{-\pi}^\pi \sin nxdx\\
+&amp;=0+0i=0
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="推論-8-1"><font color=#0000FF><u>推論 8-1</u></font></h3>
+<p>對於<span class="math inline">\(n,m\in\mathbb{Z}\)</span>，有 <span
+class="math display">\[
+\int_{-\pi}^\pi e^{inx}e^{-imx}dx=\left\{
+\begin{aligned}
+0&amp;,n\neq m\\
+2\pi&amp;,n=m
+\end{aligned}
+\right.
+\]</span></p>
+<h4 id="定義-8-1-1內積-inner-product"><font color=#008000><u>定義
+8-1-1：內積 (Inner Product)</u></font></h4>
+<p>我們將 <span class="math display">\[
+\int_{-\pi}^\pi e^{inx}e^{-imx}dx
+\]</span> 稱為<span class="math inline">\(e^{inx}\)</span>和<span
+class="math inline">\(e^{-imx}\)</span>的內積，記做<span
+class="math inline">\(\langle e^{inx},e^{-imx}\rangle\)</span>。</p>
+<h4 id="定義-8-1-2正交-orthogonal"><font color=#008000><u>定義
+8-1-2：正交 (Orthogonal)</u></font></h4>
+<p>若兩函數的內積為零，稱它們正交。如上述的<span
+class="math inline">\(e^{inx}\)</span>和<span
+class="math inline">\(e^{-imx}\)</span>就正交。</p>
+<h2 id="定理-9"><font color=#ff1493><u>定理 9</u></font></h2>
+<p>令 <span class="math display">\[\sigma_n(x)=\frac{1}{2}+\cos x+\cos
+2x+\cdots+\cos nx\]</span> 則 <span class="math display">\[
+\sigma_n(x)=\frac{\sin(n+\frac{1}{2})x}{2\sin\frac{1}{2}x}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：可以看出<span
+class="math inline">\(\sigma_n(x)\)</span>是註記6-2中<span
+class="math inline">\(S_n(x)\)</span>的特例(<span
+class="math inline">\(a_k=1, b_k=0, k=1,2,\cdots,n\)</span>)，故有 <span
+class="math display">\[
+\begin{aligned}
+\sigma_n(x)&amp;=\frac{1}{2}\sum_{k=-n}^n e^{ikx}\\
+&amp;=\frac{1}{2}\left(e^{-inx}\cdot\frac{1-e^{i(2n+1)x}}{1-e^{ix}}\right)\\
+&amp;=\frac{1}{2}\left(\frac{e^{-inx}-e^{i(n+1)x}}{1-e^{ix}}\right)\\
+&amp;=\frac{1}{2}\left(\frac{e^{-inx}-e^{i(n+1)x}}{1-e^{ix}}\right)\cdot\frac{e^{-\frac{1}{2}ix}}{e^{-\frac{1}{2}ix}}\\
+&amp;=\frac{1}{2}\left(\frac{e^{-i\left(n+\frac{1}{2}\right)x}-e^{i\left(n+\frac{1}{2}\right)x}}{e^{-\frac{1}{2}ix}-e^{\frac{1}{2}ix}}\right)\\
+&amp;=\frac{1}{2}\times\frac{2i\times\sin\left(-\left(n+\frac{1}{2}\right)x\right)}{2i\times\sin\left(-\frac{1}{2}x\right)}\\
+&amp;=\frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{1}{2}x}
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="推論-9-1"><font color=#0000FF><u>推論 9-1</u></font></h3>
+<p>對任何整數<span class="math inline">\(n\)</span>，有 <span
+class="math display">\[
+\int_0^\pi\frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{1}{2}x}dx=\frac{\pi}{2}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：套用定理9，則結論是顯然的，因為對所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>有<span
+class="math inline">\(\int_0^\pi\cos
+nxdx=0\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +507,15 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%B1%E6%9C%9F%E5%87%BD%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">週期函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1"><span class="nav-number">1.1.</span> <span class="nav-text">註記 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E9%80%B1%E6%9C%9F-period"><span class="nav-number">1.2.</span> <span class="nav-text">定義 2：週期
+(Period)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">例 2-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-3"><span class="nav-number">1.2.3.</span> <span class="nav-text">註記 2-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.3.</span> <span class="nav-text">註記 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E6%93%B4%E5%B1%95-extension"><span class="nav-number">1.3.1.</span> <span class="nav-text">定義 3-1：擴展
+(Extension)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%A0%BB%E7%8E%87-frequency"><span class="nav-number">1.4.</span> <span class="nav-text">定義 4：頻率
+(Frequency)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">例 4-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E4%B8%89%E8%A7%92%E5%85%AC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">常用三角公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E8%A4%87%E6%8C%87%E6%95%B8%E5%87%BD%E6%95%B8-complex-exponential-function"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+5：複指數函數 (Complex Exponential Function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-6%E6%AD%90%E6%8B%89%E5%85%AC%E5%BC%8F-eulers-formula"><span class="nav-number">2.2.</span> <span class="nav-text">引理
+6：歐拉公式 (Euler&#39;s Formula)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">註記 6-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E8%A4%87%E7%A9%8D%E5%88%86-complex-integral"><span class="nav-number">2.3.</span> <span class="nav-text">定義
+7：複積分 (Complex Integral)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.4.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-8-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">推論 8-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8-1-1%E5%85%A7%E7%A9%8D-inner-product"><span class="nav-number">2.4.1.1.</span> <span class="nav-text">定義
+8-1-1：內積 (Inner Product)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8-1-2%E6%AD%A3%E4%BA%A4-orthogonal"><span class="nav-number">2.4.1.2.</span> <span class="nav-text">定義
+8-1-2：正交 (Orthogonal)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.5.</span> <span class="nav-text">定理 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-9-1"><span class="nav-number">2.5.1.</span> <span class="nav-text">推論 9-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
