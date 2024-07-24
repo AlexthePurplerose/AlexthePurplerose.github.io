@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/period.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/fourier.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/bessel.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/fejer.jpg">
 <meta property="article:published_time" content="2024-07-22T06:56:09.000Z">
-<meta property="article:modified_time" content="2024-07-24T05:45:58.180Z">
+<meta property="article:modified_time" content="2024-07-24T08:05:36.986Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -203,7 +204,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-07-24 13:45:58" itemprop="dateModified" datetime="2024-07-24T13:45:58+08:00">2024-07-24</time>
+                <time title="修改時間：2024-07-24 16:05:36" itemprop="dateModified" datetime="2024-07-24T16:05:36+08:00">2024-07-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -898,6 +899,265 @@ class="math display">\[
 \frac{a_0}{2}+\sum_{k=1}^n(a_k\cos kx+b_k\sin kx)
 \]</span> 一致收斂到<span
 class="math inline">\(f(x)\)</span>(上面的(★))。</p>
+<center>
+<h1
+id="傅立葉級數的平均收斂性"><font color=#b8860b>傅立葉級數的平均收斂性</font></h1>
+</center>
+<h2 id="註記-23"><font color=#0000FF><u>註記 23</u></font></h2>
+<p>可以找到連續函數<span
+class="math inline">\(f(x)\)</span>使得它的傅立葉級數<span
+class="math inline">\(S_n(x)\)</span>不會收斂到<span
+class="math inline">\(f(x)\)</span>(具體的例子可以看[這裡])。</p>
+<h2 id="定理-24斐葉定理-fejérs-theorem"><font color=#ff1493><u>定理
+24：斐葉定理 (Fejér's Theorem)</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>連續，則其傅立葉級數<span
+class="math inline">\(S_n(x)\)</span>平均收斂到<span
+class="math inline">\(f\)</span>。</p>
+<h3
+id="定義-24-1平均收斂-average-convergence"><font color=#008000><u>定義
+24-1：平均收斂 (Average Convergence)</u></font></h3>
+<p>若 <span class="math display">\[
+\alpha_n=\frac{1}{n+1}(S_0+S_1+\cdots+S_n)
+\]</span> 收斂，則稱<span
+class="math inline">\(S_n\)</span>平均收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+S_n(x)=\frac{a_0}{2}+\sum_{k=1}^n(a_k\cos kx+b_k\sin kx)
+\]</span> 令 <span class="math display">\[
+\begin{aligned}
+\sigma_n(x)&amp;=\frac{1}{2}+\cos x+\cos 2x+\cdots+\cos nx\\
+&amp;=\frac{\sin\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}}\\
+&amp;=\frac{\sin\left(n+\frac{1}{2}\right)x\sin\frac{x}{2}}{2\sin^2\frac{x}{2}}\\
+&amp;=\frac{1}{2}\cdot\frac{\cos nx-\cos(n+1)x}{1-\cos x}
+\end{aligned}
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+\frac{1}{n+1}(\sigma_0+\sigma_1+\cdots+\sigma_n)&amp;=\frac{1}{2(n+1)}\left(\frac{1-\cos(n+1)x}{1-\cos
+x}\right)\\
+&amp;=\frac{1}{2(n+1)}\left(\frac{\sin\left(n+\frac{1}{2}\right)x}{\sin\frac{x}{2}}\right)^2
+\end{aligned}
+\]</span> 令 <span class="math display">\[
+F_n(x)=\frac{1}{2(n+1)}\left(\frac{\sin\left(n+\frac{1}{2}\right)x}{\sin\frac{x}{2}}\right)^2
+\]</span> 易知： <br>1. <span class="math inline">\(F_n(x)\geq
+0\)</span> <br>2. <span
+class="math display">\[\frac{1}{\pi}\int_{-\pi}^\pi F_n(x)dx=1\]</span>
+這可以用<span
+class="math inline">\(F_n=\frac{1}{n+1}(\sigma_0+\sigma_1+\cdots+\sigma_n)\)</span>去想。
+<br>3. <span class="math display">\[
+\frac{1}{n+1}(S_0+S_1+\cdots+S_n)=\frac{1}{\pi}f(x-t)F_n(t)dt
+\]</span> 其中<span
+class="math inline">\(x\)</span>是固定的。這可以用<span
+class="math inline">\(F_n=\frac{1}{n+1}(\sigma_0+\sigma_1+\cdots+\sigma_n)\)</span>去想。<br>
+我們希望說明當<span class="math inline">\(n\)</span>很大時有 <span
+class="math display">\[
+\left|\frac{1}{\pi}\int_{-\pi}^\pi
+f(x-t)F_n(t)dt-f(x)\right|&lt;\epsilon
+\]</span> 因為<span class="math inline">\(f(x)\)</span>是常數，故我們有
+<span class="math display">\[
+\begin{aligned}
+\left|\frac{1}{\pi}\int_{-\pi}^\pi
+f(x-t)F_n(t)dt-f(x)\right|&amp;=\left|\frac{1}{\pi}\int_{-\pi}^\pi(f(x-t)-f(x))F_n(t)dt\right|\\
+&amp;=\left|\frac{1}{\pi}\int_{-\delta}^\delta(f(x-t)-f(x))F_n(t)dt+\frac{1}{\pi}\int_{outside\;(-\delta,\delta)}(f(x-t)-f(x))F_n(t)dt\right|
+\end{aligned}
+\]</span> 因為<span class="math inline">\(f\)</span>連續，故<span
+class="math inline">\(f\)</span>在區間中一致連續 i.e. 給定<span
+class="math inline">\(\epsilon&gt;0\)</span>, <span
+class="math inline">\(\exists\delta&gt;0\)</span> s.t. 當<span
+class="math inline">\(|t|&lt;\delta\)</span>時有<span
+class="math inline">\(|f(x-t)-f(x)|&lt;\epsilon\)</span>。我們底下分兩項來討論上式的大小。
+<br>1. 在<span
+class="math inline">\((-\delta,\delta)\)</span>中的部分：我們有 <span
+class="math display">\[
+\begin{aligned}
+\left|\frac{1}{\pi}\int_{-\delta}^\delta(f(x-t)-f(x))F_n(t)dt\right|&amp;\leq\frac{1}{\pi}\int_{-\delta}^\delta|f(x-t)-f(x)||F_n(t)|dt\\
+&amp;\leq\frac{\epsilon}{\pi}\int_{-\delta}^\delta|F_n(t)|dt&lt;\epsilon
+\end{aligned}
+\]</span> 最後一步是上面易知的第2.點。 <br>2. 在<span
+class="math inline">\((-\delta,\delta)\)</span>外的部分：我們可以把它寫成
+<span class="math display">\[
+\frac{1}{\pi}\int_{-\pi}^{-\delta}(f(x-t)-f(x))F_n(t)dt+\frac{1}{\pi}\int_\delta^\pi(f(x-t)-f(x))F_n(t)dt
+\]</span> 而又 <span class="math display">\[
+F_n(x)=\frac{1}{2(n+1)}\left(\frac{\sin\left(n+\frac{1}{2}\right)x}{\sin\frac{x}{2}}\right)^2\leq\frac{1}{2(n+1)(\delta/2)^2}
+\]</span> 因為<span class="math inline">\(x\to 0\)</span>時<span
+class="math inline">\(\sin \frac{x}{2}\to\frac{x}{2}\)</span>且<span
+class="math inline">\(\sin\left(n+\frac{1}{2}\right)x\leq
+1\)</span>。令<span class="math inline">\(M\)</span>是<span
+class="math inline">\(|f|\)</span>在<span
+class="math inline">\([-\pi,\pi]\)</span>上的極大值，則 <span
+class="math display">\[
+\begin{aligned}
+\left|\frac{1}{\pi}\int_{outside\;(-\delta,\delta)}(f(x-t)-f(x))F_n(t)dt\right|&amp;\leq\frac{2M}{\pi}\int_\delta^\pi
+F_n(t)dt\\
+&amp;\leq\frac{2M}{\pi}\times\pi\times\frac{1}{2(n+1)(\delta/2)^2}
+\end{aligned}
+\]</span> 可以發現這可以任意小。當<span
+class="math inline">\(n\)</span>很大時確實有 <span
+class="math display">\[
+\left|\frac{1}{\pi}\int_{-\pi}^\pi
+f(x-t)F_n(t)dt-f(x)\right|&lt;\epsilon
+\]</span> 而 <span class="math display">\[
+S_n(x)=\frac{1}{\pi}\int_{-\pi}^\pi f(x)\sigma(x-t)dt
+\]</span> 所以<span class="math inline">\(S_n\)</span>平均收斂到<span
+class="math inline">\(f\)</span>。<font size="1">QED</font></p>
+<img src="fejer.jpg" width="25%" height="25%">
+<center>
+圖4 Fejér Lipót
+</center>
+<center>
+<h1
+id="傅立葉級數的積分性質"><font color=#b8860b>傅立葉級數的積分性質</font></h1>
+</center>
+<h2 id="定理-25"><font color=#ff1493><u>定理 25</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>連續，則對所有<span
+class="math inline">\(x_1,x_2\)</span>，有 <span class="math display">\[
+\int_{x_1}^{x_2}f(t)dt=\int_{x_1}^{x_2}\frac{a_0}{2}dt+\sum_{k=1}^\infty\left(\int_{x_1}^{x_2}a_k\cos
+ktdt+\int_{x_1}^{x_2}b_k\sin kxdt\right)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(F(t)=\int_{-\pi}^x\left(f(t)-\frac{a_0}{2}\right)dt\)</span>，則：
+<br>1. <span class="math inline">\(F(\pi)=F(-\pi)=0\)</span>。 <br>2.
+<span class="math inline">\(F,F&#39;\)</span>都連續。<br> 於是<span
+class="math inline">\(F\)</span>可以表達成其傅立葉級數，即 <span
+class="math display">\[
+\frac{A_0}{2}+\sum_{k=1}^n A_k\cos kx+B_k\sin kx
+\]</span> 一致收斂到<span
+class="math inline">\(F(x)\)</span>，且易有<span
+class="math inline">\(A_n=-\frac{b_n}{n}, B_n=\frac{a_n}{n}\)</span>。故
+<span class="math display">\[
+\begin{aligned}
+\int_{x_1}^{x_2}\left(f(t)-\frac{a_0}{2}\right)dt&amp;=F(x_2)-F(x_1)\\
+&amp;=\sum_{n=1}^\infty A_n(\cos nx_2-\cos nx_1)+B_n(\sin nx_2-\sin
+x_1)\\
+&amp;=\sum_{n=1}^\infty\left[-\frac{b_n}{n}(\cos nx_2-\cos
+nx_1)+\frac{a_n}{n}(\sin nx_2-\sin nx_1)\right]\\
+&amp;=\sum_{n=1}^\infty\left(\int_{x_1}^{x_2}a_n\cos
+nxdx+\int_{x_1}^{x_2}b_n\sin nxdx\right)
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="收斂速度的估計"><font color=#b8860b>收斂速度的估計</font></h1>
+</center>
+<h2 id="定理-26"><font color=#ff1493><u>定理 26</u></font></h2>
+<p>若<span
+class="math inline">\(f,f&#39;,f&#39;&#39;\)</span>都連續，則<span
+class="math inline">\(|S_n(x)-f(x)|=O\left(\frac{1}{n}\right)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：把<span
+class="math inline">\(S_n\)</span>寫成 <span class="math display">\[
+S_n(x)=\frac{1}{\pi}\int_{-\pi}^\pi f(x-y)D_n(y)dy
+\]</span> 其中 <span class="math display">\[
+D_n(y)=\frac{\sin\left(n+\frac{1}{2}\right)y}{2\sin\frac{y}{2}}
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+S_n(x)-f(x)&amp;=\frac{1}{\pi}\int_{-\pi}^\pi(f(x-y)-f(x))\frac{\sin\left(n+\frac{1}{2}\right)y}{2\sin\frac{y}{2}}dy\\
+&amp;=\frac{1}{2\pi}\int_{-\pi}^\pi\left(\frac{f(x-y)-f(x)}{\sin\frac{y}{2}}\right)\sin\left(n+\frac{1}{2}\right)ydy\\
+&amp;=\int_{-\pi}^\pi g(y)\sin\left(n+\frac{1}{2}\right)ydy
+\end{aligned}
+\]</span> 其中 <span class="math display">\[
+g(y)=\frac{1}{2\pi}\times\frac{f(x-y)-f(x)}{\sin\frac{y}{2}}
+\]</span> 我們希望說明<span
+class="math inline">\(g&#39;(y)\)</span>連續。只有<span
+class="math inline">\(y=0\)</span>的地方會有問題，我們兩部分處理：
+<br>1. <span class="math inline">\(\lim\limits_{y\to
+0}g(y)\)</span>存在：有 <span class="math display">\[
+\begin{aligned}
+\lim_{y\to 0}g(y)&amp;=\lim_{y\to
+0}\frac{f(x-y)-f(x)}{\sin\frac{y}{2}}\times\frac{-y}{-y}\\
+&amp;=\lim_{y\to
+0}\left(\frac{f(x-y)-f(x)}{-y}\right)\times\left(\frac{-y}{\sin\frac{y}{2}}\right)\\
+&amp;=f&#39;(x)\times\lim_{y\to
+0}\left(\frac{-y}{\sin\frac{y}{2}}\right)
+\end{aligned}
+\]</span> 於是知 <span class="math inline">\(\lim\limits_{y\to
+0}g(y)\)</span>存在。 <br>2. <span
+class="math inline">\(\lim\limits_{y\to 0}g&#39;(y)\)</span>存在：我們有
+<span class="math display">\[
+g&#39;(y)=\frac{-f&#39;(x-y)\sin\frac{y}{2}-(f(x-y)-f(x))\frac{1}{2}\cos\frac{y}{2}}{\left(\sin\frac{y}{2}\right)^2}
+\]</span> 而由泰勒展開有 <span class="math display">\[
+f(x-y)=f(x)+f&#39;(x)(-y)+\frac{1}{2}f&#39;&#39;(x)y^2+o(y^2)
+\]</span> 最後的<span class="math inline">\(o(y^2)\)</span>(當<span
+class="math inline">\(y\to 0\)</span>時)可以忽略。則 <span
+class="math display">\[
+\begin{aligned}
+g&#39;(y)&amp;=\frac{-f&#39;(x-y)\sin\frac{y}{2}-\frac{1}{2}\left(f&#39;(x)(-y)+\frac{1}{2}f&#39;&#39;(x)y^2\right)\cos\frac{y}{2}}{\left(\sin\frac{y}{2}\right)^2}\\
+&amp;=\frac{\sin\frac{y}{2}(f&#39;(x)-f&#39;(x-y))-f&#39;(x)\sin\frac{y}{2}+\frac{1}{2}f&#39;(x)y\cos\frac{y}{2}-\frac{1}{4}f&#39;&#39;(x)y^2\cos\frac{y}{2}}{\left(\sin\frac{y}{2}\right)^2}\\
+&amp;=\frac{f&#39;(x)-f&#39;(x-y)}{\sin\frac{y}{2}}-\frac{1}{4}\left(\frac{y}{\sin\frac{y}{2}}\right)^2(f&#39;&#39;(x)\cos\frac{y}{2})-\frac{f&#39;(x)\sin\frac{y}{2}-\frac{1}{2}f&#39;(x)y\cos\frac{y}{2}}{\left(\sin\frac{y}{2}\right)^2}
+\end{aligned}
+\]</span> 第一項<span class="math inline">\(y\to
+0\)</span>的極限由第1.點知存在；第二項的<span class="math inline">\(y\to
+0\)</span>的極限顯然存在，第三項的極限由羅必達法則知存在(<a
+href="https://alexthepurplerose.github.io/2024/07/14/cal-hospital/">這裡</a>的定理3)。於是，<span
+class="math inline">\(\lim\limits_{y\to 0}g&#39;(y)\)</span>存在，<span
+class="math inline">\(g\)</span>和<span
+class="math inline">\(g&#39;\)</span>都連續。<br> 回到原本的定理，我們有
+<span class="math display">\[
+\begin{aligned}
+S_n(x)-f(x)&amp;=\int_{-\pi}^\pi g(y)\sin\left(n+\frac{1}{2}\right)ydy\\
+&amp;=\int_{-\pi}^\pi
+g(y)\left(-\frac{\cos\left(n+\frac{1}{2}\right)y}{n+\frac{1}{2}}\right)&#39;dy\\
+&amp;=\left.\left(-g(y)\times\frac{\cos\left(n+\frac{1}{2}\right)y}{n+\frac{1}{2}}\right)\right|^\pi_{-\pi}+\int_{-\pi}^\pi
+g&#39;(y)\times\frac{\cos\left(n+\frac{1}{2}\right)y}{n+\frac{1}{2}}dy
+\end{aligned}
+\]</span> 令<span class="math inline">\(|g&#39;(y)|\)</span>在<span
+class="math inline">\([-\pi,\pi]\)</span>間的最大值為<span
+class="math inline">\(M\)</span>，則 <span class="math display">\[
+\int_{-\pi}^\pi
+g&#39;(y)\times\frac{\cos\left(n+\frac{1}{2}\right)y}{n+\frac{1}{2}}dy\leq\int_{-\pi}^\pi\frac{M}{n+\frac{1}{2}}dy=O\left(\frac{1}{n}\right)
+\]</span> 又 <span class="math display">\[
+\left.\left(-g(y)\times\frac{\cos\left(n+\frac{1}{2}\right)y}{n+\frac{1}{2}}\right)\right|^\pi_{-\pi}=0
+\]</span> 故<span
+class="math inline">\(|S_n(x)-f(x)|=O\left(\frac{1}{n}\right)\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-27"><font color=#ff1493><u>定理 27</u></font></h2>
+<p>若<span class="math inline">\(f,f&#39;\)</span>都連續，則<span
+class="math inline">\(|S_n(x)-f(x)|=O\left(\frac{1}{\sqrt{n}}\right)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：沿用上一個定理的符號，我們有
+<span class="math display">\[
+\begin{aligned}
+S_n(x)-f(x)&amp;=\int_{-\pi}^\pi g(y)\sin\left(n+\frac{1}{2}\right)ydy\\
+&amp;=\int_{-\delta}^\delta
+g(y)\sin\left(n+\frac{1}{2}\right)ydy+\int_{outside\;[-\delta,\delta]}g(y)\sin\left(n+\frac{1}{2}\right)ydy
+\end{aligned}
+\]</span> 我們可以分別估計兩個部分： <br>1. 估計<span
+class="math inline">\(\int_{-\delta}^\delta
+g(y)\sin\left(n+\frac{1}{2}\right)ydy\)</span>：無能為力，頂多 <span
+class="math display">\[
+\left|\int_{-\delta}^\delta
+g(y)\sin\left(n+\frac{1}{2}\right)ydy\right|=O(\delta)
+\]</span> (至少<span
+class="math inline">\(g(y)\sin\left(n+\frac{1}{2}\right)y\)</span>在<span
+class="math inline">\([-\pi,\pi]\)</span>上有界)。 <br>2. 估計<span
+class="math inline">\(\int_\delta^\pi
+g(y)\sin\left(n+\frac{1}{2}\right)ydy\)</span>：我們有 <span
+class="math display">\[
+\begin{aligned}
+\int_\delta^\pi
+g(y)\sin\left(n+\frac{1}{2}\right)ydy&amp;=\int_\delta^\pi
+g(y)\left(-\frac{\cos\left(n+\frac{1}{2}\right)y}{n+\frac{1}{2}}\right)&#39;dy\\
+&amp;=g(\delta)\frac{\cos\left(n+\frac{1}{2}\right)\delta}{n+\frac{1}{2}}+\int_\delta^\pi
+g&#39;(y)\frac{\cos\left(n+\frac{1}{2}\right)y}{n+\frac{1}{2}}dy
+\end{aligned}
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+\left|\int_\delta^\pi
+g(y)\sin\left(n+\frac{1}{2}\right)ydy\right|&amp;\leq\left|g(\delta)\frac{\cos\left(n+\frac{1}{2}\right)\delta}{n+\frac{1}{2}}\right|+\left|\int_\delta^\pi
+g&#39;(y)\frac{\cos\left(n+\frac{1}{2}\right)y}{n+\frac{1}{2}}dy\right|\\
+&amp;\leq\underbrace{|g(\delta)|\times\frac{1}{n+\frac{1}{2}}}_{O\left(\frac{1}{n+\frac{1}{2}}\right)}+\left|\int_\delta^\pi
+g&#39;(y)\frac{\cos\left(n+\frac{1}{2}\right)y}{n+\frac{1}{2}}dy\right|
+\end{aligned}
+\]</span> 而 <span class="math display">\[
+\begin{aligned}
+&amp;g&#39;(y)=\frac{-f&#39;(x-y)}{\sin\frac{y}{2}}-\frac{\cos\frac{y}{2}}{2\sin\frac{y}{2}}g(y)\\
+\Rightarrow&amp;|g&#39;(y)|\leq\frac{c_1}{\delta}+\frac{c_2}{\delta}=O\left(\frac{1}{\delta}\right)
+\end{aligned}
+\]</span> (不等式成立在<span
+class="math inline">\([\delta,\pi]\)</span>上)接著我們就能估計<span
+class="math inline">\(|S_n-f|\)</span>，有 <span class="math display">\[
+|S_n-f|=\left|\int_{-\pi}^\pi
+g(y)\sin\left(n+\frac{1}{2}\right)y\right|=O\left(\delta+\frac{1}{n+\frac{1}{2}}+\frac{1}{n+\frac{1}{2}}\times\frac{1}{\delta}\right)
+\]</span> 令<span
+class="math inline">\(\delta=\frac{1}{\sqrt{n+\frac{1}{2}}}\)</span>，則
+<span class="math display">\[
+O\left(\delta+\frac{1}{n+\frac{1}{2}}+\frac{1}{n+\frac{1}{2}}\times\frac{1}{\delta}\right)=O\left(\frac{1}{\sqrt{n+\frac{1}{2}}}+\frac{1}{n+\frac{1}{2}}+\frac{1}{\sqrt{n+\frac{1}{2}}}\right)=O\left(\frac{1}{\sqrt{n}}\right)
+\]</span> <font size="1">QED</font></p>
 
     </div>
 
@@ -997,7 +1257,9 @@ class="math inline">\(f(x)\)</span>(上面的(★))。</p>
 13：狄利克雷積分 (Dirichlet Series)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-13-1"><span class="nav-number">3.4.1.</span> <span class="nav-text">推論 13-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-14"><span class="nav-number">3.5.</span> <span class="nav-text">例 14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-15"><span class="nav-number">3.6.</span> <span class="nav-text">定義 15</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-15-1%E5%82%85%E7%AB%8B%E8%91%89%E4%BF%82%E6%95%B8-fourier-coefficient"><span class="nav-number">3.6.1.</span> <span class="nav-text">定義
 15-1：傅立葉係數 (Fourier Coefficient)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-15-2%E5%82%85%E7%AB%8B%E8%91%89%E9%83%A8%E5%88%86%E5%92%8C-fourier-partial-sum"><span class="nav-number">3.6.2.</span> <span class="nav-text">定義
 15-2：傅立葉部分和 (Fourier Partial Sum)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-16"><span class="nav-number">3.7.</span> <span class="nav-text">定理 16</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-16-1"><span class="nav-number">3.7.1.</span> <span class="nav-text">註記 16-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-17"><span class="nav-number">3.8.</span> <span class="nav-text">註記 17</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-18"><span class="nav-number">3.9.</span> <span class="nav-text">例 18</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-19"><span class="nav-number">3.10.</span> <span class="nav-text">例 19</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-20"><span class="nav-number">3.11.</span> <span class="nav-text">例 20</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-20-1"><span class="nav-number">3.11.1.</span> <span class="nav-text">註記 20-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-21%E8%B2%9D%E5%A1%9E%E7%88%BE%E4%B8%8D%E7%AD%89%E5%BC%8F-bessels-inequality"><span class="nav-number">3.12.</span> <span class="nav-text">定理
-21：貝塞爾不等式 (Bessel&#39;s Inequality)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-22"><span class="nav-number">3.13.</span> <span class="nav-text">定理 22</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-22-1"><span class="nav-number">3.13.1.</span> <span class="nav-text">註記 22-1</span></a></li></ol></li></ol></li></ol></div>
+21：貝塞爾不等式 (Bessel&#39;s Inequality)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-22"><span class="nav-number">3.13.</span> <span class="nav-text">定理 22</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-22-1"><span class="nav-number">3.13.1.</span> <span class="nav-text">註記 22-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%82%85%E7%AB%8B%E8%91%89%E7%B4%9A%E6%95%B8%E7%9A%84%E5%B9%B3%E5%9D%87%E6%94%B6%E6%96%82%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">傅立葉級數的平均收斂性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-23"><span class="nav-number">4.1.</span> <span class="nav-text">註記 23</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-24%E6%96%90%E8%91%89%E5%AE%9A%E7%90%86-fej%C3%A9rs-theorem"><span class="nav-number">4.2.</span> <span class="nav-text">定理
+24：斐葉定理 (Fejér&#39;s Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-24-1%E5%B9%B3%E5%9D%87%E6%94%B6%E6%96%82-average-convergence"><span class="nav-number">4.2.1.</span> <span class="nav-text">定義
+24-1：平均收斂 (Average Convergence)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%82%85%E7%AB%8B%E8%91%89%E7%B4%9A%E6%95%B8%E7%9A%84%E7%A9%8D%E5%88%86%E6%80%A7%E8%B3%AA"><span class="nav-number">5.</span> <span class="nav-text">傅立葉級數的積分性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-25"><span class="nav-number">5.1.</span> <span class="nav-text">定理 25</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%B6%E6%96%82%E9%80%9F%E5%BA%A6%E7%9A%84%E4%BC%B0%E8%A8%88"><span class="nav-number">6.</span> <span class="nav-text">收斂速度的估計</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-26"><span class="nav-number">6.1.</span> <span class="nav-text">定理 26</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-27"><span class="nav-number">6.2.</span> <span class="nav-text">定理 27</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
