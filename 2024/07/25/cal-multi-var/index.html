@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於多變數函數的性質與微分。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/conti.jpg">
 <meta property="article:published_time" content="2024-07-25T04:52:28.000Z">
-<meta property="article:modified_time" content="2024-07-25T04:53:25.111Z">
+<meta property="article:modified_time" content="2024-07-25T06:42:57.187Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/conti.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/">
 
@@ -193,7 +195,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-25 12:52:28 / 修改時間：12:53:25" itemprop="dateCreated datePublished" datetime="2024-07-25T12:52:28+08:00">2024-07-25</time>
+              <time title="創建時間：2024-07-25 12:52:28 / 修改時間：14:42:57" itemprop="dateCreated datePublished" datetime="2024-07-25T12:52:28+08:00">2024-07-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +223,321 @@
 
       
         <p>這份筆記是關於多變數函數的性質與微分。 <span id="more"></span><br></p>
+<center>
+<h1 id="n維空間"><font color=#b8860b>n維空間</font></h1>
+</center>
+<h2
+id="定義-1n維空間距離-distance-in-n-dimensional-space"><font color=#008000><u>定義
+1：n維空間距離 (Distance in n-dimensional Space)</u></font></h2>
+<p>考慮<span class="math inline">\(\mathbb{R}^n\)</span>中的兩點<span
+class="math inline">\(x=(x_1,x_2,\cdots,x_n),
+y=(y_1,y_2,\cdots,y_n)\)</span>。則定義兩點間的距離為 <span
+class="math display">\[
+|x-y|=\sqrt{(x_1-y_1)^2+(x_2-y_2)^2+\cdots+(x_n-y_n)^2}
+\]</span></p>
+<h2
+id="定義-2mathbbrn中的極限-limit-in-mathbbrn"><font color=#008000><u>定義
+2：<span class="math inline">\(\mathbb{R}^n\)</span>中的極限 (Limit in
+<span class="math inline">\(\mathbb{R}^n\)</span>)</u></font></h2>
+<p>對於一<span class="math inline">\(\mathbb{R}^n\)</span>中的數列<span
+class="math inline">\(\{x_k\}^\infty_{k=1}\)</span>，我們說<span
+class="math inline">\(\lim\limits_{k\to\infty}x_k=x\)</span>，若<span
+class="math inline">\(\forall\epsilon&gt;0\)</span>, <span
+class="math inline">\(\exists N\in\mathbb{N}\)</span> s.t. <span
+class="math inline">\(\forall n&gt;N\)</span>有<span
+class="math inline">\(|x_n-x|&lt;\epsilon\)</span>。</p>
+<h2 id="定義-3矩形-rectangle"><font color=#008000><u>定義 3：矩形
+(Rectangle)</u></font></h2>
+<h3 id="定義-3-1開矩形-open-rectangle"><font color=#008000><u>定義
+3-1：開矩形 (Open Rectangle)</u></font></h3>
+<p>令<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span>和<span
+class="math inline">\(b_1,b_2,\cdots,b_n\)</span>是給定的值，則定義<span
+class="math inline">\(\mathbb{R}^n\)</span>中的開矩形為 <span
+class="math display">\[
+\{x=(x_1,x_2,\cdots,x_n)|a_i&lt;x_i&lt;b_i,\forall 1&lt;i&lt;n\}
+\]</span></p>
+<h3 id="定義-3-2閉矩形-open-rectangle"><font color=#008000><u>定義
+3-2：閉矩形 (Open Rectangle)</u></font></h3>
+<p>令<span class="math inline">\(a_1,a_2,\cdots,a_n\)</span>和<span
+class="math inline">\(b_1,b_2,\cdots,b_n\)</span>是給定的值，則定義<span
+class="math inline">\(\mathbb{R}^n\)</span>中的開矩形為 <span
+class="math display">\[
+\{x=(x_1,x_2,\cdots,x_n)|a_i\leq x_i\leq b_i,\forall 1&lt;i&lt;n\}
+\]</span></p>
+<center>
+<h1 id="多變數函數"><font color=#b8860b>多變數函數</font></h1>
+</center>
+<h2
+id="定義-4多變數函數-multivariable-function"><font color=#008000><u>定義
+4：多變數函數 (Multivariable Function)</u></font></h2>
+<p>通常來說是指<span
+class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span>的函數。</p>
+<h2
+id="定義-5多變數函數的連續-continuous-of-multivariable-function"><font color=#008000><u>定義
+5：多變數函數的連續 (Continuous of Multivariable
+Function)</u></font></h2>
+<p>我們說<span
+class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span>在<span
+class="math inline">\(a\)</span>連續，若<span
+class="math inline">\(\forall\epsilon&gt;0\)</span>, <span
+class="math inline">\(\exists\delta&gt;0\)</span> s.t. <span
+class="math inline">\(|x-a|&lt;\delta\)</span>時，有<span
+class="math inline">\(|f(x)-f(a)|&lt;\epsilon\)</span>。</p>
+<h3 id="例-5-1"><font color=#ffa500><u>例 5-1</u></font></h3>
+<p>多變數函數的連續比單變數複雜許多。如考慮 <span
+class="math display">\[
+f(x,y)=\frac{2xy}{x^2+y^2}, f(0,0)=0
+\]</span> 若我們要說<span class="math inline">\(f\)</span>在<span
+class="math inline">\((0,0)\)</span>連續，則需要說「任何一條」趨近<span
+class="math inline">\((0,0)\)</span>的路徑極限都是<span
+class="math inline">\(0\)</span>。考量如下圖1的三條<span
+class="math inline">\(x&#39;\to(0,0)\)</span>的路徑： <br>1. <span
+class="math inline">\(x&#39;=(0,y)\)</span>，則<span
+class="math inline">\(f(x&#39;)\equiv 0\)</span>。 <br>2. <span
+class="math inline">\(x&#39;=(x,0)\)</span>，則<span
+class="math inline">\(f(x&#39;)\equiv 0\)</span>。 <br>3. <span
+class="math inline">\(x&#39;=(x,x)\)</span>，則<span
+class="math inline">\(f(x&#39;)\equiv 1\)</span>。<br> 於是可以發現<span
+class="math inline">\(f(x,y)\)</span>在<span
+class="math inline">\((0,0)\)</span>並不連續。</p>
+<img src="conti.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<h2
+id="定義-6多變數函數的一致連續-uniform-continuous-of-multivariable-function"><font color=#008000><u>定義
+6：多變數函數的一致連續 (Uniform Continuous of Multivariable
+Function)</u></font></h2>
+<p>給定<span
+class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span>，若<span
+class="math inline">\(\forall\epsilon&gt;0\)</span>, <span
+class="math inline">\(\exists\delta&gt;0\)</span> s.t. <span
+class="math inline">\(|x-y|&lt;\delta\)</span>時，<span
+class="math inline">\(|f(x)-f(y)|&lt;\epsilon\)</span>，則說<span
+class="math inline">\(f\)</span>一致連續。</p>
+<center>
+<h1 id="偏微分"><font color=#b8860b>偏微分</font></h1>
+</center>
+<h2 id="定義-7偏微分-partial-derivative"><font color=#008000><u>定義
+7：偏微分 (Partial Derivative)</u></font></h2>
+<p>對於<span
+class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span>和<span
+class="math inline">\(x=(x_1,x_2,\cdots,x_n)\)</span>。若極限 <span
+class="math display">\[
+\lim_{h\to 0}\frac{f(x_1+h,x_2,\cdots,x_n)-f(x_1,x_2,\cdots,x_n)}{h}
+\]</span> 存在，則說在<span class="math inline">\(x\)</span>上<span
+class="math inline">\(f\)</span>對<span
+class="math inline">\(x_1\)</span>的偏微分存在。</p>
+<h3 id="註記-7-1"><font color=#0000FF><u>註記 7-1</u></font></h3>
+<p>上述偏微分大致能理解成<span class="math inline">\(f\)</span>在<span
+class="math inline">\(x_1\)</span>方向的斜率。</p>
+<h3 id="定義-7-2"><font color=#008000><u>定義 7-2</u></font></h3>
+<p><span class="math inline">\(f\)</span>對<span
+class="math inline">\(x\)</span>的偏微分有三種記法： <span
+class="math display">\[
+\frac{\partial f}{\partial x}, D_xf, f_x
+\]</span></p>
+<h3 id="註記-7-3"><font color=#0000FF><u>註記 7-3</u></font></h3>
+<p>或者是說，<span class="math inline">\(f\)</span>對<span
+class="math inline">\(x_1\)</span>的偏微分可以理解為把<span
+class="math inline">\(x_2,x_3,\cdots,x_n\)</span>視作常數，對<span
+class="math inline">\(x_1\)</span>微分。</p>
+<h3 id="例-7-4"><font color=#ffa500><u>例 7-4</u></font></h3>
+<p>若<span class="math inline">\(f(x,y)=x^2+y^2\)</span>，則 <span
+class="math display">\[
+\frac{\partial f}{\partial x}=2x, \frac{\partial f}{\partial y}=2y
+\]</span></p>
+<h3 id="例-7-5"><font color=#ffa500><u>例 7-5</u></font></h3>
+<p>若<span class="math inline">\(f(x,y)=xy\)</span>，則 <span
+class="math display">\[
+\frac{\partial f}{\partial x}=y, \frac{\partial f}{\partial y}=x
+\]</span></p>
+<h3 id="定義-7-6"><font color=#008000><u>定義 7-6</u></font></h3>
+<p>如是可以定義更高階的偏微分，通常記為： <span class="math display">\[
+\begin{aligned}
+\frac{\partial}{\partial x}\left(\frac{\partial f}{\partial
+x}\right)&amp;=\frac{\partial^2f}{\partial x^2}\\
+\frac{\partial}{\partial y}\left(\frac{\partial f}{\partial
+x}\right)&amp;=\frac{\partial^2f}{\partial y\partial x}\\
+\end{aligned}
+\]</span> 等等。</p>
+<h3 id="註記-7-7"><font color=#0000FF><u>註記 7-7</u></font></h3>
+<p>可以偏微分不代表會連續。</p>
+<h4 id="例-7-7-1"><font color=#ffa500><u>例 7-7-1</u></font></h4>
+<p>我們前面看過 <span class="math display">\[
+f(x,y)=\frac{2xy}{x^2+y^2}, f(0,0)=0
+\]</span> 在<span class="math inline">\((0,0)\)</span>不連續，但 <span
+class="math display">\[
+\begin{aligned}
+\frac{\partial f}{\partial x}(0,0)&amp;=\lim_{h\to
+0}\frac{f(h,0)-f(0,0)}{h}\\
+&amp;=\lim_{h\to 0}\frac{0-0}{h}=0
+\end{aligned}
+\]</span> 同理<span class="math inline">\(\frac{\partial f}{\partial
+y}(0,0)=0\)</span>。</p>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
+<p>若<span class="math inline">\(f=f(x,y)\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>有偏微分且對於所有在<span
+class="math inline">\((x_0,y_0)\)</span>附近的<span
+class="math inline">\((x,y)\)</span>都有 <span class="math display">\[
+\begin{aligned}
+\left|\frac{\partial f}{\partial x}(x,y)\right|&amp;\leq M&lt;\infty\\
+\left|\frac{\partial f}{\partial y}(x,y)\right|&amp;\leq M&lt;\infty
+\end{aligned}
+\]</span> 對於某個<span class="math inline">\(M\geq 0\)</span>，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>連續。(這裡以雙變數為例，多變數同理)<br></p>
+<p><font color=#8b4513><u>證明</u></font>：固定<span
+class="math inline">\((x_0,y_0)\)</span>。考慮<span
+class="math inline">\((x_0+h,y_0+k)\)</span>，其中<span
+class="math inline">\(h,k\)</span>很小。我們希望估計<span
+class="math inline">\(f(x_0+h,y_0+k)-f(x_0,y_0)\)</span>。我們有 <span
+class="math display">\[
+\begin{aligned}
+|f(x_0+h,y_0+k)-f(x_0,y_0)|&amp;=|f(x_0+h,y_0+k)-f(x_0+h,y)+f(x_0+h)-f(x_0,y_0)|\\
+&amp;=|kf_y(x_0+h,y_0+\theta_1k)+hf_x(x_0+\theta_2h,y_0)|\\
+&amp;\mbox{(微分均值定理)}\\
+&amp;\leq M(|h|+|k|)
+\end{aligned}
+\]</span> 故知<span class="math inline">\(f\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>連續。<font size="1">QED</font></p>
+<h3 id="註記-8-1"><font color=#0000FF><u>註記 8-1</u></font></h3>
+<p>有偏微分不一定連續，但有偏微分又有界就會連續。</p>
+<h2 id="註記-9"><font color=#0000FF><u>註記 9</u></font></h2>
+<p>一般來說， <span class="math display">\[
+\frac{\partial^2 f}{\partial x\partial y}, \frac{\partial^2 f}{\partial
+y\partial x}
+\]</span> 不一定會相等</p>
+<h3 id="例-9-1"><font color=#ffa500><u>例 9-1</u></font></h3>
+<p>考慮 <span class="math display">\[
+f(x,y)=\frac{xy(x^2-y^2)}{x^2+y^2}, f(0,0)=0
+\]</span> 可以發現 <span class="math display">\[
+\begin{aligned}
+\frac{\partial f}{\partial x}(0,y)=-y&amp;, \frac{\partial f}{\partial
+x}(x,0)=x\\
+\frac{\partial^2 f}{\partial y\partial x}(0,0)=-1&amp;, \frac{\partial^2
+f}{\partial x\partial y}(0,0)=1
+\end{aligned}
+\]</span> 兩者並不相等。</p>
+<h3 id="定理-9-2"><font color=#ff1493><u>定理 9-2</u></font></h3>
+<p>若<span class="math inline">\(\frac{\partial^2 f}{\partial x\partial
+y}\)</span>和<span class="math inline">\(\frac{\partial^2 f}{\partial
+y\partial x}\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>附近連續，則 <span
+class="math display">\[
+\frac{\partial^2 f}{\partial x\partial y}(x_0,y_0)=\frac{\partial^2
+f}{\partial y\partial x}(x_0,y_0)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮以下四個點：<span
+class="math inline">\((x+h,y+k)\)</span>, <span
+class="math inline">\((x+h,y)\)</span>, <span
+class="math inline">\((x,y+k)\)</span>, <span
+class="math inline">\((x,y)\)</span>。令 <span class="math display">\[
+A=f(x+h,y+k)-f(x+h,y)-f(x,y+k)+f(x,y)
+\]</span> 令<span
+class="math inline">\(\phi(x)=f(x,y+k)-f(x,y)\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+A&amp;=\phi(x+h)-\phi(x)\\
+&amp;=h\phi_x(x+\theta_1h)\\
+&amp;\mbox{(微分均值定理)}\\
+&amp;=h(f_x(x+\theta_1h,y+k)-f_x(x+\theta_1h,y))\\
+&amp;=hkf_{yx}(x+\theta_1h,y+\theta_2k)\\
+&amp;\mbox{(微分均值定理)}
+\end{aligned}
+\]</span> 又令<span
+class="math inline">\(\psi(y)=f(x+h,y)-f(x,y)\)</span>，則同上有 <span
+class="math display">\[
+A=\psi(y+k)-\psi(y)=khf_{xy}(x+\theta_1&#39;h,y+\theta_2&#39;k)
+\]</span> 於是有 <span class="math display">\[
+f_{yx}(x+\theta_1h,y+\theta_2k)=f_{xy}(x+\theta_1&#39;h,y+\theta_2&#39;k)
+\]</span> 當<span class="math inline">\(h,k\to 0\)</span>時，由於<span
+class="math inline">\(f\)</span>連續，故<span
+class="math inline">\(f_{yx}(x,y)=f_{xy}(x,y)\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="微分"><font color=#b8860b>微分</font></h1>
+</center>
+<h2 id="註記-10"><font color=#0000FF><u>註記 10</u></font></h2>
+<p>在單變數微分中我們通常用的定義是 <span class="math display">\[
+g&#39;(x_0)=\lim_{h\to 0}\frac{g(x_0+h)-g(x_0)}{h}
+\]</span> 然而我們在<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的定理10也看過
+<span class="math display">\[
+g(x_0+h)-g(x_0)=Ah+\epsilon(h)
+\]</span> 其中當<span class="math inline">\(h\to 0\)</span>時<span
+class="math inline">\(\epsilon(h)\to
+0\)</span>。我們可以用此來定義多變數微分。</p>
+<h2
+id="定義-11多變數函數的微分-derivative-of-multivariable-function"><font color=#008000><u>定義
+11：多變數函數的微分 (Derivative of Multivariable
+Function)</u></font></h2>
+<p>我們說<span
+class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span>在<span
+class="math inline">\(x_0=(x_1^0,x_2^0,\cdots,x_n^0)\)</span>可微，若存在向量<span
+class="math inline">\(\vec{A}\in\mathbb{R}^n\)</span> s.t. <span
+class="math display">\[
+f(x_0+h)-f(x_0)=\vec{A}\cdot\vec{h}+\epsilon(\vec{h})|\vec{h}|
+\]</span> 其中<span class="math inline">\(\vec{h}\)</span>是<span
+class="math inline">\(\mathbb{R}^n\)</span>中的小小向量(<span
+class="math inline">\(\vec{A}\cdot\vec{h}\)</span>內積)且當<span
+class="math inline">\(|\vec{h}|\to 0\)</span>時<span
+class="math inline">\(\epsilon(\vec{h})\to 0\)</span>。</p>
+<h3 id="註記-11-1"><font color=#0000FF><u>註記 11-1</u></font></h3>
+<p>給定函數<span class="math inline">\(f\)</span>，則 <br>1. 若<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x\)</span>可微，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x\)</span>連續。 <br>2. 若<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x\)</span>可微，則<span
+class="math inline">\(f\)</span>各方向的偏微分都存在，且<span
+class="math inline">\(\frac{\partial f}{\partial x_i}=A\)</span>的<span
+class="math inline">\(x_i\)</span>分量(令<span
+class="math inline">\(h=(0,0,\cdots,0,h_i,0,\cdots,0)\)</span>就好)。</p>
+<h2 id="定理-12"><font color=#ff1493><u>定理 12</u></font></h2>
+<p>若<span class="math inline">\(f(x,y)\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>的偏微分連續，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>可微。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由微分均值定理，我們有 <span
+class="math display">\[
+\begin{aligned}
+f(x+h,y+k)-f(x,y)&amp;=f(x+h,y+k)-f(x,y+k)+f(x,y+k)-f(x,y)\\
+&amp;=hf_xf(x+\theta_1h,y+k)+kf_y(x,y+\theta_2k)
+\end{aligned}
+\]</span> 由於<span class="math inline">\(f_x\)</span>和<span
+class="math inline">\(f_y\)</span>在<span
+class="math inline">\((x,y)\)</span>連續，故有 <span
+class="math display">\[
+f_x(x+\theta_1 h,y+k)=f_x(x,y)+\epsilon_1(h,k)
+\]</span> 其中當<span class="math inline">\(h,k\to 0\)</span>時<span
+class="math inline">\(\epsilon_1(h,k)\to 0\)</span>。同理有 <span
+class="math display">\[
+f_y(x,y+\theta_2k)=f_x(x,y)+\epsilon_2(h,k)
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+f(x+h,y+k)-f(x,y)&amp;=hf_x(x,y)+kf_y(x,y)+\epsilon_1(h,k)h+\epsilon_2(h,k)k\\
+&amp;=hf_x(x,y)+kf_y(x,y)+\epsilon&#39;(h,k)\sqrt{h^2+k^2}
+\end{aligned}
+\]</span> 其中當<span class="math inline">\(h,k\to 0\)</span>時<span
+class="math inline">\(\epsilon&#39;(h,k)\to 0\)</span>，故知<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((x,y)\)</span>可微。<font size="1">QED</font></p>
+<center>
+<h1 id="方向微分"><font color=#b8860b>方向微分</font></h1>
+</center>
+<h2
+id="定義-13方向微分-directional-derivative"><font color=#008000><u>定義
+13：方向微分 (Directional Derivative)</u></font></h2>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span>和<span
+class="math inline">\(\vec{v}=(v_1,v_2,\cdots,v_n)\)</span>。我們說<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\vec{v}\)</span>的極限存在，若 <span
+class="math display">\[
+\lim_{h\to 0}\frac{f(x_0+h\vec{v}-f(x_0)}{h|\vec{v}|}
+\]</span> 存在，記作<span class="math inline">\(\nabla_v
+f\)</span>。</p>
 
     </div>
 
@@ -303,6 +620,22 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#n%E7%B6%AD%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">n維空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1n%E7%B6%AD%E7%A9%BA%E9%96%93%E8%B7%9D%E9%9B%A2-distance-in-n-dimensional-space"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：n維空間距離 (Distance in n-dimensional Space)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2mathbbrn%E4%B8%AD%E7%9A%84%E6%A5%B5%E9%99%90-limit-in-mathbbrn"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：\(\mathbb{R}^n\)中的極限 (Limit in
+\(\mathbb{R}^n\))</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%9F%A9%E5%BD%A2-rectangle"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：矩形
+(Rectangle)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E9%96%8B%E7%9F%A9%E5%BD%A2-open-rectangle"><span class="nav-number">1.3.1.</span> <span class="nav-text">定義
+3-1：開矩形 (Open Rectangle)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-2%E9%96%89%E7%9F%A9%E5%BD%A2-open-rectangle"><span class="nav-number">1.3.2.</span> <span class="nav-text">定義
+3-2：閉矩形 (Open Rectangle)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E8%AE%8A%E6%95%B8%E5%87%BD%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">多變數函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E5%A4%9A%E8%AE%8A%E6%95%B8%E5%87%BD%E6%95%B8-multivariable-function"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+4：多變數函數 (Multivariable Function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%A4%9A%E8%AE%8A%E6%95%B8%E5%87%BD%E6%95%B8%E7%9A%84%E9%80%A3%E7%BA%8C-continuous-of-multivariable-function"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+5：多變數函數的連續 (Continuous of Multivariable
+Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">例 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%A4%9A%E8%AE%8A%E6%95%B8%E5%87%BD%E6%95%B8%E7%9A%84%E4%B8%80%E8%87%B4%E9%80%A3%E7%BA%8C-uniform-continuous-of-multivariable-function"><span class="nav-number">2.3.</span> <span class="nav-text">定義
+6：多變數函數的一致連續 (Uniform Continuous of Multivariable
+Function)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%8F%E5%BE%AE%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">偏微分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%81%8F%E5%BE%AE%E5%88%86-partial-derivative"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+7：偏微分 (Partial Derivative)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 7-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">定義 7-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-3"><span class="nav-number">3.1.3.</span> <span class="nav-text">註記 7-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-4"><span class="nav-number">3.1.4.</span> <span class="nav-text">例 7-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-5"><span class="nav-number">3.1.5.</span> <span class="nav-text">例 7-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-6"><span class="nav-number">3.1.6.</span> <span class="nav-text">定義 7-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-7"><span class="nav-number">3.1.7.</span> <span class="nav-text">註記 7-7</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-7-7-1"><span class="nav-number">3.1.7.1.</span> <span class="nav-text">例 7-7-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">3.2.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">註記 8-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9"><span class="nav-number">3.3.</span> <span class="nav-text">註記 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-9-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">例 9-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9-2"><span class="nav-number">3.3.2.</span> <span class="nav-text">定理 9-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">微分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">4.1.</span> <span class="nav-text">註記 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E5%A4%9A%E8%AE%8A%E6%95%B8%E5%87%BD%E6%95%B8%E7%9A%84%E5%BE%AE%E5%88%86-derivative-of-multivariable-function"><span class="nav-number">4.2.</span> <span class="nav-text">定義
+11：多變數函數的微分 (Derivative of Multivariable
+Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-11-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">註記 11-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">4.3.</span> <span class="nav-text">定理 12</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E5%90%91%E5%BE%AE%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text">方向微分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13%E6%96%B9%E5%90%91%E5%BE%AE%E5%88%86-directional-derivative"><span class="nav-number">5.1.</span> <span class="nav-text">定義
+13：方向微分 (Directional Derivative)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
