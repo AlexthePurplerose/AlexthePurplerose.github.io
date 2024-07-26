@@ -20,24 +20,22 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於伯努利多項式與伯努利數。">
+  <meta name="description" content="這份筆記是關於多變數函數積分的定義與性質。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微積分：伯努利多項式">
-<meta property="og:url" content="https://alexthepurplerose.github.io/2024/07/24/cal-bernoulli/index.html">
+<meta property="og:title" content="微積分：多變數函數的積分">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2024/07/26/cal-multivar-int/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於伯努利多項式與伯努利數。">
+<meta property="og:description" content="這份筆記是關於多變數函數積分的定義與性質。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/24/cal-bernoulli/jacob.jpg">
-<meta property="article:published_time" content="2024-07-24T12:33:24.000Z">
-<meta property="article:modified_time" content="2024-07-24T13:18:45.922Z">
+<meta property="article:published_time" content="2024-07-26T11:15:28.000Z">
+<meta property="article:modified_time" content="2024-07-26T11:16:26.587Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/24/cal-bernoulli/jacob.jpg">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/24/cal-bernoulli/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/26/cal-multivar-int/">
 
 
 <script id="page-configurations">
@@ -50,7 +48,7 @@
   };
 </script>
 
-  <title>微積分：伯努利多項式 | 永蔚Alex</title>
+  <title>微積分：多變數函數的積分 | 永蔚Alex</title>
   
 
 
@@ -171,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/07/24/cal-bernoulli/">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/07/26/cal-multivar-int/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -184,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          微積分：伯努利多項式
+          微積分：多變數函數的積分
         </h1>
 
         <div class="post-meta">
@@ -195,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-24 20:33:24 / 修改時間：21:18:45" itemprop="dateCreated datePublished" datetime="2024-07-24T20:33:24+08:00">2024-07-24</time>
+              <time title="創建時間：2024-07-26 19:15:28 / 修改時間：19:16:26" itemprop="dateCreated datePublished" datetime="2024-07-26T19:15:28+08:00">2024-07-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,138 +220,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於伯努利多項式與伯努利數。 <span id="more"></span><br></p>
-<center>
-<h1 id="伯努利多項式"><font color=#b8860b>伯努利多項式</font></h1>
-</center>
-<h2
-id="定義-1伯努利多項式-bernoulli-polynomials"><font color=#008000><u>定義
-1：伯努利多項式 (Bernoulli Polynomials)</u></font></h2>
-<p>我們用以下方是定義在<span
-class="math inline">\([0,1]\)</span>上的多項式<span
-class="math inline">\(\phi_n\)</span>： <br>1. <span
-class="math inline">\(\phi_0(x)=1\)</span> <br>2. <span
-class="math inline">\(\phi_n&#39;(x)=\phi_{n-1}(x)\)</span> <br>3. <span
-class="math inline">\(\int_0^1\phi_n(x)dx=0\)</span>
-<br>這樣定義出來的<span
-class="math inline">\(\phi_n\)</span>稱為伯努利多項式。</p>
-<img src="jacob.jpg" width="25%" height="25%">
-<center>
-圖1 Jacob Bernoulli
-</center>
-<h3 id="例-1-1"><font color=#ffa500><u>例 1-1</u></font></h3>
-<p>我們有 <span class="math display">\[
-\begin{aligned}
-\phi_0(x)&amp;=1\\
-\phi_1(x)&amp;=x-\frac{1}{2}\\
-\phi_2(x)&amp;=\frac{x^2}{2}-\frac{x}{2}+\frac{1}{12}\\
-\phi_3(x)&amp;=\frac{x^3}{6}-\frac{1}{4}x^2+\frac{x}{12}
-\end{aligned}
-\]</span></p>
-<h3 id="註記-1-2"><font color=#0000FF><u>註記 1-2</u></font></h3>
-<p>對於<span class="math inline">\(n\geq 1\)</span>，有 <span
-class="math display">\[
-\phi_n(1)-\phi_n(0)=\int_0^1\phi_n&#39;(x)dx=\int_0^1\phi_{n-1}(x)dx=0
-\]</span></p>
-<h3 id="註記-1-3"><font color=#0000FF><u>註記 1-3</u></font></h3>
-<p>我們用<a
-href="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/">這裡</a>的註記3的方式把<span
-class="math inline">\(\phi_n\)</span>擴展到<span
-class="math inline">\(\mathbb{R}\)</span>上，將其記為<span
-class="math inline">\(\psi_n(x)\)</span>。令<span
-class="math inline">\(\phi(x)=x\)</span>，有 <span
-class="math display">\[
-\psi_1(x)=\frac{1}{2\pi}\phi(2\pi x-\pi)
-\]</span> 且 <span class="math display">\[
-\phi(x)=x=2\sum_{n=1}^\infty(-1)^{n+1}\frac{\sin nx}{n}
-\]</span> (這是傅立葉級數)故有 <span class="math display">\[
-\psi_1(x)=-\frac{1}{\pi}\left(\frac{\sin 2\pi x}{1}+\frac{\sin 4\pi
-x}{2}+\frac{\sin 6\pi x}{3}+\cdots\right)
-\]</span> 再用定義1中的遞迴式，有 <span class="math display">\[
-\psi_n(x)=\left\{
-\begin{aligned}
-(-1)^{\frac{n}{2}+1}\cdot\frac{2}{(2\pi)^n}\sum_{k=1}^\infty\frac{\cos
-2\pi kt}{k^n}&amp;,n\mbox{ is even}\\
-(-1)^{\frac{n+1}{2}}\cdot\frac{2}{(2\pi)^n}\sum_{k=1}^\infty\frac{\sin
-2\pi kt}{k^n}&amp;,n\mbox{ is odd}
-\end{aligned}
-\right.
-\]</span> 顯見<span class="math inline">\(n\)</span>為偶數時<span
-class="math inline">\(\psi_n\)</span>是偶函數，而<span
-class="math inline">\(n\)</span>為奇數時<span
-class="math inline">\(\psi_n\)</span>是奇函數。</p>
-<center>
-<h1 id="伯努利數"><font color=#b8860b>伯努利數</font></h1>
-</center>
-<h2 id="定義-2伯努利數-bernoulli-numbers"><font color=#008000><u>定義
-2：伯努利數 (Bernoulli Numbers)</u></font></h2>
-<p>考慮伯努利多項式的常數項<span
-class="math inline">\(b_n=\phi_n(0)\)</span>，易知： <br>1. <span
-class="math inline">\(n\)</span>為奇數時<span
-class="math inline">\(b_n=0\)</span>。 <br>2. <span
-class="math inline">\(n\)</span>為偶數時 <span class="math display">\[
-b_n=(-1)^{\frac{n}{2}+1}\cdot\frac{2}{(2\pi)^n}\sum_{k=1}^\infty\frac{1}{k^n}
-\]</span> 令<span class="math inline">\(n=2m, m=1,2,3\cdots\)</span>，令
-<span class="math display">\[
-B_m=(-1)^{m-1}(2m)!b_{2m}
-\]</span> 稱<span class="math inline">\(B_m\)</span>為第<span
-class="math inline">\(m\)</span>個伯努利數。</p>
-<h3 id="例-2-1"><font color=#ffa500><u>例 2-1</u></font></h3>
-<p>我們有 <span class="math display">\[
-B_1=\frac{1}{6},B_2=\frac{1}{30},B_3=\frac{1}{42},\cdots
-\]</span></p>
-<h3 id="註記-2-2"><font color=#0000FF><u>註記 2-2</u></font></h3>
-<p>我們有 <span class="math display">\[
-\sum_{k=1}^\infty\frac{1}{k^{2n}}=\frac{(-1)^{n-1}}{2}(2\pi)^{2n}b_{2n}=\frac{(2\pi)^{2n}}{2(2n)!}B_n
-\]</span> 這是<span class="math inline">\(\zeta(2n)\)</span>的值，見<a
-href="https://alexthepurplerose.github.io/2024/07/21/cal-prod/">這裡</a>的定義4。</p>
-<h3 id="註記-2-3"><font color=#0000FF><u>註記 2-3</u></font></h3>
-<p>由註記2-2直接有： <br>1. 當<span
-class="math inline">\(n\to\infty\)</span>時<span
-class="math inline">\(|b_n|\to 0\)</span>。 <br>2. 當<span
-class="math inline">\(n\to\infty\)</span>時<span
-class="math inline">\(|B_n|\to\infty\)</span>。</p>
-<center>
-<h1 id="生成函數"><font color=#b8860b>生成函數</font></h1>
-</center>
-<p>考慮 <span class="math display">\[
-F(t,z)=\sum_{k=0}^\infty\psi_n(t)z^n, t,z\in\mathbb{R}
-\]</span> 首先，因為存在<span
-class="math inline">\(M&lt;\infty\)</span>使得 <span
-class="math display">\[
-|\psi_n(t)|\leq\frac{M}{(2\pi)^n}
-\]</span> 故我們知道當<span
-class="math inline">\(|z|&lt;2\pi\)</span>時<span
-class="math inline">\(F(t,z)\)</span>收斂。再來，考慮微分： <span
-class="math display">\[
-\begin{aligned}
-\frac{d}{dt}F(t,z)&amp;=\sum_{k=1}^\infty\psi_{n-1}(t)z^n\\
-&amp;=z\sum_{n=1}^\infty\psi_{n-1}(t)z^{n-1}\\
-&amp;=zF(z,t)
-\end{aligned}
-\]</span> 於是大概可以猜到<span
-class="math inline">\(F(t,z)=ce^{zt}\)</span>。又 <span
-class="math display">\[
-\begin{aligned}
-1&amp;=\int_0^1 F(t,z)dt\mbox{ (註記1-2)}\\
-&amp;=c\int_0^1 e^{zt}dt\\
-&amp;=c\times\frac{e^z-1}{z}
-\end{aligned}
-\]</span> 故知<span
-class="math inline">\(c=\frac{z}{e^z-1}\)</span>，於是<span
-class="math inline">\(F(t,z)=\frac{ze^{zt}}{e^z-1}\)</span>，且當<span
-class="math inline">\(t\to 0\)</span>時有 <span class="math display">\[
-\lim_{t\to 0}F(t,z)=\frac{z}{e^z-1}=1+\sum_{n=1}^\infty b_nz^n
-\]</span> 又<span
-class="math inline">\(b_1=-\frac{1}{2}\)</span>，兩邊加<span
-class="math inline">\(\frac{z}{2}\)</span>，有 <span
-class="math display">\[
-\frac{z}{e^z-1}+\frac{z}{2}=1+\sum_{n=2}^\infty b_nz^n
-\]</span> 左式是 <span class="math display">\[
-\frac{z}{2}\frac{e^z+1}{e^z-1}=\frac{z}{2}\coth z
-\]</span> 而右式是 <span class="math display">\[
-\sum_{n=0}^\infty\frac{B^*_{2n}}{(2n)!}z^{2n}
-\]</span> 其中<span class="math inline">\(B^*_{n}=n!b_n\)</span>。</p>
+        <p>這份筆記是關於多變數函數積分的定義與性質。 <span id="more"></span><br></p>
 
     </div>
 
@@ -374,13 +241,10 @@ class="math display">\[
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/24/cal-weier-approx/" rel="prev" title="微積分：魏爾斯特拉斯逼近定理">
-      <i class="fa fa-chevron-left"></i> 微積分：魏爾斯特拉斯逼近定理
+    <a href="/2024/07/25/cal-multi-var/" rel="prev" title="微積分：多變數函數">
+      <i class="fa fa-chevron-left"></i> 微積分：多變數函數
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/07/25/cal-multi-var/" rel="next" title="微積分：多變數函數">
-      微積分：多變數函數 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -439,9 +303,6 @@ class="math display">\[
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%AF%E5%8A%AA%E5%88%A9%E5%A4%9A%E9%A0%85%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">伯努利多項式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E4%BC%AF%E5%8A%AA%E5%88%A9%E5%A4%9A%E9%A0%85%E5%BC%8F-bernoulli-polynomials"><span class="nav-number">1.1.</span> <span class="nav-text">定義
-1：伯努利多項式 (Bernoulli Polynomials)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">例 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">伯努利數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%95%B8-bernoulli-numbers"><span class="nav-number">2.1.</span> <span class="nav-text">定義
-2：伯努利數 (Bernoulli Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">例 2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">註記 2-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-3"><span class="nav-number">2.1.3.</span> <span class="nav-text">註記 2-3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B8"><span class="nav-number">3.</span> <span class="nav-text">生成函數</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
