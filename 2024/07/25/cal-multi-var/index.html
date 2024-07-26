@@ -29,8 +29,9 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/conti.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/geometry.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/laplace.jpg">
 <meta property="article:published_time" content="2024-07-25T04:52:28.000Z">
-<meta property="article:modified_time" content="2024-07-25T17:06:58.723Z">
+<meta property="article:modified_time" content="2024-07-26T09:27:40.174Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -202,7 +203,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-07-26 01:06:58" itemprop="dateModified" datetime="2024-07-26T01:06:58+08:00">2024-07-26</time>
+                <time title="修改時間：2024-07-26 17:27:40" itemprop="dateModified" datetime="2024-07-26T17:27:40+08:00">2024-07-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -462,7 +463,7 @@ f_{yx}(x+\theta_1h,y+\theta_2k)=f_{xy}(x+\theta_1&#39;h,y+\theta_2&#39;k)
 class="math inline">\(f\)</span>連續，故<span
 class="math inline">\(f_{yx}(x,y)=f_{xy}(x,y)\)</span>。<font size="1">QED</font></p>
 <center>
-<h1 id="微分"><font color=#b8860b>微分</font></h1>
+<h1 id="導數"><font color=#b8860b>導數</font></h1>
 </center>
 <h2 id="註記-10"><font color=#0000FF><u>註記 10</u></font></h2>
 <p>在單變數微分中我們通常用的定義是 <span class="math display">\[
@@ -475,8 +476,8 @@ g(x_0+h)-g(x_0)=Ah+\epsilon(h)
 class="math inline">\(\epsilon(h)\to
 0\)</span>。我們可以用此來定義多變數微分。</p>
 <h2
-id="定義-11多變數函數的微分-derivative-of-multivariable-function"><font color=#008000><u>定義
-11：多變數函數的微分 (Derivative of Multivariable
+id="定義-11多變數函數的導數-derivative-of-multivariable-function"><font color=#008000><u>定義
+11：多變數函數的導數 (Derivative of Multivariable
 Function)</u></font></h2>
 <p>我們說<span
 class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span>在<span
@@ -536,8 +537,8 @@ class="math inline">\((x,y)\)</span>可微。<font size="1">QED</font></p>
 <h1 id="方向微分"><font color=#b8860b>方向微分</font></h1>
 </center>
 <h2
-id="定義-13方向微分-directional-derivative"><font color=#008000><u>定義
-13：方向微分 (Directional Derivative)</u></font></h2>
+id="定義-13方向導數-directional-derivative"><font color=#008000><u>定義
+13：方向導數 (Directional Derivative)</u></font></h2>
 <p><font color=#8b4513><u>證明</u></font>：給定<span
 class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span>和<span
 class="math inline">\(\vec{v}=(v_1,v_2,\cdots,v_n)\)</span>。我們說<span
@@ -574,8 +575,8 @@ class="math inline">\(f\)</span>的<span
 class="math inline">\(m\)</span>次偏微分連續。<br> 我們說<span
 class="math inline">\(f\in C^\infty\)</span>，若<span
 class="math inline">\(f\)</span>的任意次偏微分都連續。</p>
-<h2 id="註記-15方向微分的幾何概念"><font color=#0000FF><u>註記
-15：方向微分的幾何概念</u></font></h2>
+<h2 id="註記-15方向導數的幾何概念"><font color=#0000FF><u>註記
+15：方向導數的幾何概念</u></font></h2>
 <p><span class="math inline">\(f\)</span>在<span
 class="math inline">\(\vec{v}\)</span>方向的方向導數就是沿<span
 class="math inline">\(\vec{v}\)</span>方向對<span
@@ -585,6 +586,178 @@ class="math inline">\((x,y)\)</span>斜率。</p>
 <center>
 圖2
 </center>
+<h2 id="定義-16切平面-tangent-plane"><font color=#008000><u>定義
+16：切平面 (Tangent Plane)</u></font></h2>
+<p>從註記15可以很合理的定義<span class="math inline">\(f\)</span>在<span
+class="math inline">\((x,y)\)</span>的切平面，即 <span
+class="math display">\[
+\phi(\xi,\eta)=f(x,y)=(\xi-x)f_x(x,y)+(\eta-y)f_y(x,y)
+\]</span> (這裡<span class="math inline">\(\xi,
+\eta\)</span>是變數，<span
+class="math inline">\(x,y\)</span>是定值)。於是，在<span
+class="math inline">\((x,y)\)</span>上所有方向的切線都落在<span
+class="math inline">\(\phi\)</span>上。<br> (沿用前面的符號，讓 <span
+class="math display">\[
+\xi-x=\frac{v_1}{|v|}, \eta-y=\frac{v_2}{|v|}
+\]</span> 即可。)</p>
+<h3 id="註記-16-1"><font color=#0000FF><u>註記 16-1</u></font></h3>
+<p>和單變數的狀況(<a
+href="https://alexthepurplerose.github.io/2024/06/30/cal-differ/">這裡</a>的定理10)一樣，切平面可以用來做一次估計。</p>
+<h2 id="註記-17"><font color=#0000FF><u>註記 17</u></font></h2>
+<p>方向導數可以用切線來表示。若某方向和正<span
+class="math inline">\(x\)</span>軸的夾角為<span
+class="math inline">\(\alpha\)</span>，則方向導數 <span
+class="math display">\[
+\nabla_\alpha f=f_x\cos\alpha+f_y\sin\alpha
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們可以用<span
+class="math inline">\((\xi,\eta)\)</span>表示<span
+class="math inline">\(xy\)</span>平面上的點，即 <span
+class="math display">\[
+\xi=x+\rho\cos\alpha,\eta=y+\rho\sin\alpha
+\]</span> (i.e. <span class="math inline">\(\rho\)</span>是<span
+class="math inline">\((x,y)\)</span>到<span
+class="math inline">\((\xi,\eta)\)</span>的距離)，則可以令 <span
+class="math display">\[
+\tau=f(\xi,\eta)=f(x+\rho\cos\alpha,y+\rho\sin\alpha)
+\]</span> 則 <span class="math display">\[
+\nabla_\alpha f(x,y)=\left(\frac{d\tau}{d\rho}\right)_{\rho=0}
+\]</span> 那麼在<span class="math inline">\((x,y)\)</span>的很附近，有
+<span class="math display">\[
+\begin{aligned}
+\tau&amp;=f(x,y)+(\rho-0)\nabla_\alpha f\\
+&amp;=f(x,y)+\rho(f_x\cos\alpha+f_y\sin\alpha)\\
+&amp;=f(x,y)+(\xi-x)f_x+(\eta-y)f_y
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h2 id="定義-18增量-increment"><font color=#008000><u>定義 18：增量
+(Increment)</u></font></h2>
+<p>假設<span class="math inline">\(f(x,y)\)</span>可微，則令<span
+class="math inline">\(u=f(x,y)\)</span>，則<span
+class="math inline">\(u\)</span>的增量定為 <span class="math display">\[
+\Delta u=f(x+h,y+k)-f(x,y)
+\]</span></p>
+<h2 id="定義-19微分-differential"><font color=#008000><u>定義 19：微分
+(Differential)</u></font></h2>
+<p>很合理由定義18可以發現<span class="math inline">\(\Delta u\approx
+hf_x+kf_y\)</span>(其實是<span class="math inline">\(\Delta
+u=hf_x+kf_y+\epsilon\sqrt{h^2+k^2}\)</span>)，將其記為<span
+class="math inline">\(df\)</span>，即 <span class="math display">\[
+df=hf_x+kf_y
+\]</span> 而又有 <span class="math display">\[
+\begin{aligned}
+d^2f=d(df)&amp;=h(df)_x+k(df)_y\\
+&amp;=h(f_xh+f_yk)_x+k(f_xh+f_yk)_y\\
+&amp;=h^2\frac{\partial^2 f}{\partial x^2}+2hk\frac{\partial^2
+f}{\partial x\partial y}+k^2\frac{\partial^2 f}{\partial y^2}
+\end{aligned}
+\]</span> 於是也會有 <span class="math display">\[
+d^nf=h^n\frac{\partial^n f}{\partial x^n}+C^n_1h^{n-1}k\frac{\partial^n
+f}{\partial x^{n-1}\partial y}+C^n_2h^{n-2}k^2\frac{\partial^n
+f}{\partial x^{n-2}\partial y^2}+\cdots+k^n\frac{\partial^n f}{\partial
+y^n}
+\]</span></p>
+<center>
+<h1 id="變數變換"><font color=#b8860b>變數變換</font></h1>
+</center>
+<p>單變數的時候給定<span class="math inline">\(f(x)\)</span>和<span
+class="math inline">\(\phi(x)\)</span>，則由鏈鎖律能很好的算出<span
+class="math inline">\((f(\phi(x)))&#39;\)</span>(見<a
+href="https://alexthepurplerose.github.io/2024/07/05/cal-compose/">這裡</a>的定理2)。<br>
+至於多變數的狀況，令<span class="math inline">\(u=f(\xi,\eta)\)</span>,
+<span class="math inline">\(\xi=\phi(x,y)\)</span>, <span
+class="math inline">\(\eta=\psi(x,y)\)</span>。我們在乎<span
+class="math inline">\(u_x\)</span>和<span
+class="math inline">\(u_y\)</span>(這樣什麼方向的導數都有了)。</p>
+<h2 id="定理-20"><font color=#ff1493><u>定理 20</u></font></h2>
+<p>符號假設同上，有 <span class="math display">\[
+u_x=f_\xi\phi_x+f_\eta\psi_x, u_y=f_\xi\phi_y+f_\eta\psi_y
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮 <span
+class="math display">\[
+\begin{aligned}
+\Delta\xi&amp;=\xi_x\Delta x+\xi_y\Delta y+\epsilon_1\sqrt{\Delta
+x^2+\Delta y^2}\\
+\Delta\eta&amp;=\eta_x\Delta x+\eta_y\Delta y+\epsilon_2\sqrt{\Delta
+x^2+\Delta y^2}\\
+\Delta u&amp;=f_\xi\Delta\xi+f_\eta\Delta\eta+\epsilon_3\sqrt{\Delta
+\xi^2+\Delta\eta^2}
+\end{aligned}
+\]</span> 全部塞進去，有 <span class="math display">\[
+\Delta u=(f_\xi\xi_x+f_\eta\eta_x)\Delta
+x+(f_\xi\xi_y+f_\eta\eta_y)\Delta y+\epsilon\sqrt{\Delta x^2+\Delta y^2}
+\]</span>
+最後一項要整理一些可怕的東西，但反正結論是它夠小可忽略。令<span
+class="math inline">\(\Delta x,\Delta y\to 0\)</span>，則 <span
+class="math display">\[
+u_x=f_\xi\phi_x+f_\eta\psi_x, u_y=f_\xi\phi_y+f_\eta\psi_y
+\]</span> <font size="1">QED</font></p>
+<h3 id="例-20-1極座標-polar-coordination"><font color=#ffa500><u>例
+20-1：極座標 (Polar Coordination)</u></font></h3>
+<p>考慮 <span class="math display">\[
+x=r\cos\theta, y=r\sin\theta
+\]</span> 或 <span class="math display">\[
+r=\sqrt{x^2+y^2}, \theta=\arccos\frac{x}{\sqrt{x^2+y^2}}
+\]</span> 給定 <span class="math display">\[
+u=f(x,y)=f(r\cos\theta,r\sin\theta)=F(r,\theta)
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+F_x&amp;=F_rr_x+F_\theta\theta_x\\
+&amp;=F_r\frac{x}{r}-F_\theta\frac{y}{r^2}\\
+&amp;=F_r\cos\theta-F_\theta\frac{\sin\theta}{r}
+\end{aligned}
+\]</span> 同理有 <span class="math display">\[
+F_y=F_r\sin\theta+F_\theta\frac{\cos\theta}{r}
+\]</span> 於是我們有 <span class="math display">\[
+F_x^2+F_y^2=F_r^2+\frac{1}{r^2}F_\theta^2
+\]</span> 再努力變形一下式子，有：</p>
+<h4
+id="註記-20-1-1拉普拉斯方程-laplace-equation"><font color=#0000FF><u>註記
+20-1-1：拉普拉斯方程 (Laplace Equation)</u></font></h4>
+<p>即 <span class="math display">\[
+F_{xx}+F_{yy}=F_{rr}+\frac{1}{r^2}F_{\theta\theta}+\frac{1}{r}F_r
+\]</span></p>
+<img src="laplace.jpg" width="25%" height="25%">
+<center>
+圖3 Pierre-Simon Laplace
+</center>
+<center>
+<h1 id="泰勒展開式"><font color=#b8860b>泰勒展開式</font></h1>
+</center>
+<p>給定函數<span class="math inline">\(f\)</span>及<span
+class="math inline">\(x,y,h,k\)</span>，令<span
+class="math inline">\(F(t)=f(x+th,y+tk)-f(x,y)\)</span>, <span
+class="math inline">\(0\leq t\leq 1\)</span>。則 <span
+class="math display">\[
+F&#39;(t)=f_x(x+th,y+tk)h+f_y(x+th,y+tk)k
+\]</span> (用上面的定理20就有了)，同理有 <span class="math display">\[
+F&#39;&#39;(t)=f_{xx}h^2+2hkf_{xy}+f_{yy}k^2
+\]</span> 以及 <span class="math display">\[
+F^{(n)}(t)=h^nf_{x^n}+C^n_1h^{n-1}kf_{x^{n-1}y}+\cdots
+\]</span> 又由微分均值定理知存在<span
+class="math inline">\(0&lt;\theta&lt;1\)</span>使得<span
+class="math inline">\(F(t)-F(0)=F&#39;(\theta t)t\)</span>，則 <span
+class="math display">\[
+\frac{f(x+ht,y+kt)-f(x,y)}{t}=hf_x(x+\theta ht,y+\theta
+kt)+kf_y(x+\theta ht,y+\theta kt)
+\]</span> 令<span class="math inline">\(t=1\)</span>，則 <span
+class="math display">\[
+f(x+h,y+k)-f(x,y)=(x+\theta h,y+\theta k)+kf_y(x+\theta h,y+\theta k)
+\]</span> 諸如此類，把<span
+class="math inline">\(F(t)\)</span>給泰勒展開後再令<span
+class="math inline">\(t=1\)</span>，就有：</p>
+<h2
+id="註記-21多變數泰勒級數-multivariable-taylor-expansion"><font color=#0000FF><u>註記
+21：多變數泰勒級數 (Multivariable Taylor Expansion)</u></font></h2>
+<p>我們有 <span class="math display">\[
+f(x+h,y+k)=f(x,y)+df+\frac{1}{2!}d^2f+\frac{1}{3!}d^3f+\cdots+\frac{1}{n!}d^nf+R_n
+\]</span> 其中剩餘項<span
+class="math inline">\(R_n\)</span>可表為拉格朗日形式 <span
+class="math display">\[
+R_n=\frac{1}{(n+1)!}(h^{n+1}f_{x^{n+1}}(x+\theta h,y+\theta
+k)+\cdots+k^{n+1}f_{y^{n+1}}(x+\theta h,y+\theta k))
+\]</span> 其中<span class="math inline">\(0\leq\theta\leq
+1\)</span>。</p>
 
     </div>
 
@@ -679,11 +852,17 @@ class="math inline">\((x,y)\)</span>斜率。</p>
 Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">例 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%A4%9A%E8%AE%8A%E6%95%B8%E5%87%BD%E6%95%B8%E7%9A%84%E4%B8%80%E8%87%B4%E9%80%A3%E7%BA%8C-uniform-continuous-of-multivariable-function"><span class="nav-number">2.3.</span> <span class="nav-text">定義
 6：多變數函數的一致連續 (Uniform Continuous of Multivariable
 Function)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%8F%E5%BE%AE%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">偏微分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%81%8F%E5%BE%AE%E5%88%86-partial-derivative"><span class="nav-number">3.1.</span> <span class="nav-text">定義
-7：偏微分 (Partial Derivative)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 7-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">定義 7-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-3"><span class="nav-number">3.1.3.</span> <span class="nav-text">註記 7-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-4"><span class="nav-number">3.1.4.</span> <span class="nav-text">例 7-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-5"><span class="nav-number">3.1.5.</span> <span class="nav-text">例 7-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-6"><span class="nav-number">3.1.6.</span> <span class="nav-text">定義 7-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-7"><span class="nav-number">3.1.7.</span> <span class="nav-text">註記 7-7</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-7-7-1"><span class="nav-number">3.1.7.1.</span> <span class="nav-text">例 7-7-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">3.2.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">註記 8-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9"><span class="nav-number">3.3.</span> <span class="nav-text">註記 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-9-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">例 9-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9-2"><span class="nav-number">3.3.2.</span> <span class="nav-text">定理 9-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AE%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">微分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">4.1.</span> <span class="nav-text">註記 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E5%A4%9A%E8%AE%8A%E6%95%B8%E5%87%BD%E6%95%B8%E7%9A%84%E5%BE%AE%E5%88%86-derivative-of-multivariable-function"><span class="nav-number">4.2.</span> <span class="nav-text">定義
-11：多變數函數的微分 (Derivative of Multivariable
-Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-11-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">註記 11-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">4.3.</span> <span class="nav-text">定理 12</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-12-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">註記 12-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E5%90%91%E5%BE%AE%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text">方向微分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13%E6%96%B9%E5%90%91%E5%BE%AE%E5%88%86-directional-derivative"><span class="nav-number">5.1.</span> <span class="nav-text">定義
-13：方向微分 (Directional Derivative)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">註記 13-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-14"><span class="nav-number">5.2.</span> <span class="nav-text">定義 14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-15%E6%96%B9%E5%90%91%E5%BE%AE%E5%88%86%E7%9A%84%E5%B9%BE%E4%BD%95%E6%A6%82%E5%BF%B5"><span class="nav-number">5.3.</span> <span class="nav-text">註記
-15：方向微分的幾何概念</span></a></li></ol></li></ol></div>
+7：偏微分 (Partial Derivative)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 7-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">定義 7-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-3"><span class="nav-number">3.1.3.</span> <span class="nav-text">註記 7-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-4"><span class="nav-number">3.1.4.</span> <span class="nav-text">例 7-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-5"><span class="nav-number">3.1.5.</span> <span class="nav-text">例 7-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-6"><span class="nav-number">3.1.6.</span> <span class="nav-text">定義 7-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-7"><span class="nav-number">3.1.7.</span> <span class="nav-text">註記 7-7</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-7-7-1"><span class="nav-number">3.1.7.1.</span> <span class="nav-text">例 7-7-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">3.2.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">註記 8-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9"><span class="nav-number">3.3.</span> <span class="nav-text">註記 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-9-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">例 9-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9-2"><span class="nav-number">3.3.2.</span> <span class="nav-text">定理 9-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8E%E6%95%B8"><span class="nav-number">4.</span> <span class="nav-text">導數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">4.1.</span> <span class="nav-text">註記 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E5%A4%9A%E8%AE%8A%E6%95%B8%E5%87%BD%E6%95%B8%E7%9A%84%E5%B0%8E%E6%95%B8-derivative-of-multivariable-function"><span class="nav-number">4.2.</span> <span class="nav-text">定義
+11：多變數函數的導數 (Derivative of Multivariable
+Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-11-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">註記 11-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">4.3.</span> <span class="nav-text">定理 12</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-12-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">註記 12-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E5%90%91%E5%BE%AE%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text">方向微分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13%E6%96%B9%E5%90%91%E5%B0%8E%E6%95%B8-directional-derivative"><span class="nav-number">5.1.</span> <span class="nav-text">定義
+13：方向導數 (Directional Derivative)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">註記 13-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-14"><span class="nav-number">5.2.</span> <span class="nav-text">定義 14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-15%E6%96%B9%E5%90%91%E5%B0%8E%E6%95%B8%E7%9A%84%E5%B9%BE%E4%BD%95%E6%A6%82%E5%BF%B5"><span class="nav-number">5.3.</span> <span class="nav-text">註記
+15：方向導數的幾何概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-16%E5%88%87%E5%B9%B3%E9%9D%A2-tangent-plane"><span class="nav-number">5.4.</span> <span class="nav-text">定義
+16：切平面 (Tangent Plane)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-16-1"><span class="nav-number">5.4.1.</span> <span class="nav-text">註記 16-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-17"><span class="nav-number">5.5.</span> <span class="nav-text">註記 17</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-18%E5%A2%9E%E9%87%8F-increment"><span class="nav-number">5.6.</span> <span class="nav-text">定義 18：增量
+(Increment)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-19%E5%BE%AE%E5%88%86-differential"><span class="nav-number">5.7.</span> <span class="nav-text">定義 19：微分
+(Differential)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E8%AE%8A%E6%8F%9B"><span class="nav-number">6.</span> <span class="nav-text">變數變換</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-20"><span class="nav-number">6.1.</span> <span class="nav-text">定理 20</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-20-1%E6%A5%B5%E5%BA%A7%E6%A8%99-polar-coordination"><span class="nav-number">6.1.1.</span> <span class="nav-text">例
+20-1：極座標 (Polar Coordination)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-20-1-1%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E6%96%B9%E7%A8%8B-laplace-equation"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">註記
+20-1-1：拉普拉斯方程 (Laplace Equation)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E5%B1%95%E9%96%8B%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">泰勒展開式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-21%E5%A4%9A%E8%AE%8A%E6%95%B8%E6%B3%B0%E5%8B%92%E7%B4%9A%E6%95%B8-multivariable-taylor-expansion"><span class="nav-number">7.1.</span> <span class="nav-text">註記
+21：多變數泰勒級數 (Multivariable Taylor Expansion)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
