@@ -27,13 +27,19 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於曲線的性質與線積分。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/26/cal-curve/curve.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/26/cal-curve/line-int.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/26/cal-curve/closed-a.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/26/cal-curve/closed-b.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/26/cal-curve/closed-c.jpg">
 <meta property="article:published_time" content="2024-07-26T13:58:39.000Z">
-<meta property="article:modified_time" content="2024-07-26T14:00:47.501Z">
+<meta property="article:modified_time" content="2024-07-27T08:03:00.791Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/26/cal-curve/curve.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/26/cal-curve/">
 
@@ -191,10 +197,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-07-26 21:58:39 / 修改時間：22:00:47" itemprop="dateCreated datePublished" datetime="2024-07-26T21:58:39+08:00">2024-07-26</time>
+              <time title="創建時間：2024-07-26 21:58:39" itemprop="dateCreated datePublished" datetime="2024-07-26T21:58:39+08:00">2024-07-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-07-27 16:03:00" itemprop="dateModified" datetime="2024-07-27T16:03:00+08:00">2024-07-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -221,6 +233,273 @@
 
       
         <p>這份筆記是關於曲線的性質與線積分。 <span id="more"></span><br></p>
+<center>
+<h1 id="曲線"><font color=#b8860b>曲線</font></h1>
+</center>
+<h2
+id="定義-1曲線的參數式-parametrized-curve"><font color=#008000><u>定義
+1：曲線的參數式 (Parametrized Curve)</u></font></h2>
+<p>通常這裡對平面曲線的描述會用參數式，即 <span class="math display">\[
+\left\{
+\begin{aligned}
+x&amp;=x(t)\\
+y&amp;=y(t)
+\end{aligned}
+\right. , t\in[\alpha,\beta]
+\]</span> 類似的，對空間中的曲線我們也可以令 <span
+class="math display">\[
+\Gamma=\left\{
+\begin{aligned}
+x&amp;=x(t)\\
+y&amp;=y(t)\\
+z&amp;=z(t)
+\end{aligned}
+\right.
+\]</span></p>
+<h2 id="註記-2曲線的弧長-length-of-a-curve"><font color=#0000FF><u>註記
+2：曲線的弧長 (Length of a Curve)</u></font></h2>
+<p>把<span class="math inline">\([\alpha,\beta]\)</span>分成<span
+class="math inline">\(n\)</span>小段，並令點<span
+class="math inline">\(P_i=(x(t_i),y(t_i))\)</span>(見下圖1)。</p>
+<img src="curve.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>則令 <span class="math display">\[
+S_n=\sum_{i=0}^{n-1}\overline{P_iP_{i+1}}=\sum_{i=0}^{n-1}\sqrt{(x(t_{i+1})-x(t_i))^2+(y(t_{i+1})-y(t_i))^2}
+\]</span> (用折線逼近曲線)若<span
+class="math inline">\(x(t),y(t)\)</span>有連續的導數，則當<span
+class="math inline">\(n\to\infty\)</span>時 <span
+class="math display">\[
+\begin{aligned}
+&amp;\sum_{i=0}^{n-1}\sqrt{(x(t_{i+1})-x(t_i))^2+(y(t_{i+1})-y(t_i))^2}\\
+=&amp;\sum_{i=0}^{n-1}\sqrt{(x&#39;(\tilde{t_i})\Delta
+t_i)^2+(y&#39;(\tilde{t_i})\Delta t_i)^2}\\
+&amp;\mbox{(微分均值定理)}\\
+=&amp;\int_\alpha^\beta\sqrt{x&#39;(t)^2+y&#39;(t)^2}dt
+\end{aligned}
+\]</span> 或寫做 <span class="math display">\[
+\int_\alpha^\beta\sqrt{\dot{x}^2+\dot{y}^2}dt
+\]</span> 但這裡要注意從<span
+class="math inline">\([\alpha,\beta]\)</span>到曲線的映射要是一對一的，不然像一個圓，既可表成
+<span class="math display">\[
+\left\{
+\begin{aligned}
+x&amp;=\cos t\\
+y&amp;=\sin t
+\end{aligned}
+\right. ,t\in[0,2\pi]
+\]</span> 這樣會算出對的弧長。但又可表成 <span class="math display">\[
+\left\{
+\begin{aligned}
+x&amp;=\cos 2t\\
+y&amp;=\sin 2t
+\end{aligned}
+\right. ,t\in[0,2\pi]
+\]</span> 這樣會算出兩倍弧長，這是因為下面那個參數式實際上繞了兩圈。</p>
+<h2
+id="定義-3沿曲線的速度-speed-along-the-curve"><font color=#008000><u>定義
+3：沿曲線的速度 (Speed along the Curve)</u></font></h2>
+<p>假定<span class="math inline">\(\dot{x}^2+\dot{y}^2\neq
+0\)</span>，令 <span class="math display">\[
+s=\int_\alpha^\beta\sqrt{\dot{x}^2+\dot{y}^2}dt
+\]</span> 則 <span class="math display">\[
+\frac{ds}{dt}=\sqrt{\dot{x}^2+\dot{y}^2}
+\]</span> 顯然<span
+class="math inline">\(\frac{ds}{dt}\)</span>的意思就是速度，我們將其稱為沿曲線的速度。</p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
+<p>我們有 <span class="math display">\[
+\frac{dx}{ds}=\frac{dx}{dt}\cdot\frac{dt}{ds}=\frac{\dot{x}}{\sqrt{\dot{x}^2+\dot{y}^2}}
+\]</span> 可以看出這是速度(切線)的<span
+class="math inline">\(x\)</span>分量。同理 <span class="math display">\[
+\frac{dy}{ds}=\frac{\dot{y}}{\sqrt{\dot{x}^2+\dot{y}^2}}
+\]</span> 這是速度(切線)的<span
+class="math inline">\(y\)</span>分量。</p>
+<h2 id="定義-4曲率-curvature"><font color=#008000><u>定義 4：曲率
+(Curvature)</u></font></h2>
+<p>我們將一條曲線的曲率定義為<span
+class="math inline">\(k=\frac{d\alpha}{ds}\)</span>，其中<span
+class="math inline">\(\alpha\)</span>是切線與水平軸的夾角。假設<span
+class="math inline">\(\dot{x}\neq 0\)</span>，考慮 <span
+class="math display">\[
+\tan\alpha=\frac{\dot{y}}{\dot{x}}
+\]</span> (如果<span class="math inline">\(\dot{x}=0\)</span>則考慮<span
+class="math inline">\(\cot\alpha=\dot{x}/\dot{y}\)</span>)，則 <span
+class="math display">\[
+k=\frac{d\alpha}{ds}=\frac{d\alpha/dt}{ds/dt}=\frac{\dot{x}\ddot{y}-\ddot{x}\dot{y}}{\left(\dot{x}^2+\dot{y}^2\right)^{3/2}}
+\]</span> (計算略)</p>
+<center>
+<h1 id="線性微分形式"><font color=#b8860b>線性微分形式</font></h1>
+</center>
+<h2
+id="定義-5線性微分形式-linear-differential-form"><font color=#008000><u>定義
+5：線性微分形式 (Linear Differential Form)</u></font></h2>
+<p>給定<span class="math inline">\(u=f(x,y,z)\)</span>，則令<span
+class="math inline">\(u\)</span>的線性微分形式為 <span
+class="math display">\[
+u=f_xdx+f_ydy+f_zdz
+\]</span> (線性的意思是<span
+class="math inline">\(l(ax+y)=al(x)+l(y)\)</span>)，於是 <span
+class="math display">\[
+\frac{du}{dt}=f_x\frac{dx}{dt}+f_y\frac{dy}{dt}+f_z\frac{dz}{dt}
+\]</span></p>
+<h3
+id="定義-5-1廣義線性微分形式-generalized-linear-differential-form"><font color=#008000><u>定義
+5-1：廣義線性微分形式 (Generalized Linear Differential
+Form)</u></font></h3>
+<p>寫做 <span class="math display">\[
+A(x,y,z)dx+B(x,y,z)dy+C(x,y,z)dz
+\]</span> 其中<span
+class="math inline">\(A,B,C\)</span>是隨便的函數。</p>
+<h3 id="定義-5-2正合-exact"><font color=#008000><u>定義 5-2：正合
+(Exact)</u></font></h3>
+<p>給定廣義線性微分形式<span
+class="math inline">\(L\)</span>，我們說<span
+class="math inline">\(L\)</span>是正合的，若存在<span
+class="math inline">\(f\)</span>使得<span
+class="math inline">\(L=df\)</span>。</p>
+<h4 id="註記-5-2-1"><font color=#0000FF><u>註記 5-2-1</u></font></h4>
+<p>令<span
+class="math inline">\(L=A(x,y,z)dx+B(x,y,z)dy+C(x,y,z)dz\)</span>，則若
+<span class="math display">\[
+\frac{\partial B}{\partial z}-\frac{\partial C}{\partial y}=0
+, \frac{\partial C}{\partial x}-\frac{\partial A}{\partial z}=0,
+\frac{\partial A}{\partial y}-\frac{\partial B}{\partial x}=0
+\]</span> 則<span class="math inline">\(L\)</span>是正合的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對比一下符號再用偏微分的可交換性就有了。<font size="1">QED</font></p>
+<center>
+<h1 id="線積分"><font color=#b8860b>線積分</font></h1>
+</center>
+<h2
+id="定義-6曲線的定向-orientation-of-a-curve"><font color=#008000><u>定義
+6：曲線的定向 (Orientation of a Curve)</u></font></h2>
+<p>考慮空間曲線 <span class="math display">\[
+\Gamma=\left\{
+\begin{aligned}
+x&amp;=x(t)\\
+y&amp;=y(t)\\
+z&amp;=z(t)
+\end{aligned}
+\right.
+\]</span> 我們將<span
+class="math inline">\(\Gamma\)</span>的方向定為<span
+class="math inline">\(t\)</span>遞增的方向(這種有定向的曲線記為<span
+class="math inline">\(\Gamma^*\)</span>，並且將另一個方向記為<span
+class="math inline">\(-\Gamma^*\)</span>)。</p>
+<h2
+id="定義-7曲線的端點-endpoints-of-a-curve"><font color=#008000><u>定義
+7：曲線的端點 (Endpoints of a Curve)</u></font></h2>
+<p>意思是<span
+class="math inline">\(t\)</span>的區間端點對應的曲線上的點。</p>
+<h3 id="例-7-1"><font color=#ffa500><u>例 7-1</u></font></h3>
+<p>對於<span class="math inline">\(\Gamma=\Gamma(t), a\leq t\leq
+b\)</span>來說，<span class="math inline">\(\Gamma\)</span>的端點是<span
+class="math inline">\(\Gamma(a)\)</span>和<span
+class="math inline">\(\Gamma(b)\)</span>。</p>
+<h2
+id="定義-8曲線的切割-partition-of-a-curve"><font color=#008000><u>定義
+8：曲線的切割 (Partition of a Curve)</u></font></h2>
+<p>給定定向曲線<span
+class="math inline">\(\Gamma^*\)</span>，則可以把它切成很多小定向弧<span
+class="math inline">\(\Gamma_1^*,\Gamma_2^*,\cdots,\Gamma_n^*\)</span>，並且記為
+<span class="math display">\[
+\Gamma_1^*+\Gamma_2^*+\cdots+\Gamma_n^*=\Gamma^*
+\]</span></p>
+<h2 id="註記-9線積分-line-integral"><font color=#0000FF><u>註記
+9：線積分 (Line Integral)</u></font></h2>
+<p>我們這裡關心的是一個線性微分形式<span
+class="math inline">\(L=A(x,y,z)dx+B(x,y,z)dy+C(x,y,z)dz\)</span>在簡單定向曲線<span
+class="math inline">\(\Gamma^*\)</span>上的積分(簡單的意思是<span
+class="math inline">\(\Gamma^*\)</span>是一對一的，即不自相交)。首先，把<span
+class="math inline">\(\Gamma^*\)</span>分成很多段，端點為<span
+class="math inline">\(P_0,P_1,\cdots,P_n\)</span>(見下圖2)。</p>
+<img src="line-int.jpg" width="50%" height="50%">
+<center>
+圖2
+</center>
+<p>又，令<span class="math inline">\(Q_k\)</span>是<span
+class="math inline">\([P_{k-1},P_k]\)</span>上的某一點，而<span
+class="math inline">\(A_k, B_k, C_k\)</span>分別是<span
+class="math inline">\(A,B,C\)</span>在<span
+class="math inline">\(Q_k\)</span>上的值。而令 <span
+class="math display">\[
+\begin{aligned}
+\Delta x_k&amp;=x(t_k)-x(t_{k-1})\\
+\Delta y_k&amp;=y(t_k)-y(t_{k-1})\\
+\Delta z_k&amp;=z(t_k)-z(t_{k-1})
+\end{aligned}
+\]</span> 考慮 <span class="math display">\[
+F_n=\sum_{k=1}^n(A_k\Delta x_k+B_k\Delta y_k+C_k\Delta z_k)
+\]</span> 而由微分均值定理，有 <span class="math display">\[
+\begin{aligned}
+x(t_k)-x(t_{k-1})&amp;=x&#39;(\theta_{k,x})\Delta t_k\\
+y(t_k)-y(t_{k-1})&amp;=y&#39;(\theta_{k,y})\Delta t_k\\
+z(t_k)-z(t_{k-1})&amp;=z&#39;(\theta_{k,z})\Delta t_k
+\end{aligned}
+\]</span> 於是和單變數時的情況一樣(<a
+href="https://alexthepurplerose.github.io/2024/06/27/cal-riemann-integral/">這裡</a>的定理1-3)，當<span
+class="math inline">\(n\to\infty\)</span>時，<span
+class="math inline">\(F_n\)</span>收斂。則記 <span
+class="math display">\[
+\int_{\Gamma^*}L=\lim_{n\to\infty}F_n=\int_a^b\left(A\frac{dx}{dt}+B\frac{dy}{dt}+C\frac{dz}{dt}\right)dt
+\]</span></p>
+<center>
+<h1
+id="封閉環路上的線積分"><font color=#b8860b>封閉環路上的線積分</font></h1>
+</center>
+<h2 id="定義-10封閉-closed"><font color=#008000><u>定義 10：封閉
+(Closed)</u></font></h2>
+<p>若曲線的兩端點是同一點，則稱該曲線封閉。</p>
+<h2 id="定理-11"><font color=#ff1493><u>定理 11</u></font></h2>
+<p>考慮平面上如下圖3的封閉曲線 <span class="math display">\[
+c=\left\{
+\begin{aligned}
+x&amp;=x(t)\\
+y&amp;=y(t)
+\end{aligned}
+\right. , t\in[\alpha,\beta]
+\]</span></p>
+<img src="closed-a.jpg" width="50%" height="50%">
+<center>
+圖3
+</center>
+<p>令<span class="math inline">\(A\)</span>為該曲線所圍的面積，則 <span
+class="math display">\[
+\frac{1}{2}\int_\alpha^\beta(xy&#39;-yx&#39;)dt=A
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由分部積分有 <span
+class="math display">\[
+\int_\alpha^\beta xy&#39;dt=-\int_\alpha^\beta yx&#39;dt
+\]</span> 我們將<span class="math inline">\(-\int_\alpha^\beta
+yx&#39;dt\)</span>記做<span class="math inline">\(-\int_c
+ydx\)</span>。把<span class="math inline">\(c\)</span>切成很多段，有
+<span class="math display">\[
+\int_c ydx=\int_{c_1}ydx+\int_{c_2}ydx+\cdots+\int_{c_n}ydx
+\]</span> 考慮一個曲線<span
+class="math inline">\(c=c_1+c_2+c_3+c_4\)</span>，其中<span
+class="math inline">\(c_1=g(x)\)</span>, <span
+class="math inline">\(c_2=f(x)\)</span>，<span
+class="math inline">\(c_2\)</span>和<span
+class="math inline">\(c_4\)</span>是垂直線(見下圖4)。</p>
+<img src="closed-b.jpg" width="50%" height="50%">
+<center>
+圖4
+</center>
+<p>令<span class="math inline">\(A_c=-\int_c ydx\)</span>，則<span
+class="math inline">\(A_c=A_{c_1}+A_{c_2}+A_{c_3}+A_{c_4}\)</span>。顯然<span
+class="math inline">\(A_{c_2}=A_{c_4}=0\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+A_{c_1}+A_{c_3}&amp;=-\int_a^b g(x)dx-\int_a^b f(x)dx\\
+&amp;=\int_a^b(g(x)-f(x))dx\\
+&amp;=A
+\end{aligned}
+\]</span> 而以上方法對如下圖5中水平型的區域也適用。</p>
+<img src="closed-c.jpg" width="50%" height="50%">
+<center>
+圖5
+</center>
+<p>至於在一般狀況中的話，我們可以把區域切割成多個水平型或垂直型區域就好。<font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +582,20 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B2%E7%B7%9A"><span class="nav-number">1.</span> <span class="nav-text">曲線</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E6%9B%B2%E7%B7%9A%E7%9A%84%E5%8F%83%E6%95%B8%E5%BC%8F-parametrized-curve"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：曲線的參數式 (Parametrized Curve)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2%E6%9B%B2%E7%B7%9A%E7%9A%84%E5%BC%A7%E9%95%B7-length-of-a-curve"><span class="nav-number">1.2.</span> <span class="nav-text">註記
+2：曲線的弧長 (Length of a Curve)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E6%B2%BF%E6%9B%B2%E7%B7%9A%E7%9A%84%E9%80%9F%E5%BA%A6-speed-along-the-curve"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：沿曲線的速度 (Speed along the Curve)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%9B%B2%E7%8E%87-curvature"><span class="nav-number">1.4.</span> <span class="nav-text">定義 4：曲率
+(Curvature)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%9A%E6%80%A7%E5%BE%AE%E5%88%86%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">線性微分形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E7%B7%9A%E6%80%A7%E5%BE%AE%E5%88%86%E5%BD%A2%E5%BC%8F-linear-differential-form"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+5：線性微分形式 (Linear Differential Form)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-1%E5%BB%A3%E7%BE%A9%E7%B7%9A%E6%80%A7%E5%BE%AE%E5%88%86%E5%BD%A2%E5%BC%8F-generalized-linear-differential-form"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
+5-1：廣義線性微分形式 (Generalized Linear Differential
+Form)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-2%E6%AD%A3%E5%90%88-exact"><span class="nav-number">2.1.2.</span> <span class="nav-text">定義 5-2：正合
+(Exact)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-2-1"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">註記 5-2-1</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%9A%E7%A9%8D%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">線積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E6%9B%B2%E7%B7%9A%E7%9A%84%E5%AE%9A%E5%90%91-orientation-of-a-curve"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+6：曲線的定向 (Orientation of a Curve)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E6%9B%B2%E7%B7%9A%E7%9A%84%E7%AB%AF%E9%BB%9E-endpoints-of-a-curve"><span class="nav-number">3.2.</span> <span class="nav-text">定義
+7：曲線的端點 (Endpoints of a Curve)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">例 7-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E6%9B%B2%E7%B7%9A%E7%9A%84%E5%88%87%E5%89%B2-partition-of-a-curve"><span class="nav-number">3.3.</span> <span class="nav-text">定義
+8：曲線的切割 (Partition of a Curve)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9%E7%B7%9A%E7%A9%8D%E5%88%86-line-integral"><span class="nav-number">3.4.</span> <span class="nav-text">註記
+9：線積分 (Line Integral)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%81%E9%96%89%E7%92%B0%E8%B7%AF%E4%B8%8A%E7%9A%84%E7%B7%9A%E7%A9%8D%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">封閉環路上的線積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E5%B0%81%E9%96%89-closed"><span class="nav-number">4.1.</span> <span class="nav-text">定義 10：封閉
+(Closed)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">4.2.</span> <span class="nav-text">定理 11</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
