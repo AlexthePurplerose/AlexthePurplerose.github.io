@@ -27,13 +27,16 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於反函數定理與其證明。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/inv.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/jacobi.jpg">
 <meta property="article:published_time" content="2024-07-28T12:40:28.000Z">
-<meta property="article:modified_time" content="2024-07-28T12:51:38.038Z">
+<meta property="article:modified_time" content="2024-07-28T14:00:28.850Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/inv.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">
 
@@ -193,7 +196,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-28 20:40:28 / 修改時間：20:51:38" itemprop="dateCreated datePublished" datetime="2024-07-28T20:40:28+08:00">2024-07-28</time>
+              <time title="創建時間：2024-07-28 20:40:28 / 修改時間：22:00:28" itemprop="dateCreated datePublished" datetime="2024-07-28T20:40:28+08:00">2024-07-28</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +224,228 @@
 
       
         <p>這份筆記是關於反函數定理與其證明。 <span id="more"></span><br></p>
+<center>
+<h1 id="變換"><font color=#b8860b>變換</font></h1>
+</center>
+<p>我們考慮<span class="math inline">\(n\)</span>個變數和<span
+class="math inline">\(n\)</span>個函數，例如 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+\xi&amp;=\phi(x,y)\\
+\eta&amp;=\psi(x,y)
+\end{aligned}
+\right.
+\]</span> 我們把這視為映射或變換。</p>
+<h2 id="例-1線性變換-linear-transformation"><font color=#ffa500><u>例
+1：線性變換 (Linear Transformation)</u></font></h2>
+<p>考慮 <span class="math display">\[
+\left\{
+\begin{aligned}
+\xi&amp;=ax+by\\
+\eta&amp;=cx+dy
+\end{aligned}
+\right.
+\]</span> 我們可以簡單地找到<span
+class="math inline">\(a&#39;,b&#39;,c&#39;,d&#39;\)</span>使得 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+x&amp;=a&#39;\xi+b&#39;\eta\\
+y&amp;=c&#39;\xi+d&#39;\eta
+\end{aligned}
+\right.
+\]</span></p>
+<h2 id="目標-2"><font color=#0000FF><u>目標 2</u></font></h2>
+<p>我們希望給定 <span class="math display">\[
+\left\{
+\begin{aligned}
+\xi&amp;=\phi(x,y)\\
+\eta&amp;=\psi(x,y)
+\end{aligned}
+\right.
+\]</span> 想要找到<span class="math inline">\(g,h\)</span>使得至少局部有
+<span class="math display">\[
+\left\{
+\begin{aligned}
+x&amp;=g(\xi,\eta)\\
+y&amp;=h(\xi,\eta)
+\end{aligned}
+\right.
+\]</span> 首先，考慮<span
+class="math inline">\(F:\mathbb{R}^n\to\mathbb{R}^n\)</span>(例如<span
+class="math inline">\(F(x,y)=(\phi(x,y),\psi(x,y))=(\xi,\eta)\)</span>)。我們希望找到符合要求的<span
+class="math inline">\(g,h\)</span>的話，至少<span
+class="math inline">\(F\)</span>要是單射。</p>
+<h2 id="例-3反演-inversion"><font color=#ffa500><u>例 3：反演
+(Inversion)</u></font></h2>
+<p>考慮 <span class="math display">\[
+\left\{
+\begin{aligned}
+\xi&amp;=\frac{x}{x^2+y^2}\\
+\eta&amp;=\frac{y}{x^2+y^2}
+\end{aligned}
+\right.
+\]</span> 我們可以發現以下兩件事： <br>1. 可以發現<span
+class="math inline">\(\xi^2+\eta^2=\frac{1}{x^2+y^2}\)</span>，即<span
+class="math inline">\((\xi,\eta)\)</span>和<span
+class="math inline">\((x,y)\)</span>與點距離成倒數(見下圖1)。</p>
+<img src="inv.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p><br>2. 直線<span
+class="math inline">\(x=k\)</span>會被映射成一個圓。<br></p>
+<p><font color=#8b4513><u>說明</u></font>： <span
+class="math display">\[
+\begin{aligned}
+&amp;\xi^2+\eta^2=\frac{1}{k^2+y^2}=\frac{1}{k\xi}\\
+\Rightarrow&amp;\left(\xi-\frac{1}{2k}\right)^2+\eta^2=\left(\frac{1}{2k}\right)^2
+\end{aligned}
+\]</span> <font size="1">QED</font><br></p>
+<center>
+<h1 id="反函數定理"><font color=#b8860b>反函數定理</font></h1>
+</center>
+<p>假如上述目標2成立，則 <span class="math display">\[
+\left\{
+\begin{aligned}
+\xi&amp;=\phi(g(\xi,\eta),h(\xi,\eta))\\
+\eta&amp;=\psi(g(\xi,\eta),h(\xi,\eta))
+\end{aligned}
+\right.
+\]</span> 於是，可以兩邊偏微分，有 <span class="math display">\[
+\left\{
+\begin{aligned}
+1&amp;=\phi_xg_\xi+\phi_yh_\xi\\
+0&amp;=\phi_xg_\eta+\phi_yh_\eta\\
+0&amp;=\psi_xg_\xi+\psi_yh_\xi\\
+1&amp;=\psi_xg_\eta+\psi_yh_\eta
+\end{aligned}
+\right.
+\]</span> 於是 <span class="math display">\[
+\left\{
+\begin{aligned}
+g_\xi&amp;=\psi_y/D\\
+g_\eta&amp;=-\phi_y/D\\
+h_\xi&amp;=-\psi_x/D\\
+h_\eta&amp;=\phi_x/D
+\end{aligned}
+\right.
+\]</span> 其中 <span class="math display">\[
+D=\left|
+\begin{array}{cc}
+\phi_x &amp; \phi_y \\
+\psi_x &amp; \psi_y
+\end{array}
+\right|
+\]</span></p>
+<h2
+id="定義-4雅可比行列式-jacobian-determinant"><font color=#008000><u>定義
+4：雅可比行列式 (Jacobian Determinant)</u></font></h2>
+<p>我們將 <span class="math display">\[
+D=\left|
+\begin{array}{cc}
+\phi_x &amp; \phi_y \\
+\psi_x &amp; \psi_y
+\end{array}
+\right|
+\]</span> 稱為<span
+class="math inline">\((\phi,\psi)\)</span>的雅可比行列式。</p>
+<img src="jacobi.jpg" width="25%" height="25%">
+<center>
+圖2 Carl Gustav Jacob Jacobi
+</center>
+<h2
+id="定理-5反函數定理-inverse-function-theorem"><font color=#ff1493><u>定理
+5：反函數定理 (Inverse Function Theorem)</u></font></h2>
+<p>令<span class="math inline">\(\phi(x,y),\psi(x,y)\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>的附近是連續可微的，並令雅可比行列式<span
+class="math inline">\(D=\phi_x\psi_y-\phi_y\psi_x\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>非零。則存在<span
+class="math inline">\((x_0,y_0),
+(u_0,v_0)=(\phi(x_0,y_0),\psi(x_0,y_0))\)</span>的鄰域<span
+class="math inline">\(N,N&#39;\)</span>使得在這之中映射 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+u&amp;=\phi(x,y)\\
+v&amp;=\psi(x,y)
+\end{aligned}
+\right.
+\]</span> 有反函數 <span class="math display">\[
+\left\{
+\begin{aligned}
+x&amp;=g(u,v)\\
+y&amp;=h(u,v)
+\end{aligned}
+\right.
+\]</span> 並且 <span class="math display">\[
+\begin{aligned}
+\frac{\partial x}{\partial u}=\frac{1}{D}\frac{\partial v}{\partial
+y}&amp;, \frac{\partial x}{\partial v}=\frac{-1}{D}\frac{\partial
+u}{\partial y}\\
+\frac{\partial y}{\partial u}=\frac{-1}{D}\frac{\partial v}{\partial
+x}&amp;, \frac{\partial y}{\partial v}=\frac{1}{D}\frac{\partial
+u}{\partial x}
+\end{aligned}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(D\neq 0\)</span>，故<span
+class="math inline">\(\phi_x,\phi_y\)</span>不會同時為零。WLOG，可以令<span
+class="math inline">\(\phi_x(x_0,y_0)\neq 0\)</span>，於是方程<span
+class="math inline">\(u=\phi(x,y)\)</span>可以被表為<span
+class="math inline">\(x\)</span>的函數，即存在<span
+class="math inline">\(h_1,h_2,h_3\)</span> s.t. 當<span
+class="math inline">\(|u-u_0|&lt;h_1, |y-y_0|&lt;h_2\)</span>時，<span
+class="math inline">\(|x-x_0|&lt;h_3\)</span>時<span
+class="math inline">\(x=X(u,y)\)</span>(這是隱函數定理，見<a
+href="https://alexthepurplerose.github.io/2024/07/28/cal-implicit/">這裡</a>的定理2)。<br>
+於是，我們有<span class="math inline">\(\phi(X(u,y),y)=u,
+X(u_0,y_0)=x_0\)</span>。分別對<span
+class="math inline">\(u\)</span>與<span
+class="math inline">\(y\)</span>偏微分，有 <span class="math display">\[
+\begin{aligned}
+\phi_x(X(u,y),y)&amp;X_u(u,y)=1\\
+\phi_x(X(u,y),y)X_y(u,y)&amp;+\phi_y(X(u,y),y)=0\mbox{ (☆)}
+\end{aligned}
+\]</span> 然後把<span class="math inline">\(X(u,y)\)</span>替換進<span
+class="math inline">\(\psi(x,y)\)</span>，並令<span
+class="math inline">\(\tilde{x}(u,y)=\psi(X(u,y),y)\)</span>，則：
+<br>1. <span class="math display">\[
+\tilde{x}(u_0,y_0)=\psi(x_0,y_0)=v_0
+\]</span> <br>2. 由(☆)有 <span class="math display">\[
+\begin{aligned}
+\tilde{x}_y(u_0,v_0)&amp;=\psi_xX_y+\psi_y\\
+&amp;=-\psi_x\frac{\phi_y}{\phi_x}+\psi_y\\
+&amp;=\frac{D}{\phi_x}\neq 0
+\end{aligned}
+\]</span> 於是，存在<span
+class="math inline">\(h_4,h_5,h_6\)</span>使得<span
+class="math inline">\(|u-u_0|&lt;h_4\)</span>, <span
+class="math inline">\(|v-v_0|&lt;h_5\)</span>時，<span
+class="math inline">\(\tilde{x}(u,y)=v\)</span>有解<span
+class="math inline">\(y=h(u,v)\)</span>，其中<span
+class="math inline">\(|y-y_0|&lt;h_6\)</span>(這還是隱函數定理)。<br>
+最後，令<span class="math inline">\(g(u,v)=X(u,h(u,v))\)</span>，則<span
+class="math inline">\(x=g(u,v)\)</span>。而偏導數只是繁複計算而已，這裡就跳過了。<font size="1">QED</font><br></p>
+<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
+<p>更多變數的狀況，考慮： <span class="math display">\[
+\left\{
+\begin{aligned}
+\xi&amp;=\phi(x,y,z)\\
+\eta&amp;=\psi(x,y,z)\\
+\tau&amp;=\tilde{\phi}(x,y,z)
+\end{aligned}
+\right.
+\]</span> 它的雅可比行列式就是 <span class="math display">\[
+D=\frac{\partial(\xi,\eta,\tau)}{\partial(x,y,z)}=\left|
+\begin{array}{ccc}
+\phi_x &amp; \phi_y &amp; \phi_z \\
+\psi_x &amp; \psi_y &amp; \psi_z \\
+\tilde{\phi}_x &amp; \tilde{\phi}_y &amp; \tilde{\phi}_z
+\end{array}
+\right|
+\]</span></p>
 
     </div>
 
@@ -303,6 +528,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%8A%E6%8F%9B"><span class="nav-number">1.</span> <span class="nav-text">變換</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-1%E7%B7%9A%E6%80%A7%E8%AE%8A%E6%8F%9B-linear-transformation"><span class="nav-number">1.1.</span> <span class="nav-text">例
+1：線性變換 (Linear Transformation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99-2"><span class="nav-number">1.2.</span> <span class="nav-text">目標 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-3%E5%8F%8D%E6%BC%94-inversion"><span class="nav-number">1.3.</span> <span class="nav-text">例 3：反演
+(Inversion)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%87%BD%E6%95%B8%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">反函數定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%9B%85%E5%8F%AF%E6%AF%94%E8%A1%8C%E5%88%97%E5%BC%8F-jacobian-determinant"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+4：雅可比行列式 (Jacobian Determinant)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E5%8F%8D%E5%87%BD%E6%95%B8%E5%AE%9A%E7%90%86-inverse-function-theorem"><span class="nav-number">2.2.</span> <span class="nav-text">定理
+5：反函數定理 (Inverse Function Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
