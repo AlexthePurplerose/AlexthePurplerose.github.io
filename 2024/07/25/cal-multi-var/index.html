@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/geometry.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/laplace.jpg">
 <meta property="article:published_time" content="2024-07-25T04:52:28.000Z">
-<meta property="article:modified_time" content="2024-07-26T09:27:40.174Z">
+<meta property="article:modified_time" content="2024-07-28T09:13:55.869Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -203,7 +203,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-07-26 17:27:40" itemprop="dateModified" datetime="2024-07-26T17:27:40+08:00">2024-07-26</time>
+                <time title="修改時間：2024-07-28 17:13:55" itemprop="dateModified" datetime="2024-07-28T17:13:55+08:00">2024-07-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -657,6 +657,14 @@ f}{\partial x^{n-1}\partial y}+C^n_2h^{n-2}k^2\frac{\partial^n
 f}{\partial x^{n-2}\partial y^2}+\cdots+k^n\frac{\partial^n f}{\partial
 y^n}
 \]</span></p>
+<h2 id="定義-20梯度-gradient"><font color=#008000><u>定義 20：梯度
+(Gradient)</u></font></h2>
+<p>給定函數<span
+class="math inline">\(f(x_1,x_2,\cdots,x_n)\)</span>，我們稱向量<span
+class="math inline">\(\langle f_{x_1},
+f_{x_2},\cdots,f_{x_n}\rangle\)</span>為<span
+class="math inline">\(f\)</span>的梯度，記為<span
+class="math inline">\(\nabla f\)</span>。</p>
 <center>
 <h1 id="變數變換"><font color=#b8860b>變數變換</font></h1>
 </center>
@@ -669,7 +677,7 @@ href="https://alexthepurplerose.github.io/2024/07/05/cal-compose/">這裡</a>的
 class="math inline">\(\eta=\psi(x,y)\)</span>。我們在乎<span
 class="math inline">\(u_x\)</span>和<span
 class="math inline">\(u_y\)</span>(這樣什麼方向的導數都有了)。</p>
-<h2 id="定理-20"><font color=#ff1493><u>定理 20</u></font></h2>
+<h2 id="定理-21"><font color=#ff1493><u>定理 21</u></font></h2>
 <p>符號假設同上，有 <span class="math display">\[
 u_x=f_\xi\phi_x+f_\eta\psi_x, u_y=f_\xi\phi_y+f_\eta\psi_y
 \]</span></p>
@@ -692,8 +700,8 @@ class="math inline">\(\Delta x,\Delta y\to 0\)</span>，則 <span
 class="math display">\[
 u_x=f_\xi\phi_x+f_\eta\psi_x, u_y=f_\xi\phi_y+f_\eta\psi_y
 \]</span> <font size="1">QED</font></p>
-<h3 id="例-20-1極座標-polar-coordination"><font color=#ffa500><u>例
-20-1：極座標 (Polar Coordination)</u></font></h3>
+<h3 id="例-21-1極座標-polar-coordination"><font color=#ffa500><u>例
+21-1：極座標 (Polar Coordination)</u></font></h3>
 <p>考慮 <span class="math display">\[
 x=r\cos\theta, y=r\sin\theta
 \]</span> 或 <span class="math display">\[
@@ -712,8 +720,8 @@ F_y=F_r\sin\theta+F_\theta\frac{\cos\theta}{r}
 F_x^2+F_y^2=F_r^2+\frac{1}{r^2}F_\theta^2
 \]</span> 再努力變形一下式子，有：</p>
 <h4
-id="註記-20-1-1拉普拉斯方程-laplace-equation"><font color=#0000FF><u>註記
-20-1-1：拉普拉斯方程 (Laplace Equation)</u></font></h4>
+id="註記-21-1-1拉普拉斯方程-laplace-equation"><font color=#0000FF><u>註記
+21-1-1：拉普拉斯方程 (Laplace Equation)</u></font></h4>
 <p>即 <span class="math display">\[
 F_{xx}+F_{yy}=F_{rr}+\frac{1}{r^2}F_{\theta\theta}+\frac{1}{r}F_r
 \]</span></p>
@@ -730,7 +738,7 @@ class="math inline">\(F(t)=f(x+th,y+tk)-f(x,y)\)</span>, <span
 class="math inline">\(0\leq t\leq 1\)</span>。則 <span
 class="math display">\[
 F&#39;(t)=f_x(x+th,y+tk)h+f_y(x+th,y+tk)k
-\]</span> (用上面的定理20就有了)，同理有 <span class="math display">\[
+\]</span> (用上面的定理21就有了)，同理有 <span class="math display">\[
 F&#39;&#39;(t)=f_{xx}h^2+2hkf_{xy}+f_{yy}k^2
 \]</span> 以及 <span class="math display">\[
 F^{(n)}(t)=h^nf_{x^n}+C^n_1h^{n-1}kf_{x^{n-1}y}+\cdots
@@ -747,8 +755,8 @@ f(x+h,y+k)-f(x,y)=(x+\theta h,y+\theta k)+kf_y(x+\theta h,y+\theta k)
 class="math inline">\(F(t)\)</span>給泰勒展開後再令<span
 class="math inline">\(t=1\)</span>，就有：</p>
 <h2
-id="註記-21多變數泰勒級數-multivariable-taylor-expansion"><font color=#0000FF><u>註記
-21：多變數泰勒級數 (Multivariable Taylor Expansion)</u></font></h2>
+id="註記-22多變數泰勒級數-multivariable-taylor-expansion"><font color=#0000FF><u>註記
+22：多變數泰勒級數 (Multivariable Taylor Expansion)</u></font></h2>
 <p>我們有 <span class="math display">\[
 f(x+h,y+k)=f(x,y)+df+\frac{1}{2!}d^2f+\frac{1}{3!}d^3f+\cdots+\frac{1}{n!}d^nf+R_n
 \]</span> 其中剩餘項<span
@@ -862,10 +870,11 @@ Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a cl
 15：方向導數的幾何概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-16%E5%88%87%E5%B9%B3%E9%9D%A2-tangent-plane"><span class="nav-number">5.4.</span> <span class="nav-text">定義
 16：切平面 (Tangent Plane)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-16-1"><span class="nav-number">5.4.1.</span> <span class="nav-text">註記 16-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-17"><span class="nav-number">5.5.</span> <span class="nav-text">註記 17</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-18%E5%A2%9E%E9%87%8F-increment"><span class="nav-number">5.6.</span> <span class="nav-text">定義 18：增量
 (Increment)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-19%E5%BE%AE%E5%88%86-differential"><span class="nav-number">5.7.</span> <span class="nav-text">定義 19：微分
-(Differential)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E8%AE%8A%E6%8F%9B"><span class="nav-number">6.</span> <span class="nav-text">變數變換</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-20"><span class="nav-number">6.1.</span> <span class="nav-text">定理 20</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-20-1%E6%A5%B5%E5%BA%A7%E6%A8%99-polar-coordination"><span class="nav-number">6.1.1.</span> <span class="nav-text">例
-20-1：極座標 (Polar Coordination)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-20-1-1%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E6%96%B9%E7%A8%8B-laplace-equation"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">註記
-20-1-1：拉普拉斯方程 (Laplace Equation)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E5%B1%95%E9%96%8B%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">泰勒展開式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-21%E5%A4%9A%E8%AE%8A%E6%95%B8%E6%B3%B0%E5%8B%92%E7%B4%9A%E6%95%B8-multivariable-taylor-expansion"><span class="nav-number">7.1.</span> <span class="nav-text">註記
-21：多變數泰勒級數 (Multivariable Taylor Expansion)</span></a></li></ol></li></ol></div>
+(Differential)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-20%E6%A2%AF%E5%BA%A6-gradient"><span class="nav-number">5.8.</span> <span class="nav-text">定義 20：梯度
+(Gradient)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E8%AE%8A%E6%8F%9B"><span class="nav-number">6.</span> <span class="nav-text">變數變換</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-21"><span class="nav-number">6.1.</span> <span class="nav-text">定理 21</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-21-1%E6%A5%B5%E5%BA%A7%E6%A8%99-polar-coordination"><span class="nav-number">6.1.1.</span> <span class="nav-text">例
+21-1：極座標 (Polar Coordination)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-21-1-1%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E6%96%B9%E7%A8%8B-laplace-equation"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">註記
+21-1-1：拉普拉斯方程 (Laplace Equation)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%B0%E5%8B%92%E5%B1%95%E9%96%8B%E5%BC%8F"><span class="nav-number">7.</span> <span class="nav-text">泰勒展開式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-22%E5%A4%9A%E8%AE%8A%E6%95%B8%E6%B3%B0%E5%8B%92%E7%B4%9A%E6%95%B8-multivariable-taylor-expansion"><span class="nav-number">7.1.</span> <span class="nav-text">註記
+22：多變數泰勒級數 (Multivariable Taylor Expansion)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
