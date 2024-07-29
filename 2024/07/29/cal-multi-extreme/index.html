@@ -27,13 +27,16 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於多變數函數的極值與相關定理。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/29/cal-multi-extreme/extreme.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/29/cal-multi-extreme/holder.jpg">
 <meta property="article:published_time" content="2024-07-29T06:32:25.000Z">
-<meta property="article:modified_time" content="2024-07-29T06:33:31.659Z">
+<meta property="article:modified_time" content="2024-07-29T08:40:00.498Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/29/cal-multi-extreme/extreme.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/29/cal-multi-extreme/">
 
@@ -193,7 +196,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-29 14:32:25 / 修改時間：14:33:31" itemprop="dateCreated datePublished" datetime="2024-07-29T14:32:25+08:00">2024-07-29</time>
+              <time title="創建時間：2024-07-29 14:32:25 / 修改時間：16:40:00" itemprop="dateCreated datePublished" datetime="2024-07-29T14:32:25+08:00">2024-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +224,439 @@
 
       
         <p>這份筆記是關於多變數函數的極值與相關定理。 <span id="more"></span><br></p>
+<center>
+<h1
+id="多變數函數的極值"><font color=#b8860b>多變數函數的極值</font></h1>
+</center>
+<h2 id="定義-1極值-extreme"><font color=#008000><u>定義 1：極值
+(Extreme)</u></font></h2>
+<p>令<span class="math inline">\(R\)</span>為一集合，我們說<span
+class="math inline">\(f(x,y)\)</span>在<span
+class="math inline">\((x_0,y_0)\in R\)</span>有極大值，若<span
+class="math inline">\(\forall (x,y)\in R\)</span>有<span
+class="math inline">\(f(x_0,y_0)\geq f(x,y)\)</span>。<br>
+類似的，若<span class="math inline">\(\forall (x,y)\in R\)</span>有<span
+class="math inline">\(f(x_0,y_0)\leq f(x,y)\)</span>，則說<span
+class="math inline">\(f(x,y)\)</span>在<span
+class="math inline">\((x_0,y_0)\in R\)</span>有極小值。</p>
+<h2 id="定義-2相對極值-relative-extreme"><font color=#008000><u>定義
+2：相對極值 (Relative Extreme)</u></font></h2>
+<p>給定函數<span class="math inline">\(f\)</span>與<span
+class="math inline">\((x_0,y_0)\)</span>，若存在一個<span
+class="math inline">\((x_0,y_0)\)</span>的鄰域使得在這之中<span
+class="math inline">\(f(x_0,y_0)\geq f(x,y)\)</span>，則說<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>相對極大值。<br>
+類似的，若存在一個<span
+class="math inline">\((x_0,y_0)\)</span>的鄰域使得在這之中<span
+class="math inline">\(f(x_0,y_0)\leq f(x,y)\)</span>，則說<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>相對極小值。</p>
+<h2 id="註記-3"><font color=#0000FF><u>註記 3</u></font></h2>
+<p>和單變數的狀況一樣(見<a
+href="https://alexthepurplerose.github.io/2024/07/05/cal-extreme/">這裡</a>)，若<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>有相對極值，則 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+f_x(x_0,y_0)&amp;=0\\
+f_y(x_0,y_0)&amp;=0
+\end{aligned}
+\right.
+\]</span></p>
+<h3 id="定義-3-1臨界點-critical-point"><font color=#008000><u>定義
+3-1：臨界點 (Critical Point)</u></font></h3>
+<p>我們說一點<span class="math inline">\((x_0,y_0)\)</span>是<span
+class="math inline">\(f\)</span>的臨界點，若<span
+class="math inline">\(f_x(x_0,y_0)=f_y(x_0,y_0)=0\)</span>。</p>
+<center>
+<h1 id="有限制的的極值"><font color=#b8860b>有限制的的極值</font></h1>
+</center>
+<h2 id="目標-4"><font color=#0000FF><u>目標 4</u></font></h2>
+<p>假設我們有函數<span
+class="math inline">\(f(x,y,z)\)</span>，我們想要求在<span
+class="math inline">\(\phi(x,y,z)=0\)</span>的前提下<span
+class="math inline">\(f\)</span>的極值為何。<br>
+先看有兩個變數的情況，如下圖1，有曲線<span
+class="math inline">\(\phi(x,y)=0\)</span>和一堆<span
+class="math inline">\(f(x,y)=const.\)</span>。</p>
+<img src="extreme.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>可以合理想像，<span
+class="math inline">\(f(x,y)\)</span>的極值發生在<span
+class="math inline">\(f\)</span>與<span
+class="math inline">\(\phi\)</span>相切的地方(圖中的<span
+class="math inline">\(f(x,y)=c\)</span>)。我們接著要證明這件事。</p>
+<h2 id="定義-5相切-tangent"><font color=#008000><u>定義 5：相切
+(Tangent)</u></font></h2>
+<p>我們說兩曲線相切於<span
+class="math inline">\((x_0,y_0)\)</span>，若其在<span
+class="math inline">\((x_0,y_0)\)</span>的切線重合。</p>
+<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
+<p>由隱函數定理(<a
+href="https://alexthepurplerose.github.io/2024/07/28/cal-implicit/">這裡</a>的定理2)知若<span
+class="math inline">\(f(x,y)=c\)</span>和<span
+class="math inline">\(\phi(x,y)=0\)</span>相切，則 <span
+class="math display">\[
+\begin{aligned}
+f_x(x_0,y_0)&amp;=\lambda\phi_x(x_0,y_0)\\
+f_y(x_0,y_0)&amp;=\lambda\phi_y(x_0,y_0)
+\end{aligned}
+\]</span></p>
+<h2
+id="定理-6拉格朗日乘數法-lagranges-multiplier-method"><font color=#ff1493><u>定理
+6：拉格朗日乘數法 (Lagrange's Multiplier Method)</u></font></h2>
+<p>給定函數<span class="math inline">\(f(x,y)\)</span>與限制<span
+class="math inline">\(\phi(x,y)=0\)</span>，給定<span
+class="math inline">\((\xi,\eta)\)</span>使得<span
+class="math inline">\(\phi(\xi,\eta)=0\)</span>且<span
+class="math inline">\(\phi_x(\xi,\eta)\)</span>和<span
+class="math inline">\(\phi_y(\xi,\eta)\)</span>不同時為零，則若<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((\xi,\eta)\)</span>有在<span
+class="math inline">\(\phi(x,y)=0\)</span>限制下的極值，則存在常數<span
+class="math inline">\(\lambda\)</span>使得 <span class="math display">\[
+f_x(\xi,\eta)+\lambda\phi_x(\xi,\eta)=0,
+f_y(\xi,\eta)+\lambda\phi_y(\xi,\eta)=0
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(\phi_x\)</span>和<span
+class="math inline">\(\phi_y\)</span>不同時為零，故WLOG可令<span
+class="math inline">\(\phi_y\neq 0\)</span>。由隱函數定理，在<span
+class="math inline">\((\xi,\eta)\)</span>附近可以把<span
+class="math inline">\(\phi(x,y)=0\)</span>表作<span
+class="math inline">\(g(x,y)=0\)</span>。而由<span
+class="math inline">\(f(x,g(x))\)</span>在<span
+class="math inline">\(x=\xi\)</span>有極值知<span
+class="math inline">\(x=\xi\)</span>時 <span class="math display">\[
+f_x+f_yg&#39;=0\mbox{ (☆)}
+\]</span> 又由定義知<span
+class="math inline">\(\phi(x,g(x))=0\)</span>，兩邊對<span
+class="math inline">\(x\)</span>微分，有 <span class="math display">\[
+\phi_x+\phi_yg&#39;=0\mbox{ (★)}
+\]</span> 令<span
+class="math inline">\(\lambda=\frac{-f_y}{\phi_y}\)</span>，把(★)乘以<span
+class="math inline">\(\lambda\)</span>加到(☆)，得到 <span
+class="math display">\[
+f_x+\lambda\phi_x=0
+\]</span> 且由<span class="math inline">\(\lambda\)</span>本身的定義，有
+<span class="math display">\[
+f_y+\lambda\phi_y=0
+\]</span> <font size="1">QED</font><br></p>
+<h3 id="註記-6-1"><font color=#0000FF><u>註記 6-1</u></font></h3>
+<p>實際上操作的時候，我們會用 <span class="math display">\[
+\left\{
+\begin{aligned}
+f_x+\lambda\phi_x&amp;=0\\
+f_y+\lambda\phi_y&amp;=0\\
+\phi&amp;=0
+\end{aligned}
+\right.
+\]</span> 來解<span class="math inline">\(\xi\)</span>, <span
+class="math inline">\(\eta\)</span>和<span
+class="math inline">\(\lambda\)</span>。</p>
+<h3 id="註記-6-2"><font color=#0000FF><u>註記 6-2</u></font></h3>
+<p>這個方法通常是<span class="math inline">\(\phi(x,y)=0\)</span>中<span
+class="math inline">\(y\)</span>不能簡單地被寫成<span
+class="math inline">\(x\)</span>的函數時用的，如果<span
+class="math inline">\(y\)</span>可以被寫成<span
+class="math inline">\(x\)</span>的函數就不用這樣搞了(可以直接用單變數求極值的方法)。</p>
+<h3 id="例-6-3"><font color=#ffa500><u>例 6-3</u></font></h3>
+<p>考慮<span class="math inline">\(f(x,y)=xy\)</span>在<span
+class="math inline">\(x^2+y^2=1\)</span>上的極值，我們只要解 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+y+\lambda(2x)&amp;=0\\
+x+\lambda(2y)&amp;=0\\
+x^2+y^2&amp;=1
+\end{aligned}
+\right.
+\]</span> 就能解出極值的所在處了。<br></p>
+<p>有時候，我們會需要處理多變數和多限制的狀況，這時需要一個引理：</p>
+<h2
+id="引理-7廣義隱函數定理-generalized-implicit-function-theorem"><font color=#0000FF><u>引理
+7：廣義隱函數定理 (Generalized Implicit Function
+Theorem)</u></font></h2>
+<p>考慮兩個限制<span
+class="math inline">\(\phi(x,y,z,t)=0\)</span>和<span
+class="math inline">\(\psi(x,y,z,t)=0\)</span>，若在某個點<span
+class="math inline">\((x,y,z,t)\)</span>上，有 <span
+class="math display">\[
+D=\frac{\partial(\phi,\psi)}{\partial(x,y)}=\phi_x\psi_y-\phi_y\psi_x\neq
+0
+\]</span> 則在一個鄰域內<span
+class="math inline">\(x\)</span>可以寫成<span
+class="math inline">\(z,t\)</span>的函數，<span
+class="math inline">\(y\)</span>也可以寫成<span
+class="math inline">\(z,t\)</span>的函數。(更多變數的狀況也同理)<br></p>
+<p><font color=#8b4513><u>證明</u></font>：WLOG，令<span
+class="math inline">\(\phi_x\neq 0\)</span>，則在某個局部可以寫出<span
+class="math inline">\(x=X(y,z,t)\)</span>(隱函數定理)，故<span
+class="math inline">\(\psi(X(y,z,t),z,t)=0\)</span>，令<span
+class="math inline">\(\psi(X,z,t)=\tilde{x}(y,z,t)\)</span>，則由鏈鎖律(<a
+href="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/">這裡</a>的定理21)和隱函數定理有
+<span class="math display">\[
+\tilde{x}_y=\psi_x\frac{-\phi_y}{\phi_x}+\psi_y=\frac{D}{\phi_x}\neq 0
+\]</span> 於是，由隱函數定理，<span
+class="math inline">\(\tilde{x}(y,z,t)=0\)</span>可以寫成<span
+class="math inline">\(y\)</span>對<span
+class="math inline">\(z,t\)</span>的函數。於是可以把<span
+class="math inline">\(X(y,z,t)\)</span>中的<span
+class="math inline">\(y\)</span>替換成<span
+class="math inline">\(z,t\)</span>的函數，即<span
+class="math inline">\(x\)</span>可以寫成<span
+class="math inline">\(z,t\)</span>的函數。同理，<span
+class="math inline">\(y\)</span>也能寫成<span
+class="math inline">\(z,t\)</span>的函數。<font size="1">QED</font><br></p>
+<h2
+id="註記-8廣義拉格朗日乘數法-generalized-lagranges-multiplier-method"><font color=#0000FF><u>註記
+8：廣義拉格朗日乘數法 (Generalized Lagrange's Multiplier
+Method)</u></font></h2>
+<p>考慮函數<span class="math inline">\(f(x,y,z,t)\)</span>要在<span
+class="math inline">\(\phi(x,y,z,t)=0\)</span>和<span
+class="math inline">\(\psi(x,y,z,t)=0\)</span>的限制下求極值，則<span
+class="math inline">\(f\)</span>可以寫成<span
+class="math inline">\(f(x,y,g(x,y),h(x,y))\)</span>，於是 <span
+class="math display">\[
+\begin{aligned}
+f_x+f_z\frac{\partial z}{\partial x}+f_t\frac{\partial t}{\partial
+x}&amp;=0\mbox{ (A)}\\
+f_y+f_z\frac{\partial z}{\partial y}+f_t\frac{\partial t}{\partial
+y}&amp;=0\mbox{ (B)}
+\end{aligned}
+\]</span> 且會有 <span class="math display">\[
+\begin{aligned}
+\phi_x+\phi_z\frac{\partial z}{\partial x}+\phi_t\frac{\partial
+t}{\partial x}&amp;=0\mbox{ (1)}\\
+\psi_x+\psi_z\frac{\partial z}{\partial x}+\psi_t\frac{\partial
+t}{\partial x}&amp;=0\mbox{ (2)}\\
+\phi_y+\phi_z\frac{\partial z}{\partial y}+\phi_t\frac{\partial
+t}{\partial y}&amp;=0\mbox{ (3)}\\
+\psi_y+\psi_z\frac{\partial z}{\partial y}+\psi_t\frac{\partial
+t}{\partial y}&amp;=0\mbox{ (4)}
+\end{aligned}
+\]</span> 又，由於雅可比行列式<span
+class="math inline">\(D=\phi_x\psi_y-\phi_y\psi_x\)</span>非零，故存在<span
+class="math inline">\(\lambda\)</span>和<span
+class="math inline">\(\mu\)</span>使得 <span class="math display">\[
+\left\{
+\begin{aligned}
+f_z+\lambda\phi_z+\mu\psi_z&amp;=0\\
+f_t+\lambda\phi_t+\mu\psi_t&amp;=0
+\end{aligned}
+\right.
+\]</span> 於是，<span
+class="math inline">\(\mbox{(1)}\times\lambda+\mbox{(2)}\times\mu+\mbox{(A)}\)</span>，得
+<span class="math display">\[
+\begin{aligned}
+&amp;f_x+\lambda\phi_x+\mu\psi_x+(f_z+\lambda\phi_z+\mu\psi_z)\frac{\partial
+z}{\partial x}+(f_t+\lambda\phi_t+\mu\psi_t)\frac{\partial t}{\partial
+t}=0\\
+\Rightarrow&amp;f_x+\lambda\phi_x+\mu\psi_x=0
+\end{aligned}
+\]</span> 同理，會有 <span class="math display">\[
+f_y+\lambda\phi_y+\mu\psi_y=0
+\]</span> 於是，會有方程組 <span class="math display">\[
+\left\{
+\begin{aligned}
+f_x+\lambda\phi_x+\mu\psi_x&amp;=0\\
+f_y+\lambda\phi_y+\mu\psi_y&amp;=0\\
+f_z+\lambda\phi_z+\mu\psi_z&amp;=0\\
+f_t+\lambda\phi_t+\mu\psi_t&amp;=0\\
+\phi&amp;=0\\
+\psi&amp;=0
+\end{aligned}
+\right.
+\]</span> 於是就能解極值了。</p>
+<h3 id="註記-8-1"><font color=#0000FF><u>註記 8-1</u></font></h3>
+<p>一般來說，給定<span
+class="math inline">\(u=f(x_1,\cdots,x_n)\)</span>及限制<span
+class="math inline">\(\phi_1(x_1,\cdots,x_n)=0\)</span>, <span
+class="math inline">\(\phi_2(x_1,\cdots,x_n)=0\)</span>, <span
+class="math inline">\(\cdots\)</span>, <span
+class="math inline">\(\phi_m(x_1,\cdots,x_n)=0\)</span>，其中<span
+class="math inline">\(m\leq n\)</span>，則假設雅可比行列式 <span
+class="math display">\[
+\frac{\partial(\phi_1,\phi_2,\cdots,\phi_m)}{\partial(x_1,x_2,\cdots,x_m)}\neq
+0
+\]</span> 則存在<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_m\)</span>使得極值<span
+class="math inline">\((x_1,x_2,\cdots,x_n)\)</span>滿足 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+f_{x_1}+\lambda_1\frac{\partial\phi_1}{\partial
+x_1}+\cdots+\lambda_m\frac{\partial\phi_m}{\partial x_1}&amp;=0\\
+f_{x_2}+\lambda_1\frac{\partial\phi_1}{\partial
+x_2}+\cdots+\lambda_m\frac{\partial\phi_m}{\partial x_2}&amp;=0\\
+&amp;\vdots\\
+f_{x_n}+\lambda_1\frac{\partial\phi_1}{\partial
+x_n}+\cdots+\lambda_m\frac{\partial\phi_m}{\partial x_n}&amp;=0
+\end{aligned}
+\right.
+\]</span></p>
+<center>
+<h1 id="赫爾德不等式"><font color=#b8860b>赫爾德不等式</font></h1>
+</center>
+<h2
+id="定理-9赫爾德不等式-hölders-inequality"><font color=#ff1493><u>定理
+9：赫爾德不等式 (Hölder's Inequality)</u></font></h2>
+<p>給定滿足<span
+class="math inline">\(\frac{1}{\alpha}+\frac{1}{\beta}=1\)</span>的<span
+class="math inline">\(\alpha,\beta&gt;0\)</span>，則對於任何<span
+class="math inline">\(u,v\geq 0\)</span>有 <span class="math display">\[
+uv\leq\frac{1}{\alpha}u^\alpha+\frac{1}{\beta}v^\beta
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\(u=0\)</span>或<span
+class="math inline">\(v=0\)</span>，則結論是顯然的。<br> 假設<span
+class="math inline">\(u,v&gt;0\)</span>，令<span
+class="math inline">\(uv=A\)</span>，則 <span class="math display">\[
+\begin{aligned}
+&amp;uv\leq\frac{1}{\alpha}u^\alpha+\frac{1}{\beta}v^\beta\\
+\Leftrightarrow&amp;\frac{uv}{A}\leq\frac{1}{\alpha}\left(\frac{u}{A^{1/\alpha}}\right)^\alpha+\frac{1}{\beta}\left(\frac{v}{A^{1/\beta}}\right)^\beta\\
+\Leftrightarrow&amp;\frac{uv}{A^{1/\alpha}A^{1/\beta}}\leq\frac{1}{\alpha}\left(\frac{u}{A^{1/\alpha}}\right)^\alpha+\frac{1}{\beta}\left(\frac{v}{A^{1/\beta}}\right)^\beta
+\end{aligned}
+\]</span> 令<span
+class="math inline">\(u&#39;=\frac{u}{A^{1/\alpha}}\)</span>, <span
+class="math inline">\(v&#39;=\frac{v}{A^{1/\beta}}\)</span>，易知<span
+class="math inline">\(u&#39;v&#39;=1\)</span>。則 <span
+class="math display">\[
+uv\leq\frac{1}{\alpha}u^\alpha+\frac{1}{\beta}v^\beta\Leftrightarrow
+1\leq\frac{1}{\alpha}(u&#39;)^\alpha+\frac{1}{\beta}(v&#39;)^\beta
+\]</span> 令<span
+class="math inline">\(f(x,y)=\frac{1}{\alpha}x^\alpha+\frac{1}{\beta}y^\beta\)</span>,
+<span
+class="math inline">\(\phi(x,y)=xy-1\)</span>。我們用拉格朗日乘數法求<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\phi=0\)</span>限制下的極值，即 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+x^{\alpha-1}-\lambda y&amp;=0\\
+y^{\beta-1}-\lambda x&amp;=0\\
+xy-1&amp;=0
+\end{aligned}
+\right.
+\]</span> 於是有<span
+class="math inline">\(x^\alpha=y^\beta=\lambda\)</span>，而<span
+class="math inline">\(xy=1\)</span>，故<span
+class="math inline">\(x=y=1\)</span>(不然例如<span
+class="math inline">\(x&gt;1\)</span>，那<span
+class="math inline">\(y\)</span>就會小於<span
+class="math inline">\(1\)</span>，那麼<span
+class="math inline">\(x^\alpha&gt;1\)</span>, <span
+class="math inline">\(y^\beta&lt;1\)</span>，會有<span
+class="math inline">\(x^\alpha\neq y^\beta\)</span>)。則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(\phi=0\)</span>的限制下有極值 <span
+class="math display">\[
+f(1,1)=\frac{1}{\alpha}\cdot 1^\alpha+\frac{1}{\beta}\cdot 1^\beta=1
+\]</span> 然後代個<span
+class="math inline">\(x=4,y=1/4\)</span>檢查一下，會發現<span
+class="math inline">\(f(4,1/4)&gt;1\)</span>，即<span
+class="math inline">\(f(1,1)\)</span>應當是極小值。故有 <span
+class="math display">\[
+1\leq\frac{1}{\alpha}(u&#39;)^\alpha+\frac{1}{\beta}(v&#39;)^\beta
+\]</span> <font size="1">QED</font><br></p>
+<img src="holder.jpg" width="25%" height="25%">
+<center>
+圖2 Otto Hölder
+</center>
+<center>
+<h1
+id="相對極值的充分條件"><font color=#b8860b>相對極值的充分條件</font></h1>
+</center>
+<h2 id="註記-10"><font color=#0000FF><u>註記 10</u></font></h2>
+<p>考慮一個函數<span class="math inline">\(f\)</span>，若<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>可能有相對極值(i.e. <span
+class="math inline">\(f_x=f_y=0\)</span>)，則對於所有夠小的<span
+class="math inline">\(h,k\)</span>，有： <br>1. 若<span
+class="math inline">\(f(x_0+h,y_0+k)-f(x_0,y_0)\geq 0\)</span>，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>有極小值。 <br>2. 若<span
+class="math inline">\(f(x_0+h,y_0+k)-f(x_0,y_0)\leq 0\)</span>，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\((x_0,y_0)\)</span>有極大值。<br> 對<span
+class="math inline">\(f\)</span>泰勒展開，則有 <span
+class="math display">\[
+f(x_0+h,y_0+k)-f(x_0,y_0)=\underbrace{f_x(x_0,y_0)h}_{=0}+\underbrace{f_y(x_0,y_0)k}_{=0}+\frac{1}{2}(f_{xx}(x_0,y_0)h^2+2f_{xy}(x_0,y_0)hk+f_{yy}(x_0,y_0)k^2)+\epsilon(h^2+k^2)
+\]</span> 其中<span class="math inline">\(|h|,|k|\to 0\)</span>時<span
+class="math inline">\(\epsilon\to 0\)</span>。<br> 考慮其他的項，令
+<span class="math display">\[
+Q(h,k)=ah^2+2bhk+ck^2
+\]</span> 其中<span class="math inline">\(a=f_{xx}\)</span>, <span
+class="math inline">\(b=f_{xy}\)</span>, <span
+class="math inline">\(c=f_{yy}\)</span>。若<span
+class="math inline">\(Q\)</span>恆正或恆負，事情會比較簡單。易知 <span
+class="math display">\[
+Q=ah^2+2bhk+ck^2=a\left(\textcolor{red}{\left(h+\frac{b}{a}k\right)^2}+\frac{ac-b^2}{\textcolor{red}{a^2}}\textcolor{red}{k^2}\right)
+\]</span> 上面紅色的部分恆正。可以看出會影響<span
+class="math inline">\(Q\)</span>的正負的主要是<span
+class="math inline">\(a\)</span>和<span
+class="math inline">\(ac-b^2\)</span>。 <br>1. 若<span
+class="math inline">\(ac-b^2&gt;0\)</span>，則 <br>  (1) 若<span
+class="math inline">\(a&gt;0\)</span>，則<span
+class="math inline">\(Q\)</span>恆正，<span
+class="math inline">\(f(x_0,y_0)\)</span>是極小值。 <br>  (2) 若<span
+class="math inline">\(a&lt;0\)</span>，則<span
+class="math inline">\(Q\)</span>恆負，<span
+class="math inline">\(f(x_0,y_0)\)</span>是極大值。 <br>2. 若<span
+class="math inline">\(ac-b^2&lt;0\)</span>，則<span
+class="math inline">\(Q\)</span>可正可負。</p>
+<h3 id="定義-10-1鞍點-saddle-point"><font color=#008000><u>定義
+10-1：鞍點 (Saddle Point)</u></font></h3>
+<p>當<span class="math inline">\(ac-b^2&lt;0\)</span>時，稱<span
+class="math inline">\((x_0,y_0)\)</span>為鞍點。</p>
+<p><br>3.若<span
+class="math inline">\(ac-b^2=0\)</span>，因為上述泰勒展開中還有尾巴項<span
+class="math inline">\(\epsilon\)</span>，所以無法判斷。</p>
+<h3 id="註記-10-2"><font color=#0000FF><u>註記 10-2</u></font></h3>
+<p>上面的狀況1.中其實也有可能會被尾巴的<span
+class="math inline">\(\epsilon\)</span>影響，這裡要證明這並沒有關係。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮 <span
+class="math display">\[
+\begin{aligned}
+\frac{Q(h,k)}{h^2+k^2}&amp;=\frac{ah^2+2bhk+ck^2}{k^2+h^2}\\
+&amp;=a\left(\frac{h}{\sqrt{h^2+k^2}}\right)^2+2b\left(\frac{h}{\sqrt{h^2+k^2}}\right)\left(\frac{k}{\sqrt{h^2+k^2}}\right)+c\left(\frac{k}{\sqrt{h^2+k^2}}\right)^2
+\end{aligned}
+\]</span> 令<span
+class="math inline">\(u=\frac{h}{\sqrt{h^2+k^2}}\)</span>, <span
+class="math inline">\(v=\frac{k}{\sqrt{h^2+k^2}}\)</span>，則 <span
+class="math display">\[
+\frac{Q(h,k)}{h^2+k^2}=au^2+2buv+cv^2
+\]</span> 然後可以發現<span
+class="math inline">\(u^2+v^2=1\)</span>。我們希望說明<span
+class="math inline">\(au^2+2buv+cv^2\)</span>在<span
+class="math inline">\(u^2+v^2=1\)</span>上的極小值大於零(<span
+class="math inline">\(a&gt;0\)</span>的狀況，<span
+class="math inline">\(a&lt;0\)</span>時同理)。<br> 我們有 <span
+class="math display">\[
+au^2+2buv+cv^2=a\left[\left(u+\frac{b}{a}v\right)^2+\frac{ac-b^2}{a^2}v^2\right]
+\]</span> 已知<span class="math inline">\(ac-b^2&gt;0\)</span>，故<span
+class="math inline">\(au^2+2buv+cv^2\geq 0\)</span>，且等號只在<span
+class="math inline">\(u=v=0\)</span>處發生。但<span
+class="math inline">\(u=v=0\)</span>不在<span
+class="math inline">\(u^2+v^2=1\)</span>上，故極小值大於零。<br> 令<span
+class="math inline">\(Q(h,k)=2m\rho^2\)</span>，其中<span
+class="math inline">\(m&gt;0\)</span>, <span
+class="math inline">\(\rho=\sqrt{h^2+k^2}\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+f(x_0+h,y_0+k)-f(x_0,y_0)&amp;=\frac{1}{2}Q(h,k)+\epsilon(h^2+k^2)\\
+&amp;\geq(m+\epsilon)\rho^2
+\end{aligned}
+\]</span> 由於當<span class="math inline">\(|h|,|k|\to 0\)</span>時<span
+class="math inline">\(\epsilon/(h^2+k^2)\to 0\)</span>(<a
+href="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/">這裡</a>的註記22)但<span
+class="math inline">\(m/(h^2+k^2)\)</span>趨近一個非零的值，故<span
+class="math inline">\((m+\epsilon)\rho^2&gt;0\)</span>。故知<span
+class="math inline">\(f(x_0+h,y_0+k)-f(x_0,y_0)\)</span>恆正。<font size="1">QED</font><br></p>
 
     </div>
 
@@ -303,6 +739,18 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E8%AE%8A%E6%95%B8%E5%87%BD%E6%95%B8%E7%9A%84%E6%A5%B5%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">多變數函數的極值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E6%A5%B5%E5%80%BC-extreme"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：極值
+(Extreme)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E7%9B%B8%E5%B0%8D%E6%A5%B5%E5%80%BC-relative-extreme"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：相對極值 (Relative Extreme)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.3.</span> <span class="nav-text">註記 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E8%87%A8%E7%95%8C%E9%BB%9E-critical-point"><span class="nav-number">1.3.1.</span> <span class="nav-text">定義
+3-1：臨界點 (Critical Point)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E5%88%B6%E7%9A%84%E7%9A%84%E6%A5%B5%E5%80%BC"><span class="nav-number">2.</span> <span class="nav-text">有限制的的極值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99-4"><span class="nav-number">2.1.</span> <span class="nav-text">目標 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E7%9B%B8%E5%88%87-tangent"><span class="nav-number">2.2.</span> <span class="nav-text">定義 5：相切
+(Tangent)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B8%E6%B3%95-lagranges-multiplier-method"><span class="nav-number">2.3.</span> <span class="nav-text">定理
+6：拉格朗日乘數法 (Lagrange&#39;s Multiplier Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">註記 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">註記 6-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-6-3"><span class="nav-number">2.3.3.</span> <span class="nav-text">例 6-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7%E5%BB%A3%E7%BE%A9%E9%9A%B1%E5%87%BD%E6%95%B8%E5%AE%9A%E7%90%86-generalized-implicit-function-theorem"><span class="nav-number">2.4.</span> <span class="nav-text">引理
+7：廣義隱函數定理 (Generalized Implicit Function
+Theorem)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8%E5%BB%A3%E7%BE%A9%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B8%E6%B3%95-generalized-lagranges-multiplier-method"><span class="nav-number">2.5.</span> <span class="nav-text">註記
+8：廣義拉格朗日乘數法 (Generalized Lagrange&#39;s Multiplier
+Method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">2.5.1.</span> <span class="nav-text">註記 8-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B5%AB%E7%88%BE%E5%BE%B7%E4%B8%8D%E7%AD%89%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">赫爾德不等式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9%E8%B5%AB%E7%88%BE%E5%BE%B7%E4%B8%8D%E7%AD%89%E5%BC%8F-h%C3%B6lders-inequality"><span class="nav-number">3.1.</span> <span class="nav-text">定理
+9：赫爾德不等式 (Hölder&#39;s Inequality)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%B8%E5%B0%8D%E6%A5%B5%E5%80%BC%E7%9A%84%E5%85%85%E5%88%86%E6%A2%9D%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">相對極值的充分條件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">4.1.</span> <span class="nav-text">註記 10</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10-1%E9%9E%8D%E9%BB%9E-saddle-point"><span class="nav-number">4.1.1.</span> <span class="nav-text">定義
+10-1：鞍點 (Saddle Point)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10-2"><span class="nav-number">4.1.2.</span> <span class="nav-text">註記 10-2</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
