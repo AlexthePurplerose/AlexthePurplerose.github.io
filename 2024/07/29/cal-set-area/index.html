@@ -29,8 +29,10 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/29/cal-set-area/set-area.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/29/cal-set-area/jordan.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/29/cal-set-area/non-area.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/29/cal-set-area/interval.jpg">
 <meta property="article:published_time" content="2024-07-29T11:14:41.000Z">
-<meta property="article:modified_time" content="2024-07-29T11:40:37.371Z">
+<meta property="article:modified_time" content="2024-07-29T14:02:12.403Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -196,7 +198,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-29 19:14:41 / 修改時間：19:40:37" itemprop="dateCreated datePublished" datetime="2024-07-29T19:14:41+08:00">2024-07-29</time>
+              <time title="創建時間：2024-07-29 19:14:41 / 修改時間：22:02:12" itemprop="dateCreated datePublished" datetime="2024-07-29T19:14:41+08:00">2024-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -299,7 +301,152 @@ class="math inline">\(S\)</span>的內面積。</p>
 <h3 id="定義-2-2外面積-outer-area"><font color=#008000><u>定義
 2-2：外面積 (Outer Area)</u></font></h3>
 <p>稱<span class="math inline">\(A^+(S)\)</span>為<span
-class="math inline">\(S\)</span>的內面積。</p>
+class="math inline">\(S\)</span>的內面積。<br></p>
+<h2 id="註記-3"><font color=#0000FF><u>註記 3</u></font></h2>
+<p>考慮<span
+class="math inline">\(A_n^+(S)-A_n^-(S)\)</span>，這是和<span
+class="math inline">\(S\)</span>有共用點但不完全落在<span
+class="math inline">\(S\)</span>內的格子面積。令<span
+class="math inline">\(\partial S\)</span>是<span
+class="math inline">\(S\)</span>的邊界，則 <span class="math display">\[
+A_n^+(S)-A_n^-(S)\leq A_n^+(\partial S)
+\]</span> 易知若<span class="math inline">\(A^+(\partial
+S)=0\)</span>，則<span
+class="math inline">\(A^+(S)=A^-(S)\)</span>，則<span
+class="math inline">\(S\)</span>有面積。我們把這件事情寫成引理：</p>
+<h2 id="引理-4"><font color=#0000FF><u>引理 4</u></font></h2>
+<p>若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(S_1,S_2,\cdots,S_N\)</span> s.t. <span
+class="math inline">\(S_1\cup S_2\cup\cdots\cup S_N\)</span>把<span
+class="math inline">\(\partial S\)</span>蓋住且 <span
+class="math display">\[
+A(S_1)+A(S_2)+\cdots+A(S_N)&lt;\epsilon
+\]</span> 則<span class="math inline">\(S\)</span>有面積。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+A_n^+(\partial S)\leq A_n^+(S_1)+\cdots+A_n^+(S_N)
+\]</span> 讓<span class="math inline">\(n\to\infty\)</span>，則由假設
+<span class="math display">\[
+A^+(\partial S)\leq A(S_1)+\cdots+A(S_N)&lt;\epsilon
+\]</span> 而<span
+class="math inline">\(\epsilon\)</span>可以任意小，故<span
+class="math inline">\(A^+(\partial S)=0\)</span>。由上述註記3知<span
+class="math inline">\(S\)</span>有面積。<font size="1">QED</font><br></p>
+<p>我們也可以檢查約旦的面積定義和黎曼和是相容的。</p>
+<h2 id="註記-5"><font color=#0000FF><u>註記 5</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>連續，則 <span
+class="math display">\[
+\int_a^b f(x)dx=A(S)
+\]</span> 其中<span class="math inline">\(S\)</span>是<span
+class="math inline">\([a,b]\)</span>上<span
+class="math inline">\(f\)</span>之下的區域。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：把<span
+class="math inline">\([a,b]\)</span>分成很多段<span
+class="math inline">\(\Delta x_1,\Delta x_2,\cdots,\Delta
+x_n\)</span>。令 <span class="math display">\[
+m_i=\min_{x\in[x_{i-1},x_i]}f(x), M_i=\max_{x\in[x_{i-1},x_i]}f(x)
+\]</span> 於是有 <span class="math display">\[
+\sum_{i=1}^n m_i\Delta x_i\leq A^-(S)\leq A^+(S)\leq\sum_{i=1}^n
+M_i\Delta x_i
+\]</span> 由於<span class="math inline">\(f\)</span>是黎曼可積的，故
+<span class="math display">\[
+\int_a^b f(x)dx=A(S)
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
+<p>若<span class="math inline">\(S\)</span>是長寬分別為<span
+class="math inline">\(h,k\)</span>的矩形，則<span
+class="math inline">\(A(S)=hk\)</span>。</p>
+<h2 id="註記-6"><font color=#0000FF><u>註記 6</u></font></h2>
+<p>如果<span class="math inline">\(S\)</span>和<span
+class="math inline">\(T\)</span>都有面積，則<span
+class="math inline">\(S\cup T\)</span>和<span
+class="math inline">\(S\cap T\)</span>都有面積。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：易知 <span
+class="math display">\[
+\partial(S\cup T)\subseteq\partial S\cup\partial T, \partial(S\cap
+T)\subseteq\partial S
+\]</span> 而<span class="math inline">\(A^+(\partial S)=A^+(\partial
+T)=0\)</span>，故 <span class="math display">\[
+\partial(S\cup T)=0, \partial(S\cap T)=0
+\]</span> <font size="1">QED</font></p>
+<h2 id="註記-7"><font color=#0000FF><u>註記 7</u></font></h2>
+<p>若<span class="math inline">\(S_1,S_2,\cdots,
+S_N\)</span>彼此不重疊且有面積，則 <span class="math display">\[
+A(S_1\cup S_2\cup\cdots\cup S_N)=\sum_{i=0}^N A(S_i)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：一般來說，有 <span
+class="math display">\[
+A_n^+\left(\bigcup_{i=1}^N S_i\right)\leq\sum_{i=1}^NA_n^+(S_i)
+\]</span> 而因為<span class="math inline">\(S_1,S_2,\cdots,
+S_N\)</span>彼此不重疊，故 <span class="math display">\[
+A_n^-\left(\bigcup_{i=1}^N S_i\right)\geq\sum_{i=1}^NA_n^-(S_i)
+\]</span> 令<span class="math inline">\(n\to\infty\)</span>，則 <span
+class="math display">\[
+\sum_{i=1}^N A^+(S_i)=\sum_{i=1}^N A^-(S_i)=\sum_{i=1}^N
+A(S_i)=A\left(\bigcup_{i=1}^N S_i\right)
+\]</span> <font size="1">QED</font><br></p>
+<p>如是，我們希望<span
+class="math inline">\(A(S)\)</span>要有的性質都有了。</p>
+<h2 id="例-8沒有面積的集合"><font color=#ffa500><u>例
+8：沒有面積的集合</u></font></h2>
+<p>考慮 <span class="math display">\[
+S=\{\mbox{單位方形中的所有有理點}\}
+\]</span> 則由下圖3可以發現總是有<span
+class="math inline">\(A_n^+(S)=1\)</span>, <span
+class="math inline">\(A_n^-(S)=0\)</span>，故<span
+class="math inline">\(A^+(S)\neq A^-(S)\)</span>，<span
+class="math inline">\(A\)</span>沒有面積。</p>
+<img src="non-area.jpg" width="50%" height="50%">
+<center>
+圖3
+</center>
+<h2 id="例-9"><font color=#ffa500><u>例 9</u></font></h2>
+<p>今假設<span class="math inline">\(S\)</span>是矩形<span
+class="math inline">\([a,b]\times[c,d]\)</span>，則<span
+class="math inline">\(A(S)=(b-a)(d-c)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮 <span
+class="math display">\[
+R_{ik}^n=\left\{\frac{i}{2^n}\leq x\leq\frac{i+1}{2^n},\frac{k}{2^n}\leq
+y\leq\frac{k+1}{2^n}\right\}
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+A_n^-(S)&amp;=\sum_{\substack{i,k\\ R_{ik}^n\subseteq S}}A(R^n_{ik})\\
+A_n^+(S)&amp;=\sum_{\substack{i,k\\ R_{ik}^n\cap
+S\neq\varnothing}}A(R^n_{ik})
+\end{aligned}
+\]</span> 首先，我們可以找到整數<span
+class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>使得 <span
+class="math display">\[
+\begin{aligned}
+\frac{\alpha}{2^n}&lt;a\leq\frac{\alpha+1}{2^n}&amp;,\frac{\beta}{2^n}&lt;b\leq\frac{\beta+1}{2^n}\\
+\frac{\gamma}{2^n}&lt;c\leq\frac{\gamma+1}{2^n}&amp;,\frac{\delta}{2^n}&lt;d\leq\frac{\delta+1}{2^n}
+\end{aligned}
+\]</span> 然後，我們有 <span class="math display">\[
+\begin{aligned}
+A_n^-(S)&amp;=(\beta-\alpha-1)(\delta-\gamma-1)2^{-2n}\\
+A_n^+(S)&amp;=(\beta-\alpha+1)(\delta-\gamma+1)2^{-2n}
+\end{aligned}
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+A_n^+(S)&amp;=(\beta-\alpha-1)(\delta-\gamma-1)2^{-2n}\\
+&amp;=(2^{-n}\beta-2^{-n}\alpha-2^{-n})(2^{-n}\delta-2^{-n}\gamma-2^{-n})\\
+&amp;\geq(b-a-2^{1-n})(d-c-2^{1-n})
+\end{aligned}
+\]</span> 最後一步可以參見下圖4。</p>
+<img src="interval.jpg" width="50%" height="50%">
+<center>
+圖4
+</center>
+<p>同理<span class="math inline">\(A_n^-(S)\leq
+(b-a+2^{1-n})(d-c+2^{1-n})\)</span>。令<span
+class="math inline">\(n\to\infty\)</span>，就有<span
+class="math inline">\(A(S)=(b-a)(d-c)\)</span>。<font size="1">QED</font><br></p>
+<p>如是，這裡可以定義積分，具體過程這裡就先略過了。<br></p>
+<p>前面引理4提過若<span class="math inline">\(A^+(\partial
+S)=0\)</span>，則<span
+class="math inline">\(S\)</span>有面積。這件事反過來也對。</p>
+<h2 id="引理-10"><font color=#0000FF><u>引理 10</u></font></h2>
 
     </div>
 
@@ -386,7 +533,8 @@ class="math inline">\(S\)</span>的內面積。</p>
 1：集合的面積 (Area of a Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E7%B4%84%E6%97%A6%E5%8F%AF%E6%B8%AC-jordan-measurable"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
 1-1：約旦可測 (Jordan Measurable)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2"><span class="nav-number">1.2.</span> <span class="nav-text">定義 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E5%85%A7%E9%9D%A2%E7%A9%8D-inner-area"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
 2-1：內面積 (Inner Area)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-2%E5%A4%96%E9%9D%A2%E7%A9%8D-outer-area"><span class="nav-number">1.2.2.</span> <span class="nav-text">定義
-2-2：外面積 (Outer Area)</span></a></li></ol></li></ol></li></ol></div>
+2-2：外面積 (Outer Area)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.3.</span> <span class="nav-text">註記 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">引理 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">1.5.</span> <span class="nav-text">註記 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6"><span class="nav-number">1.6.</span> <span class="nav-text">註記 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7"><span class="nav-number">1.7.</span> <span class="nav-text">註記 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-8%E6%B2%92%E6%9C%89%E9%9D%A2%E7%A9%8D%E7%9A%84%E9%9B%86%E5%90%88"><span class="nav-number">1.8.</span> <span class="nav-text">例
+8：沒有面積的集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-9"><span class="nav-number">1.9.</span> <span class="nav-text">例 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-10"><span class="nav-number">1.10.</span> <span class="nav-text">引理 10</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
