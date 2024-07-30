@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於多重積分的定義與性質。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/30/cal-multi-int/grids.jpg">
 <meta property="article:published_time" content="2024-07-30T06:29:33.000Z">
-<meta property="article:modified_time" content="2024-07-30T06:30:14.721Z">
+<meta property="article:modified_time" content="2024-07-30T07:26:03.318Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/30/cal-multi-int/grids.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/30/cal-multi-int/">
 
@@ -193,7 +195,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-30 14:29:33 / 修改時間：14:30:14" itemprop="dateCreated datePublished" datetime="2024-07-30T14:29:33+08:00">2024-07-30</time>
+              <time title="創建時間：2024-07-30 14:29:33 / 修改時間：15:26:03" itemprop="dateCreated datePublished" datetime="2024-07-30T14:29:33+08:00">2024-07-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +223,187 @@
 
       
         <p>這份筆記是關於多重積分的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="二重積分"><font color=#b8860b>二重積分</font></h1>
+</center>
+<h2 id="定義-1多重積分-multiple-integral"><font color=#008000><u>定義
+1：多重積分 (Multiple Integral)</u></font></h2>
+<p>給定有界函數<span
+class="math inline">\(f(x,y)\)</span>及一約旦可測集<span
+class="math inline">\(R\)</span>，我們和<a
+href="https://alexthepurplerose.github.io/2024/07/29/cal-set-area/">這裡</a>的例9中一樣用許多小方塊<span
+class="math inline">\(R_{ik}^n\)</span>來覆蓋<span
+class="math inline">\(R\)</span>(見下圖1)。</p>
+<img src="grids.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>令 <span class="math display">\[
+\begin{aligned}
+M_{ik}^n=\sup f(x,y)&amp;,\mbox{ where }(x,y)\in R_{ik}^n\\
+m_{ik}^n=\inf f(x,y)&amp;,\mbox{ where }(x,y)\in R_{ik}^n
+\end{aligned}
+\]</span> 並記 <span class="math display">\[
+F_n^+=\sum_{i,k}M_{ik}^n2^{-2n}, F_n^-=\sum_{i,k}m_{ik}^n2^{-2n}
+\]</span> 顯然有<span class="math inline">\(F_n^-\leq
+F_n^+\)</span>，且<span class="math inline">\(F_n^-\leq F_{n+1}^-\leq
+F_{n+1}^+\leq F_n^+\)</span>。則若<span class="math inline">\(\lim
+F_n^-=\lim F_n^+\)</span>，可以定義<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(R\)</span>上的積分，即 <span
+class="math display">\[
+\iint_R f(x,y)dxdy=\lim F_n^-=\lim F_n^+
+\]</span></p>
+<h2 id="引理-2"><font color=#0000FF><u>引理 2</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>在<span
+class="math inline">\(\mathbb{R}^2\)</span>上處處連續，且除了一有界可測集<span
+class="math inline">\(R\)</span>以外函數值處處為零。則 <span
+class="math display">\[
+\iint_{\mathbb{R}^2}f(x,y)dxdy
+\]</span> 存在。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(f\)</span>一致連續，且<span
+class="math inline">\(F_n^-\leq F_n^+\)</span>，故有<span
+class="math inline">\(0\leq F_n^+-F_n^-\leq\epsilon
+A(R)\)</span>。令<span class="math inline">\(\epsilon\to 0\)</span>，則
+<span class="math display">\[
+\lim(F_n^+-F_n^-)=0
+\]</span> 且顯然<span class="math inline">\(\lim F_n^+\)</span>和<span
+class="math inline">\(\lim F_n^-\)</span>都存在，故<span
+class="math inline">\(\lim F_n^+=\lim
+F_n^-\)</span>。<font size="1">QED</font></p>
+<h2
+id="定義-3特徵函數-characteristic-function"><font color=#008000><u>定義
+3：特徵函數 (Characteristic Function)</u></font></h2>
+<p>給定有界集<span class="math inline">\(S\)</span>，令其特徵函數為
+<span class="math display">\[
+\phi_S(x,y)=\left\{
+\begin{aligned}
+1&amp;, (x,y)\in S\\
+0&amp;,\mbox{ otherwise}
+\end{aligned}
+\right.
+\]</span></p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
+<p>可以發現<span
+class="math inline">\(\iint\phi_S(x,y)dxdy\)</span>存在若且唯若<span
+class="math inline">\(S\)</span>有面積。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+F_n^+=\sum_{R_{ik}^n\cap S\neq\varnothing}1\cdot R_{ik}^n=A_n^+(S),
+F_n^-=\sum_{R_{ik}^n\subset S}m_{ik}^nR_{ik}^n=\sum_{R_{ik}^n\subset S}
+R_{ik}^n=A_n^-(S)
+\]</span> 故積分存在若且唯若<span
+class="math inline">\(S\)</span>有面積，且 <span class="math display">\[
+\iint_R\phi_S(x,y)dxdy=A(S)
+\]</span> <font size="1">QED</font></p>
+<h2 id="註記-4"><font color=#0000FF><u>註記 4</u></font></h2>
+<p>我們有以下三個顯然的性質： <br>1. <span class="math inline">\(\iint_R
+f+g=\iint_R f-\iint_R g\)</span> <br>2. <span
+class="math inline">\(\iint_R(-f)=-\iint_R f\)</span> <br>3. <span
+class="math inline">\(\iint_R cf=c\iint_R f\)</span></p>
+<h2 id="註記-5"><font color=#0000FF><u>註記 5</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>和<span
+class="math inline">\(g\)</span>都有界且可積，則<span
+class="math inline">\(fg\)</span>也可積。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定兩點<span
+class="math inline">\((\xi,\eta)\)</span>, <span
+class="math inline">\((\xi&#39;,\eta&#39;)\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+f(\xi,\eta)g(\xi,\eta)-f(\xi&#39;,\eta&#39;)g(\xi&#39;,\eta&#39;)&amp;=f(\xi,\eta)[g(\xi,\eta)-g(\xi&#39;,\eta&#39;)]\\
+&amp;+g(\xi&#39;,\eta&#39;)[f(\xi,\eta)-f(\xi&#39;,\eta&#39;)]\\
+&amp;\leq M|M_g-m_g|+M&#39;|M_f-m_f|
+\end{aligned}
+\]</span> 其中<span class="math inline">\(M_g,m_g\)</span>是<span
+class="math inline">\(g\)</span>的最大、小值，<span
+class="math inline">\(M_f,m_f\)</span>是<span
+class="math inline">\(f\)</span>的最大、小值。於是，我們知道<span
+class="math inline">\(fg\)</span>是有界的，故<span
+class="math inline">\(fg\)</span>可積。<font size="1">QED</font></p>
+<h2 id="推論-6"><font color=#0000FF><u>推論 6</u></font></h2>
+<p>若<span class="math inline">\(\iint_R f\)</span>存在且<span
+class="math inline">\(S\subseteq R\)</span>，則<span
+class="math inline">\(\iint_S f\)</span>存在。<br></p>
+<p><font color=#8b4513><u>證明</u></font>： <span
+class="math display">\[
+\iint_S f=\iint_R f\phi_S
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="多重積分"><font color=#b8860b>多重積分</font></h1>
+</center>
+<h2 id="定理-7"><font color=#ff1493><u>定理 7</u></font></h2>
+<p>給定可積函數<span
+class="math inline">\(f(x,y,z)\)</span>。假設對於任何固定的<span
+class="math inline">\((x,y)\)</span>，<span
+class="math inline">\(f(x,y,z)\)</span>都在<span
+class="math inline">\(z\)</span>方向尚可微，則令 <span
+class="math display">\[
+h(x,y)=\int f(x,y,z)dz
+\]</span> 則<span class="math inline">\(h(x,y)\)</span>可積且 <span
+class="math display">\[
+\iint h(x,y)dxdy=\iiint f(x,y,z)dxdydz
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(f\)</span>可積，考慮<span
+class="math inline">\(xyz\)</span>空間的分割 <span
+class="math display">\[
+C^n_{i,j,k}=\left\{\frac{i}{2^n}\leq x\leq\frac{i+1}{2^n},
+\frac{j}{2^n}\leq y\leq\frac{j+1}{2^n}, \frac{k}{2^n}\leq
+z\leq\frac{k+1}{2^n}\right\}
+\]</span> 則 <span class="math display">\[
+F_n^+=\sum_{i,j,k}M^n_{i,j,k}2^{-3n},
+F_n^-=\sum_{i,j,k}m^n_{i,j,k}2^{-3n}
+\]</span> 其中<span class="math inline">\(M^n_{i,j,k},
+m^n_{i,j,k}\)</span>分別是<span class="math inline">\(f\)</span>在<span
+class="math inline">\(C^n_{i,j,k}\)</span>上的極大值。對於給定的<span
+class="math inline">\((x,y)\)</span>，令 <span class="math display">\[
+R_{ij}^n=\left\{\frac{i}{2^n}\leq x\leq\frac{i+1}{2^n},
+\frac{j}{2^n}\leq y\leq\frac{j+1}{2^n}\right\}
+\]</span> 在<span class="math inline">\(R_{ij}^n\)</span>上，對<span
+class="math inline">\(z\)</span>積分，有 <span class="math display">\[
+h(x,y)=\int f(x,y,z)dz\leq\sum_k M^n_{i,j,k}2^{-n}
+\]</span> 令<span class="math inline">\(H_n^+\)</span>為<span
+class="math inline">\(h(x,y)\)</span>積分的上和，則 <span
+class="math display">\[
+H_n^+\leq\sum_{i,j}\left(\sum_k M_{i,j,k}^n 2^{-n}\right)2^{-2n}
+\]</span> 故<span class="math inline">\(H_n^+\leq
+F_n^+\)</span>，同理<span class="math inline">\(F_n^-\leq
+H_n^-\)</span>。故 <span class="math display">\[
+F_n^-\leq H_n^-\leq H_n^+\leq F_n^+
+\]</span> 但 <span class="math display">\[
+\lim_{n\to\infty}F_n^+=\lim_{n\to\infty}F_n^-
+\]</span> 故<span class="math inline">\(h(x,y)\)</span>可積，且<span
+class="math inline">\(\iint h=\iiint
+f\)</span>。<font size="1">QED</font></p>
+<h3 id="定理-7-1"><font color=#ff1493><u>定理 7-1</u></font></h3>
+<p>由定理7有 <span class="math display">\[
+\iiint f(x,y,z)dxdydz=\int\left(\int\left(\int fdz\right)dy\right)dx
+\]</span></p>
+<h3 id="例-7-2"><font color=#ffa500><u>例 7-2</u></font></h3>
+<p>給定<span class="math inline">\(a,b&gt;0\)</span>，有 <span
+class="math display">\[
+\int_0^\infty\frac{e^{-ax}-e^{-bx}}{x}dx=\log\frac{b}{a}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：令 <span
+class="math display">\[
+I=\int_0^\infty\frac{e^{-ax}-e^{-bx}}{x}dx
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+I&amp;=\lim_{T\to\infty}\int_0^T\left(\int_a^b e^{-xy}\right)dx\\
+&amp;=\lim_{T\to\infty}\int_a^b\frac{1-e^{-Ty}}{y}dy\\
+&amp;\mbox{(這是定理7)}\\
+&amp;=\log\frac{b}{a}-\lim_{T\to\infty}\int\frac{e^{-Ty}}{y}dy
+\end{aligned}
+\]</span> 而 <span class="math display">\[
+\begin{aligned}
+\lim_{T\to\infty}\int_a^b\frac{e^{-Ty}}{y}dy\\
+&amp;=\lim_{T\to\infty}\int_{Ta}^{Tb}\frac{e^{-y}}{y}dy\\
+&amp;\leq\lim_{T\to\infty}\frac{1}{Ta}\int_{Ta}^{Tb}e^{-y}dy=0
+\end{aligned}
+\]</span> 故 <span class="math display">\[
+I=\log\frac{b}{a}
+\]</span> <font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +486,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E9%87%8D%E7%A9%8D%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">二重積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%A4%9A%E9%87%8D%E7%A9%8D%E5%88%86-multiple-integral"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：多重積分 (Multiple Integral)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">引理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%89%B9%E5%BE%B5%E5%87%BD%E6%95%B8-characteristic-function"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：特徵函數 (Characteristic Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4"><span class="nav-number">1.4.</span> <span class="nav-text">註記 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">1.5.</span> <span class="nav-text">註記 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-6"><span class="nav-number">1.6.</span> <span class="nav-text">推論 6</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E7%A9%8D%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">多重積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">2.1.</span> <span class="nav-text">定理 7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">定理 7-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">例 7-2</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
