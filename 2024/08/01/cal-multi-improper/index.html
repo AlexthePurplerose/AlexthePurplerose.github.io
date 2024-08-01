@@ -27,11 +27,14 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於各式多變數瑕積分的定義與收斂性質。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/01/cal-multi-improper/redzip.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/01/cal-multi-improper/unbounded.jpg">
 <meta property="article:published_time" content="2024-08-01T07:27:24.000Z">
-<meta property="article:modified_time" content="2024-08-01T07:28:26.893Z">
+<meta property="article:modified_time" content="2024-08-01T08:14:35.702Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Spongebob, LectureNotes, Feelings, 海綿寶寶, 上課筆記, 心情札記">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/08/01/cal-multi-improper/redzip.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/01/cal-multi-improper/">
 
@@ -191,7 +194,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-01 15:27:24 / 修改時間：15:28:26" itemprop="dateCreated datePublished" datetime="2024-08-01T15:27:24+08:00">2024-08-01</time>
+              <time title="創建時間：2024-08-01 15:27:24 / 修改時間：16:14:35" itemprop="dateCreated datePublished" datetime="2024-08-01T15:27:24+08:00">2024-08-01</time>
             </span>
 
           
@@ -206,6 +209,154 @@
 
       
         <p>這份筆記是關於各式多變數瑕積分的定義與收斂性質。 <span id="more"></span><br></p>
+<center>
+<h1
+id="有界區域上的瑕積分"><font color=#b8860b>有界區域上的瑕積分</font></h1>
+</center>
+<p>考慮下圖1，假定<span class="math inline">\(f\)</span>在<span
+class="math inline">\(R\)</span>中的紅色曲線上沒有定義，則可以考慮把紅線附近移除掉，求剩下區域的積分。</p>
+<img src="redzip.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>如果<span class="math inline">\(A(\mbox{紅線附近})\to
+0\)</span>的話，就「大概」可以定義<span
+class="math inline">\(F\)</span>在<span
+class="math inline">\(R\)</span>上的積分：</p>
+<h2
+id="定義-1多變數瑕積分-multivariable-improper-integral"><font color=#008000><u>定義
+1：多變數瑕積分 (Multivariable Improper Integral)</u></font></h2>
+<p>給定有界集<span class="math inline">\(R\)</span>與函數<span
+class="math inline">\(f\)</span>，其中函數<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(R&#39;\subset
+R\)</span>上沒有定義。假定我們可以找到一串集合 <span
+class="math display">\[
+R_1\subset R_2\subset\cdots\subset R_n\subset\cdots\subset R
+\]</span> 使得<span class="math inline">\(R&#39;\subset
+R-R_n\)</span>且<span class="math inline">\(A(R_n)\to
+A(R)\)</span>，則如果極限 <span class="math display">\[
+\lim_{n\to\infty}\iint_{R_n}f(x,y)dxdy
+\]</span> 存在，且極限值和<span
+class="math inline">\(\{R_n\}\)</span>的選擇無關，則定義積分 <span
+class="math display">\[
+\iint_R f(x,y)dxdy=\lim_{n\to\infty}\iint_{R_n}f(x,y)dxdy
+\]</span></p>
+<h3 id="定理-1-1"><font color=#ff1493><u>定理 1-1</u></font></h3>
+<p>給定有界集<span class="math inline">\(R\)</span>與函數<span
+class="math inline">\(f\)</span>，其中函數<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(R&#39;\subset
+R\)</span>上沒有定義。假定我們可以找到一串集合 <span
+class="math display">\[
+R_1\subset R_2\subset\cdots\subset R_n\subset\cdots\subset R
+\]</span> 使得<span class="math inline">\(R&#39;\subset
+R-R_n\)</span>且<span class="math inline">\(A(R_n)\to
+A(R)\)</span>。且存在<span
+class="math inline">\(M\)</span>使得對於所有<span
+class="math inline">\(n\)</span>有 <span class="math display">\[
+\iint_{R_n}|f(x,y)|dxdy\leq M&lt;\infty
+\]</span> 則<span class="math inline">\(f\)</span>在<span
+class="math inline">\(R\)</span>上的瑕積分存在。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：顯然<span
+class="math inline">\(\iint_{R_n}|f(x,y)|dxdy\)</span>單調遞增且<span
+class="math inline">\(\iint_{R_n}|f(x,y)|dxdy\leq M\)</span>，故知 <span
+class="math display">\[
+\lim_{n\to\infty}\iint_{R_n}|f(x,y)|dxdy
+\]</span> 存在，令其極限值為<span
+class="math inline">\(\tilde{I}\)</span>。接著我們考慮<span
+class="math inline">\(\iint_{R_n}|f(x,y)|dxdy=I_n\)</span>，我們希望說明<span
+class="math inline">\(\{I_n\}\)</span>是柯西序列。由於<span
+class="math inline">\(\lim\iint_{R_n}|f(x,y)|dxdy\)</span>存在，故知當<span
+class="math inline">\(n,m\)</span>夠大時有 <span class="math display">\[
+|I_n-I_m|=\left|\iint_{R_n}f-\iint_{R_m}f\right|=\left|\iint_{R_m-R_n}f\right|\leq\iint_{R_m-R_n}|f|&lt;\epsilon
+\]</span> 於是可知<span
+class="math inline">\(\{I_n\}\)</span>是柯西序列，即極限 <span
+class="math display">\[
+\lim_{n\to\infty}\iint_{R_n}f(x,y)dxdy
+\]</span> 存在。<br> 接下來，給定<span class="math inline">\(S_1\subset
+S_2\subset\cdots\subset S_n\subset\cdots\subset R\)</span>及<span
+class="math inline">\(A(S_n)\to A(R)\)</span>，用和上面一樣的論述也會有
+<span class="math display">\[
+\lim_{n\to\infty}\iint_{S_n}f(x,y)dxdy=J
+\]</span> 我們希望說明<span class="math inline">\(I=J\)</span>。<br>
+考慮閉集<span class="math inline">\(S\subset R\)</span>(其中<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(S\)</span>上連續)，則 <span
+class="math display">\[
+\left|\iint_S f-\iint_{S\cap
+R_n}f\right|=\left|\iint_{S-R_n}f\right|\leq M(A(S-R_n))\leq
+M(A(R)-A(R_n))
+\]</span> 最後一項趨近於零，故 <span class="math display">\[
+\lim_{n\to\infty}\iint_{S\cap R_n}f=\iint_S f\mbox{ (☆)}
+\]</span> 而 <span class="math display">\[
+|I-J|=\left|I-\iint_{S_m\cap R_n}f+\iint_{S_m\cap R_n}f-J\right|
+\]</span> 我們分開估計，首先當<span
+class="math inline">\(m,n\)</span>夠大時我們有 <span
+class="math display">\[
+\begin{aligned}
+\left|J-\iint_{S_m\cap
+R_n}f\right|&amp;=\left|J-\iint_{S_m}f+\iint_{S_m}f-\iint_{S_m\cap
+R_n}f\right|\\
+&amp;\leq\left|J-\iint_{S_m}f\right|+\underbrace{\left|\iint_{S_m}f-\iint_{S_m\cap
+R_n}f\right|}_{\mbox{ (☆)}}&lt;2\epsilon
+\end{aligned}
+\]</span> 同理有 <span class="math display">\[
+\left|I-\iint_{S_m\cap R_n}f\right|&lt;2\epsilon
+\]</span> 故<span class="math inline">\(|I-J|&lt;4\epsilon\)</span>,
+<span class="math inline">\(I=J\)</span>。<font size="1">QED</font></p>
+<center>
+<h1
+id="無界區域上的瑕積分"><font color=#b8860b>無界區域上的瑕積分</font></h1>
+</center>
+<h2
+id="定義-2無界區域上的多變數瑕積分-multivariable-improper-integral-on-unbounded-region"><font color=#008000><u>定義
+2：無界區域上的多變數瑕積分 (Multivariable Improper Integral on
+Unbounded Region)</u></font></h2>
+<p>給定無界集合<span class="math inline">\(R\)</span>，並給定一串集合
+<span class="math display">\[
+R_1\subset R_2\subset\cdots\subset R
+\]</span> 其中<span
+class="math inline">\(R_n\)</span>有界並可測，並假設對於所有<span
+class="math inline">\(S\subset R\)</span>，都有<span
+class="math inline">\(n\)</span>使得<span class="math inline">\(S\subset
+R_n\)</span>(這裡不能再假設<span class="math inline">\(A(R_n)\to
+A(R)\)</span>了)。若<span
+class="math inline">\(\lim\iint_{R_n}f\)</span>存在，則定義瑕積分 <span
+class="math display">\[
+\iint_R f=\lim_{n\to\infty}\iint_{R_n}f
+\]</span></p>
+<h3 id="定理-2-1"><font color=#ff1493><u>定理 2-1</u></font></h3>
+<p>給定初始條件同定義2。若存在<span
+class="math inline">\(M\)</span>使得對於所有<span
+class="math inline">\(n\)</span>有 <span class="math display">\[
+\iint_{R_n}|f|\leq M&lt;\infty
+\]</span> 則<span class="math inline">\(\iint_R f\)</span>存在。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：用和定理1-1中一樣的說法，易知極限
+<span class="math display">\[
+\lim_{n\to\infty}\iint_{R_n}f=I
+\]</span> 存在。而給定另一串<span class="math inline">\(S_1\subset
+S_2\subset\cdots\subset R\)</span>。由一開始<span
+class="math inline">\(\{R_n\}\)</span>給定的定義知對於所有<span
+class="math inline">\(m\)</span>，都存在<span
+class="math inline">\(n\)</span>使得<span
+class="math inline">\(S_m\subset R_n\)</span>。故<span
+class="math inline">\(\iint_{S_n}|f|\leq M\)</span>，即 <span
+class="math display">\[
+\lim_{n\to\infty}\iint_{S_n}f=J
+\]</span> 也存在。<br> 考慮下圖2，當<span
+class="math inline">\(n,m\)</span>夠大時，我們有 <span
+class="math display">\[
+\left|\iint_{R_n}f-\iint_{S_m}f\right|\leq\iint_{S_{m&#39;}-S_m}|f|&lt;\epsilon
+\]</span></p>
+<img src="unbounded.jpg" width="50%" height="50%">
+<center>
+圖2
+</center>
+<p>於是，有 <span class="math display">\[
+|I-J|=\left|\underbrace{I-\iint){R_n}f}_{&lt;\epsilon}+\underbrace{\iint_{R_n}f-\iint_{S_m}f}_{&lt;\epsilon}+\underbrace{\iint_{S_m}f-J}_{&lt;\epsilon}\right|&lt;3\epsilon
+\]</span> 即<span
+class="math inline">\(I=J\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -283,6 +434,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%95%8C%E5%8D%80%E5%9F%9F%E4%B8%8A%E7%9A%84%E7%91%95%E7%A9%8D%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">有界區域上的瑕積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%A4%9A%E8%AE%8A%E6%95%B8%E7%91%95%E7%A9%8D%E5%88%86-multivariable-improper-integral"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：多變數瑕積分 (Multivariable Improper Integral)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">定理 1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%84%A1%E7%95%8C%E5%8D%80%E5%9F%9F%E4%B8%8A%E7%9A%84%E7%91%95%E7%A9%8D%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">無界區域上的瑕積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E7%84%A1%E7%95%8C%E5%8D%80%E5%9F%9F%E4%B8%8A%E7%9A%84%E5%A4%9A%E8%AE%8A%E6%95%B8%E7%91%95%E7%A9%8D%E5%88%86-multivariable-improper-integral-on-unbounded-region"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+2：無界區域上的多變數瑕積分 (Multivariable Improper Integral on
+Unbounded Region)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">定理 2-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
