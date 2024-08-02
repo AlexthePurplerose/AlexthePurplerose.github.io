@@ -27,13 +27,20 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於各式形體的體積與面積計算的範例。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/revol.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/curve.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/surface.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/curve-2.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/tangent.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/normal.jpg">
 <meta property="article:published_time" content="2024-08-02T07:52:59.000Z">
-<meta property="article:modified_time" content="2024-08-02T07:54:43.559Z">
+<meta property="article:modified_time" content="2024-08-02T09:08:00.715Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/revol.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/">
 
@@ -193,7 +200,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-02 15:52:59 / 修改時間：15:54:43" itemprop="dateCreated datePublished" datetime="2024-08-02T15:52:59+08:00">2024-08-02</time>
+              <time title="創建時間：2024-08-02 15:52:59 / 修改時間：17:08:00" itemprop="dateCreated datePublished" datetime="2024-08-02T15:52:59+08:00">2024-08-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +228,163 @@
 
       
         <p>這份筆記是關於各式形體的體積與面積計算的範例。 <span id="more"></span><br></p>
+<center>
+<h1 id="旋轉體體積"><font color=#b8860b>旋轉體體積</font></h1>
+</center>
+<h2
+id="定理-1旋轉體體積-volume-of-solid-of-revolution"><font color=#ff1493><u>定理
+1：旋轉體體積 (Volume of Solid of Revolution)</u></font></h2>
+<p>考慮曲線<span class="math inline">\(x=\phi(z), a\leq z\leq
+b\)</span>。我們把這個曲線以<span
+class="math inline">\(z\)</span>軸為中心旋轉，則形成圖形的體積為 <span
+class="math display">\[
+\int_b^a \pi[\phi(z)]^2dz
+\]</span> (見下圖1)。</p>
+<img src="revol.jpg" width="25%" height="25%">
+<center>
+圖1
+</center>
+<p><font color=#8b4513><u>證明</u></font>：將此旋轉體稱為<span
+class="math inline">\(R\)</span>。我們對<span
+class="math inline">\(R\)</span>切片，截面是 <span
+class="math display">\[
+0\leq x^2+y^2\leq\phi(z)
+\]</span> 而所求<span class="math inline">\(R\)</span>體積即為<span
+class="math inline">\(\iiint_R dxdydz\)</span>。我們令<span
+class="math inline">\(z=z\)</span>, <span
+class="math inline">\(\rho=\sqrt{x^2+y^2}\)</span>，其中<span
+class="math inline">\(x=\rho\cos\theta\)</span>, <span
+class="math inline">\(y=\rho\sin\theta\)</span>，則由<a
+href="https://alexthepurplerose.github.io/2024/07/31/cal-multi-var-change/">這裡</a>的定理3與<a
+href="https://alexthepurplerose.github.io/2024/07/30/cal-multi-int/">這裡</a>的定理7-1有
+<span class="math display">\[
+\begin{aligned}
+\iiint_Rdxdydz&amp;=\int_a^bdz\iint dxdy\\
+&amp;=\int_a^bdz\iint\underbrace{\frac{\partial(x,y)}{\partial(\rho,\theta)}}_{\mbox{Jacobian}}d\rho
+d\theta\\
+&amp;=\int_a^bdz\int_0^{2\pi}d\theta\int_0^{\phi(z)}\rho d\rho
+\end{aligned}
+\]</span> 於是，<span class="math inline">\(R\)</span>的體積<span
+class="math inline">\(V(R)\)</span>即為 <span class="math display">\[
+\begin{aligned}
+V(R)&amp;=\int_a^bdz\int_0^{2\pi}d\theta\int_0^{\phi(z)}\rho d\rho\\
+&amp;=\int_a^bdz\int_0^{2\pi}\frac{1}{2}[\phi(z)]^2d\theta\\
+&amp;=\int_a^b\pi[\phi(z)]^2dz
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="曲面面積"><font color=#b8860b>曲面面積</font></h1>
+</center>
+<h2 id="回想-2"><font color=#0000FF><u>回想 2</u></font></h2>
+<p>今給定一段曲線，我們想知道弧長。我們可以把曲線切成很多小段，用折線去逼近曲線(見下圖2)。</p>
+<img src="curve.jpg" width="50%" height="50%">
+<center>
+圖2
+</center>
+<p>則每段折線的長都是<span
+class="math inline">\(\sqrt{1+(f&#39;(x))^2}dx\)</span>，總長即是 <span
+class="math display">\[
+\int_a^b\sqrt{1+(f&#39;(x))^2}dx
+\]</span> (詳情可以參見<a
+href="https://alexthepurplerose.github.io/2024/07/26/cal-curve/">這裡</a>的註記2)。<br></p>
+<p>我們希望對曲面可以做一樣的事情，例如把它切成很多三角形。</p>
+<h2 id="例-3圓柱面-cylinder-surface"><font color=#ffa500><u>例 3：圓柱面
+(Cylinder Surface)</u></font></h2>
+<p>考慮一個底面半徑為<span class="math inline">\(1\)</span>，高為<span
+class="math inline">\(1\)</span>的圓柱側面。我們把側面分成<span
+class="math inline">\(m\)</span>個小條<font color=#0000FF>(藍線)</font>，每條再分成<span
+class="math inline">\(n\)</span>個等分點<font color=#ff0000>(紅線)</font>(見下圖3)。</p>
+<img src="surface.jpg" width="25%" height="25%">
+<center>
+圖3
+</center>
+<p>這樣會分出很多個三角形，每個三角形的面積都是 <span
+class="math display">\[
+\sin\frac{\pi}{n}\sqrt{\frac{1}{m^2}+4\sin^4\frac{\pi}{n}}
+\]</span> 而一共有<span
+class="math inline">\(2mn\)</span>個三角形，它們的總面積是 <span
+class="math display">\[
+2mn\sin\frac{\pi}{n}\sqrt{\frac{1}{m^2}+4\sin^4\frac{\pi}{n}}
+\]</span> 固定<span class="math inline">\(n\)</span>，當<span
+class="math inline">\(m\to\infty\)</span>時，總面積會趨於無限大。可以發現這是一個無效的估計。</p>
+<h2 id="回想-4"><font color=#0000FF><u>回想 4</u></font></h2>
+<p>我們其實有另一種方式去逼近曲線，如果我們在<span
+class="math inline">\([x_n,x_{n+1}]\)</span>使用曲線在<span
+class="math inline">\(x_n\)</span>上的切線的話，我們一樣會得到曲線長為<span
+class="math inline">\(\int_a^b\sqrt{1+(f&#39;(x))^2}dx\)</span>(見下圖4)。</p>
+<img src="curve-2.jpg" width="50%" height="50%">
+<center>
+圖4
+</center>
+<h2 id="定理-5曲面面積-area-of-a-surface"><font color=#ff1493><u>定理
+5：曲面面積 (Area of a Surface)</u></font></h2>
+<p>考慮一曲面<span class="math inline">\(z=f(x,y), (x,y)\in
+R\subset\mathbb{R}^2\)</span>，則此曲面的面積為 <span
+class="math display">\[
+A=\iint_R\sqrt{1+f_x^2+f_y^2}dxdy
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們把<span
+class="math inline">\(R\)</span>區分成小區域<span
+class="math inline">\(R_1,R_2,\cdots,R_n\)</span>。在<span
+class="math inline">\(R_n\)</span>中選一點<span
+class="math inline">\((\xi_n,\eta_n)\)</span>並作過<span
+class="math inline">\((\xi_n,\eta_n,z_n=f(\xi_n,\eta_n))\)</span>的切平面(見下圖5)。</p>
+<img src="tangent.jpg" width="25%" height="25%">
+<center>
+圖5
+</center>
+<p>此切平面的方程式為 <span class="math display">\[
+z-z_n=f_x(\xi_n,\eta_n)(x-\xi_n)+f_y(\xi_n,\eta_n)(y-\eta_n)
+\]</span> 我們令<span
+class="math inline">\(\alpha_n\)</span>是切平面與<span
+class="math inline">\(xy\)</span>平面的夾角，並記<span
+class="math inline">\(\Delta\tau_n\)</span>為<span
+class="math inline">\(R_n\)</span>在<span
+class="math inline">\(z\)</span>軸方向投影到切平面的部份的面積，則<span
+class="math inline">\(R_n\)</span>有面積 <span class="math display">\[
+\Delta R_n=\Delta\tau_n\cos\alpha_n
+\]</span> 又 <span class="math display">\[
+\cos\alpha_n=\frac{1}{\sqrt{1+f_x^2(\xi_n,\eta_n)+f^2_y(\xi_n,\eta_n)}}
+\]</span> (詳見下圖6)，故 <span class="math display">\[
+\Delta_n=\Delta R_n\sqrt{1+f_x^2(\xi_n,\eta_n)+f^2_y(\xi_n,\eta_n)}
+\]</span></p>
+<img src="normal.jpg" width="50%" height="50%">
+<center>
+圖6
+</center>
+<p>則曲面面積為 <span class="math display">\[
+A=\sum\tau_n=\iint_R\sqrt{1+f_x^2(\xi_n,\eta_n)+f^2_y(\xi_n,\eta_n)}dxdy
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
+<p>如果曲面是用<span
+class="math inline">\(\phi(x,y,z)=0\)</span>的形式表示的(假設<span
+class="math inline">\(\phi_z\neq 0\)</span>)，則由反函數定理(<a
+href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">這裡</a>的定理5)知曲面面積為
+<span class="math display">\[
+A=\iint_R\sqrt{\phi_x^2+\phi_y^2+\phi_z^2}\times\left|\frac{1}{\phi_z}\right|dxdy
+\]</span></p>
+<h3 id="例-5-2球面-sphere"><font color=#ffa500><u>例 5-2：球面
+(Sphere)</u></font></h3>
+<p>考慮球面<span
+class="math inline">\(x^2+y^2+z^2=R^2\)</span>，則球的上半可以表為<span
+class="math inline">\(z=\sqrt{R^2-x^2-y^2}\)</span>。令球面面積為<span
+class="math inline">\(A\)</span>，則由註記5-1知 <span
+class="math display">\[
+\frac{1}{2}A=\iint\sqrt{1+\left(\frac{\partial z}{\partial
+x}\right)^2+\left(\frac{\partial z}{\partial
+y}\right)^2}dxdy=R\iint\frac{dxdy}{\sqrt{R^2-x^2-y^2}}
+\]</span> 其中積分範圍是圓碟<span class="math inline">\(x^2+y^2\leq
+R^2\)</span>。<br> 換成極座標，有<span
+class="math inline">\(x=r\cos\theta\)</span>, <span
+class="math inline">\(y=\sin\theta\)</span>, <span
+class="math inline">\(0\leq r\leq R\)</span>, <span
+class="math inline">\(0\leq\theta \leq
+2\pi\)</span>。這個變換的雅可比行列式是<span
+class="math inline">\(D=r\)</span>。則 <span class="math display">\[
+\frac{1}{2}A=R\int_0^R\int_0^{2\pi}\frac{1}{\sqrt{R^2-r^2}}|r|d\theta
+dr=2\pi R^2
+\]</span> 故球面面積為<span class="math inline">\(A=4\pi
+R^2\)</span>。</p>
 
     </div>
 
@@ -303,6 +467,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%8B%E8%BD%89%E9%AB%94%E9%AB%94%E7%A9%8D"><span class="nav-number">1.</span> <span class="nav-text">旋轉體體積</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1%E6%97%8B%E8%BD%89%E9%AB%94%E9%AB%94%E7%A9%8D-volume-of-solid-of-revolution"><span class="nav-number">1.1.</span> <span class="nav-text">定理
+1：旋轉體體積 (Volume of Solid of Revolution)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B2%E9%9D%A2%E9%9D%A2%E7%A9%8D"><span class="nav-number">2.</span> <span class="nav-text">曲面面積</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%83%B3-2"><span class="nav-number">2.1.</span> <span class="nav-text">回想 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-3%E5%9C%93%E6%9F%B1%E9%9D%A2-cylinder-surface"><span class="nav-number">2.2.</span> <span class="nav-text">例 3：圓柱面
+(Cylinder Surface)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%83%B3-4"><span class="nav-number">2.3.</span> <span class="nav-text">回想 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E6%9B%B2%E9%9D%A2%E9%9D%A2%E7%A9%8D-area-of-a-surface"><span class="nav-number">2.4.</span> <span class="nav-text">定理
+5：曲面面積 (Area of a Surface)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">註記 5-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-5-2%E7%90%83%E9%9D%A2-sphere"><span class="nav-number">2.4.2.</span> <span class="nav-text">例 5-2：球面
+(Sphere)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
