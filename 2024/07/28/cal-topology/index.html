@@ -28,8 +28,10 @@
 <meta property="og:description" content="這份筆記是關於開集與閉集的定義與基本性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-topology/top.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-topology/heine.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-topology/borel.jpg">
 <meta property="article:published_time" content="2024-07-28T07:14:29.000Z">
-<meta property="article:modified_time" content="2024-07-28T07:54:15.062Z">
+<meta property="article:modified_time" content="2024-08-02T12:58:41.998Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -193,10 +195,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-07-28 15:14:29 / 修改時間：15:54:15" itemprop="dateCreated datePublished" datetime="2024-07-28T15:14:29+08:00">2024-07-28</time>
+              <time title="創建時間：2024-07-28 15:14:29" itemprop="dateCreated datePublished" datetime="2024-07-28T15:14:29+08:00">2024-07-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-08-02 20:58:41" itemprop="dateModified" datetime="2024-08-02T20:58:41+08:00">2024-08-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -269,7 +277,9 @@ u_i\)</span>是<span
 class="math inline">\(S\)</span>的覆蓋(或者，有時候也會稱<span
 class="math inline">\(\{u_i\}^\infty_{i=1}\)</span>為<span
 class="math inline">\(S\)</span>的覆蓋)。</p>
-<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<h2
+id="定理-5海涅-波雷爾定理-heine-borel-theorem"><font color=#ff1493><u>定理
+5：海涅-波雷爾定理 (Heine-Borel Theorem)</u></font></h2>
 <p>給定緊緻集<span
 class="math inline">\(S\subset\mathbb{R}^n\)</span>，令<span
 class="math inline">\(\Sigma=\{u_i\}^\infty_{i=1}\)</span>是<span
@@ -335,6 +345,14 @@ class="math inline">\(x_i\to p\)</span>，於是<span
 class="math inline">\(Q_i\subset B_\epsilon(p)\subset
 U_0\)</span>。可以發現這裡只用了一個覆蓋就把<span
 class="math inline">\(Q_i\)</span>蓋住了，矛盾。<font size="1">QED</font><br></p>
+<img src="heine.jpg" width="25%" height="25%">
+<center>
+圖2 Eduard Heine
+</center>
+<img src="borel.jpg" width="25%" height="25%">
+<center>
+圖3 Émile Borel
+</center>
 
     </div>
 
@@ -426,7 +444,8 @@ class="math inline">\(Q_i\)</span>蓋住了，矛盾。<font size="1">QED</font>
 (Closed Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1-1%E7%B7%8A%E7%B7%BB-compact"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">定義 2-1-1：緊緻
 (Compact)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E9%96%8B%E9%9B%86-open-set"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：開集 (Open
 Set)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E8%A6%86%E8%93%8B-covering"><span class="nav-number">1.4.</span> <span class="nav-text">定義 4：覆蓋
-(Covering)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">引理 5-1</span></a></li></ol></li></ol></li></ol></div>
+(Covering)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E6%B5%B7%E6%B6%85-%E6%B3%A2%E9%9B%B7%E7%88%BE%E5%AE%9A%E7%90%86-heine-borel-theorem"><span class="nav-number">1.5.</span> <span class="nav-text">定理
+5：海涅-波雷爾定理 (Heine-Borel Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">引理 5-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
