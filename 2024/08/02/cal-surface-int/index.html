@@ -29,8 +29,10 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-surface-int/4square-new.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-surface-int/ortho.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-surface-int/rectangle.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/02/cal-surface-int/gauss.jpg">
 <meta property="article:published_time" content="2024-08-02T10:58:00.000Z">
-<meta property="article:modified_time" content="2024-08-02T12:37:48.734Z">
+<meta property="article:modified_time" content="2024-08-03T07:11:14.020Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -194,10 +196,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-08-02 18:58:00 / 修改時間：20:37:48" itemprop="dateCreated datePublished" datetime="2024-08-02T18:58:00+08:00">2024-08-02</time>
+              <time title="創建時間：2024-08-02 18:58:00" itemprop="dateCreated datePublished" datetime="2024-08-02T18:58:00+08:00">2024-08-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-08-03 15:11:14" itemprop="dateModified" datetime="2024-08-03T15:11:14+08:00">2024-08-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -366,8 +374,9 @@ class="math inline">\(R\subset\mathbb{R}^n\)</span>，並考慮積分 <span
 class="math display">\[
 \int\cdots\int f(x_1,\cdots,x_n)dx_1\cdots dx_n
 \]</span> 並假設<span class="math inline">\(R\)</span>能被一族曲面<span
-class="math inline">\(S_\xi:\phi(x_1,\cdots,x_n)=\xi\)</span>覆蓋，則
-<span class="math display">\[
+class="math inline">\(S_\xi:\phi(x_1,\cdots,x_n)=\xi\)</span>覆蓋，則：</p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p><span class="math display">\[
 \begin{aligned}
 \int\cdots\int_R f(x_1,\cdots,x_n)dx_1\cdots dx_n&amp;=\int
 d\xi\int\cdots\int_{S_\xi}\frac{f(x_1,\cdots,x_n)}{|\phi_{x_n}|}dx_1\cdots
@@ -382,20 +391,20 @@ dx_{n-1}\)</span>。</p>
 <h1
 id="高維球的體積與表面積"><font color=#b8860b>高維球的體積與表面積</font></h1>
 </center>
-<h2 id="定義-5球殼-sphere"><font color=#008000><u>定義 5：球殼
+<h2 id="定義-6球殼-sphere"><font color=#008000><u>定義 6：球殼
 (Sphere)</u></font></h2>
 <p>一個<span class="math inline">\(\mathbb{R}^n\)</span>中的球殼是 <span
 class="math display">\[
 x_1^2+x_2^2+\cdots+x_n^2=R^2
 \]</span></p>
-<h2 id="定義-6球-ball"><font color=#008000><u>定義 6：球
+<h2 id="定義-7球-ball"><font color=#008000><u>定義 7：球
 (Ball)</u></font></h2>
 <p>一個<span class="math inline">\(\mathbb{R}^n\)</span>中的球是 <span
 class="math display">\[
 x_1^2+x_2^2+\cdots+x_n^2\leq R^2
 \]</span></p>
-<h2 id="定義-7徑向函數-radial-function"><font color=#008000><u>定義
-7：徑向函數 (Radial Function)</u></font></h2>
+<h2 id="定義-8徑向函數-radial-function"><font color=#008000><u>定義
+8：徑向函數 (Radial Function)</u></font></h2>
 <p>我們說一<span
 class="math inline">\(\mathbb{R}^n\)</span>上的函數<span
 class="math inline">\(f(x_1,x_2,\cdots,x_n)\)</span>是徑向的，若 <span
@@ -412,7 +421,134 @@ class="math inline">\(\tilde{R}\subset{R}^n\)</span>上的徑向函數<span
 class="math inline">\(f(x_1,x_2,\cdots,x_n)\)</span>，其中 <span
 class="math display">\[
 \tilde{R}=\{(x_1,x_2,\cdots,x_n):x_1^2+\cdots+x_n^2\leq R^2\}
-\]</span> 則</p>
+\]</span> 則：</p>
+<h2 id="引理-9"><font color=#0000FF><u>引理 9</u></font></h2>
+<p>我們有 <span class="math display">\[
+\int\cdots\int_{\tilde{R}}f(x_1,x_2,\cdots,x_n)dx_1dx_2\cdots
+dx_n=\int_0^R f(r)dr\int\cdots\int_{S_r}d\sigma
+\]</span> 其中<span class="math inline">\(S_r\)</span>是半徑為<span
+class="math inline">\(r\)</span>的球殼(<span
+class="math inline">\(f(r)\)</span>是徑向的，即<span
+class="math inline">\(r\)</span>固定時它在後面的積分中視為常數)。而這又等於
+<span class="math display">\[
+\int_0^Rf(r)\Omega_n(r)dr
+\]</span> 其中<span
+class="math inline">\(\Omega_n(r)\)</span>是半徑為<span
+class="math inline">\(r\)</span>的<span
+class="math inline">\(n\)</span>維球殼表面積。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：這是上面的定理5，我們這裡只需要說明
+<span class="math display">\[
+\frac{1}{\sqrt{\phi_{x_1}^2+\cdots+\phi_{x_n}^2}}=1
+\]</span> 然而<span class="math inline">\(\frac{\partial\phi}{\partial
+x_i}=\frac{x_i}{r}\)</span>，故確實有 <span class="math display">\[
+\sqrt{\phi_{x_1}^2+\cdots+\phi_{x_n}^2}=1
+\]</span> <font size="1">QED</font></p>
+<h2 id="引理-10"><font color=#0000FF><u>引理 10</u></font></h2>
+<p>我們有 <span class="math display">\[
+\Omega_n(r)=2r\int\cdots\int_{B_r}\frac{dx_1dx_2\cdots dx_{n-1}}{x_n}
+\]</span> 其中<span class="math inline">\(B_r\)</span>是<span
+class="math inline">\(n-1\)</span>維球<span
+class="math inline">\(x_1^2+x_2^2+\cdots+x_{n-1}^2\leq r^2\)</span>，且
+<span class="math display">\[
+x_n=\sqrt{r^2-(x_1^2+x_2^2+\cdots+x_{n-1}^2)}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：首先，最前面的<span
+class="math inline">\(2\)</span>是因為分了上下半球(我們假定了<span
+class="math inline">\(x_n\geq 0\)</span>)。接著，由<a
+href="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/">這裡</a>的註記5-1有
+<span class="math display">\[
+\Omega_n(r)=\int\cdots\int_{B_r}\sqrt{\phi_{x_1}^2+\cdots+\phi_{x_n}^2}\times\left|\frac{1}{\phi_{x_n}}\right|dx_1dx_2\cdots
+dx_{n-1}
+\]</span> 然而前面看過 <span class="math display">\[
+\sqrt{\phi_{x_1}^2+\cdots+\phi_{x_n}^2}=1
+\]</span> 並且 <span class="math display">\[
+\left|\frac{1}{\phi_{x_n}}\right|=\frac{r}{x_n}
+\]</span> 故 <span class="math display">\[
+\Omega_n(r)=2r\int\cdots\int_{B_r}\frac{dx_1dx_2\cdots dx_{n-1}}{x_n}
+\]</span> <font size="1">QED</font><br></p>
+<p>接下來，考慮如下的變數變換：令 <span class="math display">\[
+\begin{aligned}
+\xi_i&amp;=\frac{x_i}{r}, i=1,2,\cdots n-1\\
+\xi_n&amp;=\frac{x_n}{r}=\sqrt{1-(\xi_1^2+\xi_2^2+\cdots+\xi_{n-1}^2)}
+\end{aligned}
+\]</span> 其中<span
+class="math inline">\(\xi_1^2+\xi_2^2+\cdots+\xi_{n-1}^2\leq
+1\)</span>是一顆<span class="math inline">\(n-1\)</span>維球。於是：</p>
+<h2 id="引理-11"><font color=#0000FF><u>引理 11</u></font></h2>
+<p><span class="math display">\[
+\Omega_n(r)=2r^{n-1}\int\cdots\int_{B_1}\frac{d\xi_1d\xi_2\cdots
+d\xi_{n-1}}{\xi_n}
+\]</span> 其中<span
+class="math inline">\(B_1=\{\xi_1^2+\cdots+\xi_{n-1}^2\leq
+1\}\)</span>。<br> (前面的<span
+class="math inline">\(r^{n-1}\)</span>來自變數變換時的雅可比行列式)。<br></p>
+<p>易知<span
+class="math inline">\(2\int\cdots\int_{B_1}\frac{d\xi_1d\xi_2\cdots
+d\xi_{n-1}}{\xi_n}\)</span>只和維度<span
+class="math inline">\(n\)</span>有關，而和半徑<span
+class="math inline">\(r\)</span>無關。令 <span class="math display">\[
+\omega_n=2\int\cdots\int_{B_1}\frac{d\xi_1d\xi_2\cdots
+d\xi_{n-1}}{\xi_n}
+\]</span> 則<span
+class="math inline">\(\Omega_n(r)=\omega_nr^{n-1}\)</span>，又可以發現<span
+class="math inline">\(\omega_n=\Omega_n(1)\)</span>。考慮一具體的徑向函數<span
+class="math inline">\(f(r)=e^{-r^2}\)</span>, <span
+class="math inline">\(r=\sqrt{x_1^2+x_2^2+\cdots+x_n^2}\)</span>。則我們有
+<span class="math display">\[
+\int\cdots\int_{\mathbb{R}^n}f(r)dx_1\cdots
+dx_n=\lim_{a\to\infty}\int\cdots\int_{C_a}f(r)dx_1\cdots dx_n
+\]</span> 其中<span
+class="math inline">\(C_a\)</span>是以原點為中心，邊長為<span
+class="math inline">\(2a\)</span>的方塊(見下圖3)。</p>
+<img src="rectangle.jpg" width="50%" height="50%">
+<center>
+圖3
+</center>
+<p>而由對稱性和徑向性，有 <span class="math display">\[
+\begin{aligned}
+\int\cdots\int_{C_a}f(r)dx_1\cdots dx_n&amp;=\left(\int_{-a}^a
+e^{-x_1^2}dx_1\right)\cdots\left(\int_{-a}^a e^{-x_n^2}dx_n\right)\\
+&amp;=\left(\int_{-a}^a e^{-x^2}dx\right)^n
+\end{aligned}
+\]</span> 又有 <span class="math display">\[
+\int\cdots\int_{\tilde{R}}f(r)dx_1\cdots dx_n=\omega_n\int_0^R
+f(r)r^{n-1}dr
+\]</span> 故 <span class="math display">\[
+\left(\int_{-\infty}^\infty
+e^{-x^2}dx\right)^n=\omega_n\int_{-\infty}^\infty e^{-r^2}r^{n-1}dr
+\]</span> 我們接著要給出一個不加證明的引理：</p>
+<h2 id="引理-12高斯積分-gaussian-integral"><font color=#0000FF><u>引理
+12：高斯積分 (Gaussian Integral)</u></font></h2>
+<p><span class="math display">\[
+\int_{-\infty}^\infty e^{-x^2}dx=\sqrt{\pi}
+\]</span></p>
+<img src="gauss.jpg" width="25%" height="25%">
+<center>
+圖4 Carl Friedrich Gauss
+</center>
+<p>而使用變數變換<span class="math inline">\(s=r^2\)</span>，有 <span
+class="math display">\[
+\int_0^\infty e^{-r^2}r^{n-1}dr=\frac{1}{2}\int_0^\infty
+e^{-s}s^{\frac{n-2}{2}}ds=\frac{1}{2}\Gamma\left(\frac{n}{2}\right)
+\]</span> (見[這裡]的定義6)，則：</p>
+<h2 id="定理-13"><font color=#ff1493><u>定理 13</u></font></h2>
+<p><span class="math display">\[
+\omega_n=\frac{2\sqrt{\pi^n}}{\Gamma\left(\frac{n}{2}\right)}
+\]</span></p>
+<p>類似的，對於半徑為<span class="math inline">\(R\)</span>的<span
+class="math inline">\(n\)</span>維球體積<span
+class="math inline">\(V_n(R)\)</span>有 <span class="math display">\[
+\begin{aligned}
+V_n(R)&amp;=\int\cdots\int_{B_R}dx_1\cdots dx_n\\
+&amp;=\omega_n\int_0^R r^{n-1}dr\\
+&amp;=v_nR^n
+\end{aligned}
+\]</span> 其中<span
+class="math inline">\(v_n=V_n(1)\)</span>。可以得到：</p>
+<h2 id="定理-14"><font color=#ff1493><u>定理 14</u></font></h2>
+<p><span class="math display">\[
+v_n=\frac{\sqrt{\pi^n}}{\Gamma\left(\frac{n+2}{2}\right)}
+\]</span></p>
 
     </div>
 
@@ -498,10 +634,11 @@ class="math display">\[
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E7%A9%8D%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">面積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1%E9%9D%A2%E7%A9%8D%E5%88%86-surface-integral"><span class="nav-number">1.1.</span> <span class="nav-text">定理
 1：面積分 (Surface Integral)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E9%87%8D%E7%A9%8D%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">三重積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">2.1.</span> <span class="nav-text">定理 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E7%A9%8D%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">多重積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3n-1%E7%B6%AD%E6%9B%B2%E9%9D%A2-n-1-dimensional-surface"><span class="nav-number">3.1.</span> <span class="nav-text">定義
 3：n-1維曲面 ((n-1)-dimensional Surface)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4n-1%E7%B6%AD%E6%B8%AC%E5%BA%A6-n-1-dimensional-measure"><span class="nav-number">3.2.</span> <span class="nav-text">定義
-4：n-1維測度 ((n-1)-dimensional Measure)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E7%B6%AD%E7%90%83%E7%9A%84%E9%AB%94%E7%A9%8D%E8%88%87%E8%A1%A8%E9%9D%A2%E7%A9%8D"><span class="nav-number">4.</span> <span class="nav-text">高維球的體積與表面積</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E7%90%83%E6%AE%BC-sphere"><span class="nav-number">4.1.</span> <span class="nav-text">定義 5：球殼
-(Sphere)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E7%90%83-ball"><span class="nav-number">4.2.</span> <span class="nav-text">定義 6：球
-(Ball)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%BE%91%E5%90%91%E5%87%BD%E6%95%B8-radial-function"><span class="nav-number">4.3.</span> <span class="nav-text">定義
-7：徑向函數 (Radial Function)</span></a></li></ol></li></ol></div>
+4：n-1維測度 ((n-1)-dimensional Measure)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">3.3.</span> <span class="nav-text">定理 5</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E7%B6%AD%E7%90%83%E7%9A%84%E9%AB%94%E7%A9%8D%E8%88%87%E8%A1%A8%E9%9D%A2%E7%A9%8D"><span class="nav-number">4.</span> <span class="nav-text">高維球的體積與表面積</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E7%90%83%E6%AE%BC-sphere"><span class="nav-number">4.1.</span> <span class="nav-text">定義 6：球殼
+(Sphere)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E7%90%83-ball"><span class="nav-number">4.2.</span> <span class="nav-text">定義 7：球
+(Ball)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E5%BE%91%E5%90%91%E5%87%BD%E6%95%B8-radial-function"><span class="nav-number">4.3.</span> <span class="nav-text">定義
+8：徑向函數 (Radial Function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-9"><span class="nav-number">4.4.</span> <span class="nav-text">引理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-10"><span class="nav-number">4.5.</span> <span class="nav-text">引理 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-11"><span class="nav-number">4.6.</span> <span class="nav-text">引理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-12%E9%AB%98%E6%96%AF%E7%A9%8D%E5%88%86-gaussian-integral"><span class="nav-number">4.7.</span> <span class="nav-text">引理
+12：高斯積分 (Gaussian Integral)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-13"><span class="nav-number">4.8.</span> <span class="nav-text">定理 13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14"><span class="nav-number">4.9.</span> <span class="nav-text">定理 14</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
