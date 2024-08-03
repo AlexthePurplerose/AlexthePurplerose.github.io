@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於多變數瑕積分一致收斂的討論。">
+  <meta name="description" content="這份筆記是關於多變數瑕積分一致收斂性的討論。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微積分：多變數瑕積分的一致收斂">
+<meta property="og:title" content="微積分：多變數瑕積分的一致收斂性">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/08/03/cal-multi-improper-2/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於多變數瑕積分一致收斂的討論。">
+<meta property="og:description" content="這份筆記是關於多變數瑕積分一致收斂性的討論。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-08-03T07:14:55.000Z">
-<meta property="article:modified_time" content="2024-08-03T07:20:46.737Z">
+<meta property="article:modified_time" content="2024-08-03T08:22:12.916Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>微積分：多變數瑕積分的一致收斂 | 永蔚Alex</title>
+  <title>微積分：多變數瑕積分的一致收斂性 | 永蔚Alex</title>
   
 
 
@@ -182,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          微積分：多變數瑕積分的一致收斂
+          微積分：多變數瑕積分的一致收斂性
         </h1>
 
         <div class="post-meta">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-03 15:14:55 / 修改時間：15:20:46" itemprop="dateCreated datePublished" datetime="2024-08-03T15:14:55+08:00">2024-08-03</time>
+              <time title="創建時間：2024-08-03 15:14:55 / 修改時間：16:22:12" itemprop="dateCreated datePublished" datetime="2024-08-03T15:14:55+08:00">2024-08-03</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +220,181 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於多變數瑕積分一致收斂的討論。 <span id="more"></span><br></p>
+        <p>這份筆記是關於多變數瑕積分一致收斂性的討論。 <span id="more"></span><br></p>
+<center>
+<h1
+id="單積分的一致收斂性"><font color=#b8860b>單積分的一致收斂性</font></h1>
+</center>
+<h2 id="註記-1"><font color=#0000FF><u>註記 1</u></font></h2>
+<p>給定連續的<span class="math inline">\(f(x,y)\)</span>，令<span
+class="math inline">\(F(x)=\int_0^\infty
+f(x,y)dy\)</span>。就算對於所有<span
+class="math inline">\(x\)</span>，<span
+class="math inline">\(\int_0^\infty f(x,y)dy\)</span>都存在，<span
+class="math inline">\(F(x)\)</span>也不一定會連續。</p>
+<h3 id="例-1-1"><font color=#ffa500><u>例 1-1</u></font></h3>
+<p>考慮函數<span class="math inline">\(f(x,y)=\frac{\sin
+xy}{y}\)</span>，則 <span class="math display">\[
+F(x)=\left\{
+\begin{aligned}
+\int_0^\infty\frac{\sin z}{z}dz&amp;,x&gt;0\\
+0&amp;,x=0\\
+\int_0^{-\infty}\frac{\sin z}{z}dz&amp;,x&lt;0
+\end{aligned}
+\right.
+\]</span> (見<a
+href="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/">這裡</a>的引理13與推論13-1)，則<span
+class="math inline">\(F\)</span>顯然在<span
+class="math inline">\(x=0\)</span>不連續。</p>
+<h2
+id="定義-2一致收斂i-uniformly-convergence-i"><font color=#008000><u>定義
+2：一致收斂I (Uniformly Convergence I)</u></font></h2>
+<p>我們說<span class="math inline">\(F(x)=\int_0^\infty
+f(x,y)dy\)</span>在區間<span class="math inline">\(a\leq x\leq
+b\)</span>上一致收斂，若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(A=A(\epsilon)\)</span> s.t. <span
+class="math inline">\(\forall B\geq A\)</span>有 <span
+class="math display">\[
+\left|\int_B^\infty f(x,y)dy\right|&lt;\epsilon, \forall a\leq x\leq b
+\]</span></p>
+<h3 id="註記-2-1"><font color=#0000FF><u>註記 2-1</u></font></h3>
+<p>若存在<span class="math inline">\(M\)</span>和<span
+class="math inline">\(\alpha&gt;1\)</span>使得 <span
+class="math display">\[
+|f(x,y)|\leq\frac{M}{y^\alpha}
+\]</span> 則積分<span class="math inline">\(F(x)=\int_0^\infty
+f(x,y)dy\)</span>一致收斂。(證略)</p>
+<h3 id="引理-2-2"><font color=#0000FF><u>引理 2-2</u></font></h3>
+<p>若<span class="math inline">\(F(x)=\int_0^\infty
+f(x,y)dy\)</span>一致收斂，則<span
+class="math inline">\(F(x)\)</span>連續。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：沿用定義2中的符號，有 <span
+class="math display">\[
+\begin{aligned}
+F(x+h,y)-F(x,y)&amp;=\int_0^\infty[f(x+h,y)-f(x,y)]dy\\
+&amp;=\int_0^A[f(x+h,y)-f(x,y)]dy+\int_A^\infty[f(x+h,y)-f(x,y)]dy\\
+&amp;\leq\int_0^A[f(x+h,y)-f(x,y)]dy+2\epsilon\\
+&amp;\leq A\epsilon+2\epsilon
+\end{aligned}
+\]</span> 最後一步是因為<span
+class="math inline">\(f\)</span>在給定區間中一致連續，故當<span
+class="math inline">\(h\)</span>夠小時<span
+class="math inline">\(f(x+h,y)-f(x,y)&lt;\epsilon\)</span>。而令<span
+class="math inline">\(\epsilon\to 0\)</span>，就知<span
+class="math inline">\(F\)</span>連續。<font size="1">QED</font><br></p>
+<p>類似的，考慮在有限的區間中某一點無定義的函數，即存在<span
+class="math inline">\(\alpha\)</span> s.t. 當<span
+class="math inline">\(y\to\alpha\)</span>時<span
+class="math inline">\(f(x,y)\to\infty\)</span>，我們也可以定義這個狀況下的一致收斂：</p>
+<h2
+id="定義-3一致收斂ii-uniformly-convergence-ii"><font color=#008000><u>定義
+3：一致收斂II (Uniformly Convergence II)</u></font></h2>
+<p>考慮在<span
+class="math inline">\((x,\alpha)\)</span>沒有定義的函數<span
+class="math inline">\(f\)</span>及<span
+class="math inline">\(F(x)=\int_{\alpha^\beta}f(x,y)dy\)</span>。我們說<span
+class="math inline">\(F(x)\)</span>在<span class="math inline">\(a\leq
+x\leq b\)</span>上一致收斂，若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(\delta=\delta(\epsilon)&gt;0\)</span> s.t.
+對於所有<span class="math inline">\(h&lt;\delta\)</span>有 <span
+class="math display">\[
+\left|\int_{\alpha}^{\alpha+h}f(x,y)dy\right|&lt;\epsilon
+\]</span></p>
+<h3 id="引理-3-1"><font color=#0000FF><u>引理 3-1</u></font></h3>
+<p>用和引理2-2一樣的論述，可以知道若<span
+class="math inline">\(F(x)=\int_{\alpha}^\beta
+f(x,y)dy\)</span>一致收斂，則<span
+class="math inline">\(F(x)\)</span>連續。</p>
+<h3 id="註記-3-2"><font color=#0000FF><u>註記 3-2</u></font></h3>
+<p>類似註記2-1，若存在<span class="math inline">\(M\)</span>及<span
+class="math inline">\(s&lt;1\)</span>使得 <span class="math display">\[
+|f(x,y)|\leq\frac{M}{(y-\alpha)^s}
+\]</span> 則<span class="math inline">\(F(x)=\int_\alpha^\beta
+f(x,y)dy\)</span>一致收斂。</p>
+<center>
+<h1
+id="多重積分的一致收斂性"><font color=#b8860b>多重積分的一致收斂性</font></h1>
+</center>
+<h2 id="註記-4"><font color=#0000FF><u>註記 4</u></font></h2>
+<p>我們考慮<span class="math inline">\(\int_a^bdx\int_0^\infty
+f(x,y)dy\)</span>。一般來說，當<span
+class="math inline">\(a=-\infty\)</span>, <span
+class="math inline">\(b=\infty\)</span>時，<span
+class="math inline">\(\int_a^bdx\int_0^\infty
+f(x,y)dy\)</span>不一定會存在。</p>
+<h3 id="例-4-1"><font color=#ffa500><u>例 4-1</u></font></h3>
+<p>對於<span class="math inline">\(x\in[1,\infty)\)</span>，考慮 <span
+class="math display">\[
+f(x,y)=\frac{1}{x^2+y^2}, \int_0^\infty f(x,y)dy=\frac{1}{2x}
+\]</span> 然而<span
+class="math inline">\(\int_{-\infty}^\infty\frac{1}{2x}dx\)</span>並不存在。</p>
+<h2 id="推論-5"><font color=#0000FF><u>推論 5</u></font></h2>
+<p>若<span class="math inline">\(F(x)=\int_0^\infty
+f(x,y)dy\)</span>在<span
+class="math inline">\(x\in[a,b]\)</span>上一致收斂，則 <span
+class="math display">\[
+\int_\alpha^\beta dx\int_0^\infty f(x,y)dy=\int_0^\infty
+dy\int_\alpha^\beta f(x,y)dx
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：沿用定義2的符號，我們有 <span
+class="math display">\[
+\int_0^\infty f(x,y)dy=\int_0^A f(x,y)dy+\int_A^\infty f(x,y)dy
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+\int_\alpha^\beta dx\int_0^\infty f(x,y)dy&amp;=\int_\alpha^\beta
+dx\int_0^A f(x,y)dy+\int_\alpha^\beta dx\int_A^\infty f(x,y)dy\\
+&amp;=\int_0^A dy\int_\alpha^\beta f(x,y)dx+\int_\alpha^\beta
+dx\int_A^\infty f(x,y)dy
+\end{aligned}
+\]</span> (這裡積分可以交換是因為這裡是有限積分，見<a
+href="https://alexthepurplerose.github.io/2024/07/26/cal-multivar-int/">這裡</a>的定理5)。而令<span
+class="math inline">\(A\to\infty\)</span>，有 <span
+class="math display">\[
+\begin{aligned}
+&amp;\left|\int_\alpha^\beta dx\int_0^\infty f(x,y)dy-\int_0^A
+dy\int_\alpha^\beta f(x,y)dx\right|\\
+&amp;=\left|\int_\alpha^\beta dx\int_A^\infty f(x,y)dy\right|\\
+&amp;&lt;\left|\int_\alpha^\beta\epsilon dx\right|\mbox{ (一致收斂)}\\
+&amp;=\epsilon(\beta-\alpha)
+\end{aligned}
+\]</span> 讓<span class="math inline">\(\epsilon\to 0\)</span>，即有
+<span class="math display">\[
+\int_\alpha^\beta dx\int_0^\infty f(x,y)dy=\int_0^\infty
+dy\int_\alpha^\beta f(x,y)dx
+\]</span> <font size="1">QED</font></p>
+<h3 id="推論-5-1"><font color=#0000FF><u>推論 5-1</u></font></h3>
+<p>類似的，對於定義3涉及的第二種瑕積分，也在一致收斂時有 <span
+class="math display">\[
+\int_a^b dx\int_\alpha^\beta f(x,y)dy=\int_\alpha^\beta dy\int_a^b
+f(x,y)dx
+\]</span></p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>和<span
+class="math inline">\(f_x\)</span>都連續，且<span
+class="math inline">\(\int_0^\infty f(x,y)dy\)</span>和<span
+class="math inline">\(\int_0^\infty
+f_x(x,y)dy\)</span>都一致收斂。令<span
+class="math inline">\(F(x)=\int_0^\infty f(x,y)dy\)</span>，則 <span
+class="math display">\[
+F&#39;(x)=\int_0^\infty f_x(x,y)dy
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：記<span
+class="math inline">\(G(x)=\int_0^\infty f_x(x,y)dy\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+\int_\alpha^\xi G(x)dx&amp;=\int_0^\infty dy\int_\alpha^\xi
+f_x(x,y)dx\mbox{ (推論5)}\\
+&amp;=\int_0^\infty(f(\xi,y)-f(\alpha,y))dy\mbox{ (微積分基本定理)}\\
+&amp;=F(\xi)-F(\alpha)
+\end{aligned}
+\]</span> 於是<span
+class="math inline">\(F(\alpha+h)-F(\alpha)=\int_\alpha^{\alpha+h}G(x)dx\)</span>，兩邊除以<span
+class="math inline">\(h\)</span>，令<span class="math inline">\(h\to
+0\)</span>，即有 <span class="math display">\[
+F&#39;(\alpha)=G(\alpha)=\int_0^\infty f_x(\alpha,y)dy
+\]</span> <font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +477,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%AE%E7%A9%8D%E5%88%86%E7%9A%84%E4%B8%80%E8%87%B4%E6%94%B6%E6%96%82%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">單積分的一致收斂性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1"><span class="nav-number">1.1.</span> <span class="nav-text">註記 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">例 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E4%B8%80%E8%87%B4%E6%94%B6%E6%96%82i-uniformly-convergence-i"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：一致收斂I (Uniformly Convergence I)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%86-2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">引理 2-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E4%B8%80%E8%87%B4%E6%94%B6%E6%96%82ii-uniformly-convergence-ii"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：一致收斂II (Uniformly Convergence II)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%86-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">引理 3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">註記 3-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E7%A9%8D%E5%88%86%E7%9A%84%E4%B8%80%E8%87%B4%E6%94%B6%E6%96%82%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">多重積分的一致收斂性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4"><span class="nav-number">2.1.</span> <span class="nav-text">註記 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">例 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-5"><span class="nav-number">2.2.</span> <span class="nav-text">推論 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">推論 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.3.</span> <span class="nav-text">定理 6</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
