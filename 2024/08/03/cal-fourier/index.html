@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/03/cal-fourier/f.jpg">
 <meta property="article:published_time" content="2024-08-03T13:18:01.000Z">
-<meta property="article:modified_time" content="2024-08-04T09:13:19.552Z">
+<meta property="article:modified_time" content="2024-08-04T14:08:05.340Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-08-04 17:13:19" itemprop="dateModified" datetime="2024-08-04T17:13:19+08:00">2024-08-04</time>
+                <time title="修改時間：2024-08-04 22:08:05" itemprop="dateModified" datetime="2024-08-04T22:08:05+08:00">2024-08-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -461,12 +461,114 @@ class="math inline">\(g(\tau)=e^{-\tau^2/2}\)</span>。<font size="1">QED</font>
 <h1
 id="傅立葉轉換的性質"><font color=#b8860b>傅立葉轉換的性質</font></h1>
 </center>
-<p>假設底下的函數<span class="math inline">\(f\)</span>都滿足： <br>1.
-<span class="math inline">\(f&#39;(x)\)</span>和<span
-class="math inline">\(f&#39;&#39;(x)\)</span>都連續。 <br>2. <span
-class="math inline">\(\int_{-\infty}^\infty|f&#39;(x)|dx&lt;\infty\)</span>,
+<h2 id="註記-6"><font color=#0000FF><u>註記 6</u></font></h2>
+<p>假定<span class="math inline">\(f\)</span>連續且<span
+class="math inline">\(\int_{-\infty}^\infty|f(x)|dx&lt;\infty\)</span>，且<span
+class="math inline">\(g\)</span>為<span
+class="math inline">\(f\)</span>的傅立葉轉換，則<span
+class="math inline">\(g\)</span>連續。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：依定義有 <span
+class="math display">\[
+g(\tau)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty f(t)e^{-i\tau t}dt
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+g(\tau-h)-g(\tau)&amp;=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty
+f(t)(e^{-it(\tau+h)}-e^{-it\tau})dt\\
+&amp;=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty
+f(t)e^{-it\tau}(e^{-ith}-1)dt
+\end{aligned}
+\]</span> 由於<span
+class="math inline">\(\int_{-\infty}^\infty|f(x)|dx&lt;\infty\)</span>且<span
+class="math inline">\(e^{-ith}-1\)</span>在<span
+class="math inline">\(h\)</span>很小時可以任意小，故整體來說 <span
+class="math display">\[
+g(\tau-h)-g(\tau)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty
+f(t)e^{-it\tau}(e^{-ith}-1)dt
+\]</span> 可以任意小。於是知<span
+class="math inline">\(g\)</span>連續。<font size="1">QED</font></p>
+<h2
+id="註記-7傅立葉轉換的估計-estimation-of-fourier-transform"><font color=#0000FF><u>註記
+7：傅立葉轉換的估計 (Estimation of Fourier Transform)</u></font></h2>
+<p>考慮 <span class="math display">\[
+\begin{aligned}
+g_B(\tau)&amp;=\frac{1}{\sqrt{2\pi}}\int_{-B}^B f(t)e^{-i\tau t}dt\\
+&amp;=\frac{1}{i\tau\sqrt{2\pi}}\left[-f(B)e^{-iB\tau}+f(-B)e^{iB\tau}+\int_{-B}^B
+f&#39;(t)e^{-i\tau t}dt\right]\\
+&amp;=\frac{e^{-iB\tau}}{\tau^2\sqrt{2\pi}}[f&#39;(B)+i\tau
+f(B)]-\frac{e^{iB\tau}}{\tau^2\sqrt{2\pi}}[f&#39;(-B)+i\tau
+f(-B)]-\frac{1}{\tau^2\sqrt{2\pi}}\int_{-B}^B f&#39;&#39;(t)e^{-i\tau
+t}dt
+\end{aligned}
+\]</span> (上面用了兩次分部積分)。假設<span
+class="math inline">\(\int_{-\infty}^\infty|f(x)|dx&lt;\infty\)</span>，則當<span
+class="math inline">\(B\to\infty\)</span>時，有<span
+class="math inline">\(f(B)=f(-B)=0\)</span>。於是，我們有以下兩種估計：
+<br>1. 若有<span class="math inline">\(\int_{-\infty}^\infty
+|f&#39;|&lt;\infty\)</span>，則 <span class="math display">\[
+g(\tau)=\frac{1}{i\tau\sqrt{2\pi}}\int_{-\infty}^\infty
+f&#39;(t)e^{-i\tau t}dt=O\left(\frac{1}{\tau}\right)
+\]</span> <br>2. 若又有<span class="math inline">\(\int_{-\infty}^\infty
+|f&#39;&#39;|&lt;\infty\)</span>，則 <span class="math display">\[
+g(\tau)=\frac{-1}{\tau^2\sqrt{2\pi}}\int_{-\infty}^\infty
+f&#39;&#39;(t)e^{-i\tau t}dt=O\left(\frac{1}{\tau^2}\right)
+\]</span> (在1.的條件下有<span
+class="math inline">\(f&#39;(B)=f&#39;(-B)=0\)</span>，當<span
+class="math inline">\(B\to\infty\)</span>。)</p>
+<h3 id="註記-7-1"><font color=#0000FF><u>註記 7-1</u></font></h3>
+<p>上述性質反過來也對，意即若<span
+class="math inline">\(g(\tau)=O\left(\frac{1}{\tau^2}\right)\)</span>，則<span
+class="math inline">\(\int_{-\infty}^\infty
+|f&#39;&#39;|&lt;\infty\)</span>。(證略)</p>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
+<p>令<span class="math inline">\(g\)</span>是<span
+class="math inline">\(f\)</span>的傅立葉轉換。若<span
+class="math inline">\(\int_{-\infty}^\infty|f&#39;|&lt;\infty\)</span>,
 <span
-class="math inline">\(\int_{-\infty}^\infty|f&#39;&#39;(x)|dx&lt;\infty\)</span></p>
+class="math inline">\(\int_{-\infty}^\infty|f&#39;&#39;|&lt;\infty\)</span>，則
+<span class="math display">\[
+\int_{-\infty}^\infty |f(x)|^2dx=\int_{-\infty}^\infty|g(\tau)|^2d\tau
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮 <span
+class="math display">\[
+J_{AB}=\int_{-B}^B|f(x)-f_A(x)|^2dx
+\]</span> 其中 <span class="math display">\[
+f_A(x)=\frac{1}{\sqrt{2\pi}}\int_{-A}^A g(\tau)e^{i\tau x}d\tau
+\]</span> 我們有 <span class="math display">\[
+\begin{aligned}
+J_{AB}&amp;=\int_{-B}^B\left(f(x)-f_A(x)\right)\left(\overline{f(x)}-\overline{f_A(x)}\right)dx\\
+&amp;=\int_{-B}^B\left(f(x)-\overline{f(x)}-f(x)\overline{f_A(x)}-f_A(x)\overline{f(x)}+f_A(x)\overline{f_A(x)}\right)dx
+\end{aligned}
+\]</span> (這裡的<span
+class="math inline">\(\overline{f(x)}\)</span>指的是共軛複數。)而由<a
+href="https://alexthepurplerose.github.io/2024/07/30/cal-multi-int/">這裡</a>的定理7有
+<span class="math display">\[
+\begin{aligned}
+\int_{-B}^B
+f(x)\overline{f_A(x)}dx&amp;=\frac{1}{\sqrt{2\pi}}f(x)\int_{-A}^A\overline{g(\tau)}e^{-ix\tau}d\tau
+dx\\
+&amp;=\frac{1}{\sqrt{2\pi}}\int_{-A}^A\overline{g(\tau)}\int_{-B}^B
+f(x)e^{-ix\tau}dxd\tau\\
+&amp;=\int_{-A}^A\overline{g(\tau)}g_B(\tau)d\tau
+\end{aligned}
+\]</span> 這裡<span class="math inline">\(g_B(\tau)\)</span>和<span
+class="math inline">\(f_A(x)\)</span>的定義類似。則 <span
+class="math display">\[
+\begin{aligned}
+J_{AB}&amp;=\int_{-B}^B
+|f(x)|^2+|f_A(x)|^2dx-\int_{-A}^A\left[\overline{g(\tau)}g_B(\tau)+g(\tau)\overline{g_B(\tau)}\right]d\tau\mbox{
+(★)}
+\end{aligned}
+\]</span> 又因為<span
+class="math inline">\(\int_{-\infty}^\infty|f&#39;|&lt;\infty\)</span>,
+<span
+class="math inline">\(\int_{-\infty}^\infty|f&#39;&#39;|&lt;\infty\)</span>，故由註記7知<span
+class="math inline">\(g(\tau)=O\left(\frac{1}{\tau^2}\right)\)</span>。於是
+<span class="math display">\[
+\int_{-\infty}^\infty|g(\tau)|d\tau=\int_{-1}^1|g(\tau)|d\tau+\int_{outside\;[-1,1]}|g(\tau)|d\tau&lt;\infty
+\]</span> (前面因為<span
+class="math inline">\(g\)</span>連續(註記6)所以積分有限，後面因為<span
+class="math inline">\(g(\tau)=O\left(\frac{1}{\tau^2}\right)\)</span>所以積分有限(<a
+href="https://alexthepurplerose.github.io/2024/07/10/cal-improper-int/">這裡</a>的定理5-1)。)於是，我們知道</p>
 
     </div>
 
@@ -553,7 +655,8 @@ class="math inline">\(\int_{-\infty}^\infty|f&#39;&#39;(x)|dx&lt;\infty\)</span>
 4：傅立葉轉換 (Fourier Transform)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E5%8F%8D%E8%BD%89%E5%82%85%E7%AB%8B%E8%91%89%E8%BD%89%E6%8F%9B-inverse-fourier-transform"><span class="nav-number">1.4.1.</span> <span class="nav-text">定義
 4-1：反轉傅立葉轉換 (Inverse Fourier Transform)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">定義 4-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1%E5%AE%9A%E7%90%865%E7%9A%84%E7%AD%89%E5%83%B9%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.5.1.</span> <span class="nav-text">註記
 5-1：定理5的等價形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-2"><span class="nav-number">1.5.2.</span> <span class="nav-text">註記 5-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-3"><span class="nav-number">1.5.3.</span> <span class="nav-text">註記 5-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-3-1"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">註記 5-3-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-5-4"><span class="nav-number">1.5.4.</span> <span class="nav-text">例 5-4</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E6%83%B3-5-4-1"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">回想 5-4-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-5-5%E5%B8%B8%E6%85%8B%E5%88%86%E5%B8%83-normal-distribution"><span class="nav-number">1.5.5.</span> <span class="nav-text">例
-5-5：常態分布 (Normal Distribution)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%82%85%E7%AB%8B%E8%91%89%E8%BD%89%E6%8F%9B%E7%9A%84%E6%80%A7%E8%B3%AA"><span class="nav-number">2.</span> <span class="nav-text">傅立葉轉換的性質</span></a></li></ol></div>
+5-5：常態分布 (Normal Distribution)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%82%85%E7%AB%8B%E8%91%89%E8%BD%89%E6%8F%9B%E7%9A%84%E6%80%A7%E8%B3%AA"><span class="nav-number">2.</span> <span class="nav-text">傅立葉轉換的性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6"><span class="nav-number">2.1.</span> <span class="nav-text">註記 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7%E5%82%85%E7%AB%8B%E8%91%89%E8%BD%89%E6%8F%9B%E7%9A%84%E4%BC%B0%E8%A8%88-estimation-of-fourier-transform"><span class="nav-number">2.2.</span> <span class="nav-text">註記
+7：傅立葉轉換的估計 (Estimation of Fourier Transform)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 7-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.3.</span> <span class="nav-text">定理 8</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
