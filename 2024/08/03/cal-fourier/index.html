@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/03/cal-fourier/f.jpg">
 <meta property="article:published_time" content="2024-08-03T13:18:01.000Z">
-<meta property="article:modified_time" content="2024-08-04T14:08:05.340Z">
+<meta property="article:modified_time" content="2024-08-09T08:34:02.511Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-08-04 22:08:05" itemprop="dateModified" datetime="2024-08-04T22:08:05+08:00">2024-08-04</time>
+                <time title="修改時間：2024-08-09 16:34:02" itemprop="dateModified" datetime="2024-08-09T16:34:02+08:00">2024-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -278,12 +278,15 @@ f(x)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty g(\tau)e^{i\tau x}d\tau
 class="math inline">\(\mathscr{F}\)</span>代表傅立葉轉換，<span
 class="math inline">\(\mathscr{F}^{-1}\)</span>代表反轉傅立葉轉換。</p>
 <h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
-<p>我們希望說明<span
+<p>我們希望說明當<span class="math inline">\(f\)</span>和<span
+class="math inline">\(f&#39;\)</span>都連續時，<span
 class="math inline">\(\mathscr{F}^{-1}(\mathscr{F}f)=f,
 \mathscr{F}(\mathscr{F}^{-1}g)=g\)</span>，即 <span
 class="math display">\[
 f\xrightarrow{\mathscr{F}}g\xrightarrow{\mathscr{F}^{-1}}f
-\]</span></p>
+\]</span> (<span class="math inline">\(f\)</span>和<span
+class="math inline">\(f&#39;\)</span>都連續是函數值等於傅立葉級數值的其中一種條件，見<a
+href="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/">這裡</a>的定理22。)</p>
 <h3 id="註記-5-1定理5的等價形式"><font color=#0000FF><u>註記
 5-1：定理5的等價形式</u></font></h3>
 <p>令<span class="math inline">\(g\)</span>是<span
@@ -551,8 +554,10 @@ f(x)e^{-ix\tau}dxd\tau\\
 &amp;=\int_{-A}^A\overline{g(\tau)}g_B(\tau)d\tau
 \end{aligned}
 \]</span> 這裡<span class="math inline">\(g_B(\tau)\)</span>和<span
-class="math inline">\(f_A(x)\)</span>的定義類似。則 <span
+class="math inline">\(f_A(x)\)</span>的定義類似，是 <span
 class="math display">\[
+g_B(\tau)=\frac{1}{\sqrt{2\pi}}\int_{-B}^B f(t)e^{-it\tau}dt
+\]</span> 則 <span class="math display">\[
 \begin{aligned}
 J_{AB}&amp;=\int_{-B}^B
 |f(x)|^2+|f_A(x)|^2dx-\int_{-A}^A\left[\overline{g(\tau)}g_B(\tau)+g(\tau)\overline{g_B(\tau)}\right]d\tau\mbox{
@@ -568,7 +573,53 @@ class="math inline">\(g(\tau)=O\left(\frac{1}{\tau^2}\right)\)</span>。於是
 \]</span> (前面因為<span
 class="math inline">\(g\)</span>連續(註記6)所以積分有限，後面因為<span
 class="math inline">\(g(\tau)=O\left(\frac{1}{\tau^2}\right)\)</span>所以積分有限(<a
-href="https://alexthepurplerose.github.io/2024/07/10/cal-improper-int/">這裡</a>的定理5-1)。)於是，我們知道</p>
+href="https://alexthepurplerose.github.io/2024/07/10/cal-improper-int/">這裡</a>的定理5-1)。)於是，由於<span
+class="math inline">\(|e^{i\tau x}|=1\)</span>，故當<span
+class="math inline">\(A\)</span>夠大時，有 <span class="math display">\[
+\int_{outside\;[-A,A]}g(\tau)e^{i\tau x}d\tau
+\]</span> 由定理5我們知道<span
+class="math inline">\(f_A\)</span>會收斂到<span
+class="math inline">\(f\)</span>，而在此我們知道這個收斂是一致收斂。<br>
+於是，當<span class="math inline">\(A\to\infty\)</span>時，有<span
+class="math inline">\(J_{AB}=0\)</span>，故由(★)有 <span
+class="math display">\[
+2\int_{-B}^B|f(x)|^2dx=\int_{-A}^A\left[\overline{g(\tau)}g_B(\tau)+g(\tau)\overline{g_B(\tau)}\right]d\tau\mbox{
+(✪)}
+\]</span> 又由類似的理由可以知道當<span
+class="math inline">\(B\to\infty\)</span>時<span
+class="math inline">\(g_B\)</span>一致收斂到<span
+class="math inline">\(g\)</span>。故給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在夠大的<span
+class="math inline">\(B\)</span>使得 <span class="math display">\[
+\left|\int_{-\infty}^\infty
+g(\tau)(\overline{g_B(\tau)}-\overline{g(\tau)})d\tau\right|\leq\int_{finite\;interval}\left|g(\tau)(\overline{g_B(\tau)}-\overline{g(\tau)})\right|d\tau+\int_{outside}\left|g(\tau)(\overline{g_B(\tau)}-\overline{g(\tau)})\right|d\tau&lt;\epsilon
+\]</span> (前面的積分在<span class="math inline">\(B\)</span>夠大時<span
+class="math inline">\(\overline{g_B(\tau)}-\overline{g(\tau)}\to
+0\)</span>，後面的積分當夠外面時<span class="math inline">\(\int g\to
+0\)</span>。) 於是，當<span
+class="math inline">\(B\to\infty\)</span>時， <span
+class="math display">\[
+\int_{-\infty}^\infty
+g(\tau)\overline{g(\tau)}d\tau=\int_{-\infty}^\infty
+g(\tau)\overline{g_B(\tau)}d\tau
+\]</span> 同理，有 <span class="math display">\[
+\int_{-\infty}^\infty
+g(\tau)\overline{g(\tau)}d\tau=\int_{-\infty}^\infty
+\overline{g(\tau)}g_B(\tau)d\tau
+\]</span> 於是，由(✪)有 <span class="math display">\[
+\int_{-\infty}^\infty |f(x)|^2dx=\int_{-\infty}^\infty|g(\tau)|^2d\tau
+\]</span> <font size="1">QED</font></p>
+<h2
+id="定義-9多維傅立葉轉換-multi-dimensional-fourier-transform"><font color=#008000><u>定義
+9：多維傅立葉轉換 (Multi-dimensional Fourier Transform)</u></font></h2>
+<p>我們可以定義多維的傅立葉轉換。給定<span
+class="math inline">\(\vec{x}\in\mathbb{R}^n\)</span>及函數<span
+class="math inline">\(f:\mathbb{R}^n\to\mathbb{R}\)</span>，則定義其傅立葉轉換為
+<span class="math display">\[
+g(\vec{x})=\frac{1}{2\pi}\int_{\mathbb{R}^n}e^{-i\vec{x}\cdot\vec{t}}f(\vec{t})d\vec{t}
+\]</span> 上面的<span
+class="math inline">\(\vec{x}\cdot\vec{t}\)</span>是內積，而前面的常數<span
+class="math inline">\(\frac{1}{2\pi}\)</span>會依使用情境不同而有變化。</p>
 
     </div>
 
@@ -592,7 +643,10 @@ href="https://alexthepurplerose.github.io/2024/07/10/cal-improper-int/">這裡</
     <a href="/2024/08/03/cal-multi-improper-2/" rel="prev" title="微積分：多變數瑕積分的一致收斂性">
       <i class="fa fa-chevron-left"></i> 微積分：多變數瑕積分的一致收斂性
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/08/09/cal-multi-funda/" rel="next" title="微積分：多變數函數的微積分基本定理">
+      微積分：多變數函數的微積分基本定理 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -656,7 +710,8 @@ href="https://alexthepurplerose.github.io/2024/07/10/cal-improper-int/">這裡</
 4-1：反轉傅立葉轉換 (Inverse Fourier Transform)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">定義 4-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1%E5%AE%9A%E7%90%865%E7%9A%84%E7%AD%89%E5%83%B9%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.5.1.</span> <span class="nav-text">註記
 5-1：定理5的等價形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-2"><span class="nav-number">1.5.2.</span> <span class="nav-text">註記 5-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-3"><span class="nav-number">1.5.3.</span> <span class="nav-text">註記 5-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-3-1"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">註記 5-3-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-5-4"><span class="nav-number">1.5.4.</span> <span class="nav-text">例 5-4</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9B%9E%E6%83%B3-5-4-1"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">回想 5-4-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-5-5%E5%B8%B8%E6%85%8B%E5%88%86%E5%B8%83-normal-distribution"><span class="nav-number">1.5.5.</span> <span class="nav-text">例
 5-5：常態分布 (Normal Distribution)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%82%85%E7%AB%8B%E8%91%89%E8%BD%89%E6%8F%9B%E7%9A%84%E6%80%A7%E8%B3%AA"><span class="nav-number">2.</span> <span class="nav-text">傅立葉轉換的性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6"><span class="nav-number">2.1.</span> <span class="nav-text">註記 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7%E5%82%85%E7%AB%8B%E8%91%89%E8%BD%89%E6%8F%9B%E7%9A%84%E4%BC%B0%E8%A8%88-estimation-of-fourier-transform"><span class="nav-number">2.2.</span> <span class="nav-text">註記
-7：傅立葉轉換的估計 (Estimation of Fourier Transform)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 7-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.3.</span> <span class="nav-text">定理 8</span></a></li></ol></li></ol></div>
+7：傅立葉轉換的估計 (Estimation of Fourier Transform)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 7-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.3.</span> <span class="nav-text">定理 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E5%A4%9A%E7%B6%AD%E5%82%85%E7%AB%8B%E8%91%89%E8%BD%89%E6%8F%9B-multi-dimensional-fourier-transform"><span class="nav-number">2.4.</span> <span class="nav-text">定義
+9：多維傅立葉轉換 (Multi-dimensional Fourier Transform)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -670,7 +725,7 @@ href="https://alexthepurplerose.github.io/2024/07/10/cal-improper-int/">這裡</
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
