@@ -28,8 +28,15 @@
 <meta property="og:description" content="這份筆記是關於高斯定理、散度定理與格林定理的介紹與證明。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/region-1.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/region-cross.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/region-oriented.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/region-general.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/region-horiz.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/normal.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/direc-deriv.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/green.jpg">
 <meta property="article:published_time" content="2024-08-09T08:34:38.000Z">
-<meta property="article:modified_time" content="2024-08-10T07:57:27.449Z">
+<meta property="article:modified_time" content="2024-08-10T09:30:27.980Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -201,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-08-10 15:57:27" itemprop="dateModified" datetime="2024-08-10T15:57:27+08:00">2024-08-10</time>
+                <time title="修改時間：2024-08-10 17:30:27" itemprop="dateModified" datetime="2024-08-10T17:30:27+08:00">2024-08-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,7 +240,7 @@
 <center>
 <h1 id="高斯定理"><font color=#b8860b>高斯定理</font></h1>
 </center>
-<h2 id="約定-1"><font color=#008000><u>約定 1</u></font></h2>
+<h2 id="註記-1"><font color=#0000FF><u>註記 1</u></font></h2>
 <p>我們底下記<span class="math inline">\(R\)</span>為一<span
 class="math inline">\(\mathbb{R}^2\)</span>上的區域，並令<span
 class="math inline">\(+C\)</span>是<span
@@ -242,6 +249,259 @@ class="math inline">\(R\)</span>正方向的邊界(我們在這裡先手動選�
 <center>
 圖1
 </center>
+<h2 id="回想-2"><font color=#0000FF><u>回想 2</u></font></h2>
+<p>由<a
+href="https://alexthepurplerose.github.io/2024/07/26/cal-curve/">這裡</a>的定理11，我們知道<span
+class="math inline">\(R\)</span>的面積<span
+class="math inline">\(A\)</span>可以寫成 <span class="math display">\[
+A=\iint_R dxdy=\int_{+C}xdy
+\]</span></p>
+<h2 id="定理-3高斯定理-gauss-theorem"><font color=#ff1493><u>定理
+3：高斯定理 (Gauss' Theorem)</u></font></h2>
+<p>條件如上，有 <span class="math display">\[
+\iint_R[f_x(x,y)+g_y(x,y)]dxdy=\int_{+C}f(x,y)dy-g(x,y)dx
+\]</span></p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
+<p>高斯定理可以記為 <span class="math display">\[
+\iint_R dL=\int_{+C}L
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：先考慮比較好的<span
+class="math inline">\(R\)</span>，假設每一條和座標軸平行的直線都只和<span
+class="math inline">\(C\)</span>有至多兩個交點，並假設<span
+class="math inline">\(g(x,y)=0\)</span>(見下圖2)。</p>
+<img src="region-cross.jpg" width="25%" height="25%">
+<center>
+圖2
+</center>
+<p>則原定理轉為說明 <span class="math display">\[
+\iint_R f_x(x,y)dxdy=\int_{+C}f(x,y)dy
+\]</span> 在上圖2中，令<span
+class="math inline">\(\eta_0\)</span>是使<span
+class="math inline">\(y=\eta_0\)</span>和<span
+class="math inline">\(C\)</span>有交點的最小數，而<span
+class="math inline">\(\eta_1\)</span>是使<span
+class="math inline">\(y=\eta_1\)</span>和<span
+class="math inline">\(C\)</span>有交點的最大數。並且對於<span
+class="math inline">\(\eta_0\leq\eta^*\leq\eta_1\)</span>，令<span
+class="math inline">\(y=\eta^*\)</span>和<span
+class="math inline">\(C\)</span>相交於<span
+class="math inline">\(x_0(\eta^*)\)</span>和<span
+class="math inline">\(x_1(\eta^*)\)</span>，其中<span
+class="math inline">\(x_0(\eta^*)\leq x_1(\eta^*)\)</span>。則 <span
+class="math display">\[
+\begin{aligned}
+\iint_R
+f_x(x,y)dxdy&amp;=\int_{\eta_0}^{\eta_1}dy\int_{x_0(y)}^{x_1(y)}f_x(x,y)dx\\
+&amp;=\int_{\eta_0}^{\eta_1}f(x_1(y),y)-f(x_0(y),y)dy\mbox{
+(微積分基本定理)}\\
+&amp;=\int_{\eta_0}^{\eta_1}f(x_1(y),y)dy-\int_{\eta_0}^{\eta_1}f(x_0(y),y)dy
+\end{aligned}
+\]</span> 接著，我們考慮兩個有向弧<span
+class="math inline">\(+C_0\)</span>, <span
+class="math inline">\(+C_1\)</span>，定義為 <span
+class="math display">\[
+\left\{
+\begin{aligned}
++C_1&amp;:x=x_1(t), y=t, \eta_0\leq t\leq\eta_1\\
++C_0&amp;:x=x_0(t), y=t, \eta_0\leq t\leq\eta_1
+\end{aligned}
+\right.
+\]</span> 見下圖3。</p>
+<img src="region-oriented.jpg" width="50%" height="50%">
+<center>
+圖3
+</center>
+<p>故 <span class="math display">\[
+\iint_R
+f_x(x,y)dxdy=\int_{+C_1}f(x,y)dy+\int_{-C_0}f(x,y)dy=\int_{+C}f(x,y)dy
+\]</span></p>
+<p>而對於一般的<span class="math inline">\(R\)</span>。可以把<span
+class="math inline">\(R\)</span>切成很多塊，使得每一條與座標軸平行的直線都只和一區有至多兩個交點，則依然會有
+<span class="math display">\[
+\iint_R f_x(x,y)dxdy=\int_{+C}f(x,y)dy
+\]</span> 例如在下圖4中<span class="math inline">\(R_1\)</span>和<span
+class="math inline">\(R_2\)</span>的共用邊的部分就會消掉。</p>
+<img src="region-general.jpg" width="25%" height="25%">
+<center>
+圖4
+</center>
+<p>然後再考慮<span
+class="math inline">\(f(x,y)=0\)</span>的狀況，然後橫著切，也會有一樣的結論(見下圖5)。</p>
+<img src="region-horiz.jpg" width="25%" height="25%">
+<center>
+圖5
+</center>
+<p>然而，這裡會多出一個負號。因為<span
+class="math inline">\(\int_{C_0&#39;}+\int_{-C_1&#39;}\)</span>的方向(順時針)會和<span
+class="math inline">\(\int_{+C_1}+\int_{-C_0}\)</span>的方向(逆時針)相反，即
+<span class="math display">\[
+\iint_R g_y(x,y)dxdy=\int_{-C}g(x,y)dx
+\]</span></p>
+<p>於是，總的來說我們有 <span class="math display">\[
+\iint_R[f_x(x,y)+g_y(x,y)]dxdy=\int_{+C}f(x,y)dy-g(x,y)dx
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-3-2"><font color=#0000FF><u>註記 3-2</u></font></h3>
+<p>令<span class="math inline">\(s\)</span>為弧長，則 <span
+class="math display">\[
+f(x,y)dy-g(x,y)dx=\left[f(x,y)\frac{dy}{ds}-g(x,y)\frac{dx}{ds}\right]
+\]</span> 令<span class="math inline">\(\dot{x}=\frac{dx}{ds},
+\dot{y}=\frac{dy}{ds}\)</span>，則高斯定理可寫為 <span
+class="math display">\[
+\iint_R[f_x(x,y)+g_y(x,y)]dxdy=\int_{+C}(f\dot{y}-g\dot{x})ds
+\]</span></p>
+<center>
+<h1 id="散度定理"><font color=#b8860b>散度定理</font></h1>
+</center>
+<h2 id="定義-4向量場-vector-field"><font color=#008000><u>定義 4：向量場
+(Vector Field)</u></font></h2>
+<p>我們稱函數 <span class="math display">\[
+A(x,y)=(f(x,y),g(x,y))=f(x,y)\mathbf{i}+g(x,y)\mathbf{j}
+\]</span> 為一向量場，其中<span class="math inline">\(\mathbf{i}=(1,0),
+\mathbf{j}=(0,1)\)</span>。</p>
+<h2 id="定義-5散度-divergence"><font color=#008000><u>定義 5：散度
+(Divergence)</u></font></h2>
+<p>給定一向量場<span
+class="math inline">\(A\)</span>如定義4，則定義<span
+class="math inline">\(A\)</span>的散度為 <span class="math display">\[
+\mbox{div } A=f_x(x,y)+g_y(x,y)
+\]</span></p>
+<h2 id="定理-6散度定理-divergence-theorem"><font color=#ff1493><u>定理
+6：散度定理 (Divergence Theorem)</u></font></h2>
+<p>給定<span class="math inline">\(\mathbb{R}^2\)</span>上的向量場<span
+class="math inline">\(A=(f(x,y),g(x,y))\)</span>，有 <span
+class="math display">\[
+\iint_R\mbox{div }Adxdy=\int_{+C} A\cdot nds
+\]</span> 其中<span class="math inline">\(n\)</span>為<span
+class="math inline">\(+C\)</span>的法向量(我們稍後會仔細定義這件事)。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由<a
+href="https://alexthepurplerose.github.io/2024/07/26/cal-curve/">這裡</a>的註記3-1，我們知道<span
+class="math inline">\(t=(\dot{x},\dot{y})\)</span>是長度為<span
+class="math inline">\(1\)</span>且指向曲線的切線方向的向量，且是指向<span
+class="math inline">\(s\)</span>遞增的方向(注意這裡的<span
+class="math inline">\(\dot{x},\dot{y}\)</span>定義和該處有些微不同)。現在我們考慮法向量<span
+class="math inline">\(n=(\dot{y},-\dot{x})\)</span>，則<span
+class="math inline">\(n\)</span>會指向<span
+class="math inline">\(R\)</span>的右邊(見下圖6)。</p>
+<img src="normal.jpg" width="25%" height="25%">
+<center>
+圖6
+</center>
+<p>令<span class="math inline">\(n=(\xi,\eta)\)</span>，其中<span
+class="math inline">\(\xi=\frac{dy}{ds},
+\eta=-\frac{dx}{ds}\)</span>，並令<span
+class="math inline">\(\theta\)</span>是<span
+class="math inline">\(n\)</span>和正<span
+class="math inline">\(x\)</span>軸的夾角，則易知<span
+class="math inline">\(n\)</span>的長度也是<span
+class="math inline">\(1\)</span>且<span
+class="math inline">\(n=(\cos\theta,\sin\theta)\)</span>(見下圖7)。</p>
+<img src="direc-deriv.jpg" width="25%" height="25%">
+<center>
+圖7
+</center>
+<p>給定函數<span class="math inline">\(h(x,y)\)</span>，由<a
+href="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/">這裡</a>的註記17我們知道<span
+class="math inline">\(h\)</span>在<span
+class="math inline">\(n\)</span>方向的方向導數為 <span
+class="math display">\[
+\frac{dh}{dn}=h_x\cos\theta+h_y\sin\theta=h_x\xi+h_y\eta
+\]</span> 於是， <span class="math display">\[
+\begin{aligned}
+\frac{dx}{dn}&amp;=1\cdot\xi+0\cdot\eta=\xi=\frac{dy}{ds}\\
+\frac{dy}{dn}&amp;=0\cdot\xi+1\cdot\eta=\eta=-\frac{dx}{ds}
+\end{aligned}
+\]</span> 於是，由註記3-2有 <span class="math display">\[
+\begin{aligned}
+\int_{+C}f(x,y)dy-g(x,y)dx&amp;=\int_{+C}\left[f(x,y)\frac{dy}{ds}-g(x,y)\frac{dx}{ds}\right]ds\\
+&amp;=\int_{+C}\left[f(x,y)\frac{dx}{dn}+g(x,y)\frac{dy}{dn}\right]ds\\
+&amp;=\int_{+C}A\cdot nds
+\end{aligned}
+\]</span> 最後，由高斯定理(定理3)，即得 <span class="math display">\[
+\iint_R\mbox{div }Adxdy=\int_{+C} A\cdot nds
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-6-1"><font color=#0000FF><u>註記 6-1</u></font></h3>
+<p>在高斯定理中令<span class="math inline">\(a(x,y)=-g(x,y),
+b(x,y)=f(x,y)\)</span>，則 <span class="math display">\[
+\iint_R(b_x-a_y)dxdy=\int_{+C}adx+bdy=\int_{+C}\left(a\frac{dx}{ds}+b\frac{dy}{ds}\right)ds=\int_{+C}B\cdot
+tds
+\]</span> 其中<span class="math inline">\(B=(a,b)=(-g,f)\)</span>, <span
+class="math inline">\(t=(\dot{x}, \dot{y})\)</span>。可以發現<span
+class="math inline">\(B\)</span>可以由<span
+class="math inline">\(A\)</span>逆時針旋轉<span
+class="math inline">\(\pi/2\)</span>得到。</p>
+<center>
+<h1 id="格林定理"><font color=#b8860b>格林定理</font></h1>
+</center>
+<h2
+id="定義-7拉普拉斯算符-laplacian-operator"><font color=#008000><u>定義
+7：拉普拉斯算符 (Laplacian Operator)</u></font></h2>
+<p>我們將函數<span
+class="math inline">\(w(x,y)\)</span>的拉普拉斯算符定義為 <span
+class="math display">\[
+\Delta w=w_{xx}+w_{yy}
+\]</span></p>
+<h2 id="定理-8格林定理-greens-theorem"><font color=#ff1493><u>定理
+8：格林定理 (Green's Theorem)</u></font></h2>
+<p>對於<span class="math inline">\(\mathbb{R}^2\)</span>上的<span
+class="math inline">\(R\)</span>及函數<span
+class="math inline">\(w(x,y), u(x,y)\)</span>，有 <span
+class="math display">\[
+\iint_R(u\Delta w-w\Delta
+u)dxdy=\int_{+C}\left(u\frac{dw}{dn}-w\frac{du}{dn}\right)ds
+\]</span> 其中<span
+class="math inline">\(n\)</span>和散度定理(定理6)中一樣是指向<span
+class="math inline">\(R\)</span>右邊的法向量。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：在散度定理中令 <span
+class="math display">\[
+f(x,y)=a(x,y)u(x,y), g(x,y)=b(x,y)v(x,y)
+\]</span> 則 <span class="math display">\[
+f_x+g_y=(au_x+bv_y)+(a_xu+b_yv)
+\]</span> 於是，由散度定理， <span class="math display">\[
+\iint_R(au_x+bv_y)dxdy=\int_{+C}\left(au\frac{dx}{dn}+bv\frac{dy}{dn}\right)ds-\iint_R(a_xu+b_yv)dxdy
+\]</span> 接著，令<span class="math inline">\(u=v, a=w_x,
+b=w_y\)</span>，有 <span class="math display">\[
+\iint_R(u_xw_x+u_yw_y)dxdy=\int_{+C}u\left(w_x\frac{dx}{dn}+w_y\frac{dy}{dn}\right)ds-\iint_R
+u(w_{xx}+w_{yy})dxdy
+\]</span> 又由鏈鎖律， <span class="math display">\[
+\frac{dw}{dn}=w_x\frac{dx}{dn}+w_y\frac{dy}{dn}
+\]</span> 故 <span class="math display">\[
+\iint_R(u_xw_x+u_yw_y)dxdy=\int_{+C}u\frac{dw}{dn}ds-\iint_R u\Delta
+wdxdy
+\]</span> 將<span class="math inline">\(u\)</span>和<span
+class="math inline">\(w\)</span>對換，會有 <span class="math display">\[
+\iint_R(w_xu_x+w_yu_y)dxdy=\int_{+C}w\frac{du}{dn}ds-\iint_R w\Delta
+udxdy
+\]</span> 上下兩式的左式相等，於是便有 <span class="math display">\[
+\iint_R(u\Delta w-w\Delta
+u)dxdy=\int_{+C}\left(u\frac{dw}{dn}-w\frac{du}{dn}\right)ds
+\]</span> <font size="1">QED</font></p>
+<img src="green.jpg" width="25%" height="25%">
+<center>
+圖8 George Green
+</center>
+<center>
+<h1
+id="高斯定理與雅可比行列式"><font color=#b8860b>高斯定理與雅可比行列式</font></h1>
+</center>
+<h2 id="定理-9"><font color=#ff1493><u>定理 9</u></font></h2>
+<p>給定<span class="math inline">\(xy\)</span>平面上的區域<span
+class="math inline">\(R\)</span>及<span
+class="math inline">\(uv\)</span>平面上的區域<span
+class="math inline">\(R&#39;\)</span>，其中<span
+class="math inline">\(u=u(x,y)\)</span>, <span
+class="math inline">\(v=v(x,y)\)</span>，<span
+class="math inline">\(R\)</span>和<span
+class="math inline">\(R&#39;\)</span>相互對應(<span
+class="math inline">\(R\)</span>被<span
+class="math inline">\((u,v)\)</span>打去<span
+class="math inline">\(R&#39;\)</span>)，則給定函數<span
+class="math inline">\(f\)</span>，有 <span class="math display">\[
+\iint_{R&#39;}f(u,v)dudv=\iint_R
+f(u(x,y),v(x,y))\frac{\partial(u,v)}{\partial(x,y)}dxdy
+\]</span> 其中<span
+class="math inline">\(\frac{\partial(u,v)}{\partial(x,y)}\)</span>是雅可比行列式，見<a
+href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">這裡</a>的定義4。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：</p>
 
     </div>
 
@@ -324,7 +584,13 @@ class="math inline">\(R\)</span>正方向的邊界(我們在這裡先手動選�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E5%AE%9A%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">高斯定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%84%E5%AE%9A-1"><span class="nav-number">1.1.</span> <span class="nav-text">約定 1</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E5%AE%9A%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">高斯定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1"><span class="nav-number">1.1.</span> <span class="nav-text">註記 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%83%B3-2"><span class="nav-number">1.2.</span> <span class="nav-text">回想 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3%E9%AB%98%E6%96%AF%E5%AE%9A%E7%90%86-gauss-theorem"><span class="nav-number">1.3.</span> <span class="nav-text">定理
+3：高斯定理 (Gauss&#39; Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">註記 3-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">散度定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E5%90%91%E9%87%8F%E5%A0%B4-vector-field"><span class="nav-number">2.1.</span> <span class="nav-text">定義 4：向量場
+(Vector Field)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E6%95%A3%E5%BA%A6-divergence"><span class="nav-number">2.2.</span> <span class="nav-text">定義 5：散度
+(Divergence)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90%86-divergence-theorem"><span class="nav-number">2.3.</span> <span class="nav-text">定理
+6：散度定理 (Divergence Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">註記 6-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%BC%E6%9E%97%E5%AE%9A%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">格林定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E7%AE%97%E7%AC%A6-laplacian-operator"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+7：拉普拉斯算符 (Laplacian Operator)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8%E6%A0%BC%E6%9E%97%E5%AE%9A%E7%90%86-greens-theorem"><span class="nav-number">3.2.</span> <span class="nav-text">定理
+8：格林定理 (Green&#39;s Theorem)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E5%AE%9A%E7%90%86%E8%88%87%E9%9B%85%E5%8F%AF%E6%AF%94%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">高斯定理與雅可比行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">4.1.</span> <span class="nav-text">定理 9</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
