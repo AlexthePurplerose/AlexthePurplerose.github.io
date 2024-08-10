@@ -35,8 +35,9 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/normal.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/direc-deriv.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/green.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/jacobi.jpg">
 <meta property="article:published_time" content="2024-08-09T08:34:38.000Z">
-<meta property="article:modified_time" content="2024-08-10T09:30:27.980Z">
+<meta property="article:modified_time" content="2024-08-10T12:44:58.470Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -208,7 +209,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-08-10 17:30:27" itemprop="dateModified" datetime="2024-08-10T17:30:27+08:00">2024-08-10</time>
+                <time title="修改時間：2024-08-10 20:44:58" itemprop="dateModified" datetime="2024-08-10T20:44:58+08:00">2024-08-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -491,17 +492,78 @@ class="math inline">\(R&#39;\)</span>，其中<span
 class="math inline">\(u=u(x,y)\)</span>, <span
 class="math inline">\(v=v(x,y)\)</span>，<span
 class="math inline">\(R\)</span>和<span
-class="math inline">\(R&#39;\)</span>相互對應(<span
-class="math inline">\(R\)</span>被<span
-class="math inline">\((u,v)\)</span>打去<span
-class="math inline">\(R&#39;\)</span>)，則給定函數<span
+class="math inline">\(R&#39;\)</span>相互對應(見下圖9)，則給定函數<span
 class="math inline">\(f\)</span>，有 <span class="math display">\[
 \iint_{R&#39;}f(u,v)dudv=\iint_R
 f(u(x,y),v(x,y))\frac{\partial(u,v)}{\partial(x,y)}dxdy
 \]</span> 其中<span
-class="math inline">\(\frac{\partial(u,v)}{\partial(x,y)}\)</span>是雅可比行列式，見<a
-href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">這裡</a>的定義4。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：</p>
+class="math inline">\(\frac{\partial(u,v)}{\partial(x,y)}\neq
+0\)</span>是雅可比行列式，見<a
+href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">這裡</a>的定義4。</p>
+<img src="jacobi.jpg" width="25%" height="25%">
+<center>
+圖9
+</center>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(R\)</span>和<span
+class="math inline">\(R&#39;\)</span>的邊界分別為<span
+class="math inline">\(C\)</span>和<span
+class="math inline">\(C&#39;\)</span>。令<span
+class="math inline">\(L=a(x,y)dx+b(x,y)dy\)</span>，則由高斯定理有 <span
+class="math display">\[
+\iint_R dL=\int_{+C}L
+\]</span> 對照高斯定理，有 <span class="math display">\[
+dL=(b_x-a_y)dxdy
+\]</span> 假設<span class="math inline">\(C\)</span>可被表為 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+x&amp;=x(t)\\
+y&amp;=y(t)
+\end{aligned}
+\right.,\alpha\leq t\leq\beta
+\]</span> 且 <span class="math display">\[
+\begin{aligned}
+\int_{+C}L&amp;=\int_{+C}adx+bdy\\
+&amp;=\int_{+C}\left(a\frac{dx}{dt}+b\frac{dy}{dt}\right)dt\\
+&amp;=\int_\alpha^\beta\frac{L}{dt}dt
+\end{aligned}
+\]</span> 現在考慮<span class="math inline">\(u=u(x,y),
+v=v(x,y)\)</span>，假設雅可比行列式<span
+class="math inline">\(\frac{\partial(u,v)}{\partial(x,y)}&gt;0\)</span>。則我們可以將<span
+class="math inline">\(u,v\)</span>寫成<span
+class="math inline">\(u=u(x(t),y(t)),
+v=v(x(t),y(t))\)</span>。接著，我們令 <span class="math display">\[
+L=Adu+Bdv=A(u_xdx+u_ydy)+B(v_xdx+v_ydy)=adx+bdy
+\]</span> 對比可以得到 <span class="math display">\[
+a=Au_x+Bv_x, b=Au_y+Bv_y
+\]</span> 又 <span class="math display">\[
+\frac{L}{dt}=a\frac{dx}{dt}+b\frac{dy}{dt}=A\frac{du}{dt}+B\frac{dv}{dt}
+\]</span> 故 <span class="math display">\[
+\int_{+C}L=\int_\alpha^\beta\frac{L}{dt}dt=\int_\alpha^\beta
+Adu+Bdv=\int_{+C&#39;}L
+\]</span> 但由高斯定理有 <span class="math display">\[
+\int_{+C&#39;}L=\iint_{R&#39;}dL=\iint_{R&#39;}(B_u-A_v)dudv
+\]</span> 而 <span class="math display">\[
+\begin{aligned}
+b_x-a_y&amp;=(Au_y1+Bv_y)_x-(Au_x+Bv_x)_y\\
+&amp;=(B_u-A_v)(u_xv_y-u_yv_x)
+\end{aligned}
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+\iint_{R&#39;}dL&amp;=\iint_{R&#39;}(B_u-A_v)dudv\\
+&amp;=\iint_R dL\;\;\left(\int_{+C}L=\int_{+C&#39;}L\right)\\
+&amp;=\iint_R(b_x-a_y)dxdy\\
+&amp;=\iint_R(B_u-A_v)\frac{\partial(u,v)}{\partial(x,y)}dxdy
+\end{aligned}
+\]</span> (最後一步注意<span
+class="math inline">\(\frac{\partial(u,v)}{\partial(x,y)}=u_xv_y-u_yv_x\)</span>)。令<span
+class="math inline">\(A=0\)</span>, <span
+class="math inline">\(B_u=f(u,v)\)</span>就有 <span
+class="math display">\[
+\iint_{R&#39;}f(u,v)dudv=\iint_R
+f(u(x,y),v(x,y))\frac{\partial(u,v)}{\partial(x,y)}dxdy
+\]</span> <font size="1">QED</font></p>
 
     </div>
 
@@ -525,7 +587,10 @@ href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">這裡</a
     <a href="/2024/08/03/cal-fourier/" rel="prev" title="微積分：傅立葉轉換">
       <i class="fa fa-chevron-left"></i> 微積分：傅立葉轉換
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/08/10/cal-3-gauss/" rel="next" title="微積分：三維高斯定理">
+      微積分：三維高斯定理 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -604,7 +669,7 @@ href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">這裡</a
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
