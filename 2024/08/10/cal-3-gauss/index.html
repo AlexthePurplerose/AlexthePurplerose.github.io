@@ -35,8 +35,9 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/10/cal-3-gauss/projection.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/10/cal-3-gauss/Omega.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/10/cal-3-gauss/down.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/10/cal-3-gauss/fluid.jpg">
 <meta property="article:published_time" content="2024-08-10T12:46:55.000Z">
-<meta property="article:modified_time" content="2024-08-11T09:07:07.210Z">
+<meta property="article:modified_time" content="2024-08-11T14:51:11.202Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -208,7 +209,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-08-11 17:07:07" itemprop="dateModified" datetime="2024-08-11T17:07:07+08:00">2024-08-11</time>
+                <time title="修改時間：2024-08-11 22:51:11" itemprop="dateModified" datetime="2024-08-11T22:51:11+08:00">2024-08-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -522,14 +523,14 @@ class="math inline">\(a=b=0\)</span>。</p>
 class="math display">\[
 \begin{aligned}
 \iiint_R c_zdxdydz&amp;=\iint_B dxdy\int_{z_0(x,y)}^{z_1(x,y)}c_zdz\\
-&amp;=\iint_B(c(x,y,z_1(x,y))-c(x,y,z_0(x,y))dxdy
+&amp;=\iint_B(c(x,y,z_1(x,y))-c(x,y,z_0(x,y))dxdy\mbox{ (☆)}
 \end{aligned}
 \]</span> 令<span class="math inline">\(c_1=c(x,y,z_1(x,y))\)</span>,
 <span class="math inline">\(c_0=c(x,y,z_0(x,y))\)</span>。並令 <span
 class="math display">\[
-S_1=\{(x,y,z_1(x,y)):x,y\in B\}, S_2=\{(x,y,z_0(x,y)):x,y\in B\}
+S_1=\{(x,y,z_1(x,y)):x,y\in B\}, S_0=\{(x,y,z_0(x,y)):x,y\in B\}
 \]</span> 則 <span class="math display">\[
-\iint_{S^*}cdxdy=\iint_{S^*_1}cdxdy+\iint_{S^*_2}cdxdy
+\iint_{S^*}cdxdy=\iint_{S^*_1}cdxdy+\iint_{S^*_0}cdxdy\mbox{ (★)}
 \]</span> 我們在這個座標系下考慮朝向上的<span
 class="math inline">\(\Omega(x,y)\)</span>(見下圖7)。</p>
 <img src="Omega.jpg" width="25%" height="25%">
@@ -537,19 +538,149 @@ class="math inline">\(\Omega(x,y)\)</span>(見下圖7)。</p>
 圖7
 </center>
 <p>而<span
-class="math inline">\(S_2^*\)</span>的定向指向下(見下圖8)。由註記11有
+class="math inline">\(S_0^*\)</span>的定向指向下(見下圖8)。由註記11有
 <span class="math display">\[
-\begin{aligned}
-\iint_{S^*}wdxdy&amp;=\iint_S(a\cos\alpha+b\cos\beta+c\cos\gamma)d\sigma\\
-&amp;=\iint_B(a\cos\alpha+b\cos\beta+c\cos\gamma)\sqrt{\xi^2+\eta^2+\tau^2}dxdy
-\end{aligned}
+\iint_{S_0^*}cdxdy=\iint_{S_0}c\cos\gamma
+d\sigma=\iint_Bc_0\cos\gamma\sqrt{\xi^2+\eta^2+\tau^2}dxdy
 \]</span></p>
 <img src="down.jpg" width="25%" height="25%">
 <center>
 圖8
 </center>
-<p>在這裡我們要處理的是<span class="math inline">\(\iint_B c\cos\gamma
-dxdy\)</span></p>
+<p>由定義，這就是 <span class="math display">\[
+\iint_B c_0\epsilon\cdot\tau dxdy
+\]</span> 而<span
+class="math inline">\(\tau=\frac{\partial(x,y)}{\partial(x,y)}=1\)</span>，且<span
+class="math inline">\(\epsilon\)</span>是 <span class="math display">\[
+\Omega(S_0^*)=\epsilon(\Omega(X_x,X_y)), \epsilon=\pm 1
+\]</span> 由<span
+class="math inline">\(X=(x,y,z)=(x,y,z_0(x,y))\)</span>，我們可以算出
+<span class="math display">\[
+\begin{aligned}
+X_x=(1,0,z_{0x})&amp;,X_y=(0,1,z_{0y})\\
+X_x\times X_y=&amp;(-z_{0x},-z_{0y},1)
+\end{aligned}
+\]</span> 可以發現<span class="math inline">\(X_x\times
+X_y\)</span>是指向上的，和<span
+class="math inline">\(S_0^*\)</span>的定向相反，故<span
+class="math inline">\(\epsilon=-1\)</span>，即 <span
+class="math display">\[
+\iint_{S_0^*}cdxdy=-\iint_B c_0dxdy
+\]</span> 同理 <span class="math display">\[
+\iint_{S_1^*}cdxdy=\iint_B c_1dxdy
+\]</span> 於是，套回上(★)式，有 <span class="math display">\[
+\iint_{S^*}cdxdy=\iint_B c_1dxdy-\iint_B c_0dxdy
+\]</span> 回到(☆)式，有 <span class="math display">\[
+\iiint_R c_zdxdydz=\iint_B c_1dxdy-\iint_B c_0dxdy=\iint_{S^*}cdxdy
+\]</span> 類似二維高斯定理的證明過程，同理推到<span
+class="math inline">\(a,b\)</span>非零的狀況上，再推到一般曲面的狀況上，就證完了此定理。<font size="1">QED</font></p>
+<h3
+id="例-12-1流體的質量守恆與微分方程-mass-conservation-and-differential-equation-of-fluid"><font color=#ffa500><u>例
+12-1：流體的質量守恆與微分方程 (Mass Conservation and Differential
+Equation of Fluid)</u></font></h3>
+<p>令<span
+class="math inline">\(A=(a,b,c)\)</span>為某流體的動量向量場，該流體在時間<span
+class="math inline">\(t\)</span>、空間<span
+class="math inline">\((x,y,z)\)</span>處的密度記為<span
+class="math inline">\(\rho(x,y,z,t)\)</span>，並令其速度向量場為<span
+class="math inline">\(\mathbb{v}=(u,v,w)\)</span>(這裡<span
+class="math inline">\(a,b,c,u,v,w\)</span>吃的變數都是<span
+class="math inline">\((x,y,z,t)\)</span>)。則我們有 <span
+class="math display">\[
+A=\rho\mathbb{v}
+\]</span>
+(流體的動量在計算上一般使用的是每單位體積該流體的動量)則考慮如下圖9的區域，每單位時間從該區域內經過某一小塊區域邊界曲面<span
+class="math inline">\(\Delta\sigma\)</span>流至該區域外的流體質量大約為
+<span class="math display">\[
+\rho \mathbb{v}_n\Delta\sigma
+\]</span> 其中<span class="math inline">\(\mathbb{v}_n\)</span>為與<span
+class="math inline">\(\Delta\sigma\)</span>垂直且同定向(向外)的法方向速度。</p>
+<img src="fluid.jpg" width="25%" height="25%">
+<center>
+圖9
+</center>
+<p>則整個<span class="math inline">\(R\)</span>上的總流出量即為 <span
+class="math display">\[
+\iint_{S^*} \rho\mathbb{v}_nd\sigma=\iiint_R \mbox{div }A\;dxdydz\mbox{
+(高斯定理)}
+\]</span> 其中<span class="math inline">\(S^*\)</span>為指向<span
+class="math inline">\(R\)</span>外側的邊界曲面(因為<span
+class="math inline">\(\mathbb{v}_n\)</span>已經指向外面了，所以要算「流出量」就不用加負號)。<br>
+而<span class="math inline">\(R\)</span>中流體減少的速率為 <span
+class="math display">\[
+-\frac{d}{dt}\iiint_R \rho(x,y,z,t)dxdydz=\iiint_R-\rho_t(x,y,z,t)dxdydz
+\]</span>
+(質量變化量是負的，所以對時間的微分是負的，但「減少量」應該要是正的，所以前面加了負號)這應該要和上面推導出的單位時間流出量相等，即
+<span class="math display">\[
+\iiint_R-\rho_t(x,y,z,t)dxdydz=\iiint_R(\mbox{div }\rho\mathbb{v})dxdydz
+\]</span> 令<span
+class="math inline">\(R\)</span>非常小以致於趨近一個點，則 <span
+class="math display">\[
+\rho_t+\mbox{div }\rho\mathbb{v}=0
+\]</span> 即 <span class="math display">\[
+\rho_t+\frac{\partial}{\partial
+x}(\rho\mathbb{v})+\frac{\partial}{\partial
+y}(\rho\mathbb{v})+\frac{\partial}{\partial z}(\rho\mathbb{v})=0
+\]</span></p>
+<h3 id="定理-12-2"><font color=#ff1493><u>定理 12-2</u></font></h3>
+<p>由高斯定理，若有一三維區域<span
+class="math inline">\(R\)</span>，其邊界為<span
+class="math inline">\(S\)</span>，則可求<span
+class="math inline">\(R\)</span>體積為 <span class="math display">\[
+V=\iiint_R dxdydz=\iint_{S^*}zdxdy=\iint_{S^*}xdydz=\iint_{S^*}ydzdx
+\]</span></p>
+<h3
+id="定理-12-3三維散度定理-three-dimensional-divergence-theorem"><font color=#ff1493><u>定理
+12-3：三維散度定理 (Three-Dimensional Divergence
+Theorem)</u></font></h3>
+<p>令<span class="math inline">\(A=(a,b,c)\)</span>，其中<span
+class="math inline">\(a,b,c\)</span>都是<span
+class="math inline">\((x,y,z)\)</span>的函數，則結合註記11可以把高斯定理表示成
+<span class="math display">\[
+\iiint_R\mbox{div }A\;dxdydz=\iint_S A\cdot nd\sigma
+\]</span></p>
+<h3 id="定理-12-4"><font color=#ff1493><u>定理 12-4</u></font></h3>
+<p>若有微分形式 <span class="math display">\[
+\begin{aligned}
+w&amp;=a(x,y,z)dydz+b(x,y,z)dzdx+c(x,y,z)dxdy\\
+dw&amp;=(a_x+b_y+c_z)dxdydz
+\end{aligned}
+\]</span> 則高斯定理可表作 <span class="math display">\[
+\iiint_R dw=\iint_{S^*} w
+\]</span></p>
+<h3 id="例-12-5"><font color=#ffa500><u>例 12-5</u></font></h3>
+<p>在三維散度定理(定理12-3)中令<span
+class="math inline">\(A=(au,bv,cw)\)</span>，其中<span
+class="math inline">\(u,v,w\)</span>也是函數，則 <span
+class="math display">\[
+\iiint_R(au_x+bu_y+cu_z)dxdydz=\iint_S
+\left(au\frac{dx}{dn}+bv\frac{dy}{dn}+cw\frac{dz}{dn}\right)d\sigma-\iiint_R(a_xu+b_yv+c_zw)dxdydz
+\]</span> 再來，如果令<span
+class="math inline">\(u=v=w=U\)</span>，並令<span
+class="math inline">\(a=V_x\)</span>, <span
+class="math inline">\(b=V_y\)</span>, <span
+class="math inline">\(c=V_z\)</span>，則 <span class="math display">\[
+\iiint_R(U_xV_x+U_yV_y+U_zV_z)dxdydz=\iint_S U\frac{dV}{dn}dS-\iiint_R
+U\Delta Vdxdydz\mbox{ (✪)}
+\]</span> 其中<span class="math inline">\(\Delta
+V\)</span>是拉普拉斯算符<span class="math inline">\(\Delta
+V=V_{xx}+V_{yy}+V_{zz}\)</span>(見<a
+href="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/">這裡</a>的定義7)，且這裡
+<span class="math display">\[
+\frac{dV}{dn}=V_x\frac{dx}{dn}+V_y\frac{dy}{dn}+V_z\frac{dz}{dn}
+\]</span> 在(✪)式中將<span
+class="math inline">\(U,V\)</span>互換，就可整理得到底下這條看起來像格林定理(<a
+href="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/">這裡</a>的定理8)的式子：
+<span class="math display">\[
+\iiint_R(U\Delta V-V\Delta
+U)dxdydz=\iint_S\left(U\frac{dV}{dn}-V\frac{dU}{dn}\right)d\sigma
+\]</span> 若令<span class="math inline">\(V=1\)</span>，則 <span
+class="math display">\[
+\iiint_R\Delta Udxdydz=\iint_S\frac{dU}{dn}d\sigma=\iint_S(\mbox{grad
+}U)\cdot nd\sigma
+\]</span> 其中<span class="math inline">\(\mbox{grad }U\)</span>是<span
+class="math inline">\(U\)</span>的梯度，其定義可以參見<a
+href="https://alexthepurplerose.github.io/2024/07/25/cal-multi-var/">這裡</a>的定義20。</p>
 
     </div>
 
@@ -643,7 +774,11 @@ Surface)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a cla
 7-1：曲線定向的一維類比</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E5%90%91%E6%9B%B2%E9%9D%A2%E4%B8%8A%E7%9A%84%E7%A9%8D%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">定向曲面上的積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E4%BA%8C%E6%AC%A1%E5%8F%AF%E5%BE%AE%E5%BE%AE%E5%88%86%E5%BD%A2%E5%BC%8F-second-order-differentiable-differential-form"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 8：二次可微微分形式 (Second Order Differentiable Differential
 Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9"><span class="nav-number">2.2.</span> <span class="nav-text">註記 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">2.3.</span> <span class="nav-text">註記 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-11"><span class="nav-number">2.4.</span> <span class="nav-text">註記 11</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E7%B6%AD%E9%AB%98%E6%96%AF%E5%AE%9A%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">三維高斯定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12%E4%B8%89%E7%B6%AD%E9%AB%98%E6%96%AF%E5%AE%9A%E7%90%86-three-dimensional-gauss-theorem"><span class="nav-number">3.1.</span> <span class="nav-text">定理
-12：三維高斯定理 (Three-Dimensional Gauss&#39; Theorem)</span></a></li></ol></li></ol></div>
+12：三維高斯定理 (Three-Dimensional Gauss&#39; Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-12-1%E6%B5%81%E9%AB%94%E7%9A%84%E8%B3%AA%E9%87%8F%E5%AE%88%E6%81%86%E8%88%87%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B-mass-conservation-and-differential-equation-of-fluid"><span class="nav-number">3.1.1.</span> <span class="nav-text">例
+12-1：流體的質量守恆與微分方程 (Mass Conservation and Differential
+Equation of Fluid)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">定理 12-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12-3%E4%B8%89%E7%B6%AD%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90%86-three-dimensional-divergence-theorem"><span class="nav-number">3.1.3.</span> <span class="nav-text">定理
+12-3：三維散度定理 (Three-Dimensional Divergence
+Theorem)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12-4"><span class="nav-number">3.1.4.</span> <span class="nav-text">定理 12-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-12-5"><span class="nav-number">3.1.5.</span> <span class="nav-text">例 12-5</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
