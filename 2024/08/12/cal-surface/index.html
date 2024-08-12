@@ -30,8 +30,10 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-surface/UsU.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-surface/simple.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-surface/sphere.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-surface/inR.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-surface/outR.jpg">
 <meta property="article:published_time" content="2024-08-12T08:39:51.000Z">
-<meta property="article:modified_time" content="2024-08-12T09:26:56.558Z">
+<meta property="article:modified_time" content="2024-08-12T12:11:24.285Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -197,7 +199,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-12 16:39:51 / 修改時間：17:26:56" itemprop="dateCreated datePublished" datetime="2024-08-12T16:39:51+08:00">2024-08-12</time>
+              <time title="創建時間：2024-08-12 16:39:51 / 修改時間：20:11:24" itemprop="dateCreated datePublished" datetime="2024-08-12T16:39:51+08:00">2024-08-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -395,7 +397,44 @@ F(x,y)-\delta&lt;z&lt;F(x,y)\}\)</span><br> 其中<span
 class="math inline">\(\delta\)</span>是某個正數。<br></p>
 <p>如果(a)和(b)都包含於<span
 class="math inline">\(R\)</span>，則因為<span
-class="math inline">\(R\)</span>是閉集，且</p>
+class="math inline">\(R\)</span>是閉集，且<span
+class="math inline">\(p_0\)</span>的<span
+class="math inline">\(\delta\)</span>-鄰域完全落在<span
+class="math inline">\(R\)</span>內，所以<span
+class="math inline">\(p_0\)</span>不是<span
+class="math inline">\(R\)</span>的邊界點(見下圖4)。這與<span
+class="math inline">\(p_0\)</span>在<span
+class="math inline">\(S\)</span>上的假設矛盾，故(a)、(b)不會同時被包含於<span
+class="math inline">\(R\)</span>。</p>
+<img src="inR.jpg" width="25%" height="25%">
+<center>
+圖4
+</center>
+<p>同樣的，若(a)、(b)同時落於<span
+class="math inline">\(R\)</span>外，也會產生類似的矛盾(見下圖5)。</p>
+<img src="outR.jpg" width="25%" height="25%">
+<center>
+圖5
+</center>
+<p>於是，(a)和(b)必有恰一者被包含於<span
+class="math inline">\(R\)</span>(因為(a)和(b)都沒有包含<span
+class="math inline">\(z=F(x,y)\)</span>這個點，所以(a)和(b)都不會跨過<span
+class="math inline">\(S\)</span>)。假設(b)<span
+class="math inline">\(\subseteq R\)</span>，則令<span
+class="math inline">\(x=u\)</span>, <span
+class="math inline">\(y=v\)</span>, <span
+class="math inline">\(z=F(x,y)\)</span>。則令 <span
+class="math display">\[
+\xi=\frac{-F_u}{w}, \eta=\frac{-F_v}{w}, \tau=\frac{1}{w}
+\]</span> 則<span
+class="math inline">\((\xi,\eta,\tau)\)</span>是指向<span
+class="math inline">\(R\)</span>外面且長度為<span
+class="math inline">\(1\)</span>的法向量(這裡的<span
+class="math inline">\((\xi,\eta,\tau)\)</span>就是註記1-1的<span
+class="math inline">\((A,B,C)\)</span>，也就是雅可比行列式，但是除掉了向量長度，更細節的說明可以見<a
+href="https://alexthepurplerose.github.io/2024/08/10/cal-3-gauss/">這裡</a>的定義6)。<br></p>
+<p>相應的，當(a)<span class="math inline">\(\subseteq
+R\)</span>時，令<span class="math inline">\(u=y,v=x\)</span>就好。</p>
 
     </div>
 
