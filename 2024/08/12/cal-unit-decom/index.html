@@ -20,20 +20,23 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於單位分解法的概念介紹與細節。">
+  <meta name="description" content="這份筆記是關於單位分解法的概念介紹與簡單曲面上的積分。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微積分：單位分解法">
+<meta property="og:title" content="微積分：簡單曲面上的積分">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/08/12/cal-unit-decom/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於單位分解法的概念介紹與細節。">
+<meta property="og:description" content="這份筆記是關於單位分解法的概念介紹與簡單曲面上的積分。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-unit-decom/RB.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-unit-decom/triangle.jpg">
 <meta property="article:published_time" content="2024-08-12T12:21:07.000Z">
-<meta property="article:modified_time" content="2024-08-12T12:22:39.613Z">
+<meta property="article:modified_time" content="2024-08-12T13:16:43.138Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-unit-decom/RB.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/12/cal-unit-decom/">
 
@@ -48,7 +51,7 @@
   };
 </script>
 
-  <title>微積分：單位分解法 | 永蔚Alex</title>
+  <title>微積分：簡單曲面上的積分 | 永蔚Alex</title>
   
 
 
@@ -182,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          微積分：單位分解法
+          微積分：簡單曲面上的積分
         </h1>
 
         <div class="post-meta">
@@ -193,7 +196,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-12 20:21:07 / 修改時間：20:22:39" itemprop="dateCreated datePublished" datetime="2024-08-12T20:21:07+08:00">2024-08-12</time>
+              <time title="創建時間：2024-08-12 20:21:07 / 修改時間：21:16:43" itemprop="dateCreated datePublished" datetime="2024-08-12T20:21:07+08:00">2024-08-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +223,131 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於單位分解法的概念介紹與細節。 <span id="more"></span><br></p>
+        <p>這份筆記是關於單位分解法的概念介紹與簡單曲面上的積分。
+<span id="more"></span><br></p>
+<center>
+<h1 id="單位分解法"><font color=#b8860b>單位分解法</font></h1>
+</center>
+<h2 id="概念-1"><font color=#0000FF><u>概念 1</u></font></h2>
+<p>令<span
+class="math inline">\(\chi_1+\chi_2+\cdots+\chi_n=1\)</span>，其中<span
+class="math inline">\(\chi_1,\chi_2,\cdots,\chi_n\)</span>是夠好的函數，則對於函數<span
+class="math inline">\(f(x)\)</span>，有 <span class="math display">\[
+f(x)=f(x)\chi_1+f(x)\chi_2+\cdots+f(x)\chi_n
+\]</span></p>
+<h2 id="定義-2單位分解-partition-of-unity"><font color=#008000><u>定義
+2：單位分解 (Partition of Unity)</u></font></h2>
+<p>給定簡單曲面<span
+class="math inline">\(\tau\)</span>，我們稱集合<span
+class="math inline">\(S\subseteq\tau\)</span>上的單位分解為有限多個連續函數<span
+class="math inline">\(\chi_1,\chi_2,\cdots,\chi_N\)</span>，且這些函數滿足以下三個條件：
+<br>1. <span class="math inline">\(\chi_i(p)\geq 0, \forall p\in
+S\)</span> <br>2. <span
+class="math inline">\(\chi_1(p)+\chi_2(p)+\cdots+\chi_N(p)=1,\forall
+p\in S\)</span> <br>3. <span class="math inline">\(\forall 1\leq i\leq
+N\)</span>，存在基本曲面<span
+class="math inline">\(\sigma_i\subseteq\tau\)</span> s.t. 當<span
+class="math inline">\(p\notin\sigma_i\)</span>時，<span
+class="math inline">\(\chi_i(p)=0\)</span>(見下圖1)。</p>
+<img src="RB.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>我們先假設單位分解總是存在，我們要接著定義函數在簡單曲面上的積分。</p>
+<center>
+<h1
+id="簡單曲面上的積分"><font color=#b8860b>簡單曲面上的積分</font></h1>
+</center>
+<h2
+id="定義-3簡單曲面上的積分-integral-on-a-simple-surface"><font color=#008000><u>定義
+3：簡單曲面上的積分 (Integral on a Simple Surface)</u></font></h2>
+<p>考慮簡單曲面<span
+class="math inline">\(\tau\)</span>，並給定函數<span
+class="math inline">\(F\)</span>在<span
+class="math inline">\(\tau\)</span>的一個鄰域上連續，則我們可以定義<span
+class="math inline">\(\iint_\tau
+Fd\sigma\)</span>，方法如下：我們令<span
+class="math inline">\(\chi_1,\chi_2,\cdots,\chi_N\)</span>是<span
+class="math inline">\(\tau\)</span>上的單位分解，則 <span
+class="math display">\[
+F(x)=F(x)\chi_1(x)+F(x)\chi_2(x)+\cdots+F(x)\chi_n(x)
+\]</span> 於是<span
+class="math inline">\(F(x)\chi_i(x)\)</span>就是在基本曲面上的函數了，可以定義
+<span class="math display">\[
+\iint_\tau Fd\sigma=\sum_{i=1}^N \iint_{\sigma_i}F(x)\chi_i(x)d\sigma
+\]</span></p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
+<p>上面的定義是良好的，意即積分的結果與<span
+class="math inline">\(\chi_1,\chi_2,\cdots,\chi_N\)</span>的選擇無關。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：假設<span
+class="math inline">\(\chi_1&#39;,\chi_2&#39;,\cdots,\chi_m&#39;\)</span>是另一個<span
+class="math inline">\(\tau\)</span>的單位分解，其對應到的基本曲面是<span
+class="math inline">\(\sigma_1&#39;,\sigma_2&#39;,\cdots,\sigma_m&#39;\)</span>。對於任何<span
+class="math inline">\(1\leq i\leq N\)</span>和<span
+class="math inline">\(1\leq k\leq m\)</span>，我們知道<span
+class="math inline">\(\sigma_i\cap\sigma_k&#39;\)</span>仍是一個基本曲面。更甚者，我們知道函數<span
+class="math inline">\(F\cdot \chi_i\cdot
+\chi_k&#39;\)</span>在某個緊緻集外都是零。故 <span
+class="math display">\[
+\begin{aligned}
+\iint_\tau Fd\sigma&amp;=\sum_i\iint_{\sigma_i}F\chi_id\sigma\\
+&amp;=\sum_i\sum_k\iint_{\sigma_i}F\chi_i\chi_k&#39;d\sigma\\
+&amp;\mbox{(因為}\chi_1&#39;+\chi_2&#39;+\cdots+\chi_m&#39;=1\mbox{)}\\
+&amp;=\sum_i\sum_k\iint_{\sigma_i\cap\sigma_k&#39;}F\chi_i\chi_k&#39;d\sigma\\
+&amp;\mbox{(因為}F\chi_i\chi_k&#39;\mbox{在}\sigma_i\cap\sigma_k&#39;\mbox{以外都是零)}\\
+&amp;=\sum_k\sum_i\iint_{\sigma_k&#39;\cap\sigma_i}F\chi_k&#39;\chi_id\sigma\\
+&amp;=\sum_k\iint_{\sigma_k&#39;}F\chi_k&#39;d\sigma\\
+&amp;\mbox{(因為}\chi_1+\chi_2+\cdots+\chi_N=1\mbox{)}
+\end{aligned}
+\]</span> 於是，我們知道積分和<span
+class="math inline">\(\chi_1,\chi_2,\cdots,\chi_N\)</span>的選擇無關。<font size="1">QED</font></p>
+<center>
+<h1
+id="單位分解法的存在性"><font color=#b8860b>單位分解法的存在性</font></h1>
+</center>
+<h2 id="註記-4"><font color=#0000FF><u>註記 4</u></font></h2>
+<p>任意有界簡單曲面<span
+class="math inline">\(\tau\)</span>上都存在單位分解。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(\tau\)</span>上一點<span
+class="math inline">\(Q\)</span>，由定義知存在<span
+class="math inline">\(\epsilon=\epsilon(Q)\)</span>使得<span
+class="math inline">\(\tau\)</span>上與<span
+class="math inline">\(Q\)</span>距離小於<span
+class="math inline">\(\epsilon\)</span>的點構成一基本曲面。令該曲面為<span
+class="math inline">\(\sigma_Q\)</span>。<br> 在<span
+class="math inline">\(\sigma_Q\)</span>上，定義函數 <span
+class="math display">\[
+\psi_Q(P)=\left\{
+\begin{aligned}
+\epsilon-2\overline{PQ}&amp;,\mbox{ if
+}\overline{PQ}&lt;\frac{1}{2}\epsilon\\
+0&amp;,\mbox{ otherwise}
+\end{aligned}
+\right.
+\]</span> 函數圖形可以見下圖2。</p>
+<img src="triangle.jpg" width="50%" height="50%">
+<center>
+圖2
+</center>
+<p>可以發現<span
+class="math inline">\(\psi_Q\)</span>是連續的，且集合<span
+class="math inline">\(\{P:\overline{PQ}\leq\frac{1}{2}\epsilon\}\)</span>是緊緻的(是閉且有界的，見<a
+href="https://alexthepurplerose.github.io/2024/07/28/cal-topology/">這裡</a>的註記2-1與定義2-1-1)，即<span
+class="math inline">\(\psi_Q\)</span>在一個緊緻集以外都是零。<br>
+於是，對於每個<span class="math inline">\(S\)</span>上的點<span
+class="math inline">\(Q\)</span>都可以做一樣的事情，也就是生出一個以<span
+class="math inline">\(Q\)</span>為中心、半徑為<span
+class="math inline">\(\frac{1}{2}\epsilon_Q\)</span>的球。根據海涅-波雷爾定理(<a
+href="https://alexthepurplerose.github.io/2024/07/28/cal-topology/">這裡</a>的定理5)，存在分別以<span
+class="math inline">\(Q_1,Q_2,\cdots,Q_N\)</span>為中心的有限多個球把<span
+class="math inline">\(S\)</span>蓋住。<br> 於是，定義 <span
+class="math display">\[
+\chi_i(P)=\frac{\psi_{Q_i}(P)}{\psi_{Q_1}(P)+\psi_{Q_2}(P)+\cdots+\psi_{Q_N}(P)}
+\]</span> (因為<span class="math inline">\(P\)</span>一定會落在某個<span
+class="math inline">\(\sigma_{Q_i}\)</span>內，在這之中<span
+class="math inline">\(\psi_{Q_i}(P)\)</span>非零，故分母不會是零)。於是，有<span
+class="math inline">\(\chi_1+\chi_2+\cdots+\chi_N=1\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +430,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%AE%E4%BD%8D%E5%88%86%E8%A7%A3%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">單位分解法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="nav-number">1.1.</span> <span class="nav-text">概念 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%96%AE%E4%BD%8D%E5%88%86%E8%A7%A3-partition-of-unity"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：單位分解 (Partition of Unity)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E5%96%AE%E6%9B%B2%E9%9D%A2%E4%B8%8A%E7%9A%84%E7%A9%8D%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">簡單曲面上的積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%B0%A1%E5%96%AE%E6%9B%B2%E9%9D%A2%E4%B8%8A%E7%9A%84%E7%A9%8D%E5%88%86-integral-on-a-simple-surface"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+3：簡單曲面上的積分 (Integral on a Simple Surface)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%AE%E4%BD%8D%E5%88%86%E8%A7%A3%E6%B3%95%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">單位分解法的存在性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4"><span class="nav-number">3.1.</span> <span class="nav-text">註記 4</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
