@@ -27,13 +27,17 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於簡單曲面的定義與性質。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-surface/UsU.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-surface/simple.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-surface/sphere.jpg">
 <meta property="article:published_time" content="2024-08-12T08:39:51.000Z">
-<meta property="article:modified_time" content="2024-08-12T08:41:29.524Z">
+<meta property="article:modified_time" content="2024-08-12T09:26:56.558Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-surface/UsU.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/12/cal-surface/">
 
@@ -193,7 +197,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-12 16:39:51 / 修改時間：16:41:29" itemprop="dateCreated datePublished" datetime="2024-08-12T16:39:51+08:00">2024-08-12</time>
+              <time title="創建時間：2024-08-12 16:39:51 / 修改時間：17:26:56" itemprop="dateCreated datePublished" datetime="2024-08-12T16:39:51+08:00">2024-08-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +225,177 @@
 
       
         <p>這份筆記是關於簡單曲面的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="基本曲面"><font color=#b8860b>基本曲面</font></h1>
+</center>
+<h2 id="定義-1基本曲面-elementary-surface"><font color=#008000><u>定義
+1：基本曲面 (Elementary Surface)</u></font></h2>
+<p>我們說<span class="math inline">\(\mathbb{R}^3\)</span>中的<span
+class="math inline">\(\sigma\)</span>是一個點集<span
+class="math inline">\(\sigma=(x,y,z)\)</span>是一個基本曲面，若其中<span
+class="math inline">\((x,y,z)\)</span>可被表為<span
+class="math inline">\(x=f(u,v)\)</span>, <span
+class="math inline">\(y=g(u,v)\)</span>, <span
+class="math inline">\(z=h(u,v)\)</span>，且滿足以下四個條件： <br>1.
+<span class="math inline">\((u,v)\)</span>的域(Domain)是一開集<span
+class="math inline">\(U\)</span>。 <br>2. <span
+class="math inline">\(f,g,h\)</span>在<span
+class="math inline">\(U\)</span>中連續，且一階導數也連續。 <br>3.
+三個雅可比行列式不全為零，即 <span class="math display">\[
+w=\sqrt{\left|
+\begin{array}{cc}
+f_u &amp; f_v\\
+g_u &amp; g_v
+\end{array}
+\right|^2+\left|
+\begin{array}{cc}
+g_u &amp; g_v\\
+h_u &amp; h_v
+\end{array}
+\right|^2+\left|
+\begin{array}{cc}
+h_u &amp; h_v\\
+f_u &amp; f_v
+\end{array}
+\right|^2}&gt;0
+\]</span> <br>4. <span class="math inline">\(U\)</span>打到<span
+class="math inline">\(\sigma\)</span>的映射是一對一的，且<span
+class="math inline">\(\sigma\)</span>打回<span
+class="math inline">\(U\)</span>的映射是連續的。</p>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<p>在定義1的條件3.中，令 <span class="math display">\[
+A=\left|
+\begin{array}{cc}
+f_u &amp; f_v\\
+g_u &amp; g_v
+\end{array}
+\right|, B=\left|
+\begin{array}{cc}
+g_u &amp; g_v\\
+h_u &amp; h_v
+\end{array}
+\right|, C=\left|
+\begin{array}{cc}
+h_u &amp; h_v\\
+f_u &amp; f_v
+\end{array}
+\right|
+\]</span> 則 <span class="math display">\[
+(A,B,C)=(f_u,g_u,h_u)\times(f_v,g_v,h_v)
+\]</span> 條件3.要求<span
+class="math inline">\((A,B,C)\)</span>不是零向量就是希望<span
+class="math inline">\((f_u,g_u,h_u)\)</span>和<span
+class="math inline">\((f_v,g_v,h_v)\)</span>線性獨立。WLOG，令<span
+class="math inline">\(C\neq 0\)</span> i.e. <span
+class="math inline">\(f_ug_v-f_vg_u\neq 0\)</span>，即<span
+class="math inline">\(\frac{\partial(x,y)}{\partial(u,v)}\neq
+0\)</span>。則由反函數定理(<a
+href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">這裡</a>的定理5)知存在一個鄰域使得在這之中<span
+class="math inline">\((u,v)\)</span>可以表為 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+u&amp;=\phi(x,y)\\
+v&amp;=\psi(x,y)
+\end{aligned}
+\right.
+\]</span> 又<span class="math inline">\(z=h(u,v)\)</span>，故<span
+class="math inline">\(z\)</span>可表為 <span class="math display">\[
+z=h(\phi(x,y),\psi(x,y))=H(x,y)
+\]</span></p>
+<h3 id="註記-1-2"><font color=#0000FF><u>註記 1-2</u></font></h3>
+<p>假設今天有<span
+class="math inline">\((\tilde{u},\tilde{v})\)</span>上的另一個域<span
+class="math inline">\(\tilde{U}\)</span>也會打到<span
+class="math inline">\(\sigma\)</span>，且也符合基本曲面的四個條件的話，則
+<span class="math display">\[
+\frac{\partial(\tilde{u},\tilde{v})}{\partial(u,v)}\neq 0
+\]</span> (見下圖1)。</p>
+<img src="UsU.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p><font color=#8b4513><u>證明</u></font>：首先，可以找到<span
+class="math inline">\(U\)</span>打到<span
+class="math inline">\(\tilde{U}\)</span>的一對一對應(<span
+class="math inline">\(U\to\sigma\to\tilde{U}\)</span>)。可以令 <span
+class="math display">\[
+u=\alpha(\tilde{u},\tilde{v}), v=\beta(\tilde{u},\tilde{v})
+\]</span> 類似註記1-1，令<span
+class="math inline">\(U\)</span>的其中一個雅可比行列式<span
+class="math inline">\(C\neq 0\)</span>，則 <span class="math display">\[
+\left\{
+\begin{aligned}
+u&amp;=\phi(x,y)\\
+v&amp;=\psi(x,y)
+\end{aligned}
+\right.
+\]</span> 又令<span
+class="math inline">\(x=\tilde{f}(\tilde{u},\tilde{v})\)</span>, <span
+class="math inline">\(y=\tilde{g}(\tilde{u},\tilde{v})\)</span>。則
+<span class="math display">\[
+u=\phi(\tilde{f}(\tilde{u},\tilde{v}),\tilde{g}(\tilde{u},\tilde{v})),
+v=\psi(\tilde{f}(\tilde{u},\tilde{v}),\tilde{g}(\tilde{u},\tilde{v}))
+\]</span> 我們記 <span class="math display">\[
+\Delta=\frac{\partial(u,v)}{\partial(\tilde{u},\tilde{v})}=\frac{\partial\alpha}{\partial\tilde{u}}\frac{\partial\beta}{\partial\tilde{v}}-\frac{\partial\alpha}{\partial\tilde{v}}\frac{\partial\beta}{\partial\tilde{u}}
+\]</span> 令<span
+class="math inline">\(\tilde{C}=\frac{\partial(x,y)}{\partial(\tilde{u},\tilde{v})}\)</span>。WLOG，假設<span
+class="math inline">\(\tilde{C}\neq 0\)</span>。則 <span
+class="math display">\[
+\tilde{C}=\frac{\partial(x,y)}{\partial(u,v)}\times\frac{\partial(u,v)}{\partial(\tilde{u},\tilde{v})}=\Delta\cdot
+C
+\]</span> 類似的有<span class="math inline">\(\tilde{B}=\Delta
+B\)</span>, <span class="math inline">\(\tilde{A}=\Delta A\)</span>。則
+<span class="math display">\[
+\tilde{w}=\sqrt{\tilde{A}^2+\tilde{B}^2+\tilde{C}^2}=|\Delta|w
+\]</span> 於是，由定義1的條件3.知<span
+class="math inline">\(\tilde{w}&gt;0, w&gt;0\)</span>，故<span
+class="math inline">\(|\Delta|&gt;0\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="簡單曲面"><font color=#b8860b>簡單曲面</font></h1>
+</center>
+<h2 id="定義-2簡單曲面-simple-surface"><font color=#008000><u>定義
+2：簡單曲面 (Simple Surface)</u></font></h2>
+<p>考慮<span
+class="math inline">\(\mathbb{R}^3\)</span>中的一個點集<span
+class="math inline">\(\tau\)</span>。若對於任意一點<span
+class="math inline">\(p_0\in\tau\)</span>，都存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(\tau\)</span>中所有和<span
+class="math inline">\(p_0\)</span>距離不超過<span
+class="math inline">\(\epsilon\)</span>的點的集合形成一個基本曲面，則稱<span
+class="math inline">\(\tau\)</span>為一簡單曲面。</p>
+<h3
+id="定義-2-1簡單曲面的定向-orientation-of-a-simple-surface"><font color=#008000><u>定義
+2-1：簡單曲面的定向 (Orientation of a Simple Surface)</u></font></h3>
+<p>由於簡單曲面<span
+class="math inline">\(S\)</span>是許多基本曲面的聯集，故我們在指定<span
+class="math inline">\(S\)</span>的定向時，我們令任兩個基本曲面的交集處有一致的定向(見下圖2)。</p>
+<img src="simple.jpg" width="50%" height="50%">
+<center>
+圖2
+</center>
+<h3 id="註記-2-2"><font color=#0000FF><u>註記 2-2</u></font></h3>
+<p>若簡單曲面<span class="math inline">\(S\)</span>是一有界閉區域<span
+class="math inline">\(R\)</span>的邊界，則對於<span
+class="math inline">\(S\)</span>上一點<span
+class="math inline">\(p_0\)</span>，其附近是基本曲面(見下圖3)。</p>
+<img src="sphere.jpg" width="25%" height="25%">
+<center>
+圖3
+</center>
+<p>由註記1-1知，當<span
+class="math inline">\(|(x,y)-(x_0,y_0)|&lt;\epsilon\)</span>時，可將<span
+class="math inline">\(z\)</span>表作<span
+class="math inline">\(z=F(x,y)\)</span>。我們定義兩個集合 <br>(a) <span
+class="math inline">\(\{(x,y,z):|(x,y)-(x_0,y_0)|&lt;\epsilon,
+F(x,y)&lt;z&lt;F(x,y)+\delta\}\)</span> <br>(b) <span
+class="math inline">\(\{(x,y,z):|(x,y)-(x_0,y_0)|&lt;\epsilon,
+F(x,y)-\delta&lt;z&lt;F(x,y)\}\)</span><br> 其中<span
+class="math inline">\(\delta\)</span>是某個正數。<br></p>
+<p>如果(a)和(b)都包含於<span
+class="math inline">\(R\)</span>，則因為<span
+class="math inline">\(R\)</span>是閉集，且</p>
 
     </div>
 
@@ -303,6 +478,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%9B%B2%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">基本曲面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%9F%BA%E6%9C%AC%E6%9B%B2%E9%9D%A2-elementary-surface"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：基本曲面 (Elementary Surface)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E5%96%AE%E6%9B%B2%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">簡單曲面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E7%B0%A1%E5%96%AE%E6%9B%B2%E9%9D%A2-simple-surface"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+2：簡單曲面 (Simple Surface)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E7%B0%A1%E5%96%AE%E6%9B%B2%E9%9D%A2%E7%9A%84%E5%AE%9A%E5%90%91-orientation-of-a-simple-surface"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
+2-1：簡單曲面的定向 (Orientation of a Simple Surface)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">註記 2-2</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
