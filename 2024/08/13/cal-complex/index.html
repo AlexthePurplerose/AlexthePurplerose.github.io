@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於複變函數的定義與性質。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-complex/rth.jpg">
 <meta property="article:published_time" content="2024-08-13T08:16:41.000Z">
-<meta property="article:modified_time" content="2024-08-13T08:17:30.122Z">
+<meta property="article:modified_time" content="2024-08-13T08:48:42.512Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-complex/rth.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/13/cal-complex/">
 
@@ -193,7 +195,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-13 16:16:41 / 修改時間：16:17:30" itemprop="dateCreated datePublished" datetime="2024-08-13T16:16:41+08:00">2024-08-13</time>
+              <time title="創建時間：2024-08-13 16:16:41 / 修改時間：16:48:42" itemprop="dateCreated datePublished" datetime="2024-08-13T16:16:41+08:00">2024-08-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +223,133 @@
 
       
         <p>這份筆記是關於複變函數的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="複數"><font color=#b8860b>複數</font></h1>
+</center>
+<h2 id="定義-1複數-complex-number"><font color=#008000><u>定義 1：複數
+(Complex Number)</u></font></h2>
+<p>我們將形如 <span class="math display">\[
+z=x+iy
+\]</span> 的數稱為複數，其中<span
+class="math inline">\(x,y\in\mathbb{R}\)</span>, <span
+class="math inline">\(i^2=-1\)</span>。</p>
+<h3 id="定義-1-1實部-real-part"><font color=#008000><u>定義 1-1：實部
+(Real Part)</u></font></h3>
+<p>在<span class="math inline">\(z=x+iy\)</span>中，我們將<span
+class="math inline">\(x\)</span>稱為<span
+class="math inline">\(z\)</span>的實部，記為 <span
+class="math display">\[
+x=\mbox{Re } z
+\]</span></p>
+<h3 id="定義-1-2虛部-imaginary-part"><font color=#008000><u>定義
+1-2：虛部 (Imaginary Part)</u></font></h3>
+<p>在<span class="math inline">\(z=x+iy\)</span>中，我們將<span
+class="math inline">\(x\)</span>稱為<span
+class="math inline">\(z\)</span>的實部，記為 <span
+class="math display">\[
+y=\mbox{Im } z
+\]</span></p>
+<h3 id="定義-1-3共軛複數-conjugate"><font color=#008000><u>定義
+1-3：共軛複數 (Conjugate)</u></font></h3>
+<p>對於<span class="math inline">\(z=x+iy\)</span>，我們將<span
+class="math inline">\(\overline{z}=x-iy\)</span>稱為其共軛複數。</p>
+<h2
+id="定義-2複數的極座標表示-polar-coordinate-representation-of-complex-numbers"><font color=#008000><u>定義
+2：複數的極座標表示 (Polar Coordinate Representation of Complex
+Numbers)</u></font></h2>
+<p>我們可以把<span
+class="math inline">\(z=x+iy\)</span>表為極座標形式，即令<span
+class="math inline">\(x=r\cos\theta\)</span>, <span
+class="math inline">\(y=\sin\theta\)</span>，則 <span
+class="math display">\[
+z=r(\cos\theta+i\sin\theta)
+\]</span> (見下圖1)。</p>
+<img src="rth.jpg" width="25%" height="25%">
+<center>
+圖1
+</center>
+<h3 id="定義-2-1輻角-argument"><font color=#008000><u>定義 2-1：輻角
+(Argument)</u></font></h3>
+<p>在<span
+class="math inline">\(z=r(\cos\theta+i\sin\theta)\)</span>中，我們將<span
+class="math inline">\(\theta\)</span>稱為<span
+class="math inline">\(z\)</span>的輻角，記做 <span
+class="math display">\[
+\theta=\mbox{Arg }z
+\]</span></p>
+<h3 id="定義-2-2絕對值-absolute-value"><font color=#008000><u>定義
+2-2：絕對值 (Absolute Value)</u></font></h3>
+<p>在<span
+class="math inline">\(z=r(\cos\theta+i\sin\theta)\)</span>中，我們將<span
+class="math inline">\(r\)</span>稱為<span
+class="math inline">\(z\)</span>的絕對值，有 <span
+class="math display">\[
+r=\sqrt{x^2+y^2}=\sqrt{z\cdot\overline{z}}=|z|
+\]</span></p>
+<h4 id="性質-2-2-1"><font color=#0000FF><u>性質 2-2-1</u></font></h4>
+<p>對於複數<span class="math inline">\(z_1,z_2\)</span>，有 <span
+class="math display">\[
+|z_1\times z_2|=|z_1||z_2|
+\]</span> (證略)</p>
+<h4
+id="性質-2-2-2三角不等式-triangle-inequality"><font color=#0000FF><u>性質
+2-2-2：三角不等式 (Triangle Inequality)</u></font></h4>
+<p>對於複數<span class="math inline">\(z_1,z_2\)</span>，有 <span
+class="math display">\[
+|z_1+z_2|\leq|z_1|+|z_2|, |z_1|-|z_2|\leq|z_1-z_2|
+\]</span> (證略)</p>
+<h2
+id="定義-3複數數列的極限-limit-of-complex-sequence"><font color=#008000><u>定義
+3：複數數列的極限 (Limit of Complex Sequence)</u></font></h2>
+<p>對於一複數數列<span class="math inline">\(\{z_n\}\)</span>，若<span
+class="math inline">\(|z_n-z_0|\to 0\)</span>，我們說<span
+class="math inline">\(z_n\to z_0\)</span>。<br> (也就是說，<span
+class="math inline">\(z_n\to z_0\)</span> iff. <span
+class="math inline">\(z_n-z_0\)</span>的實部和虛部都收斂到<span
+class="math inline">\(0\)</span>。)</p>
+<h3 id="註記-3-1柯西序列-cauchy-sequence"><font color=#0000FF><u>註記
+3-1：柯西序列 (Cauchy Sequence)</u></font></h3>
+<p>和實數一樣，我們知道<span
+class="math inline">\(\{z_n\}\)</span>收斂若且唯若給定任意<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(N&gt;0\)</span>使得當<span
+class="math inline">\(n,m&gt;N\)</span>實總有<span
+class="math inline">\(|z_n-z_m|&lt;\epsilon\)</span> i.e. <span
+class="math inline">\(\{z_n\}\)</span>是柯西序列(實數版本的證明可以見<a
+href="https://alexthepurplerose.github.io/2024/04/25/cal-real-sequence/">這裡</a>的定理8：柯西準則)。</p>
+<center>
+<h1 id="複級數"><font color=#b8860b>複級數</font></h1>
+</center>
+<h2
+id="定義-4複數級數的極限-limit-of-complex-series"><font color=#008000><u>定義
+4：複數級數的極限 (Limit of Complex Series)</u></font></h2>
+<p>考慮一複級數<span class="math inline">\(\sum\limits_{n=1}^\infty
+c_n\)</span>。我們說<span class="math inline">\(\sum\limits_{n=1}^\infty
+c_n\)</span>收斂到<span class="math inline">\(S\)</span>，若<span
+class="math inline">\(S_n\)</span>收斂到<span
+class="math inline">\(S\)</span>，其中<span
+class="math inline">\(S_n=\sum\limits_{k=1}^n c_k\)</span>。</p>
+<h2
+id="註記-5絕對收斂檢驗法-absolute-convergence-test"><font color=#0000FF><u>註記
+5：絕對收斂檢驗法 (Absolute Convergence Test)</u></font></h2>
+<p>對於複數列<span class="math inline">\(\{c_n\}\)</span>，若<span
+class="math inline">\(\sum|c_k|\)</span>收斂，則<span
+class="math inline">\(\sum c_k\)</span>收斂(i.e.
+若級數絕對收斂，則級數收斂。)(證略)</p>
+<h2 id="定義-6一致收斂-uniform-convergence"><font color=#008000><u>定義
+6：一致收斂 (Uniform Convergence)</u></font></h2>
+<p>若<span class="math inline">\(\{c_k\}\)</span>為一<span
+class="math inline">\(z\)</span>的函數的數列(Ex：<span
+class="math inline">\(c_k=a_kz^k\)</span>)，且<span
+class="math inline">\(z\)</span>取值於一個區域<span
+class="math inline">\(R\)</span>上，則我們說<span
+class="math inline">\(\sum c_k\)</span>一致收斂，若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(N&gt;0\)</span>使得對於所有<span
+class="math inline">\(n,m\geq N\)</span>, <span
+class="math inline">\(z\in R\)</span>有<span
+class="math inline">\(|S_n(z)-S_m(z)|&lt;\epsilon\)</span>，其中<span
+class="math inline">\(S_n\)</span>的定義同定義4。</p>
 
     </div>
 
@@ -303,6 +432,21 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A4%87%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">複數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E8%A4%87%E6%95%B8-complex-number"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：複數
+(Complex Number)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E5%AF%A6%E9%83%A8-real-part"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義 1-1：實部
+(Real Part)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2%E8%99%9B%E9%83%A8-imaginary-part"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義
+1-2：虛部 (Imaginary Part)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-3%E5%85%B1%E8%BB%9B%E8%A4%87%E6%95%B8-conjugate"><span class="nav-number">1.1.3.</span> <span class="nav-text">定義
+1-3：共軛複數 (Conjugate)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E8%A4%87%E6%95%B8%E7%9A%84%E6%A5%B5%E5%BA%A7%E6%A8%99%E8%A1%A8%E7%A4%BA-polar-coordinate-representation-of-complex-numbers"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：複數的極座標表示 (Polar Coordinate Representation of Complex
+Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E8%BC%BB%E8%A7%92-argument"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義 2-1：輻角
+(Argument)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-2%E7%B5%95%E5%B0%8D%E5%80%BC-absolute-value"><span class="nav-number">1.2.2.</span> <span class="nav-text">定義
+2-2：絕對值 (Absolute Value)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-2-1"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">性質 2-2-1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-2-2%E4%B8%89%E8%A7%92%E4%B8%8D%E7%AD%89%E5%BC%8F-triangle-inequality"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">性質
+2-2-2：三角不等式 (Triangle Inequality)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E8%A4%87%E6%95%B8%E6%95%B8%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-complex-sequence"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：複數數列的極限 (Limit of Complex Sequence)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97-cauchy-sequence"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記
+3-1：柯西序列 (Cauchy Sequence)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A4%87%E7%B4%9A%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">複級數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E8%A4%87%E6%95%B8%E7%B4%9A%E6%95%B8%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-complex-series"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+4：複數級數的極限 (Limit of Complex Series)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5%E7%B5%95%E5%B0%8D%E6%94%B6%E6%96%82%E6%AA%A2%E9%A9%97%E6%B3%95-absolute-convergence-test"><span class="nav-number">2.2.</span> <span class="nav-text">註記
+5：絕對收斂檢驗法 (Absolute Convergence Test)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E4%B8%80%E8%87%B4%E6%94%B6%E6%96%82-uniform-convergence"><span class="nav-number">2.3.</span> <span class="nav-text">定義
+6：一致收斂 (Uniform Convergence)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
