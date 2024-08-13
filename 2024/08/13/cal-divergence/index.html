@@ -27,13 +27,16 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於簡單曲面上散度定理的證明。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-divergence/case1.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-divergence/case2.jpg">
 <meta property="article:published_time" content="2024-08-13T07:07:46.000Z">
-<meta property="article:modified_time" content="2024-08-13T07:09:32.956Z">
+<meta property="article:modified_time" content="2024-08-13T08:14:31.323Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
 <meta property="article:tag" content="Analysis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-divergence/case1.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/13/cal-divergence/">
 
@@ -193,7 +196,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-13 15:07:46 / 修改時間：15:09:32" itemprop="dateCreated datePublished" datetime="2024-08-13T15:07:46+08:00">2024-08-13</time>
+              <time title="創建時間：2024-08-13 15:07:46 / 修改時間：16:14:31" itemprop="dateCreated datePublished" datetime="2024-08-13T15:07:46+08:00">2024-08-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +224,160 @@
 
       
         <p>這份筆記是關於簡單曲面上散度定理的證明。 <span id="more"></span><br></p>
+<center>
+<h1
+id="簡單曲面上的散度定理"><font color=#b8860b>簡單曲面上的散度定理</font></h1>
+</center>
+<h2
+id="定理-1簡單曲面上的散度定理divergence-theorem-on-simple-surfaces"><font color=#ff1493><u>定理
+1：簡單曲面上的散度定理(Divergence Theorem on Simple
+Surfaces)</u></font></h2>
+<p>若是<span class="math inline">\(\mathbb{R}^3\)</span>中的一區域<span
+class="math inline">\(R\)</span>的邊界<span
+class="math inline">\(\tau\)</span>是簡單曲面，則 <span
+class="math display">\[
+\iiint_R(a_x+b_y+c_z)dxdydz=\iint_\tau(a,b,c)\cdot nd\sigma
+\]</span> (這是三維散度定理的推廣，見<a
+href="https://alexthepurplerose.github.io/2024/08/10/cal-3-gauss/">這裡</a>的定理12-3，這裡的差別是不需要雅可比行列式非零的條件了。)<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們需要一個引理。</p>
+<h3 id="引理-1-1"><font color=#0000FF><u>引理 1-1</u></font></h3>
+<p>若<span class="math inline">\(R\)</span>中的每一點<span
+class="math inline">\(Q\)</span>都有半徑為<span
+class="math inline">\(\epsilon_Q\)</span>的鄰域使得定理1對於在該鄰域外函數值皆為零的函數<span
+class="math inline">\((a,b,c)\)</span>都成立，則定理1一般來說也成立。<br></p>
+<p><font color=#8b4513><u>引理的證明</u></font>：考慮<a
+href="https://alexthepurplerose.github.io/2024/08/12/cal-unit-decom/">這裡</a>的註記4中的<span
+class="math inline">\(\psi_Q\)</span>。由於該處的<span
+class="math inline">\(\psi_Q\)</span>沒有連續的一階導數，故我們微調<span
+class="math inline">\(\psi_Q\)</span>為： <span class="math display">\[
+\psi_Q(P)=\left\{
+\begin{aligned}
+\left(\epsilon^2-4\overline{PQ}^2\right)^2&amp;,\mbox{ if
+}\overline{PQ}&lt;\frac{1}{2}\epsilon\\
+0&amp;,\mbox{ otherwise}
+\end{aligned}
+\right.
+\]</span> 於是，和前面一樣令 <span class="math display">\[
+\chi_i(P)=\frac{\psi_{Q_i}(P)}{\sum_{i=1}^N\psi_{Q_i}(P)}
+\]</span> 於是有<span class="math inline">\(a=\sum a\chi_i\)</span>,
+<span class="math inline">\(b=\sum b\chi_i\)</span>, <span
+class="math inline">\(c=\sum c\chi_i\)</span>(可以參照<a
+href="https://alexthepurplerose.github.io/2024/08/12/cal-unit-decom/">這裡</a>定義2的單位分解法)。由假設<span
+class="math inline">\(\forall\chi_i\)</span>, <span
+class="math inline">\((a\chi_i,b\chi_i,c\chi_i)\)</span>都符合散度定理，故加起來的<span
+class="math inline">\((a,b,c)\)</span>也符合散度定理。<font size="1">QED</font><br></p>
+<p>回到定理，由引理1-1我們知道我們只要證明只在<span
+class="math inline">\(Q\)</span>附近含數值不為零的<span
+class="math inline">\((a,b,c)\)</span>有散度定理就好。我們分成以下兩種狀況討論：
+<br>狀況 1：<span class="math inline">\(Q\)</span>在<span
+class="math inline">\(R\)</span>內部(不在邊界上)，則可以選擇<span
+class="math inline">\(\epsilon_Q\)</span> s.t. 以<span
+class="math inline">\(Q\)</span>為中心、以<span
+class="math inline">\(2\epsilon_Q\)</span>為半徑的球落在<span
+class="math inline">\(R\)</span>內(見下圖1)。</p>
+<img src="case1.jpg" width="25%" height="25%">
+<center>
+圖1
+</center>
+<p>假設<span
+class="math inline">\(A=(a,b,c)\)</span>在這個球外都是零，則顯見<span
+class="math inline">\(\tau\)</span>在球外，故<span
+class="math inline">\((a,b,c)\)</span>在其上也是零，即 <span
+class="math display">\[
+\iint_\tau A\cdot nd\sigma=0
+\]</span> 我們接著希望說明 <span class="math display">\[
+\iiint_R(a_x+b_y+c_z)dxdydz=0
+\]</span> 我們把<span class="math inline">\((a,b,c)\)</span>擴展到<span
+class="math inline">\(\mathbb{R}^3\)</span>上，且在小球外的部分一樣全部是零，故
+<span class="math display">\[
+\iiint_R(a_x+b_y+c_z)dxdydz=\iiint_{\mathbb{R}^3}(a_x+b_y+c_z)dxdydz
+\]</span> 而 <span class="math display">\[
+\iiint_{\mathbb{R}^3}c_zdxdydz=\iint_{\mathbb{R}^2}\left(\int_{-\infty}^\infty
+c_z(x,y,z)dz\right)dxdy
+\]</span> 但是 <span class="math display">\[
+\int_{-\infty}^\infty
+c_z(x,y,z)dz=\lim_{B\to\infty}\int_{-B}^Bc_zdz=\underbrace{\lim_{B\to\infty}c(x,y,B)}_{=0}-\underbrace{\lim_{B\to\infty}c(x,y,-B)}_{=0}=0
+\]</span> 對<span class="math inline">\(a_x\)</span>和<span
+class="math inline">\(b_y\)</span>也做一樣的事，就有 <span
+class="math display">\[
+\iiint_R(a_x+b_y+c_z)dxdydz=0=\iint_\tau A\cdot nd\sigma
+\]</span></p>
+<p><br>狀況 2：<span class="math inline">\(Q\)</span>在<span
+class="math inline">\(R\)</span>的邊界點上 i.e. <span
+class="math inline">\(Q\)</span>在<span
+class="math inline">\(\tau\)</span>上。則由已知<span
+class="math inline">\(\tau\)</span>在<span
+class="math inline">\(Q\)</span>附近的一小塊鄰域上是基本曲面，意即可以表示為<span
+class="math inline">\(z=F(x,y)\)</span>。令 <span
+class="math display">\[
+R=\{(x,y,z):z\leq F(x,y)\}
+\]</span> (<span class="math inline">\(R=\{(x,y,z):z\geq
+F(x,y)\}\)</span>的推論過程一模一樣，並且一般狀況的<span
+class="math inline">\(R\)</span>可以用這兩種狀況拼湊出來)。並把向外指的法向量記為<span
+class="math inline">\((\xi,\eta,\delta)\)</span>，其中<span
+class="math inline">\(\delta&gt;0\)</span>(見下圖2)。</p>
+<img src="case2.jpg" width="25%" height="25%">
+<center>
+圖2
+</center>
+<p>我們一樣假定<span class="math inline">\(a,b,c\)</span>在<span
+class="math inline">\(Q\)</span>的半徑為<span
+class="math inline">\(\epsilon_Q\)</span>的鄰域以外都是零。我們令<span
+class="math inline">\(u=x,v=y\)</span>，則 <span class="math display">\[
+\iint_\tau c\delta d\sigma=\iint_\tau cdxdy
+\]</span> (見<a
+href="https://alexthepurplerose.github.io/2024/08/10/cal-3-gauss/">這裡</a>的註記11)。和狀況1類似，我們把<span
+class="math inline">\(c\)</span>擴展到整個空間中，並令在上述的小球以外<span
+class="math inline">\(c=0\)</span>。則 <span class="math display">\[
+\iiint_R c_zdxdydz=\iiint_{z\leq F(x,y)}c_zdxdydz=\iint h(x,y)dxdy\mbox{
+(☆)}
+\]</span> 其中 <span class="math display">\[
+h(x,y)=\int_{-\infty}^{F(x,y)}c_zdz=c(x,y,F(x,y))
+\]</span> (因為<span
+class="math inline">\(c(x,y,-\infty)=0\)</span>)。但由定義，又有 <span
+class="math display">\[
+\begin{aligned}
+\iint_\tau c\delta d\sigma&amp;=\iint_{z=F(x,y)}c(x,y,z)dxdy\\
+&amp;=\iint c(x,y,F(x,y))dxdy
+\end{aligned}
+\]</span> 對照(☆)式，有 <span class="math display">\[
+\iiint_R c_zdxdydz=\iint_\tau c\delta d\sigma
+\]</span> 同理，有 <span class="math display">\[
+\begin{aligned}
+\iint_\tau a\xi d\sigma&amp;=\iiint_R a_xdxdydz\\
+\iint_\tau b\eta d\sigma&amp;=\iiint_R b_ydxdydz
+\end{aligned}
+\]</span> 於是，便有 <span class="math display">\[
+\iiint_R [a_x+b_y+c_z]dxdydz=\iint_\tau a\xi+b\eta+c\delta d\sigma
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1
+id="簡單曲面上的斯托克斯定理"><font color=#b8860b>簡單曲面上的斯托克斯定理</font></h1>
+</center>
+<h2
+id="定理-2簡單曲面上的斯托克斯定理stokes-theorem-on-simple-surfaces"><font color=#ff1493><u>定理
+2：簡單曲面上的斯托克斯定理(Stokes' Theorem on Simple
+Surfaces)</u></font></h2>
+<p>在<span
+class="math inline">\(\mathbb{R}^3\)</span>中給定定向簡單曲面<span
+class="math inline">\(S\)</span>，且該曲面以閉曲線<span
+class="math inline">\(C\)</span>為邊界。我們將<span
+class="math inline">\(S\)</span>和<span
+class="math inline">\(C\)</span>定向為<span
+class="math inline">\(S^*\)</span>和<span
+class="math inline">\(C^*\)</span>，使得<span
+class="math inline">\(S^*\)</span>在<span
+class="math inline">\(C^*\)</span>的正向側。 令<span
+class="math inline">\(A=(a(x,y,z),b(x,y,z),c(x,y,z))\)</span>為向量場，則
+<span class="math display">\[
+\iint_S (\mbox{curl }A)\cdot nd\sigma=\int_C A\cdot tds
+\]</span> 其中<span class="math inline">\(n=\left(\frac{dx}{dn},
+\frac{dy}{dn}, \frac{dz}{dn}\right)\)</span> 是<span
+class="math inline">\(S\)</span>的法向量，而<span
+class="math inline">\(t=\left(\frac{dx}{ds}, \frac{dy}{ds},
+\frac{dz}{ds}\right)\)</span>是<span
+class="math inline">\(C\)</span>的切線向量。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：這和上面定理1的證明步驟幾乎是一模一樣的，一樣是用單位分解法，在這裡就略過細節了。<font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +460,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E5%96%AE%E6%9B%B2%E9%9D%A2%E4%B8%8A%E7%9A%84%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">簡單曲面上的散度定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1%E7%B0%A1%E5%96%AE%E6%9B%B2%E9%9D%A2%E4%B8%8A%E7%9A%84%E6%95%A3%E5%BA%A6%E5%AE%9A%E7%90%86divergence-theorem-on-simple-surfaces"><span class="nav-number">1.1.</span> <span class="nav-text">定理
+1：簡單曲面上的散度定理(Divergence Theorem on Simple
+Surfaces)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%86-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">引理 1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B0%A1%E5%96%AE%E6%9B%B2%E9%9D%A2%E4%B8%8A%E7%9A%84%E6%96%AF%E6%89%98%E5%85%8B%E6%96%AF%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">簡單曲面上的斯托克斯定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E7%B0%A1%E5%96%AE%E6%9B%B2%E9%9D%A2%E4%B8%8A%E7%9A%84%E6%96%AF%E6%89%98%E5%85%8B%E6%96%AF%E5%AE%9A%E7%90%86stokes-theorem-on-simple-surfaces"><span class="nav-number">2.1.</span> <span class="nav-text">定理
+2：簡單曲面上的斯托克斯定理(Stokes&#39; Theorem on Simple
+Surfaces)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
