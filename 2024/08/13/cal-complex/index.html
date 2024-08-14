@@ -28,8 +28,13 @@
 <meta property="og:description" content="這份筆記是關於複變函數的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-complex/rth.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-complex/differentiable.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-complex/jacobi.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-complex/conformal.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-complex/XwX.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/13/cal-complex/red-cross.jpg">
 <meta property="article:published_time" content="2024-08-13T08:16:41.000Z">
-<meta property="article:modified_time" content="2024-08-13T08:48:42.512Z">
+<meta property="article:modified_time" content="2024-08-14T07:31:01.438Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -193,10 +198,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-08-13 16:16:41 / 修改時間：16:48:42" itemprop="dateCreated datePublished" datetime="2024-08-13T16:16:41+08:00">2024-08-13</time>
+              <time title="創建時間：2024-08-13 16:16:41" itemprop="dateCreated datePublished" datetime="2024-08-13T16:16:41+08:00">2024-08-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-08-14 15:31:01" itemprop="dateModified" datetime="2024-08-14T15:31:01+08:00">2024-08-14</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -350,6 +361,464 @@ class="math inline">\(n,m\geq N\)</span>, <span
 class="math inline">\(z\in R\)</span>有<span
 class="math inline">\(|S_n(z)-S_m(z)|&lt;\epsilon\)</span>，其中<span
 class="math inline">\(S_n\)</span>的定義同定義4。</p>
+<h3 id="例-6-1"><font color=#ffa500><u>例 6-1</u></font></h3>
+<p>考慮級數<span
+class="math inline">\(S=1+z+z^2+z^3+\cdots\)</span>，其部分和為 <span
+class="math display">\[
+S_n=\frac{1-z^{n+1}}{1-z}
+\]</span> 當<span class="math inline">\(|z|&lt;1\)</span>時，有<span
+class="math inline">\(S_n\to\frac{1}{1-z}\)</span>，即此級數在<span
+class="math inline">\(|z|&lt;1\)</span>時絕對收斂。且對於所有<span
+class="math inline">\(q&lt;1\)</span>，此級數在<span
+class="math inline">\(|z|\leq q\)</span>處都一致收斂。</p>
+<h2 id="定義-7冪級數-power-series"><font color=#008000><u>定義 7：冪級數
+(Power Series)</u></font></h2>
+<p>我們稱形如 <span class="math display">\[
+p(z)=\sum_{n=0}^\infty a_nz^n\mbox{ or }\sum_{n=0}^\infty a_n(z-z_0)^n
+\]</span> 的級數為冪級數。</p>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
+<p>若冪級數 <span class="math display">\[
+p(z)=\sum_{n=0}^\infty a_nz^n
+\]</span> 在<span
+class="math inline">\(z=\xi\)</span>處收斂，則該級數在<span
+class="math inline">\(|z|&lt;|\xi|\)</span>處都收斂，且<span
+class="math inline">\(\forall q&lt;1\)</span>，此級數在<span
+class="math inline">\(|z|\leq q|\xi|\)</span>處一致收斂。更甚者，冪級數
+<span class="math display">\[
+D(z)=\sum_{n=1}^\infty na_nz^{n-1}\mbox{ and
+}I(z)=\sum_{n=0}^\infty\frac{a_n}{n+1}z^{n+1}
+\]</span> 都會在<span class="math inline">\(|z|\leq
+q|\xi|\)</span>處一致收斂。(證略)<br> (這是<a
+href="https://alexthepurplerose.github.io/2024/07/20/cal-power-series/">這裡</a>的定理4的複級數版)</p>
+<h3
+id="定義-8-1收斂半徑-radius-of-convergence"><font color=#008000><u>定義
+8-1：收斂半徑 (Radius of Convergence)</u></font></h3>
+<p>我們說<span
+class="math inline">\(\rho\)</span>是某個冪級數的收斂半徑，若該級數在<span
+class="math inline">\(|z|&lt;\rho\)</span>處都收斂，且在<span
+class="math inline">\(|z|&gt;\rho\)</span>處都發散。(當<span
+class="math inline">\(|z|=\rho\)</span>時，我們不去在乎級數的斂散性。)<br></p>
+<p>於是當<span class="math inline">\(|z|&lt;\rho\)</span>時，<span
+class="math inline">\(p(z)=\sum\limits_{n=1}^\infty
+a_nz^n\)</span>為一函數，其值為<span
+class="math inline">\(p_n(z)=\sum\limits_{k=0}^na_kz^k\)</span>的極限值。</p>
+<h2 id="註記-9"><font color=#0000FF><u>註記 9</u></font></h2>
+<p>給定冪級數 <span class="math display">\[
+p(z)=\sum_{n=1}^\infty a_nz^n
+\]</span> 則在其收斂半徑中，極限 <span class="math display">\[
+\lim_{z_1\to z}\frac{p(z_1)-p(z)}{z_1-z}
+\]</span> 存在。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：直覺感受上，沿用定理8的符號，有
+<span class="math display">\[
+p&#39;(z)=\sum_{n=1}^\infty
+na_nz^{n-1}=\lim_{n\to\infty}p_n&#39;(z)=\lim_{n\to\infty}D_n(z)=D(z)
+\]</span>
+然而我們其實不能確定這裡微分和求和號是可以交換的，但我們可以在此猜測<span
+class="math inline">\(\frac{p(z_1)-p(z)}{z_1-z}\)</span>的極限值會是<span
+class="math inline">\(D(z)\)</span>。也就是說，我們希望說明<span
+class="math inline">\(D(z)\)</span>和<span
+class="math inline">\(\frac{p(z_1)-p(z)}{z_1-z}\)</span>的差可以任意小。<br>
+令 <span class="math display">\[
+D(z_1,z)=\frac{p(z_1)-p(z)}{z_1-z}=\frac{p_n(z_1)-p_n(z)}{z_1-z}+\sum_{k=n+1}^\infty
+a_k\lambda_k
+\]</span> 其中 <span class="math display">\[
+\lambda_k=\frac{z_1^k-z^k}{z_1-z}=z_1^{k-1}+z_1^{k-2}z+z_1^{k-3}z^2+\cdots+z^{k-1}
+\]</span> 令<span class="math inline">\(|\xi|\)</span>為<span
+class="math inline">\(p\)</span>的收斂半徑，<span
+class="math inline">\(q&lt;1\)</span>，則對於<span
+class="math inline">\(|z|&lt;q|\xi|\)</span>與<span
+class="math inline">\(|z_1|&lt;q|\xi|\)</span>，有<span
+class="math inline">\(\lambda_k\leq
+kq^{k-1}|\xi|^{k-1}\)</span>。又<span class="math inline">\(\sum
+a_k\xi^k\)</span>收斂，故存在<span
+class="math inline">\(M\)</span>使得對於所有<span
+class="math inline">\(k\)</span>有<span
+class="math inline">\(|a_k\xi^k|\leq M\)</span>。故 <span
+class="math display">\[
+|a_k||\xi|^{k-1}=\frac{1}{|\xi|}|a_k||\xi|^k\leq\frac{M}{|\xi|}
+\]</span> 於是 <span class="math display">\[
+\left|\sum_{k=n+1}^\infty a_k\lambda_k\right|\leq\sum_{k=n+1}^\infty
+|a_k|\cdot k\cdot
+q^{k-1}|\xi|^{k-1}\leq\frac{M}{|\xi|}\sum_{k=n+1}^\infty kq^{k-1}
+\]</span> 因為<span class="math inline">\(q&lt;1\)</span>，故當<span
+class="math inline">\(n\)</span>很大時，可以有 <span
+class="math display">\[
+\left|\sum_{k=n+1}^\infty a_k\lambda_k\right|&lt;\epsilon
+\]</span> 並且由定理8我們知道<span
+class="math inline">\(D_n(z)\)</span>一致收斂到<span
+class="math inline">\(D(z)\)</span>，故當<span
+class="math inline">\(n\)</span>夠大時， <span class="math display">\[
+|D(z)-D+n(z)|&lt;\epsilon
+\]</span> 且 <span class="math display">\[
+p_n&#39;(z)=\sum_{k=1}^n ka_kz^{k-1}=D_n(z)
+\]</span> (有限和可以直接交換微分和求和)，並且 <span
+class="math display">\[
+\frac{a_kz_1^k-a_kz^k}{z_1-z}=a_k(z_1^{k-1}+\cdots+z^{k-1})
+\]</span> 意即在<span class="math inline">\(z_1\)</span>夠靠近<span
+class="math inline">\(z\)</span>時，<span
+class="math inline">\(\frac{a_kz_1^k-a_kz^k}{z_1-z}\)</span>會很靠近<span
+class="math inline">\(ka_kz^{k-1}\)</span>。故 <span
+class="math display">\[
+\frac{p_n(z_1)-p_n(z)}{z_1-z}=\sum_{k=1}^n\frac{a_kz_1^k-a_kz^k}{z_1-z}\to\sum_{k=1}^n
+ka_kz^{k-1}=D_n(z)
+\]</span> 於是，我們可以挑足夠靠近<span
+class="math inline">\(z\)</span>的<span
+class="math inline">\(z_1\)</span> s.t. <span class="math display">\[
+\left|\frac{p_n(z_1)-p_n(z)}{z_1-z}-D_n(z)\right|&lt;\epsilon
+\]</span> 於是， <span class="math display">\[
+|D(z_1,z)-D(z)|\leq\left|\frac{p_n(z_1)-p_n(z)}{z_1-z}-D_n(z)\right|+|D_n(z)-D(z)|+\left|\sum_{k=n+1}^\infty
+a_k\lambda_k\right|&lt;3\epsilon
+\]</span> 於是，有 <span class="math display">\[
+\lim_{z_1\to z}\frac{p(z_1)-p(z)}{z_1-z}=D(z)
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="複變函數"><font color=#b8860b>複變函數</font></h1>
+</center>
+<h2 id="定義-10複變函數-complex-function"><font color=#008000><u>定義
+10：複變函數 (Complex Function)</u></font></h2>
+<p>我們說一個複函數<span
+class="math inline">\(f(z)=\xi\)</span>的意思是在一個<span
+class="math inline">\(z\)</span>的定義域<span
+class="math inline">\(R\)</span>中，對於所有<span
+class="math inline">\(z\in R\)</span>，都存在<span
+class="math inline">\(\xi\in\mathbb{C}\)</span> s.t. <span
+class="math inline">\(f(z)=\xi\)</span>，意即 <span
+class="math display">\[
+\begin{aligned}
+f:x+iy&amp;\to u+iv\\
+z&amp;\to f(z)=\xi=u+iv
+\end{aligned}
+\]</span> (就是<span
+class="math inline">\(f:\mathbb{C}\to\mathbb{C}\)</span>的函數)。並且這裡我們可以寫成
+<span class="math display">\[
+f(z)=f(x+iy)=u(x,y)+iv(x,y)
+\]</span> 這裡<span class="math inline">\(u(x,y)\)</span>和<span
+class="math inline">\(v(x,y)\)</span>是實值函數。<br>
+(通常來說，我們會假設<span
+class="math inline">\(u,v,u_x,v_x,u_y,v_y\)</span>都連續。)</p>
+<h2 id="定義-11可微-differentiable"><font color=#008000><u>定義 11：可微
+(Differentiable)</u></font></h2>
+<p>我們說<span class="math inline">\(f(z)\)</span>可微，若極限 <span
+class="math display">\[
+\lim_{z_1\to z}\frac{f(z_1)-f(z)}{z_1-z}\equiv f&#39;(z)
+\]</span> 存在。</p>
+<h3 id="註記-11-1"><font color=#0000FF><u>註記 11-1</u></font></h3>
+<p>其實在複變的世界裡可為是很強的條件，因為<span
+class="math inline">\(z_1\)</span>有無窮多條路徑可以逼近到<span
+class="math inline">\(z\)</span>(見下圖2)。</p>
+<img src="differentiable.jpg" width="25%" height="25%">
+<center>
+圖2
+</center>
+<h4 id="例-11-1-1"><font color=#ffa500><u>例 11-1-1</u></font></h4>
+<p>考慮函數<span
+class="math inline">\(f(x+iy)=x\)</span>，則由實軸逼近，有 <span
+class="math display">\[
+\begin{aligned}
+\lim_{r\to 0}\frac{f(z+r)-f(z)}{r}&amp;=\lim_{r\to 0}\frac{x+r-x}{r}\\
+&amp;=1,\mbox{ where }r\in\mathbb{R}
+\end{aligned}
+\]</span> 但由虛軸逼近，又有 <span class="math display">\[
+\begin{aligned}
+\lim_{s\to 0}\frac{f(z+is)-f(z)}{is}&amp;=\lim_{r\to 0}\frac{x-x}{is}\\
+&amp;=0,\mbox{ where }s\in\mathbb{R}
+\end{aligned}
+\]</span> 可以發現<span class="math inline">\(f\)</span>不可微。</p>
+<h2
+id="定理-12柯西-黎曼方程-cauchy-riemann-equations"><font color=#ff1493><u>定理
+12：柯西-黎曼方程 (Cauchy-Riemann Equations)</u></font></h2>
+<p>令<span
+class="math inline">\(f(x+iy)=u(x,y)+iv(x,y)\)</span>，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(z=x+iy\)</span>可微若且唯若 <span
+class="math display">\[
+u_x=v_y,u_y=-v_x
+\]</span></p>
+<h3 id="定義-12-1解析-analytic"><font color=#008000><u>定義 12-1：解析
+(Analytic)</u></font></h3>
+<p>若<span class="math inline">\(f\)</span>在一區域<span
+class="math inline">\(R\)</span>上滿足柯西-黎曼方程，則稱<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(R\)</span>上解析，且 <span class="math display">\[
+f&#39;(z)=u_x+iv_x=v_y-iu_y
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：假設<span
+class="math inline">\(f&#39;(z)\)</span>存在，則 <span
+class="math display">\[
+\begin{aligned}
+f&#39;(z)&amp;=\lim_{r\to
+0}\left[\frac{u(x+r,y)-u(x,y)}{r}+i\frac{v(x+r,y)-v(x,y)}{r}\right]\\
+&amp;=u_x+iv_x,\mbox{ where }r\in R
+\end{aligned}
+\]</span> 並且 <span class="math display">\[
+\begin{aligned}
+f&#39;(z)&amp;=\lim_{s\to
+0}\left[\frac{u(x,y+s)-u(x,y)}{is}+i\frac{v(x,y+s)-v(x,y)}{is}\right]\\
+&amp;=\frac{1}{i}(u_y+iv_y)=v_y-iu_y,\mbox{ where }s\in R
+\end{aligned}
+\]</span> 實虛對應，有<span
+class="math inline">\(u_x=v_y,u_y=-v_x\)</span>。<br> 反過來說，考慮
+<span class="math display">\[
+\begin{aligned}
+\frac{f(z+h)-f(z)}{h}&amp;=\frac{u(x+r,y+s)-u(x,y)}{r+is}+i\frac{v(x+r,y+s)-v(x,y)}{r+is}\\
+&amp;=\frac{1}{r+is}[ru_x+su_y+irv_x+isv_y+\epsilon_1|h|+i\epsilon_2|h|]
+\end{aligned}
+\]</span> 其中<span
+class="math inline">\(|h|=\sqrt{r^2+s^2}\)</span>，且當<span
+class="math inline">\(|h|\to 0\)</span>時<span
+class="math inline">\(\epsilon_1,\epsilon_2\to 0\)</span>。<br>
+若柯西-黎曼方程成立，則 <span class="math display">\[
+\begin{aligned}
+&amp;\frac{1}{r+is}[ru_x+su_y+irv_x+isv_y+\epsilon_1|h|+i\epsilon_2|h|]\\
+&amp;=u_x+iv_x+\underbrace{\epsilon_1\times\frac{|h|}{r+is}}_{\to
+0}+\underbrace{i\epsilon_2\times\frac{|h|}{r+is}}_{\to 0}\\
+&amp;\to u_x+iv_x
+\end{aligned}
+\]</span> 這與<span
+class="math inline">\(h\)</span>的逼近路徑無關，即<span
+class="math inline">\(f(z)\)</span>可微。<font size="1">QED</font></p>
+<h3 id="註記-12-1"><font color=#0000FF><u>註記 12-1</u></font></h3>
+<p>由柯西-黎曼方程知若<span class="math inline">\(f\)</span>和<span
+class="math inline">\(g\)</span>都解析，則<span
+class="math inline">\(f+g\)</span>, <span
+class="math inline">\(f-g\)</span>, <span
+class="math inline">\(fg\)</span>, <span
+class="math inline">\(f/g\)</span>也都解析。</p>
+<h2 id="引理-13"><font color=#0000FF><u>引理 13</u></font></h2>
+<p>若一解析函數在一區域<span
+class="math inline">\(R\)</span>上的微分都是零，則<span
+class="math inline">\(f(z)\)</span>是常數函數。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(f&#39;(z)=0\)</span>，故在<span
+class="math inline">\(R\)</span>上總有<span
+class="math inline">\(v_y-iu_y=0\)</span>，意即 <span
+class="math display">\[
+v_y\equiv 0, u_y\equiv 0
+\]</span> 同理有<span
+class="math inline">\(v_x=0=u_x\)</span>，故知<span
+class="math inline">\(u\)</span>和<span
+class="math inline">\(v\)</span>都是常數，即<span
+class="math inline">\(f\)</span>為常數。<font size="1">QED</font></p>
+<center>
+<h1 id="基本的複變函數"><font color=#b8860b>基本的複變函數</font></h1>
+</center>
+<h2
+id="定義-14指數函數-exponential-function"><font color=#008000><u>定義
+14：指數函數 (Exponential Function)</u></font></h2>
+<p>定義 <span class="math display">\[
+e^z=\sum_{k=0}^\infty\frac{z^k}{k!}=1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\cdots
+\]</span> 很容易可以發現其收斂半徑為無窮大(<a
+href="https://alexthepurplerose.github.io/2024/07/12/cal-taylor/">這裡</a>的例12)，故可以對其逐項微分(註記9)，即
+<span class="math display">\[
+\frac{d}{dz}e^z=1+z+\frac{z^2}{2!}+\cdots=e^z
+\]</span> 和原本實數上的指數函數是一樣的。</p>
+<h3 id="註記-14-1"><font color=#0000FF><u>註記 14-1</u></font></h3>
+<p>這樣定義的指數函數滿足指數律<span
+class="math inline">\(e^ze^\xi=e^{z+\xi}\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：固定<span
+class="math inline">\(\xi\in\mathbb{C}\)</span>，令<span
+class="math inline">\(f(z)=e^z\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+\frac{d}{dz}e^{z+\xi}e^{-z}&amp;=\frac{d}{dz}f(z+\xi)f(-z)\\
+&amp;=f&#39;(z+\xi)f(-z)+f(z+\xi)(-f&#39;(-z))\\
+&amp;=f(z+\xi)f(-z)-f(z+\xi)f(-z)\;\;(f=f&#39;)\\
+&amp;=0
+\end{aligned}
+\]</span> 於是，<span
+class="math inline">\(e^{z+\xi}e^{-z}\)</span>是常數。代入<span
+class="math inline">\(z=0\)</span>，即得<span
+class="math inline">\(e^ze^\xi=e^{z+\xi}\)</span>。<font size="1">QED</font></p>
+<h4 id="註記-14-1-1"><font color=#0000FF><u>註記 14-1-1</u></font></h4>
+<p>若有函數滿足<span class="math inline">\(f&#39;(z)=f(z)\)</span>，則
+<span class="math display">\[
+\frac{d}{dz}(f(z)e^{-z})=f&#39;(z)e^{-z}-f(z)e^{-z}=0
+\]</span> 故<span
+class="math inline">\(f(z)e^{-z}\)</span>為常數，即<span
+class="math inline">\(f(z)=ce^z\)</span>。</p>
+<h2
+id="定義-15三角函數-trigonometric-functions"><font color=#008000><u>定義
+15：三角函數 (Trigonometric Functions)</u></font></h2>
+<p>我們令 <span class="math display">\[
+\cos z=\sum_{n=0}^\infty (-1)^n\frac{z^{2n}}{(2n)!}, \sin
+z=\sum_{n=0}^\infty (-1)^n\frac{z^{2n+1}}{(2n+1)!}
+\]</span></p>
+<h3 id="註記-15-1"><font color=#0000FF><u>註記 15-1</u></font></h3>
+<p>大概移項一下會有<span class="math inline">\(e^{iz}=\cos z+i\sin
+z\)</span>，故<span class="math inline">\(e^{-iz}=\cos z-i\sin
+z\)</span>(即<a
+href="https://alexthepurplerose.github.io/2024/07/22/cal-triseries/">這裡</a>的引理6(歐拉公式)適用於<span
+class="math inline">\(z\)</span>為複數的狀況)。故有 <span
+class="math display">\[
+1=e^{iz}e^{-iz}=\cos^2 z+\sin^2 z
+\]</span></p>
+<h3 id="註記-15-2"><font color=#0000FF><u>註記 15-2</u></font></h3>
+<p>對於<span class="math inline">\(x,y\in\mathbb{R}\)</span>，有 <span
+class="math display">\[
+e^z=e^x(\cos y+i\sin y)
+\]</span> 則令<span class="math inline">\(z=x+iy\)</span>，有 <span
+class="math display">\[
+|e^z|=|e^x||\cos y+i\sin y|=e^x
+\]</span> 即<span
+class="math inline">\(|e^z|=e^{(z\mbox{的實部})}\)</span>。</p>
+<center>
+<h1 id="保角性質"><font color=#b8860b>保角性質</font></h1>
+</center>
+<h2 id="回想-16"><font color=#0000FF><u>回想 16</u></font></h2>
+<p>令<span
+class="math inline">\(f(x+iy)=u+iv=u(x,y)+iv(x,y)\)</span>為解析函數，可以把這種函數想成<span
+class="math inline">\(f:(x,y)\to
+(u,v)\)</span>，於是可以考慮雅可比行列式 <span class="math display">\[
+\begin{aligned}
+D=\frac{\partial(u,v)}{\partial(x,y)}&amp;=u_xv_y-u_yv_x\\
+&amp;=u_x^2+v_x^2\mbox{ (柯西-黎曼方程(定理12))}\\
+&amp;=|f&#39;(z)|^2
+\end{aligned}
+\]</span> 於是，當<span class="math inline">\(f&#39;(z)\neq
+0\)</span>時<span class="math inline">\(D\neq
+0\)</span>。由反函數定理(<a
+href="https://alexthepurplerose.github.io/2024/07/03/cal-inverse/">這裡</a>的定理5)，若<span
+class="math inline">\(f&#39;(z_0)\neq 0\)</span>，則存在一個<span
+class="math inline">\(z_0\)</span>的鄰域 s.t. 在那個鄰域中<span
+class="math inline">\(f\)</span>一對一地打到<span
+class="math inline">\(\xi_0=f(z_0)\)</span>的一個鄰域(見下圖3)。</p>
+<img src="jacobi.jpg" width="50%" height="50%">
+<center>
+圖3
+</center>
+<h2 id="定義-17保角-conformal"><font color=#008000><u>定義 17：保角
+(Conformal)</u></font></h2>
+<p>令<span class="math inline">\(c_1,c_2\)</span>是<span
+class="math inline">\((u,v)\)</span>平面的任意兩條曲線，且<span
+class="math inline">\(x=\phi(u,v), y=\psi(u,v)\)</span>。又<span
+class="math inline">\(c_1, c_2\)</span>經<span
+class="math inline">\((\phi,\psi)\)</span>映射後映射到<span
+class="math inline">\((x,y)\)</span>平面上的兩曲線<span
+class="math inline">\(c_1&#39;\)</span>和<span
+class="math inline">\(c_2&#39;\)</span>。則我們說<span
+class="math inline">\((\phi,\psi)\)</span>是保角的，若<span
+class="math inline">\(c_1,c_2\)</span>的夾角總是等於<span
+class="math inline">\(c_1&#39;, c_2&#39;\)</span>的夾角(見下圖4)。</p>
+<img src="conformal.jpg" width="50%" height="50%">
+<center>
+圖4
+</center>
+<h2 id="回想-18"><font color=#0000FF><u>回想 18</u></font></h2>
+<p>考慮曲線<span
+class="math inline">\(\left\{\begin{aligned}u&amp;=u(t)\\v&amp;=v(t)\end{aligned}\right.\)</span>，它們被<span
+class="math inline">\(X=(\phi,\psi)\)</span>打過去形成的曲線是 <span
+class="math display">\[
+\left\{
+\begin{aligned}
+x&amp;=\phi(u(t),v(t))=x(t)\\
+y&amp;=\psi(u(t),v(t))=y(t)
+\end{aligned}
+\right.
+\]</span> 這條曲線在<span
+class="math inline">\(xy\)</span>平面上的切線向量可以寫為(見<a
+href="https://alexthepurplerose.github.io/2024/07/26/cal-curve/">這裡</a>的註記3-1)：
+<span class="math display">\[
+X_t=(x_t,y_t)=\left(x_u\frac{du}{dt}+x_v\frac{dv}{dt},y_u\frac{du}{dt}+y_v\frac{dv}{dt}\right)
+\]</span> 我們把它記為 <span class="math display">\[
+\left(x_u\frac{du}{dt}+x_v\frac{dv}{dt},y_u\frac{du}{dt}+y_v\frac{dv}{dt}\right)\equiv
+X_u\frac{du}{dt}+X_v\frac{dv}{dt}
+\]</span> 若給定另一曲線<span class="math inline">\(u=u(\tau),
+v=v(\tau)\)</span>，則其在<span
+class="math inline">\(xy\)</span>平面上的曲線有切線向量 <span
+class="math display">\[
+X_\tau=X_u\frac{du}{d\tau}+X_v\frac{dv}{d\tau}
+\]</span> 令這兩條<span
+class="math inline">\(xy\)</span>平面上的曲線有夾角<span
+class="math inline">\(w\)</span>(見下圖5)，則 <span
+class="math display">\[
+\cos w=\frac{X_t\cdot X_\tau}{|X_t||X_\tau|}
+\]</span></p>
+<img src="XwX.jpg" width="25%" height="25%">
+<center>
+圖5
+</center>
+<p>並且有 <span class="math display">\[
+X_t\cdot
+X_\tau=E\frac{du}{d\tau}\frac{du}{dt}+F\left(\frac{du}{dt}\frac{dv}{d\tau}+\frac{du}{d\tau}\frac{dv}{dt}\right)+G\frac{dv}{dt}\frac{dv}{d\tau}
+\]</span> 其中 <span class="math display">\[
+\begin{aligned}
+E&amp;=\left(\frac{\partial x}{\partial u}\right)^2+\left(\frac{\partial
+y}{\partial u}\right)^2=\phi_u^2+\psi_u^2\\
+F&amp;=\frac{\partial x}{\partial u}\frac{\partial x}{\partial
+v}+\frac{\partial y}{\partial u}\frac{\partial y}{\partial
+v}=\phi_u\phi_v+\psi_u\psi_v\\
+G&amp;=\left(\frac{\partial x}{\partial v}\right)^2+\left(\frac{\partial
+y}{\partial v}\right)^2=\phi_v^2+\psi_v^2
+\end{aligned}
+\]</span></p>
+<h2 id="定理-19"><font color=#ff1493><u>定理 19</u></font></h2>
+<p><span
+class="math inline">\((\phi,\psi)\)</span>是保角的若且唯若其滿足柯西-黎曼方程，即
+<span class="math display">\[
+\phi_u-\psi_v=0, \phi_v+\psi_u=0
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：假設<span
+class="math inline">\(X=(\phi,\psi)\)</span>是保角的，則首先考慮倆互相垂直的線
+<span class="math display">\[
+\left\{
+\begin{aligned}
+u&amp;=u_0\\
+v&amp;=v_0+t
+\end{aligned}
+\right.\mbox{ and }\left\{
+\begin{aligned}
+u&amp;=u_0+\tau\\
+v&amp;=v_0
+\end{aligned}
+\right.
+\]</span> 其中<span class="math inline">\(u_0\)</span>和<span
+class="math inline">\(v_0\)</span>為常數。由回想18，這兩條曲線的夾角<span
+class="math inline">\(w\)</span>有 <span class="math display">\[
+\cos w=\frac{E\cdot 0+F\cdot 1+G\cdot 0}{|X_t||X_\tau|}
+\]</span> 又已知<span
+class="math inline">\(w=\pi/2\)</span>(見下圖6)，故<span
+class="math inline">\(\cos w=0\)</span>, <span
+class="math inline">\(F=0\)</span>。於是 <span class="math display">\[
+\phi_u\phi_v+\psi_u\psi_v=0\mbox{ (☆)}
+\]</span></p>
+<img src="red-cross.jpg" width="25%" height="25%">
+<center>
+圖6
+</center>
+<p>類似的，考慮另外一組垂直曲線 <span class="math display">\[
+\left\{
+\begin{aligned}
+u&amp;=u_0+t\\
+v&amp;=v_0+t
+\end{aligned}
+\right.\mbox{ and }\left\{
+\begin{aligned}
+u&amp;=u_0+\tau\\
+v&amp;=v_0-\tau
+\end{aligned}
+\right.
+\]</span> 會得到<span class="math inline">\(E-G=0\)</span>，即 <span
+class="math display">\[
+\phi_u^2+\psi_u^2-\phi_v^2-\psi_v^2=0\mbox{ (★)}
+\]</span> 由(☆)式，可以令<span
+class="math inline">\(\phi_u=\lambda\psi_v,
+\phi_v=-\lambda\psi_u\)</span>。而把這塞進(★)式，可以求得<span
+class="math inline">\(\lambda=\pm 1\)</span>。無論是<span
+class="math inline">\(+1\)</span>或<span
+class="math inline">\(-1\)</span>，<span
+class="math inline">\((\phi,\psi)\)</span>都滿足柯西-黎曼方程。<br></p>
+<p>反過來說，若<span
+class="math inline">\((\phi,\psi)\)</span>滿足柯西-黎曼方程，則有<span
+class="math inline">\(E=G\geq 0\)</span>與<span
+class="math inline">\(F=0\)</span>。則對於<span
+class="math inline">\(uv\)</span>平面上的任兩條曲線來說，它們在<span
+class="math inline">\(xy\)</span>平面上對應到的曲線夾角<span
+class="math inline">\(w\)</span>滿足 <span class="math display">\[
+\cos
+w=\frac{\frac{du}{dt}\frac{du}{d\tau}+\frac{dv}{dt}\frac{dv}{d\tau}}{\sqrt{\left(\frac{du}{dt}\right)^2+\left(\frac{dv}{dt}\right)^2}+\sqrt{\left(\frac{du}{d\tau}\right)^2+\left(\frac{dv}{d\tau}\right)^2}}
+\]</span> 而這很顯然是一開始兩曲線的夾角(見<a
+href="https://alexthepurplerose.github.io/2024/07/26/cal-curve/">這裡</a>的註記3-1)，即<span
+class="math inline">\((\phi,\psi)\)</span>是保角的。<font size="1">QED</font></p>
 
     </div>
 
@@ -446,7 +915,16 @@ Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a cla
 3-1：柯西序列 (Cauchy Sequence)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A4%87%E7%B4%9A%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">複級數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E8%A4%87%E6%95%B8%E7%B4%9A%E6%95%B8%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-complex-series"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 4：複數級數的極限 (Limit of Complex Series)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5%E7%B5%95%E5%B0%8D%E6%94%B6%E6%96%82%E6%AA%A2%E9%A9%97%E6%B3%95-absolute-convergence-test"><span class="nav-number">2.2.</span> <span class="nav-text">註記
 5：絕對收斂檢驗法 (Absolute Convergence Test)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E4%B8%80%E8%87%B4%E6%94%B6%E6%96%82-uniform-convergence"><span class="nav-number">2.3.</span> <span class="nav-text">定義
-6：一致收斂 (Uniform Convergence)</span></a></li></ol></li></ol></div>
+6：一致收斂 (Uniform Convergence)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-6-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">例 6-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%86%AA%E7%B4%9A%E6%95%B8-power-series"><span class="nav-number">2.4.</span> <span class="nav-text">定義 7：冪級數
+(Power Series)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.5.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8-1%E6%94%B6%E6%96%82%E5%8D%8A%E5%BE%91-radius-of-convergence"><span class="nav-number">2.5.1.</span> <span class="nav-text">定義
+8-1：收斂半徑 (Radius of Convergence)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9"><span class="nav-number">2.6.</span> <span class="nav-text">註記 9</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A4%87%E8%AE%8A%E5%87%BD%E6%95%B8"><span class="nav-number">3.</span> <span class="nav-text">複變函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E8%A4%87%E8%AE%8A%E5%87%BD%E6%95%B8-complex-function"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+10：複變函數 (Complex Function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E5%8F%AF%E5%BE%AE-differentiable"><span class="nav-number">3.2.</span> <span class="nav-text">定義 11：可微
+(Differentiable)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-11-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">註記 11-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-11-1-1"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">例 11-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12%E6%9F%AF%E8%A5%BF-%E9%BB%8E%E6%9B%BC%E6%96%B9%E7%A8%8B-cauchy-riemann-equations"><span class="nav-number">3.3.</span> <span class="nav-text">定理
+12：柯西-黎曼方程 (Cauchy-Riemann Equations)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-12-1%E8%A7%A3%E6%9E%90-analytic"><span class="nav-number">3.3.1.</span> <span class="nav-text">定義 12-1：解析
+(Analytic)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-12-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">註記 12-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-13"><span class="nav-number">3.4.</span> <span class="nav-text">引理 13</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%A4%87%E8%AE%8A%E5%87%BD%E6%95%B8"><span class="nav-number">4.</span> <span class="nav-text">基本的複變函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-14%E6%8C%87%E6%95%B8%E5%87%BD%E6%95%B8-exponential-function"><span class="nav-number">4.1.</span> <span class="nav-text">定義
+14：指數函數 (Exponential Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-14-1"><span class="nav-number">4.1.1.</span> <span class="nav-text">註記 14-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-14-1-1"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">註記 14-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-15%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8-trigonometric-functions"><span class="nav-number">4.2.</span> <span class="nav-text">定義
+15：三角函數 (Trigonometric Functions)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-15-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">註記 15-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-15-2"><span class="nav-number">4.2.2.</span> <span class="nav-text">註記 15-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BF%9D%E8%A7%92%E6%80%A7%E8%B3%AA"><span class="nav-number">5.</span> <span class="nav-text">保角性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%83%B3-16"><span class="nav-number">5.1.</span> <span class="nav-text">回想 16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-17%E4%BF%9D%E8%A7%92-conformal"><span class="nav-number">5.2.</span> <span class="nav-text">定義 17：保角
+(Conformal)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%83%B3-18"><span class="nav-number">5.3.</span> <span class="nav-text">回想 18</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-19"><span class="nav-number">5.4.</span> <span class="nav-text">定理 19</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
