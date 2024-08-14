@@ -31,8 +31,15 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/CauchyThm.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/c1c2c.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/zdx.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/pizza.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/CIF.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/MoreraThm.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/morera.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/residue.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/contour.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/14/cal-complex-int/semicircle.jpg">
 <meta property="article:published_time" content="2024-08-14T07:33:49.000Z">
-<meta property="article:modified_time" content="2024-08-14T08:20:25.733Z">
+<meta property="article:modified_time" content="2024-08-14T13:36:56.353Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Calculus">
@@ -199,7 +206,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-14 15:33:49 / 修改時間：16:20:25" itemprop="dateCreated datePublished" datetime="2024-08-14T15:33:49+08:00">2024-08-14</time>
+              <time title="創建時間：2024-08-14 15:33:49 / 修改時間：21:36:56" itemprop="dateCreated datePublished" datetime="2024-08-14T15:33:49+08:00">2024-08-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -272,7 +279,7 @@ class="math inline">\(f\)</span> along the curve <span
 class="math inline">\(C\)</span>)，寫做 <span class="math display">\[
 \int_{t_0}^z f(t)dt\mbox{ or }\int_C f(t)ft
 \]</span></p>
-<h2 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h2>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
 <p>若存在<span class="math inline">\(M\)</span>使得對於所有<span
 class="math inline">\(z\)</span>都有<span
 class="math inline">\(|f(z)|\leq M&lt;\infty\)</span>，則 <span
@@ -355,8 +362,456 @@ class="math inline">\(F\)</span>滿足柯西-黎曼方程，故 <span
 class="math display">\[
 \frac{dF}{dz}=\tilde{U}_x+i\tilde{V}_x=u+iv=f
 \]</span> <font size="1">QED</font></p>
-<h3 id="例-2-1對數函數-logarithmic-function"><font color=#ffa500><u>例
-2-1：對數函數 (Logarithmic Function)</u></font></h3>
+<h2 id="例-3對數函數-logarithmic-function"><font color=#ffa500><u>例
+3：對數函數 (Logarithmic Function)</u></font></h2>
+<p>考慮<span class="math inline">\(f(t)=\frac{1}{t}\)</span>，其中<span
+class="math inline">\(t\)</span>的範圍<span
+class="math inline">\(R\)</span>為負實軸以外的整個複平面。令 <span
+class="math display">\[
+t=|t|(\cos\theta+i\sin\theta), -\pi&lt;\theta&lt;\pi
+\]</span> 考慮<span class="math inline">\(t\)</span>從<span
+class="math inline">\(1\)</span>到<span
+class="math inline">\(R\)</span>中某一點<span
+class="math inline">\(z\)</span>的積分<span
+class="math inline">\(\int_1^z\frac{dt}{t}\)</span>，定義 <span
+class="math display">\[
+\log z=\int_1^z\frac{dt}{t}
+\]</span> 則 <span class="math display">\[
+\frac{d}{dz}\log z=\frac{1}{z}
+\]</span> 考慮函數<span class="math inline">\(e^{\log
+z}\)</span>，由鏈鎖律有 <span class="math display">\[
+\frac{d}{dz}\left(\frac{1}{z}e^{\log z}\right)=\frac{-1}{z^2}e^{\log
+z}+\frac{1}{z^2}e^{\log z}=0
+\]</span> 意即<span class="math inline">\(\frac{1}{z}e^{\log
+z}\)</span>是常數。又 <span class="math display">\[
+\log 1=\int_1^1\frac{dt}{t}=0
+\]</span> 故<span class="math inline">\(\frac{1}{1}e^{\log
+1}=1\)</span>，即 <span class="math display">\[
+\frac{1}{z}e^{\log z}=1, e^{\log z}=z
+\]</span> 其中<span class="math inline">\(z\in
+R\)</span>。也就是說，方程式<span
+class="math inline">\(e^w=z\)</span>在<span class="math inline">\(z\in
+R\)</span>時必至少有一解<span class="math inline">\(w=\log
+z\)</span>。然而<span
+class="math inline">\(w\)</span>應該不是唯一的，因為 <span
+class="math display">\[
+e^{w+2n\pi i}=e^w,\forall n\in\mathbb{Z}
+\]</span> 接著，為了具體求出<span class="math inline">\(\log
+z\)</span>的值，我們在<span class="math inline">\(\log
+z=\int_1^z\frac{dt}{t}\)</span>中選取一個特殊的積分路徑。那就是先徑向，再旋轉(見下圖5)。</p>
+<img src="pizza.jpg" width="50%" height="50%">
+<center>
+圖5
+</center>
+<p>則在上圖中的圓弧上 <span class="math display">\[
+\frac{dt}{t}=\frac{i|z|e^{i\xi}}{|z|e^{i\xi}}d\xi=id\xi
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+\log z&amp;=\int_1^{|z|}\frac{dt}{t}+\int_0^\theta id\xi\\
+&amp;=\log |z|+i\theta
+\end{aligned}
+\]</span> 於是，我們便有 <span class="math display">\[
+\log z=\log |z|+i\theta+2n\pi i
+\]</span> 這個步驟其實對於落在負實軸上的<span
+class="math inline">\(z\)</span>也沒有問題，故我們可以定義：</p>
+<h3
+id="定義-3-1對數的主值-principle-value-of-logarithm"><font color=#008000><u>定義
+3-1：對數的主值 (Principle Value of Logarithm)</u></font></h3>
+<p>對於<span class="math inline">\(z\neq 0\)</span>，我們稱<span
+class="math inline">\(\log z\)</span>的主值為 <span
+class="math display">\[
+\log z=\log |z|+i\theta
+\]</span> 其中<span class="math inline">\(-\pi&lt;\theta\leq
+\pi\)</span>。</p>
+<center>
+<h1 id="柯西積分公式"><font color=#b8860b>柯西積分公式</font></h1>
+</center>
+<h2
+id="定理-4柯西積分公式-cauchys-integral-formula"><font color=#ff1493><u>定理
+4：柯西積分公式 (Cauchy's Integral Formula)</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>在區域<span
+class="math inline">\(R\)</span>上解析，且<span
+class="math inline">\(R\)</span>的邊界為<span
+class="math inline">\(C\)</span>，則 <span class="math display">\[
+\frac{1}{2\pi i}\int_C\frac{f(z)}{w-z}dw=f(z)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮<span
+class="math inline">\(g(z)=\frac{f(z)}{z-a}\)</span>，則<span
+class="math inline">\(g(z)\)</span>在<span
+class="math inline">\(R\)</span>中除了<span
+class="math inline">\(z=a\)</span>之外的地方都解析。令<span
+class="math inline">\(K\)</span>為以<span
+class="math inline">\(a\)</span>為圓心、以<span
+class="math inline">\(\rho\)</span>為半徑的圓(見下圖6)，並令<span
+class="math inline">\(C_1\)</span>和<span
+class="math inline">\(C_2\)</span>兩路徑如下圖所示，則由柯西定理(定理2)有
+<span class="math display">\[
+\int_{\textcolor{red}{C_1}}g=\int_{\textcolor{blue}{C_2}}g=0
+\]</span></p>
+<img src="CIF.jpg" width="50%" height="50%">
+<center>
+圖6
+</center>
+<p>令<span class="math inline">\(C_3\)</span>和<span
+class="math inline">\(C_4\)</span>為<span
+class="math inline">\(C_1\)</span>和<span
+class="math inline">\(C_2\)</span>繞行<span
+class="math inline">\(K\)</span>的部分，<span
+class="math inline">\(C_5\)</span>和<span
+class="math inline">\(C_6\)</span>為<span
+class="math inline">\(C_1\)</span>和<span
+class="math inline">\(C_2\)</span>繞行<span
+class="math inline">\(C\)</span>的部分。又，兩段連接<span
+class="math inline">\(C\)</span>和<span
+class="math inline">\(K\)</span>的部分會分別抵銷，故 <span
+class="math display">\[
+\begin{aligned}
+&amp;\int_{\textcolor{red}{C_1}}g+\int_{\textcolor{blue}{C_2}}g=0\\
+\Rightarrow&amp;\int_{C_5}g+\int_{C_3}g+\int_{C_6}g+\int_{C_4}g=0\\
+\Rightarrow&amp;\int_{C_5}g+\int_{C_6}g=-\left(\int_{C_3}g+\int_{C_4}g\right)\\
+\Rightarrow&amp;\int_C g=\int_K g
+\end{aligned}
+\]</span> 最後一步要注意<span
+class="math inline">\(C_3,C_4\)</span>與<span
+class="math inline">\(K\)</span>反方向。<br> 又，<span
+class="math inline">\(K\)</span>可表為<span
+class="math inline">\(z=a+\rho e^{i\theta}\)</span>，故<span
+class="math inline">\(dz=\rho ie^{i\theta}d\theta\)</span>。於是 <span
+class="math display">\[
+\begin{aligned}
+\int_K g(z)dz&amp;=\int_0^{2\pi}g(z)\rho ie^{i\theta}d\theta\\
+&amp;=\int_0^{2\pi}\frac{f(z)}{z-a}\rho e^{i\theta}d\theta\\
+&amp;=i\int_0^{2\pi}f(a+\rho e^{i\theta})d\theta\mbox{ (☆)}\\
+&amp;(z-a=\rho e^{i\theta})
+\end{aligned}
+\]</span> 由於<span class="math inline">\(f\)</span>連續，故當<span
+class="math inline">\(\rho\)</span>夠小時，我們有 <span
+class="math display">\[
+f(a+\rho e^{i\theta})=f(a)+\eta
+\]</span> 其中<span
+class="math inline">\(|\eta|&lt;\epsilon\)</span>。故由註記1-1知 <span
+class="math display">\[
+\left|\int_0^{2\pi}f(a+\rho
+e^{i\theta})d\theta-\int_0^{2\pi}f(a)d\theta\right|\leq 2\pi\epsilon
+\]</span> 意即 <span class="math display">\[
+\int_0^{2\pi}f(a+\rho e^{i\theta})d\theta=2\pi f(a)+\epsilon&#39;
+\]</span> 則由上(☆)式，有 <span class="math display">\[
+\int_C g(z)dz=\int_K g(z)dz=2\pi if(a)+\epsilon&#39;i
+\]</span> 令<span class="math inline">\(\epsilon&#39;\to
+0\)</span>，即有 <span class="math display">\[
+\frac{1}{2\pi i}\int_C\frac{f(z)}{w-z}dw=f(z)
+\]</span> <font size="1">QED</font></p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>若<span class="math inline">\(f(z)\)</span>在<span
+class="math inline">\(|z-z_0|\leq R\)</span>上解析，則我們可以把<span
+class="math inline">\(f\)</span>寫成<span
+class="math inline">\((z-z_0)\)</span>的冪級數，且這個冪級數至少在<span
+class="math inline">\(|z-z_0|&lt;R\)</span>處收斂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：WLOG，令<span
+class="math inline">\(z_0=0\)</span>。令<span
+class="math inline">\(|z|&lt;R\)</span>, <span
+class="math inline">\(|t|=R\)</span>，我們有 <span
+class="math display">\[
+\begin{aligned}
+\frac{f(t)}{t-z}&amp;=\frac{f(t)}{t}\times\frac{1}{1-z/t}\\
+&amp;=\frac{f(t)}{t}\left(1+\left(\frac{z}{t}\right)+\left(\frac{z}{t}\right)^2+\cdots+\left(\frac{z}{t}\right)^n\right)+\frac{f(t)}{t}\left(\frac{z}{t}\right)^{n+1}\times\frac{1}{1-z/t}\mbox{
+(★)}
+\end{aligned}
+\]</span> 而在這裡由於<span
+class="math inline">\(|z/t|&lt;1\)</span>，故令<span
+class="math inline">\(|z/t|\leq q&lt;1\)</span>。接著，我們令 <span
+class="math display">\[
+r_n=\frac{1}{t}\times\frac{z^{n+1}}{t^{n+1}}\times\frac{1}{1-z/t}
+\]</span> 則 <span class="math display">\[
+|r_n|\leq\frac{1}{R}q^{n+1}\times{1}{1-q}
+\]</span> 把(★)式兩邊塞進柯西積分公式對<span
+class="math inline">\(t\)</span>積分再除以<span
+class="math inline">\(2\pi i\)</span>，得 <span class="math display">\[
+f(z)=c_0+c_1z+\cdots+c_nz^n+R_n
+\]</span> 其中 <span class="math display">\[
+\begin{aligned}
+c_k&amp;=\frac{1}{2\pi i}\int_C\frac{f(t)}{t^{n+1}}dt\\
+R_n&amp;=\frac{1}{2\pi i}\int_C f(t)r_ndt
+\end{aligned}
+\]</span> 其中<span class="math inline">\(C\)</span>是圓<span
+class="math inline">\(|t|=R\)</span>。<br> 令<span
+class="math inline">\(M\)</span>為<span
+class="math inline">\(|f(t)|\)</span>在<span
+class="math inline">\(|t|=R\)</span>上的上界，則當<span
+class="math inline">\(n\to\infty\)</span>時 <span
+class="math display">\[
+|R_n|\leq\frac{1}{2\pi R}\times\frac{q^{n+1}}{1-q}\cdot 2\pi\cdot R\cdot
+M\to 0
+\]</span> 故 <span class="math display">\[
+f(z)=\sum_{n=0}^\infty c_nz^n, c_n=\frac{1}{2\pi
+i}\int_C\frac{f(z)}{z^{n+1}}dz
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
+<p>若<span class="math inline">\(f=u+iv\)</span>解析，則<span
+class="math inline">\(f&#39;\)</span>也解析(可以從<span
+class="math inline">\(f\)</span>的冪級數去看，見<a
+href="https://alexthepurplerose.github.io/2024/08/13/cal-complex/">這裡</a>的註記9)。且因為<span
+class="math inline">\(f&#39;\)</span>也解析，故其仍滿足柯西-黎曼方程，即
+<span class="math display">\[
+\left\{
+\begin{aligned}
+u_{xx}+u_{yy}&amp;=\Delta u=0\\
+v_{xx}+v_{yy}&amp;=\Delta v=0
+\end{aligned}
+\right.
+\]</span> 其中<span
+class="math inline">\(\Delta\)</span>是拉普拉斯算符(見<a
+href="https://alexthepurplerose.github.io/2024/08/09/cal-multi-funda/">這裡</a>的定義7)。</p>
+<h4
+id="定義-5-1-1調和函數-harmonic-function"><font color=#008000><u>定義
+5-1-1：調和函數 (Harmonic Function)</u></font></h4>
+<p>即滿足<span class="math inline">\(\Delta u=\Delta
+v=0\)</span>的函數<span class="math inline">\(f=u+iv\)</span>。<br></p>
+<p>除此之外，我們還有柯西定理的逆定理。</p>
+<h2 id="定理-6莫雷拉定理-moreras-theorem"><font color=#ff1493><u>定理
+6：莫雷拉定理 (Morera's Theorem)</u></font></h2>
+<p>若連續函數<span
+class="math inline">\(f(z)=\xi=u+iv\)</span>沿著任何在<span
+class="math inline">\(R\)</span>中的封閉曲線<span
+class="math inline">\(C\)</span>的積分都是零，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(R\)</span>中解析。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮積分<span
+class="math inline">\(F(z)=\int_{t_0}^z
+f(t)dt\)</span>，其中積分路徑是從<span
+class="math inline">\(t_0\)</span>到<span
+class="math inline">\(z\)</span>的隨便一條路徑(積分和路徑無關，見下圖7)。</p>
+<img src="MoreraThm.jpg" width="50%" height="50%">
+<center>
+圖7
+</center>
+<p>則當<span class="math inline">\(h\to 0\)</span>時，因為<span
+class="math inline">\(f\)</span>是連續的，故 <span
+class="math display">\[
+\begin{aligned}
+\frac{F(z+h)-F(z)}{h}-f(z)&amp;=\frac{1}{h}\int_z^{z+h}[f(t)-f(z)]dt\\
+&amp;=\frac{h}{h}\times\epsilon\to 0
+\end{aligned}
+\]</span> 故<span class="math inline">\(F\)</span>可微 i.e. <span
+class="math inline">\(F\)</span>解析。由上註記5-1知<span
+class="math inline">\(F&#39;=f\)</span>也解析。<font size="1">QED</font></p>
+<img src="morera.jpg" width="25%" height="25%">
+<center>
+圖8 Giacinto Morera
+</center>
+<center>
+<h1 id="留數定理"><font color=#b8860b>留數定理</font></h1>
+</center>
+<h2 id="定義-7n階零點-zero-of-n-th-order"><font color=#008000><u>定義
+7：n階零點 (Zero of n-th Order)</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>在<span
+class="math inline">\(z=z_0\)</span>處為零，則其以<span
+class="math inline">\((z-z_0)\)</span>為項的泰勒級數的常數項為零，意即
+<span class="math display">\[
+f(z)=(z-z_0)f&#39;(z_0)+(z-z_0)^2\frac{f&#39;&#39;(z_0)}{2!}+\cdots
+\]</span> 於是可以提出公因式<span
+class="math inline">\((z-z_0)^n\)</span>，使得 <span
+class="math display">\[
+f(z)=(z-z_0)^n g(z)
+\]</span> 其中當<span class="math inline">\(g(z_0)\neq
+0\)</span>時，則我們稱<span class="math inline">\(z=z_0\)</span>為<span
+class="math inline">\(n\)</span>階零點。</p>
+<h2 id="定義-8n階極點-pole-of-n-th-order"><font color=#008000><u>定義
+8：n階極點 (Pole of n-th Order)</u></font></h2>
+<p>考慮函數<span
+class="math inline">\(\frac{1}{f(z)}=q(z)\)</span>，這個函數在<span
+class="math inline">\(f\)</span>為零的點以外都解析。若<span
+class="math inline">\(z_0\)</span>是<span
+class="math inline">\(f\)</span>的<span
+class="math inline">\(n\)</span>階零點，則 <span class="math display">\[
+q(z)=\frac{1}{(z-z_0)^ng(z)}=\frac{h(z)}{(z-z_0)^n}
+\]</span> 這裡<span
+class="math inline">\(h(z)=\frac{1}{g(z)}\)</span>，且<span
+class="math inline">\(h\)</span>在<span
+class="math inline">\(z=z_0\)</span>是解析的。我們稱<span
+class="math inline">\(z=z_0\)</span>為<span
+class="math inline">\(q\)</span>的<span
+class="math inline">\(n\)</span>階極點(或稱<span
+class="math inline">\(n\)</span>階奇點(Singularity))。</p>
+<h3 id="註記-8-1"><font color=#0000FF><u>註記 8-1</u></font></h3>
+<p>在定義8中對<span class="math inline">\(h\)</span>做冪級數展開，則
+<span class="math display">\[
+q(z)=\frac{c_{-n}}{(z-z_0)^n}+\frac{c_{-n+1}}{(z-z_0)^{n-1}}+\cdots+\frac{c_{-1}}{z-z_0}+c_0+c_1(z-z_0)+\cdots
+\]</span> 若<span class="math inline">\(z_0\)</span>是一階極點，則<span
+class="math inline">\(c_{-1}\)</span>可以由以下公式得出： <span
+class="math display">\[
+c_{-1}=\lim_{z\to z_0}(z-z_0)q(z)
+\]</span> 並且由於 <span class="math display">\[
+\frac{1}{(z-z_0)q(z)}=\frac{f(z)}{z-z_0}=\frac{f(z)-f(z_0)}{z-z_0}
+\]</span> 故<span
+class="math inline">\(c_{-1}=\frac{1}{f&#39;(z_0)}\)</span>。</p>
+<h2 id="定義-9留數-residue"><font color=#008000><u>定義 9：留數
+(Residue)</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>在<span
+class="math inline">\(z_0\)</span>的鄰域處處解析但在<span
+class="math inline">\(z_0\)</span>不解析，則由柯西積分定理知<span
+class="math inline">\(f\)</span>沿著任何包含<span
+class="math inline">\(z_0\)</span>的圓積分都會積出一樣的值。將該積分值稱為<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(z_0\)</span>的留數。</p>
+<h3 id="註記-9-1"><font color=#0000FF><u>註記 9-1</u></font></h3>
+<p>沿用註記8-1中的符號，則<span class="math inline">\(f\)</span>在<span
+class="math inline">\(z_0\)</span>的留數是<span
+class="math inline">\(2\pi ic_{-1}\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\(z_0\)</span>是<span
+class="math inline">\(f\)</span>的<span
+class="math inline">\(n\)</span>階極點，則由註記8-1知<span
+class="math inline">\(f\)</span>可表為 <span class="math display">\[
+f(z)=\frac{c_{-n}}{(z-z_0)^n}+\frac{c_{-n+1}}{(z-z_0)^{n-1}}+\cdots+\frac{c_{-1}}{z-z_0}+c_0+c_1(z-z_0)+\cdots
+\]</span> 兩邊沿以<span
+class="math inline">\(z_0\)</span>為圓心的圓<span
+class="math inline">\(K\)</span>積分，易知對於<span
+class="math inline">\(m\geq 0\)</span>有 <span class="math display">\[
+\int_K c_m(z-z_0)^mdz=0
+\]</span> 而由柯西積分公式， <span class="math display">\[
+\int_K\frac{c_{-1}}{z-z_0}dz=2\pi ic_{-1}
+\]</span> 而當<span class="math inline">\(m\geq 2\)</span>時， <span
+class="math display">\[
+\int\frac{dz}{(z-z_0)^m}=\frac{(z-z_0)^{-m+1}}{1-m}
+\]</span> (這就是普通的反導函數)，故 <span class="math display">\[
+\int_K\frac{c_{-m}}{(z-z_0)^m}dz=0
+\]</span> 於是，我們知道<span class="math inline">\(f\)</span>在<span
+class="math inline">\(z_0\)</span>的留數是<span
+class="math inline">\(2\pi
+ic_{-1}\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-10留數定理-theorem-of-residues"><font color=#ff1493><u>定理
+10：留數定理 (Theorem of Residues)</u></font></h2>
+<p>若<span class="math inline">\(f\)</span>在<span
+class="math inline">\(R\)</span>中除了有限多個極點以外的地方都解析，則<span
+class="math inline">\(f\)</span>沿<span
+class="math inline">\(C\)</span>(即<span
+class="math inline">\(R\)</span>的邊界)的積分是<span
+class="math inline">\(f\)</span>在那些極點的留數和。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：這和上述一個極點的情形類似，使用下圖9的路徑就好。<font size="1">QED</font></p>
+<img src="residue.jpg" width="50%" height="50%">
+<center>
+圖9
+</center>
+<center>
+<h1 id="圍道積分"><font color=#b8860b>圍道積分</font></h1>
+</center>
+<h2 id="例-11狄利克雷積分-dirichlet-integral"><font color=#ffa500><u>例
+11：狄利克雷積分 (Dirichlet Integral)</u></font></h2>
+<p><span class="math display">\[
+\int_0^\infty\frac{\sin x}{x}dx=\frac{\pi}{2}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮函數<span
+class="math inline">\(f(z)=\frac{e^{iz}}{z}\)</span>，我們沿著以下路徑積分<span
+class="math inline">\(f\)</span>：半徑分別為<span
+class="math inline">\(r\)</span>和<span
+class="math inline">\(R\)</span>的半圓，以及線段<span
+class="math inline">\(I_1,I_2\)</span>(見下圖10)。</p>
+<img src="contour.jpg" width="50%" height="50%">
+<center>
+圖10
+</center>
+<p>易知<span
+class="math inline">\(\frac{e^{iz}}{z}\)</span>在此區域內解析，故積分值應為<span
+class="math inline">\(0\)</span>。即 <span class="math display">\[
+\int_{H_R}\frac{e^{iz}}{z}dz+\int_{H_r}\frac{e^{iz}}{z}dz+\int_{I_1}\frac{e^{iz}}{z}dz+\int_{I_2}\frac{e^{iz}}{z}dz=0
+\]</span> 在線段<span class="math inline">\(I_1\)</span>和<span
+class="math inline">\(I_2\)</span>上，<span
+class="math inline">\(z=x\)</span>且<span
+class="math inline">\(e^{ix}=\cos x+i\sin x\)</span>。又 <span
+class="math display">\[
+\begin{aligned}
+\int_{I_1}\frac{\cos x}{x}dx&amp;=-\int_{I_2}\frac{\cos x}{x}dx\\
+\int_{I_1}\frac{\sin x}{x}dx&amp;=\int_{I_2}\frac{\sin x}{x}dx
+\end{aligned}
+\]</span> 故 <span class="math display">\[
+\int_{H_R}\frac{e^{iz}}{z}dz+\int_{H_r}\frac{e^{iz}}{z}dz+2i\int_r^R\frac{\sin
+x}{x}dx=0
+\]</span> 令<span class="math inline">\(R\to\infty\)</span>，將<span
+class="math inline">\(H_R\)</span>上的點表為<span
+class="math inline">\(z=R(\cos\theta+i\sin\theta)\)</span>，則 <span
+class="math display">\[
+e^{iz}=e^{iR\cos\theta}\cdot e^{-R\sin\theta}, dz=iRe^{i\theta}d\theta
+\]</span> 故 <span class="math display">\[
+\int_{H_R}\frac{e^{iz}}{z}dz=i\int_0^\pi e^{iR\cos\theta}\cdot
+e^{-R\sin\theta}d\theta
+\]</span> 然而<span
+class="math inline">\(|e^{iR\cos\theta}|=1\)</span>，且只要<span
+class="math inline">\(R\)</span>夠大，<span
+class="math inline">\(\forall\delta&gt;0\)</span>，<span
+class="math inline">\(e^{-R\sin\theta}\)</span>可以在區間<span
+class="math inline">\(\delta\leq\theta\leq\pi-\delta\)</span>中任意小。故
+<span class="math display">\[
+\left|\int_{H_R}\frac{e^{iz}}{z}dz\right|&lt;\epsilon\Rightarrow\int_{H_R}\frac{e^{iz}}{z}dz=0
+\]</span> 類似的，當<span class="math inline">\(r\to 0\)</span>時，
+<span class="math display">\[
+\int_{H_r}\frac{e^{iz}}{z}dz=-\pi i
+\]</span> (細節略)，故有 <span class="math display">\[
+-\pi i+2i\int_0^\infty\frac{\sin
+x}{x}dx=0\Rightarrow\int_0^\infty\frac{\sin x}{x}dx=\frac{\pi}{2}
+\]</span> <font size="1">QED</font></p>
+<h2 id="例-12"><font color=#ffa500><u>例 12</u></font></h2>
+<p>考慮 <span class="math display">\[
+Q(z)=\frac{a_0+a_1z+\cdots+a_mz^m}{b_0+b_1z+\cdots+b_nz^n}
+\]</span> 其中<span
+class="math inline">\(b_0+b_1z+\cdots+b_nz^n\)</span>無實根且<span
+class="math inline">\(n\geq m+2\)</span>，且<span
+class="math inline">\(a_0,\cdots,a_m,b_0,\cdots,b_n\in\mathbb{R}\)</span>。令
+<span class="math display">\[
+I=\int_{-\infty}^\infty Q(x)dx
+\]</span> 考慮環路<span class="math inline">\(C\)</span>為一半徑為<span
+class="math inline">\(R\)</span>的半圓及其直徑(見下圖11)。</p>
+<img src="semicircle.jpg" width="50%" height="50%">
+<center>
+圖11
+</center>
+<p>令<span class="math inline">\(R\)</span>大到以原點為圓心、以<span
+class="math inline">\(R\)</span>為半徑的圓能包住<span
+class="math inline">\(b_0+b_1z+\cdots+b_nz^n\)</span>的所有根 i.e. <span
+class="math inline">\(Q\)</span>所有的極點都落在以原點為圓心、以<span
+class="math inline">\(R\)</span>為半徑的圓內。則由留數定理， <span
+class="math display">\[
+\int_{H_R}Q(z)dz+\int_{-R}^R Q(x)dx=\mbox{上半部留數和}
+\]</span> 由於<span class="math inline">\(n\geq
+m+2\)</span>，故存在<span class="math inline">\(M\)</span>使得 <span
+class="math display">\[
+|Q(z)|\leq\frac{M}{R^2}
+\]</span> 則當<span class="math inline">\(R\to\infty\)</span>時 <span
+class="math display">\[
+\left|\int_{H_R}Q(z)dz\right|\leq\pi R\cdot\frac{M}{R^2}=\frac{\pi
+M}{R}\to 0
+\]</span> 故 <span class="math display">\[
+\int_{-\infty}^\infty Q(x)dx=\mbox{上半部留數和}
+\]</span></p>
+<h3 id="例-12-1"><font color=#ffa500><u>例 12-1</u></font></h3>
+<p>考慮 <span class="math display">\[
+Q(z)=\frac{1}{az^2+bz+c}
+\]</span> 其中<span class="math inline">\(b^2-4ac&lt;0\)</span>, <span
+class="math inline">\(a,b,c\in\mathbb{R}\)</span>。則<span
+class="math inline">\(Q\)</span>在上半平面只有唯一一個極點，其為 <span
+class="math display">\[
+z=\frac{1}{2a}(-b+i\sqrt{4ac-b^2})
+\]</span> 令<span
+class="math inline">\(f(z)=az^2+bz+c\)</span>，可以發現<span
+class="math inline">\(Q\)</span>的極點是一階極點，故由註記8-1與註記9-1，
+<span class="math display">\[
+\mbox{留數}=\frac{2\pi i}{f&#39;(z)}=\frac{2\pi i}{i\sqrt{4ac-b^2}}
+\]</span> 於是 <span class="math display">\[
+\int_{-\infty}^\infty Q(x)dx=\frac{2\pi}{\sqrt{4ac-b^2}}
+\]</span></p>
+<h3 id="例-12-2"><font color=#ffa500><u>例 12-2</u></font></h3>
+<p>考慮 <span class="math display">\[
+Q(z)=\frac{1}{1+z^4}, f(z)=1+z^4
+\]</span> 則<span
+class="math inline">\(Q\)</span>在上半平面有兩極點<span
+class="math inline">\(z_1=e^{i\pi/4}\)</span>和<span
+class="math inline">\(z_2=e^{3i\pi/4}\)</span>，都是一階極點，故 <span
+class="math display">\[
+\mbox{留數和}=2\pi
+i\left[\frac{1}{f&#39;(z_1)}+\frac{1}{f&#39;(z_2)}\right]=\frac{\sqrt{2}}{2}\pi
+\]</span> 即 <span class="math display">\[
+\int_{-\infty}^\infty \frac{1}{1+x^4}dx=\frac{\sqrt{2}}{2}\pi
+\]</span></p>
 
     </div>
 
@@ -441,9 +896,18 @@ class="math display">\[
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A4%87%E8%AE%8A%E5%87%BD%E6%95%B8%E7%9A%84%E7%A9%8D%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">複變函數的積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E8%A4%87%E8%AE%8A%E5%87%BD%E6%95%B8%E7%9A%84%E7%A9%8D%E5%88%86-integral-of-complex-function"><span class="nav-number">1.1.</span> <span class="nav-text">定義
-1：複變函數的積分 (Integral of Complex Function)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.2.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%AF%E8%A5%BF%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">柯西定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E6%9F%AF%E8%A5%BF%E5%AE%9A%E7%90%86-cauchys-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">定理
-2：柯西定理 (Cauchy&#39;s Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1%E5%B0%8D%E6%95%B8%E5%87%BD%E6%95%B8-logarithmic-function"><span class="nav-number">2.1.1.</span> <span class="nav-text">例
-2-1：對數函數 (Logarithmic Function)</span></a></li></ol></li></ol></li></ol></div>
+1：複變函數的積分 (Integral of Complex Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%AF%E8%A5%BF%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">柯西定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E6%9F%AF%E8%A5%BF%E5%AE%9A%E7%90%86-cauchys-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">定理
+2：柯西定理 (Cauchy&#39;s Theorem)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-3%E5%B0%8D%E6%95%B8%E5%87%BD%E6%95%B8-logarithmic-function"><span class="nav-number">2.2.</span> <span class="nav-text">例
+3：對數函數 (Logarithmic Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E5%B0%8D%E6%95%B8%E7%9A%84%E4%B8%BB%E5%80%BC-principle-value-of-logarithm"><span class="nav-number">2.2.1.</span> <span class="nav-text">定義
+3-1：對數的主值 (Principle Value of Logarithm)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%AF%E8%A5%BF%E7%A9%8D%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">柯西積分公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4%E6%9F%AF%E8%A5%BF%E7%A9%8D%E5%88%86%E5%85%AC%E5%BC%8F-cauchys-integral-formula"><span class="nav-number">3.1.</span> <span class="nav-text">定理
+4：柯西積分公式 (Cauchy&#39;s Integral Formula)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">3.2.</span> <span class="nav-text">定理 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">註記 5-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-1-1%E8%AA%BF%E5%92%8C%E5%87%BD%E6%95%B8-harmonic-function"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">定義
+5-1-1：調和函數 (Harmonic Function)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6%E8%8E%AB%E9%9B%B7%E6%8B%89%E5%AE%9A%E7%90%86-moreras-theorem"><span class="nav-number">3.3.</span> <span class="nav-text">定理
+6：莫雷拉定理 (Morera&#39;s Theorem)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%95%99%E6%95%B8%E5%AE%9A%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">留數定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7n%E9%9A%8E%E9%9B%B6%E9%BB%9E-zero-of-n-th-order"><span class="nav-number">4.1.</span> <span class="nav-text">定義
+7：n階零點 (Zero of n-th Order)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8n%E9%9A%8E%E6%A5%B5%E9%BB%9E-pole-of-n-th-order"><span class="nav-number">4.2.</span> <span class="nav-text">定義
+8：n階極點 (Pole of n-th Order)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">註記 8-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E7%95%99%E6%95%B8-residue"><span class="nav-number">4.3.</span> <span class="nav-text">定義 9：留數
+(Residue)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">註記 9-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10%E7%95%99%E6%95%B8%E5%AE%9A%E7%90%86-theorem-of-residues"><span class="nav-number">4.4.</span> <span class="nav-text">定理
+10：留數定理 (Theorem of Residues)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%8D%E9%81%93%E7%A9%8D%E5%88%86"><span class="nav-number">5.</span> <span class="nav-text">圍道積分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-11%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E7%A9%8D%E5%88%86-dirichlet-integral"><span class="nav-number">5.1.</span> <span class="nav-text">例
+11：狄利克雷積分 (Dirichlet Integral)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-12"><span class="nav-number">5.2.</span> <span class="nav-text">例 12</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-12-1"><span class="nav-number">5.2.1.</span> <span class="nav-text">例 12-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-12-2"><span class="nav-number">5.2.2.</span> <span class="nav-text">例 12-2</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
