@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於向量空間的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-08-15T06:31:39.000Z">
-<meta property="article:modified_time" content="2024-08-15T06:32:30.534Z">
+<meta property="article:modified_time" content="2024-08-15T07:57:06.734Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-15 14:31:39 / 修改時間：14:32:30" itemprop="dateCreated datePublished" datetime="2024-08-15T14:31:39+08:00">2024-08-15</time>
+              <time title="創建時間：2024-08-15 14:31:39 / 修改時間：15:57:06" itemprop="dateCreated datePublished" datetime="2024-08-15T14:31:39+08:00">2024-08-15</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +221,282 @@
 
       
         <p>這份筆記是關於向量空間的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="向量空間"><font color=#b8860b>向量空間</font></h1>
+</center>
+<h2 id="定義-1體-field"><font color=#008000><u>定義 1：體
+(Field)</u></font></h2>
+<p>考慮一個集合<span class="math inline">\(F\)</span>。我們在<span
+class="math inline">\(F\)</span>上定義兩種運算：加法(<span
+class="math inline">\(+\)</span>)和乘法(<span
+class="math inline">\(\cdot\)</span>)<br> (定義在<span
+class="math inline">\(F\)</span>上的意思是<span
+class="math inline">\(\forall a,b\in F\)</span>, <span
+class="math inline">\(a+b\in F\)</span>, <span
+class="math inline">\(a\cdot b\in F\)</span>。)<br> 若<span
+class="math inline">\(F\)</span>符合以下五個公理，則稱<span
+class="math inline">\(F\)</span>為體： <br>(F1) 交換律
+(Communitativity)： <span class="math display">\[
+\forall a,b\in F, a+b=b+a, a\cdot b=b\cdot a
+\]</span> (F2) 結合律 (Associativity)： <span class="math display">\[
+\forall a,b,c\in F, (a+b)+c=a+(b+c), (a\cdot b)\cdot c=a\cdot(b\cdot c)
+\]</span> (F3) 單位元素 (Unit Element)： <span class="math display">\[
+\exists 0,1\in F\mbox{ s.t. }\forall a\in F, a+0=a, a\cdot 1=a
+\]</span> (F4) 反元素 (Inverse Element)： <span class="math display">\[
+\begin{aligned}
+\forall a\in F, \exists (-a)\in F\mbox{ s.t. }a+(-a)&amp;=0\\
+\forall 0\neq b\in F, \exists b^{-1}\in F\mbox{ s.t.
+}b\cdot(b^{-1})&amp;=1
+\end{aligned}
+\]</span> (F5) 分配律 (Distributivity)： <span class="math display">\[
+\forall a,b,c\in F, a\cdot(b+c)=a\cdot b+a\cdot c
+\]</span></p>
+<h2 id="定義-2向量空間-vector-space"><font color=#008000><u>定義
+2：向量空間 (Vector Space)</u></font></h2>
+<p>給定向量集<span class="math inline">\(V\)</span>與純量體<span
+class="math inline">\(F\)</span>，以及我們在<span
+class="math inline">\(V\)</span>上定義加法(<span
+class="math inline">\(\forall x,y\in V, x+y\in
+V\)</span>)與純量乘法(<span class="math inline">\(\forall a\in F, v\in
+V, a\cdot v\in V\)</span>)。若<span
+class="math inline">\(V\)</span>符合以下八個公理，我們稱<span
+class="math inline">\(V\)</span>為<span
+class="math inline">\(F\)</span>上的向量空間： <br>(VS1) 加法交換律
+(Additive Communitativity)： <span class="math display">\[
+\forall x,y\in V, x+y=y+x
+\]</span> (VS2) 加法結合律 (Additive Associativity)： <span
+class="math display">\[
+\forall x,y,z\in V, (x+y)+z=x+(y+z)
+\]</span> (VS3) 加法單位元素 (Additive Unit Element)： <span
+class="math display">\[
+\exists 0\in V\mbox{ s.t. }\forall x\in V, 0+x=x
+\]</span> (VS4) 加法反元素 (Additive Inverse Element)： <span
+class="math display">\[
+\forall x\in V, \exists y\in V\mbox{ s.t. }x+y=0
+\]</span> (VS5) 乘法單位元素 (Multiplicative Unit Element)： <span
+class="math display">\[
+\mbox{For }1\in F, \forall x\in V, 1\cdot x=x
+\]</span> (VS6) 乘法結合律 (Multiplicative Associativity)： <span
+class="math display">\[
+\forall a,b\in F,x\in V, a\cdot(b\cdot x)=(a\cdot b)\cdot x
+\]</span> (VS7) 左分配律 (Left-Distributivity)： <span
+class="math display">\[
+\forall a\in F, x,y\in V, a\cdot(x+y)=a\cdot x+a\cdot y
+\]</span> (VS8) 右分配律 (Left-Distributivity)： <span
+class="math display">\[
+\forall a,b\in F, x\in V, (a+b)\cdot x=a\cdot x+b\cdot x
+\]</span></p>
+<h3 id="性質-2-1消除法則-cancellation-law"><font color=#0000FF><u>性質
+2-1：消除法則 (Cancellation Law)</u></font></h3>
+<p>給定向量空間<span class="math inline">\(V\)</span>與<span
+class="math inline">\(x,y,z\in V\)</span>，若<span
+class="math inline">\(x+z=y+z\)</span>，則<span
+class="math inline">\(x=y\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+\begin{aligned}
+x+z=y+z&amp;\Rightarrow(x+z)+(-z)=(y+z)+(-z)\\
+&amp;\Rightarrow x+(z+(-z))=y+(z+(-z))\;(VS2)\\
+&amp;\Rightarrow x+0=y+0\;(VS4)\\
+&amp;\Rightarrow x=y\;(VS3)
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="性質-2-2"><font color=#0000FF><u>性質 2-2</u></font></h3>
+<p>對於<span class="math inline">\(0\in F\)</span>，有<span
+class="math inline">\(\forall x\in V\)</span>, <span
+class="math inline">\(0x=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：在<span
+class="math inline">\(F\)</span>中<span
+class="math inline">\(0+0=0\;(F3)\)</span>，故 <span
+class="math display">\[
+0x+\underbrace{0}_{\in V}=0x=(0+0)x=0x+0x\; (VS8)
+\]</span> 故由消除法則， <span class="math display">\[
+\bcancel{0x}+0x=\bcancel{0x}+0\Rightarrow 0x=0
+\]</span> <font size="1">QED</font></p>
+<h3 id="性質-2-3"><font color=#0000FF><u>性質 2-3</u></font></h3>
+<p>對於<span class="math inline">\(0\in V\)</span>，有<span
+class="math inline">\(\forall a\in F\)</span>, <span
+class="math inline">\(a\cdot 0=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：在<span
+class="math inline">\(V\)</span>中<span
+class="math inline">\(0+0=0\;(VS3)\)</span>，故 <span
+class="math display">\[
+a\cdot 0+a\cdot 0=a\cdot(0+0)=a\cdot 0=a\cdot 0+0
+\]</span> 故由消除法則， <span class="math display">\[
+\bcancel{a\cdot 0}+a\cdot 0=\bcancel{a\cdot 0}+0\Rightarrow a\cdot 0=0
+\]</span> <font size="1">QED</font></p>
+<h3 id="性質-2-4"><font color=#0000FF><u>性質 2-4</u></font></h3>
+<p><span class="math display">\[
+\forall a\in F, x\in V, (-a)x=-(ax)=a(-x)
+\]</span> 其中<span class="math inline">\(-(ax)\)</span>是<span
+class="math inline">\(V\)</span>中使<span
+class="math inline">\(ax+(-(ax))=0\)</span>的向量。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+\begin{aligned}
+ax+(-a)x&amp;=(a+(-a))x\;(VS8)\\
+&amp;=0x=0\mbox{ (性質2-2)}\\
+&amp;=ax+(-(ax))
+\end{aligned}
+\]</span> 故由消除法則， <span class="math display">\[
+\bcancel{ax}+(-a)x=\bcancel{ax}+(-(ax))\Rightarrow (-a)x=-(ax)
+\]</span> 而又有 <span class="math display">\[
+\begin{aligned}
+a(x+(-x))&amp;=a\cdot 0=0\mbox{ (性質2-3)}\\
+&amp;=ax+a(-x)\;(VS7)\\
+&amp;=ax+(-(ax))
+\end{aligned}
+\]</span> 故由消除法則， <span class="math display">\[
+\bcancel{ax}+a(-x)=\bcancel{ax}+(-(ax))\Rightarrow a(-x)=-(ax)
+\]</span> <font size="1">QED</font></p>
+<h2 id="定義-3子空間-subspace"><font color=#008000><u>定義 3：子空間
+(Subspace)</u></font></h2>
+<p>給定向量空間<span class="math inline">\(V\)</span>，若<span
+class="math inline">\(W\subseteq V\)</span>也是向量空間，則稱<span
+class="math inline">\(W\)</span>是<span
+class="math inline">\(V\)</span>的子空間。</p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
+<p>由於定義2中的(VS1)~(VS8)在<span
+class="math inline">\(W\)</span>中都成立，故我們只要檢查運算封閉性就好。意即<span
+class="math inline">\(W\)</span>是<span
+class="math inline">\(V\)</span>的子空間若且唯若： <span
+class="math display">\[
+\left\{
+\begin{aligned}
+&amp;\forall x,y\in W, x+y\in W\\
+&amp;\forall a\in F,x\in W, ax\in W
+\end{aligned}
+\right.
+\]</span> (有些書上還會包含<span class="math inline">\(0\in
+W\)</span>，但這其實可以從<span class="math inline">\(-x\in
+W\)</span>而<span class="math inline">\(x+(-x)=0\in
+W\)</span>推導而出)。</p>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p>任意多個<span class="math inline">\(V\)</span>的子空間的交集還是<span
+class="math inline">\(V\)</span>的子空間。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(W_i\subseteq V\)</span>為給定的子空間們，且<span
+class="math inline">\(i\in I\)</span>，<span
+class="math inline">\(I\)</span>為指標集(Index Set)。並令 <span
+class="math display">\[
+W=\bigcap_{i\in I}W_i
+\]</span> 則對於所有<span class="math inline">\(x,y\in
+W\)</span>，都有<span class="math inline">\(x,y\in W_i\)</span>, <span
+class="math inline">\(\forall i\in I\)</span>，故由註記3-1有 <span
+class="math display">\[
+\forall i\in I,\left\{
+\begin{aligned}
+&amp;\forall x,y\in W_i, x+y\in W_i\\
+&amp;\forall a\in F,x\in W_i, ax\in W_i
+\end{aligned}
+\right.
+\]</span> 於是 <span class="math display">\[
+\left\{
+\begin{aligned}
+&amp;\forall x,y\in W, x+y\in W\\
+&amp;\forall a\in F,x\in W, ax\in W
+\end{aligned}
+\right.
+\]</span> 於是由註記3-1知<span class="math inline">\(W\)</span>是<span
+class="math inline">\(V\)</span>的子空間。<font size="1">QED</font></p>
+<center>
+<h1 id="線性組合"><font color=#b8860b>線性組合</font></h1>
+</center>
+<h2 id="定義-5線性組合-linear-combination"><font color=#008000><u>定義
+5：線性組合 (Linear Combination)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，並給定子集<span
+class="math inline">\(\varnothing\neq S\subseteq V\)</span>。我們說<span
+class="math inline">\(x\in V\)</span>是<span
+class="math inline">\(S\)</span>的線性組合中的一個元素，若存在有限多元素<span
+class="math inline">\(y_1,\cdots,y_n\in S\)</span>與<span
+class="math inline">\(a_1,\cdots,a_n\)</span>使得 <span
+class="math display">\[
+x=a_1y_1+a_2y_2+\cdots+a_ny_n
+\]</span></p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，並給定子集<span
+class="math inline">\(\varnothing\neq S\subseteq
+V\)</span>。考慮集合<span class="math inline">\(W\)</span>，其中<span
+class="math inline">\(W\)</span>包含<span
+class="math inline">\(S\)</span>中元素的所有線性組合，則<span
+class="math inline">\(W\)</span>是<span
+class="math inline">\(V\)</span>的子空間，且<span
+class="math inline">\(W\)</span>是包含<span
+class="math inline">\(S\)</span>的<span
+class="math inline">\(V\)</span>的子空間之中最小的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(y,z\in W\)</span>，則由定義知存在<span
+class="math inline">\(a_i,b_j\in F, x_i,w_j\in S\)</span>使得 <span
+class="math display">\[
+y=a_1x_1+\cdots+a_nx_n, z=b_1w_1+\cdots+b_mw_m
+\]</span> 則顯然<span class="math inline">\(y+z\in
+W\)</span>，且對於所有<span class="math inline">\(c\in F\)</span>，
+<span class="math display">\[
+cy=\underbrace{(ca_1)}_{\in F}x_1+\cdots+\underbrace{(ca_n)}_{\in
+F}x_n\in W
+\]</span> 由註記3-1知<span class="math inline">\(W\)</span>是<span
+class="math inline">\(V\)</span>的子空間。<br> 接著，我們令<span
+class="math inline">\(W&#39;\)</span>是另一個包含<span
+class="math inline">\(S\)</span>的<span
+class="math inline">\(V\)</span>的子空間，則對於所有<span
+class="math inline">\(y\in W\)</span>，存在<span
+class="math inline">\(a_1,\cdots,a_n\in F\)</span>使得 <span
+class="math display">\[
+y=a_1x_1+\cdots+a_nx_n
+\]</span> 然而<span class="math inline">\(x_1,\cdots,x_n\in S\subseteq
+W&#39;\)</span>，所以<span class="math inline">\(y\in
+W&#39;\)</span>。於是，有<span class="math inline">\(W\subseteq
+W&#39;\)</span>。<font size="1">QED</font></p>
+<h3 id="定義-5-1線性展式-linear-span"><font color=#008000><u>定義
+5-1：線性展式 (Linear Span)</u></font></h3>
+<p>定理5中的<span class="math inline">\(W\)</span>稱為<span
+class="math inline">\(S\)</span>的線性展式，記為 <span
+class="math display">\[
+\mbox{span}(S)=W
+\]</span> 並且，我們在這裡說<span
+class="math inline">\(S\)</span>生成(Generate)<span
+class="math inline">\(W\)</span>。<br> 一般來說，我們約定<span
+class="math inline">\(\mbox{span}(\varnothing)=\{0\}\)</span>。</p>
+<center>
+<h1
+id="線性相依與線性獨立"><font color=#b8860b>線性相依與線性獨立</font></h1>
+</center>
+<h2
+id="定義-6線性相依與線性獨立-linear-dependent-and-linear-independent"><font color=#008000><u>定義
+6：線性相依與線性獨立 (Linear Dependent and Linear
+Independent)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，並給定子集<span
+class="math inline">\(S\subseteq
+V\)</span>。則我們可以定義以下兩種特性：</p>
+<h3 id="定義-6-1線性相依-linear-dependent"><font color=#008000><u>定義
+6-1：線性相依 (Linear Dependent)</u></font></h3>
+<p>我們說<span
+class="math inline">\(S\)</span>是線性相依的，若存在有限多個不同向量<span
+class="math inline">\(x_1,\cdots,x_n\in S\)</span>與不全為零的純量<span
+class="math inline">\(a_1,a_2,\cdots,a_n\in F\)</span>使得 <span
+class="math display">\[
+a_1x_1+a_2x_2+\cdots+a_nx_n=0
+\]</span></p>
+<h4 id="定義-6-1-1線性關係-linear-relation"><font color=#008000><u>定義
+6-1-1：線性關係 (Linear Relation)</u></font></h4>
+<p>我們把定義6-1中的 <span class="math display">\[
+a_1x_1+a_2x_2+\cdots+a_nx_n=0
+\]</span> 稱為線性關係。</p>
+<h3 id="定義-6-2線性獨立-linear-independent"><font color=#008000><u>定義
+6-2：線性獨立 (Linear Independent)</u></font></h3>
+<p>若<span class="math inline">\(S\)</span>不是線性相依的，則稱<span
+class="math inline">\(S\)</span>為線性獨立的。</p>
+<h3 id="推論-6-3"><font color=#0000FF><u>推論 6-3</u></font></h3>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，並給定子集<span
+class="math inline">\(S_1\subseteq S_2\subseteq V\)</span>。則： <br>1.
+若<span class="math inline">\(S_1\)</span>線性相依，則<span
+class="math inline">\(S_2\)</span>線性相依。 <br>2. 若<span
+class="math inline">\(S_2\)</span>線性獨立，則<span
+class="math inline">\(S_1\)</span>線性獨立。</p>
 
     </div>
 
@@ -303,6 +579,18 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%91%E9%87%8F%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">向量空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E9%AB%94-field"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：體
+(Field)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%90%91%E9%87%8F%E7%A9%BA%E9%96%93-vector-space"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：向量空間 (Vector Space)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-1%E6%B6%88%E9%99%A4%E6%B3%95%E5%89%87-cancellation-law"><span class="nav-number">1.2.1.</span> <span class="nav-text">性質
+2-1：消除法則 (Cancellation Law)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">性質 2-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-3"><span class="nav-number">1.2.3.</span> <span class="nav-text">性質 2-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-4"><span class="nav-number">1.2.4.</span> <span class="nav-text">性質 2-4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%AD%90%E7%A9%BA%E9%96%93-subspace"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：子空間
+(Subspace)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%9A%E6%80%A7%E7%B5%84%E5%90%88"><span class="nav-number">2.</span> <span class="nav-text">線性組合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E7%B7%9A%E6%80%A7%E7%B5%84%E5%90%88-linear-combination"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+5：線性組合 (Linear Combination)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.2.</span> <span class="nav-text">定理 6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-1%E7%B7%9A%E6%80%A7%E5%B1%95%E5%BC%8F-linear-span"><span class="nav-number">2.2.1.</span> <span class="nav-text">定義
+5-1：線性展式 (Linear Span)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%9A%E6%80%A7%E7%9B%B8%E4%BE%9D%E8%88%87%E7%B7%9A%E6%80%A7%E7%8D%A8%E7%AB%8B"><span class="nav-number">3.</span> <span class="nav-text">線性相依與線性獨立</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E7%B7%9A%E6%80%A7%E7%9B%B8%E4%BE%9D%E8%88%87%E7%B7%9A%E6%80%A7%E7%8D%A8%E7%AB%8B-linear-dependent-and-linear-independent"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+6：線性相依與線性獨立 (Linear Dependent and Linear
+Independent)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-1%E7%B7%9A%E6%80%A7%E7%9B%B8%E4%BE%9D-linear-dependent"><span class="nav-number">3.1.1.</span> <span class="nav-text">定義
+6-1：線性相依 (Linear Dependent)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-1-1%E7%B7%9A%E6%80%A7%E9%97%9C%E4%BF%82-linear-relation"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">定義
+6-1-1：線性關係 (Linear Relation)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-2%E7%B7%9A%E6%80%A7%E7%8D%A8%E7%AB%8B-linear-independent"><span class="nav-number">3.1.2.</span> <span class="nav-text">定義
+6-2：線性獨立 (Linear Independent)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-6-3"><span class="nav-number">3.1.3.</span> <span class="nav-text">推論 6-3</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
