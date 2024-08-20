@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於向量空間的基底與維度。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-08-15T14:25:21.000Z">
-<meta property="article:modified_time" content="2024-08-19T13:14:09.723Z">
+<meta property="article:modified_time" content="2024-08-20T09:31:40.921Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-08-19 21:14:09" itemprop="dateModified" datetime="2024-08-19T21:14:09+08:00">2024-08-19</time>
+                <time title="修改時間：2024-08-20 17:31:40" itemprop="dateModified" datetime="2024-08-20T17:31:40+08:00">2024-08-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -353,7 +353,242 @@ S_0\)</span>使得對於所有<span class="math inline">\(x\in
 S_0\)</span>，<span
 class="math inline">\(\beta\cup\{x\}\)</span>都線性相依，但<span
 class="math inline">\(\beta\)</span>本身線性獨立。我們希望說明<span
-class="math inline">\(\mbox{span}(\beta)=V\)</span>。</p>
+class="math inline">\(\mbox{span}(\beta)=V\)</span>。然而如果<span
+class="math inline">\(S_0\subseteq\mbox{span}(\beta)\)</span>的話，則因為<span
+class="math inline">\(\beta\subseteq V\)</span>，故 <span
+class="math display">\[
+V=\mbox{span}(S_0)\subseteq\mbox{span}(\beta)\subseteq V
+\]</span> 於是便有<span
+class="math inline">\(\mbox{span}(\beta)=V\)</span>。於是我們新的目標便是證明<span
+class="math inline">\(S_0\subseteq\mbox{span}(\beta)\)</span>。<br>
+給定<span class="math inline">\(x\in S_0\)</span>，則若<span
+class="math inline">\(x\in\beta\)</span>，則有<span
+class="math inline">\(x\in\mbox{span}(\beta)\)</span>。若<span
+class="math inline">\(x\notin\beta\)</span>，則我們假設<span
+class="math inline">\(x\notin\mbox{span}(\beta)\)</span>。由引理3，<span
+class="math inline">\(\beta\cup\{x\}\)</span>是線性獨立的。但這與<span
+class="math inline">\(\beta\)</span>的定義矛盾。故應有<span
+class="math inline">\(x\in\mbox{span}(\beta)\)</span>。於是，我們確實有<span
+class="math inline">\(S_0\subseteq\mbox{span}(\beta)\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="取代定理"><font color=#b8860b>取代定理</font></h1>
+</center>
+<h2 id="定理-5取代定理-replacement-theorem"><font color=#ff1493><u>定理
+5：取代定理 (Replacement Theorem)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>與<span
+class="math inline">\(V\)</span>的基底<span
+class="math inline">\(\beta\)</span>，其中<span
+class="math inline">\(\beta\)</span>的元素個數為<span
+class="math inline">\(|\beta|=n\)</span>。我們令<span
+class="math inline">\(S=\{y_1,y_2,\cdots,y_k\}\)</span>是<span
+class="math inline">\(V\)</span>的線性獨立子集，其中<span
+class="math inline">\(k\leq n\)</span>，則存在<span
+class="math inline">\(\beta\)</span>的子集<span
+class="math inline">\(S_1\)</span>使得<span
+class="math inline">\(|S_1|=n-k\)</span>且<span
+class="math inline">\(S\cup S_1\)</span>是<span
+class="math inline">\(V\)</span>的基底。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(n\)</span>是固定的，我們在這裡對<span
+class="math inline">\(k\)</span>做數歸納法。 <br>1. 當<span
+class="math inline">\(k=0\)</span>時，有<span
+class="math inline">\(S=\varnothing\)</span>，故可以令<span
+class="math inline">\(S_1=\beta\)</span>，則<span
+class="math inline">\(S\cup S_1\)</span>顯然是<span
+class="math inline">\(V\)</span>的基底。 <br>2. 假設當<span
+class="math inline">\(k=m&lt;n\)</span>時敘述成立，則當<span
+class="math inline">\(k=m+1\)</span>時，令<span
+class="math inline">\(S=\{y_1,y_2,\cdots,y_{m+1}\}\)</span>為<span
+class="math inline">\(V\)</span>的線性獨立子集。由<a
+href="https://alexthepurplerose.github.io/2024/08/15/linalg-vector-space/">這裡</a>的註記7-3知<span
+class="math inline">\(\{y_1,y_2,\cdots,y_m\}\)</span>也是線性獨立的。由歸納法假設，存在<span
+class="math inline">\(\{x_1,\cdots,x_{n-m}\}\subseteq\beta\)</span>使得
+<span class="math display">\[
+\{y_1,y_2,\cdots,y_m\}\cup\{x_1,\cdots,x_{n-m}\}
+\]</span> 生成<span
+class="math inline">\(V\)</span>且是線性獨立的。故存在<span
+class="math inline">\(a_1,\cdots,a_m,b_1,\cdots,b_{m-n}\in
+F\)</span>使得 <span class="math display">\[
+y_{m+1}=a_1y_1+\cdots+a_my_m+b_1x_1+\cdots+b_{n-m}x_{n-m}
+\]</span> 並且這裡需要<span
+class="math inline">\(b_i\)</span>不全為零，不然 <span
+class="math display">\[
+a_1y_1+\cdots+a_my_m+\textcolor{red}{(-1)}y_{m+1}=0
+\]</span> 這會導致<span
+class="math inline">\(S\)</span>線性相依。WLOG，我們可以假設<span
+class="math inline">\(b_1\neq 0\)</span>。則 <span
+class="math display">\[
+\begin{aligned}
+&amp;x_1=b_1^{-1}(a_1y_1+\cdots+a_my_m+(-y_{m+1})+b_2x_2+\cdots+b_{n-m}x_{n-m})\\
+\Rightarrow&amp;x_1\in\mbox{span}(\{y_1,\cdots,y_m,y_{m+1},x_2,\cdots,x_{n-m}\})
+\end{aligned}
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+&amp;\{y_1,\cdots,y_m,y_{m+1},\textcolor{red}{x_1},x_2,\cdots,x_{n-m}\}\\
+&amp;\subseteq\mbox{span}(\{y_1,\cdots,y_m,y_{m+1},x_2,\cdots,x_{n-m}\})\\
+&amp;=\mbox{span}(\{y_1,\cdots,y_m,y_{m+1},\textcolor{red}{x_1},x_2,\cdots,x_{n-m}\})
+\end{aligned}
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+V&amp;=\mbox{span}(\{y_1,\cdots,y_m,\textcolor{red}{x_1},x_2,\cdots,x_{n-m}\})\\
+&amp;=\mbox{span}(\{y_1,\cdots,y_m,\textcolor{blue}{y_{m+1}},\textcolor{red}{x_1},x_2,\cdots,x_{n-m}\})\\
+&amp;=\mbox{span}(\{y_1,\cdots,y_m,\textcolor{blue}{y_{m+1}},x_2,\cdots,x_{n-m}\})\mbox{
+(☆)}
+\end{aligned}
+\]</span> 然而，假設 <span class="math display">\[
+y_{m+1}\in\mbox{span}(\{y_1,\cdots,y_m,x_2,\cdots,x_{n-m}\})
+\]</span> 則存在<span
+class="math inline">\(c_1,c_2,\cdots,c_m,d_1,d_2,\cdots,d_{n-m}\in
+F\)</span>使得 <span class="math display">\[
+\begin{aligned}
+y_{m+1}&amp;=a_1y_1+\cdots+a_my_m+\textcolor{red}{b_1x_1}+b_2x_2+\cdots+b_{n-m}x_{n-m}\\
+&amp;=c_1y_1+\cdots+c_my_m+d_2x_2+\cdots+d_{n-m}x_{n-m}
+\end{aligned}
+\]</span> 則 <span class="math display">\[
+\underbrace{-b_1}_{\neq
+0}x_1+(a_1-c_1)y_1-(a_2-c_2)+\cdots+(a_m-c_m)y_m+(b_2-d_2)x_2+\cdots+(b_{n-m}-d_{n-m})x_{n-m}=0
+\]</span> 這導致<span
+class="math inline">\(\{x_1,x_2,\cdots,x_{n-m},y_1,y_2,\cdots,y_m\}\)</span>是線性相依的。矛盾。故應有
+<span class="math display">\[
+y_{m+1}\notin\mbox{span}(\{y_1,\cdots,y_m,x_2,\cdots,x_{n-m}\})
+\]</span> 由引理3，<span
+class="math inline">\(\{y_1,\cdots,y_m,y_{m+1},x_2,\cdots,x_{n-m}\}\)</span>是線性獨立的。而結合(☆)式，可以知道<span
+class="math inline">\(\{y_1,\cdots,y_m,y_{m+1},x_2,\cdots,x_{n-m}\}\)</span>是<span
+class="math inline">\(V\)</span>的基底。可見定理在<span
+class="math inline">\(k=m+1\)</span>時成立。<br>
+由數學歸納法可知定理對任意<span
+class="math inline">\(k\)</span>都成立。<font size="1">QED</font></p>
+<h3 id="推論-5-1"><font color=#0000FF><u>推論 5-1</u></font></h3>
+<p>考慮向量空間<span class="math inline">\(V\)</span>與其基底<span
+class="math inline">\(\beta\)</span>，其中<span
+class="math inline">\(|\beta|=n\)</span>。則任何恰有<span
+class="math inline">\(n\)</span>個元素且線性獨立的<span
+class="math inline">\(V\)</span>的子集都是<span
+class="math inline">\(V\)</span>的基底。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(S=\{y_1,\cdots,y_m\}\subseteq
+V\)</span>是線性獨立的，則由取代定理知<span
+class="math inline">\(S=S\cup\varnothing\)</span>是<span
+class="math inline">\(V\)</span>的基底。<font size="1">QED</font></p>
+<h3 id="推論-5-2"><font color=#0000FF><u>推論 5-2</u></font></h3>
+<p>考慮向量空間<span class="math inline">\(V\)</span>與其基底<span
+class="math inline">\(\beta\)</span>，其中<span
+class="math inline">\(|\beta|=n\)</span>。則任一包含多於<span
+class="math inline">\(n\)</span>個元素的<span
+class="math inline">\(V\)</span>的子集都是線性相依的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(S\subseteq V\)</span>，其中<span
+class="math inline">\(|S|\geq n+1\)</span>。假設<span
+class="math inline">\(S\)</span>線性獨立，則給定<span
+class="math inline">\(S_1\subseteq S\)</span>，其中<span
+class="math inline">\(|S_1|=n\)</span>。因為<span
+class="math inline">\(S\)</span>線性獨立，所以<span
+class="math inline">\(S_1\)</span>也線性獨立(<a
+href="https://alexthepurplerose.github.io/2024/08/15/linalg-vector-space/">這裡</a>的註記7-3)。由推論5-1知<span
+class="math inline">\(S_1\)</span>是<span
+class="math inline">\(V\)</span>的基底，故任何在<span
+class="math inline">\(S-S_1\neq\varnothing\)</span>的元素都是<span
+class="math inline">\(S_1\)</span>中元素的線性組合。這導致<span
+class="math inline">\(S\)</span>是線性相依的，矛盾。<font size="1">QED</font></p>
+<center>
+<h1 id="維度"><font color=#b8860b>維度</font></h1>
+</center>
+<h2 id="註記-6"><font color=#0000FF><u>註記 6</u></font></h2>
+<p>考慮向量空間<span class="math inline">\(V\)</span>與其基底<span
+class="math inline">\(\beta\)</span>，其中<span
+class="math inline">\(|\beta|=n\)</span>。則<span
+class="math inline">\(V\)</span>的任意基底都有恰<span
+class="math inline">\(n\)</span>個元素。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(S\)</span>為<span
+class="math inline">\(V\)</span>的基底，則因為<span
+class="math inline">\(S\)</span>線性獨立，故由推論5-2知應有<span
+class="math inline">\(|S|\leq|\beta|\)</span>。同理應有<span
+class="math inline">\(|\beta|\leq|S|\)</span>，故<span
+class="math inline">\(|S|=|\beta|=n\)</span>。<font size="1">QED</font></p>
+<h3 id="定義-6-1維度-dimension"><font color=#008000><u>定義 6-1：維度
+(Dimension)</u></font></h3>
+<p>考慮向量空間<span class="math inline">\(V\)</span>與其基底<span
+class="math inline">\(\beta\)</span>，若<span
+class="math inline">\(\beta\)</span>的元素個數有限多，則稱<span
+class="math inline">\(V\)</span>的維度為 <span class="math display">\[
+\dim(V)=|\beta|
+\]</span></p>
+<h3 id="推論-6-2"><font color=#0000FF><u>推論 6-2</u></font></h3>
+<p>考慮向量空間<span class="math inline">\(V\)</span>，其中<span
+class="math inline">\(\dim(V)=n\)</span>，並給定子集<span
+class="math inline">\(S\subseteq V\)</span>，其中<span
+class="math inline">\(|S|\leq n\)</span>且<span
+class="math inline">\(\mbox{span}(S)=V\)</span>，則<span
+class="math inline">\(S\)</span>是<span
+class="math inline">\(V\)</span>的基底。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定理4知存在<span
+class="math inline">\(S_1\subseteq S\)</span>使得<span
+class="math inline">\(S_1\)</span>是<span
+class="math inline">\(V\)</span>的基底。則由註記6知<span
+class="math inline">\(|S_1|=n\)</span>。但 <span class="math display">\[
+n=|S_1|\leq|S|=n
+\]</span> 故<span class="math inline">\(|S|=n\)</span>, <span
+class="math inline">\(S_1=S\)</span>，即<span
+class="math inline">\(S\)</span>是<span
+class="math inline">\(V\)</span>的基底。<font size="1">QED</font></p>
+<h3 id="推論-6-3"><font color=#0000FF><u>推論 6-3</u></font></h3>
+<p>考慮有限維向量空間<span class="math inline">\(V\)</span>與其基底<span
+class="math inline">\(\beta\)</span>，其中<span
+class="math inline">\(|\beta|&lt;\infty\)</span>。若<span
+class="math inline">\(S\)</span>是<span
+class="math inline">\(V\)</span>的線性獨立子集，則存在<span
+class="math inline">\(S_1\subseteq\beta\)</span>使得<span
+class="math inline">\(S\cup S_1\)</span>是<span
+class="math inline">\(V\)</span>的基底。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由推論5-2知<span
+class="math inline">\(|S|\leq|\beta|\)</span>，而由取代定理(定理5)知所要求的<span
+class="math inline">\(S_1\)</span>存在。<font size="1">QED</font></p>
+<h2 id="定理-7"><font color=#ff1493><u>定理 7</u></font></h2>
+<p>考慮有限維的向量空間<span class="math inline">\(V\)</span>，且<span
+class="math inline">\(W\)</span>為<span
+class="math inline">\(V\)</span>的子空間。則<span
+class="math inline">\(W\)</span>是有限維的，且<span
+class="math inline">\(\dim(W)\leq\dim(V)\)</span>。特別的，若<span
+class="math inline">\(\dim(W)=\dim(V)\)</span>，則<span
+class="math inline">\(W=V\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\dim(V)=n\)</span>。若<span
+class="math inline">\(W=\{0\}\)</span>，則<span
+class="math inline">\(W=\mbox{span}(\varnothing)\)</span>，又<span
+class="math inline">\(|\varnothing|=0\)</span>，故<span
+class="math inline">\(\dim(W)=0\)</span> i.e. <span
+class="math inline">\(W\)</span>是有限維的且<span
+class="math inline">\(\dim(W)\leq\dim(V)\)</span>。<br> 若<span
+class="math inline">\(W\)</span>包含至少一個非零元素<span
+class="math inline">\(x_1\neq 0\)</span>，則易知<span
+class="math inline">\(\{x_1\}\)</span>是線性獨立的。然後再找一個元素<span
+class="math inline">\(x_2\in W\)</span>，使得<span
+class="math inline">\(\{x_1,x_2\}\)</span>是線性獨立的。如此繼續，直到有一組<span
+class="math inline">\(\{x_1,x_2,\cdots,x_k\}\subseteq
+W\)</span>是線性獨立的，且對於所有<span class="math inline">\(w\in
+W\)</span>，都有<span
+class="math inline">\(\{x_1,x_2,\cdots,x_k,w\}\subseteq W\subseteq
+V\)</span>是線性相依的。則由推論5-2知<span class="math inline">\(k\leq
+n\)</span>。且我們知道 <span class="math display">\[
+\mbox{span}(\{x_1,x_2,\cdots,x_k\})\subseteq W\mbox{ (★)}
+\]</span> 而<span class="math inline">\(\forall w\in
+W\)</span>，由於<span
+class="math inline">\(\{x_1,x_2,\cdots,x_k,w\}\)</span>是線性相依的，故由引理3知有
+<span class="math display">\[
+w\in\mbox{span}(\{x_1,x_2,\cdots,x_k\})
+\]</span> 故 <span class="math display">\[
+W\subseteq\mbox{span}(\{x_1,x_2,\cdots,x_k\})
+\]</span> 結合(★)式，即有 <span class="math display">\[
+W=\mbox{span}(\{x_1,x_2,\cdots,x_k\})
+\]</span> 故 <span class="math display">\[
+\dim(W)=k\leq n=\dim(V)
+\]</span> 若<span class="math inline">\(k=n\)</span>，則由推論5-1知<span
+class="math inline">\(\{x_1,x_2,\cdots,x_k\}\)</span>也是<span
+class="math inline">\(V\)</span>的基底，故 <span class="math display">\[
+W=\mbox{span}(\{x_1,x_2,\cdots,x_k\})=V
+\]</span> <font size="1">QED</font></p>
 
     </div>
 
@@ -437,7 +672,9 @@ class="math inline">\(\mbox{span}(\beta)=V\)</span>。</p>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E5%BA%95"><span class="nav-number">1.</span> <span class="nav-text">基底</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%9F%BA%E5%BA%95-basis"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：基底
-(Basis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">引理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
+(Basis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">引理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%96%E4%BB%A3%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">取代定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E5%8F%96%E4%BB%A3%E5%AE%9A%E7%90%86-replacement-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">定理
+5：取代定理 (Replacement Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-5-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">推論 5-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-5-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">推論 5-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B6%AD%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">維度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6"><span class="nav-number">3.1.</span> <span class="nav-text">註記 6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-1%E7%B6%AD%E5%BA%A6-dimension"><span class="nav-number">3.1.1.</span> <span class="nav-text">定義 6-1：維度
+(Dimension)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-6-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">推論 6-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-6-3"><span class="nav-number">3.1.3.</span> <span class="nav-text">推論 6-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">3.2.</span> <span class="nav-text">定理 7</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
