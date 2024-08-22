@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於線性映射的定義與維度。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-08-21T06:12:42.000Z">
-<meta property="article:modified_time" content="2024-08-21T12:50:41.993Z">
+<meta property="article:modified_time" content="2024-08-22T07:41:22.016Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -191,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-08-21 14:12:42 / 修改時間：20:50:41" itemprop="dateCreated datePublished" datetime="2024-08-21T14:12:42+08:00">2024-08-21</time>
+              <time title="創建時間：2024-08-21 14:12:42" itemprop="dateCreated datePublished" datetime="2024-08-21T14:12:42+08:00">2024-08-21</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-08-22 15:41:22" itemprop="dateModified" datetime="2024-08-22T15:41:22+08:00">2024-08-22</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -456,6 +462,188 @@ T(x-y)=T(x)-T(y)=0
 \]</span> 故<span class="math inline">\(x-y\in N(T)\)</span> i.e. <span
 class="math inline">\(x-y=0\)</span>，即<span
 class="math inline">\(x=y\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-10"><font color=#ff1493><u>定理 10</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to W\)</span>，其中<span
+class="math inline">\(\dim V=\dim
+W&lt;\infty\)</span>，則以下三件事等價： <br>1. <span
+class="math inline">\(T\)</span>是一對一的。 <br>2. <span
+class="math inline">\(T\)</span>是滿射函數，即<span
+class="math inline">\(\forall w\in W\)</span>, <span
+class="math inline">\(\exists v\in V\)</span> s.t. <span
+class="math inline">\(T(v)=w\)</span>。 <br>3. <span
+class="math inline">\(\mbox{rank }T=\dim V\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：從1.開始，有 <span
+class="math display">\[
+\begin{aligned}
+\underbrace{T\mbox{是一對一}}_{1.}&amp;\Leftrightarrow N(T)=\{0\}\mbox{
+(定理9)}\\
+&amp;\Leftrightarrow\underbrace{\mbox{nullity }T}_{=0}+\mbox{rank
+}T=\dim V\mbox{ (維度定理，定理8)}\\
+&amp;\Leftrightarrow\underbrace{\mbox{rank }T=\dim V}_{3.}\\
+&amp;\Leftrightarrow\mbox{rank }T=\dim W\mbox{且}R(T)\subseteq W\\
+&amp;\Leftrightarrow\underbrace{R(T)=W}_{2.}\mbox{ (☆)}
+\end{aligned}
+\]</span> 其中(☆)處是<a
+href="https://alexthepurplerose.github.io/2024/08/15/linalg-basis-and-dim/">這裡</a>的定理7。<font size="1">QED</font></p>
+<h2 id="定理-11"><font color=#ff1493><u>定理 11</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>與<span
+class="math inline">\(W\)</span>，其中<span
+class="math inline">\(\{v_1,\cdots,v_n\}\)</span>是<span
+class="math inline">\(V\)</span>的基底，則對於<span
+class="math inline">\(w_1,\cdots,w_n\in
+W\)</span>，存在唯一的線性映射<span class="math inline">\(T:V\to
+W\)</span>使得 <span class="math display">\[
+T(v_i)=w_i,\forall i=1\sim n
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們成兩步驟證明： <br>1.
+我們希望說明存在這樣的線性映射<span
+class="math inline">\(T\)</span>。對於<span class="math inline">\(x\in
+V\)</span>，我們知道存在唯一的一組<span
+class="math inline">\(a_1,a_2,\cdots,a_n\in F\)</span>使得 <span
+class="math display">\[
+x=a_1v_1+\cdots+a_nv_n
+\]</span> 定義 <span class="math display">\[
+T(x)=a_1w_1+a_2w_2+\cdots+a_nw_n
+\]</span> 則對於所有<span class="math inline">\(u,v\in V\)</span>，令
+<span class="math display">\[
+\begin{aligned}
+u&amp;=b_1v_1+\cdots+b_nv_n\\
+v&amp;=c_1v_1+\cdots+c_nv_n
+\end{aligned}
+\]</span> 則對於所有<span class="math inline">\(d\in F\)</span>，有
+<span class="math display">\[
+\begin{aligned}
+T(du+v)&amp;=(db_1+c_1)w_1+(db_2+c_2)w_2+\cdots+(db_n+c_n)w_n\\
+&amp;=dT(u)+T(v)
+\end{aligned}
+\]</span> 故由性質1-2知<span
+class="math inline">\(T\)</span>是線性映射。
+<br>2.我們希望說明這樣的<span
+class="math inline">\(T\)</span>是唯一的。假設存在另一個符合條件的線性映射<span
+class="math inline">\(U:V\to W\)</span>，則對於所有 <span
+class="math display">\[
+x=a_1v_1+\cdots+a_nv_n\in V
+\]</span> 有 <span class="math display">\[
+\begin{aligned}
+T(x)&amp;=a_1w_1+\cdots+a_nw_n\\
+&amp;=a_1U(v_1)+\cdots+a_nU(v_n)\\
+&amp;=U(a_1v_1+\cdots+a_nv_n)\\
+&amp;=U(x)
+\end{aligned}
+\]</span> 於是知<span class="math inline">\(T(x)=U(x)\)</span>，<span
+class="math inline">\(T\)</span>是唯一的。<font size="1">QED</font></p>
+<center>
+<h1 id="投影"><font color=#b8860b>投影</font></h1>
+</center>
+<h2 id="定義-12直和-direct-sum"><font color=#008000><u>定義 12：直和
+(Direct Sum)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，以及<span
+class="math inline">\(V\)</span>的子空間<span
+class="math inline">\(V_1,V_2\)</span>。令 <span class="math display">\[
+V_1+V_2=\{v_1+v_2:v_1\in V_1,v_2\in V_2\}
+\]</span> 由[這裡]的註記3-1可以驗證<span
+class="math inline">\(V_1+V_2\)</span>也是<span
+class="math inline">\(V\)</span>的子空間。若<span
+class="math inline">\(V_1+V_2=V\)</span>且<span
+class="math inline">\(V_1\cap V_2=\{0\}\)</span>，則稱<span
+class="math inline">\(V\)</span>是<span
+class="math inline">\(V_1\)</span>和<span
+class="math inline">\(V_2\)</span>的直和，記做 <span
+class="math display">\[
+V=V_1\oplus V_2
+\]</span></p>
+<h2 id="定義-13投影-projection"><font color=#008000><u>定義 13：投影
+(Projection)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，以及<span
+class="math inline">\(V\)</span>的子空間<span
+class="math inline">\(W_1,W_2\)</span>，滿足<span
+class="math inline">\(W_1\oplus W_2=V\)</span>。則給定<span
+class="math inline">\(x\in V\)</span>，存在<span
+class="math inline">\(x_1\in W_1, x_2\in W_2\)</span>使得<span
+class="math inline">\(x=x_1+x_2\)</span>。我們把函數<span
+class="math inline">\(T(x)=x_1\)</span> (<span
+class="math inline">\(T:V\to V\)</span>)稱為沿<span
+class="math inline">\(W_2\)</span>到<span
+class="math inline">\(W_1\)</span>上的投影。</p>
+<h3 id="註記-13-1"><font color=#0000FF><u>註記 13-1</u></font></h3>
+<p>我們必須先確定上面關於投影的定義是良好的。若有<span
+class="math inline">\(w_1,v_1\in W_1\)</span>和<span
+class="math inline">\(w_2,v_2\in W_2\)</span>使得 <span
+class="math display">\[
+x=w_1+w_2=v_1+v_2
+\]</span> 則 <span class="math display">\[
+\underbrace{w_1-v_1}_{\in W_1}=\underbrace{v_2-w_2}_{\in W_2}\in W_1\cap
+W_2=\{0\}
+\]</span> 故<span class="math inline">\(w_1=v_1\)</span>, <span
+class="math inline">\(w_2=v_2\)</span>，即任何<span
+class="math inline">\(V\)</span>中的元素都可以被「唯一」表為<span
+class="math inline">\(W_1\)</span>和<span
+class="math inline">\(W_2\)</span>中的元素的和，故投影<span
+class="math inline">\(T\)</span>確實是良好定義的。</p>
+<h3 id="性質-13-2"><font color=#0000FF><u>性質 13-2</u></font></h3>
+<p>沿用定義13中的符號，則投影<span
+class="math inline">\(T\)</span>是線性的，且 <span
+class="math display">\[
+W_1=\{x\in V:T(x)=x\}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：對於所有<span
+class="math inline">\(x,y\in V\)</span>，存在<span
+class="math inline">\(x_1,y_1\in W_1\)</span>和<span
+class="math inline">\(x_2,y_2\in W_2\)</span>使得 <span
+class="math display">\[
+x=x_1+x_2, y=y_1+y_2
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+T(x+y)&amp;=T((x_1+x_2)+(y_1+y_2))\\
+&amp;=T(\underbrace{(x_1+y_1)}_{\in W_1}+\underbrace{x_2+y_2}_{\in
+W_2})\\
+&amp;=x_1+y_1=T(x)+T(y)
+\end{aligned}
+\]</span> 且對於<span class="math inline">\(a\in F\)</span>，有 <span
+class="math display">\[
+T(ax)=T(\underbrace{ax_1}_{\in W_1}+\underbrace{ax_2}_{\in
+W_2})=ax_1=aT(x)
+\]</span> 故可知<span class="math inline">\(T\)</span>是線性的。<br>
+而對於所有<span class="math inline">\(x\in W_1\)</span>，有 <span
+class="math display">\[
+T(x)=T(\underbrace{x}_{\in W_1}+\underbrace{0}_{\in W_2})=x
+\]</span> 故 <span class="math display">\[
+W_1\subseteq\{x\in V:T(x)=x\}
+\]</span> 而對於所有滿足<span
+class="math inline">\(T(x)=x\)</span>的<span class="math inline">\(x\in
+V\)</span>，存在<span class="math inline">\(x_1\in W_1\)</span>, <span
+class="math inline">\(x_2\in W_2\)</span>使得<span
+class="math inline">\(x=x_1+x_2\)</span>，故 <span
+class="math display">\[
+T(x)=x_1=x=x_1+x_2\Rightarrow x_2=0, x=x_1\in W_1
+\]</span> 故<span class="math inline">\(\{x\in V:T(x)=x\}\subseteq
+W_1\)</span>，結合上面即有 <span class="math display">\[
+W_1=\{x\in V:T(x)=x\}
+\]</span> <font size="1">QED</font></p>
+<h3 id="性質-13-3"><font color=#0000FF><u>性質 13-3</u></font></h3>
+<p>沿用定義13的符號，則 <span class="math display">\[
+W_1=R(T), W_2=N(T)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由於對於所有<span
+class="math inline">\(x\in W_1\)</span>有<span
+class="math inline">\(x=T(x)\)</span>，故<span
+class="math inline">\(W_1\subseteq R(T)\)</span>。然而由定義有<span
+class="math inline">\(R(T)\subseteq W_1\)</span>，故 <span
+class="math display">\[
+W_1=R(T)
+\]</span> 而若<span class="math inline">\(T(x)=0\)</span>，則 <span
+class="math display">\[
+0=T(x)=T(x_1+x_2)=x_1
+\]</span> 故有 <span class="math display">\[
+x=x_1+x_2=x_2\in W_2
+\]</span> 即<span class="math inline">\(N(T)\subseteq
+W_2\)</span>。而由定義有<span class="math inline">\(W_2\subseteq
+N(T)\)</span>，故 <span class="math display">\[
+W_2=N(T)
+\]</span> <font size="1">QED</font></p>
 
     </div>
 
@@ -544,7 +732,9 @@ class="math inline">\(x=y\)</span>。<font size="1">QED</font></p>
 (Image)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">2.3.</span> <span class="nav-text">定理 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">2.4.</span> <span class="nav-text">定理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E9%9B%B6%E5%8C%96%E5%BA%A6-nullity"><span class="nav-number">2.5.</span> <span class="nav-text">定義 6：零化度
 (Nullity)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E7%A7%A9-rank"><span class="nav-number">2.6.</span> <span class="nav-text">定義 7：秩
 (Rank)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8%E7%B6%AD%E5%BA%A6%E5%AE%9A%E7%90%86-dimension-theorem"><span class="nav-number">2.7.</span> <span class="nav-text">定理
-8：維度定理 (Dimension Theorem)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.8.</span> <span class="nav-text">定理 9</span></a></li></ol></li></ol></div>
+8：維度定理 (Dimension Theorem)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.8.</span> <span class="nav-text">定理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">2.9.</span> <span class="nav-text">定理 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">2.10.</span> <span class="nav-text">定理 11</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%95%E5%BD%B1"><span class="nav-number">3.</span> <span class="nav-text">投影</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-12%E7%9B%B4%E5%92%8C-direct-sum"><span class="nav-number">3.1.</span> <span class="nav-text">定義 12：直和
+(Direct Sum)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13%E6%8A%95%E5%BD%B1-projection"><span class="nav-number">3.2.</span> <span class="nav-text">定義 13：投影
+(Projection)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">註記 13-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-13-2"><span class="nav-number">3.2.2.</span> <span class="nav-text">性質 13-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-13-3"><span class="nav-number">3.2.3.</span> <span class="nav-text">性質 13-3</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
