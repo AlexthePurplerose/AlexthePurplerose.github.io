@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於矩陣的基本性質與線性映射的矩陣表示法。">
+  <meta name="description" content="這份筆記是關於矩陣的基本性質以及其與線性映射的關聯。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="線性代數：矩陣">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/08/22/linalg-matrix/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於矩陣的基本性質與線性映射的矩陣表示法。">
+<meta property="og:description" content="這份筆記是關於矩陣的基本性質以及其與線性映射的關聯。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-08-22T14:19:32.000Z">
-<meta property="article:modified_time" content="2024-08-22T14:20:48.608Z">
+<meta property="article:modified_time" content="2024-08-22T16:33:44.097Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -191,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-08-22 22:19:32 / 修改時間：22:20:48" itemprop="dateCreated datePublished" datetime="2024-08-22T22:19:32+08:00">2024-08-22</time>
+              <time title="創建時間：2024-08-22 22:19:32" itemprop="dateCreated datePublished" datetime="2024-08-22T22:19:32+08:00">2024-08-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-08-23 00:33:44" itemprop="dateModified" datetime="2024-08-23T00:33:44+08:00">2024-08-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -220,8 +226,422 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於矩陣的基本性質與線性映射的矩陣表示法。
+        <p>這份筆記是關於矩陣的基本性質以及其與線性映射的關聯。
 <span id="more"></span><br></p>
+<p>這裡的行與列依循的是台灣的翻譯習慣，即行對應到英文的Column，而列對應到英文的Row。</p>
+<center>
+<h1
+id="線性映射的矩陣表示法"><font color=#b8860b>線性映射的矩陣表示法</font></h1>
+</center>
+<h2 id="定義-1有序基底-ordered-basis"><font color=#008000><u>定義
+1：有序基底 (Ordered Basis)</u></font></h2>
+<p>意思是有序的基底。</p>
+<h3 id="例-1-1"><font color=#ffa500><u>例 1-1</u></font></h3>
+<p>考慮<span class="math inline">\(\mathbb{R}^3\)</span>的兩個基底 <span
+class="math display">\[
+\beta=\{(1,0,0),(0,1,0),(0,0,1)\},
+\beta&#39;=\{(1,0,0),(0,0,1),(0,1,0)\}
+\]</span> 作為有序基底來說<span
+class="math inline">\(\beta\neq\beta&#39;\)</span>，但作為無序基底來說<span
+class="math inline">\(\beta=\beta&#39;\)</span>。</p>
+<h2
+id="定義-2行向量表示-column-vector-representation"><font color=#008000><u>定義
+2：行向量表示 (Column Vector Representation)</u></font></h2>
+<p>令<span
+class="math inline">\(\beta=\{u_1,\cdots,u_n\}\)</span>是<span
+class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>的一組有序基底，則對於<span
+class="math inline">\(x\in V\)</span>，若 <span class="math display">\[
+x=a_1u_1+\cdots+a_nu_n
+\]</span> 其中<span class="math inline">\(a_1,\cdots,a_n\in
+F\)</span>，則記 <span class="math display">\[
+[x]_\beta=\left[
+\begin{array}{ccc}
+a_1\\
+\vdots\\
+a_n
+\end{array}
+\right]
+\]</span></p>
+<h2 id="註記-3"><font color=#0000FF><u>註記 3</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to W\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>, <span
+class="math inline">\(\dim W&lt;\infty\)</span>，且 <span
+class="math display">\[
+\beta=\{v_1,\cdots,v_n\}, \gamma=\{w_1,\cdots,w_m\}
+\]</span> 分別為<span class="math inline">\(V\)</span>和<span
+class="math inline">\(W\)</span>的有序基底，則由<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理11我們知道<span
+class="math inline">\(T\)</span>會被<span
+class="math inline">\(T(v_1),T(v_2),\cdots,T(v_n)\)</span>的值唯一決定，且每個<span
+class="math inline">\(T(v_i)\)</span>都能被唯一表示成<span
+class="math inline">\(w_1,w_2,\cdots,w_m\)</span>的線性組合，即 <span
+class="math display">\[
+T(v_j)=a_{1j}w_1+a_{2j}w_2+\cdots+a_{mj}w_m
+\]</span></p>
+<h3
+id="定義-3-1線性映射的矩陣表示法-matrix-representation-of-linear-transformation"><font color=#008000><u>定義
+3-1：線性映射的矩陣表示法 (Matrix Representation of Linear
+Transformation)</u></font></h3>
+<p>沿用註記3中的符號，我們給定矩陣<span
+class="math inline">\(A\)</span>使得<span
+class="math inline">\(A\)</span>的第<span
+class="math inline">\(i\)</span>列第<span
+class="math inline">\(j\)</span>行的元素為 <span class="math display">\[
+A_{ij}=a_{ij}
+\]</span> 則我們稱<span class="math inline">\(A\)</span>是<span
+class="math inline">\(T\)</span>的矩陣表示法，記為 <span
+class="math display">\[
+A=[T]_\beta^\gamma
+\]</span></p>
+<h4 id="註記-3-1-1"><font color=#0000FF><u>註記 3-1-1</u></font></h4>
+<p>很容易可以發現<span class="math inline">\(A\)</span>是<span
+class="math inline">\(m\times n\)</span>的矩陣。</p>
+<h4 id="註記-3-1-2"><font color=#0000FF><u>註記 3-1-2</u></font></h4>
+<p>由<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理11知若線性映射<span
+class="math inline">\(T:V\to W\)</span>及<span
+class="math inline">\(U:V\to W\)</span>滿足 <span
+class="math display">\[
+[T]_\beta^\gamma=[U]_\beta^\gamma
+\]</span> 則<span class="math inline">\(T=U\)</span>。</p>
+<h4 id="例-3-1-3"><font color=#ffa500><u>例 3-1-3</u></font></h4>
+<p>考慮<span
+class="math inline">\(T:\mathbb{R}^2\to\mathbb{R}^3\)</span>，其中<span
+class="math inline">\(\mathbb{R}^2\)</span>的基底是<span
+class="math inline">\(\beta=\{(1,0),(0,1)\}\)</span>，<span
+class="math inline">\(\mathbb{R}^3\)</span>的基底是<span
+class="math inline">\(\{(1,0,0),(0,1,0),(0,0,1)\}\)</span>。我們令 <span
+class="math display">\[
+T((a_1,a_2))=(a_1+3a_2,a_1,2a_1-4a_2)
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+T((1,0))&amp;=(1,1,2)=1(1,0,0)+1(0,1,0)+2(0,0,1)\\
+T((0,1))&amp;=(3,0,-4)=3(1,0,0)+0(0,1,0)+(-4)(0,0,1)
+\end{aligned}
+\]</span> 故我們有 <span class="math display">\[
+[T]_\beta^\gamma=\left(
+\begin{array}{ccc}
+1 &amp; 3\\
+1 &amp; 0\\
+2 &amp; -4
+\end{array}
+\right)
+\]</span></p>
+<center>
+<h1
+id="線性映射的向量空間"><font color=#b8860b>線性映射的向量空間</font></h1>
+</center>
+<h2
+id="定義-4線性映射的運算-elementary-arithmetic-of-linear-transformations"><font color=#008000><u>定義
+4：線性映射的運算 (Elementary Arithmetic of Linear
+Transformations)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T,U:V\to
+W\)</span>，其中<span class="math inline">\(V,W\)</span>是<span
+class="math inline">\(F\)</span>上的向量空間。則定義映射<span
+class="math inline">\((T+U):V\to W\)</span>為 <span
+class="math display">\[
+\forall x\in V, (T+U)(x)=T(x)+U(x)
+\]</span> 並且對於<span class="math inline">\(a\in
+F\)</span>，定義映射<span class="math inline">\(aT:V\to W\)</span>為
+<span class="math display">\[
+\forall x\in V,(aT)(x)=aT(x)
+\]</span></p>
+<h3 id="定理-4-1"><font color=#ff1493><u>定理 4-1</u></font></h3>
+<p>給定線性映射<span class="math inline">\(T,U:V\to W\)</span>，則：
+<br>1. <span class="math inline">\(\forall a\in F\)</span>，<span
+class="math inline">\(aT+U\)</span>是線性映射。 <br>2. 所有<span
+class="math inline">\(V\to W\)</span>的線性映射構成一個<span
+class="math inline">\(F\)</span>上的向量空間。<br></p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 對於所有<span
+class="math inline">\(x,y\in V\)</span>, <span
+class="math inline">\(c\in F\)</span>，有 <span class="math display">\[
+\begin{aligned}
+(aT+U)(cx+y)&amp;=aT(cx+y)+U(cx+y)\\
+&amp;=a(cT(x)+T(y))+(cU(x)+U(y))\\
+&amp;=c(aT(x)+U(x))+(aT(y)+U(y))\\
+&amp;=c(aT+U)(x)+(aT+U)(y)
+\end{aligned}
+\]</span> 於是知<span class="math inline">\(aT+U\)</span>是線性映射。
+<br>2. 檢查<a
+href="https://alexthepurplerose.github.io/2024/08/15/linalg-vector-space/">這裡</a>的定義2的8個公理即可，這裡就略過了。其中要注意這裡的零元素指的是零函數，即
+<span class="math display">\[
+\mathbf{0}(x)=0,\forall x\in V
+\]</span> <font size="1">QED</font></p>
+<h4 id="定義-4-1-1"><font color=#008000><u>定義 4-1-1</u></font></h4>
+<p>我們把定理5的第2.點中所有<span class="math inline">\(V\to
+W\)</span>的線性映射構成的向量空間記為<span
+class="math inline">\(\mathscr{L}(V,W)\)</span>。</p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T,U:V\to
+W\)</span>，其中<span
+class="math inline">\(V,W\)</span>是有限維向量空間，其各自的有序基底為<span
+class="math inline">\(\beta\)</span>和<span
+class="math inline">\(\gamma\)</span>，則： <br>1. <span
+class="math inline">\([T+U]_\beta^\gamma=[T]_\beta^\gamma+[U]_\beta^\gamma\)</span>。
+<br>2. <span class="math inline">\(\forall a\in F\)</span>, <span
+class="math inline">\([aT]_\beta^\gamma=a[T]_\beta^\gamma\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 令 <span
+class="math display">\[
+\beta=\{v_1,v_2,\cdots,v_n\}, \gamma=\{w_1,w_2,\cdots,w_m\}
+\]</span> 且令 <span class="math display">\[
+T(v_j)=\sum_{i=1}^m a_{ij}w_i, U(v_j)=\sum_{i=1}^m b_{ij}w_j
+\]</span> 則 <span class="math display">\[
+(T+U)(v_j)=T(v_j)+U(v_j)=\sum_{i=1}^m (a_{ij}+b_{ij})w_j
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+&amp;\left([T+U]_\beta^\gamma\right)_{ij}=a_{ij}+b_{ij}=\left([T]_\beta^\gamma\right)_{ij}+\left([U]_\beta^\gamma\right)_{ij}\\
+\Rightarrow&amp;[T+U]_\beta^\gamma=[T]_\beta^\gamma+[U]_\beta^\gamma
+\end{aligned}
+\]</span> <br>2. 和上面一樣檢查 <span class="math display">\[
+\left([aT]_\beta^\gamma\right)_{ij}=a\left([T]_\beta^\gamma\right)_{ij}
+\]</span> 就好了，詳略。<font size="1">QED</font></p>
+<center>
+<h1
+id="合成映射與矩陣乘法"><font color=#b8860b>合成映射與矩陣乘法</font></h1>
+</center>
+<h2
+id="定義-6合成映射-composition-transformation"><font color=#008000><u>定義
+6：合成映射 (Composition Transformation)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to W\)</span>, <span
+class="math inline">\(U:W\to Z\)</span>，我們定義合成映射<span
+class="math inline">\(UT:V\to Z\)</span>為 <span class="math display">\[
+(UT)(x)=U(T(x)), \forall x\in V
+\]</span></p>
+<h3 id="定理-6-1"><font color=#ff1493><u>定理 6-1</u></font></h3>
+<p>給定線性映射<span class="math inline">\(T:V\to W\)</span>, <span
+class="math inline">\(U:W\to Z\)</span>，其中<span
+class="math inline">\(V,W,Z\)</span>是有限維向量空間，則<span
+class="math inline">\(UT:V\to Z\)</span>也是線性映射。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於<span
+class="math inline">\(x,y\in V\)</span>, <span
+class="math inline">\(a\in F\)</span>，有 <span class="math display">\[
+\begin{aligned}
+UT(ax+y)&amp;=U(aT(x)+T(y))\\
+&amp;=aU(T(x))+U(T(y))\\
+&amp;=a(UT(x))+UT(y)
+\end{aligned}
+\]</span> 故知<span
+class="math inline">\(UT\)</span>是線性映射。<font size="1">QED</font></p>
+<h3 id="定理-6-2"><font color=#ff1493><u>定理 6-2</u></font></h3>
+<p>給定<span
+class="math inline">\(T,U_1,U_2\in\mathscr{L}(V,V)\)</span>，其中<span
+class="math inline">\(V\)</span>是<span
+class="math inline">\(F\)</span>上的向量空間。則： <br>1. <span
+class="math inline">\(T(U_1+U_2)=TU_1+TU_2\)</span>。 <br>2. <span
+class="math inline">\(T(U_1U_2)=(TU_1)U_2\)</span>。 <br>3.
+定義單位映射<span class="math inline">\(I:V\to V\)</span>使得<span
+class="math inline">\(\forall x\in V\)</span>, <span
+class="math inline">\(I(x)=x\)</span>，則 <span class="math display">\[
+TI=IT=T
+\]</span> <br>4. <span class="math inline">\(\forall a\in F\)</span>,
+<span class="math inline">\(a(U_1U_2)=(aU_1)U_2=U_1(aU_2)\)</span>。<br>
+(都是顯然的，在此證略。)</p>
+<h2 id="定理-7"><font color=#ff1493><u>定理 7</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to W\)</span>, <span
+class="math inline">\(U:W\to Z\)</span>，其中<span
+class="math inline">\(\alpha=\{v_1,\cdots,v_n\}\)</span>是<span
+class="math inline">\(V\)</span>的基底，<span
+class="math inline">\(\beta=\{w_1,\cdots,w_m\}\)</span>是<span
+class="math inline">\(W\)</span>的基底，<span
+class="math inline">\(\gamma=\{z_1,\cdots,z_p\}\)</span>是<span
+class="math inline">\(Z\)</span>的基底，則 <span class="math display">\[
+[UT]_\alpha^\gamma=[U]_\beta^\gamma\cdot[T]_\alpha^\beta
+\]</span> 這裡的乘法是矩陣乘法。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(B=[T]_\alpha^\beta\)</span>, <span
+class="math inline">\(A=[U]_\beta^\gamma\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+(UT)(v_j)&amp;=U(T(v_j))\\
+&amp;=U\left(\sum_{k=1}^m B_{kj}w_k\right)\\
+&amp;=\sum_{k=1}^m B_{kj}U(w_k)\\
+&amp;=\sum_{k=1}^m B_{kj}\left(\sum_{i=1}^p A_{ik}z_i\right)\\
+&amp;=\sum_{i=1}^p\left(\sum_{k=1}^m A_{ik}B_{kj}\right)z_i
+\end{aligned}
+\]</span> 在這裡令<span
+class="math inline">\([UT]_\alpha^\gamma=C\)</span>，則 <span
+class="math display">\[
+C_{ij}=\sum_{k=1}A_{ik}B_{kj}
+\]</span> 則由矩陣乘法的定義知<span
+class="math inline">\(C_{ij}=(AB)_{ij}\)</span>，即<span
+class="math inline">\(C=AB\)</span>。<font size="1">QED</font></p>
+<h2 id="定義-8轉置矩陣-transposition-matrix"><font color=#008000><u>定義
+8：轉置矩陣 (Transposition Matrix)</u></font></h2>
+<p>對於矩陣<span class="math inline">\(A\)</span>，定義其轉置矩陣<span
+class="math inline">\(A^t\)</span>為 <span class="math display">\[
+(A^t)_{ij}=A_ji
+\]</span> 意即若<span class="math inline">\(A\)</span>是<span
+class="math inline">\(m\times n\)</span>矩陣，則<span
+class="math inline">\(A^t\)</span>就是<span
+class="math inline">\(n\times m\)</span>矩陣。</p>
+<h3 id="註記-8-1"><font color=#0000FF><u>註記 8-1</u></font></h3>
+<p>給定矩陣<span class="math inline">\(A,B\)</span>，有 <span
+class="math display">\[
+(AB)^t=B^tA^t
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+\begin{aligned}
+(AB)_{ij}^t&amp;=(AB)_{ji}\\
+&amp;=\sum_k A_{jk}B_{ki}\\
+&amp;=\sum_k(B^t)_{ik}(A^t)_{kj}\\
+&amp;=(B^tA^t)_{ij}
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h2 id="性質-9"><font color=#0000FF><u>性質 9</u></font></h2>
+<p>對於矩陣<span
+class="math inline">\(A,B,C,D,E\)</span>，假設底下的矩陣乘法都有定義，則：
+<br>1. <span class="math inline">\(A(B+C)=AB+AC\)</span>。 <br>2. <span
+class="math inline">\((D+E)A=DA+EA\)</span>。 <br>3. <span
+class="math inline">\(\forall a\in F\)</span>, <span
+class="math inline">\((aA)B=A(aB)\)</span>。<br>
+(都是簡易的，在此證略。)</p>
+<center>
+<h1
+id="矩陣的線性映射意涵"><font color=#b8860b>矩陣的線性映射意涵</font></h1>
+</center>
+<h2 id="定理-10"><font color=#ff1493><u>定理 10</u></font></h2>
+<p>令<span class="math inline">\(A\)</span>為<span
+class="math inline">\(m\times n\)</span>矩陣，<span
+class="math inline">\(B\)</span>為<span class="math inline">\(n\times
+p\)</span>矩陣，並令<span class="math inline">\(u_j\)</span>是<span
+class="math inline">\(AB\)</span>第<span
+class="math inline">\(j\)</span>行的行向量，<span
+class="math inline">\(v_j\)</span>是<span
+class="math inline">\(B\)</span>第<span
+class="math inline">\(j\)</span>行的行向量，則： <br>1. <span
+class="math inline">\(u_j=Av_j\)</span> (注意<span
+class="math inline">\(u_j\)</span>是<span class="math inline">\(m\times
+1\)</span>, <span class="math inline">\(A\)</span>是<span
+class="math inline">\(m\times n\)</span>, <span
+class="math inline">\(v_j\)</span>是<span class="math inline">\(n\times
+1\)</span>)。 <br>2. <span class="math inline">\(v_j=Be_j\)</span>，其中
+<span class="math display">\[
+e_j=\left(
+\begin{array}{cccc}
+a_1\\
+a_2\\
+\vdots\\
+a_p
+\end{array}
+\right), \left\{
+\begin{aligned}
+a_i=0&amp;,\mbox{ for }i\neq j\\
+a_j=1&amp;
+\end{aligned}
+\right.
+\]</span> (注意<span class="math inline">\(v_j\)</span>是<span
+class="math inline">\(n\times 1\)</span>, <span
+class="math inline">\(B\)</span>是<span class="math inline">\(n\times
+p\)</span>, <span class="math inline">\(e_j\)</span>是<span
+class="math inline">\(p\times 1\)</span>)。<br>
+(證明是簡易的，在此略。)</p>
+<h3 id="定義-10-1標準向量-standard-vector"><font color=#008000><u>定義
+10-1：標準向量 (Standard Vector)</u></font></h3>
+<p>我們將定理10中的<span class="math inline">\(e_j\)</span>稱為<span
+class="math inline">\(F^p\)</span>中的標準向量。</p>
+<h2 id="定理-11"><font color=#ff1493><u>定理 11</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to W\)</span>，其中<span
+class="math inline">\(V,W\)</span>為<span
+class="math inline">\(F\)</span>上的向量空間，且<span
+class="math inline">\(\dim V,\dim W&lt;\infty\)</span>，並令<span
+class="math inline">\(\beta,\gamma\)</span>分別為<span
+class="math inline">\(V\)</span>和<span
+class="math inline">\(W\)</span>的基底。則對於<span
+class="math inline">\(u\in V\)</span>，有 <span class="math display">\[
+[T(u)]_\gamma=[T]_\beta^\gamma[u]_\beta
+\]</span></p>
+<p><font color=#8b4513><u>證明 1</u></font>：固定<span
+class="math inline">\(u\in V\)</span>，定義函數<span
+class="math inline">\(f:F\to V\)</span>為 <span class="math display">\[
+f(a)=au,\forall a\in F
+\]</span> 並定義函數<span class="math inline">\(g:F\to W\)</span>為
+<span class="math display">\[
+g(a)=aT(u),\forall a\in F
+\]</span> 則易知<span
+class="math inline">\(f,g\)</span>都是線性映射(可以把<span
+class="math inline">\(F\)</span>理解成<span
+class="math inline">\(F\)</span>上的向量空間)，且<span
+class="math inline">\(g=Tf\)</span>。則 <span class="math display">\[
+\begin{aligned}
+[T(u)]_\gamma&amp;=[g(1)]_\gamma\\
+&amp;=[g]_\alpha^\gamma\\
+&amp;(\mbox{這裡}\alpha=\{1\}\mbox{是}F\mbox{的基底})\\
+&amp;=[Tf]_\alpha^\gamma\\
+&amp;=[T]_\beta^\gamma[f]_\alpha^\beta\mbox{ (定理7)}\\
+&amp;=[T]_\beta^\gamma[f(1)]_\beta\\
+&amp;=[T]_\beta^\gamma[u]_\beta
+\end{aligned}
+\]</span> <font size="1">QED</font><br></p>
+<p><font color=#8b4513><u>證明 2</u></font>：令<span
+class="math inline">\(\beta=\{u_1,\cdots,u_n\}\)</span>, <span
+class="math inline">\(\gamma=\{w_1,\cdots,w_m\}\)</span>，並令<span
+class="math inline">\([T]_\beta^\gamma=A\)</span>，則 <span
+class="math display">\[
+T(u_j)=\sum_{i=1}^m A_{ij}w_i
+\]</span> 由於<span class="math inline">\(u\in V\)</span>，故存在<span
+class="math inline">\(a_1,a_2,\cdots,a_n\in F\)</span>使得 <span
+class="math display">\[
+u=a_1u_1+\cdots+a_nu_n
+\]</span> 則 <span class="math display">\[
+[u]_\beta=\left(
+\begin{array}{ccc}
+a_1\\
+\vdots\\
+a_n
+\end{array}
+\right)
+\]</span> 而 <span class="math display">\[
+T(u)=T\left(\sum_{i=1}^n a_iu_i\right)=\sum_{i=1}^n
+a_iT(u_i)=\sum_{i=1}^n\sum_{k=1}^m a_iA_{ki}w_k
+\]</span> 故有 <span class="math display">\[
+[T(u)]_\gamma=\left(
+\begin{array}{ccc}
+\sum\limits_{i=1}^n A_{1i}a_i\\
+\sum\limits_{i=1}^n A_{2i}a_i\\
+\vdots
+\end{array}
+\right)=A\left(
+\begin{array}{ccc}
+a_1\\
+\vdots\\
+a_n
+\end{array}
+\right)=[T]_\beta^\gamma[u]_\beta
+\]</span> <font size="1">QED</font></p>
+<h2
+id="定義-12矩陣映射-matrix-transformation"><font color=#008000><u>定義
+12：矩陣映射 (Matrix Transformation)</u></font></h2>
+<p>對於元素都在<span class="math inline">\(F\)</span>中的<span
+class="math inline">\(m\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，我們定義線性映射<span
+class="math inline">\(L_A:F^n\to F^m\)</span>為 <span
+class="math display">\[
+L_A(x)=Ax
+\]</span> 其中<span class="math inline">\(x\in
+F^n\)</span>是寫成行向量的形式。</p>
+<h2 id="定義-13標準基底-standard-basis"><font color=#008000><u>定義
+13：標準基底 (Standard Basis)</u></font></h2>
+<p>考慮向量空間<span
+class="math inline">\(F^n\)</span>，則其標準基底為有序基底 <span
+class="math display">\[
+\beta=\{e_1,e_2,\cdots,e_n\}
+\]</span> 其中<span
+class="math inline">\(e_i\)</span>為定義10-1中的標準向量。</p>
+<h2 id="定理-14"><font color=#ff1493><u>定理 14</u></font></h2>
+<p>給定<span class="math inline">\(m\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>與映射<span
+class="math inline">\(L_A:F^n\to F^m\)</span>，並令<span
+class="math inline">\(\beta,\gamma\)</span>為<span
+class="math inline">\(F^n, F^m\)</span>的標準基底，並給定另一<span
+class="math inline">\(m\times n\)</span>矩陣<span
+class="math inline">\(B\)</span>，則： <br>1. <span
+class="math inline">\([L_A]_\beta^\gamma=A\)</span>。 <br>2. <span
+class="math inline">\(L_A=L_B\Leftrightarrow A=B\)</span>。 <br>3. <span
+class="math inline">\(L_{A+B}=L_A+L_B\)</span>。 <br>4. <span
+class="math inline">\(\forall a\in F\)</span>, <span
+class="math inline">\(L_{aA}=aL_A\)</span>。</p>
 
     </div>
 
@@ -304,6 +724,18 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%9A%E6%80%A7%E6%98%A0%E5%B0%84%E7%9A%84%E7%9F%A9%E9%99%A3%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">線性映射的矩陣表示法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E6%9C%89%E5%BA%8F%E5%9F%BA%E5%BA%95-ordered-basis"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：有序基底 (Ordered Basis)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">例 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E8%A1%8C%E5%90%91%E9%87%8F%E8%A1%A8%E7%A4%BA-column-vector-representation"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：行向量表示 (Column Vector Representation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.3.</span> <span class="nav-text">註記 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E7%B7%9A%E6%80%A7%E6%98%A0%E5%B0%84%E7%9A%84%E7%9F%A9%E9%99%A3%E8%A1%A8%E7%A4%BA%E6%B3%95-matrix-representation-of-linear-transformation"><span class="nav-number">1.3.1.</span> <span class="nav-text">定義
+3-1：線性映射的矩陣表示法 (Matrix Representation of Linear
+Transformation)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1-1"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">註記 3-1-1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1-2"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">註記 3-1-2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-3-1-3"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">例 3-1-3</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%9A%E6%80%A7%E6%98%A0%E5%B0%84%E7%9A%84%E5%90%91%E9%87%8F%E7%A9%BA%E9%96%93"><span class="nav-number">2.</span> <span class="nav-text">線性映射的向量空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E7%B7%9A%E6%80%A7%E6%98%A0%E5%B0%84%E7%9A%84%E9%81%8B%E7%AE%97-elementary-arithmetic-of-linear-transformations"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+4：線性映射的運算 (Elementary Arithmetic of Linear
+Transformations)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">定理 4-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1-1"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">定義 4-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">2.2.</span> <span class="nav-text">定理 5</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%88%E6%88%90%E6%98%A0%E5%B0%84%E8%88%87%E7%9F%A9%E9%99%A3%E4%B9%98%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">合成映射與矩陣乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%90%88%E6%88%90%E6%98%A0%E5%B0%84-composition-transformation"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+6：合成映射 (Composition Transformation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">定理 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">定理 6-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">3.2.</span> <span class="nav-text">定理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E8%BD%89%E7%BD%AE%E7%9F%A9%E9%99%A3-transposition-matrix"><span class="nav-number">3.3.</span> <span class="nav-text">定義
+8：轉置矩陣 (Transposition Matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">註記 8-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-9"><span class="nav-number">3.4.</span> <span class="nav-text">性質 9</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%9A%84%E7%B7%9A%E6%80%A7%E6%98%A0%E5%B0%84%E6%84%8F%E6%B6%B5"><span class="nav-number">4.</span> <span class="nav-text">矩陣的線性映射意涵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">4.1.</span> <span class="nav-text">定理 10</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10-1%E6%A8%99%E6%BA%96%E5%90%91%E9%87%8F-standard-vector"><span class="nav-number">4.1.1.</span> <span class="nav-text">定義
+10-1：標準向量 (Standard Vector)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">4.2.</span> <span class="nav-text">定理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-12%E7%9F%A9%E9%99%A3%E6%98%A0%E5%B0%84-matrix-transformation"><span class="nav-number">4.3.</span> <span class="nav-text">定義
+12：矩陣映射 (Matrix Transformation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13%E6%A8%99%E6%BA%96%E5%9F%BA%E5%BA%95-standard-basis"><span class="nav-number">4.4.</span> <span class="nav-text">定義
+13：標準基底 (Standard Basis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14"><span class="nav-number">4.5.</span> <span class="nav-text">定理 14</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
