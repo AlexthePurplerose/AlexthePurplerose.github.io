@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於線性映射空間與矩陣空間間的同構關係。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-08-29T07:00:30.000Z">
-<meta property="article:modified_time" content="2024-08-29T07:01:56.881Z">
+<meta property="article:modified_time" content="2024-08-29T07:25:36.924Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-29 15:00:30 / 修改時間：15:01:56" itemprop="dateCreated datePublished" datetime="2024-08-29T15:00:30+08:00">2024-08-29</time>
+              <time title="創建時間：2024-08-29 15:00:30 / 修改時間：15:25:36" itemprop="dateCreated datePublished" datetime="2024-08-29T15:00:30+08:00">2024-08-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,6 +222,77 @@
       
         <p>這份筆記是關於線性映射空間與矩陣空間間的同構關係。
 <span id="more"></span><br></p>
+<center>
+<h1 id="同構"><font color=#b8860b>同構</font></h1>
+</center>
+<h2 id="定義-1同構-isomorphic"><font color=#008000><u>定義 1：同構
+(Isomorphic)</u></font></h2>
+<p>給定向量空間<span
+class="math inline">\(V,W\)</span>，若存在可逆線性映射<span
+class="math inline">\(T:V\to W\)</span>，則稱<span
+class="math inline">\(V\)</span>與<span
+class="math inline">\(W\)</span>同構，記為<span
+class="math inline">\(V\simeq W\)</span>。</p>
+<h3 id="定義-1-1同構映射-isomorphism"><font color=#008000><u>定義
+1-1：同構映射 (Isomorphism)</u></font></h3>
+<p>我們將定義1中的<span class="math inline">\(T\)</span>稱為從<span
+class="math inline">\(V\)</span>到<span
+class="math inline">\(W\)</span>的同構映射。</p>
+<h2 id="註記-2"><font color=#0000FF><u>註記 2</u></font></h2>
+<p>給定有限維線性空間<span class="math inline">\(V,W\)</span>，則<span
+class="math inline">\(\dim V=\dim W\)</span> iff. <span
+class="math inline">\(V\simeq W\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩個部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(\dim V=\dim W=n\)</span>，則令<span
+class="math inline">\(V\)</span>的基底為<span
+class="math inline">\(\beta=\{v_1,\cdots,v_n\}\)</span>，<span
+class="math inline">\(W\)</span>的基底為<span
+class="math inline">\(\gamma=\{w_1,\cdots,w_n\}\)</span>，則考慮映射<span
+class="math inline">\(T:V\to W\)</span>，其中 <span
+class="math display">\[
+T(v_i)=w_i,\forall i=1\sim n
+\]</span> 顯然這是可逆的，故由定義<span class="math inline">\(V\simeq
+W\)</span>。 <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(V\simeq W\)</span>，則存在同構映射<span
+class="math inline">\(T:V\to W\)</span>。由<a
+href="https://alexthepurplerose.github.io/2024/08/28/linalg-inverse/">這裡</a>的註記3-1知由於<span
+class="math inline">\(T\)</span>可逆，必須有<span
+class="math inline">\(\dim V=\dim
+W\)</span>。<font size="1">QED</font></p>
+<h2 id="定義-3矩陣空間-space-of-matrices"><font color=#008000><u>定義
+3：矩陣空間 (Space of Matrices)</u></font></h2>
+<p>我們記<span class="math inline">\(F\)</span>上所有<span
+class="math inline">\(m\times n\)</span>矩陣所構成的向量空間為<span
+class="math inline">\(M_{m\times n}(F)\)</span>。</p>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p>給定有限維向量空間<span
+class="math inline">\(V,W\)</span>，並給定他們各自的有序基底<span
+class="math inline">\(\beta,\gamma\)</span>。並令<span
+class="math inline">\(\dim V=n, \dim W=m\)</span>，其中<span
+class="math inline">\(n,m&lt;\infty\)</span>。則定義映射<span
+class="math inline">\(\Phi:\mathscr{L}(V,W)\to M_{m\times
+n}(F)\)</span>使得 <span class="math display">\[
+\Phi(T)=[T]^\gamma_\beta, \forall T\in\mathscr{L}(V,W)
+\]</span> 則<span class="math inline">\(\Phi\)</span>是一可逆線性映射
+i.e. <span class="math inline">\(\Phi\)</span>是從<span
+class="math inline">\(\mathscr{L}(V,W)\)</span>到<span
+class="math inline">\(M_{m\times n}(F)\)</span>的同構映射 i.e. <span
+class="math inline">\(\mathscr{L}(V,W)\simeq M_{m\times
+n}(F)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：<span
+class="math inline">\(\Phi\)</span>顯然是線性映射，我們這裡主要希望構造出<span
+class="math inline">\(\Phi^{-1}\)</span>。令<span
+class="math inline">\(\beta=\{v_1,\cdots,v_n\}\)</span>, <span
+class="math inline">\(\gamma=\{w_1,\cdots,w_m\}\)</span>。則定義映射<span
+class="math inline">\(\Psi:M_{m\times n}(F)\to
+\mathscr{L}(V,W)\)</span>使得 <span class="math display">\[
+\forall A\in M_{m\times n}(F), \Psi(A)=T,\mbox{ where
+}T(v_j)=\sum_{i=1}^n A_{ij}w_i
+\]</span> 由定義易得<span class="math inline">\(\Psi\Phi(T)=T\)</span>,
+<span
+class="math inline">\(\Phi\Psi(A)=A\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -304,6 +375,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">同構</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%90%8C%E6%A7%8B-isomorphic"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：同構
+(Isomorphic)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E5%90%8C%E6%A7%8B%E6%98%A0%E5%B0%84-isomorphism"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
+1-1：同構映射 (Isomorphism)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2"><span class="nav-number">1.2.</span> <span class="nav-text">註記 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%9F%A9%E9%99%A3%E7%A9%BA%E9%96%93-space-of-matrices"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：矩陣空間 (Space of Matrices)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
