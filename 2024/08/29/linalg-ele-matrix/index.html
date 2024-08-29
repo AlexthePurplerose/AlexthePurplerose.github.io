@@ -20,25 +20,22 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於反函數定理與其證明。">
+  <meta name="description" content="這份筆記是關於基本矩陣的定義與性質。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微積分：反函數定理">
-<meta property="og:url" content="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/index.html">
+<meta property="og:title" content="線性代數：基本矩陣">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於反函數定理與其證明。">
+<meta property="og:description" content="這份筆記是關於基本矩陣的定義與性質。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/inv.jpg">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/jacobi.jpg">
-<meta property="article:published_time" content="2024-07-28T12:40:28.000Z">
-<meta property="article:modified_time" content="2024-08-02T09:00:57.034Z">
+<meta property="article:published_time" content="2024-08-29T07:49:58.000Z">
+<meta property="article:modified_time" content="2024-08-29T07:55:41.670Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
-<meta property="article:tag" content="Calculus">
-<meta property="article:tag" content="Analysis">
+<meta property="article:tag" content="Linear_Algebra">
+<meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/inv.jpg">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/">
 
 
 <script id="page-configurations">
@@ -51,7 +48,7 @@
   };
 </script>
 
-  <title>微積分：反函數定理 | 永蔚Alex</title>
+  <title>線性代數：基本矩陣 | 永蔚Alex</title>
   
 
 
@@ -172,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/07/28/cal-inverse-thm/">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -185,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          微積分：反函數定理
+          線性代數：基本矩陣
         </h1>
 
         <div class="post-meta">
@@ -194,16 +191,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
+              
 
-              <time title="創建時間：2024-07-28 20:40:28" itemprop="dateCreated datePublished" datetime="2024-07-28T20:40:28+08:00">2024-07-28</time>
+              <time title="創建時間：2024-08-29 15:49:58 / 修改時間：15:55:41" itemprop="dateCreated datePublished" datetime="2024-08-29T15:49:58+08:00">2024-08-29</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-08-02 17:00:57" itemprop="dateModified" datetime="2024-08-02T17:00:57+08:00">2024-08-02</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -214,7 +205,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%BE%AE%E7%A9%8D%E5%88%86/" itemprop="url" rel="index"><span itemprop="name">微積分</span></a>
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8/" itemprop="url" rel="index"><span itemprop="name">線性代數</span></a>
                 </span>
             </span>
 
@@ -229,229 +220,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於反函數定理與其證明。 <span id="more"></span><br></p>
+        <p>這份筆記是關於基本矩陣的定義與性質。 <span id="more"></span><br></p>
+<p>這裡的行與列依循的是台灣的翻譯習慣，即行對應到英文的Column，而列對應到英文的Row。</p>
 <center>
-<h1 id="變換"><font color=#b8860b>變換</font></h1>
-</center>
-<p>我們考慮<span class="math inline">\(n\)</span>個變數和<span
-class="math inline">\(n\)</span>個函數，例如 <span
-class="math display">\[
-\left\{
-\begin{aligned}
-\xi&amp;=\phi(x,y)\\
-\eta&amp;=\psi(x,y)
-\end{aligned}
-\right.
-\]</span> 我們把這視為映射或變換。</p>
-<h2 id="例-1線性變換-linear-transformation"><font color=#ffa500><u>例
-1：線性變換 (Linear Transformation)</u></font></h2>
-<p>考慮 <span class="math display">\[
-\left\{
-\begin{aligned}
-\xi&amp;=ax+by\\
-\eta&amp;=cx+dy
-\end{aligned}
-\right.
-\]</span> 我們可以簡單地找到<span
-class="math inline">\(a&#39;,b&#39;,c&#39;,d&#39;\)</span>使得 <span
-class="math display">\[
-\left\{
-\begin{aligned}
-x&amp;=a&#39;\xi+b&#39;\eta\\
-y&amp;=c&#39;\xi+d&#39;\eta
-\end{aligned}
-\right.
-\]</span></p>
-<h2 id="目標-2"><font color=#0000FF><u>目標 2</u></font></h2>
-<p>我們希望給定 <span class="math display">\[
-\left\{
-\begin{aligned}
-\xi&amp;=\phi(x,y)\\
-\eta&amp;=\psi(x,y)
-\end{aligned}
-\right.
-\]</span> 想要找到<span class="math inline">\(g,h\)</span>使得至少局部有
-<span class="math display">\[
-\left\{
-\begin{aligned}
-x&amp;=g(\xi,\eta)\\
-y&amp;=h(\xi,\eta)
-\end{aligned}
-\right.
-\]</span> 首先，考慮<span
-class="math inline">\(F:\mathbb{R}^n\to\mathbb{R}^n\)</span>(例如<span
-class="math inline">\(F(x,y)=(\phi(x,y),\psi(x,y))=(\xi,\eta)\)</span>)。我們希望找到符合要求的<span
-class="math inline">\(g,h\)</span>的話，至少<span
-class="math inline">\(F\)</span>要是單射。</p>
-<h2 id="例-3反演-inversion"><font color=#ffa500><u>例 3：反演
-(Inversion)</u></font></h2>
-<p>考慮 <span class="math display">\[
-\left\{
-\begin{aligned}
-\xi&amp;=\frac{x}{x^2+y^2}\\
-\eta&amp;=\frac{y}{x^2+y^2}
-\end{aligned}
-\right.
-\]</span> 我們可以發現以下兩件事： <br>1. 可以發現<span
-class="math inline">\(\xi^2+\eta^2=\frac{1}{x^2+y^2}\)</span>，即<span
-class="math inline">\((\xi,\eta)\)</span>和<span
-class="math inline">\((x,y)\)</span>與點距離成倒數(見下圖1)。</p>
-<img src="inv.jpg" width="25%" height="25%">
-<center>
-圖1
-</center>
-<p><br>2. 直線<span
-class="math inline">\(x=k\)</span>會被映射成一個圓。<br></p>
-<p><font color=#8b4513><u>說明</u></font>： <span
-class="math display">\[
-\begin{aligned}
-&amp;\xi^2+\eta^2=\frac{1}{k^2+y^2}=\frac{1}{k\xi}\\
-\Rightarrow&amp;\left(\xi-\frac{1}{2k}\right)^2+\eta^2=\left(\frac{1}{2k}\right)^2
-\end{aligned}
-\]</span> <font size="1">QED</font><br></p>
-<center>
-<h1 id="反函數定理"><font color=#b8860b>反函數定理</font></h1>
-</center>
-<p>假如上述目標2成立，則 <span class="math display">\[
-\left\{
-\begin{aligned}
-\xi&amp;=\phi(g(\xi,\eta),h(\xi,\eta))\\
-\eta&amp;=\psi(g(\xi,\eta),h(\xi,\eta))
-\end{aligned}
-\right.
-\]</span> 於是，可以兩邊偏微分，有 <span class="math display">\[
-\left\{
-\begin{aligned}
-1&amp;=\phi_xg_\xi+\phi_yh_\xi\\
-0&amp;=\phi_xg_\eta+\phi_yh_\eta\\
-0&amp;=\psi_xg_\xi+\psi_yh_\xi\\
-1&amp;=\psi_xg_\eta+\psi_yh_\eta
-\end{aligned}
-\right.
-\]</span> 於是 <span class="math display">\[
-\left\{
-\begin{aligned}
-g_\xi&amp;=\psi_y/D\\
-g_\eta&amp;=-\phi_y/D\\
-h_\xi&amp;=-\psi_x/D\\
-h_\eta&amp;=\phi_x/D
-\end{aligned}
-\right.
-\]</span> 其中 <span class="math display">\[
-D=\left|
-\begin{array}{cc}
-\phi_x &amp; \phi_y \\
-\psi_x &amp; \psi_y
-\end{array}
-\right|
-\]</span></p>
-<h2
-id="定義-4雅可比行列式-jacobian-determinant"><font color=#008000><u>定義
-4：雅可比行列式 (Jacobian Determinant)</u></font></h2>
-<p>我們將 <span class="math display">\[
-D=\left|
-\begin{array}{cc}
-\phi_x &amp; \phi_y \\
-\psi_x &amp; \psi_y
-\end{array}
-\right|
-\]</span> 稱為<span
-class="math inline">\((\phi,\psi)\)</span>的雅可比行列式。</p>
-<img src="jacobi.jpg" width="25%" height="25%">
-<center>
-圖2 Carl Gustav Jacob Jacobi
+<h1 id="基本矩陣"><font color=#b8860b>基本矩陣</font></h1>
 </center>
 <h2
-id="定理-5反函數定理-inverse-function-theorem"><font color=#ff1493><u>定理
-5：反函數定理 (Inverse Function Theorem)</u></font></h2>
-<p>令<span class="math inline">\(\phi(x,y),\psi(x,y)\)</span>在<span
-class="math inline">\((x_0,y_0)\)</span>的附近是連續可微的，並令雅可比行列式<span
-class="math inline">\(D=\phi_x\psi_y-\phi_y\psi_x\)</span>在<span
-class="math inline">\((x_0,y_0)\)</span>非零。則存在<span
-class="math inline">\((x_0,y_0),
-(u_0,v_0)=(\phi(x_0,y_0),\psi(x_0,y_0))\)</span>的鄰域<span
-class="math inline">\(N,N&#39;\)</span>使得在這之中映射 <span
-class="math display">\[
-\left\{
-\begin{aligned}
-u&amp;=\phi(x,y)\\
-v&amp;=\psi(x,y)
-\end{aligned}
-\right.
-\]</span> 有反函數 <span class="math display">\[
-\left\{
-\begin{aligned}
-x&amp;=g(u,v)\\
-y&amp;=h(u,v)
-\end{aligned}
-\right.
-\]</span> 並且 <span class="math display">\[
-\begin{aligned}
-\frac{\partial x}{\partial u}=\frac{1}{D}\frac{\partial v}{\partial
-y}&amp;, \frac{\partial x}{\partial v}=\frac{-1}{D}\frac{\partial
-u}{\partial y}\\
-\frac{\partial y}{\partial u}=\frac{-1}{D}\frac{\partial v}{\partial
-x}&amp;, \frac{\partial y}{\partial v}=\frac{1}{D}\frac{\partial
-u}{\partial x}
-\end{aligned}
-\]</span></p>
-<p><font color=#8b4513><u>證明</u></font>：由於<span
-class="math inline">\(D\neq 0\)</span>，故<span
-class="math inline">\(\phi_x,\phi_y\)</span>不會同時為零。WLOG，可以令<span
-class="math inline">\(\phi_x(x_0,y_0)\neq 0\)</span>，於是方程<span
-class="math inline">\(u=\phi(x,y)\)</span>可以被表為<span
-class="math inline">\(x\)</span>的函數，即存在<span
-class="math inline">\(h_1,h_2,h_3\)</span> s.t. 當<span
-class="math inline">\(|u-u_0|&lt;h_1, |y-y_0|&lt;h_2\)</span>時，<span
-class="math inline">\(|x-x_0|&lt;h_3\)</span>時<span
-class="math inline">\(x=X(u,y)\)</span>(這是隱函數定理，見<a
-href="https://alexthepurplerose.github.io/2024/07/28/cal-implicit/">這裡</a>的定理2)。<br>
-於是，我們有<span class="math inline">\(\phi(X(u,y),y)=u,
-X(u_0,y_0)=x_0\)</span>。分別對<span
-class="math inline">\(u\)</span>與<span
-class="math inline">\(y\)</span>偏微分，有 <span class="math display">\[
-\begin{aligned}
-\phi_x(X(u,y),y)&amp;X_u(u,y)=1\\
-\phi_x(X(u,y),y)X_y(u,y)&amp;+\phi_y(X(u,y),y)=0\mbox{ (☆)}
-\end{aligned}
-\]</span> 然後把<span class="math inline">\(X(u,y)\)</span>替換進<span
-class="math inline">\(\psi(x,y)\)</span>，並令<span
-class="math inline">\(\tilde{x}(u,y)=\psi(X(u,y),y)\)</span>，則：
-<br>1. <span class="math display">\[
-\tilde{x}(u_0,y_0)=\psi(x_0,y_0)=v_0
-\]</span> <br>2. 由(☆)有 <span class="math display">\[
-\begin{aligned}
-\tilde{x}_y(u_0,v_0)&amp;=\psi_xX_y+\psi_y\\
-&amp;=-\psi_x\frac{\phi_y}{\phi_x}+\psi_y\\
-&amp;=\frac{D}{\phi_x}\neq 0
-\end{aligned}
-\]</span> 於是，存在<span
-class="math inline">\(h_4,h_5,h_6\)</span>使得<span
-class="math inline">\(|u-u_0|&lt;h_4\)</span>, <span
-class="math inline">\(|v-v_0|&lt;h_5\)</span>時，<span
-class="math inline">\(\tilde{x}(u,y)=v\)</span>有解<span
-class="math inline">\(y=h(u,v)\)</span>，其中<span
-class="math inline">\(|y-y_0|&lt;h_6\)</span>(這還是隱函數定理)。<br>
-最後，令<span class="math inline">\(g(u,v)=X(u,h(u,v))\)</span>，則<span
-class="math inline">\(x=g(u,v)\)</span>。而偏導數只是繁複計算而已，這裡就跳過了。<font size="1">QED</font><br></p>
-<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
-<p>更多變數的狀況，考慮： <span class="math display">\[
-\left\{
-\begin{aligned}
-\xi&amp;=\phi(x,y,z)\\
-\eta&amp;=\psi(x,y,z)\\
-\tau&amp;=\tilde{\phi}(x,y,z)
-\end{aligned}
-\right.
-\]</span> 它的雅可比行列式就是 <span class="math display">\[
-D=\frac{\partial(\xi,\eta,\tau)}{\partial(x,y,z)}=\left|
-\begin{array}{ccc}
-\phi_x &amp; \phi_y &amp; \phi_z \\
-\psi_x &amp; \psi_y &amp; \psi_z \\
-\tilde{\phi}_x &amp; \tilde{\phi}_y &amp; \tilde{\phi}_z
-\end{array}
-\right|
-\]</span></p>
+id="定義-1基本列運算-elementary-row-operation"><font color=#008000><u>定義
+1：基本列運算 (Elementary Row Operation)</u></font></h2>
+<p>給定<span class="math inline">\(m\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，我們稱以下三種操作為基本列運算：
+<br>1. 將<span class="math inline">\(A\)</span>的某兩列互換。 <br>2.
+將<span class="math inline">\(A\)</span>的某一列乘以非零純量<span
+class="math inline">\(a\)</span>。 <br>3. 把<span
+class="math inline">\(A\)</span>的某一列乘以<span
+class="math inline">\(a\)</span>倍後加到另一列上。</p>
 
     </div>
 
@@ -462,8 +245,8 @@ D=\frac{\partial(\xi,\eta,\tau)}{\partial(x,y,z)}=\left|
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
-              <a href="/tags/Calculus/" rel="tag"># Calculus</a>
-              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+              <a href="/tags/Linear-Algebra/" rel="tag"># Linear_Algebra</a>
+              <a href="/tags/Algebra/" rel="tag"># Algebra</a>
           </div>
 
         
@@ -472,13 +255,10 @@ D=\frac{\partial(\xi,\eta,\tau)}{\partial(x,y,z)}=\left|
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/28/cal-implicit/" rel="prev" title="微積分：隱函數定理">
-      <i class="fa fa-chevron-left"></i> 微積分：隱函數定理
+    <a href="/2024/08/29/linalg-coor/" rel="prev" title="線性代數：座標轉換矩陣">
+      <i class="fa fa-chevron-left"></i> 線性代數：座標轉換矩陣
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/07/29/cal-multi-extreme/" rel="next" title="微積分：多變數函數的極值">
-      微積分：多變數函數的極值 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -537,11 +317,8 @@ D=\frac{\partial(\xi,\eta,\tau)}{\partial(x,y,z)}=\left|
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%8A%E6%8F%9B"><span class="nav-number">1.</span> <span class="nav-text">變換</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-1%E7%B7%9A%E6%80%A7%E8%AE%8A%E6%8F%9B-linear-transformation"><span class="nav-number">1.1.</span> <span class="nav-text">例
-1：線性變換 (Linear Transformation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99-2"><span class="nav-number">1.2.</span> <span class="nav-text">目標 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-3%E5%8F%8D%E6%BC%94-inversion"><span class="nav-number">1.3.</span> <span class="nav-text">例 3：反演
-(Inversion)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%87%BD%E6%95%B8%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">反函數定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%9B%85%E5%8F%AF%E6%AF%94%E8%A1%8C%E5%88%97%E5%BC%8F-jacobian-determinant"><span class="nav-number">2.1.</span> <span class="nav-text">定義
-4：雅可比行列式 (Jacobian Determinant)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E5%8F%8D%E5%87%BD%E6%95%B8%E5%AE%9A%E7%90%86-inverse-function-theorem"><span class="nav-number">2.2.</span> <span class="nav-text">定理
-5：反函數定理 (Inverse Function Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%99%A3"><span class="nav-number">1.</span> <span class="nav-text">基本矩陣</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%9F%BA%E6%9C%AC%E5%88%97%E9%81%8B%E7%AE%97-elementary-row-operation"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：基本列運算 (Elementary Row Operation)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
