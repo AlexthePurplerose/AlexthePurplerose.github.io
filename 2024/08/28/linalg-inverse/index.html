@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於線性轉換的反函數以及矩陣的反矩陣。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-08-28T12:20:21.000Z">
-<meta property="article:modified_time" content="2024-08-28T13:06:52.918Z">
+<meta property="article:modified_time" content="2024-08-29T06:59:06.538Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -191,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-08-28 20:20:21 / 修改時間：21:06:52" itemprop="dateCreated datePublished" datetime="2024-08-28T20:20:21+08:00">2024-08-28</time>
+              <time title="創建時間：2024-08-28 20:20:21" itemprop="dateCreated datePublished" datetime="2024-08-28T20:20:21+08:00">2024-08-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-08-29 14:59:06" itemprop="dateModified" datetime="2024-08-29T14:59:06+08:00">2024-08-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -333,8 +339,78 @@ class="math inline">\(W\)</span>的有序基底<span
 class="math inline">\(\gamma\)</span>，並給定線性映射<span
 class="math inline">\(T:V\to W\)</span>，則<span
 class="math inline">\(T\)</span>有反函數 iff. <span
-class="math inline">\([T]_\beta^\gamma\)</span>有反矩陣。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：我們分成兩個部分證明。</p>
+class="math inline">\([T]_\beta^\gamma\)</span>有反矩陣，且 <span
+class="math display">\[
+[T^{-1}]_\gamma^\beta=\left([T]_\beta^\gamma\right)^{-1}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩個部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(T\)</span>有反函數，則由性質1-6知<span
+class="math inline">\(\mbox{rank}(T)=\dim V\)</span>(這裡沒有用到<span
+class="math inline">\(\dim V=\dim W\)</span>的條件)。但由註記1-2知<span
+class="math inline">\(T\)</span>應要是映成的，故<span
+class="math inline">\(R(T)=W\)</span>, <span
+class="math inline">\(\mbox{rank}(T)=\dim W\)</span>，故<span
+class="math inline">\(\dim V=\dim W\)</span>。令<span
+class="math inline">\(\dim V=\dim W=n\)</span>，則<span
+class="math inline">\([T]_\beta^\gamma\)</span>是一<span
+class="math inline">\(n\times n\)</span>矩陣，且 <span
+class="math display">\[
+TT^{-1}=I_V, T^{-1}T=I_W
+\]</span> 故由<a
+href="https://alexthepurplerose.github.io/2024/08/22/linalg-matrix/">這裡</a>的定理16知
+<span class="math display">\[
+\begin{aligned}
+I_n&amp;=[I_V]_\beta^\beta=[T^{-1}]_\gamma^\beta[T]_\beta^\gamma\\
+I_n&amp;=[I_W]_\gamma^\gamma=[T]_\beta^\gamma[T^{-1}]_\gamma^\beta
+\end{aligned}
+\]</span> 故知<span
+class="math inline">\([T]_\beta^\gamma\)</span>可逆且<span
+class="math inline">\([T^{-1}]_\gamma^\beta=\left([T]_\beta^\gamma\right)^{-1}\)</span>。
+<br>「<span class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(A=[T]_\beta^\gamma\)</span>可逆，則存在矩陣<span
+class="math inline">\(B\)</span>使得<span
+class="math inline">\(AB=BA=I_n\)</span>(當假設<span
+class="math inline">\(A\)</span>可逆時已經假設<span
+class="math inline">\(A\)</span>是<span class="math inline">\(n\times
+n\)</span>方陣了)。令<span
+class="math inline">\(\beta=\{v_1,\cdots,v_n\}\)</span>, <span
+class="math inline">\(\gamma=\{w_1,\cdots,w_n\}\)</span>，並給定<span
+class="math inline">\(U\in\mathscr{L}(W,V)\)</span>，其中 <span
+class="math display">\[
+U(w_j)=\sum_i B_{ij}v_i
+\]</span> 由<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理11知這樣的<span
+class="math inline">\(U\)</span>存在且唯一。並且由定義知<span
+class="math inline">\(B=[U]^\beta_\gamma\)</span>，故 <span
+class="math display">\[
+\begin{aligned}
+[UT]^\beta_\beta&amp;=[U]^\beta_\gamma[T]^\gamma_\beta\\
+&amp;=BA=I_n=[I_V]^\beta_\beta
+\end{aligned}
+\]</span> 故<span class="math inline">\(UT=I_V\)</span>，類似的有<span
+class="math inline">\(TU=I_W\)</span>，則有<span
+class="math inline">\(T^{-1}=U\)</span>，即<span
+class="math inline">\(T\)</span>有反函數。<font size="1">QED</font></p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
+<p>由上述證明過程可知若要<span class="math inline">\(T:V\to
+W\)</span>可逆且<span
+class="math inline">\(V,W\)</span>皆為有限維，就必須有<span
+class="math inline">\(\dim V=\dim W\)</span>。</p>
+<h3 id="註記-3-2"><font color=#0000FF><u>註記 3-2</u></font></h3>
+<p>給定<span class="math inline">\(n\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，則<span
+class="math inline">\(A\)</span>可逆 iff. 存在<span
+class="math inline">\(B\)</span>使得<span
+class="math inline">\(AB=BA=I_n\)</span> iff. <span
+class="math inline">\(L_A\)</span>可逆。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：第一個iff.是由定義，在此解釋第二個iff.。
+由<span class="math inline">\(AB=BA=I_n\)</span>知 <span
+class="math display">\[
+L_{AB}(x)=ABx=x=L_AL_B(x)
+\]</span> 故<span class="math inline">\(L_AL_B=I\)</span>，同理<span
+class="math inline">\(L_BL_A=I\)</span>，故<span
+class="math inline">\(L_A\)</span>可逆。<font size="1">QED</font></p>
 
     </div>
 
@@ -420,7 +496,7 @@ class="math inline">\([T]_\beta^\gamma\)</span>有反矩陣。<br></p>
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E5%87%BD%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">反函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%8F%8D%E5%87%BD%E6%95%B8-inverse-function"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：反函數 (Inverse Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E9%80%86-inverse"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義 1-1：逆
 (Inverse)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">性質 1-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-4"><span class="nav-number">1.1.4.</span> <span class="nav-text">性質 1-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-5"><span class="nav-number">1.1.5.</span> <span class="nav-text">性質 1-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-6"><span class="nav-number">1.1.6.</span> <span class="nav-text">性質 1-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1-7"><span class="nav-number">1.1.7.</span> <span class="nav-text">定理 1-7</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%8D%E7%9F%A9%E9%99%A3"><span class="nav-number">2.</span> <span class="nav-text">反矩陣</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%8F%8D%E7%9F%A9%E9%99%A3-inverse-matrix"><span class="nav-number">2.1.</span> <span class="nav-text">定義
-2：反矩陣 (Inverse Matrix)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">2.2.</span> <span class="nav-text">定理 3</span></a></li></ol></li></ol></div>
+2：反矩陣 (Inverse Matrix)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">2.2.</span> <span class="nav-text">定理 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">註記 3-2</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
