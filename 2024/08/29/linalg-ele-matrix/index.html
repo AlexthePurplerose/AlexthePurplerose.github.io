@@ -20,16 +20,17 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於基本矩陣的定義與性質。">
+  <meta name="description" content="這份筆記是關於基本矩陣的定義與性質，以及其與其他矩陣的關係。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="線性代數：基本矩陣">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於基本矩陣的定義與性質。">
+<meta property="og:description" content="這份筆記是關於基本矩陣的定義與性質，以及其與其他矩陣的關係。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/kronecker.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/commute.jpg">
 <meta property="article:published_time" content="2024-08-29T07:49:58.000Z">
-<meta property="article:modified_time" content="2024-08-30T11:53:18.212Z">
+<meta property="article:modified_time" content="2024-08-30T17:26:04.423Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -201,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-08-30 19:53:18" itemprop="dateModified" datetime="2024-08-30T19:53:18+08:00">2024-08-30</time>
+                <time title="修改時間：2024-08-31 01:26:04" itemprop="dateModified" datetime="2024-08-31T01:26:04+08:00">2024-08-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -228,7 +229,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於基本矩陣的定義與性質。 <span id="more"></span><br></p>
+        <p>這份筆記是關於基本矩陣的定義與性質，以及其與其他矩陣的關係。
+<span id="more"></span><br></p>
 <p>這裡的行與列依循的是台灣的翻譯習慣，即行對應到英文的Column，而列對應到英文的Row。</p>
 <center>
 <h1 id="基本矩陣"><font color=#b8860b>基本矩陣</font></h1>
@@ -321,6 +323,296 @@ class="math inline">\(I_n\to E\)</span>和<span
 class="math inline">\(E^{-1}\to
 I_n\)</span>經過了一樣的基本列運算。<br></p>
 <p><font color=#8b4513><u>證明</u></font>：由定理4可以發現這個結論是顯然的，在此證略。<font size="1">QED</font></p>
+<center>
+<h1 id="矩陣的秩"><font color=#b8860b>矩陣的秩</font></h1>
+</center>
+<h2 id="定義-5矩陣的秩-rank-of-matrices"><font color=#008000><u>定義
+5：矩陣的秩 (Rank of Matrices)</u></font></h2>
+<p>給定矩陣<span class="math inline">\(A\in M_{m\times
+n}(F)\)</span>，我們將<span class="math inline">\(A\)</span>的秩定義為
+<span class="math display">\[
+\mbox{rank}(A)=\mbox{rank}(L_A)
+\]</span></p>
+<h2 id="註記-6"><font color=#0000FF><u>註記 6</u></font></h2>
+<p>給定<span class="math inline">\(n\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，由<a
+href="https://alexthepurplerose.github.io/2024/08/28/linalg-inverse/">這裡</a>的定理3可知<span
+class="math inline">\(A\)</span>可逆 iff. <span
+class="math inline">\(L_A\)</span>可逆，且由<a
+href="https://alexthepurplerose.github.io/2024/08/28/linalg-inverse/">這裡</a>的性質1-6知
+<span class="math display">\[
+\mbox{rank}(A)=\mbox{rank}(L_A)=\dim(F^n)=n
+\]</span></p>
+<h2 id="定理-7"><font color=#ff1493><u>定理 7</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to W\)</span>，其中<span
+class="math inline">\(V,W\)</span>為有限維向量空間，且<span
+class="math inline">\(\beta,\gamma\)</span>分別為<span
+class="math inline">\(V,W\)</span>的有序基底，則 <span
+class="math display">\[
+\mbox{rank}(T)=\mbox{rank}\left([T]^\gamma_\beta\right)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\dim V=n\)</span>, <span
+class="math inline">\(\dim W=m\)</span>，並令<span
+class="math inline">\([T]^\gamma_\beta=A\)</span>。我們希望說明<span
+class="math inline">\(\mbox{rank}(L_A)=\mbox{rank}(T)\)</span>。令<span
+class="math inline">\(\phi_\beta:V\to F^n\)</span>和<span
+class="math inline">\(\phi_\gamma:W\to F^m\)</span>分別為同構映射(由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-isomorphic/">這裡</a>的註記2知這樣的同構映射存在)，我們考慮如下的圖2。</p>
+<img src="commute.jpg" width="25%" height="25%">
+<center>
+圖2
+</center>
+<p>在上圖2中，我們有 <span class="math display">\[
+[T(x)]_\gamma=[T]_\beta^\gamma[x]_\beta=A[x]_\beta
+\]</span> 故<span class="math inline">\(L_A\phi_\beta=\phi_\gamma
+T\)</span>，即 <span class="math display">\[
+\phi_\gamma^{-1}L_A=T\phi_\beta^{-1}
+\]</span> 接著，我們希望說明<span
+class="math inline">\(\phi_\beta(N(T))=N(L_A)\)</span>。我們分兩個部分說明：
+<br>1. 給定<span
+class="math inline">\(y\in\phi_\beta(N(T))\)</span>，即<span
+class="math inline">\(y=\phi_\beta(x)\)</span>，其中<span
+class="math inline">\(T(x)=0\)</span>。則 <span class="math display">\[
+L_A(y)=L_A(\phi_\beta(x))=\phi_\gamma(T(x))=0
+\]</span> 故<span class="math inline">\(y\in N(L_A)\)</span> i.e. <span
+class="math inline">\(\phi_\beta(N(T))\subseteq N(L_A)\)</span>。 <br>2.
+給定<span
+class="math inline">\(y\in\phi_\beta^{-1}(N(L_A))\)</span>，則<span
+class="math inline">\(y=\phi_\beta^{-1}(x)\)</span>，其中<span
+class="math inline">\(L_A(x)=0\)</span>。則 <span
+class="math display">\[
+T(y)=T\left(\phi_\beta^{-1}(x)\right)=\phi_\gamma^{-1}(L_A(x))=0
+\]</span> 即<span class="math inline">\(y\in N(T)\)</span> i.e. <span
+class="math inline">\(\phi_\beta^{-1}(N(L_A))\subseteq N(T)\)</span>
+i.e. <span class="math inline">\(N(L_A)\subseteq
+\phi_\beta(N(T))\)</span>。 <br>綜合以上，即有<span
+class="math inline">\(\phi_\beta(N(T))=N(L_A)\)</span>。故由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-isomorphic/">這裡</a>的註記2知
+<span class="math display">\[
+\dim(N(T))=\dim(\phi_\beta(N(T)))=\dim(N(L_A))
+\]</span> 故由維度定理(<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理8)，我們即有<span
+class="math inline">\(\mbox{rank}(T)=\mbox{rank}(L_A)\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
+<p>給定<span class="math inline">\(m\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，並給定<span
+class="math inline">\(m\times m\)</span>可逆矩陣<span
+class="math inline">\(P\)</span>與<span class="math inline">\(n\times
+n\)</span>可逆矩陣<span class="math inline">\(Q\)</span>。則： <br>1.
+<span class="math inline">\(\mbox{rank}(AQ)=\mbox{rank}(A)\)</span>。
+<br>2. <span
+class="math inline">\(\mbox{rank}(PA)=\mbox{rank}(A)\)</span>。 <br>3.
+<span
+class="math inline">\(\mbox{rank}(PAQ)=\mbox{rank}(A)\)</span>。</p>
+<p><font color=#8b4513><u>證明</u></font>：第3.點可以由第1.、2.點直接推出，故這裡只證明前兩點。
+<br>1. 我們有 <span class="math display">\[
+R(L_{AQ})=R(L_AL_Q)=L_AL_Q(F^n)
+\]</span> 其中<span
+class="math inline">\(L_AL_Q(F^n)\)</span>指的是把<span
+class="math inline">\(F^n\)</span>塞進<span
+class="math inline">\(L_AL_Q\)</span>這個函數裡。而又因為<span
+class="math inline">\(Q\)</span>是同構映射，故<span
+class="math inline">\(L_Q(F^n)=F^n\)</span>，則 <span
+class="math display">\[
+R(L_{AQ})=L_AL_Q(F^n)=L_A(F^n)=R(L_A)
+\]</span> 故<span
+class="math inline">\(\mbox{rank}(AQ)=\mbox{rank}(A)\)</span>。 <br>2.
+我們有 <span class="math display">\[
+R(L_{PA})=R(L_PL_A)=L_PL_A(F^n)=L_P(R(L_A))
+\]</span> 然而又因為<span
+class="math inline">\(L_P\)</span>是同構映射，故<span
+class="math inline">\(L_P(R(L_A))\simeq R(L_A)\)</span>。故由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-isomorphic/">這裡</a>的註記2可知
+<span class="math display">\[
+\dim(L_P(R(L_A)))=\dim(R(L_A))
+\]</span> 故<span
+class="math inline">\(\mbox{rank}(PA)=\mbox{rank}(A)\)</span>。<font size="1">QED</font></p>
+<h3 id="註記-8-1"><font color=#0000FF><u>註記 8-1</u></font></h3>
+<p>矩陣經過基本列運算後秩不變。(因為對應的基本矩陣是可逆的)</p>
+<h2 id="定理-9"><font color=#ff1493><u>定理 9</u></font></h2>
+<p><span class="math inline">\(m\times
+n\)</span>矩陣的秩等於其線性獨立的行的最大數目，並且等於其所有行構成的向量空間的維度。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(A\in M_{m\times n}(F)\)</span>，令<span
+class="math inline">\(F^n\)</span>的標準有序基底為<span
+class="math inline">\(\beta\)</span>，我們有 <span
+class="math display">\[
+\mbox{rank}(A)=\mbox{rank}(L_A)=\dim
+R(L_A)=\dim(\mbox{span}(L_A(\beta)))
+\]</span> 由定義知<span
+class="math inline">\(L_A(\beta)\)</span>即為<span
+class="math inline">\(A\)</span>的每一行，故 <span
+class="math display">\[
+\mbox{rank}(A)=\dim(A\mbox{的行})
+\]</span> 而這又顯然會等於<span
+class="math inline">\(A\)</span>彼此線性獨立的最大行數。<font size="1">QED</font></p>
+<center>
+<h1
+id="矩陣與基本列運算"><font color=#b8860b>矩陣與基本列運算</font></h1>
+</center>
+<h2 id="定理-10"><font color=#ff1493><u>定理 10</u></font></h2>
+<p>給定<span class="math inline">\(m\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，令<span
+class="math inline">\(\mbox{rank}(A)=r\)</span>，則<span
+class="math inline">\(r\leq m\)</span>且<span
+class="math inline">\(r\leq n\)</span>。並且<span
+class="math inline">\(A\)</span>經過有限次基本列運算和基本行運算後可以化成
+<span class="math display">\[
+D=\left(
+\begin{array}{c|c}
+I_r &amp; O_1\\
+\hline
+O_2 &amp; O_3
+\end{array}
+\right)
+\]</span> 其中<span
+class="math inline">\(O_1,O_2,O_3\)</span>為零矩陣(其所有元素皆為零)。意即當<span
+class="math inline">\(i\leq r\)</span>時<span
+class="math inline">\(D_{ii}=1\)</span>，而其餘時候<span
+class="math inline">\(D_{ij}=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定理9知<span
+class="math inline">\(r\leq m\)</span>, <span
+class="math inline">\(r\leq n\)</span>是顯然的，在此只須證後半部分。<br>
+我們對<span class="math inline">\(m\)</span>做數學歸納法。 <br>1.
+當<span class="math inline">\(m=1\)</span>時，<span
+class="math inline">\(A\)</span>是<span class="math inline">\(1\times
+n\)</span>矩陣，可以令 <span class="math display">\[
+A=(a_1,\cdots,a_n)
+\]</span> 這裡<span class="math inline">\(r\)</span>只能是<span
+class="math inline">\(0\)</span>或<span
+class="math inline">\(1\)</span>，且<span
+class="math inline">\(r=0\)</span>只在<span
+class="math inline">\(a_1=a_2=\cdots=a_n=0\)</span>時發生。當<span
+class="math inline">\(r=1\)</span>時，很容易可以透過基本行運算將<span
+class="math inline">\(A\)</span>化為<span
+class="math inline">\((1,0,0,\cdots,0)\)</span>。 <br>2. 我們假設當<span
+class="math inline">\(m\leq k-1\)</span>時定理成立。則給定<span
+class="math inline">\(m\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，我們可以假設<span
+class="math inline">\(n&gt;1\)</span>(如果<span
+class="math inline">\(n=1\)</span>就回到類似1.的狀況了)，且可以假設<span
+class="math inline">\(A\)</span>不是零矩陣(零矩陣已經是目標形式了，其中<span
+class="math inline">\(r=0\)</span>)。假設<span
+class="math inline">\(A_{ij}\neq
+0\)</span>，則用交換兩行/列的基本行/列運算把<span
+class="math inline">\(A_{ij}\)</span>換到第一行第一列(見上定義1與定義1-1)，則我們將定義1中的三項基本列運算簡記為(1),
+(2), (3)，則 <span class="math display">\[
+\begin{aligned}
+A&amp;\xrightarrow{\left(1\right)}\left(
+\begin{array}{c|c}
+A_{ij} &amp; \ast\ast\ast\cdots\ast\\
+\hline
+\ast &amp; \\
+\ast &amp; \\
+\ast &amp; \ast\\
+\vdots &amp; \\
+\ast &amp;
+\end{array}
+\right)\\
+&amp;\xrightarrow{\left(2\right)}\left(
+\begin{array}{c|c}
+1 &amp; \ast\ast\ast\cdots\ast\\
+\hline
+\ast &amp; \\
+\ast &amp; \\
+\ast &amp; \ast\\
+\vdots &amp; \\
+\ast &amp;
+\end{array}
+\right)\\
+&amp;\xrightarrow{\left(3\right)}\left(
+\begin{array}{c|c}
+1 &amp; 000\cdots 0\\
+\hline
+0 &amp; \\
+0 &amp; \\
+0 &amp; B&#39;\\
+\vdots &amp; \\
+0 &amp;
+\end{array}
+\right)=B
+\end{aligned}
+\]</span> 其中<span class="math inline">\(B&#39;\)</span>為一<span
+class="math inline">\((m-1)\times(n-1)\)</span>矩陣。由註記8-1知<span
+class="math inline">\(\mbox{rank}(A)=\mbox{rank}(B)\)</span>，而<span
+class="math inline">\(B\)</span>中線性獨立的行數即是<span
+class="math inline">\(B&#39;\)</span>線性獨立的行數加一(加的是<span
+class="math inline">\(B\)</span>的第一行<span
+class="math inline">\(\left(\begin{array}{c}
+1\\
+0\\
+0\\
+\vdots\\
+0
+\end{array}
+\right)\)</span>)，即 <span class="math display">\[
+\mbox{rank}(A)=\mbox{rank}(B)=\mbox{rank}(B&#39;)+1
+\]</span> 由歸納假設，我們可以把<span
+class="math inline">\(B&#39;\)</span>用基本列運算與基本行運算化為 <span
+class="math display">\[
+D&#39;=\left(
+\begin{array}{cc}
+I_{r-1} &amp; O\\
+O &amp; O
+\end{array}
+\right)
+\]</span> 故<span class="math inline">\(A\)</span>可以化為 <span
+class="math display">\[
+A\to D=\left(
+\begin{array}{c|ccc}
+1 &amp; 0 &amp; \cdots &amp; 0\\
+\hline
+0 &amp; I_{r-1} &amp; \cdots &amp; O\\
+0 &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; O &amp; \cdots &amp; O
+\end{array}
+\right)=\left(
+\begin{array}{cc}
+I_r &amp; O_1\\
+O_2 &amp; O_3
+\end{array}
+\right)
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-10-1"><font color=#0000FF><u>註記 10-1</u></font></h3>
+<p>給定<span class="math inline">\(m\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，令<span
+class="math inline">\(A\)</span>經過基本列運算與基本行運算後化為 <span
+class="math display">\[
+D=\left(
+\begin{array}{cc}
+I_r &amp; O_1\\
+O_2 &amp; O_3
+\end{array}
+\right)
+\]</span> 則由定理4知<span class="math inline">\(D\)</span>可以寫為
+<span class="math display">\[
+D=BAC
+\]</span> 其中<span class="math inline">\(B,C\)</span>為可逆矩陣。</p>
+<h3 id="推論-10-2"><font color=#0000FF><u>推論 10-2</u></font></h3>
+<p>給定矩陣<span class="math inline">\(A\)</span>，則 <span
+class="math display">\[
+\mbox{rank}(A)=\mbox{rank}(A^t)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮<span
+class="math inline">\(A\)</span>經由基本列運算與基本行運算後化為定理10形式的矩陣<span
+class="math inline">\(D\)</span>，則由註記10-1知<span
+class="math inline">\(D\)</span>可表為<span
+class="math inline">\(D=BAC\)</span>，則 <span class="math display">\[
+D^t=C^tA^tB^t
+\]</span> 而易知<span class="math inline">\(C^t\)</span>, <span
+class="math inline">\(B^t\)</span>也可逆，故由定理8知 <span
+class="math display">\[
+\mbox{rank}(A^t)=\mbox{rank}(D^t)=r=\mbox{rank}(D)=\mbox{rank}(A)
+\]</span> <font size="1">QED</font></p>
+<h4 id="推論-10-2-1"><font color=#0000FF><u>推論 10-2-1</u></font></h4>
+<p>由推論10-2易知 <span class="math display">\[
+\begin{aligned}
+\mbox{rank}(A)&amp;=\textcolor{red}{A\mbox{線性獨立的行數}}\\
+&amp;=\mbox{rank}(A^t)=A^t\mbox{線性獨立的行數}\\
+&amp;=\textcolor{red}{A\mbox{線性獨立的列數}}
+\end{aligned}
+\]</span></p>
 
     </div>
 
@@ -344,10 +636,7 @@ I_n\)</span>經過了一樣的基本列運算。<br></p>
     <a href="/2024/08/29/linalg-coor/" rel="prev" title="線性代數：座標轉換矩陣">
       <i class="fa fa-chevron-left"></i> 線性代數：座標轉換矩陣
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/08/30/linalg-rank/" rel="next" title="線性代數：矩陣的秩">
-      線性代數：矩陣的秩 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -410,7 +699,8 @@ I_n\)</span>經過了一樣的基本列運算。<br></p>
 1：基本列運算 (Elementary Row Operation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E5%9F%BA%E6%9C%AC%E8%A1%8C%E9%81%8B%E7%AE%97-elementary-column-operation"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
 1-1：基本行運算 (Elementary Column Operation)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%99%A3-elementary-matrix"><span class="nav-number">1.2.</span> <span class="nav-text">定義
 2：基本矩陣 (Elementary Matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%85%8B%E7%BE%85%E5%85%A7%E5%85%8Bdelta%E7%AC%A6%E8%99%9F-kroneckers-delta-symbol"><span class="nav-number">1.3.</span> <span class="nav-text">定義
-3：克羅內克Delta符號 (Kronecker&#39;s Delta Symbol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">定理 4-1</span></a></li></ol></li></ol></li></ol></div>
+3：克羅內克Delta符號 (Kronecker&#39;s Delta Symbol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">定理 4-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%9A%84%E7%A7%A9"><span class="nav-number">2.</span> <span class="nav-text">矩陣的秩</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E7%9F%A9%E9%99%A3%E7%9A%84%E7%A7%A9-rank-of-matrices"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+5：矩陣的秩 (Rank of Matrices)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6"><span class="nav-number">2.2.</span> <span class="nav-text">註記 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">2.3.</span> <span class="nav-text">定理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.4.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">註記 8-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.5.</span> <span class="nav-text">定理 9</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E8%88%87%E5%9F%BA%E6%9C%AC%E5%88%97%E9%81%8B%E7%AE%97"><span class="nav-number">3.</span> <span class="nav-text">矩陣與基本列運算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">3.1.</span> <span class="nav-text">定理 10</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 10-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-10-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">推論 10-2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-10-2-1"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">推論 10-2-1</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -424,7 +714,7 @@ I_n\)</span>經過了一樣的基本列運算。<br></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-count">77</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
