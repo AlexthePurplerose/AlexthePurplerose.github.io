@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/kronecker.jpg">
 <meta property="article:published_time" content="2024-08-29T07:49:58.000Z">
-<meta property="article:modified_time" content="2024-08-29T08:14:31.356Z">
+<meta property="article:modified_time" content="2024-08-30T11:53:18.212Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,10 +193,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-08-29 15:49:58 / 修改時間：16:14:31" itemprop="dateCreated datePublished" datetime="2024-08-29T15:49:58+08:00">2024-08-29</time>
+              <time title="創建時間：2024-08-29 15:49:58" itemprop="dateCreated datePublished" datetime="2024-08-29T15:49:58+08:00">2024-08-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-08-30 19:53:18" itemprop="dateModified" datetime="2024-08-30T19:53:18+08:00">2024-08-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -263,6 +269,58 @@ id="定義-3克羅內克delta符號-kroneckers-delta-symbol"><font color=#008000
 <center>
 圖1 Leopold Kronecker
 </center>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p>給定<span class="math inline">\(A\in M_{m\times
+n}(F)\)</span>，並令<span class="math inline">\(B\)</span>是<span
+class="math inline">\(A\)</span>經過「一次」基本列運算後的矩陣，則存在<span
+class="math inline">\(m\times m\)</span>基本矩陣<span
+class="math inline">\(E\)</span>使得<span
+class="math inline">\(B=EA\)</span>，且<span class="math inline">\(A\to
+B\)</span>和<span class="math inline">\(I_m\to
+E\)</span>經過了一樣的基本列運算。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：定義1中的1.和2.兩項列運算在這裡對應到的結論是顯然的，在這裡證明定義1中的第3.項列運算。<br>
+假設<span class="math inline">\(B\)</span>是把<span
+class="math inline">\(A\)</span>的第<span
+class="math inline">\(l\)</span>行的<span class="math inline">\(c\neq
+0\)</span>倍加到第<span class="math inline">\(k\)</span>行上的矩陣，則
+<span class="math display">\[
+B_{ij}=\left\{
+\begin{aligned}
+A_{ij}&amp;,\mbox{ if }i\neq k\\
+A_{kj}+cA_{lj}&amp;,\mbox{ if }i=k
+\end{aligned}
+\right.
+\]</span> 而把<span class="math inline">\(I_m\)</span>的第<span
+class="math inline">\(l\)</span>行的<span class="math inline">\(c\neq
+0\)</span>倍加到第<span
+class="math inline">\(k\)</span>行上的基本矩陣<span
+class="math inline">\(E\)</span>為 <span class="math display">\[
+E_{ij}=\left\{
+\begin{aligned}
+\delta_{ij}&amp;,\mbox{ if }i\neq k\\
+\delta_{kj}+c\delta_{lj}&amp;,\mbox{ if }i=k
+\end{aligned}
+\right.
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+(EA)_{ij}&amp;=\sum_{s=1}^m E_{is}A_{sj}\\
+&amp;=\left\{
+\begin{aligned}
+\sum_{s=1}^m \delta_{is}A_{sj}&amp;=A_{ij},\mbox{ if }i\neq k\\
+\sum_{s=1}^m (\delta_{ks}+c\delta_{ls})A_{sj}&amp;=A_{kj}+cA_{lj},\mbox{
+if }i=k
+\end{aligned}
+\right.
+\end{aligned}
+\]</span> 故<span
+class="math inline">\((EA)_{ij}=B_{ij}\)</span>，即<span
+class="math inline">\(B=EA\)</span>。<font size="1">QED</font></p>
+<h3 id="定理-4-1"><font color=#ff1493><u>定理 4-1</u></font></h3>
+<p>基本矩陣<span class="math inline">\(E\)</span>都是可逆的，且<span
+class="math inline">\(I_n\to E\)</span>和<span
+class="math inline">\(E^{-1}\to
+I_n\)</span>經過了一樣的基本列運算。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定理4可以發現這個結論是顯然的，在此證略。<font size="1">QED</font></p>
 
     </div>
 
@@ -349,7 +407,7 @@ id="定義-3克羅內克delta符號-kroneckers-delta-symbol"><font color=#008000
 1：基本列運算 (Elementary Row Operation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E5%9F%BA%E6%9C%AC%E8%A1%8C%E9%81%8B%E7%AE%97-elementary-column-operation"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
 1-1：基本行運算 (Elementary Column Operation)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%9F%BA%E6%9C%AC%E7%9F%A9%E9%99%A3-elementary-matrix"><span class="nav-number">1.2.</span> <span class="nav-text">定義
 2：基本矩陣 (Elementary Matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%85%8B%E7%BE%85%E5%85%A7%E5%85%8Bdelta%E7%AC%A6%E8%99%9F-kroneckers-delta-symbol"><span class="nav-number">1.3.</span> <span class="nav-text">定義
-3：克羅內克Delta符號 (Kronecker&#39;s Delta Symbol)</span></a></li></ol></li></ol></div>
+3：克羅內克Delta符號 (Kronecker&#39;s Delta Symbol)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">定理 4-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
