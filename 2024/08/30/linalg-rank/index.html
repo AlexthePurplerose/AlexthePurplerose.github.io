@@ -20,26 +20,24 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於球座標的性質與應用。">
+  <meta name="description" content="這份筆記是關於矩陣的秩與其相關性質。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微積分：球座標">
-<meta property="og:url" content="https://alexthepurplerose.github.io/2024/08/12/cal-sphere/index.html">
+<meta property="og:title" content="線性代數：矩陣的秩">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2024/08/30/linalg-rank/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於球座標的性質與應用。">
+<meta property="og:description" content="這份筆記是關於矩陣的秩與其相關性質。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-sphere/rthph.jpg">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-sphere/wedge.jpg">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-sphere/surface.jpg">
-<meta property="article:published_time" content="2024-08-12T06:44:30.000Z">
-<meta property="article:modified_time" content="2024-08-12T07:44:12.702Z">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/08/30/linalg-rank/commute.jpg">
+<meta property="article:published_time" content="2024-08-30T11:55:35.000Z">
+<meta property="article:modified_time" content="2024-08-30T12:58:24.317Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
-<meta property="article:tag" content="Calculus">
-<meta property="article:tag" content="Analysis">
+<meta property="article:tag" content="Linear_Algebra">
+<meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/08/12/cal-sphere/rthph.jpg">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/08/30/linalg-rank/commute.jpg">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/12/cal-sphere/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/30/linalg-rank/">
 
 
 <script id="page-configurations">
@@ -52,7 +50,7 @@
   };
 </script>
 
-  <title>微積分：球座標 | 永蔚Alex</title>
+  <title>線性代數：矩陣的秩 | 永蔚Alex</title>
   
 
 
@@ -173,7 +171,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/08/12/cal-sphere/">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/08/30/linalg-rank/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -186,7 +184,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          微積分：球座標
+          線性代數：矩陣的秩
         </h1>
 
         <div class="post-meta">
@@ -197,7 +195,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-08-12 14:44:30 / 修改時間：15:44:12" itemprop="dateCreated datePublished" datetime="2024-08-12T14:44:30+08:00">2024-08-12</time>
+              <time title="創建時間：2024-08-30 19:55:35 / 修改時間：20:58:24" itemprop="dateCreated datePublished" datetime="2024-08-30T19:55:35+08:00">2024-08-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -209,7 +207,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%BE%AE%E7%A9%8D%E5%88%86/" itemprop="url" rel="index"><span itemprop="name">微積分</span></a>
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8/" itemprop="url" rel="index"><span itemprop="name">線性代數</span></a>
                 </span>
             </span>
 
@@ -224,133 +222,115 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於球座標的性質與應用。 <span id="more"></span><br></p>
+        <p>這份筆記是關於矩陣的秩與其相關性質。 <span id="more"></span><br></p>
+<p>這裡的行與列依循的是台灣的翻譯習慣，即行對應到英文的Column，而列對應到英文的Row。</p>
 <center>
-<h1 id="球座標"><font color=#b8860b>球座標</font></h1>
+<h1 id="矩陣的秩"><font color=#b8860b>矩陣的秩</font></h1>
 </center>
-<h2 id="定義-1球座標-sphere-coordinate"><font color=#008000><u>定義
-1：球座標 (Sphere Coordinate)</u></font></h2>
-<p>考慮 <span class="math display">\[
-x=r\cos\phi\sin\theta, y=r\sin\phi\sin\theta, z=r\cos\theta
-\]</span> 其中<span class="math inline">\(0\leq r&lt;\infty\)</span>,
-<span class="math inline">\(0\leq\phi\leq 2\pi\)</span>, <span
-class="math inline">\(0\leq\theta\leq\pi\)</span>(因為<span
-class="math inline">\(\phi\)</span>會繞一整圈所以<span
-class="math inline">\(\theta\)</span>只須繞半圈，見下圖1)。</p>
-<img src="rthph.jpg" width="50%" height="50%">
+<h2 id="定義-1矩陣的秩-rank-of-matrices"><font color=#008000><u>定義
+1：矩陣的秩 (Rank of Matrices)</u></font></h2>
+<p>給定矩陣<span class="math inline">\(A\in M_{m\times
+n}(F)\)</span>，我們將<span class="math inline">\(A\)</span>的秩定義為
+<span class="math display">\[
+\mbox{rank}(A)=\mbox{rank}(L_A)
+\]</span></p>
+<h2 id="註記-2"><font color=#0000FF><u>註記 2</u></font></h2>
+<p>給定<span class="math inline">\(n\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，由<a
+href="https://alexthepurplerose.github.io/2024/08/28/linalg-inverse/">這裡</a>的定理3可知<span
+class="math inline">\(A\)</span>可逆 iff. <span
+class="math inline">\(L_A\)</span>可逆，且由<a
+href="https://alexthepurplerose.github.io/2024/08/28/linalg-inverse/">這裡</a>的性質1-6知
+<span class="math display">\[
+\mbox{rank}(A)=\mbox{rank}(L_A)=\dim(F^n)=n
+\]</span></p>
+<h2 id="定理-3"><font color=#ff1493><u>定理 3</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to W\)</span>，其中<span
+class="math inline">\(V,W\)</span>為有限維向量空間，且<span
+class="math inline">\(\beta,\gamma\)</span>分別為<span
+class="math inline">\(V,W\)</span>的有序基底，則 <span
+class="math display">\[
+\mbox{rank}(T)=\mbox{rank}\left([T]^\gamma_\beta\right)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\dim V=n\)</span>, <span
+class="math inline">\(\dim W=m\)</span>，並令<span
+class="math inline">\([T]^\gamma_\beta=A\)</span>。我們希望說明<span
+class="math inline">\(\mbox{rank}(L_A)=\mbox{rank}(T)\)</span>。令<span
+class="math inline">\(\phi_\beta:V\to F^n\)</span>和<span
+class="math inline">\(\phi_\gamma:W\to F^m\)</span>分別為同構映射(由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-isomorphic/">這裡</a>的註記2知這樣的同構映射存在)，我們考慮如下的圖1。</p>
+<img src="commute.jpg" width="25%" height="25%">
 <center>
 圖1
 </center>
-<p>這種座標表示法稱為球座標。</p>
-<h2 id="註記-2球座標上的積分"><font color=#0000FF><u>註記
-2：球座標上的積分</u></font></h2>
-<p>考慮如下圖2的區域 <span class="math display">\[
-R:r_1&lt;r&lt;r_2, \phi_1&lt;\phi&lt;\phi_2,
-\theta_1&lt;\theta&lt;\theta_2
-\]</span> 並令<span class="math inline">\(S\)</span>為其邊界。</p>
-<img src="wedge.jpg" width="25%" height="25%">
-<center>
-圖2
-</center>
-<p>則<span
-class="math inline">\(R\)</span>是一個有六面的形狀，每個面都被其中一個參數(有六個，即<span
-class="math inline">\(r_1,r_2,\phi_1,\phi_2,\theta_1,\theta_2\)</span>)所決定。則對於函數<span
-class="math inline">\(\Delta U\)</span>，有 <span
+<p>在上圖1中，我們有 <span class="math display">\[
+[T(x)]_\gamma=[T]_\beta^\gamma[x]_\beta=A[x]_\beta
+\]</span> 故<span class="math inline">\(L_A\phi_\beta=\phi_\gamma
+T\)</span>，即 <span class="math display">\[
+\phi_\gamma^{-1}L_A=T\phi_\beta^{-1}
+\]</span> 接著，我們希望說明<span
+class="math inline">\(\phi_\beta(N(T))=N(L_A)\)</span>。我們分兩個部分說明：
+<br>1. 給定<span
+class="math inline">\(y\in\phi_\beta(N(T))\)</span>，即<span
+class="math inline">\(y=\phi_\beta(x)\)</span>，其中<span
+class="math inline">\(T(x)=0\)</span>。則 <span class="math display">\[
+L_A(y)=L_A(\phi_\beta(x))=\phi_\gamma(T(x))=0
+\]</span> 故<span class="math inline">\(y\in N(L_A)\)</span> i.e. <span
+class="math inline">\(\phi_\beta(N(T))\subseteq N(L_A)\)</span>。 <br>2.
+給定<span
+class="math inline">\(y\in\phi_\beta^{-1}(N(L_A))\)</span>，則<span
+class="math inline">\(y=\phi_\beta^{-1}(x)\)</span>，其中<span
+class="math inline">\(L_A(x)=0\)</span>。則 <span
 class="math display">\[
-\begin{aligned}
-\iiint_R\Delta Udxdydz&amp;=\iiint_R\Delta
-U\frac{\partial(x,y,z)}{\partial(r,\phi,\theta)}drd\phi d\theta\\
-&amp;=\iiint_R\Delta Ur^2\sin\theta drd\phi d\theta\mbox{ (★)}
-\end{aligned}
-\]</span> 考慮 <span class="math display">\[
-X=(x,y,z)=(r\cos\phi\sin\theta,r\sin\phi\sin\theta,r\cos\theta)
-\]</span> 我們可以算出<span
-class="math inline">\(X_r,X_\phi,X_\theta\)</span>，易得 <span
-class="math display">\[
-\begin{aligned}
-X_r\cdot X_\theta=X_\theta&amp;\cdot X_\phi=X_\phi\cdot X_r=0\\
-X_r\cdot X_r=1, X_\theta\cdot X_\theta&amp;=r^2, X_\phi\cdot
-X_\phi=r^2\sin\theta
-\end{aligned}
-\]</span> 也就是說，給定一個<span
-class="math inline">\(r\)</span>固定的曲面(i.e. 一小片球面)，則<span
-class="math inline">\(X_r\)</span>會是此區面的法向量，<span
-class="math inline">\(X_\theta,X_\phi\)</span>會是切平面上的向量。<br>
-於是，若我們可慮兩曲面<span class="math inline">\(r=r_1,
-r=r_2\)</span>，則指向外面的向量<span class="math inline">\(n\)</span>為
+T(y)=T\left(\phi_\beta^{-1}(x)\right)=\phi_\gamma^{-1}(L_A(x))=0
+\]</span> 即<span class="math inline">\(y\in N(T)\)</span> i.e. <span
+class="math inline">\(\phi_\beta^{-1}(N(L_A))\subseteq N(T)\)</span>
+i.e. <span class="math inline">\(N(L_A)\subseteq
+\phi_\beta(N(T))\)</span>。 <br>綜合以上，即有<span
+class="math inline">\(\phi_\beta(N(T))=N(L_A)\)</span>。故由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-isomorphic/">這裡</a>的註記2知
 <span class="math display">\[
-n=\epsilon X_r, \epsilon=\pm 1
-\]</span> (見下圖3)。</p>
-<img src="surface.jpg" width="25%" height="25%">
-<center>
-圖3
-</center>
-<p>於是在這兩個曲面上 <span class="math display">\[
-\frac{dU}{dn}=(\mbox{grad }U)\cdot n=\epsilon(\mbox{grad }U)\cdot X_r
-\]</span> 因為<span
-class="math inline">\(n=\epsilon\frac{X_r}{|X_r|}\)</span>且<span
-class="math inline">\(|X_r|=1\)</span>，並且由鏈鎖律 <span
+\dim(N(T))=\dim(\phi_\beta(N(T)))=\dim(N(L_A))
+\]</span> 故由維度定理(<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理8)，我們即有<span
+class="math inline">\(\mbox{rank}(T)=\mbox{rank}(L_A)\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p>給定<span class="math inline">\(m\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，並給定<span
+class="math inline">\(m\times m\)</span>可逆矩陣<span
+class="math inline">\(P\)</span>與<span class="math inline">\(n\times
+n\)</span>可逆矩陣<span class="math inline">\(Q\)</span>。則： <br>1.
+<span class="math inline">\(\mbox{rank}(AQ)=\mbox{rank}(A)\)</span>。
+<br>2. <span
+class="math inline">\(\mbox{rank}(PA)=\mbox{rank}(A)\)</span>。 <br>3.
+<span
+class="math inline">\(\mbox{rank}(PAQ)=\mbox{rank}(A)\)</span>。</p>
+<p><font color=#8b4513><u>證明</u></font>：第3.點可以由第1.、2.點直接推出，故這裡只證明前兩點。
+<br>1. 我們有 <span class="math display">\[
+R(L_{AQ})=R(L_AL_Q)=L_AL_Q(F^n)
+\]</span> 其中<span
+class="math inline">\(L_AL_Q(F^n)\)</span>指的是把<span
+class="math inline">\(F^n\)</span>塞進<span
+class="math inline">\(L_AL_Q\)</span>這個函數裡。而又因為<span
+class="math inline">\(Q\)</span>是同構映射，故<span
+class="math inline">\(L_Q(F^n)=F^n\)</span>，則 <span
 class="math display">\[
-\epsilon(\mbox{grad }U)\cdot
-X_r=\epsilon\left(U_x\frac{dx}{dr}+U_y\frac{dy}{dr}+U_z\frac{dz}{dr}\right)=U_r\mbox{
-(☆)}
-\]</span> 又由於<span class="math inline">\(r\)</span>是固定的，故由<a
-href="https://alexthepurplerose.github.io/2024/08/02/cal-vol-area/">這裡</a>的註記6我們可以計算出
+R(L_{AQ})=L_AL_Q(F^n)=L_A(F^n)=R(L_A)
+\]</span> 故<span
+class="math inline">\(\mbox{rank}(AQ)=\mbox{rank}(A)\)</span>。 <br>2.
+我們有 <span class="math display">\[
+R(L_{PA})=R(L_PL_A)=L_PL_A(F^n)=L_P(R(L_A))
+\]</span> 然而又因為<span
+class="math inline">\(L_P\)</span>是同構映射，故<span
+class="math inline">\(L_P(R(L_A))\simeq R(L_A)\)</span>。故由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-isomorphic/">這裡</a>的註記2可知
 <span class="math display">\[
-d\sigma=\sqrt{EG-F^2}d\theta d\phi=r^2\sin\theta d\theta d\phi
-\]</span> (計算過程略)。意即，在<span
-class="math inline">\(r_1&lt;r&lt;r_2\)</span>上，<span
-class="math inline">\(\Delta U\)</span>的積分是 <span
-class="math display">\[
-\iint_{r=r_2}r_2^2\sin\theta\frac{\partial U}{\partial r}d\theta
-d\phi-\iint_{r=r_1}r_1^2\sin\theta\frac{\partial U}{\partial r}d\theta
-d\phi=\iiint_{r_1&lt;r&lt;r_2}\frac{\partial}{\partial
-r}\left(r^2\sin\theta\frac{\partial U}{\partial r}\right)drd\theta d\phi
-\]</span> (這來自上(☆)式和高斯定理，見<a
-href="https://alexthepurplerose.github.io/2024/08/10/cal-3-gauss/">這裡</a>的例12-5)。<br>
-同理，在<span class="math inline">\(\theta=\theta_1\)</span>和<span
-class="math inline">\(\theta=\theta_2\)</span>兩面上，我們有法向量 <span
-class="math display">\[
-n=\epsilon\times\frac{1}{r}X_\theta
-\]</span> 且 <span class="math display">\[
-d\sigma=r\sin\theta d\phi dr,
-\frac{dU}{dn}=\epsilon\cdot\frac{1}{r}\frac{\partial U}{\partial\theta}
-\]</span> 而在<span class="math inline">\(\phi=\phi_1\)</span>和<span
-class="math inline">\(\phi=\phi_2\)</span>兩面上，我們有法向量 <span
-class="math display">\[
-n=\frac{\epsilon}{r\sin\theta}X_\phi
-\]</span> 且 <span class="math display">\[
-d\sigma=rdrd\theta,
-\frac{dU}{dn}=\frac{\epsilon}{r\sin\theta}\times\frac{dU}{d\phi}
-\]</span> 於是 <span class="math display">\[
-\begin{aligned}
-\iint_S\frac{dU}{dn}d\sigma&amp;=\iiint_R\left(\frac{\partial}{\partial
-r}\left(r^2\sin\theta\frac{\partial U}{\partial
-r}\right)+\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial
-U}{\partial\theta}\right)+\frac{\partial}{\partial\phi}\left(\frac{1}{\sin\theta}\frac{\partial
-U}{\partial\phi}\right)\right)drd\phi d\theta
-\end{aligned}
-\]</span></p>
-<h3
-id="定理-2-1拉普拉斯算符的球座標表示法-sphere-coordinate-representation-of-laplacian-operator"><font color=#ff1493><u>定理
-2-1：拉普拉斯算符的球座標表示法 (Sphere Coordinate Representation of
-Laplacian Operator)</u></font></h3>
-<p>令<span class="math inline">\(\Delta U\)</span>是拉普拉斯算符<span
-class="math inline">\(\Delta
-U=U_{xx}+U_{yy}+U_{zz}\)</span>，則在球座標上 <span
-class="math display">\[
-\Delta U=\frac{1}{r^2\sin\theta}\left(\frac{\partial}{\partial
-r}\left(r^2\sin\theta\frac{\partial U}{\partial
-r}\right)+\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial
-U}{\partial\theta}\right)+\frac{\partial}{\partial\phi}\left(\frac{1}{\sin\theta}\frac{\partial
-U}{\partial\phi}\right)\right)
-\]</span></p>
-<p><font color=#8b4513><u>證明</u></font>：由<a
-href="https://alexthepurplerose.github.io/2024/08/10/cal-3-gauss/">這裡</a>的例12-5及上(★)式，我們有
-<span class="math display">\[
-\iint_S\frac{dU}{dn}d\sigma=\iiint_R \Delta Ur^2\sin\theta drd\theta
-d\phi
-\]</span> 對照註記2最後的結論，即得所求。<font size="1">QED</font></p>
+\dim(L_P(R(L_A)))=\dim(R(L_A))
+\]</span> 故<span
+class="math inline">\(\mbox{rank}(PA)=\mbox{rank}(A)\)</span>。<font size="1">QED</font></p>
+<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
+<p>矩陣經過基本列運算後秩不變。(因為對應的基本矩陣是可逆的)</p>
 
     </div>
 
@@ -361,8 +341,8 @@ d\phi
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
-              <a href="/tags/Calculus/" rel="tag"># Calculus</a>
-              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+              <a href="/tags/Linear-Algebra/" rel="tag"># Linear_Algebra</a>
+              <a href="/tags/Algebra/" rel="tag"># Algebra</a>
           </div>
 
         
@@ -371,13 +351,10 @@ d\phi
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/08/10/cal-3-gauss/" rel="prev" title="微積分：三維高斯定理">
-      <i class="fa fa-chevron-left"></i> 微積分：三維高斯定理
+    <a href="/2024/08/29/linalg-ele-matrix/" rel="prev" title="線性代數：基本矩陣">
+      <i class="fa fa-chevron-left"></i> 線性代數：基本矩陣
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/08/12/cal-stokes/" rel="next" title="微積分：斯托克斯定理">
-      微積分：斯托克斯定理 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -436,11 +413,8 @@ d\phi
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%90%83%E5%BA%A7%E6%A8%99"><span class="nav-number">1.</span> <span class="nav-text">球座標</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E7%90%83%E5%BA%A7%E6%A8%99-sphere-coordinate"><span class="nav-number">1.1.</span> <span class="nav-text">定義
-1：球座標 (Sphere Coordinate)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2%E7%90%83%E5%BA%A7%E6%A8%99%E4%B8%8A%E7%9A%84%E7%A9%8D%E5%88%86"><span class="nav-number">1.2.</span> <span class="nav-text">註記
-2：球座標上的積分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2-1%E6%8B%89%E6%99%AE%E6%8B%89%E6%96%AF%E7%AE%97%E7%AC%A6%E7%9A%84%E7%90%83%E5%BA%A7%E6%A8%99%E8%A1%A8%E7%A4%BA%E6%B3%95-sphere-coordinate-representation-of-laplacian-operator"><span class="nav-number">1.2.1.</span> <span class="nav-text">定理
-2-1：拉普拉斯算符的球座標表示法 (Sphere Coordinate Representation of
-Laplacian Operator)</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%9A%84%E7%A7%A9"><span class="nav-number">1.</span> <span class="nav-text">矩陣的秩</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E7%9F%A9%E9%99%A3%E7%9A%84%E7%A7%A9-rank-of-matrices"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：矩陣的秩 (Rank of Matrices)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2"><span class="nav-number">1.2.</span> <span class="nav-text">註記 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
