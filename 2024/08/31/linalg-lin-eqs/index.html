@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="這份筆記是關於線性方程組的解的性質。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="線性代數：線性方程組">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2024/08/31/linalg-lin-eqs/index.html">
+<meta property="og:site_name" content="永蔚Alex">
+<meta property="og:description" content="這份筆記是關於線性方程組的解的性質。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2024-08-31T12:23:07.000Z">
+<meta property="article:modified_time" content="2024-08-31T13:40:29.345Z">
+<meta property="article:author" content="SemperLux">
+<meta property="article:tag" content="Lecture_Notes">
+<meta property="article:tag" content="Linear_Algebra">
+<meta property="article:tag" content="Algebra">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://alexthepurplerose.github.io/2024/08/31/linalg-lin-eqs/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>線性代數：線性方程組 | 永蔚Alex</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">永蔚Alex</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Nautical Nonsense and Abstract Nonsense</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/08/31/linalg-lin-eqs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SemperLux">
+      <meta itemprop="description" content="永蔚的上課筆記與小小文欄">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永蔚Alex">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          線性代數：線性方程組
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2024-08-31 20:23:07 / 修改時間：21:40:29" itemprop="dateCreated datePublished" datetime="2024-08-31T20:23:07+08:00">2024-08-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8/" itemprop="url" rel="index"><span itemprop="name">線性代數</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>這份筆記是關於線性方程組的解的性質。 <span id="more"></span><br></p>
+<p>這裡的行與列依循的是台灣的翻譯習慣，即行對應到英文的Column，而列對應到英文的Row。</p>
+<center>
+<h1 id="線性方程組"><font color=#b8860b>線性方程組</font></h1>
+</center>
+<h2 id="定義-1線性方程組-linear-equations"><font color=#008000><u>定義
+1：線性方程組 (Linear Equations)</u></font></h2>
+<p>我們稱如下形式的方程組為線性方程組： <span class="math display">\[
+(s)\left\{
+\begin{aligned}
+a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n&amp;=b_1\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n&amp;=b_2\\
+&amp;\vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n&amp;=b_n
+\end{aligned}
+\right.
+\]</span> 我們可以把此方程記為<span
+class="math inline">\(Ax=b\)</span>，其中<span
+class="math inline">\(A\)</span>為<span class="math inline">\(m\times
+n\)</span>矩陣 <span class="math display">\[
+A=\left(
+\begin{array}{cccc}
+a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}
+\end{array}
+\right)
+\]</span> <span class="math inline">\(x\)</span>是<span
+class="math inline">\(m\times 1\)</span>矩陣 <span
+class="math display">\[
+x=\left(
+\begin{array}{c}
+x_1\\
+x_2\\
+\vdots\\
+x_m
+\end{array}
+\right)
+\]</span> <span class="math inline">\(b\)</span>是<span
+class="math inline">\(m\times 1\)</span>矩陣 <span
+class="math display">\[
+b=\left(
+\begin{array}{c}
+b_1\\
+b_2\\
+\vdots\\
+b_m
+\end{array}
+\right)
+\]</span></p>
+<h3
+id="定義-1-1線性方程組的解-solution-of-linear-equations"><font color=#008000><u>定義
+1-1：線性方程組的解 (Solution of Linear Equations)</u></font></h3>
+<p>對於 <span class="math display">\[
+\tilde{x}=\left(
+\begin{array}{c}
+x_1\\
+x_2\\
+\vdots\\
+x_m
+\end{array}
+\right)\in F^m
+\]</span> 我們說<span class="math inline">\(\tilde{x}\)</span>是<span
+class="math inline">\((s)\)</span>的解，若<span
+class="math inline">\(A\tilde{x}=b\)</span>。</p>
+<h3
+id="定義-1-2線性方程組的解-solution-set-of-linear-equations"><font color=#008000><u>定義
+1-2：線性方程組的解 (Solution Set of Linear Equations)</u></font></h3>
+<p>我們稱<span class="math inline">\((s)\)</span>所有解的集合為<span
+class="math inline">\((s)\)</span>的解集。</p>
+<h4
+id="定義-1-2-1一致線性方程組-consistent-linear-equations"><font color=#008000><u>定義
+1-2-1：一致線性方程組 (Consistent Linear Equations)</u></font></h4>
+<p>若<span class="math inline">\((s)\)</span>的解集不為空，則我們說<span
+class="math inline">\((s)\)</span>是一致的。</p>
+<h4
+id="定義-1-2-2不一致線性方程組-inconsistent-linear-equations"><font color=#008000><u>定義
+1-2-2：不一致線性方程組 (Inconsistent Linear Equations)</u></font></h4>
+<p>若<span class="math inline">\((s)\)</span>的解集為空，則我們說<span
+class="math inline">\((s)\)</span>是不一致的。</p>
+<h3 id="定義-1-3齊次性-homogeneity"><font color=#008000><u>定義
+1-3：齊次性 (Homogeneity)</u></font></h3>
+<h4
+id="定義-1-3-1齊次線性方程組-homogeneous-linear-equations"><font color=#008000><u>定義
+1-3-1：齊次線性方程組 (Homogeneous Linear Equations)</u></font></h4>
+<p>我們稱<span class="math inline">\(Ax=0\)</span>為齊次方程組。</p>
+<h4
+id="定義-1-3-2非齊次線性方程組-non-homogeneous-linear-equations"><font color=#008000><u>定義
+1-3-2：非齊次線性方程組 (Non-homogeneous Linear
+Equations)</u></font></h4>
+<p>我們稱<span class="math inline">\(Ax=b, b\neq
+0\)</span>為非齊次方程組。</p>
+<h2 id="註記-2"><font color=#0000FF><u>註記 2</u></font></h2>
+<p>給定線性方程組<span class="math inline">\(Ax=0\)</span>，其中<span
+class="math inline">\(A\in M_{m\times n}(F)\)</span>。令<span
+class="math inline">\(K\)</span>為此方程組的解集，則<span
+class="math inline">\(K=N(L_A)\)</span>。</p>
+<h3 id="推論-2-1"><font color=#0000FF><u>推論 2-1</u></font></h3>
+<p>由維度定理(<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理8)知
+<span class="math display">\[
+\dim K=\mbox{nullity}(L_A)=\dim(F^n)-\mbox{rank}(L_A)=n-\mbox{rank}(L_A)
+\]</span></p>
+<h3 id="推論-2-2"><font color=#0000FF><u>推論 2-2</u></font></h3>
+<p>沿用註記2的符號，若<span
+class="math inline">\(m&lt;n\)</span>，則<span
+class="math inline">\(Ax=0\)</span>有非零解。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由推論2-1有 <span
+class="math display">\[
+\dim K=n-\mbox{rank}(A)\geq n-m\geq 1
+\]</span> 即<span class="math inline">\(K\)</span>中有非零元素 i.e.
+<span
+class="math inline">\(Ax=0\)</span>有非零解。<font size="1">QED</font></p>
+<h2 id="定理-3"><font color=#ff1493><u>定理 3</u></font></h2>
+<p>令<span class="math inline">\(K\)</span>為<span
+class="math inline">\(Ax=b\)</span>的解集，<span
+class="math inline">\(K_H\)</span>為<span
+class="math inline">\(Ax=0\)</span>的解集，<span
+class="math inline">\(s\)</span>為<span
+class="math inline">\(Ax=b\)</span>的任一解，則 <span
+class="math display">\[
+K=\{s\}+K_H\equiv\{s+k:k\in K_H\}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩部分證明。 <br>1.
+給定<span class="math inline">\(w\in K\)</span>，則<span
+class="math inline">\(Aw=b\)</span>，即 <span class="math display">\[
+A(w-s)=Aw-As=b-b=0
+\]</span> 故<span class="math inline">\(w-s\in K_H\)</span>, <span
+class="math inline">\(w\in\{s\}+K_H\)</span>，故<span
+class="math inline">\(K\subseteq\{s\}+K_H\)</span>。 <br>2. 給定<span
+class="math inline">\(w\in\{s\}+K_H\)</span>，則存在某個<span
+class="math inline">\(k\in K_H\)</span>使<span
+class="math inline">\(k\in K_H\)</span>。則 <span
+class="math display">\[
+Aw=A(s+k)=As+\underbrace{Ak}_{=0}=b
+\]</span> 故<span class="math inline">\(w\in K\)</span>，即<span
+class="math inline">\(\{s\}+K_H\subseteq K\)</span>。
+<br>綜合1.與2.，有<span
+class="math inline">\(K=\{s\}+K_H\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p>給定線性方程組<span class="math inline">\(Ax=b\)</span>，其中<span
+class="math inline">\(A\in M_{m\times n}(F)\)</span>。則<span
+class="math inline">\(A\)</span>可逆 iff. <span
+class="math inline">\(Ax=b\)</span>友且僅有一組解。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(A\)</span>可逆，則 <span class="math display">\[
+A(A^{-1}b)=(AA^{-1})b=b
+\]</span> 故<span class="math inline">\(A^{-1}b\)</span>是<span
+class="math inline">\(Ax=b\)</span>的解。而若有<span
+class="math inline">\(s\)</span>使得<span
+class="math inline">\(As=b\)</span>，則易有<span
+class="math inline">\(s=A^{-1}b\)</span>，故知<span
+class="math inline">\(Ax=b\)</span>有唯一解。 <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(s\)</span>是<span
+class="math inline">\(Ax=b\)</span>的唯一解，則由定理3知其解集<span
+class="math inline">\(K\)</span>可表為 <span class="math display">\[
+K=\{s\}+K_H
+\]</span> 其中<span class="math inline">\(K_H\)</span>為<span
+class="math inline">\(Ax=0\)</span>的解集。但<span
+class="math inline">\(s\)</span>為<span
+class="math inline">\(Ax=b\)</span>的唯一解，故應有<span
+class="math inline">\(K=\{s\}\)</span>。故由註記2-1知 <span
+class="math display">\[
+\{0\}=K_H=N(L_A)
+\]</span> 故由<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理9和<a
+href="https://alexthepurplerose.github.io/2024/08/28/linalg-inverse/">這裡</a>的性質1-6知<span
+class="math inline">\(A\)</span>可逆。<font size="1">QED</font></p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>給定線性方程組<span class="math inline">\(Ax=b\)</span>，其中<span
+class="math inline">\(A\in M_{m\times n}(F)\)</span>。則<span
+class="math inline">\(Ax=b\)</span>有解 iff. <span
+class="math inline">\(\mbox{rank}(A)=\mbox{rank}(A|b)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們知道 <span
+class="math display">\[
+Ax=b\mbox{有解}\Leftrightarrow b\in R(L_A)
+\]</span> 又 <span class="math display">\[
+R(L_A)=\mbox{span}(\{a_1,a_2,\cdots,a_n\})
+\]</span> 其中<span
+class="math inline">\(a_1,a_2,\cdots,a_n\)</span>是<span
+class="math inline">\(A\)</span>的行。則 <span class="math display">\[
+\begin{aligned}
+b\in
+R(L_A)&amp;\Leftrightarrow\mbox{span}(\{a_1,\cdots,a_n\})=\mbox{span}(\{a_1,\cdots,a_n,b\})\\
+&amp;\Leftrightarrow
+\dim(\mbox{span}(\{a_1,\cdots,a_n\}))=\dim(\mbox{span}(\{a_1,\cdots,a_n,b\}))\\
+&amp;\Leftrightarrow \mbox{rank}(A)=\mbox{rank}(A|b)
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>令<span class="math inline">\(C\)</span>是可逆矩陣，則<span
+class="math inline">\(Ax=b\)</span>和<span
+class="math inline">\(CAx=Cb\)</span>有一樣的解集。<br></p>
+<h3
+id="定義-6-1等價線性方程組-equivalent-linear-equations"><font color=#008000><u>定義
+6-1：等價線性方程組 (Equivalent Linear Equations)</u></font></h3>
+<p>我們稱有一樣解集的兩組線性方程組是等價的。</p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(K\)</span>為<span
+class="math inline">\(Ax=b\)</span>的解集，<span
+class="math inline">\(K&#39;\)</span>為<span
+class="math inline">\(CAx=Cb\)</span>的解集。給定<span
+class="math inline">\(w\in K\)</span>，由<span
+class="math inline">\(Aw=b\)</span>直接可得<span
+class="math inline">\(CAw=Cb\)</span>，即<span
+class="math inline">\(w\in K&#39;\)</span> i.e. <span
+class="math inline">\(K\subseteq K&#39;\)</span>。<br> 而給定<span
+class="math inline">\(w\in K&#39;\)</span>，有<span
+class="math inline">\(CAw=Cb\)</span>。由於<span
+class="math inline">\(C\)</span>可逆，故 <span class="math display">\[
+C^{-1}(CAw)=C^{-1}(Cb)\Rightarrow Aw=b
+\]</span> 即<span class="math inline">\(w\in K\)</span> i.e. <span
+class="math inline">\(K&#39;\subseteq K\)</span>。<br> 綜上所述，有<span
+class="math inline">\(K=K&#39;\)</span>。<font size="1">QED</font></p>
+<h3 id="註記-6-2"><font color=#0000FF><u>註記 6-2</u></font></h3>
+<p>若<span class="math inline">\((A&#39;|b&#39;)\)</span>可由<span
+class="math inline">\((A|b)\)</span>經一系列基本列運算得到，則<span
+class="math inline">\((A&#39;|b&#39;)\)</span>和<span
+class="math inline">\((A|b)\)</span>等價。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們知道存在一系列基本矩陣<span
+class="math inline">\(E_1,\cdots,E_p\)</span>使得 <span
+class="math display">\[
+(A&#39;|b&#39;)=E_pE_{p-1}\cdots E_1(A|b)
+\]</span> 然而矩陣 <span class="math display">\[
+M=E_pE_{p-1}\cdots E_1
+\]</span> 顯然是可逆的，故由定理6知<span
+class="math inline">\((A&#39;|b&#39;)\)</span>和<span
+class="math inline">\((A|b)\)</span>等價。<font size="1">QED</font></p>
+<center>
+<h1 id="高斯消去法"><font color=#b8860b>高斯消去法</font></h1>
+</center>
+<h2 id="定義-7列梯形式-echelon-form"><font color=#008000><u>定義
+7：列梯形式 (Echelon Form)</u></font></h2>
+<p>我們稱一個矩陣為列梯形式，若 <br>1. 在某一列之後每一列都只有<span
+class="math inline">\(0\)</span>。 <br>2.
+每個非零列的第一個非零元素是其所在行的唯一非零元素。 <br>3.
+每列的第一個非零元素為<span
+class="math inline">\(1\)</span>，且其所在行在「上一列的第一個非零元素的所在行」的右邊。</p>
+<h2
+id="定義-8高斯消去法-gaussian-elimination"><font color=#008000><u>定義
+8：高斯消去法 (Gaussian Elimination)</u></font></h2>
+<p>即用一系列基本列運算把<span
+class="math inline">\((A|b)\)</span>化為列梯形式並求解<span
+class="math inline">\(Ax=b\)</span>的方案。</p>
+<h3 id="例-8-1"><font color=#ffa500><u>例 8-1</u></font></h3>
+<p>考慮增廣矩陣 <span class="math display">\[
+\left(
+\begin{array}{ccccc|c}
+2 &amp; 3 &amp; 1 &amp; 4 &amp; -9 &amp; 17\\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; -3 &amp; 6\\
+1 &amp; 1 &amp; 1 &amp; 2 &amp; -5 &amp; 8\\
+2 &amp; 2 &amp; 2 &amp; 3 &amp; -8 &amp; 14
+\end{array}
+\right)
+\]</span> 經過一系列基本列運算後，可以將其化為列梯形式 <span
+class="math display">\[
+\left(
+\begin{array}{ccccc|c}
+\textcolor{red}{1} &amp; 0 &amp; \textcolor{blue}{2} &amp; 0 &amp;
+\textcolor{blue}{-2} &amp; 3\\
+0 &amp; \textcolor{red}{1} &amp; -1 &amp; 0 &amp; 1 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; \textcolor{red}{1} &amp; -2 &amp; 2\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{array}
+\right)
+\]</span> 令此方程組的解為 <span class="math display">\[
+x=\left(
+\begin{array}{c}
+x_1\\
+x_2\\
+x_3\\
+x_4\\
+x_5
+\end{array}
+\right)
+\]</span> 則我們可以令<span class="math inline">\(x_3=t_1\)</span>,
+<span class="math inline">\(x_5=t_2\)</span>。則 <span
+class="math display">\[
+x_1=3-2t_1+2t_2, x_2=1+t_1-t_2, x_4=2+t_2
+\]</span> 即 <span class="math display">\[
+x=\left(
+\begin{array}{c}
+3\\
+1\\
+0\\
+2\\
+0
+\end{array}
+\right)+t_1\left(
+\begin{array}{c}
+-2\\
+1\\
+1\\
+0\\
+0
+\end{array}
+\right)+t_2\left(
+\begin{array}{c}
+2\\
+-1\\
+0\\
+2\\
+1
+\end{array}
+\right)
+\]</span></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
+              <a href="/tags/Linear-Algebra/" rel="tag"># Linear_Algebra</a>
+              <a href="/tags/Algebra/" rel="tag"># Algebra</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/08/29/linalg-ele-matrix/" rel="prev" title="線性代數：基本矩陣">
+      <i class="fa fa-chevron-left"></i> 線性代數：基本矩陣
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%9A%E6%80%A7%E6%96%B9%E7%A8%8B%E7%B5%84"><span class="nav-number">1.</span> <span class="nav-text">線性方程組</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E7%B7%9A%E6%80%A7%E6%96%B9%E7%A8%8B%E7%B5%84-linear-equations"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：線性方程組 (Linear Equations)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E7%B7%9A%E6%80%A7%E6%96%B9%E7%A8%8B%E7%B5%84%E7%9A%84%E8%A7%A3-solution-of-linear-equations"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
+1-1：線性方程組的解 (Solution of Linear Equations)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2%E7%B7%9A%E6%80%A7%E6%96%B9%E7%A8%8B%E7%B5%84%E7%9A%84%E8%A7%A3-solution-set-of-linear-equations"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義
+1-2：線性方程組的解 (Solution Set of Linear Equations)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2-1%E4%B8%80%E8%87%B4%E7%B7%9A%E6%80%A7%E6%96%B9%E7%A8%8B%E7%B5%84-consistent-linear-equations"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">定義
+1-2-1：一致線性方程組 (Consistent Linear Equations)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2-2%E4%B8%8D%E4%B8%80%E8%87%B4%E7%B7%9A%E6%80%A7%E6%96%B9%E7%A8%8B%E7%B5%84-inconsistent-linear-equations"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">定義
+1-2-2：不一致線性方程組 (Inconsistent Linear Equations)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-3%E9%BD%8A%E6%AC%A1%E6%80%A7-homogeneity"><span class="nav-number">1.1.3.</span> <span class="nav-text">定義
+1-3：齊次性 (Homogeneity)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-3-1%E9%BD%8A%E6%AC%A1%E7%B7%9A%E6%80%A7%E6%96%B9%E7%A8%8B%E7%B5%84-homogeneous-linear-equations"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">定義
+1-3-1：齊次線性方程組 (Homogeneous Linear Equations)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-3-2%E9%9D%9E%E9%BD%8A%E6%AC%A1%E7%B7%9A%E6%80%A7%E6%96%B9%E7%A8%8B%E7%B5%84-non-homogeneous-linear-equations"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">定義
+1-3-2：非齊次線性方程組 (Non-homogeneous Linear
+Equations)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2"><span class="nav-number">1.2.</span> <span class="nav-text">註記 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">推論 2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">推論 2-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">1.6.</span> <span class="nav-text">定理 6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-1%E7%AD%89%E5%83%B9%E7%B7%9A%E6%80%A7%E6%96%B9%E7%A8%8B%E7%B5%84-equivalent-linear-equations"><span class="nav-number">1.6.1.</span> <span class="nav-text">定義
+6-1：等價線性方程組 (Equivalent Linear Equations)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-2"><span class="nav-number">1.6.2.</span> <span class="nav-text">註記 6-2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E6%B6%88%E5%8E%BB%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">高斯消去法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%88%97%E6%A2%AF%E5%BD%A2%E5%BC%8F-echelon-form"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+7：列梯形式 (Echelon Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E9%AB%98%E6%96%AF%E6%B6%88%E5%8E%BB%E6%B3%95-gaussian-elimination"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+8：高斯消去法 (Gaussian Elimination)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-8-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">例 8-1</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SemperLux</p>
+  <div class="site-description" itemprop="description">永蔚的上課筆記與小小文欄</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">78</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:hiimlilwei@gmail.com" title="E-Mail → mailto:hiimlilwei@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SemperLux</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
