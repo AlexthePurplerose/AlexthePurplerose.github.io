@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/c2c1.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/c1c2.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/area.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/cij.jpg">
 <meta property="article:published_time" content="2024-09-01T05:04:41.000Z">
-<meta property="article:modified_time" content="2024-09-01T06:23:34.793Z">
+<meta property="article:modified_time" content="2024-09-01T08:56:45.873Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -197,7 +198,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-01 13:04:41 / 修改時間：14:23:34" itemprop="dateCreated datePublished" datetime="2024-09-01T13:04:41+08:00">2024-09-01</time>
+              <time title="創建時間：2024-09-01 13:04:41 / 修改時間：16:56:45" itemprop="dateCreated datePublished" datetime="2024-09-01T13:04:41+08:00">2024-09-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -576,6 +577,325 @@ class="math inline">\((n-1)\times(n-1)\)</span>矩陣，故由歸納假設有
 \end{aligned}
 \]</span> (這裡因為<span class="math inline">\(r&gt;1\)</span>，故<span
 class="math inline">\(A_{1j}=B_{1j}=C_{1j}\)</span>)。<font size="1">QED</font></p>
+<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
+<p>若<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>有一列全是<span class="math inline">\(0\)</span>，則<span
+class="math inline">\(\det(A)=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定理4，有 <span
+class="math display">\[
+\det\left(
+\begin{array}{c}
+\vdots\\
+0\\
+\vdots
+\end{array}
+\right)+\det\left(
+\begin{array}{c}
+\vdots\\
+0\\
+\vdots
+\end{array}
+\right)=\det\left(
+\begin{array}{c}
+\vdots\\
+0\\
+\vdots
+\end{array}
+\right)
+\]</span> 故有 <span class="math display">\[
+\det\left(
+\begin{array}{c}
+\vdots\\
+0\\
+\vdots
+\end{array}
+\right)=0
+\]</span> <font size="1">QED</font></p>
+<h2 id="引理-5"><font color=#0000FF><u>引理 5</u></font></h2>
+<p>給定<span class="math inline">\(B\in M_{n\times n}(F)\)</span>, <span
+class="math inline">\(n\geq 2\)</span>。若<span
+class="math inline">\(B\)</span>的第<span
+class="math inline">\(i\)</span>列是<span
+class="math inline">\(e_k\)</span>，其中 <span class="math display">\[
+e_k=(0,\cdots,0,\underbrace{1}_{\mbox{第}k\mbox{個}},0,\cdots,0)
+\]</span> 則 <span class="math display">\[
+\det B=(-1)^{i+k}\det(\widetilde{B_{ik}})
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(n\)</span>做歸納法。 <br>1. <span
+class="math inline">\(n=2\)</span>時，結論是顯然的。 <br>2. 假設當<span
+class="math inline">\(2,3,\cdots,n-1\)</span>時定理成立，則令<span
+class="math inline">\(B\in M_{n\times n}(F)\)</span>, <span
+class="math inline">\(n\geq 2\)</span>且其第<span
+class="math inline">\(i\)</span>列是<span
+class="math inline">\(e_k\)</span>。若<span
+class="math inline">\(i=1\)</span>，則直接用行列式的定義處理即可。而若<span
+class="math inline">\(i&gt;1\)</span>，考慮<span
+class="math inline">\(\widetilde{B_{1j}}\)</span>，其第<span
+class="math inline">\(i-1\)</span>列是 <span class="math display">\[
+\left\{
+\begin{aligned}
+e_{k-1}&amp;,\mbox{ if }j&lt;k\\
+0&amp;,\mbox{ if }j=k\\
+e_k&amp;,\mbox{ if }j&gt;k
+\end{aligned}
+\right.
+\]</span> 由歸納假設和註記4-1，我們知道 <span class="math display">\[
+\det(\widetilde{B_{1j}})=\left\{
+\begin{aligned}
+(-1)^{(i-1)+(k-1)}\det(C_{ij})&amp;,\mbox{ if }j&lt;k\\
+0&amp;,\mbox{ if }j=k\\
+(-1)^{(i-1)+k}\det(C_{ij})&amp;,\mbox{ if }j&gt;k
+\end{aligned}
+\right.
+\]</span> 其中<span
+class="math inline">\(C_{ij}=\widetilde{(\widetilde{B_{1j}})_{ik}}\)</span>為<span
+class="math inline">\((n-2)\times
+(n-2)\)</span>矩陣(下圖4把紅色和黑色都刪掉後就是<span
+class="math inline">\(C_{ij}\)</span>了)。</p>
+<img src="cij.jpg" width="25%" height="25%">
+<center>
+圖4
+</center>
+<p>故 <span class="math display">\[
+\begin{aligned}
+\det B&amp;=\sum_{j=1}^n(-1)^{1+j}B_{1j}\det(\widetilde{B_{1j}})\\
+&amp;=\sum_{j&lt;k}(-1)^{1+j}B_{1j}[(-1)^{(i-1)+(k-1)}\det(C_{ij})]+\sum_{j&gt;k}(-1)^{1+j}B_{1j}[(-1)^{(i-1)+k}\det(C_{ij})]\\
+&amp;=(-1)^{i+k}\left[\sum_{j&lt;k}(-1)^{1+j}B_{1j}\det(C_{ij})+\sum_{j&gt;k}(-1)^jB_{1j}\det(C_{ij})\right]\\
+&amp;=(-1)^{i+k}\det(\widetilde{B_{ik}})
+\end{aligned}
+\]</span>
+(最後一個等號用定義3慢慢檢查即可)。<font size="1">QED</font></p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>給定<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，則對任何<span class="math inline">\(1\leq i\leq
+n\)</span>，都有 <span class="math display">\[
+\det(A)=\sum_{j=1}^n(-1)^{i+j}A_{ij}\det(\widetilde{A_{ij}})
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：<span
+class="math inline">\(i=1\)</span>時就是原本的定義(定義3)，而當<span
+class="math inline">\(i&gt;1\)</span>時，有 <span
+class="math display">\[
+A\mbox{的第}i\mbox{列}=\sum_{j=1}^n A_{ij}e_j
+\]</span> (這裡<span
+class="math inline">\(e_j\)</span>的定義和引理5中是類似的)令<span
+class="math inline">\(B_j\)</span>為把<span
+class="math inline">\(A\)</span>的第<span
+class="math inline">\(i\)</span>列用<span
+class="math inline">\(e_j\)</span>取代的矩陣。故 <span
+class="math display">\[
+\begin{aligned}
+\det A&amp;=\sum_{j=1}^n A_{ij}\det(B_j)\mbox{ (定理4)}\\
+&amp;=\sum_{j=1}^n(-1)^{i+j}A_{ij}\det(\widetilde{A_{ij}})\mbox{
+(引理5)}
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-6-1"><font color=#0000FF><u>註記 6-1</u></font></h3>
+<p>若<span class="math inline">\(A\)</span>有兩相同列，則<span
+class="math inline">\(\det(A)=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮<span
+class="math inline">\(n\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>，我們對<span
+class="math inline">\(n\)</span>做數學歸納法。 <br>1. <span
+class="math inline">\(n=2\)</span>時，結論是顯然的。 <br>2. <span
+class="math inline">\(n\geq 3\)</span>時，假設定理在<span
+class="math inline">\(1,2,\cdots,n-1\)</span>都成立。我們選擇<span
+class="math inline">\(i\)</span>使得第<span
+class="math inline">\(i\)</span>列不是相同的那兩列之一。則<span
+class="math inline">\(\widetilde{A_{ij}}\)</span>是<span
+class="math inline">\((n-1)\times(n-1)\)</span>矩陣，且<span
+class="math inline">\(\widetilde{A_{ij}}\)</span>有兩相同列，由歸納假設知<span
+class="math inline">\(\det(\widetilde{A_{ij}})=0\)</span>，故由定理6知
+<span class="math display">\[
+\det A=\sum_{j=1}^n(-1)^{i+j}A_{ij}\det(\widetilde{A_{ij}})=0
+\]</span> <font size="1">QED</font></p>
+<h2 id="定理-7"><font color=#ff1493><u>定理 7</u></font></h2>
+<p>令<span class="math inline">\(B\)</span>是把<span
+class="math inline">\(A\)</span>的某兩列交換後的矩陣，則 <span
+class="math display">\[
+\det(A)=-\det(B)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由註記6-1有 <span
+class="math display">\[
+0=\det\left(
+\begin{array}{c}
+\vdots\\
+a_r+a_s\\
+\vdots\\
+a_r+a_s\\
+\vdots
+\end{array}
+\right)=\underbrace{\det\left(
+\begin{array}{c}
+\vdots\\
+a_r\\
+\vdots\\
+a_r\\
+\vdots
+\end{array}
+\right)}_{=0}+\underbrace{\det\left(
+\begin{array}{c}
+\vdots\\
+a_s\\
+\vdots\\
+a_s\\
+\vdots
+\end{array}
+\right)}_{=0}+\det\left(
+\begin{array}{c}
+\vdots\\
+a_r\\
+\vdots\\
+a_s\\
+\vdots
+\end{array}
+\right)+\det\left(
+\begin{array}{c}
+\vdots\\
+a_s\\
+\vdots\\
+a_r\\
+\vdots
+\end{array}
+\right)
+\]</span> 故 <span class="math display">\[
+\det\left(
+\begin{array}{c}
+\vdots\\
+a_r\\
+\vdots\\
+a_s\\
+\vdots
+\end{array}
+\right)=-\det\left(
+\begin{array}{c}
+\vdots\\
+a_s\\
+\vdots\\
+a_r\\
+\vdots
+\end{array}
+\right)
+\]</span> <font size="1">QED</font></p>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
+<p>令<span class="math inline">\(B\)</span>是把<span
+class="math inline">\(A\)</span>的某一列乘以<span
+class="math inline">\(k\)</span>倍後加到另一列上的矩陣，則 <span
+class="math display">\[
+\det(A)=\det(B)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由定理4有 <span
+class="math display">\[
+\det(B)=\det(A)+k\det\left(
+\begin{array}{c}
+\vdots\\
+a_r\mbox{ (第}r\mbox{列)}\\
+\vdots\\
+a_r\mbox{ (第}s\mbox{列)}\\
+\vdots
+\end{array}
+\right)=\det(A)\mbox{ (註記6-1)}
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-8-1"><font color=#0000FF><u>註記 8-1</u></font></h3>
+<p>給定<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，若<span
+class="math inline">\(\mbox{rank}(A)&lt;n\)</span>，則<span
+class="math inline">\(\det(A)=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由<span
+class="math inline">\(\mbox{rank}(A)&lt;n\)</span>知<span
+class="math inline">\(A\)</span>有某幾列有線性關係，則可以用<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/">這裡</a>的定義1中的第3.項基本列運算把<span
+class="math inline">\(A\)</span>的某一列變成<span
+class="math inline">\(0\)</span>。故由定理8知 <span
+class="math display">\[
+\det(A)=\det\left(
+\begin{array}{c}
+\vdots\\
+0\\
+\vdots
+\end{array}
+\right)=0
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-8-2"><font color=#0000FF><u>註記 8-2</u></font></h3>
+<p>我們這裡可以整理<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/">這裡</a>的定義1中三種基本列運算和行列式的關係。
+<br>1. 若<span
+class="math inline">\(A\xrightarrow{1.}B\)</span>，則<span
+class="math inline">\(\det(B)=-\det(A)\)</span>。 <br>2. 若<span
+class="math inline">\(A\xrightarrow{2., \times k}B\)</span>，則<span
+class="math inline">\(\det(B)=k\det(A)\)</span>。 <br>3. 若<span
+class="math inline">\(A\xrightarrow{3.}B\)</span>，則<span
+class="math inline">\(\det(B)=\det(A)\)</span>。</p>
+<h2 id="定理-9"><font color=#ff1493><u>定理 9</u></font></h2>
+<p>我們有 <span class="math display">\[
+\det(AB)=\det(A)\det(B)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\(A\)</span>是基本矩陣，則由註記8-2有 <span
+class="math display">\[
+\det(AB)=\det(A)\det(B)
+\]</span> 而若<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>且<span
+class="math inline">\(\mbox{rank}(A)&lt;n\)</span>，則<span
+class="math inline">\(\det(A)=0\)</span>。則由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/">這裡</a>的定理11，有
+<span class="math display">\[
+\mbox{rank}(AB)\leq\mbox{rank}(A)&lt;n
+\]</span> 故<span
+class="math inline">\(\det(AB)=0=\det(A)\det(B)\)</span>。 <br>而若<span
+class="math inline">\(\mbox{rank}(A)=n\)</span>，則<span
+class="math inline">\(A\)</span>是一連串基本矩陣的積(見<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/">這裡</a>的註記12)，則由上述知
+<span class="math display">\[
+\det(AB)=\det(A)\det(B)
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-9-1"><font color=#0000FF><u>註記 9-1</u></font></h3>
+<p>若<span class="math inline">\(n\times n\)</span>矩陣<span
+class="math inline">\(A\)</span>可逆，則<span
+class="math inline">\(\det(A)\neq 0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：我們有<span
+class="math inline">\(AA^{-1}=I\)</span>，故 <span
+class="math display">\[
+\det(A)\det(A^{-1})=1
+\]</span> 即<span class="math inline">\(\det(A)\neq 0\)</span>。
+<br>「<span class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(A\)</span>不可逆，則<span
+class="math inline">\(\mbox{rank}(A)&lt;n\)</span>，則<span
+class="math inline">\(\det(A)=0\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-10"><font color=#ff1493><u>定理 10</u></font></h2>
+<p>給定<span class="math inline">\(A\in M_{n\times n}(F)\)</span>，則
+<span class="math display">\[
+\det(A)=\det(A^t)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/">這裡</a>的推論10-2知<span
+class="math inline">\(\mbox{rank}(A)=\mbox{rank}(A^t)\)</span>。若<span
+class="math inline">\(\mbox{rank}(A)=\mbox{rank}(A^t)&lt;n\)</span>，則
+<span class="math display">\[
+\det(A)=\det(A^t)=0
+\]</span> 而若<span
+class="math inline">\(\mbox{rank}(A)=n\)</span>，則<span
+class="math inline">\(A\)</span>可以表為基本矩陣的積，如 <span
+class="math display">\[
+A=E_mE_{m-1}\cdots E_1
+\]</span> 則 <span class="math display">\[
+A^t=(E_mE_{m-1}\cdots E_1)^t=E_1^tE_2^t\cdots E_m^t
+\]</span> 而由定理9知 <span class="math display">\[
+\det(A^t)=\det(E_1^t)\det(E_2^t)\cdots\det(E_m^t)
+\]</span> 而很輕易的可以知道對於基本矩陣<span
+class="math inline">\(E\)</span>有<span
+class="math inline">\(\det(E)=\det(E^t)\)</span>，故 <span
+class="math display">\[
+\det(A)=\det(A^t)
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="克拉瑪定則"><font color=#b8860b>克拉瑪定則</font></h1>
+</center>
+<h2 id="定理-11克拉瑪定則-cramers-law"><font color=#ff1493><u>定理
+11：克拉瑪定則 (Cramer's Law)</u></font></h2>
+<p>給定線性方程組<span class="math inline">\(Ax=b\)</span>，其中<span
+class="math inline">\(\det(A)\neq 0\)</span>，則</p>
 
     </div>
 
@@ -661,7 +981,8 @@ class="math inline">\(A_{1j}=B_{1j}=C_{1j}\)</span>)。<font size="1">QED</font>
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">二階行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E4%BA%8C%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F-determinant-of-order-2"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：二階行列式 (Determinant of Order 2)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">性質 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">性質 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#n%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">n階行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3n%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F-determinant-of-order-n"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 3：n階行列式 (Determinant of Order n)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E8%BC%94%E5%9B%A0%E5%AD%90-cofactor"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義 3-1：輔因子
-(Cofactor)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">例 3-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">2.2.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
+(Cofactor)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">例 3-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">2.2.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5"><span class="nav-number">2.3.</span> <span class="nav-text">引理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.4.</span> <span class="nav-text">定理 6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">註記 6-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">2.5.</span> <span class="nav-text">定理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.6.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">2.6.1.</span> <span class="nav-text">註記 8-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-2"><span class="nav-number">2.6.2.</span> <span class="nav-text">註記 8-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.7.</span> <span class="nav-text">定理 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9-1"><span class="nav-number">2.7.1.</span> <span class="nav-text">註記 9-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">2.8.</span> <span class="nav-text">定理 10</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%8B%E6%8B%89%E7%91%AA%E5%AE%9A%E5%89%87"><span class="nav-number">3.</span> <span class="nav-text">克拉瑪定則</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11%E5%85%8B%E6%8B%89%E7%91%AA%E5%AE%9A%E5%89%87-cramers-law"><span class="nav-number">3.1.</span> <span class="nav-text">定理
+11：克拉瑪定則 (Cramer&#39;s Law)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
