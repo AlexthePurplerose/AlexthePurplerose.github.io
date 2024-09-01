@@ -27,13 +27,17 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於行列式的定義、性質與應用。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/c2c1.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/c1c2.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/area.jpg">
 <meta property="article:published_time" content="2024-09-01T05:04:41.000Z">
-<meta property="article:modified_time" content="2024-09-01T05:08:06.357Z">
+<meta property="article:modified_time" content="2024-09-01T06:23:34.793Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
 <meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/c2c1.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/">
 
@@ -193,7 +197,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-01 13:04:41 / 修改時間：13:08:06" itemprop="dateCreated datePublished" datetime="2024-09-01T13:04:41+08:00">2024-09-01</time>
+              <time title="創建時間：2024-09-01 13:04:41 / 修改時間：14:23:34" itemprop="dateCreated datePublished" datetime="2024-09-01T13:04:41+08:00">2024-09-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,9 +225,357 @@
 
       
         <p>這份筆記是關於行列式的定義、性質與應用。 <span id="more"></span><br></p>
+<p>這裡的行與列依循的是台灣的翻譯習慣，即行對應到英文的Column，而列對應到英文的Row。</p>
 <center>
 <h1 id="二階行列式"><font color=#b8860b>二階行列式</font></h1>
 </center>
+<h2
+id="定義-1二階行列式-determinant-of-order-2"><font color=#008000><u>定義
+1：二階行列式 (Determinant of Order 2)</u></font></h2>
+<p>給定 <span class="math display">\[
+A=\left(
+\begin{array}{cc}
+a &amp; b\\
+c &amp; d
+\end{array}
+\right)\in M_{2\times 2}(F)
+\]</span> 我們將這個矩陣的行列式定義為 <span class="math display">\[
+\det(A)=ad-bc
+\]</span></p>
+<h3 id="性質-1-1"><font color=#0000FF><u>性質 1-1</u></font></h3>
+<p>令<span class="math inline">\(u,v,w\)</span>是<span
+class="math inline">\(1\times 2\)</span>的列，<span
+class="math inline">\(k\in F\)</span>，則 <span class="math display">\[
+\begin{aligned}
+\det\left(
+\begin{array}{c}
+u+kv\\
+w
+\end{array}
+\right)&amp;=\det\left(
+\begin{aligned}
+&amp;u\\
+&amp;w
+\end{aligned}
+\right)+k\det\left(
+\begin{aligned}
+&amp;v\\
+&amp;w
+\end{aligned}
+\right)\\
+\det\left(
+\begin{array}{c}
+w\\
+u+kv
+\end{array}
+\right)&amp;=\det\left(
+\begin{aligned}
+&amp;w\\
+&amp;u
+\end{aligned}
+\right)+k\det\left(
+\begin{aligned}
+&amp;w\\
+&amp;v
+\end{aligned}
+\right)
+\end{aligned}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：直接驗算即可。<font size="1">QED</font></p>
+<h3 id="性質-1-2"><font color=#0000FF><u>性質 1-2</u></font></h3>
+<p>給定<span class="math inline">\(A\in M_{2\times
+2}(F)\)</span>，則<span class="math inline">\(\det(A)\neq 0\)</span>
+iff. <span class="math inline">\(A\)</span>可逆，且 <span
+class="math display">\[
+A^{-1}=\frac{1}{\det A}\left(
+\begin{array}{cc}
+d &amp; -b\\
+-c &amp; a
+\end{array}
+\right)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩部分證明。
+<br>「<span
+class="math inline">\(\Rightarrow\)</span>」：直接驗算上述的<span
+class="math inline">\(A^{-1}\)</span>是反矩陣即可。 <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(A\)</span>可逆但<span
+class="math inline">\(\det(A)=0\)</span>，則<span
+class="math inline">\(ad=bc\)</span>，故兩列會是線性相依的，這導致<span
+class="math inline">\(\mbox{rank}(A)\neq 2\)</span>。這與<a
+href="https://alexthepurplerose.github.io/2024/08/28/linalg-inverse/">這裡</a>的性質1-6是矛盾的。<font size="1">QED</font></p>
+<h2 id="定理-2"><font color=#ff1493><u>定理 2</u></font></h2>
+<p>考慮 <span class="math display">\[
+A=\left(
+\begin{array}{cc}
+x_1 &amp; y_1\\
+x_2 &amp; y_2
+\end{array}
+\right)
+\]</span> 並令<span class="math inline">\(c_1=(x_1,y_1),
+c_2=(x_2,y_2)\)</span>為<span
+class="math inline">\(xy\)</span>平面上的兩點，<span
+class="math inline">\(\theta\)</span>為<span
+class="math inline">\(\vec{c_1}\)</span>與<span
+class="math inline">\(\vec{c_2}\)</span>所夾的銳角。並且我們用如參考下圖1與圖2的方式定義函數<span
+class="math inline">\(O\left(
+\begin{aligned}
+&amp;c_1\\
+&amp;c_2
+\end{aligned}
+\right)\)</span>：在圖1中，<span
+class="math inline">\(c_1\)</span>在<span
+class="math inline">\(c_2\)</span>右側，令<span
+class="math inline">\(O\left(
+\begin{aligned}
+&amp;c_1\\
+&amp;c_2
+\end{aligned}
+\right)=1\)</span>；而在圖2中，<span
+class="math inline">\(c_1\)</span>在<span
+class="math inline">\(c_2\)</span>左側，令<span
+class="math inline">\(O\left(
+\begin{aligned}
+&amp;c_1\\
+&amp;c_2
+\end{aligned}
+\right)=-1\)</span>。</p>
+<img src="c2c1.jpg" width="25%" height="25%">
+<center>
+圖1
+</center>
+<img src="c1c2.jpg" width="25%" height="25%">
+<center>
+圖2
+</center>
+<p>令<span class="math inline">\(\mbox{Area}(A)\)</span>為原點和<span
+class="math inline">\(\vec{c_1},\vec{c_2}\)</span>所圍成的三角形面積，則
+<span class="math display">\[
+\det(A)=2O(A)\mbox{Area}(A)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(z_1=x_1+iy_1\)</span>, <span
+class="math inline">\(z_2=x_2+iy_2\)</span>, <span
+class="math inline">\(i=\sqrt{-1}\)</span>。則 <span
+class="math display">\[
+\det(A)=x_1y_2-x_2y_1=-\mbox{Im}(z_1\overline{z_2})
+\]</span> 對於某個角度<span class="math inline">\(\alpha\)</span>，令
+<span class="math display">\[
+\begin{aligned}
+z_1&#39;&amp;=e^{i\alpha}z_1=x_1&#39;+iy_1&#39;\\
+z_2&#39;&amp;=e^{i\alpha}z_2=x_2&#39;+iy_2&#39;
+\end{aligned}
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+\det\left(
+\begin{array}{cc}
+x_1&#39; &amp; y_1&#39;\\
+x_2&#39; &amp; y_2&#39;
+\end{array}
+\right)&amp;=-\mbox{Im}\left(z_1&#39;\overline{z_2&#39;}\right)\\
+&amp;=-\mbox{Im}(e^{i\alpha}z_1 e^{-i\alpha}\overline{z_2})\\
+&amp;=-\mbox{Im}(z_1\overline{z_2})=\det(A)
+\end{aligned}
+\]</span> 故行列式的值不受旋轉影響，我們決定<span
+class="math inline">\(\alpha\)</span>以使<span
+class="math inline">\(y_1&#39;=0\)</span>(見下圖3)。</p>
+<img src="area.jpg" width="25%" height="25%">
+<center>
+圖3
+</center>
+<p>則 <span class="math display">\[
+\begin{aligned}
+\det(A)&amp;=\det\left(
+\begin{array}{cc}
+x_1&#39; &amp; y_1&#39;\\
+x_2&#39; &amp; y_2&#39;
+\end{array}
+\right)\\
+&amp;=x_1&#39;y_2&#39;\\
+&amp;=2O\left(
+\begin{array}{cc}
+x_1&#39; &amp; y_1&#39;\\
+x_2&#39; &amp; y_2&#39;
+\end{array}
+\right)\mbox{Area}\left(
+\begin{array}{cc}
+x_1&#39; &amp; y_1&#39;\\
+x_2&#39; &amp; y_2&#39;
+\end{array}
+\right)\\
+&amp;=2O\left(
+\begin{array}{cc}
+x_1 &amp; y_1\\
+x_2 &amp; y_2
+\end{array}
+\right)\mbox{Area}\left(
+\begin{array}{cc}
+x_1 &amp; y_1\\
+x_2 &amp; y_2
+\end{array}
+\right)
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="n階行列式"><font color=#b8860b>n階行列式</font></h1>
+</center>
+<h2
+id="定義-3n階行列式-determinant-of-order-n"><font color=#008000><u>定義
+3：n階行列式 (Determinant of Order n)</u></font></h2>
+<p>我們使用遞迴來定義<span class="math inline">\(n\times
+n\)</span>矩陣的行列式。考慮<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，我們令<span class="math inline">\(\widetilde{A_{ij}}\in
+M_{(m-1)\times(n-1)}(F)\)</span>是<span
+class="math inline">\(A\)</span>把第<span
+class="math inline">\(i\)</span>列與第<span
+class="math inline">\(j\)</span>行刪去後得到的矩陣，則對於<span
+class="math inline">\(A\in M_{n\times n}(F)\)</span>來說，我們定義 <span
+class="math display">\[
+\det(A)=\left\{
+\begin{aligned}
+A_{11}&amp;,\mbox{ if }n=1\\
+\sum_{j=1}^m(-1)^{1+j}A_{ij}\det(\widetilde{A_{ij}})&amp;,\mbox{
+otherwise}
+\end{aligned}
+\right.
+\]</span></p>
+<h3 id="定義-3-1輔因子-cofactor"><font color=#008000><u>定義 3-1：輔因子
+(Cofactor)</u></font></h3>
+<p>我們將<span
+class="math inline">\((-1)^{i+j}\det(\widetilde{A_{ij}})\)</span>稱為<span
+class="math inline">\(A\)</span>第<span
+class="math inline">\(i\)</span>列第<span
+class="math inline">\(j\)</span>行的輔因子，記做<span
+class="math inline">\(c_{ij}\)</span>。</p>
+<h3 id="例-3-2"><font color=#ffa500><u>例 3-2</u></font></h3>
+<p>給定 <span class="math display">\[
+A=\left(
+\begin{array}{ccc}
+1 &amp; 4 &amp; 7\\
+2 &amp; 5 &amp; 8\\
+3 &amp; 6 &amp; 9
+\end{array}
+\right)
+\]</span> 則 <span class="math display">\[
+\det(A)=1\times\det\left(
+\begin{array}{cc}
+5 &amp; 8\\
+6 &amp; 9
+\end{array}
+\right)-4\times\det\left(
+\begin{array}{cc}
+2 &amp; 8\\
+3 &amp; 9
+\end{array}
+\right)+7\times\det\left(
+\begin{array}{cc}
+2 &amp; 5\\
+3 &amp; 6
+\end{array}
+\right)
+\]</span></p>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p>令<span
+class="math inline">\(a_1,\cdots,a_{r-1},u,v,a_{r+1},\cdots,a_n\)</span>是列向量，並給定<span
+class="math inline">\(k\in F\)</span>，則 <span class="math display">\[
+\det\left(
+\begin{array}{c}
+a_1\\
+\vdots\\
+a_{r-1}\\
+u+kv\\
+a_{r+1}\\
+\vdots\\
+a_n
+\end{array}
+\right)=\det\left(
+\begin{array}{c}
+a_1\\
+\vdots\\
+a_{r-1}\\
+u\\
+a_{r+1}\\
+\vdots\\
+a_n
+\end{array}
+\right)+k\det\left(
+\begin{array}{c}
+a_1\\
+\vdots\\
+a_{r-1}\\
+v\\
+a_{r+1}\\
+\vdots\\
+a_n
+\end{array}
+\right)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(n\)</span>做數學歸納法。 <br>1. <span
+class="math inline">\(n=1\)</span>時，結論是顯然的。 <br>2.
+假設對於<span
+class="math inline">\(1,2,\cdots,n-1\)</span>定理都成立，則令 <span
+class="math display">\[
+A=\left(
+\begin{array}{c}
+a_1\\
+\vdots\\
+a_{r-1}\\
+u+kv\\
+a_{r+1}\\
+\vdots\\
+a_n
+\end{array}
+\right)
+\]</span> 若<span
+class="math inline">\(r=1\)</span>，則用行列式的定義直接處理即可。若<span
+class="math inline">\(r&gt;1\)</span>，則令 <span
+class="math display">\[
+B=\left(
+\begin{array}{c}
+a_1\\
+\vdots\\
+a_{r-1}\\
+u\\
+a_{r+1}\\
+\vdots\\
+a_n
+\end{array}
+\right), C=\left(
+\begin{array}{c}
+a_1\\
+\vdots\\
+a_{r-1}\\
+v\\
+a_{r+1}\\
+\vdots\\
+a_n
+\end{array}
+\right)
+\]</span> 並令 <span class="math display">\[
+u=(b_1,\cdots,b_n), v=(c_1,\cdots,c_n)
+\]</span> 考慮<span class="math inline">\(\widetilde{A_{1j}}\)</span>,
+<span class="math inline">\(\widetilde{B_{1j}}\)</span>, <span
+class="math inline">\(\widetilde{C_{1j}}\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+\widetilde{A_{1j}}\mbox{的第}r-1\mbox{列}&amp;=(b_1+kc_1,\cdots,b_{j-1}+kc_{j-1},b_{j+1}+kc_{j+1},\cdots,b_n+kc_n)\\
+&amp;=\widetilde{B_{1j}}\mbox{的第}r-1\mbox{列}+k\times\widetilde{C_{1j}}\mbox{的第}r-1\mbox{列}
+\end{aligned}
+\]</span> 然而<span class="math inline">\(\widetilde{A_{1j}}\)</span>,
+<span class="math inline">\(\widetilde{B_{1j}}\)</span>, <span
+class="math inline">\(\widetilde{C_{1j}}\)</span>都是<span
+class="math inline">\((n-1)\times(n-1)\)</span>矩陣，故由歸納假設有
+<span class="math display">\[
+\det(\widetilde{A_{1j}})=\det(\widetilde{B_{1j}})+k\det(\widetilde{C_{1j}})
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+\det(A)&amp;=\sum_{j=1}^n(-1)^{1+j}A_{1j}\det(\widetilde{A_{1j}})\\
+&amp;=\sum_{j=1}^n(-1)^{1+j}A_{1j}(\det(\widetilde{B_{1j}})+k\det(\widetilde{C_{1j}}))\\
+&amp;=\det(B)+k\det(C)
+\end{aligned}
+\]</span> (這裡因為<span class="math inline">\(r&gt;1\)</span>，故<span
+class="math inline">\(A_{1j}=B_{1j}=C_{1j}\)</span>)。<font size="1">QED</font></p>
 
     </div>
 
@@ -306,7 +658,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">二階行列式</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">二階行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E4%BA%8C%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F-determinant-of-order-2"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：二階行列式 (Determinant of Order 2)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">性質 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">性質 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#n%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">n階行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3n%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F-determinant-of-order-n"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+3：n階行列式 (Determinant of Order n)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E8%BC%94%E5%9B%A0%E5%AD%90-cofactor"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義 3-1：輔因子
+(Cofactor)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">例 3-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">2.2.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
