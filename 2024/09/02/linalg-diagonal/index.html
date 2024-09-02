@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於矩陣對角化的條件與方法。">
+  <meta name="description" content="這份筆記是關於矩陣可對角化的條件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="線性代數：特徵值與對角化">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於矩陣對角化的條件與方法。">
+<meta property="og:description" content="這份筆記是關於矩陣可對角化的條件。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-09-02T12:21:44.000Z">
-<meta property="article:modified_time" content="2024-09-02T12:27:05.965Z">
+<meta property="article:modified_time" content="2024-09-02T14:28:01.365Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-02 20:21:44 / 修改時間：20:27:05" itemprop="dateCreated datePublished" datetime="2024-09-02T20:21:44+08:00">2024-09-02</time>
+              <time title="創建時間：2024-09-02 20:21:44 / 修改時間：22:28:01" itemprop="dateCreated datePublished" datetime="2024-09-02T20:21:44+08:00">2024-09-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,10 +220,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於矩陣對角化的條件與方法。 <span id="more"></span><br></p>
+        <p>這份筆記是關於矩陣可對角化的條件。 <span id="more"></span><br></p>
 <center>
 <h1
-id="特徵值與特徵向量"><font color=#b8860b>特徵值與特徵向量</font></h1>
+id="特徵值特徵向量與特徵多項式"><font color=#b8860b>特徵值、特徵向量與特徵多項式</font></h1>
 </center>
 <h2 id="定義-1對角化-diagonalization"><font color=#008000><u>定義
 1：對角化 (Diagonalization)</u></font></h2>
@@ -242,7 +242,7 @@ id="定義-2特徵值與特徵向量-eigenvalue-and-eigenvector"><font color=#00
 <p>給定可對角化的線性映射<span class="math inline">\(T:V\to
 V\)</span>，則存在<span class="math inline">\(V\)</span>的基底<span
 class="math inline">\(\beta\)</span>使得 <span class="math display">\[
-[T]_\beta=\left(
+[T]^\beta_\beta=\left(
 \begin{array}{cccc}
 \lambda_1 &amp; &amp; &amp; 0\\
 &amp; \lambda_2 &amp; &amp; \\
@@ -261,6 +261,420 @@ class="math inline">\(v\neq 0\)</span>稱為特徵向量。而矩陣<span
 class="math inline">\(A\in M_{n\times
 n}(F)\)</span>的特徵值與特徵向量即定義為<span
 class="math inline">\(L_A\)</span>的特徵值與特徵向量。</p>
+<h2 id="定理-3"><font color=#ff1493><u>定理 3</u></font></h2>
+<p>給定<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，則<span class="math inline">\(\lambda\in
+F\)</span>是<span class="math inline">\(A\)</span>的特徵值 iff. <span
+class="math display">\[
+\det(A-\lambda I_n)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們知道<span
+class="math inline">\(\lambda\in F\)</span>是<span
+class="math inline">\(A\)</span>的特徵值<span
+class="math inline">\(\Leftrightarrow\)</span>存在<span
+class="math inline">\(0\neq v\in F^n\)</span>使得<span
+class="math inline">\(Av=\lambda v\)</span> i.e. <span
+class="math display">\[
+(A-\lambda I_n)(v)=0
+\]</span> <span class="math inline">\(\Leftrightarrow N(A-\lambda
+I_n)\neq\{0\}\Leftrightarrow\det(A-\lambda
+I_n)=0\)</span>。<font size="1">QED</font></p>
+<h2
+id="定義-4特徵多項式-characteristic-polynomial"><font color=#008000><u>定義
+4：特徵多項式 (Characteristic Polynomial)</u></font></h2>
+<p>給定<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，我們稱<span
+class="math inline">\(f(t)=\det(A-tI_n)\)</span>為<span
+class="math inline">\(A\)</span>的特徵多項式。而對於線性映射<span
+class="math inline">\(T:V\to V\)</span>，我們將其特徵多項式定義為<span
+class="math inline">\([T]^\beta_\beta\)</span>的特徵多項式，其中<span
+class="math inline">\(\beta\)</span>為<span
+class="math inline">\(V\)</span>的意一組有序基底。</p>
+<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
+<p>由定理3可以知道<span class="math inline">\(\lambda\)</span>是<span
+class="math inline">\(A\)</span>的特徵值 iff. <span
+class="math inline">\(\lambda\)</span>是<span
+class="math inline">\(A\)</span>的特徵多項式的根。</p>
+<h3 id="註記-4-2"><font color=#0000FF><u>註記 4-2</u></font></h3>
+<p>定義4中線性映射<span class="math inline">\(T:V\to
+V\)</span>的特徵多項式與基底<span
+class="math inline">\(\beta\)</span>的選取無關。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\beta,\beta&#39;\)</span>為<span
+class="math inline">\(V\)</span>的有序基底，則由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-coor/">這裡</a>的定理3知
+<span class="math display">\[
+[T]^{\beta&#39;}_{\beta&#39;}=[I]_\beta^{\beta&#39;}[T]^\beta_\beta[I]^\beta_{\beta&#39;}
+\]</span> 令<span
+class="math inline">\(Q=[I]^\beta_{\beta&#39;}\)</span>, <span
+class="math inline">\(Q^{-1}=[I]^\beta_{\beta&#39;}\)</span>。則 <span
+class="math display">\[
+\begin{aligned}
+\det\left([T]^{\beta&#39;}_{\beta&#39;}-tI_n\right)&amp;=\det\left([I]_\beta^{\beta&#39;}[T]^\beta_\beta[I]^\beta_{\beta&#39;}-tI_n\right)\\
+&amp;=\det(Q^{-1})\det\left([T]^\beta_\beta-tI_n\right)\det(Q)\;\;(Q^{-1}I_nQ=I_n)\\
+&amp;=\det\left([T]^\beta_\beta-tI_n\right)
+\end{aligned}
+\]</span> 於是知<span
+class="math inline">\(T\)</span>的特徵多項式與<span
+class="math inline">\(\beta\)</span>的選取無關。<font size="1">QED</font></p>
+<h3 id="註記-4-3"><font color=#0000FF><u>註記 4-3</u></font></h3>
+<p>給定<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，則其特徵多項式為<span
+class="math inline">\(n\)</span>次多項式，<span
+class="math inline">\(t^n\)</span>項係數為<span
+class="math inline">\((-1)^n\)</span>。(這是顯然的)</p>
+<h3 id="註記-4-4"><font color=#0000FF><u>註記 4-4</u></font></h3>
+<p>給定<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，由註記4-3知在<span
+class="math inline">\(\mathbb{C}\)</span>中<span
+class="math inline">\(A\)</span>的特徵值至多只有<span
+class="math inline">\(n\)</span>個。</p>
+<h3 id="註記-4-5"><font color=#0000FF><u>註記 4-5</u></font></h3>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，令<span
+class="math inline">\(\lambda\)</span>為其特徵值，<span
+class="math inline">\(v\)</span>為<span
+class="math inline">\(\lambda\)</span>對應的特徵向量，則<span
+class="math inline">\(v\in N(T-\lambda I)\)</span>。</p>
+<h3 id="註記-4-6"><font color=#0000FF><u>註記 4-6</u></font></h3>
+<p>給定<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，並令<span class="math inline">\(\beta\)</span>是由<span
+class="math inline">\(A\)</span>的特徵向量構成的<span
+class="math inline">\(F^n\)</span>的基底(假設這樣的基底存在)，並令<span
+class="math inline">\(\beta&#39;\)</span>是<span
+class="math inline">\(F^n\)</span>的標準基底，又令<span
+class="math inline">\(Q=[I]^{\beta&#39;}_\beta\)</span>，則<span
+class="math inline">\(Q^{-1}AQ\)</span>是對角矩陣。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-coor/">這裡</a>的定理3，我們有
+<span class="math display">\[
+[L_A]^\beta_\beta=\left(
+\begin{array}{cccc}
+\lambda_1 &amp; &amp; &amp; 0\\
+&amp; \lambda_2 &amp; &amp; \\
+&amp; &amp; \ddots &amp; \\
+0 &amp; &amp; &amp; \lambda_n
+\end{array}
+\right)=[I_V]^\beta_{\beta&#39;}[L_A]^{\beta&#39;}_{\beta&#39;}[I_V]_\beta^{\beta&#39;}=Q^{-1}AQ
+\]</span> <font size="1">QED</font></p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，並令<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>為<span
+class="math inline">\(T\)</span>的相異的特徵值，其對應到的特徵向量分別為<span
+class="math inline">\(v_1,v_2,\cdots,v_k\)</span>，則<span
+class="math inline">\(\{v_1,\cdots,v_k\}\)</span>是線性獨立的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們使用數學歸納法來證明。
+<br>1. <span class="math inline">\(k=1\)</span>時，結論是顯然的。 <br>2.
+假設命題對<span
+class="math inline">\(1,2,\cdots,k-1\)</span>都成立，則若 <span
+class="math display">\[
+a_1v_1+a_2v_2+\cdots+a_kv_k=0\mbox{ (☆)}
+\]</span> 我們對上式使用線性映射<span
+class="math inline">\((T-\lambda_kI)\)</span>，則 <span
+class="math display">\[
+a_1(\lambda_1-\lambda_k)v_1+a_2(\lambda-\lambda_k)v_2+\cdots+a_{k-1}(\lambda_{k-1}-\lambda_k)v_{k-1}+0=0
+\]</span> 由歸納假設，<span
+class="math inline">\(\{v_1,\cdots,v_{k-1}\}\)</span>是線性獨立的，故必須有
+<span class="math display">\[
+a_1(\lambda_1-\lambda_k)v_1=a_2(\lambda-\lambda_k)v_2=\cdots=a_{k-1}(\lambda_{k-1}-\lambda_k)v_{k-1}=0
+\]</span> 然而<span class="math inline">\(\lambda_i\)</span>兩兩不同，故
+<span class="math display">\[
+a_1=a_2=\cdots=a_{k-1}=0
+\]</span> 代回(☆)，有<span class="math inline">\(a_k=0\)</span>，故<span
+class="math inline">\(\{v_1,\cdots,v_k\}\)</span>線性獨立。
+<br>由數學歸納法可知定理成立。<font size="1">QED</font></p>
+<h3 id="註記-5-1"><font color=#0000FF><u>註記 5-1</u></font></h3>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V=n\)</span>。則若<span
+class="math inline">\(T\)</span>有<span
+class="math inline">\(n\)</span>個不同的特徵值，則<span
+class="math inline">\(T\)</span>有<span
+class="math inline">\(n\)</span>個線性獨立的特徵向量，即<span
+class="math inline">\(T\)</span>可對角化。</p>
+<h2 id="定義-6分裂-split"><font color=#008000><u>定義 6：分裂
+(Split)</u></font></h2>
+<p>令<span class="math inline">\(f(t)\)</span>是係數都在<span
+class="math inline">\(F\)</span>中的多項式，我們說<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(F\)</span>上分裂，若存在<span
+class="math inline">\(c,a_1,a_2,\cdots,a_n\in F\)</span>使得 <span
+class="math display">\[
+f(t)=c(t-a_1)(t-a_2)\cdots(t-a_n)
+\]</span></p>
+<h2 id="定理-7"><font color=#ff1493><u>定理 7</u></font></h2>
+<p>可對角化線性映射的特徵多項式在<span
+class="math inline">\(F\)</span>上分裂。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定線性映射<span
+class="math inline">\(T:V\to V\)</span>，由於<span
+class="math inline">\(T\)</span>可對角化，故存在<span
+class="math inline">\(V\)</span>的有序基底<span
+class="math inline">\(\beta\)</span>使得 <span class="math display">\[
+[T]^\beta_\beta=\left(
+\begin{array}{cccc}
+\lambda_1 &amp; &amp; &amp; 0\\
+&amp; \lambda_2 &amp; &amp; \\
+&amp; &amp; \ddots &amp; \\
+0 &amp; &amp; &amp; \lambda_n
+\end{array}
+\right)
+\]</span> 則<span class="math inline">\(T\)</span>的特徵多項式為 <span
+class="math display">\[
+\det\left(
+\begin{array}{cccc}
+\lambda_1-t &amp; &amp; &amp; 0\\
+&amp; \lambda_2-t &amp; &amp; \\
+&amp; &amp; \ddots &amp; \\
+0 &amp; &amp; &amp; \lambda_n-t
+\end{array}
+\right)=(\lambda_1-t)(\lambda_2-t)\cdots(\lambda_n-t)
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="特徵空間"><font color=#b8860b>特徵空間</font></h1>
+</center>
+<h2 id="定義-8重數-multiplicity"><font color=#008000><u>定義 8：重數
+(Multiplicity)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to
+V\)</span>並給定其特徵值<span
+class="math inline">\(\lambda\)</span>，並令其特徵多項式為<span
+class="math inline">\(f(t)\)</span>。若我們能把<span
+class="math inline">\(f(t)\)</span>表為 <span class="math display">\[
+f(t)=(t-\lambda)^kg(t)
+\]</span> 其中<span class="math inline">\(g(\lambda)\neq
+0\)</span>，則稱<span
+class="math inline">\(\lambda\)</span>的重數為<span
+class="math inline">\(k\)</span>，記做 <span class="math display">\[
+\mbox{multi}(\lambda)=k
+\]</span></p>
+<h2 id="定義-9特徵空間-eigenspace"><font color=#008000><u>定義
+9：特徵空間 (Eigenspace)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並給定<span
+class="math inline">\(T\)</span>的特徵值<span
+class="math inline">\(\lambda\)</span>。則我們定義<span
+class="math inline">\(T\)</span>對應<span
+class="math inline">\(\lambda\)</span>的特徵空間為 <span
+class="math display">\[
+E_\lambda=\{x\in V:T(x)=\lambda x\}=N(T-\lambda I)\subseteq V
+\]</span></p>
+<h2 id="定理-10"><font color=#ff1493><u>定理 10</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並給定<span
+class="math inline">\(T\)</span>的特徵值<span
+class="math inline">\(\lambda\)</span>。若<span
+class="math inline">\(\mbox{multi}(\lambda)=m\)</span>，則<span
+class="math inline">\(1\leq\dim(E_\lambda)\leq m\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\dim(E_\lambda)=p\)</span>，並令<span
+class="math inline">\(\{v_1,v_2,\cdots,v_p\}\)</span>為<span
+class="math inline">\(E_\lambda\)</span>的有序基底。使用取代定理(<a
+href="https://alexthepurplerose.github.io/2024/08/15/linalg-basis-and-dim/">這裡</a>的定理5)可以把<span
+class="math inline">\(\{v_1,v_2,\cdots,v_p\}\)</span>擴展成<span
+class="math inline">\(V\)</span>的基底，即 <span class="math display">\[
+\beta=\{v_1,v_2,\cdots,v_p,v_{p+1},\cdots,v_n\}
+\]</span> 則 <span class="math display">\[
+[T]^\beta_\beta=\left(
+\begin{array}{c|c}
+\lambda I_p &amp; B\\
+\hline
+O &amp; C
+\end{array}
+\right)
+\]</span> 其中<span class="math inline">\(O\)</span>為零矩陣。令<span
+class="math inline">\(A=[T]^\beta_\beta\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+T\mbox{的特徵多項式}&amp;=\det(A-tI_n)\\
+&amp;=\det\left(
+\begin{array}{c|c}
+(\lambda-t)I_p &amp; B\\
+\hline
+O &amp; C-tI
+\end{array}
+\right)\\
+&amp;=\det((\lambda-t)I_p)\det(C-tI)\\
+&amp;\mbox{(這裡略過了一些有點恐怖的計算)}\\
+&amp;=(\lambda-tI)^p h(t)
+\end{aligned}
+\]</span> 而由定義知<span class="math inline">\(p\leq m\)</span>，即
+<span class="math display">\[
+1\leq\dim(E_\lambda)\leq m
+\]</span> <font size="1">QED</font></p>
+<h2 id="引理-11"><font color=#0000FF><u>引理 11</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並給定<span
+class="math inline">\(T\)</span>的相異特徵值<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>。任選<span
+class="math inline">\(v_i\in E_{\lambda_i}\)</span>，若 <span
+class="math display">\[
+v_1+v_2+\cdots+v_k=0
+\]</span> 則<span class="math inline">\(v_i=0\)</span>, <span
+class="math inline">\(\forall i=1\sim k\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：不是的話就和定理5矛盾了。<font size="1">QED</font></p>
+<h2 id="定理-12"><font color=#ff1493><u>定理 12</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並給定<span
+class="math inline">\(T\)</span>的相異特徵值<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>。並令<span
+class="math inline">\(S_i\)</span>為<span
+class="math inline">\(E_{\lambda_i}\)</span>的一個有限縣性獨立子集，則
+<span class="math display">\[
+S=S_1\cup S_2\cup\cdots\cup S_k
+\]</span> 是<span
+class="math inline">\(V\)</span>的線性獨立子集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(|S_i|=n_i\)</span>，且 <span
+class="math display">\[
+S_i=\{v_{i1},v_{i2},\cdots,v_{in_i}\}
+\]</span> 則若 <span class="math display">\[
+\mathop{\sum}_{1\leq i\leq k\atop
+1\leq j\leq n_i}a_{ij}v_{ij}=0
+\]</span> 則令 <span class="math display">\[
+w_i=\sum_{j=1}^{n_i}a_{ij}v_{ij}\in E_{\lambda_i}
+\]</span> 則 <span class="math display">\[
+\sum_{i=1}^k w_i=0
+\]</span> 由引理11，有<span
+class="math inline">\(w_i=0\)</span>，故<span
+class="math inline">\(a_{ij}=0\)</span>，即<span
+class="math inline">\(S\)</span>是線性獨立的。<font size="1">QED</font></p>
+<center>
+<h1 id="可對角化的條件"><font color=#b8860b>可對角化的條件</font></h1>
+</center>
+<h2 id="定理-13"><font color=#ff1493><u>定理 13</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並給定<span
+class="math inline">\(T\)</span>的相異特徵值<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>。並假設<span
+class="math inline">\(T\)</span>的特徵多項式在<span
+class="math inline">\(F\)</span>上分裂。則<span
+class="math inline">\(T\)</span>可對角化 iff. <span
+class="math inline">\(\mbox{multi}(\lambda_i)=\dim(E_{\lambda_i})\)</span>,
+<span class="math inline">\(\forall i=1\sim k\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\mbox{multi}(\lambda_i)=m_i\)</span>, <span
+class="math inline">\(\dim(E_{\lambda_i})=d_i\)</span>, <span
+class="math inline">\(\dim V=n\)</span>。則由定理10，我們知道<span
+class="math inline">\(1\leq d_i\leq m_i\)</span>。 <br>「<span
+class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(T\)</span>可對角化，則存在<span
+class="math inline">\(V\)</span>的有序基底<span
+class="math inline">\(\beta\)</span>使得<span
+class="math inline">\([T]^\beta_\beta\)</span>是對角矩陣，其中<span
+class="math inline">\(\beta\)</span>的元素為<span
+class="math inline">\(T\)</span>的特徵向量。令 <span
+class="math display">\[
+\beta_i=\beta\cap E_{\lambda_i}, |\beta_i|=n_i, |\beta|=n
+\]</span> 則 <span class="math display">\[
+n_i\leq d_i\leq m_i, \sum_{i=1}^k n_i=n, \sum_{i=1}^k m_i=n
+\]</span> (最後一條是因為<span
+class="math inline">\(T\)</span>的特徵多項式在<span
+class="math inline">\(F\)</span>上分裂)，故對所有<span
+class="math inline">\(i\)</span>應有<span
+class="math inline">\(n_i=m_i\)</span>，即對所有<span
+class="math inline">\(i\)</span>有<span
+class="math inline">\(d_i=m_i\)</span>。故有 <span
+class="math display">\[
+\mbox{multi}(\lambda_i)=\dim(E_{\lambda_i})
+\]</span> <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：若對於所有<span
+class="math inline">\(i\)</span>有<span
+class="math inline">\(m_i=d_i\)</span>，則令<span
+class="math inline">\(\beta_i\)</span>是<span
+class="math inline">\(E_{\lambda_i}\)</span>的有序基底，則 <span
+class="math display">\[
+|\beta_i|=\dim(E_{\lambda_i})=d_i
+\]</span> 令 <span class="math display">\[
+\beta=\beta\cup\beta_2\cup\cdots\cup\beta_k
+\]</span> 由定理12，我們知道<span
+class="math inline">\(\beta\)</span>是線性獨立的，而 <span
+class="math display">\[
+|\beta|=\sum_{i=1}^k|\beta_i|=\sum_{i=1}^k d_i=\sum_{i=1}^k m_i=n
+\]</span> 故<span class="math inline">\(\beta\)</span>是<span
+class="math inline">\(V\)</span>的有序基底，且<span
+class="math inline">\(\beta\)</span>的元素為<span
+class="math inline">\(T\)</span>的特徵向量，故知<span
+class="math inline">\(T\)</span>是可對角化的。<font size="1">QED</font></p>
+<h3 id="定理-13-1"><font color=#ff1493><u>定理 13-1</u></font></h3>
+<p>沿用定理13的符號。若<span
+class="math inline">\(T\)</span>可對角化且<span
+class="math inline">\(\beta_i\)</span>是<span
+class="math inline">\(E_{\lambda_i}\)</span>的有序基底，則 <span
+class="math display">\[
+\beta=\beta_1\cup\beta_2\cup\cdots\cup\beta_k
+\]</span> 是<span class="math inline">\(V\)</span>的有序基底，且<span
+class="math inline">\([T]^\beta_\beta\)</span>為對角矩陣。</p>
+<h3 id="註記-13-2"><font color=#0000FF><u>註記 13-2</u></font></h3>
+<p>定理13中可對角化的條件可以等價為 <span class="math display">\[
+\begin{aligned}
+\mbox{multi}(\lambda_i)&amp;=\dim(E_{\lambda_i})\\
+&amp;=\dim N(T-\lambda_i I)\\
+&amp;=n-\mbox{rank}(T-\lambda_i I)
+\end{aligned}
+\]</span></p>
+<h2 id="定義-14直和-direct-sum"><font color=#008000><u>定義 14：直和
+(Direct Sum)</u></font></h2>
+<p>給定向量空間<span class="math inline">\(V\)</span>的子空間<span
+class="math inline">\(W_1,W_2,\cdots,W_k\)</span>。我們令 <span
+class="math display">\[
+W_1+W_2+\cdots+W_k=\{v_1+v_2+\cdots+v_k:v_i\in W_i\}
+\]</span> 若<span
+class="math inline">\(V=W_1+W_2+\cdots+W_k\)</span>且對於所有<span
+class="math inline">\(j\)</span>有 <span class="math display">\[
+W_j\cap\left(\sum\limits_{i\neq j}W_i\right)=\{0\}
+\]</span> 則稱<span class="math inline">\(V\)</span>是<span
+class="math inline">\(W_1,W_2,\cdots,W_k\)</span>的直和，記做 <span
+class="math display">\[
+V=W_1\oplus W_2\oplus\cdots\oplus W_k
+\]</span></p>
+<h3 id="定理-14-1"><font color=#ff1493><u>定理 14-1</u></font></h3>
+<p>給定向量空間<span class="math inline">\(V\)</span>的子空間<span
+class="math inline">\(W_1,W_2,\cdots,W_k\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，則以下五個敘述等價：
+<br>1. <span class="math inline">\(V=W_1\oplus W_2\oplus\cdots\oplus
+W_k\)</span> <br>2. 若<span class="math inline">\(V=\sum
+W_i\)</span>且對於某些<span class="math inline">\(v_i\in W_i\)</span>有
+<span class="math display">\[
+v_1+v_2+\cdots+v_k=0
+\]</span> 則<span class="math inline">\(v_i=0,\forall i\)</span>。
+<br>3. <span class="math inline">\(\forall v\in V\)</span>，<span
+class="math inline">\(v\)</span>可以被唯一表成 <span
+class="math display">\[
+v=v_1+v_2+\cdots+v_k
+\]</span> 其中<span class="math inline">\(v_i\in W_i\)</span>。 <br>4.
+若<span class="math inline">\(\gamma_i\)</span>是<span
+class="math inline">\(W_i\)</span>的有序基底，則 <span
+class="math display">\[
+\gamma=\gamma_1\cup\gamma_2\cup\cdots\cup\gamma_k
+\]</span> 是<span class="math inline">\(V\)</span>的有序基底。 <br>5.
+對於每一個<span class="math inline">\(i\)</span>，存在<span
+class="math inline">\(W_i\)</span>的有序基底<span
+class="math inline">\(\gamma_i\)</span>使得 <span
+class="math display">\[
+\gamma=\gamma_1\cup\gamma_2\cup\cdots\cup\gamma_k
+\]</span> 是<span class="math inline">\(V\)</span>的有序基底。(證略)</p>
+<h2 id="定理-15"><font color=#ff1493><u>定理 15</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。則<span
+class="math inline">\(T\)</span>可對角化 iff. <span
+class="math inline">\(V\)</span>是<span
+class="math inline">\(T\)</span>的特徵空間的直和。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>是<span
+class="math inline">\(T\)</span>的相異的特徵值。 <br>「<span
+class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(T\)</span>可對角化，則考慮<span
+class="math inline">\(E_{\lambda_i}\)</span>。令<span
+class="math inline">\(\gamma_i\)</span>是<span
+class="math inline">\(E_{\lambda_i}\)</span>的有序基底。則由定理13-1，
+<span class="math display">\[
+\gamma=\gamma_1\cup\gamma_2\cup\cdots\cup\gamma_k
+\]</span> 是<span
+class="math inline">\(V\)</span>的有序基底。而由定理14-1(4.到1.)可知
+<span class="math display">\[
+V=E_{\lambda_1}\oplus E_{\lambda_2}\oplus\cdots\oplus E_{\lambda_k}
+\]</span> <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(V=E_{\lambda_1}\oplus
+E_{\lambda_2}\oplus\cdots\oplus
+E_{\lambda_k}\)</span>，則直接用定理14-1(1.到4.)就做完了。<font size="1">QED</font></p>
 
     </div>
 
@@ -343,9 +757,14 @@ class="math inline">\(L_A\)</span>的特徵值與特徵向量。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E5%BE%B5%E5%80%BC%E8%88%87%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">特徵值與特徵向量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%B0%8D%E8%A7%92%E5%8C%96-diagonalization"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E5%BE%B5%E5%80%BC%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F%E8%88%87%E7%89%B9%E5%BE%B5%E5%A4%9A%E9%A0%85%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">特徵值、特徵向量與特徵多項式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%B0%8D%E8%A7%92%E5%8C%96-diagonalization"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：對角化 (Diagonalization)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E7%89%B9%E5%BE%B5%E5%80%BC%E8%88%87%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F-eigenvalue-and-eigenvector"><span class="nav-number">1.2.</span> <span class="nav-text">定義
-2：特徵值與特徵向量 (Eigenvalue and Eigenvector)</span></a></li></ol></li></ol></div>
+2：特徵值與特徵向量 (Eigenvalue and Eigenvector)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E7%89%B9%E5%BE%B5%E5%A4%9A%E9%A0%85%E5%BC%8F-characteristic-polynomial"><span class="nav-number">1.4.</span> <span class="nav-text">定義
+4：特徵多項式 (Characteristic Polynomial)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">註記 4-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-3"><span class="nav-number">1.4.3.</span> <span class="nav-text">註記 4-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-4"><span class="nav-number">1.4.4.</span> <span class="nav-text">註記 4-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-5"><span class="nav-number">1.4.5.</span> <span class="nav-text">註記 4-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-6"><span class="nav-number">1.4.6.</span> <span class="nav-text">註記 4-6</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">註記 5-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%88%86%E8%A3%82-split"><span class="nav-number">1.6.</span> <span class="nav-text">定義 6：分裂
+(Split)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">1.7.</span> <span class="nav-text">定理 7</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E5%BE%B5%E7%A9%BA%E9%96%93"><span class="nav-number">2.</span> <span class="nav-text">特徵空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E9%87%8D%E6%95%B8-multiplicity"><span class="nav-number">2.1.</span> <span class="nav-text">定義 8：重數
+(Multiplicity)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E7%89%B9%E5%BE%B5%E7%A9%BA%E9%96%93-eigenspace"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+9：特徵空間 (Eigenspace)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">2.3.</span> <span class="nav-text">定理 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-11"><span class="nav-number">2.4.</span> <span class="nav-text">引理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.5.</span> <span class="nav-text">定理 12</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E5%B0%8D%E8%A7%92%E5%8C%96%E7%9A%84%E6%A2%9D%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">可對角化的條件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-13"><span class="nav-number">3.1.</span> <span class="nav-text">定理 13</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-13-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">定理 13-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">註記 13-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-14%E7%9B%B4%E5%92%8C-direct-sum"><span class="nav-number">3.2.</span> <span class="nav-text">定義 14：直和
+(Direct Sum)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">定理 14-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-15"><span class="nav-number">3.3.</span> <span class="nav-text">定理 15</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
