@@ -20,29 +20,27 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於行列式的定義、性質與應用。">
+  <meta name="description" content="這份筆記是關於行列式的定義與性質。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="線性代數：行列式">
-<meta property="og:url" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/index.html">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於行列式的定義、性質與應用。">
+<meta property="og:description" content="這份筆記是關於行列式的定義與性質。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/c2c1.jpg">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/c1c2.jpg">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/area.jpg">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/cij.jpg">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/cramerthm.jpg">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/cramer.jpg">
-<meta property="article:published_time" content="2024-09-01T05:04:41.000Z">
-<meta property="article:modified_time" content="2024-09-01T13:05:53.159Z">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/c2c1.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/c1c2.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/area.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/cij.jpg">
+<meta property="article:published_time" content="2024-09-02T10:40:25.000Z">
+<meta property="article:modified_time" content="2024-09-02T12:11:22.071Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
 <meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/c2c1.jpg">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/c2c1.jpg">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/">
 
 
 <script id="page-configurations">
@@ -176,7 +174,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/09/01/linalg-determinant/">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -200,7 +198,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-01 13:04:41 / 修改時間：21:05:53" itemprop="dateCreated datePublished" datetime="2024-09-01T13:04:41+08:00">2024-09-01</time>
+              <time title="創建時間：2024-09-02 18:40:25 / 修改時間：20:11:22" itemprop="dateCreated datePublished" datetime="2024-09-02T18:40:25+08:00">2024-09-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -227,7 +225,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於行列式的定義、性質與應用。 <span id="more"></span><br></p>
+        <p>這份筆記是關於行列式的定義與性質。 <span id="more"></span><br></p>
 <p>這裡的行與列依循的是台灣的翻譯習慣，即行對應到英文的Column，而列對應到英文的Row。</p>
 <center>
 <h1 id="二階行列式"><font color=#b8860b>二階行列式</font></h1>
@@ -892,82 +890,212 @@ class="math display">\[
 \det(A)=\det(A^t)
 \]</span> <font size="1">QED</font></p>
 <center>
-<h1 id="克拉瑪定則"><font color=#b8860b>克拉瑪定則</font></h1>
+<h1
+id="行列式的特徵化定義"><font color=#b8860b>行列式的特徵化定義</font></h1>
 </center>
-<h2 id="定理-11克拉瑪定則-cramers-rule"><font color=#ff1493><u>定理
-11：克拉瑪定則 (Cramer's Rule)</u></font></h2>
-<p>給定線性方程組<span class="math inline">\(Ax=b\)</span>，其中<span
-class="math inline">\(\det(A)\neq 0\)</span>。令 <span
-class="math display">\[
-x=\left(
+<h2 id="定義-11n-線性-n-linear"><font color=#008000><u>定義 11：n-線性
+(n-Linear)</u></font></h2>
+<p>我們說函數<span class="math inline">\(\delta:M_{n\times n}(F)\to
+F\)</span>是<span class="math inline">\(n\)</span>-線性的，若對所有<span
+class="math inline">\(k\in F\)</span>，有 <span class="math display">\[
+\delta\left(
 \begin{array}{c}
-x_1\\
-x_2\\
+a_1\\
 \vdots\\
-x_n
+u+kv\\
+\vdots\\
+a_n
+\end{array}
+\right)=\delta\left(
+\begin{array}{c}
+a_1\\
+\vdots\\
+u\\
+\vdots\\
+a_n
+\end{array}
+\right)+k\delta\left(
+\begin{array}{c}
+a_1\\
+\vdots\\
+v\\
+\vdots\\
+a_n
 \end{array}
 \right)
-\]</span> 為此方程的解，且令<span
-class="math inline">\(M_k\)</span>為把<span
-class="math inline">\(A\)</span>的第<span
-class="math inline">\(k\)</span>行替代為<span
-class="math inline">\(b\)</span>的矩陣，則 <span class="math display">\[
-x_k=\frac{\det(M_k)}{\det(A)}
 \]</span></p>
-<p><font color=#8b4513><u>證明</u></font>：由<span
-class="math inline">\(\det A\neq 0\)</span>知<span
-class="math inline">\(A\)</span>是可逆的，故<span
-class="math inline">\(Ax=b\)</span>有唯一解，該解為 <span
-class="math display">\[
-x=A^{-1}b
-\]</span> 令<span
-class="math inline">\(A=(a_1,a_2,\cdots,a_n)\)</span>，其中<span
-class="math inline">\(a_1,a_2,\cdots,a_n\)</span>為行向量，並令<span
-class="math inline">\(X_k\)</span>為把<span
-class="math inline">\(I_n\)</span>的第<span
-class="math inline">\(k\)</span>行替代為<span
-class="math inline">\(x\)</span>的矩陣。則 <span class="math display">\[
-AX_k=(a_1,a_2,\cdots,\underbrace{b}_{\mbox{第}k\mbox{行}},\cdots,a_n)=M_k
-\]</span> 而由定理10有 <span class="math display">\[
-\det(X_k)=\det(X_k^t)=\sum_{j=1}^n(-1)^{k+j}x_j\det(\widetilde{(X_k^t)_{kj}})
-\]</span> 然而除了<span
-class="math inline">\(j=k\)</span>外，我們知道<span
-class="math inline">\(\det(\widetilde{(X_k^t)_{kj}})=0\)</span>，這是因為<span
-class="math inline">\(\widetilde{(X_k^t)_{kj}}\)</span>有一列全是<span
-class="math inline">\(0\)</span>(見下圖5)。</p>
-<img src="cramerthm.jpg" width="50%" height="50%">
-<center>
-圖5
-</center>
-<p>故 <span class="math display">\[
-\det(X_k)=(-1)^{k+k}x_k\det(I_{n-1})=x_k
-\]</span> 而<span
-class="math inline">\(\det(A)\det(X_k)=\det(M_k)\)</span>，故 <span
-class="math display">\[
-x_k=\frac{\det(M_k)}{\det(A)}
-\]</span> <font size="1">QED</font></p>
-<img src="cramer.jpg" width="25%" height="25%">
-<center>
-圖6 Gabriel Cramer
-</center>
-<center>
-<h1 id="古典伴隨矩陣"><font color=#b8860b>古典伴隨矩陣</font></h1>
-</center>
-<h2
-id="定義-12古典伴隨矩陣-classical-adjoint-matrix"><font color=#008000><u>定義
-12：古典伴隨矩陣 (Classical Adjoint Matrix)</u></font></h2>
-<p>給定矩陣<span class="math inline">\(A\)</span>。我們稱<span
-class="math inline">\(C\)</span>是<span
-class="math inline">\(A\)</span>的古典伴隨矩陣，若給定 <span
-class="math display">\[
-c_{jk}=(-1)^{j+k}\det(\widetilde{A_{jk}})
-\]</span> 有<span
-class="math inline">\(C=(c_{ij})^t\)</span>(即輔因子矩陣的轉置)。</p>
+<h2 id="定義-12交錯-alternating"><font color=#008000><u>定義 12：交錯
+(Alternating)</u></font></h2>
+<p>考慮<span class="math inline">\(n\)</span>-線性的函數<span
+class="math inline">\(\delta:M_{n\times n}(F)\to F\)</span>。我們說<span
+class="math inline">\(\delta\)</span>是交錯的，若當<span
+class="math inline">\(A\)</span>有兩相鄰列相同時，總有<span
+class="math inline">\(\delta(A)=0\)</span>。</p>
 <h2 id="註記-13"><font color=#0000FF><u>註記 13</u></font></h2>
-<p>令<span class="math inline">\(B\)</span>是把<span
-class="math inline">\(A\)</span>的第<span
-class="math inline">\(k\)</span>行換成<span
-class="math inline">\(e_j\)</span>的矩陣，則</p>
+<p>給定<span class="math inline">\(n\)</span>-線性且交錯的函數<span
+class="math inline">\(\delta:M_{n\times n}(F)\to F\)</span>。則令<span
+class="math inline">\(B\)</span>是<span
+class="math inline">\(A\)</span>交換兩相鄰列後的矩陣，由定義有<span
+class="math inline">\(\delta(B)=-\delta(A)\)</span>。從而得知若<span
+class="math inline">\(B\)</span>是<span
+class="math inline">\(A\)</span>交換任意兩列後的矩陣，則<span
+class="math inline">\(\delta(B)=-\delta(A)\)</span>(相差<span
+class="math inline">\(m\)</span>列間的兩列互換等於要互換相鄰列<span
+class="math inline">\((2m-1)\)</span>次)。於是知若<span
+class="math inline">\(A\)</span>有兩相同列，則<span
+class="math inline">\(\delta(A)=0\)</span>。<br> 然後，若<span
+class="math inline">\(B\)</span>是<span
+class="math inline">\(A\)</span>經過<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/">這裡</a>的定義1的第3.項基本列運算後的矩陣，則有
+<span class="math display">\[
+\delta(B)=\delta(A)
+\]</span> 於是我們知道若給定<span class="math inline">\(M\in M_{n\times
+n}(F)\)</span>且<span
+class="math inline">\(\mbox{rank}(M)&lt;n\)</span>，則<span
+class="math inline">\(\delta(M)=0\)</span>。</p>
+<h3 id="註記-13-1"><font color=#0000FF><u>註記 13-1</u></font></h3>
+<p>我們可以整理與<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-ele-matrix/">這裡</a>的定義1的三種基本列運算對應的三種基本矩陣的<span
+class="math inline">\(\delta\)</span>值。 <br>1. 令<span
+class="math inline">\(E_1\)</span>是第一種基本列運算的基本矩陣，則<span
+class="math inline">\(\delta(E_1)=-\delta(I)\)</span>。 <br>2. 令<span
+class="math inline">\(E_2\)</span>是第二種基本列運算的基本矩陣，則<span
+class="math inline">\(\delta(E_2)=k\delta(I)\)</span>。 <br>3. 令<span
+class="math inline">\(E_3\)</span>是第三種基本列運算的基本矩陣，則<span
+class="math inline">\(\delta(E_3)=\delta(I)\)</span>。</p>
+<h2 id="定理-14"><font color=#ff1493><u>定理 14</u></font></h2>
+<p>給定<span class="math inline">\(n\)</span>-線性且交錯的函數<span
+class="math inline">\(\delta:M_{n\times n}(F)\to F\)</span>。若<span
+class="math inline">\(\delta(I)=1\)</span>，則對所有<span
+class="math inline">\(A,B\in M_{n\times n}(F)\)</span>，有 <span
+class="math display">\[
+\delta(AB)=\delta(A)\delta(B)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：<span
+class="math inline">\(mbox{rank}(A)&lt;n\)</span>的狀況和<span
+class="math inline">\(A\)</span>是基本矩陣的狀況在註記13中說明過了。若<span
+class="math inline">\(\mbox{rank}(A)=n\)</span>，則可以把<span
+class="math inline">\(A\)</span>寫成一串基本矩陣的積，形如 <span
+class="math display">\[
+A=E_mE_{m-1}\cdots E_1
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+\delta(AB)&amp;=\delta(E_mE_{m-1}\cdots E_1B)\\
+&amp;=\delta(E_m)\delta(E_{m-1})\cdots\delta(E_1)\delta(B)\\
+&amp;=\delta(E_mE_{m-1}\cdots E_1)\delta(B)\\
+&amp;=\delta(A)\delta(B)
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h2
+id="定理-15行列式的特徵化-characterization-of-determinant"><font color=#ff1493><u>定理
+15：行列式的特徵化 (Characterization of Determinant)</u></font></h2>
+<p>給定<span class="math inline">\(n\)</span>-線性且交錯的函數<span
+class="math inline">\(\delta:M_{n\times n}(F)\to F\)</span>，且<span
+class="math inline">\(\delta(I)=1\)</span>，則<span
+class="math inline">\(\delta\)</span>是行列式函數。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(A\in M_{n\times n}(F)\)</span>。若<span
+class="math inline">\(\mbox{rank}(A)&lt;n\)</span>，則由註記13知 <span
+class="math display">\[
+\delta(A)=0=\det(A)
+\]</span> 而若<span
+class="math inline">\(\mbox{rank}(A)=n\)</span>，則可以把<span
+class="math inline">\(A\)</span>寫成一串基本矩陣的積，形如 <span
+class="math display">\[
+A=E_mE_{m-1}\cdots E_1
+\]</span> 由註記13知當<span
+class="math inline">\(E\)</span>是基本矩陣時，有 <span
+class="math display">\[
+\delta(E)=\det(E)
+\]</span> 故由定理14， <span class="math display">\[
+\begin{aligned}
+\delta(A)&amp;=\delta(E_m)\delta(E_{m-1})\cdots\delta(E_1)\\
+&amp;=\det(E_m)\det(E_{m-1})\cdots\det(E_1)\\
+&amp;=\det(E_mE_{m-1}\cdots E_1)\\
+&amp;=\det(A)
+\end{aligned}
+\]</span> 於是，可以確定<span
+class="math inline">\(\delta\)</span>就是行列式。<font size="1">QED</font></p>
+<center>
+<h1
+id="行列式的置換定義"><font color=#b8860b>行列式的置換定義</font></h1>
+</center>
+<h2 id="定義-16置換-permutation"><font color=#008000><u>定義 16：置換
+(Permutation)</u></font></h2>
+<p>我們稱一對一函數<span
+class="math inline">\(\sigma:\{1,2,\cdots,n\}\to\{1,2,\cdots,n\}\)</span>為一個置換。我們把所有<span
+class="math inline">\(\{1,2,\cdots,n\}\to\{1,2,\cdots,n\}\)</span>的置換的集合記為<span
+class="math inline">\(S_n\)</span>。</p>
+<h2
+id="定義-17置換的奇偶性-parity-of-a-permutation"><font color=#008000><u>定義
+17：置換的奇偶性 (Parity of a Permutation)</u></font></h2>
+<p>給定<span class="math inline">\(n\)</span>個相異數<span
+class="math inline">\(x_1,x_2,\cdots,x_n\)</span>，我們定義 <span
+class="math display">\[
+\Delta=\prod_{1\leq i&lt;j\leq n}(x_i-x_j)
+\]</span> 而對於置換<span class="math inline">\(\sigma\in
+S_n\)</span>，我們令 <span class="math display">\[
+\sigma(\Delta)=\prod_{1\leq i&lt;j\leq n}(x_{\sigma(i)}-x_{\sigma(j)})
+\]</span> 易知<span
+class="math inline">\(\sigma(\Delta)=\pm\Delta\)</span>。我們令 <span
+class="math display">\[
+\epsilon(\sigma)=\left\{
+\begin{aligned}
++1&amp;,\mbox{ if }\sigma(\Delta)=\Delta\\
+-1&amp;,\mbox{ if }\sigma(\Delta)=-\Delta
+\end{aligned}
+\right.
+\]</span> 我們稱<span
+class="math inline">\(\epsilon(\sigma)=+1\)</span>的置換為偶置換，而稱<span
+class="math inline">\(\epsilon(\sigma)=-1\)</span>的置換為奇置換。</p>
+<h3 id="註記-17-1"><font color=#0000FF><u>註記 17-1</u></font></h3>
+<p>很容易可以驗證 <span class="math display">\[
+\epsilon(\sigma_1\sigma_2)=\epsilon(\sigma_1)\epsilon(\sigma_2)
+\]</span></p>
+<h2 id="定理-18"><font color=#ff1493><u>定理 18</u></font></h2>
+<p>考慮函數<span class="math inline">\(D:M_{n\times n}(F):\to
+F\)</span>為 <span class="math display">\[
+D(A)=\sum_{\sigma\in
+S_n}\epsilon(\sigma)A_{1\sigma(1)}A_{2\sigma(2)}\cdots A_{n\sigma(n)}
+\]</span> 則<span class="math inline">\(D\)</span>是行列式函數。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：首先，很容易可以發現<span
+class="math inline">\(D\)</span>是<span
+class="math inline">\(n\)</span>-線性的。<br> 其次，我們有 <span
+class="math display">\[
+D(I)=\epsilon(\sigma)A_{11}A_{22}\cdots A_{nn}
+\]</span> 其中<span
+class="math inline">\(\sigma\)</span>是不變置換(即什麼都不換)，故顯然<span
+class="math inline">\(\epsilon(\sigma)=1\)</span>，則 <span
+class="math display">\[
+D(I)=\underbrace{1\times 1\times 1\cdots\times 1}_{n\mbox{個}}=1
+\]</span> 接著，令<span class="math inline">\(B\)</span>是把<span
+class="math inline">\(A\)</span>第<span
+class="math inline">\(i\)</span>列和第<span
+class="math inline">\(j\)</span>列互換的矩陣，且<span
+class="math inline">\(\alpha\in S_n\)</span>是只交換<span
+class="math inline">\(i\)</span>和<span
+class="math inline">\(j\)</span>的置換，則顯然<span
+class="math inline">\(\epsilon(\alpha)=-1\)</span>。則 <span
+class="math display">\[
+\begin{aligned}
+D(B)&amp;=\sum_{\sigma\in S_n}\epsilon(\sigma)A_{1\sigma(1)}\cdots
+A_{j\sigma(i)}\cdots A_{i\sigma(j)}\cdots A_{n\sigma(n)}\\
+&amp;=\sum_{\sigma\in
+S_n}\epsilon(\alpha)\epsilon(\alpha)\epsilon(\sigma)A_{1(\sigma\alpha)(1)}\cdots
+A_{j(\sigma\alpha)(j)}\cdots A_{i(\sigma\alpha)(i)}\cdots
+A_{n(\sigma\alpha)(n)}\\
+&amp;=\sum_{\sigma\in
+S_n}(-1)\epsilon(\sigma\alpha)A_{1(\sigma\alpha)(1)}\cdots
+A_{n(\sigma\alpha)(n)}
+\end{aligned}
+\]</span> 而當<span class="math inline">\(\sigma\)</span>遍歷<span
+class="math inline">\(S_n\)</span>時，<span
+class="math inline">\(\sigma\alpha\)</span>也將遍歷<span
+class="math inline">\(S_n\)</span>，故<span
+class="math inline">\(D(B)-D(A)\)</span>。於是可知<span
+class="math inline">\(D\)</span>是交錯的。<br>
+由定理15，我們可以知道<span
+class="math inline">\(D\)</span>是行列式函數。<font size="1">QED</font></p>
 
     </div>
 
@@ -991,7 +1119,10 @@ class="math inline">\(e_j\)</span>的矩陣，則</p>
     <a href="/2024/09/01/boots-tell-tale/" rel="prev" title="《長靴啾啾叫》與《告密之心》">
       <i class="fa fa-chevron-left"></i> 《長靴啾啾叫》與《告密之心》
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/09/02/linalg-class-adjoint/" rel="next" title="線性代數：克拉瑪定則與古典伴隨矩陣">
+      線性代數：克拉瑪定則與古典伴隨矩陣 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -1053,9 +1184,12 @@ class="math inline">\(e_j\)</span>的矩陣，則</p>
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">二階行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E4%BA%8C%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F-determinant-of-order-2"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：二階行列式 (Determinant of Order 2)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">性質 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">性質 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#n%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">n階行列式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3n%E9%9A%8E%E8%A1%8C%E5%88%97%E5%BC%8F-determinant-of-order-n"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 3：n階行列式 (Determinant of Order n)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E8%BC%94%E5%9B%A0%E5%AD%90-cofactor"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義 3-1：輔因子
-(Cofactor)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">例 3-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">2.2.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5"><span class="nav-number">2.3.</span> <span class="nav-text">引理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.4.</span> <span class="nav-text">定理 6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">註記 6-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">2.5.</span> <span class="nav-text">定理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.6.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">2.6.1.</span> <span class="nav-text">註記 8-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-2"><span class="nav-number">2.6.2.</span> <span class="nav-text">註記 8-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.7.</span> <span class="nav-text">定理 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9-1"><span class="nav-number">2.7.1.</span> <span class="nav-text">註記 9-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">2.8.</span> <span class="nav-text">定理 10</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%8B%E6%8B%89%E7%91%AA%E5%AE%9A%E5%89%87"><span class="nav-number">3.</span> <span class="nav-text">克拉瑪定則</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11%E5%85%8B%E6%8B%89%E7%91%AA%E5%AE%9A%E5%89%87-cramers-rule"><span class="nav-number">3.1.</span> <span class="nav-text">定理
-11：克拉瑪定則 (Cramer&#39;s Rule)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%A4%E5%85%B8%E4%BC%B4%E9%9A%A8%E7%9F%A9%E9%99%A3"><span class="nav-number">4.</span> <span class="nav-text">古典伴隨矩陣</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-12%E5%8F%A4%E5%85%B8%E4%BC%B4%E9%9A%A8%E7%9F%A9%E9%99%A3-classical-adjoint-matrix"><span class="nav-number">4.1.</span> <span class="nav-text">定義
-12：古典伴隨矩陣 (Classical Adjoint Matrix)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13"><span class="nav-number">4.2.</span> <span class="nav-text">註記 13</span></a></li></ol></li></ol></div>
+(Cofactor)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">例 3-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">2.2.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5"><span class="nav-number">2.3.</span> <span class="nav-text">引理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.4.</span> <span class="nav-text">定理 6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">註記 6-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">2.5.</span> <span class="nav-text">定理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.6.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">2.6.1.</span> <span class="nav-text">註記 8-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-2"><span class="nav-number">2.6.2.</span> <span class="nav-text">註記 8-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.7.</span> <span class="nav-text">定理 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9-1"><span class="nav-number">2.7.1.</span> <span class="nav-text">註記 9-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">2.8.</span> <span class="nav-text">定理 10</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E7%89%B9%E5%BE%B5%E5%8C%96%E5%AE%9A%E7%BE%A9"><span class="nav-number">3.</span> <span class="nav-text">行列式的特徵化定義</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11n-%E7%B7%9A%E6%80%A7-n-linear"><span class="nav-number">3.1.</span> <span class="nav-text">定義 11：n-線性
+(n-Linear)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-12%E4%BA%A4%E9%8C%AF-alternating"><span class="nav-number">3.2.</span> <span class="nav-text">定義 12：交錯
+(Alternating)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13"><span class="nav-number">3.3.</span> <span class="nav-text">註記 13</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">註記 13-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14"><span class="nav-number">3.4.</span> <span class="nav-text">定理 14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-15%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E7%89%B9%E5%BE%B5%E5%8C%96-characterization-of-determinant"><span class="nav-number">3.5.</span> <span class="nav-text">定理
+15：行列式的特徵化 (Characterization of Determinant)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E7%BD%AE%E6%8F%9B%E5%AE%9A%E7%BE%A9"><span class="nav-number">4.</span> <span class="nav-text">行列式的置換定義</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-16%E7%BD%AE%E6%8F%9B-permutation"><span class="nav-number">4.1.</span> <span class="nav-text">定義 16：置換
+(Permutation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-17%E7%BD%AE%E6%8F%9B%E7%9A%84%E5%A5%87%E5%81%B6%E6%80%A7-parity-of-a-permutation"><span class="nav-number">4.2.</span> <span class="nav-text">定義
+17：置換的奇偶性 (Parity of a Permutation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-17-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">註記 17-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-18"><span class="nav-number">4.3.</span> <span class="nav-text">定理 18</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -1069,7 +1203,7 @@ class="math inline">\(e_j\)</span>的矩陣，則</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
