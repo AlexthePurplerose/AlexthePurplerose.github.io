@@ -20,25 +20,22 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於隱函數定理與其證明。">
+  <meta name="description" content="這份筆記是關於矩陣對角化的條件與方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="微積分：隱函數定理">
-<meta property="og:url" content="https://alexthepurplerose.github.io/2024/07/28/cal-implicit/index.html">
+<meta property="og:title" content="線性代數：特徵值與對角化">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於隱函數定理與其證明。">
+<meta property="og:description" content="這份筆記是關於矩陣對角化的條件與方法。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-implicit/implicit.jpg">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-implicit/increase.jpg">
-<meta property="article:published_time" content="2024-07-28T08:28:33.000Z">
-<meta property="article:modified_time" content="2024-07-28T09:17:57.087Z">
+<meta property="article:published_time" content="2024-09-02T12:21:44.000Z">
+<meta property="article:modified_time" content="2024-09-02T12:27:05.965Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
-<meta property="article:tag" content="Calculus">
-<meta property="article:tag" content="Analysis">
+<meta property="article:tag" content="Linear_Algebra">
+<meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/07/28/cal-implicit/implicit.jpg">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/2024/07/28/cal-implicit/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">
 
 
 <script id="page-configurations">
@@ -51,7 +48,7 @@
   };
 </script>
 
-  <title>微積分：隱函數定理 | 永蔚Alex</title>
+  <title>線性代數：特徵值與對角化 | 永蔚Alex</title>
   
 
 
@@ -172,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/07/28/cal-implicit/">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -185,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          微積分：隱函數定理
+          線性代數：特徵值與對角化
         </h1>
 
         <div class="post-meta">
@@ -196,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-07-28 16:28:33 / 修改時間：17:17:57" itemprop="dateCreated datePublished" datetime="2024-07-28T16:28:33+08:00">2024-07-28</time>
+              <time title="創建時間：2024-09-02 20:21:44 / 修改時間：20:27:05" itemprop="dateCreated datePublished" datetime="2024-09-02T20:21:44+08:00">2024-09-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -208,7 +205,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%BE%AE%E7%A9%8D%E5%88%86/" itemprop="url" rel="index"><span itemprop="name">微積分</span></a>
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8/" itemprop="url" rel="index"><span itemprop="name">線性代數</span></a>
                 </span>
             </span>
 
@@ -223,122 +220,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於隱函數定理與其證明。 <span id="more"></span><br></p>
+        <p>這份筆記是關於矩陣對角化的條件與方法。 <span id="more"></span><br></p>
 <center>
-<h1 id="隱函數"><font color=#b8860b>隱函數</font></h1>
+<h1
+id="特徵值與特徵向量"><font color=#b8860b>特徵值與特徵向量</font></h1>
 </center>
-<h2 id="定義-1隱函數-implicit-function"><font color=#008000><u>定義
-1：隱函數 (Implicit Function)</u></font></h2>
-<p>一般來說，隱函數指的是把<span
-class="math inline">\(y=f(x)\)</span>寫成<span
-class="math inline">\(z=F(x,y)=y-f(x)\)</span>與<span
-class="math inline">\(z=0\)</span>的交集的過程，見下圖1(通常來說，是把<span
-class="math inline">\(F(x,y)=0\)</span>的部分想辦法表示成<span
-class="math inline">\(y=f(x)\)</span>)。</p>
-<img src="implicit.jpg" width="50%" height="50%">
-<center>
-圖1
-</center>
-<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
-<p>很明顯的，我們至少要有一點<span
-class="math inline">\((x_0,y_0)\)</span> s.t. <span
-class="math inline">\(F(x_0,y_0)=0\)</span>。我們考慮<span
-class="math inline">\(z=F(x,y)\)</span>在<span
-class="math inline">\((x_0,y_0)\)</span>附近的切平面，我們會有以下兩種狀況：
-<br>1. 該切平面是水平的。 <br>2. 該切平面不是水平的。<br>
-一般來說，我們只考慮狀況2。</p>
-<h4 id="例-1-1-1"><font color=#ffa500><u>例 1-1-1</u></font></h4>
-<p>函數<span class="math inline">\(z=x^2+y^2\)</span>在<span
-class="math inline">\((0,0,0)\)</span>的切面就是水平的，然而它和<span
-class="math inline">\(xy\)</span>平面的交集只有原點而已，根本沒有函數可言。<br></p>
-<p>於是，我們只考慮狀況2，即<span class="math inline">\(\langle
-F_x(x_0,y_0), F_y(x_0,y_0)\rangle\)</span>不是零向量的狀況。</p>
-<center>
-<h1 id="隱函數定理"><font color=#b8860b>隱函數定理</font></h1>
-</center>
+<h2 id="定義-1對角化-diagonalization"><font color=#008000><u>定義
+1：對角化 (Diagonalization)</u></font></h2>
+<p>考慮線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。則我們稱<span
+class="math inline">\(T\)</span>是可對角化的，若存在<span
+class="math inline">\(V\)</span>的有序基底<span
+class="math inline">\(\beta\)</span>使得<span
+class="math inline">\([T]_\beta\)</span>是對角矩陣。而對於矩陣<span
+class="math inline">\(A\in M_{n\times n}(F)\)</span>。我們稱<span
+class="math inline">\(A\)</span>可對角化，若<span
+class="math inline">\(L_A\)</span>可對角化。</p>
 <h2
-id="定理-2隱函數定理-implicit-function-theorem"><font color=#ff1493><u>定理
-2：隱函數定理 (Implicit Function Theorem)</u></font></h2>
-<p>令<span class="math inline">\(F(x_0,y_0)=0\)</span>且<span
-class="math inline">\(F\)</span>在<span
-class="math inline">\((x_0,y_0)\)</span>附近是<span
-class="math inline">\(C^1\)</span>，且其在<span
-class="math inline">\((x_0,y_0)\)</span>的切平面非水平(WLOG，可以令<span
-class="math inline">\(F_y(x_0,y_0\neq 0)\)</span>)，則： <br>1.
-存在一個以<span class="math inline">\((x_0,y_0)\)</span>為中心的矩形
-<span class="math display">\[
-R=\{(x,y)|x_0-\alpha\leq x\leq x_0+\alpha, y_0-\beta\leq y\leq
-y_0+\beta\}
-\]</span> 使得對於所有<span class="math inline">\(x_0-\alpha\leq x\leq
-x_0+\alpha\)</span>都存在唯一的<span class="math inline">\(y\)</span>
-s.t. <span class="math inline">\(F(x,y)=0\)</span>(即在<span
-class="math inline">\(R\)</span>中，<span
-class="math inline">\(F(x,y)=0\)</span>可以寫成<span
-class="math inline">\(y=f(x)\)</span>)。 <br>2. <span
-class="math inline">\(f\)</span>連續且可微，且會有 <span
+id="定義-2特徵值與特徵向量-eigenvalue-and-eigenvector"><font color=#008000><u>定義
+2：特徵值與特徵向量 (Eigenvalue and Eigenvector)</u></font></h2>
+<p>給定可對角化的線性映射<span class="math inline">\(T:V\to
+V\)</span>，則存在<span class="math inline">\(V\)</span>的基底<span
+class="math inline">\(\beta\)</span>使得 <span class="math display">\[
+[T]_\beta=\left(
+\begin{array}{cccc}
+\lambda_1 &amp; &amp; &amp; 0\\
+&amp; \lambda_2 &amp; &amp; \\
+&amp; &amp; \ddots &amp; \\
+0 &amp; &amp; &amp; \lambda_n
+\end{array}
+\right)
+\]</span> 令<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_n\}\)</span>則有 <span
 class="math display">\[
-f&#39;(x)=-\frac{F_x}{F_y}
-\]</span></p>
-<p><font color=#8b4513><u>證明</u></font>：WLOG，令<span
-class="math inline">\(F_y(x_0,y_0)=m&gt;0\)</span>，由於<span
-class="math inline">\(F_y\)</span>連續，故存在 <span
-class="math display">\[
-R&#39;=\{(x,y)|x_0-a\leq x\leq x_0+a, y_0-b\leq y\leq y_0+b\}
-\]</span> 使得在<span class="math inline">\(R&#39;\)</span>中總有<span
-class="math inline">\(F_y(x,y)&gt;\frac{m}{2}&gt;0\)</span>(☆)。並且在<span
-class="math inline">\(R&#39;\)</span>也存在<span
-class="math inline">\(M\)</span>使得 <span class="math display">\[
-|F_x(x,y)|\leq M&lt;\infty\mbox{ (★)}
-\]</span> 若對於所有<span class="math inline">\(x_0-a\leq x\leq
-x_0+a\)</span>都有<span
-class="math inline">\(F(x,y_0+b)&gt;0\)</span>和<span
-class="math inline">\(F(x,y_0-b)&lt;0\)</span>，則由中間值定理和<span
-class="math inline">\(F\)</span>在<span
-class="math inline">\(y\)</span>方向上單調遞增(上(☆)式)知存在唯一的<span
-class="math inline">\(y\)</span>使得<span
-class="math inline">\(F(x,y)=0\)</span>(見下圖2)。我們接著就要證明這件事。</p>
-<img src="increase.jpg" width="50%" height="50%">
-<center>
-圖2
-</center>
-<p>首先，由微分均值定理，我們有 <span class="math display">\[
-\begin{aligned}
-F(x,y_0)&amp;=F(x,y_0)-\underbrace{F(x_0,y_0)}_{=0}\\
-&amp;=F_x(\xi,y_0)(x-x_0)\mbox{, for some }x_0\leq\xi\leq x
-\end{aligned}
-\]</span> 於是，由上(★)式知<span class="math inline">\(F(x,y_0)\leq
-Ma\)</span>。<br> 接著，由微分均值定理和(☆)式有 <span
-class="math display">\[
-\begin{aligned}
-F(x,y_0+b)&amp;=\textcolor{red}{F(x,y_0+b)-F(x,y_0)}+F(x,y_0)\\
-&amp;&gt;\textcolor{red}{\frac{m}{2}b}-Ma&gt;0
-\end{aligned}
-\]</span> 同理，有<span
-class="math inline">\(F(x,y_0+b)\)</span>。於是，第1.點就證完了，我們接著證第2.點。<br>
-今有<span class="math inline">\(y=f(x)\)</span>，給定<span
-class="math inline">\(h\)</span>，令<span
-class="math inline">\(f(x+h)=y+k\)</span>。我們希望說明當<span
-class="math inline">\(h\to 0\)</span>時，<span
-class="math inline">\(k\to 0\)</span>(於是<span
-class="math inline">\(f\)</span>就連續)。我們有 <span
-class="math display">\[
-\begin{aligned}
-0&amp;=F(x+h,y+k)-F(x,y)\;\;(F(x,y)=F(x+h,y+k)=0)\\
-&amp;=F_x(x+\theta h,y+\theta k)h+F_y(x+\theta h,y+\theta
-k)k\;\;\mbox{(微分均值定理)}
-\end{aligned}
-\]</span> 於是 <span class="math display">\[
-\begin{aligned}
-&amp;\frac{k}{h}=-\frac{F_x(x+\theta h,y+\theta k)}{F_y(x+\theta
-h,y+\theta k)}\\
-\Rightarrow&amp;\left|\frac{k}{h}\right|\leq\frac{2M}{m}
-\end{aligned}
-\]</span> 於是我們知道當<span class="math inline">\(h\to
-0\)</span>時要有<span class="math inline">\(k\to 0\)</span>，即<span
-class="math inline">\(f\)</span>連續。並且 <span class="math display">\[
-f&#39;(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}=\lim_{h\to
-0}\frac{k}{h}=-\frac{F_x}{F_y}
-\]</span> <font size="1">QED</font><br></p>
+T(v_i)=\lambda_iv_i
+\]</span> 則我們將使<span class="math inline">\(T(v)=\lambda
+v\)</span>的<span class="math inline">\(\lambda\)</span>稱為<span
+class="math inline">\(T\)</span>的特徵值，並將<span
+class="math inline">\(v\neq 0\)</span>稱為特徵向量。而矩陣<span
+class="math inline">\(A\in M_{n\times
+n}(F)\)</span>的特徵值與特徵向量即定義為<span
+class="math inline">\(L_A\)</span>的特徵值與特徵向量。</p>
 
     </div>
 
@@ -349,8 +271,8 @@ f&#39;(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}=\lim_{h\to
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
-              <a href="/tags/Calculus/" rel="tag"># Calculus</a>
-              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+              <a href="/tags/Linear-Algebra/" rel="tag"># Linear_Algebra</a>
+              <a href="/tags/Algebra/" rel="tag"># Algebra</a>
           </div>
 
         
@@ -359,13 +281,10 @@ f&#39;(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}=\lim_{h\to
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/07/28/cal-topology/" rel="prev" title="微積分：基礎拓樸">
-      <i class="fa fa-chevron-left"></i> 微積分：基礎拓樸
+    <a href="/2024/09/02/linalg-class-adjoint/" rel="prev" title="線性代數：克拉瑪定則與古典伴隨矩陣">
+      <i class="fa fa-chevron-left"></i> 線性代數：克拉瑪定則與古典伴隨矩陣
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/07/28/cal-inverse-thm/" rel="next" title="微積分：反函數定理">
-      微積分：反函數定理 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -424,9 +343,9 @@ f&#39;(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}=\lim_{h\to
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%B1%E5%87%BD%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">隱函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E9%9A%B1%E5%87%BD%E6%95%B8-implicit-function"><span class="nav-number">1.1.</span> <span class="nav-text">定義
-1：隱函數 (Implicit Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-1-1-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">例 1-1-1</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9A%B1%E5%87%BD%E6%95%B8%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">隱函數定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E9%9A%B1%E5%87%BD%E6%95%B8%E5%AE%9A%E7%90%86-implicit-function-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">定理
-2：隱函數定理 (Implicit Function Theorem)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E5%BE%B5%E5%80%BC%E8%88%87%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">特徵值與特徵向量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%B0%8D%E8%A7%92%E5%8C%96-diagonalization"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：對角化 (Diagonalization)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E7%89%B9%E5%BE%B5%E5%80%BC%E8%88%87%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F-eigenvalue-and-eigenvector"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：特徵值與特徵向量 (Eigenvalue and Eigenvector)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
