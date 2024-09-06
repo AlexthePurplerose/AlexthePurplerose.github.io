@@ -27,13 +27,16 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於不變子空間與凱利-漢米爾頓定理。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/03/linalg-invar-sub/cayley.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/03/linalg-invar-sub/hamilton.png">
 <meta property="article:published_time" content="2024-09-03T06:31:39.000Z">
-<meta property="article:modified_time" content="2024-09-06T12:52:10.174Z">
+<meta property="article:modified_time" content="2024-09-06T15:45:11.376Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
 <meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/09/03/linalg-invar-sub/cayley.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/09/03/linalg-invar-sub/">
 
@@ -199,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-09-06 20:52:10" itemprop="dateModified" datetime="2024-09-06T20:52:10+08:00">2024-09-06</time>
+                <time title="修改時間：2024-09-06 23:45:11" itemprop="dateModified" datetime="2024-09-06T23:45:11+08:00">2024-09-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -392,13 +395,156 @@ href="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/">這裡
 <span class="math display">\[
 \det\left([T_W]^\beta_\beta-tI\right)=(-1)^k(t^k+a_{k-1}t^{k-1}+\cdots+a_1t+a_0)
 \]</span> <font size="1">QED</font></p>
+<h2 id="註記-6"><font color=#0000FF><u>註記 6</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並令<span
+class="math inline">\(v_1,v_2,\cdots,v_k\)</span>為<span
+class="math inline">\(T\)</span>彼此不同的特徵向量，且它們彼此對應的特徵值都不同。令<span
+class="math inline">\(W\subseteq V\)</span>為一<span
+class="math inline">\(T\)</span>-不變子空間，則若 <span
+class="math display">\[
+v_1+v_2+\cdots+v_k\in W
+\]</span> 則<span class="math inline">\(v_i\in W\)</span>, <span
+class="math inline">\(\forall i\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(k\)</span>做數學歸納法。當<span
+class="math inline">\(k=1\)</span>時，結論是顯然的。而假設此推論對<span
+class="math inline">\(1\sim k-1\)</span>都成立，則給定 <span
+class="math display">\[
+v_1+v_2+\cdots+v_k\in W
+\]</span> 由<span class="math inline">\(W\)</span>是<span
+class="math inline">\(T\)</span>-不變知 <span class="math display">\[
+T(v_1+v_2+\cdots+v_k)=\lambda_1v_1+\lambda_2v_2+\cdots+\lambda_kv_k\in W
+\]</span> 其中<span
+class="math inline">\(\lambda_1,\cdots,\lambda_k\)</span>為<span
+class="math inline">\(v_1,\cdots,v_k\)</span>分別對應的特徵值。又 <span
+class="math display">\[
+\lambda_k(v_1+v_2+\cdots+v_k)\in W
+\]</span> 故 <span class="math display">\[
+(\lambda_1-\lambda_k)v_1+(\lambda_2-\lambda_k)v_2+\cdots+(\lambda_{k-1}-\lambda_k)v_{k-1}\in
+W
+\]</span> 而這是<span
+class="math inline">\(k-1\)</span>時的狀況，由歸納假設有<span
+class="math inline">\((\lambda_i-\lambda_k)v_i\in W\)</span>, <span
+class="math inline">\(\forall i=1\sim k-1\)</span>，即<span
+class="math inline">\(v_i\in W\)</span>, <span
+class="math inline">\(\forall i=1\sim k-1\)</span>。又由<span
+class="math inline">\(v_1+\cdots+v_k\in W\)</span>，有<span
+class="math inline">\(v_k\in
+W\)</span>。故由數學歸納法，我們知道此推論對任何<span
+class="math inline">\(k\)</span>都成立。<font size="1">QED</font></p>
+<h2 id="註記-7"><font color=#0000FF><u>註記 7</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並令<span
+class="math inline">\(T\)</span>是可對角化的，且令<span
+class="math inline">\(W\subseteq V\)</span>是<span
+class="math inline">\(T\)</span>-不變子空間，則<span
+class="math inline">\(T_W\)</span>也是可對角化的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的定理15知<span
+class="math inline">\(T\)</span>可對角化若且唯若 <span
+class="math display">\[
+V=E_{\lambda_1}\oplus E_{\lambda_2}\oplus\cdots\oplus E_{\lambda_k}
+\]</span> 令<span class="math inline">\(W_{\lambda_i}=W\cap
+E_{\lambda_i}\)</span>是<span
+class="math inline">\(V\)</span>的子空間，並令<span
+class="math inline">\(\beta_{\lambda_i}\)</span>是<span
+class="math inline">\(W_{\lambda_i}\)</span>的基底，其中<span
+class="math inline">\(i=1\sim k\)</span>。令 <span
+class="math display">\[
+\beta=\bigcup_{\lambda_i}\beta_{\lambda_i}
+\]</span> 則由<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的定理12知<span
+class="math inline">\(\beta\)</span>是線性獨立的。我們希望說明<span
+class="math inline">\(\beta\)</span>生成<span
+class="math inline">\(W\)</span>。(如果是的話<span
+class="math inline">\([T_W]^\beta_\beta\)</span>就是對角矩陣了。)<br>
+給定<span class="math inline">\(v\in W\subseteq
+V\)</span>，我們知道<span
+class="math inline">\(v\)</span>可以被唯一表為<span
+class="math inline">\(v=v_1+\cdots+v_k\)</span>，其中<span
+class="math inline">\(v_i\in E_{\lambda_i}\)</span>(見<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的引理11)，則由註記6我們知道<span
+class="math inline">\(v_i\in W\)</span>, <span
+class="math inline">\(\forall i=1\sim k\)</span>。故 <span
+class="math display">\[
+v_i\in W\cap E_{\lambda_i}=W_{\lambda_i}\Rightarrow
+v_i\in\mbox{span}(\beta_{\lambda_i})
+\]</span> 故 <span class="math display">\[
+v=v_1+\cdots+v_k\in\mbox{span}(\beta)
+\]</span> 即<span class="math inline">\(\beta\)</span>生成<span
+class="math inline">\(W\)</span>。<font size="1">QED</font></p>
+<h2 id="註記-8"><font color=#0000FF><u>註記 8</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V=n&lt;\infty\)</span>，並令<span
+class="math inline">\(T\)</span>總共有<span
+class="math inline">\(n\)</span>個相異的特徵值，則<span
+class="math inline">\(V\)</span>是自己的<span
+class="math inline">\(T\)</span>-循環子空間 i.e. 存在<span
+class="math inline">\(v\in V\)</span>使得 <span class="math display">\[
+V=\mbox{span}\{v,T(v),T^2(v),\cdots\}
+\]</span></p>
+<p><font color=#8b4513><u>證明 1</u></font>：給定<span
+class="math inline">\(0\neq v_i\in E_{\lambda_i}\)</span>，令 <span
+class="math display">\[
+v=v_1+v_2+\cdots+v_n
+\]</span> 令<span
+class="math inline">\(W=\{v,T(v),T^2(v),\cdots\}\)</span>是由<span
+class="math inline">\(v\)</span>生成的<span
+class="math inline">\(T\)</span>-循環子空間，則由註記6我們知道由於<span
+class="math inline">\(v\in W\)</span>，故對於所有<span
+class="math inline">\(i\)</span>有<span class="math inline">\(v_i\in
+W\)</span>。故 <span class="math display">\[
+V=\mbox{span}\{v_1,v_2,\cdots,v_n\}\subseteq W
+\]</span> 然而<span class="math inline">\(W\subseteq V\)</span>，故<span
+class="math inline">\(W=V\)</span>，即<span
+class="math inline">\(V\)</span>自己是<span
+class="math inline">\(T\)</span>-循環的。<font size="1">QED</font><br></p>
+<p><font color=#8b4513><u>證明 2</u></font>：一樣給定<span
+class="math inline">\(0\neq v_i\in E_{\lambda_i}\)</span>，令 <span
+class="math display">\[
+v=v_1+v_2+\cdots+v_n
+\]</span> 由<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的定理5知<span
+class="math inline">\(\{v_1,v_2,\cdots,v_n\}\)</span>是線性獨立的。故
+<span class="math display">\[
+\beta=\{v_1,v_2,\cdots,v_n\}
+\]</span> 會是<span class="math inline">\(V\)</span>的基底。令 <span
+class="math display">\[
+\gamma=\{v,T(v),T^2(v),\cdots,T^{n-1}(v)\}
+\]</span> 而 <span class="math display">\[
+\begin{aligned}
+v&amp;=v_1+v_2+\cdots+v_n\\
+T(v)&amp;=\lambda_1v_1+\lambda_2v_2+\cdots+\lambda_nv_n\\
+T^2(v)&amp;=\lambda_1^2v_1+\lambda_2^2v_2+\cdots+\lambda_n^2v_n\\
+&amp;\vdots
+\end{aligned}
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+\det\left([I]^\beta_\gamma\right)&amp;=\det\left(
+\begin{array}{cccc}
+1 &amp; \lambda_1 &amp; \lambda_1^2 &amp; \cdots\\
+1 &amp; \lambda_2 &amp; \lambda_2^2 &amp; \cdots\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots\\
+1 &amp; \lambda_n &amp; \lambda_n^2 &amp; \cdots
+\end{array}
+\right)\\
+&amp;=\pm\prod_{1\leq i\leq j\leq n}(\lambda_i-\lambda_j)\neq 0
+\end{aligned}
+\]</span> 故<span
+class="math inline">\(\mbox{rank}\left([I]^\beta_\gamma\right)=n\)</span>，即是線性獨立的且有<span
+class="math inline">\(n\)</span>個元素，故<span
+class="math inline">\(\gamma\)</span>是<span
+class="math inline">\(V\)</span>的基底，即<span
+class="math inline">\(V\)</span>是<span
+class="math inline">\(T\)</span>-循環的。<font size="1">QED</font></p>
 <center>
 <h1
 id="凱利-漢米爾頓定理"><font color=#b8860b>凱利-漢米爾頓定理</font></h1>
 </center>
 <h2
-id="定理-6凱利-漢米爾頓定理-cayley-hamilton-theorem"><font color=#ff1493><u>定理
-6：凱利-漢米爾頓定理 (Cayley-Hamilton Theorem)</u></font></h2>
+id="定理-9凱利-漢米爾頓定理-cayley-hamilton-theorem"><font color=#ff1493><u>定理
+9：凱利-漢米爾頓定理 (Cayley-Hamilton Theorem)</u></font></h2>
 <p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
 class="math inline">\(\dim V&lt;\infty\)</span>，並令<span
 class="math inline">\(f(t)\)</span>為<span
@@ -415,7 +561,7 @@ W=\mbox{span}\{v, T(v),T^2(v),\cdots\}
 class="math inline">\(V\)</span>的<span
 class="math inline">\(T\)</span>-循環子空間。且可以令 <span
 class="math display">\[
-\dim W=k\leq n=\dim V
+\dim W=k\leqslant n=\dim V
 \]</span> 由定理5的第1.點知我們可以令<span
 class="math inline">\(W\)</span>的基底為 <span class="math display">\[
 \beta=\{v,T(v),\cdots,T^{k-1}(v)\}
@@ -443,7 +589,47 @@ class="math inline">\(f(T)=0\)</span>。<font size="1">QED</font><br></p>
 class="math inline">\(A\in M_{n\times n}(F)\)</span>，並令 <span
 class="math display">\[
 B=(tI_n)\mbox{的古典伴隨矩陣}\in M_{n\times n}(F)
-\]</span></p>
+\]</span> 由<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-class-adjoint/">這裡</a>的定理4-1-1，我們有
+<span class="math display">\[
+(tI_n-A)\cdot B=\det(tI_n-A)\cdot I_n=(-1)^nf(t)\cdot I_n
+\]</span> 其中<span class="math inline">\(f(t)\)</span>為<span
+class="math inline">\(A\)</span>的特徵多項式。且我們可以把<span
+class="math inline">\(B\)</span>寫作 <span class="math display">\[
+B=\sum_{i=0}^{n-1}t^iB_i, B_i\in M_{n\times n}(F)
+\]</span> 故有 <span class="math display">\[
+\begin{aligned}
+(-1)^nf(t)I_n&amp;=(tI_n-A)\left(\sum_{i=1}^{n-1}t^iB_i\right)\\
+&amp;=\sum_{i=0}^{n-1}tI_nt^iB_i-\sum_{i=0}^{n-1}At^iB_i\\
+&amp;=t^nB_{n-1}+\sum_{i=1}^{n-1}t^i(B_{i-1}-AB_i)-AB_0
+\end{aligned}
+\]</span> 令 <span class="math display">\[
+(-1)^nf(t)=t^n+c_{n-1}t^{n-1}+\cdots+c_1t+c_0
+\]</span> 則 <span class="math display">\[
+(t^n+c_{n-1}t^{n-1}+\cdots+c_1t+c_0)I_n=t^nB_{n-1}+\sum_{i=1}^{n-1}t^i(B_{i-1}-AB_i)-AB_0
+\]</span> 比較係數可得 <span class="math display">\[
+\left\{
+\begin{aligned}
+B_{n-1}&amp;=I_n\\
+B_{i-1}-AB_i&amp;=c_iI_n,\;\;i=1\sim n-1\\
+-AB_0&amp;=c_0I_n
+\end{aligned}
+\right.
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+(-1)^nf(A)&amp;=A^n+A^{n-1}c_{n-1}+\cdots+Ac_1+c_0I_n\\
+&amp;=A^nB_{n-1}+\sum_{i=1}^n A^i(B_{i-1}-AB_i)-AB_0=0
+\end{aligned}
+\]</span> 即<span
+class="math inline">\(f(A)=0\)</span>。<font size="1">QED</font></p>
+<img src="cayley.jpg" width="25%" height="25%">
+<center>
+圖1 Arthur Cayley
+</center>
+<img src="hamilton.png" width="25%" height="25%">
+<center>
+圖2 William Rowan Hamilton
+</center>
 
     </div>
 
@@ -529,8 +715,8 @@ B=(tI_n)\mbox{的古典伴隨矩陣}\in M_{n\times n}(F)
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8D%E8%AE%8A%E5%AD%90%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">不變子空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E4%B8%8D%E8%AE%8A%E5%AD%90%E7%A9%BA%E9%96%93-invariant-subspace"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：不變子空間 (Invariant Subspace)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%BE%AA%E7%92%B0%E5%AD%90%E7%A9%BA%E9%96%93-cyclic-subspace"><span class="nav-number">1.2.</span> <span class="nav-text">定義
 2：循環子空間 (Cyclic Subspace)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">註記 2-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E9%99%90%E5%88%B6-restriction"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：限制
-(Restriction)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%B1%E5%88%A9-%E6%BC%A2%E7%B1%B3%E7%88%BE%E9%A0%93%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">凱利-漢米爾頓定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6%E5%87%B1%E5%88%A9-%E6%BC%A2%E7%B1%B3%E7%88%BE%E9%A0%93%E5%AE%9A%E7%90%86-cayley-hamilton-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">定理
-6：凱利-漢米爾頓定理 (Cayley-Hamilton Theorem)</span></a></li></ol></li></ol></div>
+(Restriction)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6"><span class="nav-number">1.6.</span> <span class="nav-text">註記 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7"><span class="nav-number">1.7.</span> <span class="nav-text">註記 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">1.8.</span> <span class="nav-text">註記 8</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%B1%E5%88%A9-%E6%BC%A2%E7%B1%B3%E7%88%BE%E9%A0%93%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">凱利-漢米爾頓定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9%E5%87%B1%E5%88%A9-%E6%BC%A2%E7%B1%B3%E7%88%BE%E9%A0%93%E5%AE%9A%E7%90%86-cayley-hamilton-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">定理
+9：凱利-漢米爾頓定理 (Cayley-Hamilton Theorem)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
