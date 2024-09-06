@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於不變子空間與凱利-漢米爾頓定理。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-09-03T06:31:39.000Z">
-<meta property="article:modified_time" content="2024-09-06T11:43:01.368Z">
+<meta property="article:modified_time" content="2024-09-06T12:52:10.174Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-09-06 19:43:01" itemprop="dateModified" datetime="2024-09-06T19:43:01+08:00">2024-09-06</time>
+                <time title="修改時間：2024-09-06 20:52:10" itemprop="dateModified" datetime="2024-09-06T20:52:10+08:00">2024-09-06</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -416,9 +416,33 @@ class="math inline">\(V\)</span>的<span
 class="math inline">\(T\)</span>-循環子空間。且可以令 <span
 class="math display">\[
 \dim W=k\leq n=\dim V
-\]</span> 由定理5知我們可以令<span
+\]</span> 由定理5的第1.點知我們可以令<span
 class="math inline">\(W\)</span>的基底為 <span class="math display">\[
 \beta=\{v,T(v),\cdots,T^{k-1}(v)\}
+\]</span> 故存在<span
+class="math inline">\(a_0,\cdots,a_{k-1}\)</span>使得 <span
+class="math display">\[
+a_0v+a_1T(v)+\cdots+a_{k-1}T^{k-1}(v)+T^k(v)=0
+\]</span> 令<span class="math inline">\(g(t)\)</span>為<span
+class="math inline">\(T_W\)</span>的特徵多項式，則由定理5的第2.點知
+<span class="math display">\[
+g(t)=(-1)^k(a_0+a_1t+\cdots+a_{k-1}t^{k-1}+t^k)
+\]</span> 而又由定理4知存在多項式<span
+class="math inline">\(q(t)\)</span>使得 <span class="math display">\[
+f(t)=g(t)q(t)
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+f(T)(v)&amp;=q(T)g(T)(v)\\
+&amp;=q(T)(-1)^k(a_0I+a_1T+\cdots+a_{k-1}T^{k-1}+T^k)(v)\\
+&amp;=q(T)(-1)^k(a_0v+a_1T(v)+\cdots+a_{k-1}T^{k-1}(v)+T^k(v))\\
+&amp;=q(T)\times 0=0
+\end{aligned}
+\]</span> 故有<span
+class="math inline">\(f(T)=0\)</span>。<font size="1">QED</font><br></p>
+<p><font color=#8b4513><u>證明 2</u></font>：給定<span
+class="math inline">\(A\in M_{n\times n}(F)\)</span>，並令 <span
+class="math display">\[
+B=(tI_n)\mbox{的古典伴隨矩陣}\in M_{n\times n}(F)
 \]</span></p>
 
     </div>
