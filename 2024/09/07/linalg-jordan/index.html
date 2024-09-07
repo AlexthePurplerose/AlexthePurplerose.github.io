@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於矩陣的約旦典型形式的定義與性質，及其存在條件與求法。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2024-09-07T07:51:11.000Z">
-<meta property="article:modified_time" content="2024-09-07T09:13:08.431Z">
+<meta property="article:published_time" content="2024-09-07T11:33:16.000Z">
+<meta property="article:modified_time" content="2024-09-07T12:32:50.268Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-07 15:51:11 / 修改時間：17:13:08" itemprop="dateCreated datePublished" datetime="2024-09-07T15:51:11+08:00">2024-09-07</time>
+              <time title="創建時間：2024-09-07 19:33:16 / 修改時間：20:32:50" itemprop="dateCreated datePublished" datetime="2024-09-07T19:33:16+08:00">2024-09-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -629,6 +629,136 @@ I)^{p-1}(x)\)</span>為始向量。</p>
 <h3 id="定義-10-2末向量-end-vector"><font color=#008000><u>定義
 10-2：末向量 (End Vector)</u></font></h3>
 <p>我們稱定義10中的<span class="math inline">\(x\)</span>為末向量。</p>
+<h2 id="定理-11"><font color=#ff1493><u>定理 11</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並假設<span
+class="math inline">\(T\)</span>的特徵多項式分裂。如果<span
+class="math inline">\(V\)</span>存在基底<span
+class="math inline">\(\beta\)</span>使得<span
+class="math inline">\(\beta\)</span>是<span
+class="math inline">\(T\)</span>的廣義特徵向量的循環的互斥聯集，則
+<br>1. 對於任意<span class="math inline">\(\beta\)</span>中的循環<span
+class="math inline">\(\gamma\)</span>，<span
+class="math inline">\(W=\mbox{span}(\gamma)\)</span>是<span
+class="math inline">\(T\)</span>-不變的，且<span
+class="math inline">\([T_W]^\gamma_\gamma\)</span>是一個約旦區塊。
+<br>2. <span class="math inline">\(\beta\)</span>是使<span
+class="math inline">\(T\)</span>能表示成約旦典型形式的基底。</p>
+<h3 id="定義-11-1互斥聯集-disjoint-union"><font color=#008000><u>定義
+11-1：互斥聯集 (Disjoint Union)</u></font></h3>
+<p>即許多兩兩交集為空的集合的聯集。</p>
+<h3
+id="定義-11-2約旦典型基底-jordan-canonical-basis"><font color=#008000><u>定義
+11-2：約旦典型基底 (Jordan Canonical Basis)</u></font></h3>
+<p>一般稱定理11第2.點中的<span
+class="math inline">\(\beta\)</span>為<span
+class="math inline">\(T\)</span>的約旦典型基底。</p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 令<span
+class="math inline">\(\gamma\)</span>的長度為<span
+class="math inline">\(p\)</span>(即令<span
+class="math inline">\(|\gamma|=p\)</span>)，末向量為<span
+class="math inline">\(x\)</span>，對應的特徵值為<span
+class="math inline">\(\lambda\)</span>，則 <span class="math display">\[
+\gamma=\{\underbrace{v_1}_{(T-\lambda
+I)^{p-1}(x)},\cdots,\underbrace{v_p}_{x}\}
+\]</span> 而對於所有<span class="math inline">\(i&gt;1\)</span>，有<span
+class="math inline">\((T-\lambda I)(v_i)=v_{i-1}\)</span>，故 <span
+class="math display">\[
+T(v_i)=v_{i-1}+\lambda v_i\in W
+\]</span> 而<span class="math inline">\(i=1\)</span>時亦有<span
+class="math inline">\(T(v_1)=\lambda v_1\in W\)</span>，故可知<span
+class="math inline">\(W\)</span>是<span
+class="math inline">\(T\)</span>-不變的。而由<span
+class="math inline">\(T(v_i)=v_{i-1}+\lambda v_i\)</span>知 <span
+class="math display">\[
+[T_W]^\gamma_\gamma=\left(
+\begin{array}{cccc}
+\lambda &amp; 1 &amp; &amp; 0\\
+&amp; \lambda &amp; 1 &amp; \\
+&amp; &amp; \lambda &amp; \\
+0 &amp; &amp; &amp; \ddots
+\end{array}
+\right)
+\]</span> 可以發現<span
+class="math inline">\([T_W]^\gamma_\gamma\)</span>確實是約旦區塊。
+<br>2. 由<span
+class="math inline">\(\gamma\)</span>之間彼此互斥就顯然可得了。<font size="1">QED</font><br></p>
+<p>接著，我們要來說明定理11中那種<span
+class="math inline">\(\beta\)</span>的存在性。</p>
+<h2 id="定理-12"><font color=#ff1493><u>定理 12</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並令<span
+class="math inline">\(\lambda\)</span>為<span
+class="math inline">\(T\)</span>的特徵值。令<span
+class="math inline">\(\gamma_1,\gamma_2,\cdots,\gamma_q\)</span>為與<span
+class="math inline">\(\lambda\)</span>相對應的廣義特徵向量循環，且<span
+class="math inline">\(\gamma_i\)</span>的始向量們構成一個線性獨立的集合，則<span
+class="math inline">\(\gamma_i\)</span>是互斥的，且 <span
+class="math display">\[
+\gamma=\gamma_1\cup\gamma_2\cup\cdots\cup\gamma_q
+\]</span> 是線性獨立的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分兩部分證明。 <br>1.
+我們希望說明<span
+class="math inline">\(\gamma_i\)</span>是互斥的。若不然，則令 <span
+class="math display">\[
+(T-\lambda I)^{n_i}(x_i)=(T-\lambda I)^{n_j}(x_j)
+\]</span> 其中<span class="math inline">\(x_i,x_j\)</span>是<span
+class="math inline">\(\lambda\)</span>的相異廣義特徵向量。即 <span
+class="math display">\[
+(T-\lambda I)^{n_i}(x_i)\in\gamma_i, (T-\lambda I)^{n_j}(x_j)\in\gamma_j
+\]</span> 令<span class="math inline">\(l_i,l_j\)</span>是<span
+class="math inline">\(\gamma_i,\gamma_j\)</span>的長度。則比較<span
+class="math inline">\(l_i-n_i\)</span>與<span
+class="math inline">\(l_j-n_j\)</span>。假設<span
+class="math inline">\(l_j-n_j&lt;l_i-n_i\)</span>，則 <span
+class="math display">\[
+(T-\lambda I)^{l_j-n_j}(T-\lambda I)^{n_i}(x_i)=(T-\lambda
+I)^{l_j-n_j}(T-\lambda I)^{n_j}(x_j)=(T-\lambda I)^{l_j}(x_j)=0
+\]</span> 令<span
+class="math inline">\(\tilde{n_i}=l_j-n_j+n_i\)</span>，則 <span
+class="math display">\[
+\tilde{n_i}&lt;l_i-n_i+n_i&lt;l_i
+\]</span> 但<span class="math inline">\((T-\lambda
+I)^{\tilde{n_i}}(x_i)=0\)</span>。可以發現這裡矛盾了，故應有<span
+class="math inline">\(l_i-n_i=l_j-n_j\)</span>。<br> 然而，當<span
+class="math inline">\(l_i-n_i=l_j-n_j\)</span>時，有 <span
+class="math display">\[
+\underbrace{(T-\lambda
+I)^{l_i-1}(x_i)}_{\gamma_i\mbox{的始向量}}=\underbrace{(T-\lambda
+I)^{l_j-1}(x_i)}_{\gamma_j\mbox{的始向量}}
+\]</span> 這和<span
+class="math inline">\(\gamma_i\)</span>的始向量們線性獨立的假設矛盾。故<span
+class="math inline">\(\gamma_i\)</span>之間應該是互斥的。 <br>2.
+我們希望說明<span
+class="math inline">\(\gamma=\gamma_1\cup\gamma_2\cup\cdots\cup\gamma_q\)</span>是線性獨立的。我們對<span
+class="math inline">\(\gamma\)</span>中的向量數<span
+class="math inline">\(N\)</span>做數學歸納法。當<span
+class="math inline">\(N=1\)</span>時，結論是顯然的。假設<span
+class="math inline">\(N=1,2,\cdots,n-1\)</span>時定理成立，令<span
+class="math inline">\(|\gamma|=n\)</span>，並令<span
+class="math inline">\(W=\mbox{span}(\gamma)\)</span>。由定理11第1.點可知<span
+class="math inline">\(W\)</span>是<span class="math inline">\((T-\lambda
+I)\)</span>-不變的，且<span class="math inline">\(\dim W\leq
+n\)</span>。考慮線性映射<span class="math inline">\(U=(T-\lambda
+I)_W:W\to W\)</span>。則對於<span
+class="math inline">\(i=1,2,\cdots,q\)</span>，令 <span
+class="math display">\[
+\gamma_i&#39;=\gamma_i-\{\gamma_i\mbox{的末向量}\}
+\]</span> (上面的減號是指差集)。則有 <span class="math display">\[
+\gamma_i=\{x,\underbrace{(T-\lambda I)(x),(T-\lambda
+I)^2(x),\cdots,(T-\lambda
+I)^{l-1}(x)}_{\gamma_i&#39;}\}\supseteq\gamma_i&#39;
+\]</span> 故可以發現每個<span
+class="math inline">\(\gamma_i&#39;\)</span>中的向量都是某個<span
+class="math inline">\(\gamma_i\)</span>中的向量在<span
+class="math inline">\(U\)</span>下的像 i.e. <span
+class="math inline">\(\forall v\in\gamma_i&#39;\)</span>，存在<span
+class="math inline">\(w\in\gamma_i\)</span>使得<span
+class="math inline">\(U(w)=v\)</span>。令 <span class="math display">\[
+\gamma&#39;=\gamma_1&#39;\cup\gamma_2&#39;\cup\gamma_3&#39;\cup\cdots\cup\gamma_q&#39;,
+|\gamma&#39;|&lt;n
+\]</span> 由歸納假設，我們知道<span
+class="math inline">\(\gamma&#39;\)</span>是線性獨立的。</p>
 
     </div>
 
@@ -718,7 +848,9 @@ I)^{p-1}(x)\)</span>為始向量。</p>
 4：廣義特徵空間 (Generalized Eigenspace)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">1.5.</span> <span class="nav-text">註記 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">1.6.</span> <span class="nav-text">定理 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">1.7.</span> <span class="nav-text">定理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">1.8.</span> <span class="nav-text">定理 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">1.9.</span> <span class="nav-text">定理 9</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AA%E7%92%B0"><span class="nav-number">2.</span> <span class="nav-text">循環</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E5%BE%AA%E7%92%B0-cycle"><span class="nav-number">2.1.</span> <span class="nav-text">定義 10：循環
 (Cycle)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10-1%E5%A7%8B%E5%90%91%E9%87%8F-initial-vector"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
 10-1：始向量 (Initial Vector)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10-2%E6%9C%AB%E5%90%91%E9%87%8F-end-vector"><span class="nav-number">2.1.2.</span> <span class="nav-text">定義
-10-2：末向量 (End Vector)</span></a></li></ol></li></ol></li></ol></div>
+10-2：末向量 (End Vector)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">2.2.</span> <span class="nav-text">定理 11</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11-1%E4%BA%92%E6%96%A5%E8%81%AF%E9%9B%86-disjoint-union"><span class="nav-number">2.2.1.</span> <span class="nav-text">定義
+11-1：互斥聯集 (Disjoint Union)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11-2%E7%B4%84%E6%97%A6%E5%85%B8%E5%9E%8B%E5%9F%BA%E5%BA%95-jordan-canonical-basis"><span class="nav-number">2.2.2.</span> <span class="nav-text">定義
+11-2：約旦典型基底 (Jordan Canonical Basis)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.3.</span> <span class="nav-text">定理 12</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
