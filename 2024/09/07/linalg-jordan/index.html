@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於矩陣的約旦典型形式的定義與性質，及其存在條件與求法。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2024-09-07T06:49:47.000Z">
-<meta property="article:modified_time" content="2024-09-07T06:51:52.919Z">
+<meta property="article:published_time" content="2024-09-07T07:51:11.000Z">
+<meta property="article:modified_time" content="2024-09-07T09:13:08.431Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-07 14:49:47 / 修改時間：14:51:52" itemprop="dateCreated datePublished" datetime="2024-09-07T14:49:47+08:00">2024-09-07</time>
+              <time title="創建時間：2024-09-07 15:51:11 / 修改時間：17:13:08" itemprop="dateCreated datePublished" datetime="2024-09-07T15:51:11+08:00">2024-09-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,6 +222,413 @@
       
         <p>這份筆記是關於矩陣的約旦典型形式的定義與性質，及其存在條件與求法。
 <span id="more"></span><br></p>
+<center>
+<h1 id="廣義特徵空間"><font color=#b8860b>廣義特徵空間</font></h1>
+</center>
+<h2 id="定義-1約旦區塊-jordan-block"><font color=#008000><u>定義
+1：約旦區塊 (Jordan Block)</u></font></h2>
+<p>我們令約旦區塊為矩陣 <span class="math display">\[
+\left(
+\begin{array}{cccccc}
+\lambda &amp; 1 &amp; &amp; &amp; &amp; 0\\
+&amp; \lambda &amp; 1 &amp; &amp; &amp; \\
+&amp; &amp; \lambda &amp; 1 &amp; &amp; \\
+&amp; &amp; &amp; &amp; \ddots &amp; \\
+0 &amp; &amp; &amp; &amp; &amp; \lambda
+\end{array}
+\right)
+\]</span> 其特徵值為<span class="math inline">\(\lambda\)</span>。</p>
+<h3 id="例-1-1"><font color=#ffa500><u>例 1-1</u></font></h3>
+<p>我們底下舉例幾個約旦區塊： <span class="math display">\[
+\begin{aligned}
+2\times 2&amp;:\left(
+\begin{array}{cc}
+\lambda &amp; 1\\
+0 &amp; \lambda
+\end{array}
+\right)\\
+3\times 3&amp;:\left(
+\begin{array}{ccc}
+\lambda &amp; 1 &amp; 0\\
+0 &amp; \lambda &amp; 1\\
+0 &amp; 0 &amp; \lambda
+\end{array}
+\right)\\
+4\times 4&amp;:\left(
+\begin{array}{cccc}
+\lambda &amp; 1 &amp; 0 &amp; 0\\
+0 &amp; \lambda &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; \lambda &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; \lambda
+\end{array}
+\right)
+\end{aligned}
+\]</span></p>
+<h2
+id="定義-2約旦典型形式-jordan-canonical-form"><font color=#008000><u>定義
+2：約旦典型形式 (Jordan Canonical Form)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。若有<span
+class="math inline">\(V\)</span>的基底<span
+class="math inline">\(\beta\)</span>使得 <span class="math display">\[
+[T]^\beta_\beta=\left(
+\begin{array}{cccc}
+A_1 &amp; &amp; &amp; 0\\
+&amp; A_2 &amp; &amp; \\
+&amp; &amp; \ddots &amp; \\
+0 &amp; &amp; &amp; A_k
+\end{array}
+\right)
+\]</span> 其中<span
+class="math inline">\(A_i\)</span>為約旦區塊，則稱<span
+class="math inline">\([T]^\beta_\beta\)</span>為<span
+class="math inline">\(T\)</span>的約旦典型形式。</p>
+<h3 id="例-2-1"><font color=#ffa500><u>例 2-1</u></font></h3>
+<p>考慮矩陣 <span class="math display">\[
+A=\left(
+\begin{array}{cccccc}
+2 &amp; 1 &amp; 0 &amp; &amp; &amp; 0\\
+0 &amp; 2 &amp; 1 &amp; &amp; &amp; \\
+0 &amp; 0 &amp; 2 &amp; &amp; &amp; \\
+&amp; &amp; &amp; 3 &amp; 1 &amp; \\
+&amp; &amp; &amp; 0 &amp; 3 &amp; \\
+0 &amp; &amp; &amp; &amp; &amp; 1
+\end{array}
+\right)
+\]</span> 則由行列式的置換定義(<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-determinant/">這裡</a>的定理15)可以很容易算出其特徵多項式為<span
+class="math inline">\((2-t)^3(3-t)^2(1-t)\)</span>。</p>
+<h2
+id="定義-3廣義特徵向量-generalized-eigenvector"><font color=#008000><u>定義
+3：廣義特徵向量 (Generalized Eigenvector)</u></font></h2>
+<p>一個非零向量<span class="math inline">\(x\in
+V\)</span>稱為線性映射<span
+class="math inline">\(T\)</span>的一個廣義特徵向量(對應特徵值為<span
+class="math inline">\(\lambda\)</span>)，若存在某個正整數<span
+class="math inline">\(p\)</span>使得 <span class="math display">\[
+(T-\lambda I)^p(x)=0
+\]</span></p>
+<h3 id="例-3-1"><font color=#ffa500><u>例 3-1</u></font></h3>
+<p>考慮<span class="math inline">\(A\)</span>同例2-1，令<span
+class="math inline">\(A=[T]^\beta_\beta\)</span>，並令<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_6\}\)</span>。則有 <span
+class="math display">\[
+T(v_1)=2v_1, T(v_2)=v_1+2v_2, T(v_3)=v_2+2v_3
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+&amp;(T-2I)(v_1)=0, (T-2I)(v_2)=v_1, (T-2I)(v_3)=v_2\\
+\Rightarrow&amp;(T-2I)(v_1)=(T-2I)^2(v_2)=(T-2I)^3(v_3)=0
+\end{aligned}
+\]</span> 即<span class="math inline">\(v_1,v_2,v_3\)</span>都是<span
+class="math inline">\(T\)</span>的廣義特徵向量，其對應特徵值為<span
+class="math inline">\(\lambda=2\)</span>。</p>
+<h2
+id="定義-4廣義特徵空間-generalized-eigenspace"><font color=#008000><u>定義
+4：廣義特徵空間 (Generalized Eigenspace)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。我們稱<span
+class="math inline">\(T\)</span>對應特徵值<span
+class="math inline">\(\lambda\)</span>的廣義特徵空間<span
+class="math inline">\(K_\lambda\)</span>為 <span class="math display">\[
+K_\lambda=\{x\in V:(T-\lambda I)^p(x)=0,\mbox{ for some positive integer
+}p\}
+\]</span> 我們需要先說明<span
+class="math inline">\(K_\lambda\)</span>真的是<span
+class="math inline">\(V\)</span>的子空間。</p>
+<h2 id="註記-5"><font color=#0000FF><u>註記 5</u></font></h2>
+<p>對於多項式<span class="math inline">\(g(t)\)</span>與線性映射<span
+class="math inline">\(T:V\to V\)</span>，若子空間<span
+class="math inline">\(W\)</span>是<span
+class="math inline">\(T\)</span>-不變的，則<span
+class="math inline">\(W\)</span>也是<span
+class="math inline">\(g(T)\)</span>-不變的。(這是顯然的)</p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，並令<span
+class="math inline">\(\lambda\)</span>為<span
+class="math inline">\(T\)</span>的特徵值。則 <br>1. <span
+class="math inline">\(K_\lambda\)</span>是包含<span
+class="math inline">\(E_\lambda\)</span>的<span
+class="math inline">\(V\)</span>的<span
+class="math inline">\(T\)</span>-不變子空間。 <br>2. 對於所有<span
+class="math inline">\(\mu\neq\lambda\)</span>，<span
+class="math inline">\(T-\mu I\)</span>在<span
+class="math inline">\(K_\lambda\)</span>上的限制是一對一的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 很容易可以知道<span
+class="math inline">\(0\in K_\lambda\)</span>。而對於所有<span
+class="math inline">\(x,y\in K_\lambda\)</span>, <span
+class="math inline">\(c\in F\)</span>，存在<span
+class="math inline">\(p,q\)</span>使得 <span class="math display">\[
+(T-\lambda I)^p(x)=0, (T-\lambda I)^q(cy)=0
+\]</span> 故 <span class="math display">\[
+(T-\lambda I)^{p+q}(x+cy)=(T-\lambda I)^{p+q}(x)+(T-\lambda
+I)^{p+q}(cy)=0
+\]</span> 故<span class="math inline">\(x+cy\in
+K_\lambda\)</span>，即<span
+class="math inline">\(K_\lambda\)</span>是<span
+class="math inline">\(V\)</span>的子空間。<br> 而又顯然<span
+class="math inline">\(E_\lambda\)</span>是蒐集所有<span
+class="math inline">\(p=1\)</span>的廣義特徵向量，故<span
+class="math inline">\(E_\lambda\subseteq K_\lambda\)</span>。且若<span
+class="math inline">\(x\in K_\lambda\)</span>，則<span
+class="math inline">\((T-\lambda I)^p(x)=0\)</span>，即 <span
+class="math display">\[
+(T-\lambda I)^p(T(x))=T(T-\lambda I)^p(x)=0
+\]</span> 於是<span class="math inline">\(T(x)\in
+K_\lambda\)</span>，即<span
+class="math inline">\(K_\lambda\)</span>是<span
+class="math inline">\(T\)</span>-不變的。 <br>2. 給定<span
+class="math inline">\(\mu\neq\lambda\)</span>，考慮<span
+class="math inline">\((T-\mu I)_{K_\lambda}\)</span>的核。給定<span
+class="math inline">\(0\neq x\in K_\lambda\)</span>並令 <span
+class="math display">\[
+(T-\mu I)(x)=0
+\]</span> 令<span class="math inline">\(p\)</span>是使<span
+class="math inline">\((T-\lambda I)^p(x)=0\)</span>成立的最小整數，即
+<span class="math display">\[
+(T-\lambda I)^p(x)=0, (T-\lambda I)^{p-1}(x)\neq 0
+\]</span> 令<span class="math inline">\(y=(T-\lambda
+I)^{p-1}(x)\)</span>，則 <span class="math display">\[
+(T-\lambda I)^p(x)=(T-\lambda I)(y)=0
+\]</span> 故<span class="math inline">\(y\in E_\lambda\)</span>。而
+<span class="math display">\[
+\begin{aligned}
+(T-\mu I)(y)&amp;=(T-\mu I)(T-\lambda I)^{p-1}(x)\\
+&amp;=(T-\lambda I)^{p-1}\underbrace{(T-\mu I)(x)}_{=0}=0
+\end{aligned}
+\]</span> 故<span class="math inline">\(y\in E_\mu\)</span>，即<span
+class="math inline">\(y\in E_\lambda\cap E_\mu\)</span>，即<span
+class="math inline">\(y=0\)</span>。這與一開始<span
+class="math inline">\(p\)</span>的假設矛盾，故應有 <span
+class="math display">\[
+N((T-\mu I)_{K_\lambda})=\{0\}
+\]</span> 故由<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理9可以知道<span
+class="math inline">\((T-\mu
+I)_{K_\lambda}\)</span>是一對一的。<font size="1">QED</font></p>
+<h2 id="定理-7"><font color=#ff1493><u>定理 7</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並令<span
+class="math inline">\(\lambda\)</span>為<span
+class="math inline">\(T\)</span>的特徵值，並假設<span
+class="math inline">\(T\)</span>的特徵多項式分裂。令<span
+class="math inline">\(\lambda\)</span>是<span
+class="math inline">\(T\)</span>的特徵值，其重數為<span
+class="math inline">\(m\)</span>。則 <br>1. <span
+class="math inline">\(\dim(K_\lambda)\leq m\)</span> <br>2. <span
+class="math inline">\(K_\lambda=N((T-\lambda I)^m)\)</span><br></p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 令<span
+class="math inline">\(W=K_\lambda\)</span>，則由定理6第1.點知<span
+class="math inline">\(W\)</span>是<span
+class="math inline">\(T\)</span>-不變的。令<span
+class="math inline">\(h(t)\)</span>為<span
+class="math inline">\(T_W\)</span>的特徵多項式，並令<span
+class="math inline">\(f(t)\)</span>為<span
+class="math inline">\(T\)</span>的特徵多項式。由<a
+href="https://alexthepurplerose.github.io/2024/09/03/linalg-invar-sub/">這裡</a>的定理4知<span
+class="math inline">\(h(t)|f(t)\)</span>
+(☆)。且由定理6第2.點，我們知道<span
+class="math inline">\(\lambda\)</span>是<span
+class="math inline">\(T_W\)</span>唯一的特徵值(不然如果<span
+class="math inline">\(\mu\neq\lambda\)</span>也是<span
+class="math inline">\(T_W\)</span>的特徵值的話，<span
+class="math inline">\((T-\mu
+I)_{K_\lambda}\)</span>就不是一對一的了)。故可以寫出 <span
+class="math display">\[
+h(t)=(-1)(t-\lambda)^d
+\]</span> 其中 <span class="math display">\[
+d=\dim W=\dim K_\lambda
+\]</span> 故由(☆)可知<span class="math inline">\(\dim K_\lambda=d\leq
+m\)</span>。 <br>2. 由定義知<span class="math inline">\(N((T-\lambda
+I)^m)\subseteq K_\lambda\)</span>。由凱利-漢米爾頓定理(<a
+href="https://alexthepurplerose.github.io/2024/09/03/linalg-invar-sub/">這裡</a>的定理9)知<span
+class="math inline">\(h(T_W)=0\)</span>，故對於所有<span
+class="math inline">\(x\in W\)</span>有 <span class="math display">\[
+(T_W-\lambda I)^d(x)=0
+\]</span> 又由第1.點知<span class="math inline">\(d\leq m\)</span>，故
+<span class="math display">\[
+W=K_\lambda\subseteq N((T-\lambda I)^m)
+\]</span> 故有<span class="math inline">\(K_\lambda=N((T-\lambda
+I)^m)\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並令<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>為<span
+class="math inline">\(T\)</span>「所有」的特徵值，並假設<span
+class="math inline">\(T\)</span>的特徵多項式分裂。則對於所有<span
+class="math inline">\(x\in V_i\)</span>，存在<span
+class="math inline">\(v_i\in K_{\lambda_i}\)</span>使得 <span
+class="math display">\[
+x=v_1+v_2+\cdots+v_k
+\]</span> 意即 <span class="math display">\[
+V=K_{\lambda_1}+K_{\lambda_2}+\cdots+K_{\lambda_k}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(k\)</span>做數學歸納法。 <br>1. 當<span
+class="math inline">\(k=1\)</span>時，令<span
+class="math inline">\(m=\mbox{multi}(\lambda_1)\)</span>，則<span
+class="math inline">\(T\)</span>的特徵多項式為<span
+class="math inline">\((\lambda_1-t)^m\)</span>。由凱利-漢米爾頓定理，我們有<span
+class="math inline">\((\lambda_1I-T)^m=0\)</span>。故對於所有<span
+class="math inline">\(v\in V\)</span>，有 <span class="math display">\[
+(\lambda_1-t)^m(v)=0
+\]</span> 故知<span class="math inline">\(v\in K_{\lambda_1}\)</span>。
+<br>2. 假設定理在<span
+class="math inline">\(T\)</span>的特徵值個數比<span
+class="math inline">\(k\)</span>個少時都成立，則當<span
+class="math inline">\(T\)</span>有<span
+class="math inline">\(k\)</span>個特徵值時，令<span
+class="math inline">\(m=\mbox{multi}(\lambda_k)\)</span>，則<span
+class="math inline">\(T\)</span>的特徵多項式可寫為 <span
+class="math display">\[
+f(t)=(t-\lambda_k)^mg(t)
+\]</span> 其中<span class="math inline">\((t-\lambda_k)\nmid
+g(t)\)</span>。令 <span class="math display">\[
+W=R((T-\lambda_kI)^m)
+\]</span> 則對於所有<span class="math inline">\(w\in
+W\)</span>，存在<span class="math inline">\(w&#39;\in
+V\)</span>使得<span
+class="math inline">\(w=(T-\lambda_kI)^m(w&#39;)\)</span>。故 <span
+class="math display">\[
+T(w)=T(T=\lambda_kI)^m(w&#39;)=(T-\lambda_kI)^m(T(w&#39;))\in W
+\]</span> 故可知<span class="math inline">\(W\)</span>是<span
+class="math inline">\(T\)</span>-不變的。而考慮 <span
+class="math display">\[
+(T-\lambda_kI)_{K_{\lambda_i}}:K_{\lambda_i}\to K_{\lambda_i}, i=1\sim
+k-1
+\]</span> (由定理6第1.點，我們知道<span
+class="math inline">\(K_{\lambda_i}\)</span>是<span
+class="math inline">\(T\)</span>-不變的。而由註記5，我們知道它也是<span
+class="math inline">\((T-\lambda_kI)\)</span>-不變的)由定理6第2.點，我們知道上述映射是一對一的。而由<a
+href="https://alexthepurplerose.github.io/2024/08/28/linalg-inverse/">這裡</a>的性質1-6與<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-isomorphic/">這裡</a>的註記2，我們知道<span
+class="math inline">\((T-\lambda_kI)_{K_{\lambda_i}}\)</span>是一個同構映射。故
+<span class="math display">\[
+(T-\lambda_kI)(K_{\lambda_i})=K_{\lambda_i}
+\]</span> 故由定義<span class="math inline">\(K_{\lambda_i}\subseteq
+W\)</span>。而由定理6的第1.點，我們有 <span class="math display">\[
+E_{\lambda_i}\subseteq K_{\lambda_i}\subseteq W, i=1\sim k-1
+\]</span> 考慮<span class="math inline">\(T_W:W\to W\)</span>。由於<span
+class="math inline">\(E_{\lambda_i}\subseteq W\)</span>，故<span
+class="math inline">\(\lambda_i\)</span>是<span
+class="math inline">\(T_W\)</span>的特徵值, <span
+class="math inline">\(\forall i=1\sim k-1\)</span>。我們希望說明<span
+class="math inline">\(\lambda_k\)</span>不是<span
+class="math inline">\(T_W\)</span>的特徵值。<br> 若有<span
+class="math inline">\(0\neq v\in W\)</span>使得<span
+class="math inline">\(T(v)=\lambda_kv\)</span>，則由定義知存在<span
+class="math inline">\(y\in V\)</span>使得 <span class="math display">\[
+v=(T-\lambda_kI)^m(y)
+\]</span> 故 <span class="math display">\[
+0=(T-\lambda_kI)(v)=(T-\lambda_kI)^{m+1}(y)
+\]</span> 故<span class="math inline">\(y\in
+K_{\lambda_k}=N((T-\lambda_kI)^m)\)</span>(定理7第2.點)。故 <span
+class="math display">\[
+v=(T-\lambda_kI)^m(y)=0
+\]</span> 這和<span class="math inline">\(v\neq 0\)</span>矛盾。故<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_{k-1}\)</span>是<span
+class="math inline">\(T_W\)</span>所有的特徵值，但<span
+class="math inline">\(\lambda_k\)</span>不是(之所以知道是「所有的」是因為<span
+class="math inline">\(T_W\)</span>的特徵值都應該要是<span
+class="math inline">\(T\)</span>的特徵值)。對<span
+class="math inline">\(T_W\)</span>用歸納假設，令<span
+class="math inline">\(K_{\lambda_i}&#39;\)</span>為<span
+class="math inline">\(T_W\)</span>對<span
+class="math inline">\(\lambda_i\)</span>的廣義特徵空間，則對於所有<span
+class="math inline">\(x\in V\)</span>，存在<span
+class="math inline">\(w_i\in K_{\lambda_i}\)</span>, <span
+class="math inline">\(i=1\sim k-1\)</span>使得 <span
+class="math display">\[
+(T-\lambda_kI)^m(x)=w_1+w_2+\cdots+w_{k-1}
+\]</span> (這裡有<span class="math inline">\((T-\lambda_kI)^m(x)\in
+W\)</span>，所以可以是用歸納假設。)而由定義知<span
+class="math inline">\(K_{\lambda_i}&#39;=K_{\lambda_i}\cap
+W\)</span>。又<span
+class="math inline">\((T-\lambda_kI)_{K_{\lambda_i}}\)</span>是一個同構映射，故存在<span
+class="math inline">\(v_i\in K_{\lambda_i}\)</span>使得 <span
+class="math display">\[
+(T-\lambda_kI)^m(v_i)=w_i
+\]</span> 故 <span class="math display">\[
+(T-\lambda_kI)^m(x)=(T-\lambda_kI)^m(v_1)+\cdots+(T-\lambda_kI)^m(v_{k-1})
+\]</span> 故<span class="math inline">\(x-v_1-v_2-\cdots-v_{k-1}\in
+K_{\lambda_k}\)</span>。令 <span class="math display">\[
+v_k=x-v_1-v_2-\cdots-v_{k-1}\in K_{\lambda_k}
+\]</span> 則有<span
+class="math inline">\(x=v_1+v_2+\cdots+v_k\)</span>。故由數學歸納法知定理對任何<span
+class="math inline">\(k\)</span>都成立。<font size="1">QED</font></p>
+<h2 id="定理-9"><font color=#ff1493><u>定理 9</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>，並令<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>為<span
+class="math inline">\(T\)</span>「所有」的特徵值，而<span
+class="math inline">\(m_1,m_2,\cdots,m_k\)</span>為它們對應的重數，並假設<span
+class="math inline">\(T\)</span>的特徵多項式分裂。令<span
+class="math inline">\(\beta_i\)</span>是<span
+class="math inline">\(K_{\lambda_i}\)</span>的有序基底。則 <br>1. <span
+class="math inline">\(\forall i\neq j\)</span>, <span
+class="math inline">\(\beta_i\cap\beta_j=\varnothing\)</span> <br>2.
+<span
+class="math inline">\(\beta=\beta_1\cup\beta_2\cup\cdots\cup\beta_k\)</span>是<span
+class="math inline">\(V\)</span>的基底。(由<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的定理14-1知這與
+<span class="math display">\[
+V=K_{\lambda_1}\oplus K_{\lambda_2}\oplus\cdots\oplus K_{\lambda_k}
+\]</span> 等價。) <br>3. <span class="math inline">\(\dim
+K_{\lambda_i}=m_i\)</span><br></p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 若存在 <span
+class="math display">\[
+0\neq x\in\beta_i\cup\beta_j\subseteq K_{\lambda_i}\cup K_{\lambda_j},
+i\neq j
+\]</span> 則由定理8的推導過程知<span
+class="math inline">\((T-\lambda_iI)_{K_{\lambda_i}}\)</span>是同構映射。而<span
+class="math inline">\(x\in K_{\lambda_i}\)</span>，故知對於所有<span
+class="math inline">\(p\)</span>都有 <span class="math display">\[
+(T-\lambda_iI)^p(x)\neq 0
+\]</span> 然而這導致<span class="math inline">\(x\notin
+K_{\lambda_i}\)</span>，矛盾。故<span class="math inline">\(\forall
+i\neq j\)</span>, <span
+class="math inline">\(\beta_i\cap\beta_j=\varnothing\)</span>。 <br>2.
+對於所有<span class="math inline">\(x\in V\)</span>，由定理8知存在<span
+class="math inline">\(v_i\in K_{\lambda_i}\)</span>使得 <span
+class="math display">\[
+x=v_1+v_2+\cdots+v_k
+\]</span> 故<span
+class="math inline">\(x\in\mbox{span}(\beta_1\cup\beta_2\cup\cdots\cup\beta_k)\)</span>。故有
+<span class="math display">\[
+V=\mbox{span}(\beta_1\cup\beta_2\cup\cdots\cup\beta_k)
+\]</span> 又<span class="math inline">\(|\beta_i|=\dim K_{\lambda_i}\leq
+m_i\)</span>(定理7第1.點)，故 <span class="math display">\[
+\dim V\leq\sum_{i=1}^k|\beta_i|\leq\sum_{i=1}^k m_i=\dim V
+\]</span> (最後的等於是因為<span
+class="math inline">\(T\)</span>的特徵多項式分裂)故中間都是等號，即
+<span class="math display">\[
+\dim V=\sum_{i=1}^k|\beta_i|
+\]</span> 即<span
+class="math inline">\(\beta=\beta_1\cup\beta_2\cup\cdots\cup\beta_k\)</span>確是<span
+class="math inline">\(V\)</span>的基底。 <br>3.
+由第2.點的推導過程直接可得<span class="math inline">\(|\beta_i|=\dim
+K_{\lambda_i}=m_i\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="循環"><font color=#b8860b>循環</font></h1>
+</center>
+<h2 id="定義-10循環-cycle"><font color=#008000><u>定義 10：循環
+(Cycle)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(0\neq x\)</span>是<span
+class="math inline">\(T\)</span>的廣義特徵向量，其對應的特徵值為<span
+class="math inline">\(\lambda\)</span>。又令<span
+class="math inline">\(p\)</span>是使<span
+class="math inline">\((T-\lambda I)^p(x)=0\)</span>的最小整數。則令
+<span class="math display">\[
+\{(T-\lambda I)^{p-1}(x),\cdots,(T-\lambda I)(x),x\}
+\]</span> 為<span class="math inline">\(T\)</span>對應特徵值<span
+class="math inline">\(\lambda\)</span>的廣義特徵向量循環。</p>
+<h3 id="定義-10-1始向量-initial-vector"><font color=#008000><u>定義
+10-1：始向量 (Initial Vector)</u></font></h3>
+<p>我們稱定義10中的<span class="math inline">\((T-\lambda
+I)^{p-1}(x)\)</span>為始向量。</p>
+<h3 id="定義-10-2末向量-end-vector"><font color=#008000><u>定義
+10-2：末向量 (End Vector)</u></font></h3>
+<p>我們稱定義10中的<span class="math inline">\(x\)</span>為末向量。</p>
 
     </div>
 
@@ -304,6 +711,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%A3%E7%BE%A9%E7%89%B9%E5%BE%B5%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">廣義特徵空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E7%B4%84%E6%97%A6%E5%8D%80%E5%A1%8A-jordan-block"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：約旦區塊 (Jordan Block)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">例 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E7%B4%84%E6%97%A6%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F-jordan-canonical-form"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：約旦典型形式 (Jordan Canonical Form)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">例 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%BB%A3%E7%BE%A9%E7%89%B9%E5%BE%B5%E5%90%91%E9%87%8F-generalized-eigenvector"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：廣義特徵向量 (Generalized Eigenvector)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">例 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E5%BB%A3%E7%BE%A9%E7%89%B9%E5%BE%B5%E7%A9%BA%E9%96%93-generalized-eigenspace"><span class="nav-number">1.4.</span> <span class="nav-text">定義
+4：廣義特徵空間 (Generalized Eigenspace)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">1.5.</span> <span class="nav-text">註記 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">1.6.</span> <span class="nav-text">定理 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">1.7.</span> <span class="nav-text">定理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">1.8.</span> <span class="nav-text">定理 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">1.9.</span> <span class="nav-text">定理 9</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AA%E7%92%B0"><span class="nav-number">2.</span> <span class="nav-text">循環</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E5%BE%AA%E7%92%B0-cycle"><span class="nav-number">2.1.</span> <span class="nav-text">定義 10：循環
+(Cycle)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10-1%E5%A7%8B%E5%90%91%E9%87%8F-initial-vector"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
+10-1：始向量 (Initial Vector)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10-2%E6%9C%AB%E5%90%91%E9%87%8F-end-vector"><span class="nav-number">2.1.2.</span> <span class="nav-text">定義
+10-2：末向量 (End Vector)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
