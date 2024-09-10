@@ -20,18 +20,22 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="這份筆記是關於矩陣的指數的定義與計算方法，及其應用。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="線性代數：矩陣的指數">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/09/10/linalg-matrix-exp/index.html">
 <meta property="og:site_name" content="永蔚Alex">
+<meta property="og:description" content="這份筆記是關於矩陣的指數的定義與計算方法，及其應用。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2024-09-10T11:32:05.000Z">
-<meta property="article:modified_time" content="2024-09-10T11:34:18.615Z">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/10/linalg-matrix-exp/triangle.jpg">
+<meta property="article:published_time" content="2024-09-10T12:23:08.000Z">
+<meta property="article:modified_time" content="2024-09-10T14:03:36.474Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
 <meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/09/10/linalg-matrix-exp/triangle.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/09/10/linalg-matrix-exp/">
 
@@ -191,7 +195,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-10 19:32:05 / 修改時間：19:34:18" itemprop="dateCreated datePublished" datetime="2024-09-10T19:32:05+08:00">2024-09-10</time>
+              <time title="創建時間：2024-09-10 20:23:08 / 修改時間：22:03:36" itemprop="dateCreated datePublished" datetime="2024-09-10T20:23:08+08:00">2024-09-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -218,7 +222,360 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>這份筆記是關於矩陣的指數的定義與計算方法，及其應用。
+<span id="more"></span><br></p>
+<center>
+<h1 id="完備度量空間"><font color=#b8860b>完備度量空間</font></h1>
+</center>
+<h2 id="定義-1範數-norm"><font color=#008000><u>定義 1：範數
+(Norm)</u></font></h2>
+<p>令<span class="math inline">\(V\)</span>為<span
+class="math inline">\(\mathbb{R}\)</span>或<span
+class="math inline">\(\mathbb{C}\)</span>上的向量空間，我們說<span
+class="math inline">\(V\)</span>上的範數是函數<span
+class="math inline">\(\|\cdot\|:V\to\mathbb{R}_{\geq
+0}\)</span>，使得對所有<span class="math inline">\(x,y\in V\)</span>,
+<span class="math inline">\(a\in\mathbb{C}\)</span> or <span
+class="math inline">\(\mathbb{R}\)</span>有 <br>1. 三角不等式：<span
+class="math inline">\(\|x+y\|\leq\|x\|+\|y\|\)</span> <br>2. <span
+class="math inline">\(\|ax\|=|a|\|x\|\)</span> <br>3. <span
+class="math inline">\(\|x\|=0\Leftrightarrow x=0\)</span></p>
+<h3 id="定義-1-1矩陣的範數-norm-of-matrices"><font color=#008000><u>定義
+1-1：矩陣的範數 (Norm of Matrices)</u></font></h3>
+<p>令<span class="math inline">\(V=M_{n\times
+n}(\mathbb{C})\)</span>或<span class="math inline">\(M_{n\times
+n}(\mathbb{R})\)</span>。對於<span class="math inline">\(A\in
+V\)</span>，定義 <span class="math display">\[
+\|A\|=\max_{1\leq i,j\leq n}\{|A_{ij}|\}
+\]</span> 可以驗證<span
+class="math inline">\(\|\cdot\|\)</span>是一個範數。並且對於<span
+class="math inline">\(A,B\in V\)</span>，還可以有 <span
+class="math display">\[
+\|AB\|\leq n\|A\|\cdot\|B\|
+\]</span></p>
+<h2 id="定義-2度量-metric"><font color=#008000><u>定義 2：度量
+(Metric)</u></font></h2>
+<p>令<span class="math inline">\(X\)</span>為一集合，我們稱<span
+class="math inline">\(X\)</span>上的測度為一函數<span
+class="math inline">\(d:X\times X\to\mathbb{R}_{\geq
+0}\)</span>，使得對所有<span class="math inline">\(x,y,z\in X\)</span>有
+<br>1. 三角不等式：<span class="math inline">\(d(x,y)\leq
+d(x,z)+d(z,y)\)</span> <br>2. <span
+class="math inline">\(d(x,y)=d(y,x)\)</span> <br>3. <span
+class="math inline">\(d(x,y)=0\Leftrightarrow x=y\)</span></p>
+<h2 id="定義-3柯西序列-cauchy-sequence"><font color=#008000><u>定義
+3：柯西序列 (Cauchy Sequence)</u></font></h2>
+<p>考慮度量空間<span
+class="math inline">\((X,d)\)</span>(這樣寫的時候代表<span
+class="math inline">\(X\)</span>是一集合，其上有度量<span
+class="math inline">\(d\)</span>)，我們其上的說一序列<span
+class="math inline">\(\{a_n\}\)</span>是柯西序列，若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(N&gt;0\)</span>使得對所有<span
+class="math inline">\(m,n&gt;N\)</span>有<span
+class="math inline">\(d(a_m,a_n)&lt;\epsilon\)</span>。</p>
+<h2
+id="定義-4完備度量空間-complete-metric-space"><font color=#008000><u>定義
+4：完備度量空間 (Complete Metric Space)</u></font></h2>
+<p>我們稱度量空間<span
+class="math inline">\((X,d)\)</span>是完備的，若每個<span
+class="math inline">\(X\)</span>中的柯西序列都收斂到某個<span
+class="math inline">\(X\)</span>中的元素。(這裡收斂的定義也是使用<span
+class="math inline">\(d\)</span>作為距離。)</p>
+<h3 id="例-4-1"><font color=#ffa500><u>例 4-1</u></font></h3>
+<p>對於<span class="math inline">\(\mathbb{R}\)</span>和<span
+class="math inline">\(\mathbb{C}\)</span>，令其上的測度為<span
+class="math inline">\(d(x,y)=|x-y|\)</span>，則易知<span
+class="math inline">\((\mathbb{R},d)\)</span>和<span
+class="math inline">\((\mathbb{C},d)\)</span>是完備的(<span
+class="math inline">\(\mathbb{R}\)</span>的完備性可以參考<a
+href="https://alexthepurplerose.github.io/2024/04/25/cal-real-sequence/">這裡</a>的定理8)。</p>
+<h2 id="註記-5"><font color=#0000FF><u>註記 5</u></font></h2>
+<p>如果<span class="math inline">\(V\)</span>上有範數，則定義<span
+class="math inline">\(d(x,y)=\|x-y\|\)</span>就馬上有一個測度了。</p>
+<h3 id="例-5-1"><font color=#ffa500><u>例 5-1</u></font></h3>
+<p>由註記5可知上面定義1-1中的<span class="math inline">\(M_{n\times
+n}(\mathbb{C})\)</span>是一個度量空間。並且對於<span
+class="math inline">\(M_{n\times n}\)</span>中的柯西序列<span
+class="math inline">\(\{A_k\}\)</span>，由定義知<span
+class="math inline">\(\{(A_k)_{ij}\}\)</span>也是一個<span
+class="math inline">\(\mathbb{C}\)</span>中的柯西序列(這裡<span
+class="math inline">\(i,j\)</span>是固定的，變動的是<span
+class="math inline">\(k\)</span>)。而<span
+class="math inline">\(\mathbb{C}\)</span>是完備的，故<span
+class="math inline">\(A_k\)</span>的每一個元素都會收斂到<span
+class="math inline">\(\mathbb{C}\)</span>中。故知<span
+class="math inline">\((M_{n\times
+n}(\mathbb{C}),\|\cdot\|)\)</span>是一個完備度量空間。</p>
+<center>
+<h1 id="矩陣的指數"><font color=#b8860b>矩陣的指數</font></h1>
+</center>
+<h2
+id="定義-6矩陣的指數-exponential-of-matrices"><font color=#008000><u>定義
+6：矩陣的指數 (Exponential of Matrices)</u></font></h2>
+<p>給定<span class="math inline">\(A\in M_{n\times
+n}(\mathbb{C})\)</span>，令 <span class="math display">\[
+S_k=I+A+\frac{1}{2!}A^2+\frac{1}{3!}A^3+\cdots+\frac{1}{k!}A^k
+\]</span> 若在定義1-1的<span class="math inline">\((M_{n\times
+n}(\mathbb{C}),\|\cdot\|)\)</span>中<span
+class="math inline">\(\{S_k\}\)</span>收斂到<span
+class="math inline">\(S\in M_{n\times n}(\mathbb{C})\)</span>，則記
+<span class="math display">\[
+\exp(A)=S
+\]</span></p>
+<h3 id="註記-6-1"><font color=#0000FF><u>註記 6-1</u></font></h3>
+<p>對於任何<span class="math inline">\(A\in M_{n\times
+n}(\mathbb{C})\)</span>，<span
+class="math inline">\(\exp(A)\)</span>都存在。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(q&gt;p\)</span>，則 <span class="math display">\[
+\begin{aligned}
+d(S_p,S_q)&amp;=\|S_q-S_p\|\\
+&amp;=\left\|\frac{1}{(p+1)!}A^{p+1}+\cdots+\frac{1}{q!}A^q\right\|\\
+&amp;\leq\frac{1}{(p+1)!}\|A^{p+1}\|+\cdots+\frac{1}{q!}\|A^q\|\mbox{
+(三角不等式)}\\
+&amp;\leq\frac{n^p}{(p+1)!}\|A\|^{p+1}+\cdots+\frac{n^q}{q!}\|A\|^q\mbox{
+(見定義1-1)}\\
+&amp;=\frac{1}{n}\left(\frac{(n\|A\|)^{p+1}}{(p+1)!}+\cdots+\frac{(n\|A\|)^q}{q!}\right)\\
+&amp;\leq\frac{1}{n}\times\frac{(n\|A\|)^{p+1}}{(p+1)!}\left(1+\frac{n\|A\|}{(p+1)}+\frac{(n\|A\|)^2}{(p+1)^2}+
+\cdots\right)
+\end{aligned}
+\]</span> 由於<span class="math inline">\(n\)</span>和<span
+class="math inline">\(\|A\|\)</span>都是定值，故當<span
+class="math inline">\(p\)</span>夠大時最後一項就可以任意小。故知<span
+class="math inline">\(\{S_k\}\)</span>是柯西序列。而由例5-1，我們知道<span
+class="math inline">\(\{S_k\}\)</span>會收斂到某個<span
+class="math inline">\(\exp(A)=S\in M_{n\times
+n}(\mathbb{C})\)</span>。<font size="1">QED</font></p>
+<h2 id="定義-7冪零矩陣-nilpotent-matrix"><font color=#008000><u>定義
+7：冪零矩陣 (Nilpotent Matrix)</u></font></h2>
+<p>對於矩陣<span class="math inline">\(M\)</span>，若存在<span
+class="math inline">\(n\in\mathbb{N}\)</span>使得<span
+class="math inline">\(M^n=0\)</span>，則稱<span
+class="math inline">\(M\)</span>是冪零的。</p>
+<h2 id="註記-8"><font color=#0000FF><u>註記 8</u></font></h2>
+<p>令矩陣<span
+class="math inline">\(J\)</span>是約旦典型形式，則可以令<span
+class="math inline">\(J=D+M\)</span>，其中<span
+class="math inline">\(D\)</span>是對角矩陣。則<span
+class="math inline">\(M\)</span>會是冪零矩陣(證略)。</p>
+<h2 id="定理-9"><font color=#ff1493><u>定理 9</u></font></h2>
+<p>對於<span class="math inline">\(A,B\in M_{n\times
+n}(\mathbb{C})\)</span>，若<span
+class="math inline">\(AB=BA\)</span>，則 <span class="math display">\[
+\exp(A)\exp(B)=\exp(A+B)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+\frac{1}{m!}(A+B)^m=\sum_{k+l=m}\frac{A^k}{k!}\frac{B^l}{l!}
+\]</span> 而考慮<span
+class="math inline">\(\exp(A+B)\)</span>的部分和，有 <span
+class="math display">\[
+\sum_{m=0}^{2p}\frac{1}{m!}(A+B)^m=\left(\sum_{k=0}^p\frac{A^k}{k!}\right)\left(\sum_{l=0}^p\frac{B^l}{l!}\right)+R_p\mbox{
+(☆)}
+\]</span> 其中<span class="math inline">\(R_p\)</span>是 <span
+class="math display">\[
+R_p=\sum_{\substack{k+l\leq 2p\\
+\max\{k,l\}&gt;p}}\frac{A^k}{k!}\frac{B^l}{l!}
+\]</span> 而由定義1-1，我們知道 <span class="math display">\[
+\|A^kB^l\|\leq\|A\|^k\|B\|^ln^{k+l-1}
+\]</span> 參考下方的圖1，其中下圖1的陰影部分是<span
+class="math inline">\(k+l\leq 2p,
+\max\{k,l\}&gt;p\)</span>，故不包含白色長方形的邊界。我們可以發現陰影區域的格子點數不超過
+<span class="math display">\[
+2(1+2+\cdots+p)=p(p+1)
+\]</span> 故<span class="math inline">\(R_p\)</span>中的項數不超過<span
+class="math inline">\(p(p+1)\)</span>。</p>
+<img src="triangle.jpg" width="25%" height="25%">
+<center>
+圖1
+</center>
+<p>令<span
+class="math inline">\(C=\max\{\|A\|,\|B\|,1\}\)</span>，則當<span
+class="math inline">\(p\to\infty\)</span>時， <span
+class="math display">\[
+\|R_p\|=p(p+1)\frac{C^{2p}n^{2p}}{(p!)(p!)}=\frac{p(p+1)(nC)^{2p}}{(p!)^2}\to
+0
+\]</span> 故在(☆)式中令<span
+class="math inline">\(p\to\infty\)</span>，有 <span
+class="math display">\[
+\exp(A)\exp(B)=\exp(A+B)
+\]</span> <font size="1">QED</font></p>
+<h2 id="註記-10"><font color=#0000FF><u>註記 10</u></font></h2>
+<p>給定<span class="math inline">\(A\in M_{n\times
+n}(\mathbb{C})\)</span>，並假設<span
+class="math inline">\(A\)</span>的特徵多項式分裂。則由<a
+href="https://alexthepurplerose.github.io/2024/09/07/linalg-jordan/">這裡</a>的定理10~12，我們知道<span
+class="math inline">\(A\)</span>可以化為約旦典型形式。令其約旦典型形式為<span
+class="math inline">\(J\)</span>，並令<span
+class="math inline">\(Q\)</span>是使得<span
+class="math inline">\(Q^{-1}AQ=J\)</span>的轉換矩陣。則 <span
+class="math display">\[
+Q^{-1}\exp(A)Q=\exp(J)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：根據定義有 <span
+class="math display">\[
+\exp(J)=\lim_{p\to\infty}\sum_{m=0}^p\frac{1}{m!}J^m=\lim_{p\to\infty}\sum_{m=0}^p\frac{1}{m!}(Q^{-1}AQ)^m
+\]</span> 又 <span class="math display">\[
+\begin{aligned}
+(Q^{-1}AQ)^m&amp;=(Q^{-1}A\bcancel{Q)(Q^{-1}}A\bcancel{Q)\cdots}\bcancel{\cdots(Q^{-1}}AQ)\\
+&amp;=Q^{-1}A^mQ
+\end{aligned}
+\]</span> 故 <span class="math display">\[
+\exp(J)=\lim_{p\to\infty}Q^{-1}\left(\sum_{m=0}^p\frac{1}{m!}A^m\right)Q=Q^{-1}\exp(A)Q
+\]</span> <font size="1">QED</font><br></p>
+<p>於是，我們只要計算<span
+class="math inline">\(\exp(J)\)</span>就能算出<span
+class="math inline">\(\exp(A)\)</span>了。</p>
+<h2 id="註記-11"><font color=#0000FF><u>註記 11</u></font></h2>
+<p>對於約旦典型形式矩陣<span class="math inline">\(J\)</span>，令<span
+class="math inline">\(J\)</span>是<span class="math inline">\(k\times
+k\)</span>矩陣且 <span class="math display">\[
+J=\left(
+\begin{array}{cccc}
+\lambda &amp; 1 &amp; &amp; 0\\
+&amp; \lambda &amp; 1 &amp; \\
+&amp; &amp; \ddots &amp; \\
+0 &amp; &amp; &amp; \lambda
+\end{array}
+\right)
+\]</span> 使用註記8中的符號<span
+class="math inline">\(J=D+M\)</span>，可得 <span class="math display">\[
+D=\lambda I_k, M^{k-1}\neq 0, M^k=0, DM=MD
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+\exp(tJ)&amp;=\exp(tD+tM)\\
+&amp;=\exp(tD)\exp(tM)\mbox{ (定理9)}\\
+&amp;=\left(
+\begin{array}{cccc}
+e^{t\lambda} &amp; &amp; &amp; 0\\
+&amp; e^{t\lambda} &amp; &amp; \\
+&amp; &amp; \ddots &amp; \\
+0 &amp; &amp; &amp; e^{t\lambda}
+\end{array}
+\right)\times\left(1+tM+\frac{1}{2!}(tM)^2+\cdots+\frac{1}{(k-1)!}(tM)^{k-1}\right)\\
+&amp;=e^{t\lambda}\left(
+\begin{array}{ccccc}
+1 &amp; t &amp; \frac{t^2}{2} &amp; \cdots &amp;
+\frac{t^{k-1}}{(k-1)!}\\
+&amp; 1 &amp; t &amp; \ddots &amp; \vdots\\
+&amp; &amp; \ddots &amp; \ddots &amp; \vdots\\
+&amp; &amp; &amp; &amp; t\\
+0 &amp; &amp; &amp; &amp; 1
+\end{array}
+\right)
+\end{aligned}
+\]</span></p>
+<center>
+<h1 id="線性微分方程組"><font color=#b8860b>線性微分方程組</font></h1>
+</center>
+<h2 id="定理-12"><font color=#ff1493><u>定理 12</u></font></h2>
+<p>對於在註記11中給定的約旦典型形式矩陣<span
+class="math inline">\(J\)</span>，我們有 <span class="math display">\[
+\frac{d}{dt}\left(\exp(tJ)\left(
+\begin{array}{c}
+a\\
+b\\
+c\\
+d
+\end{array}
+\right)\right)=J\exp(tJ)\left(
+\begin{array}{c}
+a\\
+b\\
+c\\
+d
+\end{array}
+\right)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：令 <span
+class="math display">\[
+\vec{x}(t)=\exp(tJ)\left(
+\begin{array}{c}
+a\\
+b\\
+c\\
+d
+\end{array}
+\right)
+\]</span> 由註記11，我們有 <span class="math display">\[
+\exp(tJ)\left(
+\begin{array}{c}
+a\\
+b\\
+c\\
+d
+\end{array}
+\right)=e^{t\lambda}\left(
+\begin{array}{c}
+f(t)\\
+f&#39;(t)\\
+f&#39;&#39;(t)\\
+f&#39;&#39;&#39;(t)
+\end{array}
+\right)
+\]</span> 其中 <span class="math display">\[
+f(t)=a+bt+\frac{t^2}{2!}c+\frac{t^3}{3!}d
+\]</span> (這裡略過了計算過程)。而因<span
+class="math inline">\(f^{(4)}(t)=0\)</span>，故有 <span
+class="math display">\[
+\begin{aligned}
+\frac{d}{dt}\vec{x}(t)&amp;=e^{t\lambda}\left(
+\begin{array}{c}
+\lambda f(t)+f&#39;(t)\\
+\lambda f&#39;(t)+f&#39;&#39;(t)\\
+\lambda f&#39;&#39;(t)+f&#39;&#39;&#39;(t)\\
+\lambda f&#39;&#39;&#39;(t)
+\end{array}
+\right)\\
+&amp;=\left(
+\begin{array}{cccc}
+\lambda &amp; 1 &amp; &amp; 0\\
+&amp; \lambda &amp; 1 &amp; \\
+&amp; &amp; \lambda &amp; 1\\
+0 &amp; &amp; &amp; \lambda
+\end{array}
+\right)\cdot e^{t\lambda}\left(
+\begin{array}{c}
+f(t)\\
+f&#39;(t)\\
+f&#39;&#39;(t)\\
+f&#39;&#39;&#39;(t)
+\end{array}
+\right)\\
+&amp;=J\exp(tJ)\left(
+\begin{array}{c}
+a\\
+b\\
+c\\
+d
+\end{array}
+\right)=J\vec{x}(t)
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="註記-12-1"><font color=#0000FF><u>註記 12-1</u></font></h3>
+<p>沿用定理12的符號，我們可以把定理12的結論寫成 <span
+class="math display">\[
+\frac{d}{dt}(\exp(tJ)\vec{x}(0))=J\exp(tJ)\vec{x}(0)
+\]</span></p>
+<h3 id="推論-12-2"><font color=#0000FF><u>推論 12-2</u></font></h3>
+<p>給定微分方程組 <span class="math display">\[
+\frac{d}{dt}\vec{x}(t)=A\vec{x}(t), A\in M_{n\times n}(\mathbb{C})
+\]</span> 則令<span class="math inline">\(J\)</span>是<span
+class="math inline">\(A\)</span>的約旦典型形式，並令<span
+class="math inline">\(J=Q^{-1}AQ\)</span>，則<span
+class="math inline">\(A=QJQ^{-1}\)</span>。則 <span
+class="math display">\[
+\begin{aligned}
+&amp;\frac{d}{dt}\vec{x}(t)=(QJQ^{-1}\vec{x}(t))\\
+\Rightarrow&amp;\frac{d}{dt}(Q^{-1}\vec{x}(t))=J(Q^{-1}\vec{x}(t))\\
+\end{aligned}
+\]</span> 而由定理12與註記12-1，我們知道此方程組的解滿足 <span
+class="math display">\[
+Q^{-1}\vec{x}(t)=\exp(tJ)(Q^{-1}\vec{x}(0))
+\]</span> 故由註記11知 <span class="math display">\[
+\vec{x}(t)=Q\exp(tJ)Q^{-1}\vec{x}(0)=\exp(tA)\vec{x}(0)
+\]</span></p>
 
     </div>
 
@@ -301,6 +658,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%8C%E5%82%99%E5%BA%A6%E9%87%8F%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">完備度量空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E7%AF%84%E6%95%B8-norm"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：範數
+(Norm)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E7%9F%A9%E9%99%A3%E7%9A%84%E7%AF%84%E6%95%B8-norm-of-matrices"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
+1-1：矩陣的範數 (Norm of Matrices)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%BA%A6%E9%87%8F-metric"><span class="nav-number">1.2.</span> <span class="nav-text">定義 2：度量
+(Metric)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97-cauchy-sequence"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：柯西序列 (Cauchy Sequence)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E5%AE%8C%E5%82%99%E5%BA%A6%E9%87%8F%E7%A9%BA%E9%96%93-complete-metric-space"><span class="nav-number">1.4.</span> <span class="nav-text">定義
+4：完備度量空間 (Complete Metric Space)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">例 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">1.5.</span> <span class="nav-text">註記 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">例 5-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%99%A3%E7%9A%84%E6%8C%87%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">矩陣的指數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E7%9F%A9%E9%99%A3%E7%9A%84%E6%8C%87%E6%95%B8-exponential-of-matrices"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+6：矩陣的指數 (Exponential of Matrices)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記 6-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%86%AA%E9%9B%B6%E7%9F%A9%E9%99%A3-nilpotent-matrix"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+7：冪零矩陣 (Nilpotent Matrix)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">2.3.</span> <span class="nav-text">註記 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.4.</span> <span class="nav-text">定理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">2.5.</span> <span class="nav-text">註記 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-11"><span class="nav-number">2.6.</span> <span class="nav-text">註記 11</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%9A%E6%80%A7%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%B5%84"><span class="nav-number">3.</span> <span class="nav-text">線性微分方程組</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">3.1.</span> <span class="nav-text">定理 12</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-12-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 12-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-12-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">推論 12-2</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
