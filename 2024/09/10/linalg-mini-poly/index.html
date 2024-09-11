@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於最小多項式的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-09-10T15:23:31.000Z">
-<meta property="article:modified_time" content="2024-09-10T15:30:57.274Z">
+<meta property="article:modified_time" content="2024-09-11T14:33:58.977Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -191,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-09-10 23:23:31 / 修改時間：23:30:57" itemprop="dateCreated datePublished" datetime="2024-09-10T23:23:31+08:00">2024-09-10</time>
+              <time title="創建時間：2024-09-10 23:23:31" itemprop="dateCreated datePublished" datetime="2024-09-10T23:23:31+08:00">2024-09-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-09-11 22:33:58" itemprop="dateModified" datetime="2024-09-11T22:33:58+08:00">2024-09-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -277,6 +283,126 @@ class="math inline">\(p_1(t)=cp_2(t)\)</span>。但由定義知最小多項式�
 class="math inline">\(1\)</span>，故<span
 class="math inline">\(c=1\)</span>, <span
 class="math inline">\(p_1=p_2\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。令<span
+class="math inline">\(p(t)\)</span>為<span
+class="math inline">\(T\)</span>的最小多項式，則<span
+class="math inline">\(\lambda\)</span>是<span
+class="math inline">\(T\)</span>的特徵值若且為若<span
+class="math inline">\(p(\lambda)=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(f(t)\)</span>是<span
+class="math inline">\(T\)</span>的特徵多項式，則由定理2知<span
+class="math inline">\(p(t)|f(t)\)</span>，即存在多項式<span
+class="math inline">\(q(t)\)</span>使得<span
+class="math inline">\(f(t)=q(t)p(t)\)</span>。我們接著分成兩部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(\lambda\)</span>是<span
+class="math inline">\(T\)</span>的特徵值，則<span
+class="math inline">\(f(\lambda)=0\)</span>。令<span
+class="math inline">\(0\neq x\)</span>是其對應的特徵向量，即<span
+class="math inline">\(T(x)=\lambda x\)</span>。則 <span
+class="math display">\[
+0=p(T)(x)=p(\lambda)x
+\]</span> 故有<span class="math inline">\(p(\lambda)=0\)</span>。
+<br>「<span class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(p(\lambda)=0\)</span>，則有 <span
+class="math display">\[
+f(\lambda)=q(\lambda)p(\lambda)=0\cdot q(\lambda)=0
+\]</span> 故知<span class="math inline">\(\lambda\)</span>是<span
+class="math inline">\(f(t)\)</span>的根，即是<span
+class="math inline">\(T\)</span>的特徵值。<font size="1">QED</font></p>
+<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。令其特徵多項式為 <span
+class="math display">\[
+f(t)=(\lambda_1-t)^{m_1}(\lambda_2-t)^{m_2}\cdots(\lambda_k-t)^{m_k}
+\]</span> 並令其最小多項式為 <span class="math display">\[
+p(t)=(t-\lambda_1)^{n_1}(t-\lambda_2)^{n_2}\cdots(t-\lambda_k)^{m_k}
+\]</span> 我們知道<span
+class="math inline">\(f(t)=0\)</span>，故由定理2知<span
+class="math inline">\(p(t)|f(t)\)</span>。且由定理4知對所有<span
+class="math inline">\(i=1\sim k\)</span>應有<span
+class="math inline">\(1\leq n_i\leq m_i\)</span>。</p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V=n&lt;\infty\)</span>。令<span
+class="math inline">\(V\)</span>是<span
+class="math inline">\(T\)</span>-循環空間。則 <span
+class="math display">\[
+\deg(T\mbox{的特徵多項式})=\deg(T\mbox{的最小多項式})
+\]</span> 意即<span class="math inline">\(f(t)=(-1)^n
+p(t)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(f\)</span>是<span
+class="math inline">\(T\)</span>的特徵多項式，<span
+class="math inline">\(p\)</span>是<span
+class="math inline">\(T\)</span>的最小多項式。則由<span
+class="math inline">\(V\)</span>是<span
+class="math inline">\(T\)</span>-循環知存在<span
+class="math inline">\(0\neq x\in V\)</span>使得 <span
+class="math display">\[
+\beta=\{x,T(x),T^2(x),\cdots,T^{n-1}(x)\}
+\]</span> 是<span class="math inline">\(V\)</span>的基底。令 <span
+class="math display">\[
+g(t)=a_0+a_1(t)+\cdots+a_kt^k
+\]</span> 假設<span class="math inline">\(\deg g=k&lt;n, a_k\neq
+0\)</span>，則 <span class="math display">\[
+g(T)(x)=a_0x+a_1T(x)+\cdots+a_kT^k(x)
+\]</span> 可以發現<span class="math inline">\(g(T)(x)\)</span>是<span
+class="math inline">\(\beta\)</span>中元素的線性組合且<span
+class="math inline">\(a_k\neq 0\)</span>，故由<span
+class="math inline">\(\beta\)</span>是線性獨立知<span
+class="math inline">\(g(T)(x)\neq 0\)</span>。故 <span
+class="math display">\[
+\deg p(t)=n=\dim V=\deg f(t)
+\]</span> <font size="1">QED</font></p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。則<span
+class="math inline">\(T\)</span>可對角化 iff. <span
+class="math inline">\(T\)</span>的最小多項式可以表為 <span
+class="math display">\[
+p(t)=(t-\lambda_1)(t-\lambda_2)\cdots(t-\lambda_k)
+\]</span> 其中<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>為<span
+class="math inline">\(T\)</span>的相異特徵值。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(T\)</span>可對角化，令<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>是<span
+class="math inline">\(T\)</span>的相異特徵值，且令 <span
+class="math display">\[
+q(t)=(t-\lambda_1)(t-\lambda_2)\cdots(t-\lambda_k)
+\]</span> 又令<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_n\}\)</span>是由<span
+class="math inline">\(T\)</span>的特徵向量構成的<span
+class="math inline">\(V\)</span>的基底(因為<span
+class="math inline">\(T\)</span>可對角化故這樣的基底是存在的)，則對於所有<span
+class="math inline">\(v_i\in\beta\)</span>，存在某個特徵值<span
+class="math inline">\(\lambda_j\)</span>使得 <span
+class="math display">\[
+(T-\lambda_jI)(v_i)=0
+\]</span> 故對於所有<span
+class="math inline">\(v_i\in\beta\)</span>有<span
+class="math inline">\(q(T)(v_i)=0\)</span>。則<span
+class="math inline">\(q(T)=0\)</span>，而由<span
+class="math inline">\(q\)</span>的形式與註記4-1知<span
+class="math inline">\(q\)</span>應是最小多項式。 <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(T\)</span>的最小多項式可表為 <span
+class="math display">\[
+p(t)=(t-\lambda_1)(t-\lambda_2)\cdots(t-\lambda_k)
+\]</span> 則我們對<span class="math inline">\(n=\dim
+V\)</span>做數學歸納法。當<span
+class="math inline">\(n=1\)</span>時定理顯然成立。假設當<span
+class="math inline">\(\dim V&lt;n\)</span>時定理都成立，則<span
+class="math inline">\(\dim V=n\)</span>時，令<span
+class="math inline">\(W=R(T-\lambda_kI)\)</span>。因為有非零特徵向量使得<span
+class="math inline">\((T-\lambda_kI)(x)=0\)</span>，故<span
+class="math inline">\(W\neq V\)</span>。我們接著分兩種狀況討論： <br>1.
+若<span class="math inline">\(W=\{0\}\)</span>，則</p>
 
     </div>
 
@@ -361,7 +487,7 @@ class="math inline">\(p_1=p_2\)</span>。<font size="1">QED</font></p>
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E5%A4%9A%E9%A0%85%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">最小多項式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E6%9C%80%E5%B0%8F%E5%A4%9A%E9%A0%85%E5%BC%8F-minimal-polynomial"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：最小多項式 (Minimal Polynomial)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E7%9F%A9%E9%99%A3%E7%9A%84%E6%9C%80%E5%B0%8F%E5%A4%9A%E9%A0%85%E5%BC%8F-minimal-polynomial-of-matrices"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
-1-1：矩陣的最小多項式 (Minimal Polynomial of Matrices)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li></ol></li></ol></div>
+1-1：矩陣的最小多項式 (Minimal Polynomial of Matrices)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">1.6.</span> <span class="nav-text">定理 6</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
