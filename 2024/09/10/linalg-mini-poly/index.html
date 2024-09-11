@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於最小多項式的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-09-10T15:23:31.000Z">
-<meta property="article:modified_time" content="2024-09-11T14:33:58.977Z">
+<meta property="article:modified_time" content="2024-09-11T16:01:17.877Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-09-11 22:33:58" itemprop="dateModified" datetime="2024-09-11T22:33:58+08:00">2024-09-11</time>
+                <time title="修改時間：2024-09-12 00:01:17" itemprop="dateModified" datetime="2024-09-12T00:01:17+08:00">2024-09-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -402,7 +402,169 @@ class="math inline">\(\dim V=n\)</span>時，令<span
 class="math inline">\(W=R(T-\lambda_kI)\)</span>。因為有非零特徵向量使得<span
 class="math inline">\((T-\lambda_kI)(x)=0\)</span>，故<span
 class="math inline">\(W\neq V\)</span>。我們接著分兩種狀況討論： <br>1.
-若<span class="math inline">\(W=\{0\}\)</span>，則</p>
+若<span class="math inline">\(W=\{0\}\)</span>，則 <span
+class="math display">\[
+R(T-\lambda_kI)=\{0\},\;\; T-\lambda_kI=0
+\]</span> 則<span
+class="math inline">\(T=\lambda_kI\)</span>為對角矩陣。 <br>2. 若<span
+class="math inline">\(0&lt;\dim W&lt;n=\dim V\)</span>，則易知<span
+class="math inline">\(W\)</span>是<span
+class="math inline">\(T\)</span>-不變的。考慮<span
+class="math inline">\(T_W:W\to W\)</span>，則對所有<span
+class="math inline">\(x\in W\)</span>，我們知道存在<span
+class="math inline">\(y\in V\)</span>使得<span
+class="math inline">\(x=(T-\lambda_kI)y\)</span>，故 <span
+class="math display">\[
+\begin{aligned}
+(T-\lambda_1I)(T-\lambda_2I)\cdots(T-\lambda_{k-1}I)(x)&amp;=(T-\lambda_1I)(T-\lambda_2I)\cdots(T-\lambda_kI)(y)\\
+&amp;=p(T)(y)=0
+\end{aligned}
+\]</span> 故由定理2知<span
+class="math inline">\(T_W\)</span>的最小多項式整除<span
+class="math inline">\((t-\lambda_1)(t-\lambda_2)\cdots(t-\lambda_{k-1})\)</span>。由歸納假設，<span
+class="math inline">\(T_W\)</span>是可對角化的且<span
+class="math inline">\(\lambda_k\)</span>不是<span
+class="math inline">\(T_W\)</span>的特徵值(定理4)，故<span
+class="math inline">\(W\cap N(T-\lambda_kI)=\{0\}\)</span>。令<span
+class="math inline">\(\beta_1=\{v_1,\cdots,v_m\}\)</span>是由<span
+class="math inline">\(T_W\)</span>的特徵向量構成的<span
+class="math inline">\(W\)</span>的基底，<span
+class="math inline">\(\beta_2=\{w_1,\cdots,w_p\}\)</span>是<span
+class="math inline">\(N(T-\lambda_kI)=E_{\lambda_k}\)</span>的基底。我們希望說明<span
+class="math inline">\(\beta_1\cup\beta_2\)</span>是線性獨立的。 <br>令
+<span class="math display">\[
+\underbrace{a_1v_1+a_2v_2+\cdots+a_mv_m}_{=x\in
+W}+\underbrace{b_1w_1+b_2w_2+\cdots+b_pw_p}_{y\in E_{\lambda_k}}=0
+\]</span> 則<span class="math inline">\(x=-y\in
+E_{\lambda_k}\)</span>。故<span class="math inline">\(x\in W\cup
+E_{\lambda_k}=\{0\}\)</span>，即<span
+class="math inline">\(x=y=0\)</span>。而由<span
+class="math inline">\(\beta_1\)</span>和<span
+class="math inline">\(\beta_2\)</span>分別線性獨立知<span
+class="math inline">\(a_i=b_j=0,\forall i,j\)</span>。 <br>於是 <span
+class="math display">\[
+|\beta_1\cup\beta_2|=|\beta_1|+|\beta_2|=\dim R(T-\lambda_kI)+\dim
+N(T-\lambda_kI)=n
+\]</span> 故<span
+class="math inline">\(\beta_1\cup\beta_2\)</span>是<span
+class="math inline">\(V\)</span>的基底。且 <span class="math display">\[
+[T]^{\beta_1\cup\beta_2}_{\beta_1\cup\beta_2}=\left(
+\begin{array}{c|ccc}
+[T_W]^{\beta_1}_{\beta_1} &amp; &amp; &amp; \\
+\hline
+&amp; \lambda_k &amp; &amp; \\
+&amp; &amp; \ddots &amp; \\
+&amp; &amp; &amp; \lambda_k
+\end{array}
+\right)
+\]</span> 故我們知道<span
+class="math inline">\(T\)</span>是可對角化的。由數學歸納法，我們知道定理成立。<font size="1">QED</font></p>
+<center>
+<h1 id="消除子"><font color=#b8860b>消除子</font></h1>
+</center>
+<h2 id="定義-7消除子-annihilator"><font color=#008000><u>定義 7：消除子
+(Annihilator)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。給定<span
+class="math inline">\(x\in V\)</span>，若多項式<span
+class="math inline">\(p(t)\)</span>領導係數為<span
+class="math inline">\(1\)</span>且是使<span
+class="math inline">\(p(T)(x)=0\)</span>的最低次多項式，則稱<span
+class="math inline">\(p(t)\)</span>為<span
+class="math inline">\(x\)</span>的<span
+class="math inline">\(T\)</span>-消除子。</p>
+<h3 id="性質-7-1"><font color=#0000FF><u>性質 7-1</u></font></h3>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。給定<span
+class="math inline">\(x\in V\)</span>，則其<span
+class="math inline">\(T\)</span>-消除子<span
+class="math inline">\(p(t)\)</span>是唯一的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若存在領導係數為<span
+class="math inline">\(1\)</span>的消除子<span
+class="math inline">\(p_1,p_2\)</span>使得<span
+class="math inline">\(p_1(T)(x)=p_2(T)(x)=0\)</span>，則應有<span
+class="math inline">\(\deg p_1=\deg p_2\)</span>。若<span
+class="math inline">\(p_1\neq p_2\)</span>，則 <span
+class="math display">\[
+(p_1-p_2)(T)(x)=0
+\]</span> 且 <span class="math display">\[
+0&lt;\deg(p_1-p_2)&lt;\deg p_2
+\]</span> 這與消除子的定義矛盾，故應有<span
+class="math inline">\(p_1=p_2\)</span>。<font size="1">QED</font></p>
+<h3 id="性質-7-2"><font color=#0000FF><u>性質 7-2</u></font></h3>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。給定<span
+class="math inline">\(x\in V\)</span>，令<span
+class="math inline">\(p(t)\)</span>為<span
+class="math inline">\(x\)</span>的<span
+class="math inline">\(T\)</span>-消除子。則若多項式<span
+class="math inline">\(g(t)\)</span>滿足<span
+class="math inline">\(g(T)(x)=0\)</span>，則<span
+class="math inline">\(p(t)|g(t)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定義知<span
+class="math inline">\(\deg p\leq\deg
+g\)</span>。使用除法原理，可知存在<span
+class="math inline">\(q(t)\)</span>與<span
+class="math inline">\(r(t)\)</span>使得 <span class="math display">\[
+g(t)=q(t)p(t)+r(t)
+\]</span> 其中<span class="math inline">\(\deg r&lt;\deg
+p\)</span>。然而 <span class="math display">\[
+\underbrace{g(T)(x)}_{=0}=q(T)\underbrace{p(T)(x)}_{=0}+r(T)(x)
+\]</span> 故<span class="math inline">\(r(T)(x)=0\)</span>。但<span
+class="math inline">\(p(t)\)</span>已經是消除子了，故<span
+class="math inline">\(r(t)\equiv 0\)</span>，<span
+class="math inline">\(p(t)|g(t)\)</span>。<font size="1">QED</font></p>
+<h3 id="性質-7-3"><font color=#0000FF><u>性質 7-3</u></font></h3>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。給定<span
+class="math inline">\(x\in V\)</span>，令<span
+class="math inline">\(p(t)\)</span>為<span
+class="math inline">\(x\)</span>的<span
+class="math inline">\(T\)</span>-消除子。令<span
+class="math inline">\(W\)</span>是由<span
+class="math inline">\(x\)</span>生成的<span
+class="math inline">\(T\)</span>-循環子空間，則<span
+class="math inline">\(p(t)\)</span>是<span
+class="math inline">\(T_W\)</span>的最小多項式，且 <span
+class="math display">\[
+\dim W=\deg p(t)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(q(t)\)</span>是<span
+class="math inline">\(T_W\)</span>的最小多項式。由性質7-2，我們知道<span
+class="math inline">\(p(t)\)</span>整除<span
+class="math inline">\(q(t)\)</span>。若<span
+class="math inline">\(p\)</span>的次數低於<span
+class="math inline">\(q\)</span>的次數，則令<span
+class="math inline">\(\dim W=k\)</span>，有 <span
+class="math display">\[
+p(T)(x)=0, p(T)T(x)=0, p(T)T^2(x)=0,\cdots,p(T)T^{k-1}(x)=0
+\]</span> 然而<span
+class="math inline">\(\{x,T(x),T^2(x),\cdots,T^{k-1}(x)\}\)</span>是<span
+class="math inline">\(W\)</span>的基底，故 <span class="math display">\[
+p(T_W)=(p(T))_W=0
+\]</span> 這與<span
+class="math inline">\(q\)</span>是最小多項式的假設矛盾，故<span
+class="math inline">\(p\)</span>就是<span
+class="math inline">\(T_W\)</span>的最小多項式。而由於<span
+class="math inline">\(W\)</span>的特徵多項式是<span
+class="math inline">\(k\)</span>次(見<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的註記4-3)，故由定理5知<span
+class="math inline">\(\dim W=\deg
+p\)</span>。<font size="1">QED</font></p>
+<h3 id="性質-7-4"><font color=#0000FF><u>性質 7-4</u></font></h3>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。給定<span
+class="math inline">\(x\in V\)</span>，令<span
+class="math inline">\(p(t)\)</span>為<span
+class="math inline">\(x\)</span>的<span
+class="math inline">\(T\)</span>-消除子。則<span
+class="math inline">\(\deg p=1\)</span> iff. 存在<span
+class="math inline">\(\lambda\)</span>使得<span
+class="math inline">\((T-\lambda I)(x)=0\)</span> iff. <span
+class="math inline">\(x\)</span>是<span
+class="math inline">\(T\)</span>的特徵向量。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由消除子的定義易得。<font size="1">QED</font></p>
 
     </div>
 
@@ -487,7 +649,8 @@ class="math inline">\(W\neq V\)</span>。我們接著分兩種狀況討論： <b
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E5%A4%9A%E9%A0%85%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">最小多項式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E6%9C%80%E5%B0%8F%E5%A4%9A%E9%A0%85%E5%BC%8F-minimal-polynomial"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：最小多項式 (Minimal Polynomial)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E7%9F%A9%E9%99%A3%E7%9A%84%E6%9C%80%E5%B0%8F%E5%A4%9A%E9%A0%85%E5%BC%8F-minimal-polynomial-of-matrices"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
-1-1：矩陣的最小多項式 (Minimal Polynomial of Matrices)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">1.6.</span> <span class="nav-text">定理 6</span></a></li></ol></li></ol></div>
+1-1：矩陣的最小多項式 (Minimal Polynomial of Matrices)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">1.6.</span> <span class="nav-text">定理 6</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B6%88%E9%99%A4%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">消除子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E6%B6%88%E9%99%A4%E5%AD%90-annihilator"><span class="nav-number">2.1.</span> <span class="nav-text">定義 7：消除子
+(Annihilator)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-7-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">性質 7-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-7-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">性質 7-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-7-3"><span class="nav-number">2.1.3.</span> <span class="nav-text">性質 7-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-7-4"><span class="nav-number">2.1.4.</span> <span class="nav-text">性質 7-4</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
