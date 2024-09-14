@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於矩陣的有理典型形式的存在性。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-09-14T05:53:22.000Z">
-<meta property="article:modified_time" content="2024-09-14T07:28:31.020Z">
+<meta property="article:modified_time" content="2024-09-14T07:51:42.571Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-14 13:53:22 / 修改時間：15:28:31" itemprop="dateCreated datePublished" datetime="2024-09-14T13:53:22+08:00">2024-09-14</time>
+              <time title="創建時間：2024-09-14 13:53:22 / 修改時間：15:51:42" itemprop="dateCreated datePublished" datetime="2024-09-14T13:53:22+08:00">2024-09-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -225,7 +225,18 @@
 <center>
 <h1 id="記號約定"><font color=#b8860b>記號約定</font></h1>
 </center>
-<h2 id="定義-1"><font color=#008000><u>定義 1</u></font></h2>
+<h2
+id="定義-1可約多項式-reducible-polynomial"><font color=#008000><u>定義
+1：可約多項式 (Reducible Polynomial)</u></font></h2>
+<p>給定係數都在<span class="math inline">\(F\)</span>中的多項式<span
+class="math inline">\(f(x)\)</span>。若能找到兩個係數都在<span
+class="math inline">\(F\)</span>中且次數都大於<span
+class="math inline">\(1\)</span>的多項式<span
+class="math inline">\(g(x),h(x)\)</span>使得<span
+class="math inline">\(f(x)=g(x)h(x)\)</span>，則稱<span
+class="math inline">\(f(x)\)</span>是可約的。否則稱<span
+class="math inline">\(f(x)\)</span>是不可約的(Irreducible)。</p>
+<h2 id="定義-2"><font color=#008000><u>定義 2</u></font></h2>
 <p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
 class="math inline">\(\dim V&lt;\infty\)</span>。令<span
 class="math inline">\(T\)</span>的特徵多項式為 <span
@@ -236,12 +247,12 @@ class="math inline">\(\phi_i(t)\)</span>是不可約多項式。則令 <span
 class="math display">\[
 K_{\phi_i}=\{x\in V:(\phi_i(T))^p(x)=0,\mbox{ for some integer }p&gt;0\}
 \]</span></p>
-<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<h3 id="註記-2-1"><font color=#0000FF><u>註記 2-1</u></font></h3>
 <p>很容易可以發現<span class="math inline">\(K_{\phi_i}\)</span>是<span
 class="math inline">\(V\)</span>的<span
 class="math inline">\(T\)</span>-不變子空間。</p>
-<h2 id="定義-2循環基底-cyclic-basis"><font color=#008000><u>定義
-2：循環基底 (Cyclic Basis)</u></font></h2>
+<h2 id="定義-3循環基底-cyclic-basis"><font color=#008000><u>定義
+3：循環基底 (Cyclic Basis)</u></font></h2>
 <p>給定線性映射<span class="math inline">\(T:V\to V\)</span>與<span
 class="math inline">\(0\neq x\in V\)</span>，其中<span
 class="math inline">\(\dim V&lt;\infty\)</span>。我們記由<span
@@ -257,9 +268,12 @@ class="math inline">\(\{x,T(x),T^2(x),\cdots,T^{k-1}(x)\}\)</span>是線性獨�
 \beta_x=\{x,T(x),T^2(x),\cdots,T^{k-1}(x)\}
 \]</span> 為由<span class="math inline">\(x\)</span>生成的<span
 class="math inline">\(T\)</span>-循環基底。</p>
-<h2 id="定義-3相伴矩陣-companion-matrix"><font color=#008000><u>定義
-3：相伴矩陣 (Companion Matrix)</u></font></h2>
-<p>對於<span class="math inline">\(T\)</span>-循環空間<span
+<h2 id="定義-4相伴矩陣-companion-matrix"><font color=#008000><u>定義
+4：相伴矩陣 (Companion Matrix)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>與<span
+class="math inline">\(0\neq x\in V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。對於<span
+class="math inline">\(T\)</span>-循環空間<span
 class="math inline">\(C_x\)</span>與其<span
 class="math inline">\(T\)</span>-循環基底<span
 class="math inline">\(\beta_x\)</span>，令 <span class="math display">\[
@@ -273,7 +287,58 @@ A=[T_{C_x}]^{\beta_x}_{\beta_x}=\left(
 0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1 &amp; -a_{k-1}
 \end{array}
 \right)
-\]</span> 其中最後一行的係數來自</p>
+\]</span> 其中最後一行的係數來自 <span class="math display">\[
+T(T^{k-1}(x))=T^k(x)=-a_0x-a_1T(x)-\cdots-a_{k-1}T^{k-1}(x)
+\]</span> 如上的矩陣<span class="math inline">\(A\)</span>稱為多項式
+<span class="math display">\[
+h(t)=a_0+a_1t+\cdots+a_{k-1}t^{k-1}+t^k
+\]</span> 的相伴矩陣。</p>
+<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
+<p>沿用定義4的符號，很容易可以計算出 <span class="math display">\[
+A\mbox{的特徵多項式}=\det(A-tI)=(-1)^k(a_0+a_1t+\cdots+a_{k-1}t^{k-1}+t^k)
+\]</span></p>
+<center>
+<h1 id="有理典型形式"><font color=#b8860b>有理典型形式</font></h1>
+</center>
+<h2
+id="定義-5有理典型形式-rational-canonical-form"><font color=#008000><u>定義
+5：有理典型形式 (Rational Canonical Form)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>與<span
+class="math inline">\(0\neq x\in V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。若有<span
+class="math inline">\(T\)</span>的基底<span
+class="math inline">\(\beta\)</span>使得 <span class="math display">\[
+[T]^\beta_\beta=\left(
+\begin{array}{cccc}
+C_1 &amp; &amp; &amp; 0\\
+&amp; C_2 &amp; &amp; \\
+&amp; &amp; \ddots &amp; \\
+0 &amp; &amp; &amp; C_r
+\end{array}
+\right)
+\]</span> 其中<span class="math inline">\(C_i\)</span>是某個<span
+class="math inline">\(\phi(t)^n\)</span>的相伴矩陣，且<span
+class="math inline">\(\phi\)</span>是<span
+class="math inline">\(T\)</span>的特徵多項式的某個不可約因式(<span
+class="math inline">\(n\)</span>不一定要等於定義2中的<span
+class="math inline">\(n_i\)</span>)，則稱<span
+class="math inline">\([T]^\beta_\beta\)</span>是<span
+class="math inline">\(T\)</span>的有理典型形式。</p>
+<h2 id="定義-6首一多項式-monic-polynomial"><font color=#008000><u>定義
+6：首一多項式 (Monic Polynomial)</u></font></h2>
+<p>即領導係數為<span class="math inline">\(1\)</span>的多項式。</p>
+<h2 id="引理-7"><font color=#0000FF><u>引理 7</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>與<span
+class="math inline">\(0\neq x\in V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。假設<span
+class="math inline">\(x\)</span>的<span
+class="math inline">\(T\)</span>-消除子可以被表為<span
+class="math inline">\((\phi(t))^p\)</span>的形式，其中<span
+class="math inline">\(\phi(t)\)</span>為不可約的首一多項式且<span
+class="math inline">\(p&gt;0\)</span>。則<span
+class="math inline">\(\phi(t)\)</span>整除<span
+class="math inline">\(T\)</span>的最小多項式，且<span
+class="math inline">\(x\in K_\phi\)</span>。<br></p>
 
     </div>
 
@@ -356,9 +421,12 @@ A=[T_{C_x}]^{\beta_x}_{\beta_x}=\left(
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%98%E8%99%9F%E7%B4%84%E5%AE%9A"><span class="nav-number">1.</span> <span class="nav-text">記號約定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%BE%AA%E7%92%B0%E5%9F%BA%E5%BA%95-cyclic-basis"><span class="nav-number">1.2.</span> <span class="nav-text">定義
-2：循環基底 (Cyclic Basis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%9B%B8%E4%BC%B4%E7%9F%A9%E9%99%A3-companion-matrix"><span class="nav-number">1.3.</span> <span class="nav-text">定義
-3：相伴矩陣 (Companion Matrix)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%98%E8%99%9F%E7%B4%84%E5%AE%9A"><span class="nav-number">1.</span> <span class="nav-text">記號約定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%8F%AF%E7%B4%84%E5%A4%9A%E9%A0%85%E5%BC%8F-reducible-polynomial"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：可約多項式 (Reducible Polynomial)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2"><span class="nav-number">1.2.</span> <span class="nav-text">定義 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%BE%AA%E7%92%B0%E5%9F%BA%E5%BA%95-cyclic-basis"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：循環基底 (Cyclic Basis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E7%9B%B8%E4%BC%B4%E7%9F%A9%E9%99%A3-companion-matrix"><span class="nav-number">1.4.</span> <span class="nav-text">定義
+4：相伴矩陣 (Companion Matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">有理典型形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F-rational-canonical-form"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+5：有理典型形式 (Rational Canonical Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E9%A6%96%E4%B8%80%E5%A4%9A%E9%A0%85%E5%BC%8F-monic-polynomial"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+6：首一多項式 (Monic Polynomial)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7"><span class="nav-number">2.3.</span> <span class="nav-text">引理 7</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
