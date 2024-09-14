@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於矩陣的有理典型形式的存在性。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-09-14T05:53:22.000Z">
-<meta property="article:modified_time" content="2024-09-14T05:55:28.271Z">
+<meta property="article:modified_time" content="2024-09-14T07:28:31.020Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-14 13:53:22 / 修改時間：13:55:28" itemprop="dateCreated datePublished" datetime="2024-09-14T13:53:22+08:00">2024-09-14</time>
+              <time title="創建時間：2024-09-14 13:53:22 / 修改時間：15:28:31" itemprop="dateCreated datePublished" datetime="2024-09-14T13:53:22+08:00">2024-09-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +221,59 @@
 
       
         <p>這份筆記是關於矩陣的有理典型形式的存在性。 <span id="more"></span><br></p>
+<p>這裡的行與列依循的是台灣的翻譯習慣，即行對應到英文的Column，而列對應到英文的Row。</p>
+<center>
+<h1 id="記號約定"><font color=#b8860b>記號約定</font></h1>
+</center>
+<h2 id="定義-1"><font color=#008000><u>定義 1</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。令<span
+class="math inline">\(T\)</span>的特徵多項式為 <span
+class="math display">\[
+(-1)^n(\phi_1(t))^{n_1}(\phi_2(t))^{n_2}\cdots(\phi_k(t))^{n_k}
+\]</span> 其中<span
+class="math inline">\(\phi_i(t)\)</span>是不可約多項式。則令 <span
+class="math display">\[
+K_{\phi_i}=\{x\in V:(\phi_i(T))^p(x)=0,\mbox{ for some integer }p&gt;0\}
+\]</span></p>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<p>很容易可以發現<span class="math inline">\(K_{\phi_i}\)</span>是<span
+class="math inline">\(V\)</span>的<span
+class="math inline">\(T\)</span>-不變子空間。</p>
+<h2 id="定義-2循環基底-cyclic-basis"><font color=#008000><u>定義
+2：循環基底 (Cyclic Basis)</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>與<span
+class="math inline">\(0\neq x\in V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。我們記由<span
+class="math inline">\(x\)</span>生成的<span
+class="math inline">\(T\)</span>-循環子空間為<span
+class="math inline">\(C_x\)</span>。令<span class="math inline">\(\dim
+C_x=k\)</span>，則應有 <span class="math display">\[
+C_x=\mbox{span}\{x,T(x),T^2(x),\cdots,T^{k-1}(x)\}
+\]</span> 由<a
+href="https://alexthepurplerose.github.io/2024/09/07/linalg-jordan/">這裡</a>的定理12知<span
+class="math inline">\(\{x,T(x),T^2(x),\cdots,T^{k-1}(x)\}\)</span>是線性獨立的。我們令
+<span class="math display">\[
+\beta_x=\{x,T(x),T^2(x),\cdots,T^{k-1}(x)\}
+\]</span> 為由<span class="math inline">\(x\)</span>生成的<span
+class="math inline">\(T\)</span>-循環基底。</p>
+<h2 id="定義-3相伴矩陣-companion-matrix"><font color=#008000><u>定義
+3：相伴矩陣 (Companion Matrix)</u></font></h2>
+<p>對於<span class="math inline">\(T\)</span>-循環空間<span
+class="math inline">\(C_x\)</span>與其<span
+class="math inline">\(T\)</span>-循環基底<span
+class="math inline">\(\beta_x\)</span>，令 <span class="math display">\[
+A=[T_{C_x}]^{\beta_x}_{\beta_x}=\left(
+\begin{array}{cccccc}
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; -a_0\\
+1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; -a_1\\
+0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 &amp; -a_2\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp;
+\vdots\\
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; 1 &amp; -a_{k-1}
+\end{array}
+\right)
+\]</span> 其中最後一行的係數來自</p>
 
     </div>
 
@@ -303,6 +356,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%98%E8%99%9F%E7%B4%84%E5%AE%9A"><span class="nav-number">1.</span> <span class="nav-text">記號約定</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%BE%AA%E7%92%B0%E5%9F%BA%E5%BA%95-cyclic-basis"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：循環基底 (Cyclic Basis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%9B%B8%E4%BC%B4%E7%9F%A9%E9%99%A3-companion-matrix"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：相伴矩陣 (Companion Matrix)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
