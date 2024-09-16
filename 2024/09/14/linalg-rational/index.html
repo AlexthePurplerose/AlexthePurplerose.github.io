@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於矩陣的有理典型形式的存在性。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-09-14T05:53:22.000Z">
-<meta property="article:modified_time" content="2024-09-14T11:59:43.221Z">
+<meta property="article:modified_time" content="2024-09-16T12:25:26.701Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -191,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-09-14 13:53:22 / 修改時間：19:59:43" itemprop="dateCreated datePublished" datetime="2024-09-14T13:53:22+08:00">2024-09-14</time>
+              <time title="創建時間：2024-09-14 13:53:22" itemprop="dateCreated datePublished" datetime="2024-09-14T13:53:22+08:00">2024-09-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-09-16 20:25:26" itemprop="dateModified" datetime="2024-09-16T20:25:26+08:00">2024-09-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -468,10 +474,99 @@ v_1+v_2+\cdots+v_k=0
 class="math inline">\(v_i=0\)</span> i.e. <span class="math display">\[
 K_{\phi_1}+K_{\phi_2}+\cdots+K_{\phi_k}=K_{\phi_1}\oplus
 K_{\phi_2}\oplus\cdots\oplus K_{\phi_k}
-\]</span></p>
+\]</span> (可以參見<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的定理14-1。)<br></p>
 <p><font color=#8b4513><u>證明</u></font>：若<span
 class="math inline">\(k=1\)</span>，則結論是顯然的。若<span
-class="math inline">\(k&gt;1\)</span>，則沿用定理9的符號，考慮兩個映射</p>
+class="math inline">\(k&gt;1\)</span>，則沿用定理9的符號，考慮兩個映射
+<span class="math display">\[
+f_i(T)_{K_{\phi_i}}:K_{\phi_i}\xrightarrow{\sim}K_{\phi_i},
+f_i(T)_{K_{\phi_j}}:K_{\phi_j}\rightarrow K_{\phi_j}
+\]</span> 其中<span class="math inline">\(i\neq
+j\)</span>。然而由定理9第5.點知<span
+class="math inline">\(K_{\phi_j}=N((\phi_j(T))^{m_j})\)</span>。故對於所有<span
+class="math inline">\(x\in K_{\phi_j}\)</span>，有<span
+class="math inline">\(f_i(T)(x)=0\)</span>(這可以從<span
+class="math inline">\(f_i\)</span>的定義得知)。故 <span
+class="math display">\[
+\forall i\neq j, v_j\in K_{\phi_j}, f_i(T)(v_j)=0
+\]</span> 故對於<span class="math inline">\(v_j\in
+K_{\phi_j}\)</span>，有 <span class="math display">\[
+f_i(T)(v_1+v_2+\cdots+v_{i-1}+v_{i+1}+\cdots+v_k)=0
+\]</span> 然而由假設<span
+class="math inline">\(v_1+v_2+\cdots+v_k=0\)</span>，故<span
+class="math inline">\(f_i(T)(-v_i)=0\)</span>。然而<span
+class="math inline">\(f_i(T)_{K_{\phi_i}}\)</span>是一對一的，故<span
+class="math inline">\(v_i=0\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-11"><font color=#ff1493><u>定理 11</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。令<span
+class="math inline">\(T\)</span>的最小多項式為 <span
+class="math display">\[
+p(t)=(\phi_1(t))^{m_1}(\phi_2(t))^{m_2}\cdots(\phi_k(t))^{m_k}
+\]</span> 其中<span
+class="math inline">\(\phi_i\)</span>是相異的首一不可約多項式。給定<span
+class="math inline">\(K_{\phi_i}\)</span>的線性獨立的子集<span
+class="math inline">\(S_i\)</span>，則 <br>1. <span
+class="math inline">\(\forall i\neq j\)</span>, <span
+class="math inline">\(S_i\cap S_j\)</span> <br>2. <span
+class="math inline">\(S_1\cup S_2\cup\cdots\cup
+S_k\)</span>是線性獨立的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 由定理9第3.點易得。
+<br>2. 由引理10可得(這也可以參見<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的定理14-1)。<font size="1">QED</font></p>
+<h2 id="定理-12"><font color=#ff1493><u>定理 12</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。令<span
+class="math inline">\(\phi\)</span>為<span
+class="math inline">\(T\)</span>的最小多項式的某個首一不可約因式(i.e.
+<span
+class="math inline">\(K_\phi\neq\{0\}\)</span>，見定理9第1.點)。令<span
+class="math inline">\(v_1,v_2,\cdots,v_k\in
+K_\phi\)</span>為相異的向量(所以由定理9第2.點知<span
+class="math inline">\(v_i\)</span>的<span
+class="math inline">\(T\)</span>-消除子會形如<span
+class="math inline">\((\phi(t))^{l_i}\)</span>。)使得<span
+class="math inline">\(S_1=\beta_{v_1}\cup\beta_{v_2}\cup\cdots\cup\beta_{v_k}\)</span>是線性獨立的(定理11的第2.點)。且若對於所有<span
+class="math inline">\(i\)</span>，存在<span class="math inline">\(w_i\in
+V\)</span>使得<span class="math inline">\(\phi(T)(w_i)=v_i\)</span>，則
+<span class="math display">\[
+S_2=\beta_{w_1}\cup\beta_{w_2}\cup\cdots\cup\beta_{w_k}
+\]</span> 也是線性獨立的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮<span
+class="math inline">\(w_i\)</span>的<span
+class="math inline">\(T\)</span>-循環基底<span
+class="math inline">\(\{w_i,T(w_i),\cdots,T^{n_i}(w_i)\}\)</span>。再考慮<span
+class="math inline">\(S_2\)</span>中的元素的線性組合 <span
+class="math display">\[
+\sum_{i=1}^k\left(\sum_{j=0}^{n_i}a_{ij}T^j(w_i)\right)=0
+\]</span> (參考前面<span
+class="math inline">\(\beta_{w_i}\)</span>的定義，見定義3)，令 <span
+class="math display">\[
+f_i(t)=\sum_{j=0}^{n_i}a_{ij}t^j
+\]</span> 則 <span class="math display">\[
+\sum_{i=1}^k f_i(T)(w_i)=0
+\]</span> 故 <span class="math display">\[
+0=\phi(T)\left(\sum_{i=1}^k f_i(T)(w_i)\right)=\sum_{i=1}^k
+f_i(T)\phi(T)(w_i)=\sum_{i=1}^k f_i(T)(v_i)
+\]</span> 且<span class="math inline">\(f_i(T)(v_i)\in
+K_{\phi_i}\)</span>，故對所有<span
+class="math inline">\(i\)</span>，有<span
+class="math inline">\(f_i(T)(v_i)=0\)</span>(引理10)。又<span
+class="math inline">\(\phi(t)\)</span>整除<span
+class="math inline">\(v_i\)</span>的<span
+class="math inline">\(T\)</span>-消除子，且<span
+class="math inline">\(v_i\)</span>的<span
+class="math inline">\(T\)</span>-消除子整除<span
+class="math inline">\(f_i(t)\)</span>(因為<span
+class="math inline">\(f_i(T)(v_i)=0\)</span>，見<a
+href="https://alexthepurplerose.github.io/2024/09/10/linalg-mini-poly/">這裡</a>的性質7-2)。故存在多項式<span
+class="math inline">\(g_i(t)\)</span>使得<span
+class="math inline">\(f_i(t)=\phi(t)g_i(t)\)</span>。故 <span
+class="math display">\[
+0=\sum_{i=1}^k f_i(T)(w_i)=\sum_{i=1}^k g_i(T)\phi(T)(w_i)=\sum_{i=1}^k
+g_i(T)(v_i)
+\]</span></p>
 
     </div>
 
@@ -560,7 +655,7 @@ class="math inline">\(k&gt;1\)</span>，則沿用定理9的符號，考慮兩個
 4：相伴矩陣 (Companion Matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">有理典型形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F-rational-canonical-form"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 5：有理典型形式 (Rational Canonical Form)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-1%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%9F%BA%E5%BA%95-rational-canonical-basis"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
 5-1：有理典型基底 (Rational Canonical Basis)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E9%A6%96%E4%B8%80%E5%A4%9A%E9%A0%85%E5%BC%8F-monic-polynomial"><span class="nav-number">2.2.</span> <span class="nav-text">定義
-6：首一多項式 (Monic Polynomial)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7"><span class="nav-number">2.3.</span> <span class="nav-text">引理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">2.4.</span> <span class="nav-text">註記 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.5.</span> <span class="nav-text">定理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-10"><span class="nav-number">2.6.</span> <span class="nav-text">引理 10</span></a></li></ol></li></ol></div>
+6：首一多項式 (Monic Polynomial)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7"><span class="nav-number">2.3.</span> <span class="nav-text">引理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">2.4.</span> <span class="nav-text">註記 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.5.</span> <span class="nav-text">定理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-10"><span class="nav-number">2.6.</span> <span class="nav-text">引理 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">2.7.</span> <span class="nav-text">定理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.8.</span> <span class="nav-text">定理 12</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
