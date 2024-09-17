@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於對偶空間的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-09-17T08:10:31.000Z">
-<meta property="article:modified_time" content="2024-09-17T08:12:22.510Z">
+<meta property="article:modified_time" content="2024-09-17T09:22:45.282Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-17 16:10:31 / 修改時間：16:12:22" itemprop="dateCreated datePublished" datetime="2024-09-17T16:10:31+08:00">2024-09-17</time>
+              <time title="創建時間：2024-09-17 16:10:31 / 修改時間：17:22:45" itemprop="dateCreated datePublished" datetime="2024-09-17T16:10:31+08:00">2024-09-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +221,180 @@
 
       
         <p>這份筆記是關於對偶空間的定義與性質。 <span id="more"></span><br></p>
+<p>這裡的行與列依循的是台灣的翻譯習慣，即行對應到英文的Column，而列對應到英文的Row。</p>
+<center>
+<h1 id="對偶空間"><font color=#b8860b>對偶空間</font></h1>
+</center>
+<h2 id="定義-1對偶空間-dual-space"><font color=#008000><u>定義
+1：對偶空間 (Dual Space)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>。由<a
+href="https://alexthepurplerose.github.io/2024/08/22/linalg-matrix/">這裡</a>的定理4-1與定義4-1-1知所有<span
+class="math inline">\(V\)</span>到<span
+class="math inline">\(F\)</span>的線性映射構成一個<span
+class="math inline">\(F\)</span>上的向量空間。令<span
+class="math inline">\(V\)</span>的對偶空間為 <span
+class="math display">\[
+V^\ast=\mathscr{L}(V,F)
+\]</span></p>
+<h3
+id="定義-1-1雙對偶空間-double-dual-space"><font color=#008000><u>定義
+1-1：雙對偶空間 (Double Dual Space)</u></font></h3>
+<p>我們將 <span class="math display">\[
+V^{\ast\ast}=(V^\ast)^\ast
+\]</span> 稱為<span class="math inline">\(V\)</span>的雙對偶空間。</p>
+<h2 id="定理-2"><font color=#ff1493><u>定理 2</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，其中<span class="math inline">\(\dim
+V=n&lt;\infty\)</span>。令<span
+class="math inline">\(\beta=\{x_1,x_2,\cdots,x_n\}\)</span>是<span
+class="math inline">\(V\)</span>的有序基底，且定義線性映射<span
+class="math inline">\(f_i:V\to F\)</span>為<span
+class="math inline">\(f_i(x_j)=\delta_{ij}\)</span>(這裡是克羅內克記號)，即若<span
+class="math inline">\(x\in V\)</span>可表為 <span
+class="math display">\[
+x=a_1x_1+a_2x_2+\cdots+a_nx_n
+\]</span> 則<span class="math inline">\(f_i(x)=a_i\)</span>。令<span
+class="math inline">\(\beta^\ast=\{f_1,f_2,\cdots,f_n\}\)</span>，則<span
+class="math inline">\(\beta^\ast\)</span>是<span
+class="math inline">\(V^\ast\)</span>的有序基底，且對所有<span
+class="math inline">\(f\in V^\ast\)</span>都有 <span
+class="math display">\[
+f=\sum_{i=1}^n f(x_i)f_i\mbox{ (☆)}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由<a
+href="https://alexthepurplerose.github.io/2024/08/29/linalg-isomorphic/">這裡</a>的定理4知<span
+class="math inline">\(\dim V^\ast=n\)</span>，故我們只要說明<span
+class="math inline">\(V^\ast=\mbox{span}(\beta^\ast)\)</span>就好。<br>
+令<span class="math inline">\(g=\sum\limits_{i=1}^n
+f(x_i)f_i\)</span>，則 <span class="math display">\[
+g(x_j)=\sum_{i=1}^nf(x_i)f_i(x_j)=f(x_j)
+\]</span> 故確實有<span class="math inline">\(g\equiv
+f\)</span>，即<span
+class="math inline">\(f\)</span>確實可表為(☆)的形式，且<span
+class="math inline">\(\beta^\ast\)</span>也確實為<span
+class="math inline">\(V^\ast\)</span>的基底。<font size="1">QED</font></p>
+<h3 id="定義-2-1對偶基底-dual-basis"><font color=#008000><u>定義
+2-1：對偶基底 (Dual Basis)</u></font></h3>
+<p>我們稱定理2中的<span class="math inline">\(\beta^\ast\)</span>為<span
+class="math inline">\(V^\ast\)</span>的對偶基底。</p>
+<h2 id="定理-3"><font color=#ff1493><u>定理 3</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V,W\)</span>，其中<span class="math inline">\(\dim
+V,\dim W&lt;\infty\)</span>。並令<span
+class="math inline">\(\beta,\gamma\)</span>分別為<span
+class="math inline">\(V,W\)</span>的有序基底。給定線性映射<span
+class="math inline">\(T:V\to W\)</span>，則定義映射<span
+class="math inline">\(T^t:W^\ast\to V^\ast\)</span>為 <span
+class="math display">\[
+\forall g\in W^\ast\;\;(g:W\to F),\;T^t(g)=gT\in V^\ast\;\;(gT:V\to F)
+\]</span> 則<span class="math inline">\(T^t\)</span>是線性映射且 <span
+class="math display">\[
+[T^t]_{\gamma^\ast}^{\beta^\ast}=\left([T]_\beta^\gamma\right)^t
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：對於所有<span
+class="math inline">\(h_1,h_2\in W^\ast\)</span>和<span
+class="math inline">\(c\in F\)</span>，有 <span class="math display">\[
+T^t(ch_1+h_2)=(ch_1+h_2)T=ch_1T+h_2T=cT^t(h_1)+T^t(h_2)
+\]</span> 故<span class="math inline">\(T^t\)</span>確實是線性映射。<br>
+接著，令 <span class="math display">\[
+\beta=\{x_1,\cdots,x_n\}, \gamma=\{y_1,\cdots,y_m\},
+\beta^\ast=\{f_1,\cdots,f_n\}, \gamma^\ast=\{g_1,\cdots,g_m\}
+\]</span> 則對於某個<span class="math inline">\(g_j\)</span>，若有 <span
+class="math display">\[
+T^t(g_j)=g_jT=a_1f_1+a_2f_2+\cdots+a_nf_n
+\]</span> 則<span
+class="math inline">\([T^t]^{\beta^\ast}_{\gamma^\ast}\)</span>的<span
+class="math inline">\(ij\)</span>元就是<span
+class="math inline">\(a_i\)</span>。故 <span class="math display">\[
+T^t(g_j)=g_j(T)=\sum_{i=1}^n\underbrace{(g_jT)(x_i)}_{[T^t]^{\beta^\ast}_{\gamma^\ast}\mbox{的}ij\mbox{元}}f_i
+\]</span> 而記<span
+class="math inline">\([T]^\gamma_\beta\)</span>的<span
+class="math inline">\(ki\)</span>元為<span
+class="math inline">\(A_{ki}\)</span>，有 <span class="math display">\[
+(g_jT)(x_i)=g_j(T(x_i))=g_j\left(\sum_{k=1}^m
+A_{ki}y_k\right)=\sum_{k=1}^m A_{ki}\delta_{jk}=A_{ji}
+\]</span> 故有 <span class="math display">\[
+[T^t]_{\gamma^\ast}^{\beta^\ast}=\left([T]_\beta^\gamma\right)^t
+\]</span> <font size="1">QED</font></p>
+<h2 id="定義-4取值映射-evaluation-mapping"><font color=#008000><u>定義
+4：取值映射 (Evaluation Mapping)</u></font></h2>
+<p>對於<span class="math inline">\(x\in V\)</span>，定義映射<span
+class="math inline">\(\hat{x}:V^\ast\to F\)</span>為 <span
+class="math display">\[
+\forall f\in V^\ast\;\;(f:V\to F),\;\hat{x}(f)=f(x)\in F
+\]</span></p>
+<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
+<p>定義4中的<span
+class="math inline">\(\hat{x}\)</span>是線性映射。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於所有<span
+class="math inline">\(f,g\in V^\ast\)</span>與<span
+class="math inline">\(a\in F\)</span>，有 <span class="math display">\[
+\hat{x}(af+g)=(af+g)(x)=af(x)+g(x)=a\hat{x}(f)+\hat{x}(g)
+\]</span> 於是知<span
+class="math inline">\(\hat{x}\)</span>是線性映射。<font size="1">QED</font></p>
+<h3 id="註記-4-2"><font color=#0000FF><u>註記 4-2</u></font></h3>
+<p>有<span
+class="math inline">\(\hat{x}\in(V^\ast)^\ast=V^{\ast\ast}\)</span>。</p>
+<h2 id="引理-5"><font color=#0000FF><u>引理 5</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，其中<span class="math inline">\(\dim
+V&lt;\infty\)</span>。給定<span class="math inline">\(x\in
+V\)</span>，若<span class="math inline">\(\forall f\in V^\ast\)</span>,
+<span class="math inline">\(\hat{x}(f)=0\)</span>，則<span
+class="math inline">\(x=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\(x\neq 0\)</span>，則選擇一個<span
+class="math inline">\(V\)</span>的有序基底<span
+class="math inline">\(\beta=\{x=x_1,x_2,\cdots,x_n\}\)</span>，且令其對應到的對偶基底為<span
+class="math inline">\(\beta^\ast=\{f_1,f_2,\cdots,f_n\}\)</span>。則由定義
+<span class="math display">\[
+\hat{x}(f_1)=f_1(x_1)=1
+\]</span> 這與假設矛盾，故應有<span
+class="math inline">\(x=0\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，其中<span class="math inline">\(\dim
+V&lt;\infty\)</span>。定義映射<span class="math inline">\(\Psi:V\to
+V^{\ast\ast}\)</span>為 <span class="math display">\[
+\forall x\in V, \Psi(x)=\hat{x}
+\]</span> 則<span
+class="math inline">\(\Psi\)</span>是同構映射。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們需要檢查<span
+class="math inline">\(\Psi\)</span>是線性且是一對一的(因為<span
+class="math inline">\(\dim V^{\ast\ast}=\dim V^\ast=\dim
+V\)</span>，故由<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理10知只要<span
+class="math inline">\(\Psi\)</span>是一對一就自動是映成的了) <br>1.
+<span class="math inline">\(\Psi\)</span>是線性的：給定<span
+class="math inline">\(f\in V^\ast\)</span>, <span
+class="math inline">\(x,y\in V\)</span>, <span
+class="math inline">\(c\in F\)</span>。有 <span class="math display">\[
+\begin{aligned}
+\Psi(cx+y)(f)&amp;=(\widehat{cx+y})(f)\\
+&amp;=f(cx+y)=cf(x)+f(y)\\
+&amp;=c\hat{x}(f)+\hat{y}(f)=(c\Psi(x)+\Psi(y))(f)
+\end{aligned}
+\]</span> 即<span
+class="math inline">\(\Psi(cx+y)=c\Psi(x)+\Psi(y)\)</span> i.e. <span
+class="math inline">\(\Psi\)</span>是線性的。 <br>2. <span
+class="math inline">\(\Psi\)</span>是一對一的：考慮<span
+class="math inline">\(x\in N(\Psi)\)</span> i.e. <span
+class="math inline">\(\Psi(x)=0\in V^{\ast\ast}\)</span>，則 <span
+class="math display">\[
+\Psi(x)=0\in V^{\ast\ast}\Leftrightarrow\Psi(x)=\hat{x}=0\in
+V^{\ast\ast}\Leftrightarrow\forall f\in V^\ast, \hat{x}(f)=0
+\]</span> 由引理5知這等價於<span
+class="math inline">\(x=0\)</span>，故由<a
+href="https://alexthepurplerose.github.io/2024/08/21/linalg-lin-transf/">這裡</a>的定理9知<span
+class="math inline">\(\Psi\)</span>是一對一的。 <br>由以上兩點可知<span
+class="math inline">\(\Psi\)</span>確為同構映射。<font size="1">QED</font></p>
+<h2 id="註記-7"><font color=#0000FF><u>註記 7</u></font></h2>
+<p>當<span class="math inline">\(\dim
+V=\infty\)</span>時，我們不一定會有<span class="math inline">\(\dim
+V=\dim
+V^\ast\)</span>。(其實這裡需要用「勢」(Cardinality)去重新定義<span
+class="math inline">\(V\)</span>的維度，在此按下不表。)</p>
 
     </div>
 
@@ -303,6 +477,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8D%E5%81%B6%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">對偶空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%B0%8D%E5%81%B6%E7%A9%BA%E9%96%93-dual-space"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：對偶空間 (Dual Space)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E9%9B%99%E5%B0%8D%E5%81%B6%E7%A9%BA%E9%96%93-double-dual-space"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
+1-1：雙對偶空間 (Double Dual Space)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E5%B0%8D%E5%81%B6%E5%9F%BA%E5%BA%95-dual-basis"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
+2-1：對偶基底 (Dual Basis)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E5%8F%96%E5%80%BC%E6%98%A0%E5%B0%84-evaluation-mapping"><span class="nav-number">1.4.</span> <span class="nav-text">定義
+4：取值映射 (Evaluation Mapping)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">註記 4-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">引理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">1.6.</span> <span class="nav-text">定理 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7"><span class="nav-number">1.7.</span> <span class="nav-text">註記 7</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
