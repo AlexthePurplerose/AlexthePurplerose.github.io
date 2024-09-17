@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於矩陣的有理典型形式的存在性。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2024-09-14T05:53:22.000Z">
-<meta property="article:modified_time" content="2024-09-16T14:44:33.951Z">
+<meta property="article:published_time" content="2024-09-14T05:47:54.000Z">
+<meta property="article:modified_time" content="2024-09-17T05:55:50.008Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -192,14 +192,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2024-09-14 13:53:22" itemprop="dateCreated datePublished" datetime="2024-09-14T13:53:22+08:00">2024-09-14</time>
+              <time title="創建時間：2024-09-14 13:47:54" itemprop="dateCreated datePublished" datetime="2024-09-14T13:47:54+08:00">2024-09-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-09-16 22:44:33" itemprop="dateModified" datetime="2024-09-16T22:44:33+08:00">2024-09-16</time>
+                <time title="修改時間：2024-09-17 13:55:50" itemprop="dateModified" datetime="2024-09-17T13:55:50+08:00">2024-09-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -651,8 +651,8 @@ class="math inline">\(p(t)=\phi(t)\)</span>，故<span
 class="math inline">\(V=N(\phi(T))=K_\phi\)</span>。令<span
 class="math inline">\(W=\{0\}\)</span>，則<span
 class="math inline">\(W\subseteq K_\phi=V\)</span>是<span
-class="math inline">\(T\)</span>-不變的。由引理13，我們知道存在 <span
-class="math display">\[
+class="math inline">\(T\)</span>-不變的。由引理13第2.點，我們知道存在
+<span class="math display">\[
 \beta&#39;=\beta_{w_1}\cup\beta_{w_2}\cup\cdots\cup\beta_{w_s}
 \]</span> 使得<span
 class="math inline">\(\mbox{span}(\beta&#39;)\)</span>包含<span
@@ -682,8 +682,62 @@ class="math inline">\(\beta_{w_1}\cup\beta_{w_2}\cup\cdots\cup\beta_{w_k}\)</spa
 \beta=\beta_{w_1}\cup\beta_{w_2}\cup\cdots\cup\beta_{w_k}
 \]</span> 並令<span
 class="math inline">\(W=\mbox{span}(\beta)\)</span>。則<span
-class="math inline">\(R(\phi(T))\subseteq W\)</span>且<span
-class="math inline">\(W\subseteq K_\phi=V\)</span>。</p>
+class="math inline">\(R(\phi(T))\subseteq W\)</span>(因為<span
+class="math inline">\(R(\phi(T))\)</span>中的所有元素都可表為<span
+class="math inline">\(\beta_{v_1}\cup\beta_{v_2}\cup\cdots\cup\beta_{v_k}\)</span>中元素的線性組合，而<span
+class="math inline">\(v_i=\phi(T)(w_i)\)</span>，故應有<span
+class="math inline">\(v_i\in\mbox{span}(\beta_{w_i})\)</span>，於是有<span
+class="math inline">\(R(\phi(T))\subseteq W\)</span>)，且<span
+class="math inline">\(W\subseteq
+K_\phi=V\)</span>。故由引理13第2.點知可以把<span
+class="math inline">\(\beta\)</span>擴張成線性獨立的 <span
+class="math display">\[
+\beta&#39;=\beta_{w_1}\cup\beta_{w_2}\cup\cdots\cup\beta_{w_k}\cup\beta_{w_{k+1}}\cup\cdots\cup\beta_{w_s}
+\]</span> 其中<span class="math inline">\(w_{k+1},\cdots,w_s\in
+N(\phi(T))\)</span>且<span
+class="math inline">\(w_{k+1},\cdots,w_s\notin W\)</span>。且可以滿足
+<span class="math display">\[
+N(\phi(T))\subseteq\mbox{span}(\beta&#39;)\equiv W&#39;
+\]</span> 且會有<span class="math inline">\(R(\phi(T))\subseteq
+W\subseteq W&#39;\)</span>。我們希望說明<span
+class="math inline">\(W&#39;=V\)</span>。 <br>考慮<span
+class="math inline">\(U=\phi(T)_{W&#39;}:W&#39;\to
+W&#39;\)</span>(由引理13第2.點知<span
+class="math inline">\(W&#39;\)</span>是<span
+class="math inline">\(T\)</span>-不變的)。則由<span
+class="math inline">\(R(\phi(T))\subseteq W&#39;\)</span>知<span
+class="math inline">\(R(U)=R(\phi(T))\)</span>，且由<span
+class="math inline">\(N(\phi(T))\subseteq W&#39;\)</span>有 <span
+class="math display">\[
+N(U)=N(\phi(T))\cap W&#39;=N(\phi(T))
+\]</span> 故 <span class="math display">\[
+\dim
+W&#39;=\mbox{rank}(U)+\mbox{nullity}(U)=\mbox{rank}(\phi(T))+\mbox{nullity}(\phi(T))=\dim
+V
+\]</span> 但<span class="math inline">\(W&#39;\subseteq
+V\)</span>，故<span class="math inline">\(W&#39;=V\)</span>。即<span
+class="math inline">\(\beta&#39;\)</span>是<span
+class="math inline">\(V\)</span>的基底，其為<span
+class="math inline">\(T\)</span>的有理典型基底。<br>
+由數學歸納法，我們知道對任何<span
+class="math inline">\(m\)</span>，<span
+class="math inline">\(T\)</span>都可表為有理典型形式。<font size="1">QED</font></p>
+<h2 id="定理-15"><font color=#ff1493><u>定理 15</u></font></h2>
+<p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。令 <span
+class="math display">\[
+p(t)=(\phi_1(t))^{m_1}(\phi_2(t))^{m_2}\cdots(\phi_k(t))^{m_k}
+\]</span> 為<span
+class="math inline">\(T\)</span>的最小多項式，其中<span
+class="math inline">\(\phi_1,\phi_2,\cdots,\phi_k\)</span>是首一不可約且兩兩相異的，則<span
+class="math inline">\(T\)</span>可表為有理典型形式。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(k\)</span>做數學歸納法。 <br>1. <span
+class="math inline">\(k=1\)</span>時就是定理14，已經處理完了。 <br>2.
+假設定理在<span class="math inline">\(1\sim
+k-1\)</span>時都成立，則令<span
+class="math inline">\(W=R((\phi_k(T))^{m_k})\)</span>，並考慮線性映射<span
+class="math inline">\(U=T_W:W\to W\)</span>。</p>
 
     </div>
 
@@ -772,7 +826,7 @@ class="math inline">\(W\subseteq K_\phi=V\)</span>。</p>
 4：相伴矩陣 (Companion Matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">有理典型形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F-rational-canonical-form"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 5：有理典型形式 (Rational Canonical Form)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-1%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%9F%BA%E5%BA%95-rational-canonical-basis"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
 5-1：有理典型基底 (Rational Canonical Basis)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E9%A6%96%E4%B8%80%E5%A4%9A%E9%A0%85%E5%BC%8F-monic-polynomial"><span class="nav-number">2.2.</span> <span class="nav-text">定義
-6：首一多項式 (Monic Polynomial)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7"><span class="nav-number">2.3.</span> <span class="nav-text">引理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">2.4.</span> <span class="nav-text">註記 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.5.</span> <span class="nav-text">定理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-10"><span class="nav-number">2.6.</span> <span class="nav-text">引理 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">2.7.</span> <span class="nav-text">定理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.8.</span> <span class="nav-text">定理 12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-13"><span class="nav-number">2.9.</span> <span class="nav-text">引理 13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14"><span class="nav-number">2.10.</span> <span class="nav-text">定理 14</span></a></li></ol></li></ol></div>
+6：首一多項式 (Monic Polynomial)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7"><span class="nav-number">2.3.</span> <span class="nav-text">引理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">2.4.</span> <span class="nav-text">註記 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.5.</span> <span class="nav-text">定理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-10"><span class="nav-number">2.6.</span> <span class="nav-text">引理 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">2.7.</span> <span class="nav-text">定理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.8.</span> <span class="nav-text">定理 12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-13"><span class="nav-number">2.9.</span> <span class="nav-text">引理 13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14"><span class="nav-number">2.10.</span> <span class="nav-text">定理 14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-15"><span class="nav-number">2.11.</span> <span class="nav-text">定理 15</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
