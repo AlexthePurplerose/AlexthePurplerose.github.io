@@ -27,13 +27,16 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於商空間的定義與性質。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/17/linalg-quotient/commu1.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/09/17/linalg-quotient/commu2.jpg">
 <meta property="article:published_time" content="2024-09-17T11:00:51.000Z">
-<meta property="article:modified_time" content="2024-09-17T11:03:28.434Z">
+<meta property="article:modified_time" content="2024-09-17T12:07:04.861Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
 <meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/09/17/linalg-quotient/commu1.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/09/17/linalg-quotient/">
 
@@ -193,7 +196,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-09-17 19:00:51 / 修改時間：19:03:28" itemprop="dateCreated datePublished" datetime="2024-09-17T19:00:51+08:00">2024-09-17</time>
+              <time title="創建時間：2024-09-17 19:00:51 / 修改時間：20:07:04" itemprop="dateCreated datePublished" datetime="2024-09-17T19:00:51+08:00">2024-09-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -224,6 +227,206 @@
 <center>
 <h1 id="商空間"><font color=#b8860b>商空間</font></h1>
 </center>
+<h2 id="定義-1陪集-coset"><font color=#008000><u>定義 1：陪集
+(Coset)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，令<span
+class="math inline">\(W\subseteq V\)</span>為一子空間。我們稱 <span
+class="math display">\[
+v+W=\{v+w:w\in W\}
+\]</span> 為<span class="math inline">\(W\)</span>包含<span
+class="math inline">\(v\)</span>的陪集。</p>
+<h2 id="定義-2商空間-quotient-space"><font color=#008000><u>定義
+2：商空間 (Quotient Space)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，令<span
+class="math inline">\(W\subseteq V\)</span>為一子空間。我們定義 <span
+class="math display">\[
+V/W=\{v+W:v\in V\}
+\]</span> (陪集的集)為<span
+class="math inline">\(W\)</span>的商空間。在這個空間中我們定義 <span
+class="math display">\[
+(v_1+W)+(v_2+W)=(v_1+v_2)+W,\;c(v_1+W)=cv_1+W
+\]</span> 可以驗證在如上的運算中<span
+class="math inline">\(V/W\)</span>確實是一個向量空間。</p>
+<h3 id="定義-2-1商映射-quotient-map"><font color=#008000><u>定義
+2-1：商映射 (Quotient Map)</u></font></h3>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，令<span
+class="math inline">\(W\subseteq V\)</span>為一子空間。考慮映射<span
+class="math inline">\(Q:V\to V/W\)</span>為 <span
+class="math display">\[
+\forall v\in V, Q(v)=v+W\in V/W
+\]</span> 可以驗證<span
+class="math inline">\(Q\)</span>確實是線性映射，我們稱<span
+class="math inline">\(Q\)</span>為商映射。</p>
+<h2 id="定理-3"><font color=#ff1493><u>定理 3</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，令<span
+class="math inline">\(W\subseteq V\)</span>為一子空間，並令<span
+class="math inline">\(Q:V\to V/W\)</span>為商映射。則<span
+class="math inline">\(V=W\oplus W&#39;\)</span> iff. <span
+class="math inline">\(Q_{W&#39;}:W&#39;\xrightarrow{\sim}V/W\)</span>為同構映射。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：假設<span
+class="math inline">\(V=W\oplus W&#39;\)</span>，則對於所有<span
+class="math inline">\(\alpha\in V\)</span>，有唯一的<span
+class="math inline">\(\gamma\in W\)</span>, <span
+class="math inline">\(\gamma&#39;\in W&#39;\)</span>使得<span
+class="math inline">\(\alpha=\gamma+\gamma&#39;\)</span>。由於<span
+class="math inline">\(\gamma\in W\)</span>，故 <span
+class="math display">\[
+Q(\alpha)=Q(\gamma)+Q(\gamma&#39;)=Q(\gamma&#39;)
+\]</span> 故有<span
+class="math inline">\(\alpha+W=\gamma&#39;+W\)</span>，即任何一個<span
+class="math inline">\(\alpha+W\)</span>都會被某個<span
+class="math inline">\(\gamma&#39;\in W&#39;\)</span>打到，故知<span
+class="math inline">\(Q_{W&#39;}\)</span>是映成的。 <br>而又若有<span
+class="math inline">\(\gamma_1&#39;,\gamma_2&#39;\in
+W&#39;\)</span>使得<span
+class="math inline">\(Q(\gamma_1&#39;)=Q(\gamma_2&#39;)\)</span>，則<span
+class="math inline">\(Q(\gamma_1&#39;-\gamma_2&#39;)=0\)</span>，故<span
+class="math inline">\(\gamma_1&#39;-\gamma_2&#39;\in
+W\)</span>。但由直和的定義知<span class="math inline">\(W\cap
+W&#39;=\{0\}\)</span>，故<span
+class="math inline">\(\gamma_1&#39;=\gamma_2&#39;\)</span>，即<span
+class="math inline">\(Q_{W&#39;}\)</span>是一對一的。
+<br>綜合以上，可以知道<span
+class="math inline">\(Q_{W&#39;}:W&#39;\xrightarrow{\sim}V/W\)</span>是同構映射。
+<br>「<span class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(Q_{W&#39;}\)</span>是同構映射，則對於所有<span
+class="math inline">\(\alpha\in V\)</span>，存在<span
+class="math inline">\(\gamma&#39;\in W&#39;\)</span>使得<span
+class="math inline">\(Q(\gamma&#39;)=Q(\alpha)\)</span> i.e. <span
+class="math inline">\(\gamma&#39;+W=\alpha+W\)</span>。故有<span
+class="math inline">\(\alpha-\gamma&#39;\in W\)</span>。於是，存在<span
+class="math inline">\(\gamma\in W\)</span>使得<span
+class="math inline">\(\alpha=\gamma+\gamma&#39;\)</span>。故有<span
+class="math inline">\(V=W+W&#39;\)</span>。<br> 而若<span
+class="math inline">\(\gamma\in W\in W&#39;\)</span>，則由<span
+class="math inline">\(\gamma\in W\)</span>知<span
+class="math inline">\(Q(\gamma)=0\)</span>。然而由假設<span
+class="math inline">\(Q_{W&#39;}\)</span>是同構映射，故<span
+class="math inline">\(\gamma=0\)</span>，即<span
+class="math inline">\(W\cap W&#39;=\{0\}\)</span>。
+<br>綜合以上，我們知道<span class="math inline">\(V=W\oplus
+W&#39;\)</span>。<font size="1">QED</font></p>
+<h2 id="註記-4"><font color=#0000FF><u>註記 4</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，其中<span class="math inline">\(\dim
+V&lt;\infty\)</span>。令<span class="math inline">\(W\subseteq
+V\)</span>為一子空間，並令<span class="math inline">\(Q:V\to
+V/W\)</span>為商映射。則易知 <span class="math display">\[
+N(Q)=W,\;R(Q)=V/W
+\]</span> 故由維度定理有 <span class="math display">\[
+\dim V=\dim N(Q)+\dim R(Q)=\dim W+\dim V/W
+\]</span></p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>給定映成的線性映射<span class="math inline">\(T:V\to
+W\)</span>。令<span class="math inline">\(V&#39;=N(T)\)</span>，則<span
+class="math inline">\(W\simeq V/V&#39;\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮映射<span
+class="math inline">\(U:V/V&#39;\to W\)</span>為 <span
+class="math display">\[
+\forall \alpha\in V, U(\alpha+V&#39;)=T(\alpha)
+\]</span> 則我們可以推得以下幾項性質： <br>1. <span
+class="math inline">\(U\)</span>是良好定義的：若存在<span
+class="math inline">\(\alpha,\beta\in V\)</span>使得<span
+class="math inline">\(\alpha+V&#39;=\beta+V&#39;\)</span>，則<span
+class="math inline">\(\alpha-\beta\in V&#39;\)</span>。由定義有<span
+class="math inline">\(T(\alpha-\beta)=0\)</span>，即<span
+class="math inline">\(T(\alpha)=T(\beta)\)</span>。故 <span
+class="math display">\[
+U(\alpha+V&#39;)=T(\alpha)=T(\beta)=U(\beta+V&#39;)
+\]</span> <br>2. <span
+class="math inline">\(U\)</span>是線性的：這裡的驗證是簡單的，略過。
+<br>3. <span
+class="math inline">\(U\)</span>是映成的：這是顯然的，因為<span
+class="math inline">\(T\)</span>是映成的。 <br>4. <span
+class="math inline">\(U\)</span>是一對一的：若存在<span
+class="math inline">\(\alpha,\beta\in V\)</span>使得<span
+class="math inline">\(U(\alpha+V&#39;)=U(\beta+V&#39;)\)</span>，則<span
+class="math inline">\(T(\alpha)=T(\beta)\)</span> i.e. <span
+class="math inline">\(T(\alpha-\beta)=0\)</span>。由定義知<span
+class="math inline">\(\alpha-\beta\in V&#39;\)</span>，即<span
+class="math inline">\(\alpha+V&#39;=\beta+V&#39;\)</span>。
+<br>綜合以上，我們知道<span
+class="math inline">\(U\)</span>是一個從<span
+class="math inline">\(V/V&#39;\)</span>到<span
+class="math inline">\(W\)</span>的同構映射，故<span
+class="math inline">\(W\simeq
+V/V&#39;\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="商空間泛性質"><font color=#b8860b>商空間泛性質</font></h1>
+</center>
+<p>考慮兩個向量空間<span class="math inline">\(V\)</span>和<span
+class="math inline">\(V&#39;\)</span>，給定線性映射<span
+class="math inline">\(T:V\to V&#39;\)</span>。令<span
+class="math inline">\(W\subseteq N(T)\)</span>，則有商映射<span
+class="math inline">\(Q:V\to V/W\)</span>(見下圖1)。</p>
+<img src="commu1.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>然而，在<span class="math inline">\(V/W\)</span>和<span
+class="math inline">\(V&#39;\)</span>之間，也會有一個線性映射。</p>
+<h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
+<p>考慮兩個向量空間<span class="math inline">\(V\)</span>和<span
+class="math inline">\(V&#39;\)</span>，給定線性映射<span
+class="math inline">\(T:V\to V&#39;\)</span>。令<span
+class="math inline">\(W\subseteq N(T)\)</span>，有商映射<span
+class="math inline">\(Q:V\to V/W\)</span>。則在<span
+class="math inline">\(V/W\)</span>與<span
+class="math inline">\(V&#39;\)</span>之間，存在唯一的線性映射<span
+class="math inline">\(S:V/W:V&#39;\)</span>使得<span
+class="math inline">\(T=S\circ Q\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(S(v+W)=T(v)\)</span>，我們希望說明<span
+class="math inline">\(S\)</span>是良好定義的。若對於<span
+class="math inline">\(v_1,v_2\in V\)</span>有<span
+class="math inline">\(v_1+W=v_2+W\)</span>，則<span
+class="math inline">\(v_1-v_2\in W\subseteq N(T)\)</span>，故<span
+class="math inline">\(T(v_1-v_2)=0\)</span>，即<span
+class="math inline">\(T(v_1)=T(v_2)\)</span>，故<span
+class="math inline">\(S\)</span>確是良好定義的。又顯然<span
+class="math inline">\(S\)</span>是線性的，可以很容易檢驗<span
+class="math inline">\(S\)</span>滿足要求<span
+class="math inline">\(T=S\circ Q\)</span>。<br> 若又有線性映射<span
+class="math inline">\(S&#39;\)</span>使得<span
+class="math inline">\(T=S&#39;\circ Q\)</span>，則對所有<span
+class="math inline">\(v\in V\)</span>都有<span
+class="math inline">\(S(v+W)=S&#39;(v+W)\)</span>。然而<span
+class="math inline">\(Q\)</span>是映成的，故在整個<span
+class="math inline">\(V/W\)</span>上都會有<span
+class="math inline">\(S=S&#39;\)</span>，即<span
+class="math inline">\(S\)</span>是唯一的。<font size="1">QED</font></p>
+<h3
+id="註記-6-1商空間泛性質-universal-property-of-quotient-space"><font color=#0000FF><u>註記
+6-1：：商空間泛性質 (Universal Property of Quotient
+Space)</u></font></h3>
+<p>給定線性映射<span class="math inline">\(\varphi:V\to
+W\)</span>，若對於所有滿足<span
+class="math inline">\(N(\varphi)\subseteq N(T)\)</span>的線性映射<span
+class="math inline">\(T:V\to V&#39;\)</span>，都存在唯一的線性映射<span
+class="math inline">\(S:W\to V&#39;\)</span>使得<span
+class="math inline">\(T=S\circ\varphi\)</span>(見下圖2)，則<span
+class="math inline">\(W\simeq V/N(\phi)\)</span>。</p>
+<img src="commu2.jpg" width="50%" height="50%">
+<center>
+圖2
+</center>
+<p><font color=#8b4513><u>證明</u></font>： 我們分以下幾點說明： <br>1.
+<span class="math inline">\(\varphi\)</span>是映成的：如果有<span
+class="math inline">\(x\in W\)</span>不會被<span
+class="math inline">\(\varphi\)</span>打到，則應會有另一個不同的<span
+class="math inline">\(S&#39;\)</span>滿足<span
+class="math inline">\(T=S&#39;\circ\varphi\)</span>但<span
+class="math inline">\(S(x)\neq S&#39;(x)\)</span>(準確來說是<span
+class="math inline">\(\mbox{span}\{x\}\)</span>都不會被<span
+class="math inline">\(\varphi\)</span>打到，所以可以假設這樣的<span
+class="math inline">\(S&#39;\)</span>存在)。這與<span
+class="math inline">\(S\)</span>唯一性的假設矛盾，故<span
+class="math inline">\(\varphi\)</span>是映成的。</p>
 
     </div>
 
@@ -306,7 +509,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%95%86%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">商空間</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%95%86%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">商空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E9%99%AA%E9%9B%86-coset"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：陪集
+(Coset)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%95%86%E7%A9%BA%E9%96%93-quotient-space"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：商空間 (Quotient Space)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E5%95%86%E6%98%A0%E5%B0%84-quotient-map"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
+2-1：商映射 (Quotient Map)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4"><span class="nav-number">1.4.</span> <span class="nav-text">註記 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%95%86%E7%A9%BA%E9%96%93%E6%B3%9B%E6%80%A7%E8%B3%AA"><span class="nav-number">2.</span> <span class="nav-text">商空間泛性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.1.</span> <span class="nav-text">定理 6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1%E5%95%86%E7%A9%BA%E9%96%93%E6%B3%9B%E6%80%A7%E8%B3%AA-universal-property-of-quotient-space"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記
+6-1：：商空間泛性質 (Universal Property of Quotient
+Space)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
