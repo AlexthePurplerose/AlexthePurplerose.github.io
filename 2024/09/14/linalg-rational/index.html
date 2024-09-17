@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於矩陣的有理典型形式的存在性。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-09-14T05:47:54.000Z">
-<meta property="article:modified_time" content="2024-09-17T06:22:42.433Z">
+<meta property="article:modified_time" content="2024-09-17T08:07:27.750Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-09-17 14:22:42" itemprop="dateModified" datetime="2024-09-17T14:22:42+08:00">2024-09-17</time>
+                <time title="修改時間：2024-09-17 16:07:27" itemprop="dateModified" datetime="2024-09-17T16:07:27+08:00">2024-09-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -788,7 +788,7 @@ class="math inline">\(k\)</span>，<span
 class="math inline">\(T\)</span>都可表為有理典型形式。<font size="1">QED</font></p>
 <h2 id="定理-16"><font color=#ff1493><u>定理 16</u></font></h2>
 <p>給定線性映射<span class="math inline">\(T:V\to V\)</span>，其中<span
-class="math inline">\(\dim V&lt;\infty\)</span>。令 <span
+class="math inline">\(\dim V=n&lt;\infty\)</span>。令 <span
 class="math display">\[
 f(t)=(-1)^n(\phi_1(t))^{n_1}(\phi_2(t))^{n_2}\cdots(\phi_k(t))^{n_k}
 \]</span> 為<span
@@ -817,7 +817,103 @@ T\mbox{的特徵多項式}&amp;=C\mbox{的特徵多項式 (✪)}\\
 \end{aligned}
 \]</span> ((✪)處可以參見<a
 href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的註記4-2)。故<span
-class="math inline">\(\phi_i(t)\)</span>至少整除一個相伴矩陣的特徵多項式。</p>
+class="math inline">\(\phi_i(t)\)</span>至少整除一個相伴矩陣的特徵多項式，而該特徵多項式應形如<span
+class="math inline">\((\phi_i(t))^{m_i}\)</span>(見定義4中相伴矩陣的定義)。而由定理9第2.點知對於<span
+class="math inline">\(0\neq x\in K_{\phi_i}\)</span>，<span
+class="math inline">\(x\)</span>的<span
+class="math inline">\(T\)</span>-消除子會形如<span
+class="math inline">\((\phi(t))^\alpha\)</span>。故由<a
+href="https://alexthepurplerose.github.io/2024/09/10/linalg-mini-poly/">這裡</a>的性質7-2知<span
+class="math inline">\((\phi_i(t))^\alpha\)</span>整除<span
+class="math inline">\(T\)</span>的最小多項式，即<span
+class="math inline">\(\phi_i(t)\)</span>整除<span
+class="math inline">\(T\)</span>的最小多項式。 <br>2. 令<span
+class="math inline">\(\beta\)</span>為有理典型基底，並令<span
+class="math inline">\(\beta_i=\beta\cap K_{\phi_i}\)</span>。則由於<span
+class="math inline">\(\beta_i\)</span>是對應到<span
+class="math inline">\(\phi_i(t)\)</span>的相伴矩陣的基底，且特徵多項式中的<span
+class="math inline">\((\phi_i(t))^{n_i}\)</span>說明該區塊的應是<span
+class="math inline">\(\deg((\phi_i(t))^{n_i})\)</span>方陣，故應有 <span
+class="math display">\[
+|\beta_i|=\deg((\phi_i(t))^{n_i})=n_i\deg(\phi_i(t))\leq\dim K_{\phi_i}
+\]</span> 而又由特徵多項式的表示式有 <span class="math display">\[
+n=\sum_{i=1}^k n_i\deg\phi_i\leq\sum_{i=1}^k\dim
+K_{\phi_i}=\sum_{i=1}^k|\gamma_i|=|\gamma|\leq n
+\]</span> (先借用接下來第4.點的符號)。故中間的小於等於都是等於，即<span
+class="math inline">\(\dim K_{\phi_i}=n_i\deg \phi_i\)</span>。 <br>3.
+由<span class="math inline">\(|\beta_i|=n_i\deg\phi_i=\dim
+K_{\phi_i}\)</span>即可知<span
+class="math inline">\(\beta_i\)</span>是<span
+class="math inline">\(K_{\phi_i}\)</span>的基底。 <br>4. 由引理10與<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的定理14-1可知<span
+class="math inline">\(\gamma=\gamma_1\cup\gamma_2\cup\cdots\cup\gamma_k\)</span>是線性獨立的，且由第2.點的推導過程可知<span
+class="math inline">\(|\gamma|=\dim V\)</span>，故<span
+class="math inline">\(\gamma\)</span>是<span
+class="math inline">\(V\)</span>的基底。<font size="1">QED</font></p>
+<center>
+<h1
+id="計算有理典型形式"><font color=#b8860b>計算有理典型形式</font></h1>
+</center>
+<h2 id="例-17"><font color=#ffa500><u>例 17</u></font></h2>
+<p>由定理15，我們可以知道所有有限維的線性映射都可表為有理典型形式。考慮<span
+class="math inline">\(K_\phi\)</span>，其中<span
+class="math inline">\(\phi\)</span>是<span
+class="math inline">\(T\)</span>的最小多項式的首一不可約因式。假設在<span
+class="math inline">\(T_{K_\phi}\)</span>中有 <span
+class="math display">\[
+\dim N(\phi(T))=3d, \dim N((\phi(T))^2)=6d, \dim N((\phi(T))^3)=7d=\dim
+K_\phi
+\]</span> 則<span
+class="math inline">\(T_{K_\phi}\)</span>的有理典型形式應形如 <span
+class="math display">\[
+A=\left(
+\begin{array}{c|c|c}
+CM(\phi^3) &amp; &amp; \\
+\hline
+&amp; CM(\phi^2) &amp; \\
+\hline
+&amp; &amp; CM(\phi^2)
+\end{array}
+\right)
+\]</span> 其中<span class="math inline">\(CM(\phi^k)\)</span>是<span
+class="math inline">\(\phi^k\)</span>的相伴矩陣(這裡的步驟和約旦典型形式的步驟類似，見<a
+href="https://alexthepurplerose.github.io/2024/09/07/linalg-jordan/">這裡</a>的註記14)。令<span
+class="math inline">\(d=\deg(\phi(t))\)</span>，則<span
+class="math inline">\(A\)</span>是<span
+class="math inline">\((7d)\times(7d)\)</span>的矩陣，故可知<span
+class="math inline">\(K_\phi\)</span>的基底可表為 <span
+class="math display">\[
+\left\{
+\begin{array}{ccc}
+T^{3d-1}(v_1) &amp; T^{2d-1}(v_2) &amp; T^{2d-1}(v_3)\\
+\vdots &amp; \vdots &amp; \vdots\\
+T(v_1) &amp; T(v_2) &amp; T(v_3)\\
+v_1 &amp; v_2 &amp; v_3
+\end{array}
+\right\}
+\]</span> 而在這之中 <span class="math display">\[
+\begin{aligned}
+\mbox{span}(\beta_{v_1})=\mbox{span}&amp;(v_1,T(v_1),\cdots,T^{3d-1}(v_1))\\
+=\mbox{span}&amp;\left(\underbrace{\textcolor{red}{v_1,T(v_1),\cdots,T^{d-1}(v_1)}}_{T\mbox{-消除子}=\phi^3}\right.\\
+&amp;,\underbrace{\textcolor{blue}{\phi(T)(v_1),\phi(T)(T(v_1)),\cdots,\phi(T)(T^{d-1}(v_1))}}_{T\mbox{-消除子}=\phi^2}\\
+&amp;,\left.\underbrace{\textcolor{lime}{(\phi(T))^2(v_1),(\phi(T))^2(T(v_1)),\cdots,(\phi(T))^2(T^{d-1}(v_1))}}_{T\mbox{-消除子}=\phi}\right)
+\end{aligned}
+\]</span> 可以對<span
+class="math inline">\(\mbox{span}(\beta_{v_2})\)</span>和<span
+class="math inline">\(\mbox{span}(\beta_{v_3)}\)</span>做一樣的分析，故可知這個基底可以進一步表為
+<span class="math display">\[
+\left\{
+\begin{array}{ccc}
+(\phi(T))^2(\gamma_1) &amp; (\phi(T))^2(\gamma_2) &amp;
+(\phi(T))^2(\gamma_3)\\
+\phi(T)(\gamma_1) &amp; \gamma_2=\{v_2,T(v_2),\cdots,T^{d-1}(v_2)\}
+&amp; \gamma_3=\{v_3,T(v_3),\cdots,T^{d-1}(v_3)\}\\
+\gamma_1=\{v_1,T(v_1),\cdots,T^{d-1}(v_1)\} &amp; &amp; \\
+\end{array}
+\right\}
+\]</span> 然後就可以用類似約旦典型形式中的步驟求出<span
+class="math inline">\(v_1,v_2,v_3\)</span>了(見<a
+href="https://alexthepurplerose.github.io/2024/09/07/linalg-jordan/">這裡</a>的註記15)。</p>
 
     </div>
 
@@ -906,7 +1002,7 @@ class="math inline">\(\phi_i(t)\)</span>至少整除一個相伴矩陣的特徵�
 4：相伴矩陣 (Companion Matrix)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">有理典型形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F-rational-canonical-form"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 5：有理典型形式 (Rational Canonical Form)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-1%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%9F%BA%E5%BA%95-rational-canonical-basis"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
 5-1：有理典型基底 (Rational Canonical Basis)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E9%A6%96%E4%B8%80%E5%A4%9A%E9%A0%85%E5%BC%8F-monic-polynomial"><span class="nav-number">2.2.</span> <span class="nav-text">定義
-6：首一多項式 (Monic Polynomial)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7"><span class="nav-number">2.3.</span> <span class="nav-text">引理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">2.4.</span> <span class="nav-text">註記 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.5.</span> <span class="nav-text">定理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-10"><span class="nav-number">2.6.</span> <span class="nav-text">引理 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">2.7.</span> <span class="nav-text">定理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.8.</span> <span class="nav-text">定理 12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-13"><span class="nav-number">2.9.</span> <span class="nav-text">引理 13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14"><span class="nav-number">2.10.</span> <span class="nav-text">定理 14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-15"><span class="nav-number">2.11.</span> <span class="nav-text">定理 15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-16"><span class="nav-number">2.12.</span> <span class="nav-text">定理 16</span></a></li></ol></li></ol></div>
+6：首一多項式 (Monic Polynomial)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7"><span class="nav-number">2.3.</span> <span class="nav-text">引理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">2.4.</span> <span class="nav-text">註記 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.5.</span> <span class="nav-text">定理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-10"><span class="nav-number">2.6.</span> <span class="nav-text">引理 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">2.7.</span> <span class="nav-text">定理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.8.</span> <span class="nav-text">定理 12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-13"><span class="nav-number">2.9.</span> <span class="nav-text">引理 13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14"><span class="nav-number">2.10.</span> <span class="nav-text">定理 14</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-15"><span class="nav-number">2.11.</span> <span class="nav-text">定理 15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-16"><span class="nav-number">2.12.</span> <span class="nav-text">定理 16</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A8%88%E7%AE%97%E6%9C%89%E7%90%86%E5%85%B8%E5%9E%8B%E5%BD%A2%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">計算有理典型形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-17"><span class="nav-number">3.1.</span> <span class="nav-text">例 17</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
