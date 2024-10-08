@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於向量空間上內積的定義與性質。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/frob.jpg">
 <meta property="article:published_time" content="2024-10-08T11:54:31.000Z">
-<meta property="article:modified_time" content="2024-10-08T11:56:18.724Z">
+<meta property="article:modified_time" content="2024-10-08T12:46:43.820Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
 <meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/frob.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/">
 
@@ -193,7 +195,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-10-08 19:54:31 / 修改時間：19:56:18" itemprop="dateCreated datePublished" datetime="2024-10-08T19:54:31+08:00">2024-10-08</time>
+              <time title="創建時間：2024-10-08 19:54:31 / 修改時間：20:46:43" itemprop="dateCreated datePublished" datetime="2024-10-08T19:54:31+08:00">2024-10-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +223,132 @@
 
       
         <p>這份筆記是關於向量空間上內積的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="內積空間"><font color=#b8860b>內積空間</font></h1>
+</center>
+<h2 id="定義-1內積-inner-product"><font color=#008000><u>定義 1：內積
+(Inner Product)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上向量空間<span
+class="math inline">\(V\)</span>。其中<span
+class="math inline">\(F=\mathbb{C}\)</span>或<span
+class="math inline">\(\mathbb{R}\)</span>。考慮函數<span
+class="math inline">\(\langle\cdot,\cdot\rangle:V\times V\to
+F\)</span>。若<span
+class="math inline">\(\langle\cdot,\cdot\rangle\)</span>滿足以下四個條件，則稱<span
+class="math inline">\(\langle\cdot,\cdot\rangle\)</span>為<span
+class="math inline">\(V\)</span>上的內積： <br>1. 對於所有<span
+class="math inline">\(x,y,z\in V\)</span>，有<span
+class="math inline">\(\langle x+z,y\rangle=\langle x,y\rangle+\langle
+z,y\rangle\)</span>。 <br>2. 對於所有<span class="math inline">\(x,y\in
+V\)</span>，<span class="math inline">\(c\in F\)</span>，有<span
+class="math inline">\(\langle cx,y\rangle=c\langle x,y\rangle\)</span>。
+<br>3. 對於所有<span class="math inline">\(x,y\in V\)</span>，有<span
+class="math inline">\(\overline{\langle x,y\rangle}=\langle
+y,x\rangle\)</span>。(這裡的<span
+class="math inline">\(\overline{\langle
+x,y\rangle}\)</span>是指共軛複數)。 <br>4. 對於<span
+class="math inline">\(0\neq x\in V\)</span>，有<span
+class="math inline">\(\langle x,x\rangle&gt;0\)</span>。</p>
+<h3 id="性質-1-1"><font color=#0000FF><u>性質 1-1</u></font></h3>
+<p>若<span class="math inline">\(F=\mathbb{R}\)</span>，則<span
+class="math inline">\(\forall x,y\in V\)</span>，<span
+class="math inline">\(\langle x,y\rangle=\langle
+y,x\rangle\)</span>(這來自定義1的第3.點)。</p>
+<h3 id="性質-1-2"><font color=#0000FF><u>性質 1-2</u></font></h3>
+<p>若<span class="math inline">\(F=\mathbb{C}\)</span>，則<span
+class="math inline">\(\forall x,y\in V\)</span>, <span
+class="math inline">\(c\in F\)</span>，有<span
+class="math inline">\(\langle x,cy\rangle=\overline{c}\langle
+x,y\rangle\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定義1的第3.點，有 <span
+class="math display">\[
+\overline{\langle x,cy\rangle}=\langle cy,x\rangle=c\langle y,x\rangle
+\]</span> 故 <span class="math display">\[
+\langle x,cy\rangle=\overline{\left(\overline{\langle
+x,cy\rangle}\right)}=\overline{c\langle
+y,x\rangle}=\overline{c}\overline{\langle
+y,x\rangle}=\overline{c}\langle x,y\rangle
+\]</span> <font size="1">QED</font></p>
+<h3 id="性質-1-3"><font color=#0000FF><u>性質 1-3</u></font></h3>
+<p>對於<span class="math inline">\(x\in V\)</span>，有<span
+class="math inline">\(\langle 0,x\rangle=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：有 <span
+class="math display">\[
+\langle 0,x\rangle=\langle 0\cdot x,x\rangle=0\cdot\langle x,x\rangle=0
+\]</span> <font size="1">QED</font></p>
+<h4 id="性質-1-3-1"><font color=#0000FF><u>性質 1-3-1</u></font></h4>
+<p>對於<span class="math inline">\(x\in V\)</span>，有<span
+class="math inline">\(\langle 0,x\rangle=0=\langle
+x,0\rangle\)</span>。</p>
+<h3 id="性質-1-4"><font color=#0000FF><u>性質 1-4</u></font></h3>
+<p>對於<span class="math inline">\(v_1,v_2,\cdots,v_n,y\in V\)</span>,
+<span class="math inline">\(a_1,a_2,\cdots,a_n\in F\)</span>，有 <span
+class="math display">\[
+\left\langle\sum_{i=1}^n a_iv_i,y\right\rangle=\sum_{i=1}^n a_i\langle
+v_i,y\rangle
+\]</span> 即內積函數是線性的。</p>
+<h3 id="性質-1-5"><font color=#0000FF><u>性質 1-5</u></font></h3>
+<p>若<span
+class="math inline">\(\langle\cdot,\cdot\rangle\)</span>是<span
+class="math inline">\(V\)</span>上的內積函數，則對於實數<span
+class="math inline">\(r&gt;0\)</span>，<span
+class="math inline">\(r\langle\cdot,\cdot\rangle\)</span>也是<span
+class="math inline">\(V\)</span>上的內積函數。</p>
+<h3 id="性質-1-6"><font color=#0000FF><u>性質 1-6</u></font></h3>
+<p>對於<span class="math inline">\(x,y,z\in V\)</span>，有 <span
+class="math display">\[
+\langle x,y+z\rangle=\overline{\langle y+z,x\rangle}=\overline{\langle
+y,x\rangle}+\overline{\langle z,x\rangle}=\langle x,y\rangle+\langle
+x,z\rangle
+\]</span></p>
+<h3 id="性質-1-7"><font color=#0000FF><u>性質 1-7</u></font></h3>
+<p>給定<span class="math inline">\(y,z\in V\)</span>。若對於所有<span
+class="math inline">\(x\in V\)</span>有<span
+class="math inline">\(\langle x,y\rangle=\langle
+x,z\rangle\)</span>，則<span
+class="math inline">\(y=z\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：即對於所有<span
+class="math inline">\(x\in V\)</span>有<span
+class="math inline">\(\langle x,y-z\rangle=0\)</span>。但<span
+class="math inline">\(y-z\in V\)</span>，且由定義1的第4.點知 <span
+class="math display">\[
+\langle y-z,y-z\rangle\geq 0
+\]</span> 且<span class="math inline">\(y-z\neq
+0\)</span>時上述內積大於零。故令<span
+class="math inline">\(x=y-z\)</span>可知應有<span
+class="math inline">\(y-z=0\)</span> i.e. <span
+class="math inline">\(y=z\)</span>。<font size="1">QED</font></p>
+<h2 id="定義-2伴隨-adjoint"><font color=#008000><u>定義 2：伴隨
+(Adjoint)</u></font></h2>
+<p>給定<span class="math inline">\(A\in M_{m\times
+n}(F)\)</span>。若矩陣<span class="math inline">\(A^\ast\)</span>滿足
+<span class="math display">\[
+(A^\ast)_{ij}=\overline{A_ji}
+\]</span> 則稱<span class="math inline">\(A^\ast\)</span>是<span
+class="math inline">\(A\)</span>的伴隨，或稱<span
+class="math inline">\(A^\ast\)</span>是<span
+class="math inline">\(A\)</span>的共軛轉置(Conjugate Transpose)。</p>
+<h3
+id="例-2-1佛羅畢尼烏斯內積-frobenius-inner-product"><font color=#ffa500><u>例
+2-1：佛羅畢尼烏斯內積 (Frobenius Inner Product)</u></font></h3>
+<p>令<span class="math inline">\(V=M_{n\times n}(F)\)</span>。令 <span
+class="math display">\[
+\langle A,B\rangle=\mbox{tr}(AB^\ast)=\mbox{tr}(B^\ast A)
+\]</span> 可以驗證這是一個<span
+class="math inline">\(V\)</span>上的內積函數(詳略)，我們稱此為佛羅畢尼烏斯內積。</p>
+<img src="frob.jpg" width="25%" height="25%">
+<center>
+圖1 Ferdinand Georg Frobenius
+</center>
+<h2 id="定義-3內積空間-inner-product-space"><font color=#008000><u>定義
+3：內積空間 (Inner Product Space)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上向量空間<span
+class="math inline">\(V\)</span>。若<span
+class="math inline">\(V\)</span>上有定義內積<span
+class="math inline">\(\langle\cdot,\cdot\rangle\)</span>，則稱<span
+class="math inline">\((V,\langle\cdot,\cdot\rangle)\)</span>為一內積空間。</p>
+<h2 id="定義-4範數-norm"><font color=#008000><u>定義 4：範數
+(Norm)</u></font></h2>
 
     </div>
 
@@ -303,6 +431,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A7%E7%A9%8D%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">內積空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%85%A7%E7%A9%8D-inner-product"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：內積
+(Inner Product)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">性質 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">性質 1-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">性質 1-3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-3-1"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">性質 1-3-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-4"><span class="nav-number">1.1.4.</span> <span class="nav-text">性質 1-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-5"><span class="nav-number">1.1.5.</span> <span class="nav-text">性質 1-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-6"><span class="nav-number">1.1.6.</span> <span class="nav-text">性質 1-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-7"><span class="nav-number">1.1.7.</span> <span class="nav-text">性質 1-7</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E4%BC%B4%E9%9A%A8-adjoint"><span class="nav-number">1.2.</span> <span class="nav-text">定義 2：伴隨
+(Adjoint)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1%E4%BD%9B%E7%BE%85%E7%95%A2%E5%B0%BC%E7%83%8F%E6%96%AF%E5%85%A7%E7%A9%8D-frobenius-inner-product"><span class="nav-number">1.2.1.</span> <span class="nav-text">例
+2-1：佛羅畢尼烏斯內積 (Frobenius Inner Product)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%85%A7%E7%A9%8D%E7%A9%BA%E9%96%93-inner-product-space"><span class="nav-number">1.3.</span> <span class="nav-text">定義
+3：內積空間 (Inner Product Space)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E7%AF%84%E6%95%B8-norm"><span class="nav-number">1.4.</span> <span class="nav-text">定義 4：範數
+(Norm)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
