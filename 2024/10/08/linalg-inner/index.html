@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/frob.jpg">
 <meta property="article:published_time" content="2024-10-08T13:20:41.000Z">
-<meta property="article:modified_time" content="2024-10-08T13:24:12.620Z">
+<meta property="article:modified_time" content="2024-10-08T13:39:18.452Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -195,7 +195,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-10-08 21:20:41 / 修改時間：21:24:12" itemprop="dateCreated datePublished" datetime="2024-10-08T21:20:41+08:00">2024-10-08</time>
+              <time title="創建時間：2024-10-08 21:20:41 / 修改時間：21:39:18" itemprop="dateCreated datePublished" datetime="2024-10-08T21:20:41+08:00">2024-10-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -355,18 +355,41 @@ class="math inline">\(x\)</span>的範數定義為 <span
 class="math display">\[
 \|x\|=\sqrt{\langle x,x\rangle}
 \]</span></p>
-<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<h3 id="性質-4-1"><font color=#0000FF><u>性質 4-1</u></font></h3>
 <p>給定<span class="math inline">\(F\)</span>上的內積空間<span
-class="math inline">\(V\)</span>，我們希望定義4中定義的範數滿足在<a
-href="https://alexthepurplerose.github.io/2024/09/10/linalg-matrix-exp/">這裡</a>的定義1中的範數性質，即：
-<br>1. 對於<span class="math inline">\(c\in F,x\in V\)</span>，有<span
+class="math inline">\(V\)</span>，則我們有以下性質： <br>1. 對於<span
+class="math inline">\(c\in F,x\in V\)</span>，有<span
 class="math inline">\(\|cx\|=|c|\cdot\|x\|\)</span>。 <br>2. <span
 class="math inline">\(\|x\|=0\)</span>若且唯若<span
-class="math inline">\(x=0\)</span>。 <br>3. 三角不等式：對於<span
+class="math inline">\(x=0\)</span>。 <br>(這都是顯然的，證略。)</p>
+<h2
+id="定理-5柯西-施瓦茨不等式cauchy-schwarz-inequality"><font color=#ff1493><u>定理
+5：柯西-施瓦茨不等式(Cauchy-Schwarz Inequality)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的內積空間<span
+class="math inline">\(V\)</span>，則對於<span
+class="math inline">\(x,y\in V\)</span>，有<span
+class="math inline">\(|\langle
+x,y\rangle|\leq\|x\|\|y\|\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\(y=0\)</span>，則定理顯然成立。我們這裡假設<span
+class="math inline">\(y\neq 0\)</span>。則對於<span
+class="math inline">\(c\in F\)</span>，有 <span class="math display">\[
+\begin{aligned}
+0&amp;\leq\|x-cy\|^2\\
+&amp;=\langle x-cy,x-cy\rangle\\
+&amp;=\|x\|^2-c\langle y,x\rangle-\overline{c}\langle
+x,y\rangle+c\overline{c}\|y\|^2
+\end{aligned}
+\]</span></p>
+<h2
+id="定理-6三角不等式-triangular-inequality"><font color=#ff1493><u>定理
+6：三角不等式 (Triangular Inequality)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的內積空間<span
+class="math inline">\(V\)</span>，則對於<span
 class="math inline">\(x,y\in V\)</span>，有<span
 class="math inline">\(\|x+y\|\leq\|x\|+\|y\|\)</span>。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：1.和2.都是顯然的，這裡證第3.點。
-<br>我們有 <span class="math display">\[
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
 \begin{aligned}
 \|x+y\|^2&amp;=\langle x+y,x+y\rangle\\
 &amp;=\langle x,x\rangle+\langle x,y\rangle+\langle y,x\rangle+\langle
@@ -376,7 +399,11 @@ y,y\rangle\\
 &amp;\leq \|x\|^2+2|\langle x,y\rangle|+\|y\|^2\\
 &amp;=(\|x\|+\|y\|)^2
 \end{aligned}
-\]</span></p>
+\]</span> 故有<span
+class="math inline">\(\|x+y\|\leq\|x\|+\|y\|\)</span>。而等號成立條件是<span
+class="math inline">\(x=cy\)</span>, <span
+class="math inline">\(c\in\mathbb{R}_{\geq
+0}\)</span>。這是容易的，在此就略過證明了。<font size="1">QED</font></p>
 
     </div>
 
@@ -464,7 +491,9 @@ y,y\rangle\\
 (Adjoint)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1%E4%BD%9B%E7%BE%85%E7%95%A2%E5%B0%BC%E7%83%8F%E6%96%AF%E5%85%A7%E7%A9%8D-frobenius-inner-product"><span class="nav-number">1.2.1.</span> <span class="nav-text">例
 2-1：佛羅畢尼烏斯內積 (Frobenius Inner Product)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%85%A7%E7%A9%8D%E7%A9%BA%E9%96%93-inner-product-space"><span class="nav-number">1.3.</span> <span class="nav-text">定義
 3：內積空間 (Inner Product Space)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E7%AF%84%E6%95%B8-norm"><span class="nav-number">1.4.</span> <span class="nav-text">定義 4：範數
-(Norm)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li></ol></li></ol></div>
+(Norm)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">性質 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E6%9F%AF%E8%A5%BF-%E6%96%BD%E7%93%A6%E8%8C%A8%E4%B8%8D%E7%AD%89%E5%BC%8Fcauchy-schwarz-inequality"><span class="nav-number">1.5.</span> <span class="nav-text">定理
+5：柯西-施瓦茨不等式(Cauchy-Schwarz Inequality)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6%E4%B8%89%E8%A7%92%E4%B8%8D%E7%AD%89%E5%BC%8F-triangular-inequality"><span class="nav-number">1.6.</span> <span class="nav-text">定理
+6：三角不等式 (Triangular Inequality)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
