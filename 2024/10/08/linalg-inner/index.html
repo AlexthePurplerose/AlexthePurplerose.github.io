@@ -29,8 +29,10 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/frob.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/schwarz.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/gram.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/schmidt.jpg">
 <meta property="article:published_time" content="2024-10-08T13:20:41.000Z">
-<meta property="article:modified_time" content="2024-10-09T14:19:02.113Z">
+<meta property="article:modified_time" content="2024-10-09T17:20:19.860Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -202,7 +204,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-10-09 22:19:02" itemprop="dateModified" datetime="2024-10-09T22:19:02+08:00">2024-10-09</time>
+                <time title="修改時間：2024-10-10 01:20:19" itemprop="dateModified" datetime="2024-10-10T01:20:19+08:00">2024-10-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -481,9 +483,123 @@ a_jv_j,v_i\right\rangle\\
 \]</span> 最後一步是因為<span
 class="math inline">\(S\)</span>是正交的。故有<span
 class="math inline">\(a_i=\frac{\langle y,v_i\rangle}{\langle
-v_i,v_i\rangle}\)</span>，即 <span class="math display">\[
+v_i,v_i\rangle}\mbox{ (✪)}\)</span>，即 <span class="math display">\[
 y=\sum_{i=1}^k\frac{\langle y,v_i\rangle}{\langle v_i,v_i\rangle}v_i
 \]</span> <font size="1">QED</font></p>
+<h3 id="註記-9-1"><font color=#0000FF><u>註記 9-1</u></font></h3>
+<p>在定理9中，若<span
+class="math inline">\(S\)</span>是正交規範的，則對於<span
+class="math inline">\(y\in\mbox{span}(S)\)</span>，有 <span
+class="math display">\[
+y=\sum_{i=1}^k\langle y,v_i\rangle v_i
+\]</span></p>
+<h3 id="註記-9-2"><font color=#0000FF><u>註記 9-2</u></font></h3>
+<p>給定內積空間<span class="math inline">\(V\)</span>，並令<span
+class="math inline">\(S=\{v_1,v_2,\cdots,v_k\}\)</span>是<span
+class="math inline">\(V\)</span>的正交子集。則<span
+class="math inline">\(S\)</span>是線性獨立的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若存在<span
+class="math inline">\(a_1,a_2,\cdots,a_k\)</span>使得 <span
+class="math display">\[
+y=\sum_{i=1}^k a_iv_i=0
+\]</span> 則由定理9中的(✪)知應有<span
+class="math inline">\(a_i=0\)</span>，故<span
+class="math inline">\(S\)</span>是線性獨立的。<font size="1">QED</font></p>
+<h2
+id="定理-10格蘭-施密特正交化過程-gram-schmidt-orthogonalization-process"><font color=#ff1493><u>定理
+10：格蘭-施密特正交化過程 (Gram-Schmidt Orthogonalization
+Process)</u></font></h2>
+<p>給定內積空間<span
+class="math inline">\(V\)</span>與其線性獨立子集<span
+class="math inline">\(S=\{w_1,w_2,\cdots,w_n\}\)</span>。考慮集合<span
+class="math inline">\(S&#39;=\{v_1,v_2,\cdots,v_n\}\)</span>，其中 <span
+class="math display">\[
+\begin{aligned}
+v_1&amp;=w_1\\
+v_2&amp;=w_2-\frac{\langle w_2,v_1\rangle}{\|v_1\|^2}v_1\\
+v_3&amp;=w_3-\frac{\langle w_3,v_1\rangle}{\|v_1\|^2}v_1-\frac{\langle
+w_3,v_2\rangle}{\|v_2\|^2}v_2\\
+&amp;\vdots\\
+v_k&amp;=w_k-\sum_{j=1}^{k-1}\frac{\langle
+w_k,v_j\rangle}{\|v_j\|^2}v_j\\
+&amp;\vdots
+\end{aligned}
+\]</span> 則<span class="math inline">\(S&#39;\)</span>是正交的，且<span
+class="math inline">\(\mbox{span}(S)=\mbox{span}(S&#39;)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(S\)</span>中的元素數量<span
+class="math inline">\(n\)</span>做數學歸納法。 <br>1. <span
+class="math inline">\(n=1\)</span>時，<span
+class="math inline">\(S=S&#39;\)</span>，結論是顯然的。 <br>2.
+假設當<span class="math inline">\(n=k-1\)</span>時，<span
+class="math inline">\(S_{k-1}&#39;=\{v_1,v_2,\cdots,v_{k-1}\}\)</span>是正交的且<span
+class="math inline">\(\mbox{span}(S_{k-1}&#39;)=\mbox{span}(S_{k-1})\)</span>，其中<span
+class="math inline">\(S_{k-1}=\{w_1,w_2,\cdots,w_{k-1}\}\)</span>。則令<span
+class="math inline">\(S_k&#39;=\{v_1,v_2,\cdots,v_{k-1},v_k\}\)</span>，其中
+<span class="math display">\[
+v_k=w_k+\sum_{j=1}^{k-1}\frac{\langle w_k,v_j\rangle}{\|v_j\|^2}v_j
+\]</span> 由於<span
+class="math inline">\(S_k=\{w_1,w_2,\cdots,w_k\}\)</span>是線性獨立的，故應有<span
+class="math inline">\(v_k\neq 0\)</span>。而對於<span
+class="math inline">\(j=1\sim k-1\)</span>，由<span
+class="math inline">\(\{v_1,v_2,\cdots,v_{k-1}\}\)</span>正交有 <span
+class="math display">\[
+\begin{aligned}
+\langle v_k,v_j\rangle&amp;=\left\langle
+w_k-\sum_{l=1}^{k-1}\frac{\langle
+w_k,v_l\rangle}{\|v_l\|^2}v_l,v_j\right\rangle\\
+&amp;=\langle w_k,v_j\rangle-\frac{\langle
+w_k,v_j\rangle}{\|v_j\|^2}v_j\langle v_j,v_j\rangle=0
+\end{aligned}
+\]</span> 故對於所有<span class="math inline">\(i\neq j, i,j=1\sim
+k\)</span>，有<span class="math inline">\(\langle
+v_i,v_j\rangle=0\)</span>，故知<span
+class="math inline">\(S_k&#39;\)</span>是正交的。
+<br>於是，由數學歸納法可知對於任何<span
+class="math inline">\(n\)</span>，<span
+class="math inline">\(S&#39;\)</span>都是正交的。
+<br>對於定理的後半部分，由定義可知 <span class="math display">\[
+\mbox{span}(S&#39;)\subseteq\mbox{span}\{w_1,w_2,\cdots,w_n\}
+\]</span> 而由於<span
+class="math inline">\(S&#39;\)</span>是正交的，故由註記9-2知<span
+class="math inline">\(S&#39;\)</span>是線性獨立的，即 <span
+class="math display">\[
+\dim\mbox{span}(S&#39;)=n=\dim\mbox{span}(S)
+\]</span> 故有 <span class="math display">\[
+\mbox{span}(S&#39;)=\mbox{span}(S)
+\]</span> <font size="1">QED</font></p>
+<img src="gram.jpg" width="25%" height="25%">
+<center>
+圖3 Jørgen Pedersen Gram
+</center>
+<img src="schmidt.jpg" width="25%" height="25%">
+<center>
+圖4 Erhard Schmidt
+</center>
+<h3 id="定理-10-1"><font color=#ff1493><u>定理 10-1</u></font></h3>
+<p>有限維的內積空間<span
+class="math inline">\(V\)</span>總有正交規範的基底。
+<br>(把定理10中的<span class="math inline">\(v_k\)</span>除以<span
+class="math inline">\(\|v_k\|\)</span>就是正交規範的了。)</p>
+<h3 id="註記-10-2"><font color=#0000FF><u>註記 10-2</u></font></h3>
+<p>給定有限維內積空間<span class="math inline">\(V\)</span>，並令<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_n\}\)</span>是<span
+class="math inline">\(V\)</span>的正交規範基底。並給定線性映射<span
+class="math inline">\(T:V\to V\)</span>，令<span
+class="math inline">\(A=[T]^\beta_\beta\)</span>，則<span
+class="math inline">\(A_{ij}=\langle
+T(v_j),v_i\rangle\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定義有 <span
+class="math display">\[
+T(v_j)=\sum_{k=1}^n A_{kj}v_k\mbox{ (★★)}
+\]</span> 故有 <span class="math display">\[
+\langle T(v_j),v_i\rangle=\left\langle\sum_{k=1}^n
+A_{kj}v_k,v_i\right\rangle=A_{ij}
+\]</span> <font size="1">QED</font></p>
+<h4 id="註記-10-2-1"><font color=#0000FF><u>註記 10-2-1</u></font></h4>
+<p>沿用註記10-2的符號，由(★★)易得 <span class="math display">\[
+T(v_j)=\sum_{k=1}^n\langle T(v_j),v_k\rangle v_k
+\]</span></p>
 
     </div>
 
@@ -575,7 +691,9 @@ y=\sum_{i=1}^k\frac{\langle y,v_i\rangle}{\langle v_i,v_i\rangle}v_i
 5：柯西-施瓦茨不等式(Cauchy-Schwarz Inequality)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6%E4%B8%89%E8%A7%92%E4%B8%8D%E7%AD%89%E5%BC%8F-triangular-inequality"><span class="nav-number">1.6.</span> <span class="nav-text">定理
 6：三角不等式 (Triangular Inequality)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7"><span class="nav-number">1.7.</span> <span class="nav-text">註記 7</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%BC%E8%98%AD-%E6%96%BD%E5%AF%86%E7%89%B9%E6%AD%A3%E4%BA%A4%E5%8C%96%E9%81%8E%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">格蘭-施密特正交化過程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E6%AD%A3%E4%BA%A4-orthogonal"><span class="nav-number">2.1.</span> <span class="nav-text">定義 8：正交
 (Orthogonal)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8-1%E6%AD%A3%E4%BA%A4%E8%A6%8F%E7%AF%84-orthonormal"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
-8-1：正交規範 (Orthonormal)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.2.</span> <span class="nav-text">定理 9</span></a></li></ol></li></ol></div>
+8-1：正交規範 (Orthonormal)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.2.</span> <span class="nav-text">定理 9</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 9-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">註記 9-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10%E6%A0%BC%E8%98%AD-%E6%96%BD%E5%AF%86%E7%89%B9%E6%AD%A3%E4%BA%A4%E5%8C%96%E9%81%8E%E7%A8%8B-gram-schmidt-orthogonalization-process"><span class="nav-number">2.3.</span> <span class="nav-text">定理
+10：格蘭-施密特正交化過程 (Gram-Schmidt Orthogonalization
+Process)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">定理 10-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">註記 10-2</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10-2-1"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">註記 10-2-1</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
