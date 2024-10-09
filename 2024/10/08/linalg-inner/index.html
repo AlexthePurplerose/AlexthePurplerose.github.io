@@ -28,8 +28,9 @@
 <meta property="og:description" content="這份筆記是關於向量空間上內積的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/frob.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/schwarz.jpg">
 <meta property="article:published_time" content="2024-10-08T13:20:41.000Z">
-<meta property="article:modified_time" content="2024-10-08T13:39:18.452Z">
+<meta property="article:modified_time" content="2024-10-09T14:19:02.113Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,10 +194,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-10-08 21:20:41 / 修改時間：21:39:18" itemprop="dateCreated datePublished" datetime="2024-10-08T21:20:41+08:00">2024-10-08</time>
+              <time title="創建時間：2024-10-08 21:20:41" itemprop="dateCreated datePublished" datetime="2024-10-08T21:20:41+08:00">2024-10-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-10-09 22:19:02" itemprop="dateModified" datetime="2024-10-09T22:19:02+08:00">2024-10-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -369,25 +376,48 @@ id="定理-5柯西-施瓦茨不等式cauchy-schwarz-inequality"><font color=#ff1
 class="math inline">\(V\)</span>，則對於<span
 class="math inline">\(x,y\in V\)</span>，有<span
 class="math inline">\(|\langle
-x,y\rangle|\leq\|x\|\|y\|\)</span>。<br></p>
+x,y\rangle|\leq\|x\|\|y\|\)</span>，且等號成立若且唯若存在<span
+class="math inline">\(c\in F\)</span>使得<span
+class="math inline">\(x=cy\)</span>。<br></p>
 <p><font color=#8b4513><u>證明</u></font>：若<span
 class="math inline">\(y=0\)</span>，則定理顯然成立。我們這裡假設<span
 class="math inline">\(y\neq 0\)</span>。則對於<span
 class="math inline">\(c\in F\)</span>，有 <span class="math display">\[
 \begin{aligned}
-0&amp;\leq\|x-cy\|^2\\
+0&amp;\leq\|x-cy\|^2\mbox{ (☆)}\\
 &amp;=\langle x-cy,x-cy\rangle\\
 &amp;=\|x\|^2-c\langle y,x\rangle-\overline{c}\langle
 x,y\rangle+c\overline{c}\|y\|^2
 \end{aligned}
-\]</span></p>
+\]</span> 而令<span class="math inline">\(c=\frac{\langle
+x,y\rangle}{\langle y,y\rangle}\)</span>，即會有 <span
+class="math display">\[
+\begin{aligned}
+0&amp;\leq \|x\|^2-\frac{\langle x,y\rangle}{\langle y,y\rangle}\langle
+y,x\rangle-\frac{\langle y,x\rangle}{\langle y,y\rangle}\langle
+x,y\rangle+\frac{\langle x,y\rangle}{\langle y,y\rangle}\frac{\langle
+y,x\rangle}{\langle y,y\rangle}\|y\|^2\\
+&amp;=\|x\|^2-\frac{|\langle x,y\rangle|^2}{\|y\|^2}
+\end{aligned}
+\]</span> 故有 <span class="math display">\[
+|\langle x,y\rangle|^2\leq\|x\|^2\|y\|^2
+\]</span> 即<span class="math inline">\(|\langle
+x,y\rangle|\leq\|x\|\|y\|\)</span>。而等號成立需要(☆)處是等號，即要存在<span
+class="math inline">\(c\in F\)</span>使得<span
+class="math inline">\(x=cy\)</span>。<font size="1">QED</font></p>
+<img src="schwarz.jpg" width="25%" height="25%">
+<center>
+圖2 Hermann Schwarz
+</center>
 <h2
 id="定理-6三角不等式-triangular-inequality"><font color=#ff1493><u>定理
 6：三角不等式 (Triangular Inequality)</u></font></h2>
 <p>給定<span class="math inline">\(F\)</span>上的內積空間<span
 class="math inline">\(V\)</span>，則對於<span
 class="math inline">\(x,y\in V\)</span>，有<span
-class="math inline">\(\|x+y\|\leq\|x\|+\|y\|\)</span>。<br></p>
+class="math inline">\(\|x+y\|\leq\|x\|+\|y\|\)</span>，且等號成立若且唯若存在<span
+class="math inline">\(c\in\mathbb{R}_{\geq 0}\)</span>使得<span
+class="math inline">\(x=cy\)</span>。<br></p>
 <p><font color=#8b4513><u>證明</u></font>：我們有 <span
 class="math display">\[
 \begin{aligned}
@@ -397,13 +427,63 @@ y,y\rangle\\
 &amp;=\|x\|^2+2\mbox{Re}(\langle x,y\rangle)+\|y\|^2\\
 &amp;\mbox{(這裡Re指的是數的實部)}\\
 &amp;\leq \|x\|^2+2|\langle x,y\rangle|+\|y\|^2\\
-&amp;=(\|x\|+\|y\|)^2
+&amp;\leq (\|x\|+\|y\|)^2\mbox{ (★)}
 \end{aligned}
-\]</span> 故有<span
+\]</span> (★)來自定理5的柯西-施瓦茨不等式。故有<span
 class="math inline">\(\|x+y\|\leq\|x\|+\|y\|\)</span>。而等號成立條件是<span
+class="math inline">\(\mbox{Re}(\langle x,y\rangle)=|\langle
+x,y\rangle|\)</span>且(★)處也要是等號，故由定理5知要有<span
 class="math inline">\(x=cy\)</span>, <span
 class="math inline">\(c\in\mathbb{R}_{\geq
-0}\)</span>。這是容易的，在此就略過證明了。<font size="1">QED</font></p>
+0}\)</span>。<font size="1">QED</font></p>
+<h2 id="註記-7"><font color=#0000FF><u>註記 7</u></font></h2>
+<p>我們可以發現這裡定義的範數與<a
+href="https://alexthepurplerose.github.io/2024/09/10/linalg-matrix-exp/">這裡</a>的定義1的範數定義相容。事實上，該處的定義是比較廣泛的定義。當<span
+class="math inline">\(V\)</span>不是內積空間時，我們可以用該處的方式定義範數。</p>
+<center>
+<h1
+id="格蘭-施密特正交化過程"><font color=#b8860b>格蘭-施密特正交化過程</font></h1>
+</center>
+<h2 id="定義-8正交-orthogonal"><font color=#008000><u>定義 8：正交
+(Orthogonal)</u></font></h2>
+<p>給定內積空間<span class="math inline">\(V\)</span>，並給定其子集<span
+class="math inline">\(S\)</span>。若對於所有<span
+class="math inline">\(x\neq y\in S\)</span>有<span
+class="math inline">\(\langle x,y\rangle=0\)</span>，則稱<span
+class="math inline">\(S\)</span>是正交的。</p>
+<h3 id="定義-8-1正交規範-orthonormal"><font color=#008000><u>定義
+8-1：正交規範 (Orthonormal)</u></font></h3>
+<p>給定內積空間<span
+class="math inline">\(V\)</span>，並給定其正交子集<span
+class="math inline">\(S\)</span>。若對於所有<span
+class="math inline">\(x\in S\)</span>有<span
+class="math inline">\(\|x\|^2=\langle x,x\rangle=1\)</span>，則稱<span
+class="math inline">\(S\)</span>是$正交規範的。</p>
+<h2 id="定理-9"><font color=#ff1493><u>定理 9</u></font></h2>
+<p>給定內積空間<span class="math inline">\(V\)</span>，並令<span
+class="math inline">\(S=\{v_1,v_2,\cdots,v_k\}\)</span>是<span
+class="math inline">\(V\)</span>的正交子集。若<span
+class="math inline">\(y\in\mbox{span}(S)\)</span>，則 <span
+class="math display">\[
+y=\sum_{i=1}^k\frac{\langle y,v_i\rangle}{\langle v_i,v_i\rangle}v_i
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(y\in\mbox{span}(S)\)</span>，故可令 <span
+class="math display">\[
+y=\sum_{i=1}^k a_iv_i
+\]</span> 故有 <span class="math display">\[
+\begin{aligned}
+\langle y,v_i\rangle&amp;=\left\langle\sum_{j=1}^k
+a_jv_j,v_i\right\rangle\\
+&amp;=\sum_{j=1}^k a_j\langle v_j,v_i\rangle\\
+&amp;=a_i\langle v_i,v_i\rangle
+\end{aligned}
+\]</span> 最後一步是因為<span
+class="math inline">\(S\)</span>是正交的。故有<span
+class="math inline">\(a_i=\frac{\langle y,v_i\rangle}{\langle
+v_i,v_i\rangle}\)</span>，即 <span class="math display">\[
+y=\sum_{i=1}^k\frac{\langle y,v_i\rangle}{\langle v_i,v_i\rangle}v_i
+\]</span> <font size="1">QED</font></p>
 
     </div>
 
@@ -493,7 +573,9 @@ class="math inline">\(c\in\mathbb{R}_{\geq
 3：內積空間 (Inner Product Space)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E7%AF%84%E6%95%B8-norm"><span class="nav-number">1.4.</span> <span class="nav-text">定義 4：範數
 (Norm)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">性質 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E6%9F%AF%E8%A5%BF-%E6%96%BD%E7%93%A6%E8%8C%A8%E4%B8%8D%E7%AD%89%E5%BC%8Fcauchy-schwarz-inequality"><span class="nav-number">1.5.</span> <span class="nav-text">定理
 5：柯西-施瓦茨不等式(Cauchy-Schwarz Inequality)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6%E4%B8%89%E8%A7%92%E4%B8%8D%E7%AD%89%E5%BC%8F-triangular-inequality"><span class="nav-number">1.6.</span> <span class="nav-text">定理
-6：三角不等式 (Triangular Inequality)</span></a></li></ol></li></ol></div>
+6：三角不等式 (Triangular Inequality)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7"><span class="nav-number">1.7.</span> <span class="nav-text">註記 7</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%BC%E8%98%AD-%E6%96%BD%E5%AF%86%E7%89%B9%E6%AD%A3%E4%BA%A4%E5%8C%96%E9%81%8E%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">格蘭-施密特正交化過程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E6%AD%A3%E4%BA%A4-orthogonal"><span class="nav-number">2.1.</span> <span class="nav-text">定義 8：正交
+(Orthogonal)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8-1%E6%AD%A3%E4%BA%A4%E8%A6%8F%E7%AF%84-orthonormal"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
+8-1：正交規範 (Orthonormal)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.2.</span> <span class="nav-text">定理 9</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
