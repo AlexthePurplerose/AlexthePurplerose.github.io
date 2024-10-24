@@ -20,18 +20,22 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="永蔚的上課筆記與小小文欄">
-<meta property="og:type" content="website">
-<meta property="og:title" content="永蔚Alex">
-<meta property="og:url" content="https://alexthepurplerose.github.io/tags/Lecture-Notes/page/4/index.html">
+  <meta name="description" content="這份筆記是關於希爾伯特空間的定義與性質，以及里斯表現定理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="線性代數：希爾伯特空間">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2024/10/24/linalg-hilbert/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="永蔚的上課筆記與小小文欄">
+<meta property="og:description" content="這份筆記是關於希爾伯特空間的定義與性質，以及里斯表現定理。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2024-10-24T09:15:44.000Z">
+<meta property="article:modified_time" content="2024-10-24T09:17:08.154Z">
 <meta property="article:author" content="SemperLux">
-<meta property="article:tag" content="Spongebob, LectureNotes, Feelings, 海綿寶寶, 上課筆記, 心情札記">
+<meta property="article:tag" content="Lecture_Notes">
+<meta property="article:tag" content="Linear_Algebra">
+<meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/tags/Lecture-Notes/page/4/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2024/10/24/linalg-hilbert/">
 
 
 <script id="page-configurations">
@@ -39,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>標籤: Lecture_Notes | 永蔚Alex</title>
+  <title>線性代數：希爾伯特空間 | 永蔚Alex</title>
   
 
 
@@ -158,235 +162,97 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Lecture_Notes
-          <small>標籤</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/10/24/linalg-hilbert/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SemperLux">
+      <meta itemprop="description" content="永蔚的上課筆記與小小文欄">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永蔚Alex">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          線性代數：希爾伯特空間
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2024-10-24 17:15:44 / 修改時間：17:17:08" itemprop="dateCreated datePublished" datetime="2024-10-24T17:15:44+08:00">2024-10-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8/" itemprop="url" rel="index"><span itemprop="name">線性代數</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-08-09T16:34:38+08:00"
-              content="2024-08-09">
-          08-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/08/09/cal-multi-funda/" itemprop="url">
-            <span itemprop="name">微積分：多變數函數的微積分基本定理</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-08-03T21:18:01+08:00"
-              content="2024-08-03">
-          08-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/08/03/cal-fourier/" itemprop="url">
-            <span itemprop="name">微積分：傅立葉轉換</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-08-03T15:14:55+08:00"
-              content="2024-08-03">
-          08-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/08/03/cal-multi-improper-2/" itemprop="url">
-            <span itemprop="name">微積分：多變數瑕積分的一致收斂性</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-08-02T18:58:00+08:00"
-              content="2024-08-02">
-          08-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/08/02/cal-surface-int/" itemprop="url">
-            <span itemprop="name">微積分：面積分</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-08-02T15:52:59+08:00"
-              content="2024-08-02">
-          08-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/08/02/cal-vol-area/" itemprop="url">
-            <span itemprop="name">微積分：體積與面積的計算</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-31T20:04:29+08:00"
-              content="2024-07-31">
-          07-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/31/cal-multi-var-change/" itemprop="url">
-            <span itemprop="name">微積分：多重積分的變數變換</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-30T14:29:33+08:00"
-              content="2024-07-30">
-          07-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/30/cal-multi-int/" itemprop="url">
-            <span itemprop="name">微積分：多重積分</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-29T19:14:41+08:00"
-              content="2024-07-29">
-          07-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/29/cal-set-area/" itemprop="url">
-            <span itemprop="name">微積分：集合的面積</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-29T14:32:25+08:00"
-              content="2024-07-29">
-          07-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/29/cal-multi-extreme/" itemprop="url">
-            <span itemprop="name">微積分：多變數函數的極值</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2024-07-28T20:40:28+08:00"
-              content="2024-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/07/28/cal-inverse-thm/" itemprop="url">
-            <span itemprop="name">微積分：反函數定理</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        <p>這份筆記是關於希爾伯特空間的定義與性質，以及里斯表現定理。
+<span id="more"></span><br></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
+              <a href="/tags/Linear-Algebra/" rel="tag"># Linear_Algebra</a>
+              <a href="/tags/Algebra/" rel="tag"># Algebra</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/10/24/linalg-ortho-projection/" rel="prev" title="線性代數：正交投影">
+      <i class="fa fa-chevron-left"></i> 線性代數：正交投影
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/Lecture-Notes/page/3/"><i class="fa fa-angle-left" aria-label="上一頁"></i></a><a class="page-number" href="/tags/Lecture-Notes/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/Lecture-Notes/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/tags/Lecture-Notes/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/tags/Lecture-Notes/page/9/">9</a><a class="extend next" rel="next" href="/tags/Lecture-Notes/page/5/"><i class="fa fa-angle-right" aria-label="下一頁"></i></a>
-  </nav>
+  
+  
 
 
 
