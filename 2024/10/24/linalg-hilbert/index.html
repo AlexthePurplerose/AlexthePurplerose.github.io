@@ -28,8 +28,9 @@
 <meta property="og:description" content="這份筆記是關於希爾伯特空間的定義與性質，以及里斯表現定理。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/24/linalg-hilbert/Hilbert.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2024/10/24/linalg-hilbert/riesz.jpeg">
 <meta property="article:published_time" content="2024-10-24T11:13:39.000Z">
-<meta property="article:modified_time" content="2024-10-24T11:15:35.525Z">
+<meta property="article:modified_time" content="2024-10-24T13:16:52.250Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -195,7 +196,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-10-24 19:13:39 / 修改時間：19:15:35" itemprop="dateCreated datePublished" datetime="2024-10-24T19:13:39+08:00">2024-10-24</time>
+              <time title="創建時間：2024-10-24 19:13:39 / 修改時間：21:16:52" itemprop="dateCreated datePublished" datetime="2024-10-24T19:13:39+08:00">2024-10-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,11 +267,172 @@ class="math inline">\(W\)</span>是閉集。</p>
 <h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
 <p>給定希爾伯特空間<span class="math inline">\(V\)</span>與其閉子集<span
 class="math inline">\(W\)</span>，則<span
-class="math inline">\(\mbox{Proj}_W\)</span>存在且唯一(這理)。</p>
+class="math inline">\(\mbox{Proj}_W\)</span>存在且唯一(我們在<a
+href="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/">這裡</a>的定理2證過有限維的狀況了，然而此處<span
+class="math inline">\(V,W\)</span>可能是無限維的)。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於<span
+class="math inline">\(x\in V\)</span>，令<span
+class="math inline">\(S=\{\|x-w\|:w\in W\}\)</span>是一個<span
+class="math inline">\(\mathbb{R}\)</span>的子集。因為總有<span
+class="math inline">\(\|x-w\|\geq 0\)</span>，故<span
+class="math inline">\(S\)</span>有下界。令<span
+class="math inline">\(d\)</span>是<span
+class="math inline">\(S\)</span>的最大下界。我們希望找出<span
+class="math inline">\(y\in W\)</span>使得<span
+class="math inline">\(\|x-y\|=d\)</span>且<span
+class="math inline">\(y-x\in W^\perp\)</span>。 <br>由於<span
+class="math inline">\(d\)</span>是<span
+class="math inline">\(S\)</span>的最大下界，故對於所有<span
+class="math inline">\(n&gt;0\)</span>，都存在<span
+class="math inline">\(w_n\in W\)</span>使得 <span
+class="math display">\[
+d\leq\|x-w_n\|\leq d+\frac{1}{n}
+\]</span> (不然最大下界就可以是<span
+class="math inline">\(d+1/n\)</span>了)。給定正整數<span
+class="math inline">\(N&gt;0\)</span>，則對於任意<span
+class="math inline">\(m,n&gt;N\)</span>，有 <span
+class="math display">\[
+\begin{aligned}
+\|w_n-w_m\|^2&amp;=\|(w_n-x)-(w_m-x)\|^2\\
+&amp;=\|w_n-x\|^2+\|w_m-x\|^2-2\mbox{Re}(\langle w_n-x,w_m-x\rangle)
+\end{aligned}
+\]</span> 且 <span class="math display">\[
+4\left\|\frac{w_n+w_m}{2}-x\right\|^2=\|w_n-x\|^2+\|w_m-x\|^2+2\mbox{Re}(\langle
+w_n-x,w_m-x\rangle)
+\]</span> 綜合上兩式有 <span class="math display">\[
+\|w_n-w_m\|^2=2\|w_n-x\|^2+2\|w_m-x\|^2-4\left\|\frac{w_n+w_m}{2}-x\right\|^2
+\]</span> 而我們有<span class="math inline">\(\|w_n-x\|\leq
+d+1/n\)</span>, <span class="math inline">\(\|w_m-x\|\leq
+d+1/m\)</span>以及 <span class="math display">\[
+\begin{aligned}
+\left\|\frac{w_n+w_m}{2}-x\right\|&amp;=\left\|\frac{w_n-x}{2}+\frac{w_m-x}{2}\right\|\\
+&amp;\geq\frac{1}{2}\|w_n-x\|+\frac{1}{2}\|w_m-x\|\mbox{ (三角不等式)}\\
+&amp;\geq \frac{1}{2}d+\frac{1}{2}d=d
+\end{aligned}
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+\|w_n-w_m\|^2&amp;\leq
+2\left(d+\frac{1}{n}\right)^2+2\left(d+\frac{1}{m}\right)^2-4d^2\\
+&amp;=4d\left(\frac{1}{n}+\frac{1}{m}\right)+2\left(\frac{1}{n^2}+\frac{1}{m^2}\right)\\
+&amp;\leq\frac{8d}{N}+\frac{4}{N^2}
+\end{aligned}
+\]</span> 這當<span
+class="math inline">\(N\)</span>很大時可以任意小，故知<span
+class="math inline">\(\{w_n\}\)</span>是<span
+class="math inline">\(W\)</span>中的柯西序列。而又由於<span
+class="math inline">\(W\)</span>是閉的，故應存在<span
+class="math inline">\(y\in W\)</span>使得當<span
+class="math inline">\(n\to\infty\)</span>時<span
+class="math inline">\(w_n\to y\)</span>。於是，對於所有<span
+class="math inline">\(w_n\)</span>，我們有 <span class="math display">\[
+d\leq\|x-y\|=\|x-w_n+w_n-y\|\leq\|x-w_n\|+\|y-w_n\|
+\]</span> 而又<span class="math inline">\(\|x-w_n\|\to d\)</span>, <span
+class="math inline">\(\|y-w_n\|\to 0\)</span>，故<span
+class="math inline">\(\|x-y\|=d\)</span>。 <br>接著我們需要說明<span
+class="math inline">\(x-y\in W^\perp\)</span>，即對於所有<span
+class="math inline">\(w\in W\)</span>有<span
+class="math inline">\(\langle x-y,w\rangle=0\)</span>。給定<span
+class="math inline">\(t\in\mathbb{R}\)</span>(或<span
+class="math inline">\(\mathbb{C}\)</span>)，由<span
+class="math inline">\(y+tw\in W\)</span>可知 <span
+class="math display">\[
+\|x-(y+tw)\|\geq \|x-y\|=d
+\]</span> 故有<span
+class="math inline">\(\|x-y-tw\|^2\geq\|x-y\|^2\)</span>，即 <span
+class="math display">\[
+\begin{aligned}
+&amp;2\mbox{Re}(\langle x-y,-tw\rangle)+|t|^2\|w\|^2\geq 0\\
+\Rightarrow&amp;|t|^2\|w\|^2-2\mbox{Re}(\overline{t}\langle
+x-y,w\rangle)\geq 0\mbox{ (☆)}
+\end{aligned}
+\]</span> 若存在<span class="math inline">\(0\neq w\in
+W\)</span>使得<span class="math inline">\(\langle x-y,w\rangle\neq
+0\)</span>，則令 <span class="math display">\[
+\langle x-y,w\rangle=re^{i\theta}, t=\epsilon
+e^{i\theta},\;\;r,\epsilon&gt;0
+\]</span> 則代回(☆)式有 <span class="math display">\[
+\begin{aligned}
+&amp;\epsilon^2\|w\|^2-2\mbox{Re}(\epsilon e^{-i\theta}re^{i\theta})\geq
+0\\
+\Rightarrow&amp;\epsilon^2\|w\|^2-2\epsilon r\geq 0
+\end{aligned}
+\]</span> 而又<span
+class="math inline">\(\epsilon&gt;0\)</span>，故<span
+class="math inline">\(\epsilon\|w\|^2-2r\geq
+0\)</span>。然而，這條式子應該對於任意<span
+class="math inline">\(\epsilon&gt;0\)</span>都正確，但<span
+class="math inline">\(r\)</span>是固定的數。明顯矛盾，故應有<span
+class="math inline">\(\langle x-y,w\rangle=0\)</span>，即<span
+class="math inline">\(x-y\in W^\perp\)</span>。 <br>最後，<a
+href="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/">這裡</a>的定理2在證明<span
+class="math inline">\(y\)</span>的唯一性時並未用到<span
+class="math inline">\(V\)</span>有限維的條件，故不需調整。即對於任意<span
+class="math inline">\(x\in V\)</span>，都存在唯一<span
+class="math inline">\(\mbox{Proj}_W(x)\in W\)</span>使得<span
+class="math inline">\(x-\mbox{Proj}_W(x)\in
+W^\perp\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="有界算子"><font color=#b8860b>有界算子</font></h1>
+</center>
+<h2 id="定義-5有界算子-bounded-operator"><font color=#008000><u>定義
+5：有界算子 (Bounded Operator)</u></font></h2>
+<p>給定<span class="math inline">\(F=\mathbb{C}\)</span>或<span
+class="math inline">\(\mathbb{R}\)</span>上的希爾伯特空間<span
+class="math inline">\(V\)</span>，並考慮線性映射<span
+class="math inline">\(l:V\to F\)</span>。若存在<span
+class="math inline">\(M\)</span>使得 <span class="math display">\[
+\forall x\in V, |l(x)|\leq M\|x\|
+\]</span> 則稱<span class="math inline">\(l\)</span>是有界算子。</p>
+<h2
+id="定義-6有界算子空間-space-of-bounded-operators"><font color=#008000><u>定義
+6：有界算子空間 (Space of Bounded Operators)</u></font></h2>
+<p>給定<span class="math inline">\(F=\mathbb{C}\)</span>或<span
+class="math inline">\(\mathbb{R}\)</span>上的希爾伯特空間<span
+class="math inline">\(V\)</span>，記<span
+class="math inline">\(V\)</span>的有界算子空間為 <span
+class="math display">\[
+V^\ast_{bdd}=\{l\in V^\ast:l\mbox{ is bounded}\}
+\]</span></p>
+<h2 id="註記-7"><font color=#0000FF><u>註記 7</u></font></h2>
+<p>給定<span class="math inline">\(F=\mathbb{C}\)</span>或<span
+class="math inline">\(\mathbb{R}\)</span>上的內積空間<span
+class="math inline">\(V\)</span>。若<span class="math inline">\(\dim
+V&lt;\infty\)</span>，則<span
+class="math inline">\(V^\ast_{bdd}=V^\ast\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\{v_1,v_2,\cdots,v_n\}\)</span>為<span
+class="math inline">\(V\)</span>的正交規範基底。則對於<span
+class="math inline">\(l\in V^\ast\)</span>，應有 <span
+class="math display">\[
+l(a_1v_1+a_2v_2+\cdots+a_nv_n)=a_1l(v_1)+a_2l(v_2)+\cdots+a_nl(v_n)
+\]</span> 則對於<span
+class="math inline">\(x=a_1v_1+a_2v_2+\cdots+a_nv_n\)</span>，有 <span
+class="math display">\[
+\begin{aligned}
+|l(x)|^2&amp;=|a_1l(v_1)+a_2l(v_2)+\cdots+a_nl(v_n)|^2\\
+&amp;\leq(|a_1|^2+|a_2|^2+\cdots+|a_n|^2)(|l(v_1)|^2+|l(v_2)|^2+\cdots+|l(v_n)|^2)\\
+&amp;\mbox{(普通的柯西不等式)}
+\end{aligned}
+\]</span> 又因為<span
+class="math inline">\(\{v_1,v_2,\cdots,v_n\}\)</span>是正交規範的，故
+<span class="math display">\[
+\|x\|^2=|a_1|^2+|a_2|^2+\cdots+|a_n|^2
+\]</span> 於是 <span class="math display">\[
+|l(x)|^2\leq
+\|x\|^2\underbrace{(|l(v_1)|^2+|l(v_2)|^2+\cdots+|l(v_n)|^2)}_{\mbox{定值}}
+\]</span> 令<span
+class="math inline">\(M=\sqrt{|l(v_1)|^2+|l(v_2)|^2+\cdots+|l(v_n)|^2}\)</span>，即有<span
+class="math inline">\(|l(x)|\leq M\|x\|\)</span>。故<span
+class="math inline">\(l\)</span>是有界算子，即<span
+class="math inline">\(V^\ast_{bdd}=V^\ast\)</span>。<font size="1">QED</font></p>
+<h3 id="註記-7-1"><font color=#0000FF><u>註記 7-1</u></font></h3>
+<p><span class="math inline">\(\dim
+V=\infty\)</span>時<u>不一定</u>有<span
+class="math inline">\(V^\ast_{bdd}=V^\ast\)</span>。</p>
 <center>
 <h1 id="里斯表現定理"><font color=#b8860b>里斯表現定理</font></h1>
 </center>
-<h2 id="定理-1"><font color=#ff1493><u>定理 1</u></font></h2>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
 <p>給定<span class="math inline">\(F=\mathbb{C}\)</span>或<span
 class="math inline">\(\mathbb{R}\)</span>上的內積空間<span
 class="math inline">\(V\)</span>，其中<span class="math inline">\(\dim
@@ -309,9 +471,84 @@ class="math inline">\(\{v_1,v_2,\cdots,v_n\}\)</span>是線性獨立的，故
 \forall i=1\sim n, \overline{a_i}=0=a_i
 \]</span> 即<span
 class="math inline">\(\{l_{v_1},l_{v_2},\cdots,l_{v_n}\}\)</span>也是線性獨立的。<font size="1">QED</font></p>
-<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
-<p>定理1在<span class="math inline">\(\dim
+<h3 id="註記-8-1"><font color=#0000FF><u>註記 8-1</u></font></h3>
+<p>定理8在<span class="math inline">\(\dim
 V=\infty\)</span>時<u>不一定</u>會成立。</p>
+<h2
+id="定理-9里斯表現定理-riesz-representation-theorem"><font color=#ff1493><u>定理
+9：里斯表現定理 (Riesz Representation Theorem)</u></font></h2>
+<p>給定希爾伯特空間<span class="math inline">\(V\)</span>與有界算子<span
+class="math inline">\(l\in V^\ast_{bdd}\)</span>。則存在<span
+class="math inline">\(y\in V\)</span>使得<span
+class="math inline">\(l(x)\langle x,y\rangle\)</span>, <span
+class="math inline">\(\forall x\in V\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(N=N(l)\)</span>，我們希望說明<span
+class="math inline">\(N\)</span>是閉的。 <br>給定<span
+class="math inline">\(N\subseteq V\)</span>中的柯西序列<span
+class="math inline">\(\{z_n\}^\infty_{n=1}\)</span>，則由定義知 <span
+class="math display">\[
+l(z_i)=0,\forall i\in\mathbb{N}
+\]</span> 而因為<span
+class="math inline">\(V\)</span>是希爾伯特空間，故<span
+class="math inline">\(\{z_n\}\)</span>收斂，令其收斂到<span
+class="math inline">\(z\in V\)</span>。若要說明<span
+class="math inline">\(N\)</span>是閉的，則必須說明<span
+class="math inline">\(z\in N\)</span>，即<span
+class="math inline">\(l(z)=0\)</span>。 <br>由於<span
+class="math inline">\(l\)</span>是有界的，故應存在<span
+class="math inline">\(M&gt;0\)</span>使得對於所有<span
+class="math inline">\(x\in V\)</span>有<span
+class="math inline">\(|l(x)|\leq M\|x\|\)</span>。於是，有 <span
+class="math display">\[
+|l(z)-l(z_n)|\leq M\|z-z_n\|
+\]</span> 而由<span class="math inline">\(z_n\to z\)</span>知當<span
+class="math inline">\(n\to\infty\)</span>時，<span
+class="math inline">\(\|z-z_n\|\)</span>可以任意小。故有 <span
+class="math display">\[
+\lim_{n\to\infty}|l(z)-l(z_n)|=0
+\]</span> 而由<span class="math inline">\(l(z_n)=0\)</span>有<span
+class="math inline">\(l(z)=0\)</span>。故可知<span
+class="math inline">\(N=N(l)\)</span>確是閉的。 <br>接著，若<span
+class="math inline">\(N=V\)</span>，則<span
+class="math inline">\(l\equiv 0\)</span>，可以令<span
+class="math inline">\(y=0\)</span>，即有<span
+class="math inline">\(0=l(x)=\langle x,0\rangle\)</span>。而若<span
+class="math inline">\(N\neq V\)</span>，則因為<span
+class="math inline">\(N\)</span>是閉集，故由定理4知<span
+class="math inline">\(\mbox{Proj}_N\)</span>唯一存在，即<span
+class="math inline">\(N^\perp\)</span>中有非零元素(對於<span
+class="math inline">\(x\notin N\)</span>，有<span
+class="math inline">\(0\neq x-\mbox{Proj}_N(x)\in
+N^\perp\)</span>)。於是可以給定<span class="math inline">\(0\neq v\in
+N^\perp\)</span>。由<span class="math inline">\(v\notin
+N=N(l)\)</span>知應有<span class="math inline">\(l(v)\neq
+0\)</span>，則對於所有<span class="math inline">\(x\in V\)</span>，有
+<span class="math display">\[
+l(x)=\alpha l(v),\;\;\alpha=\frac{l(x)}{l(v)}
+\]</span> 故有<span class="math inline">\(l(x-\alpha
+v)=0\)</span>，於是有<span class="math inline">\(x-\alpha v\in
+N\)</span>。而<span class="math inline">\(v\in N^\perp\)</span>，故
+<span class="math display">\[
+\langle x-\alpha v,v\rangle=0
+\]</span> 故 <span class="math display">\[
+\langle x,v\rangle=\alpha\langle v,v\rangle=\frac{l(x)}{l(v)}\langle
+v,v\rangle
+\]</span> 稍做移項，有 <span class="math display">\[
+l(x)=\frac{\langle x,v\rangle}{\langle v,v\rangle}l(v)=\left\langle
+x,\overline{\frac{l(v)}{\langle v,v\rangle}}v\right\rangle
+\]</span> 可以看到<span
+class="math inline">\(\overline{\frac{l(v)}{\langle
+v,v\rangle}}v\)</span>和<span
+class="math inline">\(x\)</span>無關，故可令<span
+class="math inline">\(y=\overline{\frac{l(v)}{\langle
+v,v\rangle}}v\)</span>，即得 <span class="math display">\[
+l(x)=\langle x,y\rangle,\forall x\in V
+\]</span> <font size="1">QED</font></p>
+<img src="riesz.jpeg" width="25%" height="25%">
+<center>
+圖2 Riesz Frigyes
+</center>
 
     </div>
 
@@ -397,7 +634,10 @@ V=\infty\)</span>時<u>不一定</u>會成立。</p>
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%8C%E7%88%BE%E4%BC%AF%E7%89%B9%E7%A9%BA%E9%96%93"><span class="nav-number">1.</span> <span class="nav-text">希爾伯特空間</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97-cauchy-sequence"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：柯西序列 (Cauchy Sequence)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%B8%8C%E7%88%BE%E4%BC%AF%E7%89%B9%E7%A9%BA%E9%96%93-hilbert-space"><span class="nav-number">1.2.</span> <span class="nav-text">定義
 2：希爾伯特空間 (Hilbert Space)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E9%96%89%E9%9B%86-closed-set"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：閉集
-(Closed Set)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8C%E6%96%AF%E8%A1%A8%E7%8F%BE%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">里斯表現定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1"><span class="nav-number">2.1.</span> <span class="nav-text">定理 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li></ol></li></ol></div>
+(Closed Set)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%95%8C%E7%AE%97%E5%AD%90"><span class="nav-number">2.</span> <span class="nav-text">有界算子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E6%9C%89%E7%95%8C%E7%AE%97%E5%AD%90-bounded-operator"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+5：有界算子 (Bounded Operator)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E6%9C%89%E7%95%8C%E7%AE%97%E5%AD%90%E7%A9%BA%E9%96%93-space-of-bounded-operators"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+6：有界算子空間 (Space of Bounded Operators)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7"><span class="nav-number">2.3.</span> <span class="nav-text">註記 7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">註記 7-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%87%8C%E6%96%AF%E8%A1%A8%E7%8F%BE%E5%AE%9A%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">里斯表現定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">3.1.</span> <span class="nav-text">定理 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 8-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9%E9%87%8C%E6%96%AF%E8%A1%A8%E7%8F%BE%E5%AE%9A%E7%90%86-riesz-representation-theorem"><span class="nav-number">3.2.</span> <span class="nav-text">定理
+9：里斯表現定理 (Riesz Representation Theorem)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
