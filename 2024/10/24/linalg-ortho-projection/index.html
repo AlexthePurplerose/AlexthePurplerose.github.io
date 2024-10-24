@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於上內積的定義與性質。">
+  <meta name="description" content="這份筆記是關於正交補餘與正交投影的定義與性質。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="線性代數：正交投影">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於上內積的定義與性質。">
+<meta property="og:description" content="這份筆記是關於正交補餘與正交投影的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-10-24T07:48:57.000Z">
-<meta property="article:modified_time" content="2024-10-24T07:51:13.356Z">
+<meta property="article:modified_time" content="2024-10-24T08:37:49.051Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-10-24 15:48:57 / 修改時間：15:51:13" itemprop="dateCreated datePublished" datetime="2024-10-24T15:48:57+08:00">2024-10-24</time>
+              <time title="創建時間：2024-10-24 15:48:57 / 修改時間：16:37:49" itemprop="dateCreated datePublished" datetime="2024-10-24T15:48:57+08:00">2024-10-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +220,178 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於上內積的定義與性質。 <span id="more"></span><br></p>
+        <p>這份筆記是關於正交補餘與正交投影的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="正交補餘"><font color=#b8860b>正交補餘</font></h1>
+</center>
+<h2
+id="定義-1正交補餘-orthogonal-complement"><font color=#008000><u>定義
+1：正交補餘 (Orthogonal Complement)</u></font></h2>
+<p>給定內積空間<span class="math inline">\(V\)</span>，令<span
+class="math inline">\(S\)</span>為<span
+class="math inline">\(V\)</span>的子集。我們定義<span
+class="math inline">\(S\)</span>的正交補餘為 <span
+class="math display">\[
+S^\perp=\{x\in V:\langle x,y\rangle=0,\forall y\in S\}
+\]</span></p>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<p>顯然可知<span
+class="math inline">\(S^\perp\)</span>是一個向量空間。</p>
+<h3 id="註記-1-2"><font color=#0000FF><u>註記 1-2</u></font></h3>
+<p>若<span class="math inline">\(W\)</span>是向量空間<span
+class="math inline">\(V\)</span>的子空間，則<span
+class="math inline">\(W\cap W^\perp=\{0\}\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於<span
+class="math inline">\(0\neq w\in W\)</span>，總有<span
+class="math inline">\(\langle w,w\rangle&gt;0\)</span>，故<span
+class="math inline">\(w\notin
+W^\perp\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-2"><font color=#ff1493><u>定理 2</u></font></h2>
+<p>給定內積空間<span class="math inline">\(V\)</span>及其子空間<span
+class="math inline">\(W\)</span>，其中<span class="math inline">\(\dim
+W&lt;\infty\)</span>。給定<span class="math inline">\(y\in
+V\)</span>，則存在唯一<span class="math inline">\(u\in W\)</span>與<span
+class="math inline">\(z\in W^\perp\)</span>使得<span
+class="math inline">\(y=u+z\)</span>。並且若<span
+class="math inline">\(\{v_1,v_2,\cdots,v_k\}\)</span>是<span
+class="math inline">\(W\)</span>的正交規範基底(由格蘭-施密特正交化過程可知此基底存在，見<a
+href="https://alexthepurplerose.github.io/2024/10/08/linalg-quotient/">這裡</a>的定理10-1)，則
+<span class="math display">\[
+u=\sum_{i=1}^k\langle y,v_i\rangle v_i
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：對於上述的<span
+class="math inline">\(u\)</span>，令 <span class="math display">\[
+z=y-u=y-\sum_{i=1}^k\langle y,v_i\rangle v_i
+\]</span> 我們很容易可以知道<span class="math inline">\(u\in
+W\)</span>，我們希望說明<span class="math inline">\(z\in
+W^\perp\)</span>。對於<span class="math inline">\(j=1\sim
+k\)</span>，我們有 <span class="math display">\[
+\begin{aligned}
+\langle z,v_j\rangle&amp;=\left\langle y-\sum_{i=1}^k\langle
+y,v_i\rangle v_i,v_j\right\rangle\\
+&amp;=\langle y,v_j\rangle-\left(\sum_{i=1}^k\langle y,v_i\rangle\langle
+v_i,v_j\rangle\right)
+\end{aligned}
+\]</span> 由於<span
+class="math inline">\(\{v_1,v_2,\cdots,v_k\}\)</span>是正交規範的，故
+<span class="math display">\[
+\langle v_i,v_j\rangle=\left\{
+\begin{aligned}
+0&amp;,\mbox{ if }i\neq j\\
+1&amp;,\mbox{ if }i=j
+\end{aligned}
+\right.
+\]</span> 故有 <span class="math display">\[
+\langle z,v_j\rangle=\langle y,v_j\rangle-\langle y,v_j\rangle=0
+\]</span> 故對所有<span class="math inline">\(w\in W\)</span>，有<span
+class="math inline">\(\langle z,w\rangle=0\)</span>，即<span
+class="math inline">\(z\in W^\perp\)</span>。<br>
+接著，我們希望證明這樣的<span
+class="math inline">\(u,z\)</span>是唯一的。假設<span
+class="math inline">\(y=z+u=z&#39;+u&#39;\)</span>，其中<span
+class="math inline">\(z,z&#39;\in W^\perp\)</span>，<span
+class="math inline">\(u,u&#39;\in W\)</span>。則 <span
+class="math display">\[
+\underbrace{z-z&#39;}_{\in W^\perp}=\underbrace{u&#39;-u}_{\in W}
+\]</span> 即 <span class="math display">\[
+z-z&#39;=u&#39;-u\in W\cap W^\perp=\{0\}
+\]</span> 即<span class="math inline">\(z=z&#39;\)</span>, <span
+class="math inline">\(u=u&#39;\)</span>。如此便有了唯一性。<font size="1">QED</font></p>
+<h3 id="註記-2-1"><font color=#0000FF><u>註記 2-1</u></font></h3>
+<p>給定內積空間<span class="math inline">\(V\)</span>及其子空間<span
+class="math inline">\(W\)</span>，其中<span class="math inline">\(\dim
+W&lt;\infty\)</span>，並用<span
+class="math inline">\(V\)</span>上的內積定義範數<span
+class="math inline">\(\|\cdot\|\)</span>(見<a
+href="https://alexthepurplerose.github.io/2024/10/08/linalg-quotient/">這裡</a>的定義4)。對於<span
+class="math inline">\(y\in V\)</span>，我們用定理2的方式將<span
+class="math inline">\(y\)</span>分解成<span
+class="math inline">\(y=u+z\)</span>, <span class="math inline">\(u\in
+W\)</span>, <span class="math inline">\(z\in W^\perp\)</span>。則<span
+class="math inline">\(u\)</span>是<span
+class="math inline">\(W\)</span>中最靠近<span
+class="math inline">\(y\)</span>的向量 i.e. <span
+class="math inline">\(\forall x\in W\)</span>, <span
+class="math inline">\(\|y-x\|\geq\|y-u\|\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於<span
+class="math inline">\(x\in W\)</span>，我們知道<span
+class="math inline">\(u-x\in W\)</span>，又<span
+class="math inline">\(z\in W^\perp\)</span>，故<span
+class="math inline">\(\langle u-x,z\rangle=0\)</span>。故有 <span
+class="math display">\[
+\begin{aligned}
+\|y-x\|^2&amp;=\|u+z-x\|^2=\|(u-x)+z\|^2\\
+&amp;=\|u-x\|^2+\|z\|^2+\underbrace{\langle
+u-x,z\rangle}_{=0}+\underbrace{\langle z,u-x\rangle}_{=0}\\
+&amp;\geq \|z\|^2=\|y-u\|^2
+\end{aligned}
+\]</span> 故有<span
+class="math inline">\(\|y-x\|\geq\|y-u\|\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-3"><font color=#ff1493><u>定理 3</u></font></h2>
+<p>給定內積空間<span class="math inline">\(V\)</span>，其中<span
+class="math inline">\(\dim V&lt;\infty\)</span>。令<span
+class="math inline">\(S=\{v_1,v_2,\cdots,v_k\}\)</span>為<span
+class="math inline">\(V\)</span>的正交規範子集。則： <br>1. <span
+class="math inline">\(S\)</span>可以被擴張成<span
+class="math inline">\(V\)</span>的正交規範基底<span
+class="math inline">\(\{v_1,v_2,\cdots,v_k,v_{k+1},\cdots,v_n\}\)</span>。
+<br>2. 令<span class="math inline">\(W=\mbox{span}(S)\)</span>，則<span
+class="math inline">\(\{v_{k+1},v_{k+2},\cdots,v_n\}\)</span>是<span
+class="math inline">\(W^\perp\)</span>的正交規範基底。 <br>3. 對於<span
+class="math inline">\(V\)</span>的任意子集<span
+class="math inline">\(U\)</span>，有<span class="math inline">\(\dim
+V=\dim U+\dim U^\perp\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：</p>
+<center>
+<h1 id="正交投影"><font color=#b8860b>正交投影</font></h1>
+</center>
+<h2
+id="定義-4正交投影-orthogonal-projection"><font color=#008000><u>定義
+4：正交投影 (Orthogonal Projection)</u></font></h2>
+<p>給定內積空間<span class="math inline">\(V\)</span>及其子空間<span
+class="math inline">\(W\)</span>，其中<span class="math inline">\(\dim
+W&lt;\infty\)</span>。考慮滿足以下兩個性質的線性映射<span
+class="math inline">\(\mbox{Proj}_W:V\to W\)</span>: <br>1. <span
+class="math inline">\(\forall x\in V\)</span>, <span
+class="math inline">\(\mbox{Proj}_W(x)\in W\)</span>。 <br>2. <span
+class="math inline">\(\forall x\in V\)</span>, <span
+class="math inline">\(x-\mbox{Proj}_W(x)\in W^\perp\)</span>。
+<br>我們稱這樣的線性映射為<span class="math inline">\(V\)</span>在<span
+class="math inline">\(W\)</span>上的正交投影。</p>
+<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
+<p>給定內積空間<span class="math inline">\(V\)</span>及其子空間<span
+class="math inline">\(W\)</span>，其中<span class="math inline">\(\dim
+W&lt;\infty\)</span>。對於<span class="math inline">\(y\in
+V\)</span>，由定理2知存在唯一的<span class="math inline">\(u\in
+W\)</span>, <span class="math inline">\(z\in W^\perp\)</span>使得<span
+class="math inline">\(y=u+z\)</span>。考慮映射<span
+class="math inline">\(f:V\to W\)</span>使得 <span
+class="math display">\[
+\forall y\in V, f(y)=u
+\]</span> 很容易可以檢驗<span
+class="math inline">\(f\)</span>是線性映射，且<span
+class="math inline">\(f\)</span>是<span
+class="math inline">\(V\)</span>在<span
+class="math inline">\(W\)</span>上的正交投影。事實上，由<span
+class="math inline">\(u,z\)</span>的唯一性會有<span
+class="math inline">\(f=\mbox{Proj}_W\)</span>。</p>
+<h3 id="註記-4-2"><font color=#0000FF><u>註記 4-2</u></font></h3>
+<p>給定內積空間<span class="math inline">\(V\)</span>及其子空間<span
+class="math inline">\(W\)</span>，其中<span class="math inline">\(\dim
+W&lt;\infty\)</span>。則<span
+class="math inline">\(\mbox{Proj}_W=\mbox{Proj}_W^2\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於任意<span
+class="math inline">\(x\in V\)</span>，由定義知<span
+class="math inline">\(x-\mbox{Proj}_W(x)\in W^\perp\)</span>。故有 <span
+class="math display">\[
+\begin{aligned}
+\underbrace{\mbox{Proj}_W(x-\mbox{Proj}_W(x))}_{\in
+W}&amp;=\underbrace{\mbox{Proj}_W(x)-\mbox{Proj}_W^2(x)}_{\in W^\perp}\\
+&amp;\in W\cap W^\perp=\{0\}
+\end{aligned}
+\]</span> 故對於所有<span class="math inline">\(x\in V\)</span>有<span
+class="math inline">\(\mbox{Proj}_W(x)=\mbox{Proj}_W^2(x)\)</span>，即<span
+class="math inline">\(\mbox{Proj}_W=\mbox{Proj}_W^2\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +474,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E8%A3%9C%E9%A4%98"><span class="nav-number">1.</span> <span class="nav-text">正交補餘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E6%AD%A3%E4%BA%A4%E8%A3%9C%E9%A4%98-orthogonal-complement"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：正交補餘 (Orthogonal Complement)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">註記 1-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1"><span class="nav-number">2.</span> <span class="nav-text">正交投影</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1-orthogonal-projection"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+4：正交投影 (Orthogonal Projection)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">註記 4-2</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
