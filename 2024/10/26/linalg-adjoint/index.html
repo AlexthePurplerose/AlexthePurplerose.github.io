@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於伴隨映射的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2024-10-26T07:06:04.000Z">
-<meta property="article:modified_time" content="2024-10-26T07:07:44.249Z">
+<meta property="article:modified_time" content="2024-10-26T07:42:30.926Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-10-26 15:06:04 / 修改時間：15:07:44" itemprop="dateCreated datePublished" datetime="2024-10-26T15:06:04+08:00">2024-10-26</time>
+              <time title="創建時間：2024-10-26 15:06:04 / 修改時間：15:42:30" itemprop="dateCreated datePublished" datetime="2024-10-26T15:06:04+08:00">2024-10-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,6 +221,94 @@
 
       
         <p>這份筆記是關於伴隨映射的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="伴隨映射"><font color=#b8860b>伴隨映射</font></h1>
+</center>
+<h2 id="定理-1"><font color=#ff1493><u>定理 1</u></font></h2>
+<p>給定有限維內積空間<span
+class="math inline">\(V\)</span>，並給定線性映射<span
+class="math inline">\(T:V\to V\)</span>。則存在唯一的線性映射<span
+class="math inline">\(T^\ast:V\to V\)</span>使得對於所有<span
+class="math inline">\(x,y\in V\)</span>有<span
+class="math inline">\(\langle T(x),y\rangle=\langle
+x,T^\ast(y)\rangle\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：固定<span
+class="math inline">\(y\in V\)</span>，令<span
+class="math inline">\(g:V\to F\)</span>為映射<span
+class="math inline">\(g(x)=\langle
+T(x),y\rangle\)</span>。由里斯表現定理(<a
+href="https://alexthepurplerose.github.io/2024/10/24/linalg-hilbert/">這裡</a>的定理9)知應存在<span
+class="math inline">\(y&#39;\in V\)</span>使得 <span
+class="math display">\[
+g(x)=\langle T(x),y\rangle=\langle x,y&#39;\rangle,\forall x\in V
+\]</span> 令<span class="math inline">\(T^\ast:V\to
+V\)</span>為映射<span
+class="math inline">\(T^\ast(y)=y&#39;\)</span>。我們希望說明這樣的<span
+class="math inline">\(T^\ast\)</span>確實是線性映射且是唯一的。 <br>1.
+<span class="math inline">\(T^\ast\)</span>是線性映射：給定<span
+class="math inline">\(x,y_1,y_2\in V\)</span>, <span
+class="math inline">\(c\in F\)</span>，有 <span class="math display">\[
+\begin{aligned}
+\langle x,T^\ast(cy_1+y_2)\rangle&amp;=\langle T(x),cy_1+y_2\rangle\\
+&amp;=\overline{c}\langle T(x),y_1\rangle+\langle T(x),y_2\rangle\\
+&amp;=\overline{c}\langle x,T^\ast(y_1)\rangle+\langle
+x,T^\ast(y_2)\rangle\\
+&amp;=\langle x,cT^\ast(y_1)+T^\ast(y_2)\rangle
+\end{aligned}
+\]</span> 這對所有<span class="math inline">\(x\in
+V\)</span>都成立，，故有<span
+class="math inline">\(T^\ast(cy_1+y_2)=cT^\ast(y_1)+T^\ast(y_2)\)</span>，即<span
+class="math inline">\(T^\ast\)</span>是線性的。 <br>2. <span
+class="math inline">\(T^\ast\)</span>是唯一的：假設另一線性映射<span
+class="math inline">\(U:V\to V\)</span>也滿足條件，則對於所有<span
+class="math inline">\(x\in V\)</span>，有 <span class="math display">\[
+\langle T(x),y\rangle=\langle x,U(y)\rangle=\langle x,T^\ast(y)\rangle
+\]</span> 也就是對於所有<span class="math inline">\(x\in V\)</span>，有
+<span class="math display">\[
+\langle x,T^\ast(y)-U(y)\rangle=0
+\]</span> 於是便有<span class="math inline">\(T^\ast=U\)</span>，即<span
+class="math inline">\(T^\ast\)</span>是唯一的。<font size="1">QED</font></p>
+<h3
+id="定義-1-1伴隨映射-adjoint-transformation"><font color=#008000><u>定義
+1-1：伴隨映射 (Adjoint Transformation)</u></font></h3>
+<p>我們將定理1中的<span class="math inline">\(T^\ast\)</span>稱為<span
+class="math inline">\(T\)</span>的伴隨映射。</p>
+<h4 id="性質-1-1-1"><font color=#0000FF><u>性質 1-1-1</u></font></h4>
+<p>底下給出五個顯然的伴隨映射的性質。其中<span
+class="math inline">\(T,U:V\to V\)</span>是線性映射，<span
+class="math inline">\(c\in F\)</span>是純量。 <br>1. <span
+class="math inline">\((T+U)^\ast=T^\ast+U^\ast\)</span> <br>2. <span
+class="math inline">\((cT)^\ast=\overline{c}T^\ast\)</span> <br>3. <span
+class="math inline">\((TU)^\ast=U^\ast T^\ast\)</span> <br>4. <span
+class="math inline">\(T^{\ast\ast}=T\)</span> <br>5. 令<span
+class="math inline">\(I\)</span>為單位映射，則<span
+class="math inline">\(I^\ast=I\)</span></p>
+<h2 id="定理-2"><font color=#ff1493><u>定理 2</u></font></h2>
+<p>給定有限維內積空間<span
+class="math inline">\(V\)</span>，並給定線性映射<span
+class="math inline">\(T:V\to V\)</span>。令<span
+class="math inline">\(\beta\)</span>是<span
+class="math inline">\(V\)</span>的正交規範基底，則 <span
+class="math display">\[
+[T^\ast]_\beta=[T]_\beta^\ast
+\]</span> (這裡<span
+class="math inline">\(A^\ast\)</span>的意思是矩陣的伴隨，見<a
+href="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/">這裡</a>的定義2)。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(A=[T]_\beta\)</span>，<span
+class="math inline">\(B=[T^\ast]_\beta\)</span>，並令 <span
+class="math display">\[
+\beta=\{v_1,v_2,\cdots,v_n\}
+\]</span> 由<a
+href="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/">這裡</a>的註記10-2知
+<span class="math display">\[
+\begin{aligned}
+B_{ij}&amp;=\langle T^\ast(v_j),v_i\rangle\\
+&amp;=\overline{\langle v_i,T^\ast(v_j)\rangle}\\
+&amp;=\overline{\langle T(v_i),v_j\rangle}=\overline{A_{ji}}
+\end{aligned}
+\]</span> 故有<span class="math inline">\(B=A^\ast\)</span>, <span
+class="math inline">\(A=B^\ast\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +391,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%B4%E9%9A%A8%E6%98%A0%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">伴隨映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1"><span class="nav-number">1.1.</span> <span class="nav-text">定理 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E4%BC%B4%E9%9A%A8%E6%98%A0%E5%B0%84-adjoint-transformation"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
+1-1：伴隨映射 (Adjoint Transformation)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-1-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">性質 1-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
