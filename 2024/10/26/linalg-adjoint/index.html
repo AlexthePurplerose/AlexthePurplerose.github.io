@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於伴隨映射的定義與性質。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2024-10-26T07:06:04.000Z">
-<meta property="article:modified_time" content="2024-10-26T16:18:05.503Z">
+<meta property="article:published_time" content="2024-10-26T13:19:05.000Z">
+<meta property="article:modified_time" content="2024-10-27T13:21:25.545Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -192,14 +192,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2024-10-26 15:06:04" itemprop="dateCreated datePublished" datetime="2024-10-26T15:06:04+08:00">2024-10-26</time>
+              <time title="創建時間：2024-10-26 21:19:05" itemprop="dateCreated datePublished" datetime="2024-10-26T21:19:05+08:00">2024-10-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2024-10-27 00:18:05" itemprop="dateModified" datetime="2024-10-27T00:18:05+08:00">2024-10-27</time>
+                <time title="修改時間：2024-10-27 21:21:25" itemprop="dateModified" datetime="2024-10-27T21:21:25+08:00">2024-10-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -433,31 +433,6 @@ class="math inline">\([T(z)]_\beta\)</span>。可以發現<span
 class="math inline">\([T]_\beta\)</span>也是上三角矩陣。
 <br>由數學歸納法，我們知道定理對任何<span class="math inline">\(\dim
 V\)</span>都成立。<font size="1">QED</font></p>
-<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
-<p>給定有限維內積空間<span
-class="math inline">\(V\)</span>及線性映射<span
-class="math inline">\(T:V\to V\)</span>。若某個<span
-class="math inline">\(V\)</span>的正交規範基底<span
-class="math inline">\(\beta=\{v_1,v_2,\cdots,v_n\}\)</span>是由<span
-class="math inline">\(T\)</span>的特徵向量構成的，則令<span
-class="math inline">\(A=[T]_\beta\)</span>。由<a
-href="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/">這裡</a>的註記10-2有
-<span class="math display">\[
-A_{ij}=\langle T(v_j),v_i\rangle=\langle \lambda_jv_j,v_i\rangle
-\]</span> 其中<span
-class="math inline">\(\lambda_j\)</span>是特徵向量<span
-class="math inline">\(v_j\)</span>對應的特徵值。由於<span
-class="math inline">\(\beta\)</span>是正交的，故可以得知<span
-class="math inline">\(A\)</span>是對角矩陣。而由定理2有 <span
-class="math display">\[
-[T^\ast]_\beta=[T]_\beta^\ast=A^\ast
-\]</span> 故 <span class="math display">\[
-\begin{aligned}
-\left[TT^\ast\right]_\beta&amp;=[T]_\beta[T^\ast]_\beta\\
-&amp;=AA^\ast=A^\ast A\\
-&amp;=[T^\ast]_\beta[T]_\beta=[T^\ast T]_\beta
-\end{aligned}
-\]</span> 即<span class="math inline">\(TT^\ast=T^\ast T\)</span>。</p>
 <h2 id="定義-5正規-normal"><font color=#008000><u>定義 5：正規
 (Normal)</u></font></h2>
 <h3
@@ -466,7 +441,7 @@ id="定義-5-1正規映射-normal-transformation"><font color=#008000><u>定義
 <p>給定有限維內積空間<span
 class="math inline">\(V\)</span>及線性映射<span
 class="math inline">\(T:V\to V\)</span>。若<span
-class="math inline">\(T^\ast T=TT^\ast\)</span>則我們稱<span
+class="math inline">\(T^\ast T=TT^\ast\)</span>，則我們稱<span
 class="math inline">\(T\)</span>是正規的。</p>
 <h3 id="定義-5-2正規矩陣-normal-matrix"><font color=#008000><u>定義
 5-2：正規矩陣 (Normal Matrix)</u></font></h3>
@@ -549,7 +524,107 @@ class="math inline">\(T:V\to V\)</span>。則<span
 class="math inline">\(T\)</span>是正則的若且唯若存在由<span
 class="math inline">\(T\)</span>的特徵向量構成的<span
 class="math inline">\(V\)</span>的正交規範基底。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：</p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：假設<span
+class="math inline">\(T\)</span>是正規的。我們首先知道<span
+class="math inline">\(T\)</span>的特徵多項式一定在<span
+class="math inline">\(\mathbb{C}\)</span>上分裂。由定理4，我們知道存在<span
+class="math inline">\(V\)</span>的正交規範基底<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_n\}\)</span>使得<span
+class="math inline">\([T]_\beta\)</span>是上三角矩陣。於是，我們知道<span
+class="math inline">\(v_1\)</span>是<span
+class="math inline">\(T\)</span>的特徵向量。我們接著希望說明若<span
+class="math inline">\(v_1,v_2,\cdots,v_{k-1}\)</span>都是<span
+class="math inline">\(T\)</span>的特徵向量的話，則<span
+class="math inline">\(v_k\)</span>也是<span
+class="math inline">\(T\)</span>的特徵向量。 <br>對於<span
+class="math inline">\(j=1\sim k-1\)</span>，令<span
+class="math inline">\(T(v_j)=\lambda_jv_j\)</span>。因為<span
+class="math inline">\(T\)</span>是正規的，故由定理6第3.點知<span
+class="math inline">\(T^\ast(v_j)=\overline{\lambda_j}v_j\)</span>。又由於<span
+class="math inline">\([T]_\beta\)</span>是上三角矩陣，故可以令 <span
+class="math display">\[
+T(v_k)=A_{ik}v_1+A_{2k}v_2+\cdots+A_{kk}v_k
+\]</span> 而對於所有<span class="math inline">\(j&lt;k\)</span>，由<a
+href="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/">這裡</a>的註記10-2可知
+<span class="math display">\[
+A_{jk}=\langle T(v_k),v_j\rangle=\langle v_k,T^\ast(v_j)\rangle=\langle
+v_k,\overline{\lambda_j}v_j\rangle=\lambda_j\langle v_k,v_j\rangle=0
+\]</span> 故知<span
+class="math inline">\(T(v_k)=A_{kk}v_k\)</span>，即<span
+class="math inline">\(v_k\)</span>也是<span
+class="math inline">\(T\)</span>的特徵向量。而由於一開始我們知道<span
+class="math inline">\(v_1\)</span>是<span
+class="math inline">\(T\)</span>的特徵向量，故<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_n\}\)</span>中全部都是<span
+class="math inline">\(T\)</span>的特徵向量。 <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：若某個<span
+class="math inline">\(V\)</span>的正交規範基底<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_n\}\)</span>是由<span
+class="math inline">\(T\)</span>的特徵向量構成的，則令<span
+class="math inline">\(A=[T]_\beta\)</span>。由<a
+href="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/">這裡</a>的註記10-2有
+<span class="math display">\[
+A_{ij}=\langle T(v_j),v_i\rangle=\langle \lambda_jv_j,v_i\rangle
+\]</span> 其中<span
+class="math inline">\(\lambda_j\)</span>是特徵向量<span
+class="math inline">\(v_j\)</span>對應的特徵值。由於<span
+class="math inline">\(\beta\)</span>是正交的，故可以得知<span
+class="math inline">\(A\)</span>是對角矩陣。而由定理2有 <span
+class="math display">\[
+[T^\ast]_\beta=[T]_\beta^\ast=A^\ast
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+\left[TT^\ast\right]_\beta&amp;=[T]_\beta[T^\ast]_\beta\\
+&amp;=AA^\ast=A^\ast A\\
+&amp;=[T^\ast]_\beta[T]_\beta=[T^\ast T]_\beta
+\end{aligned}
+\]</span> 即<span class="math inline">\(TT^\ast=T^\ast T\)</span> i.e.
+<span
+class="math inline">\(T\)</span>是正規的。<font size="1">QED</font></p>
+<h3 id="註記-7-1"><font color=#0000FF><u>註記 7-1</u></font></h3>
+<p>由於在實數上線性映射<span
+class="math inline">\(T\)</span>的特徵多項式不一定會分裂，故在實數上定理7不一定會成立。</p>
+<h4 id="例-7-1-1"><font color=#ffa500><u>例 7-1-1</u></font></h4>
+<p>考慮<span class="math inline">\(M_{2\times
+2}(\mathbb{R})\)</span>中的矩陣 <span class="math display">\[
+A=\left(
+\begin{array}{cc}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{array}
+\right)
+\]</span> 這是旋轉矩陣，其在<span
+class="math inline">\(\mathbb{R}^2\)</span>上沒有特徵向量，但卻確實有<span
+class="math inline">\(AA^\ast=A^\ast A\)</span>。<br></p>
+<p>於是，在實數上要存在由<span
+class="math inline">\(T\)</span>的特徵向量構成的<span
+class="math inline">\(V\)</span>的正交規範基底，需要<span
+class="math inline">\(T\)</span>滿足更強的條件。</p>
+<center>
+<h1 id="自伴隨映射"><font color=#b8860b>自伴隨映射</font></h1>
+</center>
+<center>
+<h1 id="自伴隨映射-1"><font color=#b8860b>自伴隨映射</font></h1>
+</center>
+<h2 id="定義-8自伴隨-self-adjoint"><font color=#008000><u>定義 8：自伴隨
+(Self-Adjoint)</u></font></h2>
+<h3
+id="定義-8-1自伴隨映射-self-adjoint-transformation"><font color=#008000><u>定義
+8-1：自伴隨映射 (Self-Adjoint Transformation)</u></font></h3>
+<p>給定有限維內積空間<span
+class="math inline">\(V\)</span>及線性映射<span
+class="math inline">\(T:V\to V\)</span>。若<span
+class="math inline">\(T^\ast=T\)</span>，則我們稱<span
+class="math inline">\(T\)</span>是自伴隨的。</p>
+<h3
+id="定義-8-2自伴隨矩陣-self-adjoint-matrix"><font color=#008000><u>定義
+8-2：自伴隨矩陣 (Self-Adjoint Matrix)</u></font></h3>
+<p>給定<span class="math inline">\(A\in M_{n\times n}(F)\)</span>, <span
+class="math inline">\(F=\mathbb{R}\)</span>或<span
+class="math inline">\(\mathbb{C}\)</span>。若<span
+class="math inline">\(A^\ast=A\)</span>，則我們稱<span
+class="math inline">\(A\)</span>是正規的。</p>
 
     </div>
 
@@ -633,10 +708,13 @@ class="math inline">\(V\)</span>的正交規範基底。<br></p>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BC%B4%E9%9A%A8%E6%98%A0%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">伴隨映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1"><span class="nav-number">1.1.</span> <span class="nav-text">定理 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E4%BC%B4%E9%9A%A8%E6%98%A0%E5%B0%84-adjoint-transformation"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
-1-1：伴隨映射 (Adjoint Transformation)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-1-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">性質 1-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E8%A6%8F%E6%98%A0%E5%B0%84"><span class="nav-number">2.</span> <span class="nav-text">正規映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-3"><span class="nav-number">2.1.</span> <span class="nav-text">引理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">2.2.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E6%AD%A3%E8%A6%8F-normal"><span class="nav-number">2.3.</span> <span class="nav-text">定義 5：正規
+1-1：伴隨映射 (Adjoint Transformation)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-1-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">性質 1-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">定理 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E8%A6%8F%E6%98%A0%E5%B0%84"><span class="nav-number">2.</span> <span class="nav-text">正規映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-3"><span class="nav-number">2.1.</span> <span class="nav-text">引理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">2.2.</span> <span class="nav-text">定理 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E6%AD%A3%E8%A6%8F-normal"><span class="nav-number">2.3.</span> <span class="nav-text">定義 5：正規
 (Normal)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-1%E6%AD%A3%E8%A6%8F%E6%98%A0%E5%B0%84-normal-transformation"><span class="nav-number">2.3.1.</span> <span class="nav-text">定義
 5-1：正規映射 (Normal Transformation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5-2%E6%AD%A3%E8%A6%8F%E7%9F%A9%E9%99%A3-normal-matrix"><span class="nav-number">2.3.2.</span> <span class="nav-text">定義
-5-2：正規矩陣 (Normal Matrix)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.4.</span> <span class="nav-text">定理 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">2.5.</span> <span class="nav-text">定理 7</span></a></li></ol></li></ol></div>
+5-2：正規矩陣 (Normal Matrix)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">2.4.</span> <span class="nav-text">定理 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-7"><span class="nav-number">2.5.</span> <span class="nav-text">定理 7</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">2.5.1.</span> <span class="nav-text">註記 7-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BE%8B-7-1-1"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">例 7-1-1</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E4%BC%B4%E9%9A%A8%E6%98%A0%E5%B0%84"><span class="nav-number">3.</span> <span class="nav-text">自伴隨映射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E4%BC%B4%E9%9A%A8%E6%98%A0%E5%B0%84-1"><span class="nav-number">4.</span> <span class="nav-text">自伴隨映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E8%87%AA%E4%BC%B4%E9%9A%A8-self-adjoint"><span class="nav-number">4.1.</span> <span class="nav-text">定義 8：自伴隨
+(Self-Adjoint)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8-1%E8%87%AA%E4%BC%B4%E9%9A%A8%E6%98%A0%E5%B0%84-self-adjoint-transformation"><span class="nav-number">4.1.1.</span> <span class="nav-text">定義
+8-1：自伴隨映射 (Self-Adjoint Transformation)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8-2%E8%87%AA%E4%BC%B4%E9%9A%A8%E7%9F%A9%E9%99%A3-self-adjoint-matrix"><span class="nav-number">4.1.2.</span> <span class="nav-text">定義
+8-2：自伴隨矩陣 (Self-Adjoint Matrix)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
