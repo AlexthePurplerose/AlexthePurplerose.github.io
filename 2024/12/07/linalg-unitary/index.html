@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於么正映射的定義與性質。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2024-12-07T12:17:31.000Z">
-<meta property="article:modified_time" content="2024-12-07T12:21:28.819Z">
+<meta property="article:published_time" content="2024-12-07T06:31:39.000Z">
+<meta property="article:modified_time" content="2024-12-07T16:33:04.840Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -191,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2024-12-07 20:17:31 / 修改時間：20:21:28" itemprop="dateCreated datePublished" datetime="2024-12-07T20:17:31+08:00">2024-12-07</time>
+              <time title="創建時間：2024-12-07 14:31:39" itemprop="dateCreated datePublished" datetime="2024-12-07T14:31:39+08:00">2024-12-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-12-08 00:33:04" itemprop="dateModified" datetime="2024-12-08T00:33:04+08:00">2024-12-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -221,6 +227,82 @@
 
       
         <p>這份筆記是關於么正映射的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="么正映射"><font color=#b8860b>么正映射</font></h1>
+</center>
+<h2
+id="定義-1么正映射-unitary-transformation"><font color=#008000><u>定義
+1：么正映射 (Unitary Transformation)</u></font></h2>
+<p>給定<span
+class="math inline">\(F=\mathbb{C}\)</span>上的有限維內積空間<span
+class="math inline">\(V\)</span>與線性映射<span
+class="math inline">\(T:V\to V\)</span>。若對於所有<span
+class="math inline">\(x\in V\)</span>都有<span
+class="math inline">\(\|T(x)\|=\|x\|\)</span>，則稱<span
+class="math inline">\(T\)</span>是么正映射(或稱為保長映射(Norm-Preserving
+Transformation))。</p>
+<h3
+id="定義-1-1正交映射-orthogonal-transformation"><font color=#008000><u>定義
+1-1：正交映射 (Orthogonal Transformation)</u></font></h3>
+<p>給定<span
+class="math inline">\(F=\mathbb{R}\)</span>上的有限維內積空間<span
+class="math inline">\(V\)</span>與線性映射<span
+class="math inline">\(T:V\to V\)</span>。若對於所有<span
+class="math inline">\(x\in V\)</span>都有<span
+class="math inline">\(\|T(x)\|=\|x\|\)</span>，則稱<span
+class="math inline">\(T\)</span>是么正映射(或稱為保長映射(Norm-Preserving
+Transformation))。</p>
+<h2 id="引理-2"><font color=#0000FF><u>引理 2</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的有限維內積空間<span
+class="math inline">\(V\)</span>與自伴隨的線性映射<span
+class="math inline">\(U:V\to V\)</span>。若對於所有<span
+class="math inline">\(x\in V\)</span>有<span
+class="math inline">\(\langle x,U(x)\rangle=0\)</span>，則<span
+class="math inline">\(U\)</span>為零映射(記作<span
+class="math inline">\(T_0\)</span>)。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(U\)</span>是自伴隨的，故由<a
+href="https://alexthepurplerose.github.io/2024/10/26/linalg-adjoint/">這裡</a>的定理10可知存在由<span
+class="math inline">\(U\)</span>的特徵向量構成的<span
+class="math inline">\(V\)</span>的正交規範基底<span
+class="math inline">\(\beta\)</span>。今給定<span
+class="math inline">\(0\neq x\in\beta\)</span>，則應有<span
+class="math inline">\(\lambda\neq 0\)</span>使得<span
+class="math inline">\(U(x)=\lambda x\)</span>。則 <span
+class="math display">\[
+0=\langle x,U(x)\rangle=\langle x,\lambda
+x\rangle=\overline{\lambda}\langle x,x\rangle
+\]</span> 故<span class="math inline">\(\lambda=0\)</span>，即<span
+class="math inline">\(U(x)=0\)</span>, <span
+class="math inline">\(\forall x\in\beta\)</span> i.e. <span
+class="math inline">\(U=T_0\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-3么正的等價定義"><font color=#ff1493><u>定理
+3：么正的等價定義</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的有限維內積空間<span
+class="math inline">\(V\)</span>與線性映射<span
+class="math inline">\(T:V\to V\)</span>，則以下五個敘述等價： <br>1.
+<span class="math inline">\(TT^\ast=T^\ast T=I\)</span> <br>2. <span
+class="math inline">\(\forall x,y\in V\)</span>, <span
+class="math inline">\(\langle T(x),T(y)\rangle=\langle
+x,y\rangle\)</span> <br>3. 若<span
+class="math inline">\(\beta\)</span>是<span
+class="math inline">\(V\)</span>的正交規範基底，則<span
+class="math inline">\(T(\beta)\)</span>也是<span
+class="math inline">\(V\)</span>的正交規範基底。 <br>4. 存在<span
+class="math inline">\(V\)</span>的正交規範基底<span
+class="math inline">\(\beta\)</span>使得<span
+class="math inline">\(T(\beta)\)</span>也是<span
+class="math inline">\(V\)</span>的正交規範基底。 <br>5. <span
+class="math inline">\(\forall x\in V\)</span>, <span
+class="math inline">\(\|T(x)\|=\|x\|\)</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成五個部分說明。
+<br>「1. <span class="math inline">\(\Rightarrow\)</span> 2.」：若<span
+class="math inline">\(T^\ast T=I\)</span>，則對於所有<span
+class="math inline">\(x,y\in V\)</span>，有 <span
+class="math display">\[
+\langle x,y\rangle=\langle\underbrace{T^\ast T}_{=I}(x),y\rangle=\langle
+T(x),T(y)\rangle
+\]</span></p>
 
     </div>
 
@@ -303,6 +385,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%88%E6%AD%A3%E6%98%A0%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">么正映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E4%B9%88%E6%AD%A3%E6%98%A0%E5%B0%84-unitary-transformation"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：么正映射 (Unitary Transformation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-1%E6%AD%A3%E4%BA%A4%E6%98%A0%E5%B0%84-orthogonal-transformation"><span class="nav-number">1.1.1.</span> <span class="nav-text">定義
+1-1：正交映射 (Orthogonal Transformation)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">引理 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3%E4%B9%88%E6%AD%A3%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.3.</span> <span class="nav-text">定理
+3：么正的等價定義</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
