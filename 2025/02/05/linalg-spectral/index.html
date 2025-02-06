@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於譜分解的定義與性質，以及與同步對角化相關的定理。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-02-05T13:54:50.000Z">
-<meta property="article:modified_time" content="2025-02-05T14:24:34.245Z">
+<meta property="article:modified_time" content="2025-02-06T12:38:29.186Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -191,10 +191,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2025-02-05 21:54:50 / 修改時間：22:24:34" itemprop="dateCreated datePublished" datetime="2025-02-05T21:54:50+08:00">2025-02-05</time>
+              <time title="創建時間：2025-02-05 21:54:50" itemprop="dateCreated datePublished" datetime="2025-02-05T21:54:50+08:00">2025-02-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2025-02-06 20:38:29" itemprop="dateModified" datetime="2025-02-06T20:38:29+08:00">2025-02-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -282,7 +288,86 @@ href="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/">�
 <p><font color=#8b4513><u>證明</u></font>：我們分成兩個部分說明。 <br>1.
 <a
 href="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/">這裡</a>的定義4<span
-class="math inline">\(\Rightarrow\)</span>定義3：</p>
+class="math inline">\(\Rightarrow\)</span>定義3：考慮<span
+class="math inline">\(V\)</span>的子空間<span
+class="math inline">\(W\)</span>。令<span
+class="math inline">\(\mbox{Proj}_W:V\to W\)</span>為<span
+class="math inline">\(V\)</span>在<span
+class="math inline">\(W\)</span>上的正交投影。由定義易知<span
+class="math inline">\((\mbox{Proj}_W)^2=\mbox{Proj}_W\)</span>。而由註記1與註記2有
+<span class="math display">\[
+R(\mbox{Proj}_W)^\perp=W^\perp=N(\mbox{Proj}_W)
+\]</span> 我們希望說明<span
+class="math inline">\(N(\mbox{Proj}_W)^\perp=R(\mbox{Proj}_W)\)</span>。由正交補餘的定義，顯然有
+<span class="math display">\[
+R(\mbox{Proj}_W)\subseteq (R(\mbox{Proj}_W)^\perp)^\perp
+\]</span> 假設存在<span
+class="math inline">\(y\in(W^\perp)^\perp\)</span>使得<span
+class="math inline">\(y\notin W\)</span>。則令 <span
+class="math display">\[
+y=\tilde{y}+\tilde{\tilde{y}},\tilde{y}\in W^\perp, \tilde{\tilde{y}}\in
+W
+\]</span> 假設<span class="math inline">\(\tilde{y}\neq 0\)</span>，則
+<span class="math display">\[
+\langle y,\tilde{y}\rangle=\langle \tilde{y},\tilde{y}\rangle+\langle
+\tilde{\tilde{y}},\tilde{y}\rangle=\langle
+\tilde{y},\tilde{y}\rangle\neq 0
+\]</span> 但<span class="math inline">\(\tilde{y}\in W^\perp\)</span>,
+<span class="math inline">\(y\in (W^\perp)^\perp\)</span>，故應有<span
+class="math inline">\(\langle
+y,\tilde{y}\rangle=0\)</span>，矛盾。故應有<span
+class="math inline">\(\tilde{y}=0\)</span>，即<span
+class="math inline">\(y=\tilde{\tilde{y}}\in W\)</span>。於是有 <span
+class="math display">\[
+R(\mbox{Proj}_W)=(R(\mbox{Proj}_W)^\perp)^\perp=N(\mbox{Proj}_W)^\perp
+\]</span> <br>2. 定義3<span class="math inline">\(\Rightarrow\)</span><a
+href="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/">這裡</a>的定義4：對於所有<span
+class="math inline">\(x\in V\)</span>，有 <span class="math display">\[
+x=T(x)+(x-T(x))
+\]</span> 有<span class="math inline">\(T(x)\in R(T)\)</span>。且由<span
+class="math inline">\(T=T^2\)</span>有 <span class="math display">\[
+T(x-T(x))=T(x)-T^2(x)=T(x)-T(x)=0
+\]</span> 即<span class="math inline">\(x-T(x)\in
+N(T)=R(T)^\perp\)</span>，於是有<span
+class="math inline">\(V=R(T)+R(T)^\perp\)</span>。<br>
+又假設存在另一組<span class="math inline">\(T(\tilde{x})\in
+R(T)\)</span>, <span class="math inline">\(x-T(\tilde{x})\in
+N(T)\)</span>滿足 <span class="math display">\[
+x=T(x)+(x-T(x))=T(\tilde{x})+(x-T(\tilde{x}))
+\]</span> 則由於<span class="math inline">\(x-T(x), x-T(\tilde{x})\in
+N(T)\)</span>，故 <span class="math display">\[
+\begin{aligned}
+&amp;T((x-T(x))-(x-T(\tilde{x})))=0\\
+\Rightarrow &amp;0=T^2(x-\tilde{x})=T(x-\tilde{x})=T(x)-T(\tilde{x})
+\end{aligned}
+\]</span> 故有<span
+class="math inline">\(T(x)=T(\tilde{x})\)</span>，即<span
+class="math inline">\(V=R(T)\oplus N(T)\)</span>。由<a
+href="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/">這裡</a>的註記4-1有<span
+class="math inline">\(T=\mbox{Proj}_{R(T)}\)</span>。<font size="1">QED</font></p>
+<h2 id="註記-4"><font color=#0000FF><u>註記 4</u></font></h2>
+<p>給定內積空間<span
+class="math inline">\(V\)</span>及其上的正交投影<span
+class="math inline">\(T:V\to V\)</span>，並給定<span
+class="math inline">\(v\in V\)</span>。則對於所有<span
+class="math inline">\(w\in R(T)\)</span>，有 <span
+class="math display">\[
+\|w-v\|\geq\|T(v)-v\|
+\]</span> (這個東西在<a
+href="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/">這裡</a>的註記2-1證明過了，但我們可以用此處的正交投影的定義再證一次。)<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們有<span
+class="math inline">\(v=T(v)+(v-T(v))\)</span>，其中<span
+class="math inline">\(T(v)\in R(T)\)</span>, <span
+class="math inline">\(v-T(v)\in N(T)\)</span>。而對於所有<span
+class="math inline">\(w\in R(T)\)</span>，有 <span
+class="math display">\[
+w-v=\underbrace{w-T(v)}_{\in R(T)}+\underbrace{(T(v)-v)}_{\in
+N(T)=R(T)^\perp}
+\]</span> 故 <span class="math display">\[
+\|w-v\|^2=\|w-T(v)\|^2+\|T(v)-v\|^2+\underbrace{2\langle
+w-T(v),T(v)-v\rangle}_{=0}\geq \|T(v)-v\|^2
+\]</span> 即<span
+class="math inline">\(\|w-v\|\geq\|T(v)-v\|\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -366,7 +451,7 @@ class="math inline">\(\Rightarrow\)</span>定義3：</p>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.</span> <span class="nav-text">正交投影的等價定義</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1"><span class="nav-number">1.1.</span> <span class="nav-text">註記 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2"><span class="nav-number">1.2.</span> <span class="nav-text">註記 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E7%9A%84%E5%8F%A6%E4%B8%80%E7%A8%AE%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.3.</span> <span class="nav-text">定義
-3：正交投影的另一種定義</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li></ol></li></ol></div>
+3：正交投影的另一種定義</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4"><span class="nav-number">1.4.</span> <span class="nav-text">註記 4</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
