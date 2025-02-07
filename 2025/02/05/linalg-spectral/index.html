@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於譜分解的定義與性質，以及與同步對角化相關的定理。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2025-02-05T13:54:50.000Z">
-<meta property="article:modified_time" content="2025-02-06T12:38:29.186Z">
+<meta property="article:published_time" content="2025-02-05T14:31:39.000Z">
+<meta property="article:modified_time" content="2025-02-07T13:54:57.024Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -192,14 +192,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2025-02-05 21:54:50" itemprop="dateCreated datePublished" datetime="2025-02-05T21:54:50+08:00">2025-02-05</time>
+              <time title="創建時間：2025-02-05 22:31:39" itemprop="dateCreated datePublished" datetime="2025-02-05T22:31:39+08:00">2025-02-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-02-06 20:38:29" itemprop="dateModified" datetime="2025-02-06T20:38:29+08:00">2025-02-06</time>
+                <time title="修改時間：2025-02-07 21:54:57" itemprop="dateModified" datetime="2025-02-07T21:54:57+08:00">2025-02-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -368,6 +368,250 @@ N(T)=R(T)^\perp}
 w-T(v),T(v)-v\rangle}_{=0}\geq \|T(v)-v\|^2
 \]</span> 即<span
 class="math inline">\(\|w-v\|\geq\|T(v)-v\|\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>給定內積空間<span
+class="math inline">\(V\)</span>及其上的線性映射<span
+class="math inline">\(T:V\to V\)</span>，則<span
+class="math inline">\(T\)</span>是正交投影 iff. <span
+class="math inline">\(T^2=T=T^\ast\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩個部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：假設<span
+class="math inline">\(T\)</span>是正交投影，則由定義有<span
+class="math inline">\(T^2=T\)</span>。我們希望說明<span
+class="math inline">\(T^\ast\)</span>存在且<span
+class="math inline">\(T=T^\ast\)</span>(<a
+href="https://alexthepurplerose.github.io/2024/10/26/linalg-adjoint/">這裡</a>的定理1證明過在<span
+class="math inline">\(\dim V&lt;\infty\)</span>的時候<span
+class="math inline">\(T^\ast\)</span>總是存在，這裡要證明的狀況包含<span
+class="math inline">\(\dim V=\infty\)</span>)。 <br>由於<span
+class="math inline">\(T\)</span>是正交投影，故<span
+class="math inline">\(V=R(T)\oplus N(T)\)</span>，且<span
+class="math inline">\(R(T)^\perp=N(T)\)</span>, <span
+class="math inline">\(N(T)^\perp=R(T)\)</span>。對於<span
+class="math inline">\(x,y\in V\)</span>，令 <span
+class="math display">\[
+x=x_1+x_2, y=y_1+y_2,\mbox{ where }x_1,y_1\in R(T), x_2,y_2\in N(T)
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+\langle x,T(y)\rangle&amp;=\langle x_1+x_2,y_1\rangle\\
+&amp;=\langle x_1,y_1\rangle+\underbrace{\langle x_2,y_1\rangle}_{=0}\\
+&amp;=\langle x_1,y_1\rangle
+\end{aligned}
+\]</span> 同理有<span class="math inline">\(\langle
+T(x),y\rangle=\langle x_1,y_1\rangle\)</span>。故有 <span
+class="math display">\[
+\langle T(x),y\rangle=\langle x,T(y)\rangle=\langle x,T^\ast(y)\rangle
+\]</span> 即<span class="math inline">\(T^\ast\)</span>存在且<span
+class="math inline">\(T^\ast=T\)</span>。 <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：假設<span
+class="math inline">\(T^2=T=T^\ast\)</span>。我們希望說明<span
+class="math inline">\(R(T)^\perp=N(T)\)</span>, <span
+class="math inline">\(N(T)^\perp=R(T)\)</span>。<br> 令<span
+class="math inline">\(x\in R(T)\)</span>, <span
+class="math inline">\(y\in N(T)\)</span>。則應存在<span
+class="math inline">\(\tilde{x}\in V\)</span>使得<span
+class="math inline">\(x=T(\tilde{x})=T^\ast(\tilde{x})\)</span>。故
+<span class="math display">\[
+\langle x,y\rangle=\langle T^\ast(\tilde{x}),y\rangle=\langle
+x,T(y)\rangle=\langle x,0\rangle=0
+\]</span> 故<span class="math inline">\(x\in
+N(T)^\perp\)</span>，即<span class="math inline">\(R(T)\subseteq
+N(T)^\perp\)</span>。<br> 又另外給定<span class="math inline">\(z\in
+N(T)^\perp\)</span>，有 <span class="math display">\[
+\begin{aligned}
+\|y-T(y)\|^2&amp;=\langle y-T(y),y-T(y)\rangle\\
+&amp;=\langle\underbrace{y}_{\in N(T)^\perp},\underbrace{y-T(y)}_{\in
+N(T)}\rangle-\langle T(y),y-T(y)\rangle\\
+&amp;=-\langle y,T^\ast(y-T(y))\rangle\\
+&amp;=-\langle y,\underbrace{T(y-T(y))}_{=0}\rangle=0
+\end{aligned}
+\]</span> 故知<span class="math inline">\(y=T(y)\)</span>，即<span
+class="math inline">\(y\in R(T)\)</span>。於是有<span
+class="math inline">\(N(T)^\perp=R(T)\)</span>，即<span
+class="math inline">\(R(T)=N(T)^\perp\)</span>。<br> 而再給定<span
+class="math inline">\(w\in R(T)^\perp\)</span>，則對於任何<span
+class="math inline">\(x\in V\)</span>，有 <span class="math display">\[
+\langle T(w),x\rangle=\langle w,T^\ast(x)\rangle=\langle
+\underbrace{w}_{\in R(T)^\ast},\underbrace{T(y)}_{\in R(T)}\rangle=0
+\]</span> 令<span class="math inline">\(x=T(w)\)</span>即有<span
+class="math inline">\(T(w)=0\)</span>，故<span
+class="math inline">\(w\in N(T)\)</span>，即<span
+class="math inline">\(R(T)^\perp\subseteq N(T)\)</span>。
+<br>最後，由<span
+class="math inline">\(R(T)=N(T)^\perp\)</span>，我們直接有 <span
+class="math display">\[
+N(T)\subseteq (N(T)^\perp)^\perp=R(T)^\perp
+\]</span> 於是有<span
+class="math inline">\(R(T)^\perp=N(T)\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="譜分解"><font color=#b8860b>譜分解</font></h1>
+</center>
+<h2 id="定理-6譜定理-spectral-theorem"><font color=#ff1493><u>定理
+6：譜定理 (Spectral Theorem)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的有限維內積空間<span
+class="math inline">\(V\)</span>及其上的線性映射<span
+class="math inline">\(T:V\to V\)</span>。並且： <br>A. 若<span
+class="math inline">\(F=\mathbb{C}\)</span>，令<span
+class="math inline">\(T\)</span>是正規映射。 <br>B. 若<span
+class="math inline">\(F=\mathbb{R}\)</span>，令<span
+class="math inline">\(T\)</span>是自伴隨映射。<br> 意即，假設存在由<span
+class="math inline">\(T\)</span>特徵向量構成的<span
+class="math inline">\(V\)</span>的正交規範基底(見<a
+href="https://alexthepurplerose.github.io/2024/10/26/linalg-adjoint/">這裡</a>的定理7與定理10)。並令<span
+class="math inline">\(\lambda_1,\lambda_2,\cdots,\lambda_k\)</span>為<span
+class="math inline">\(T\)</span>所有的特徵值，且其對應的特徵空間為<span
+class="math inline">\(W_1,W_2,\cdots,W_k\)</span>，則： <br>1. <span
+class="math inline">\(V=W_1\oplus W_2\oplus\cdots\oplus W_k\)</span>
+<br>2. 令 <span class="math display">\[
+W_i&#39;=W_1\oplus\cdots\oplus W_{i-1}\oplus W_{i+1}\oplus\cdots\oplus
+W_k
+\]</span> 則<span class="math inline">\(W_i^\perp=W&#39;_i\)</span>。
+<br>3. 令<span class="math inline">\(T_i\)</span>為<span
+class="math inline">\(V\)</span>在<span
+class="math inline">\(W_i\)</span>上的正交投影，<span
+class="math inline">\(1\leq i\leq k\)</span>，則<span
+class="math inline">\(T_iT_j=\delta_{ij}T_i\)</span>。 <br>4. <span
+class="math inline">\(I=T_1+T_2+\cdots+T_k\)</span> <br>5. <span
+class="math inline">\(T=\lambda_1T_1+\lambda_2T_2+\cdots+\lambda_kT_k\)</span><br></p>
+<p><font color=#8b4513><u>證明</u></font>: <br>1. 由假設知<span
+class="math inline">\(T\)</span>可對角化，故由<a
+href="https://alexthepurplerose.github.io/2024/09/02/linalg-diagonal/">這裡</a>的定理15知
+<span class="math display">\[
+V=W_1\oplus W_2\oplus\cdots\oplus W_k
+\]</span> <br>2. 給定<span class="math inline">\(x\in W_i\)</span>,
+<span class="math inline">\(y\in W_j\)</span>，其中<span
+class="math inline">\(i\neq j\)</span>。則由<a
+href="https://alexthepurplerose.github.io/2024/10/26/linalg-adjoint/">這裡</a>的定理6第4.點知<span
+class="math inline">\(\langle x,y\rangle=0\)</span>，故應有<span
+class="math inline">\(W_i&#39;\subseteq W_i^\perp\)</span>。然而 <span
+class="math display">\[
+\dim W_i&#39;=\dim V-\dim W_i=\dim W_i^\perp
+\]</span> 故<span class="math inline">\(W_i&#39;=W_i^\perp\)</span>。
+<br>3. 對於<span class="math inline">\(i\neq j\)</span>，<span
+class="math inline">\(x\in V\)</span>，由於<span
+class="math inline">\(T_j(x)\in W_j\)</span>且<span
+class="math inline">\(W_j\subseteq W&#39;_i\)</span>，故 <span
+class="math display">\[
+T_iT_j(x)=T_i(T_j(x))=0
+\]</span> 而若<span class="math inline">\(i=j\)</span>，則<span
+class="math inline">\(T_iT_j=T_i^2=T_i\)</span>。 <br>4. 對於所有<span
+class="math inline">\(x\in V\)</span>，可以令 <span
+class="math display">\[
+x=x_1+x_2+\cdots+x_k, x_i\in W_i, 1\leq i\leq k
+\]</span> 然而<span class="math inline">\(T_i\)</span>是<span
+class="math inline">\(W_i\)</span>上的正交投影，故<span
+class="math inline">\(T_i(x)=x_i\)</span>。而 <span
+class="math display">\[
+\begin{aligned}
+I(x)=x&amp;=x_1+x_2+\cdots+x_k\\
+&amp;=T_1(x)+T_2(x)+\cdots+T_k(x)\\
+&amp;=(T_1+T_2+\cdots+T_k)(x),\forall x\in V
+\end{aligned}
+\]</span> 故有<span
+class="math inline">\(I=T_1+T_2+\cdots+T_k\)</span>。 <br>5.
+對於所有<span class="math inline">\(x\in
+V\)</span>，和第4.點中一樣考慮<span
+class="math inline">\(x=x_1+x_2+\cdots+x_k\)</span>。則由於<span
+class="math inline">\(x_i\in W_i\)</span>，故 <span
+class="math display">\[
+\begin{aligned}
+T(x)&amp;=T(x_1)+T(x_2)+\cdots+T(x_k)\\
+&amp;=\lambda_1x_1+\lambda_2x_2+\cdots+\lambda_kx_k\\
+&amp;=\lambda_1T(x)+\lambda_2T(x)+\cdots+\lambda_kT(x)\\
+&amp;=(\lambda_1T_1+\lambda_2T_2+\cdots+\lambda_kT_k)(x)
+\end{aligned}
+\]</span> 故有<span
+class="math inline">\(T=\lambda_1T_1+\lambda_2T_2+\cdots+\lambda_kT_k\)</span>。<font size="1">QED</font></p>
+<h3 id="定義-6-1譜-spectrum"><font color=#008000><u>定義 6-1：譜
+(Spectrum)</u></font></h3>
+<p>定理6中的<span
+class="math inline">\(\{\lambda_1,\lambda_2,\cdots,\lambda_k\}\)</span>稱為<span
+class="math inline">\(T\)</span>的譜。</p>
+<h3
+id="定義-6-2單位分解-resolution-of-identity"><font color=#008000><u>定義
+6-2：單位分解 (Resolution of Identity)</u></font></h3>
+<p>定理6中的<span
+class="math inline">\(I=T_1+T_2+\cdots+T_k\)</span>稱為由<span
+class="math inline">\(T\)</span>導出的單位分解。</p>
+<h3
+id="定義-6-3譜分解-spectral-decomposition"><font color=#008000><u>定義
+6-3：譜分解 (Spectral Decomposition)</u></font></h3>
+<p>定理6中的<span
+class="math inline">\(T=\lambda_1T_1+\lambda_2T_2+\cdots+\lambda_kT_k\)</span>稱為<span
+class="math inline">\(T\)</span>的譜分解。</p>
+<h3 id="註記-6-4"><font color=#0000FF><u>註記 6-4</u></font></h3>
+<p>給定有限維內積空間<span
+class="math inline">\(V\)</span>及其上的線性映射<span
+class="math inline">\(T:V\to V\)</span>。令 <span
+class="math display">\[
+T=\lambda_1T_1+\lambda_2T_2+\cdots+\lambda_kT_k
+\]</span> 為<span class="math inline">\(T\)</span>的譜分解。並令<span
+class="math inline">\(g(t)\)</span>為多項式。則由定理6的第3.點易得 <span
+class="math display">\[
+\begin{aligned}
+g(T)&amp;=g(\lambda_1T_1+\lambda_2T_2+\cdots+\lambda_kT_k)\\
+&amp;=g(\lambda_1)T_1+g(\lambda_2)T_2+\cdots+g(\lambda_k)T_k
+\end{aligned}
+\]</span></p>
+<h3 id="推論-6-5"><font color=#0000FF><u>推論 6-5</u></font></h3>
+<p>給定<span
+class="math inline">\(F=\mathbb{C}\)</span>上的有限維內積空間<span
+class="math inline">\(V\)</span>及其上的線性映射<span
+class="math inline">\(T:V\to V\)</span>，則<span
+class="math inline">\(T\)</span>是正規的 iff. 存在某個多項式<span
+class="math inline">\(g\)</span>使得<span
+class="math inline">\(T^\ast=g(T)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>:我們分成兩個部分說明。
+<br>「<span class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(T^\ast=g(T)\)</span>，則 <span
+class="math display">\[
+TT^\ast=Tg(T)=g(T)T=T^\ast T
+\]</span> 即<span class="math inline">\(T\)</span>是正規的。 <br>「<span
+class="math inline">\(\Rightarrow\)</span>」：由於<span
+class="math inline">\(T\)</span>是正規的，故由定理6知<span
+class="math inline">\(T\)</span>有譜分解 <span class="math display">\[
+T=\lambda_1T_1+\lambda_2T_2+\cdots+\lambda_kT_k
+\]</span> 故有 <span class="math display">\[
+T^\ast=\overline{\lambda_1}T^\ast_1+\overline{\lambda_2}T^\ast_2+\cdots+\overline{\lambda_k}T^\ast_k
+\]</span> 然而由定義，<span
+class="math inline">\(T_i\)</span>是正交投影，故由定理5知<span
+class="math inline">\(T^\ast_i=T_i\)</span>。使用拉格朗日插值法可以找到多項式<span
+class="math inline">\(g\)</span>滿足<span
+class="math inline">\(g(\lambda_i)=\overline{\lambda_i},\forall 1\leq
+i\leq k\)</span>。故有 <span class="math display">\[
+\begin{aligned}
+g(T)&amp;=g(\lambda_1)T_1+g(\lambda_2)T_2+\cdots+g(\lambda_k)T_k\\
+&amp;=\overline{\lambda_1}T^\ast_1+\overline{\lambda_2}T^\ast_2+\cdots+\overline{\lambda_k}T^\ast_k\\
+&amp;=T^\ast
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="推論-6-6"><font color=#0000FF><u>推論 6-6</u></font></h3>
+<p>給定<span
+class="math inline">\(F=\mathbb{C}\)</span>上的有限維內積空間<span
+class="math inline">\(V\)</span>及其上的線性映射<span
+class="math inline">\(T:V\to V\)</span>，若<span
+class="math inline">\(T\)</span>是正規的且所有<span
+class="math inline">\(T\)</span>的特徵值<span
+class="math inline">\(\lambda\)</span>都滿足<span
+class="math inline">\(|\lambda|=1\)</span>，則<span
+class="math inline">\(T\)</span>是么正映射。<br> (這是<a
+href="https://alexthepurplerose.github.io/2024/12/07/linalg-unitary/">這裡</a>的註記3-1的前半部，此處提供另一種說明。)<br></p>
+<p><font color=#8b4513><u>證明</u></font>:由於<span
+class="math inline">\(T\)</span>是正規的，故由定理6知<span
+class="math inline">\(T\)</span>存在譜分解 <span class="math display">\[
+T=\lambda_1T_1+\lambda_2T_2+\cdots+\lambda_kT_k
+\]</span> 又所有<span class="math inline">\(T\)</span>的特徵值<span
+class="math inline">\(\lambda_i\)</span>都滿足<span
+class="math inline">\(|\lambda_i|=1\)</span>，故 <span
+class="math display">\[
+\begin{aligned}
+TT^\ast&amp;=(\lambda_1T_1+\lambda_2T_2+\cdots+\lambda_kT_k)(\overline{\lambda_1}T^\ast_1+\overline{\lambda_2}T^\ast_2+\cdots+\overline{\lambda_k}T^\ast_k)\\
+&amp;=\lambda_1\overline{\lambda_1}T_1+\cdots+\lambda_k\overline{\lambda_k}T_k\;\;(\forall
+i\neq j, T_iT_j=0)\\
+&amp;=T_1+T_2+\cdots+T_k=I=T^\ast T
+\end{aligned}
+\]</span> 即<span
+class="math inline">\(T\)</span>是么正映射。<font size="1">QED</font></p>
 
     </div>
 
@@ -451,7 +695,11 @@ class="math inline">\(\|w-v\|\geq\|T(v)-v\|\)</span>。<font size="1">QED</font>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.</span> <span class="nav-text">正交投影的等價定義</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1"><span class="nav-number">1.1.</span> <span class="nav-text">註記 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2"><span class="nav-number">1.2.</span> <span class="nav-text">註記 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E7%9A%84%E5%8F%A6%E4%B8%80%E7%A8%AE%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.3.</span> <span class="nav-text">定義
-3：正交投影的另一種定義</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4"><span class="nav-number">1.4.</span> <span class="nav-text">註記 4</span></a></li></ol></li></ol></div>
+3：正交投影的另一種定義</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4"><span class="nav-number">1.4.</span> <span class="nav-text">註記 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AD%9C%E5%88%86%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">譜分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6%E8%AD%9C%E5%AE%9A%E7%90%86-spectral-theorem"><span class="nav-number">2.1.</span> <span class="nav-text">定理
+6：譜定理 (Spectral Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-1%E8%AD%9C-spectrum"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義 6-1：譜
+(Spectrum)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-2%E5%96%AE%E4%BD%8D%E5%88%86%E8%A7%A3-resolution-of-identity"><span class="nav-number">2.1.2.</span> <span class="nav-text">定義
+6-2：單位分解 (Resolution of Identity)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-3%E8%AD%9C%E5%88%86%E8%A7%A3-spectral-decomposition"><span class="nav-number">2.1.3.</span> <span class="nav-text">定義
+6-3：譜分解 (Spectral Decomposition)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-4"><span class="nav-number">2.1.4.</span> <span class="nav-text">註記 6-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-6-5"><span class="nav-number">2.1.5.</span> <span class="nav-text">推論 6-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-6-6"><span class="nav-number">2.1.6.</span> <span class="nav-text">推論 6-6</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
