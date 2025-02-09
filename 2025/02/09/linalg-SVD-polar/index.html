@@ -27,8 +27,8 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於奇異值分解與極分解。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2025-02-09T11:30:41.000Z">
-<meta property="article:modified_time" content="2025-02-09T11:33:50.345Z">
+<meta property="article:published_time" content="2025-02-09T14:31:39.000Z">
+<meta property="article:modified_time" content="2025-02-09T13:59:31.052Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2025-02-09 19:30:41 / 修改時間：19:33:50" itemprop="dateCreated datePublished" datetime="2025-02-09T19:30:41+08:00">2025-02-09</time>
+              <time title="創建時間：2025-02-09 22:31:39 / 修改時間：21:59:31" itemprop="dateCreated datePublished" datetime="2025-02-09T22:31:39+08:00">2025-02-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,12 +222,316 @@
       
         <p>這份筆記是關於奇異值分解與極分解。 <span id="more"></span><br></p>
 <center>
-<h1 id="奇異值分解"><font color=#b8860b>奇異值分解</font></h1>
+<h1 id="廣義伴隨映射"><font color=#b8860b>廣義伴隨映射</font></h1>
 </center>
 <h2 id="註記-1"><font color=#0000FF><u>註記 1</u></font></h2>
 <p>給定有限維內積空間<span
 class="math inline">\((V,\langle\cdot,\cdot\rangle_V),(W,\langle\cdot,\cdot\rangle_W)\)</span>及線性映射<span
-class="math inline">\(T:V\to W\)</span>。</p>
+class="math inline">\(T:V\to W\)</span>。則存在唯一的線性映射<span
+class="math inline">\(T^\ast:W\to V\)</span>使得 <span
+class="math display">\[
+\langle T(x),y\rangle_W=\langle x,T^\ast(y)\rangle_V
+\]</span> (此命題的證明和<a
+href="https://alexthepurplerose.github.io/2024/10/26/linalg-adjoint/">這裡</a>的定理1是類似的，我們某種程度上也稱這裡的<span
+class="math inline">\(T^\ast\)</span>是<span
+class="math inline">\(T\)</span>的伴隨映射。)</p>
+<h2 id="註記-2"><font color=#0000FF><u>註記 2</u></font></h2>
+<p>考慮註記1中的<span class="math inline">\(T:V\to W\)</span>和<span
+class="math inline">\(T^\ast:W\to V\)</span>，則<span
+class="math inline">\(T^\ast T:V\to V\)</span>和<span
+class="math inline">\(TT^\ast:W\to W\)</span>都是正定的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於所有<span
+class="math inline">\(0\neq x\in V\)</span>，有 <span
+class="math display">\[
+\langle T^\ast T(x),x\rangle_V=\langle
+T(x),T(x)\rangle_W=\|T(x)\|^2&gt;0
+\]</span> 且<span class="math inline">\(\langle
+T(x),T(x)\rangle_W=\langle x,T^\ast T(x)\rangle_V\)</span>，故<span
+class="math inline">\(T^\ast T\)</span>是自伴隨的。故<span
+class="math inline">\(T^\ast T\)</span>是正定的。同理<span
+class="math inline">\(TT^\ast\)</span>是正定的。<font size="1">QED</font></p>
+<h2 id="註記-3"><font color=#0000FF><u>註記 3</u></font></h2>
+<p>考慮註記1中的<span class="math inline">\(T:V\to W\)</span>和<span
+class="math inline">\(T^\ast:W\to V\)</span>，則 <span
+class="math display">\[
+\mbox{rank}(T^\ast
+T)=\mbox{rank}(T)=\mbox{rank}(T^\ast)=\mbox{rank}(TT^\ast)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(V\)</span>和<span
+class="math inline">\(W\)</span>的正交規範基底<span
+class="math inline">\(\beta\)</span>和<span
+class="math inline">\(\gamma\)</span>，類似<a
+href="https://alexthepurplerose.github.io/2024/10/26/linalg-adjoint/">這裡</a>的定理2，有
+<span class="math display">\[
+[T^\ast]_\gamma^\beta=([T]_\beta^\gamma)^\ast
+\]</span> 故有<span
+class="math inline">\(\mbox{rank}(T)=\mbox{rank}(T^\ast)\)</span>。於是我們只須證明<span
+class="math inline">\(\mbox{rank}(T^\ast
+T)=\mbox{rank}(T)\)</span>即可。<br> 由維度定理，有 <span
+class="math display">\[
+\mbox{rank}(T^\ast T)=\dim V-\dim N(T^\ast T), \mbox{rank}(T)=\dim
+V-\dim N(T)
+\]</span> 我們希望說明<span class="math inline">\(\dim N(T^\ast T)=\dim
+N(T)\)</span>。易知<span class="math inline">\(N(T)\subseteq N(T^\ast
+T)\)</span>。給定<span class="math inline">\(x\in N(T^\ast
+T)\)</span>，則<span class="math inline">\(T^\ast T(x)=0\)</span>。故有
+<span class="math display">\[
+0=\langle T^\ast T(x),x\rangle_V=\langle T(x),T(x)\rangle_W=\|T(x)\|^2
+\]</span> 故<span class="math inline">\(T(x)=0\)</span>，即<span
+class="math inline">\(x\in N(T)\)</span>，於是有<span
+class="math inline">\(N(T^\ast T)\subseteq N(T)\)</span>。故有 <span
+class="math display">\[
+N(T)=N(T^\ast T)\mbox{ i.e. }\dim N(T)=\dim N(T^\ast T)
+\]</span> 於是有<span class="math inline">\(\mbox{rank}(T^\ast
+T)=\mbox{rank}(T)\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="奇異值分解"><font color=#b8860b>奇異值分解</font></h1>
+</center>
+<h2
+id="定理-4奇異值分解-single-value-decomposition"><font color=#ff1493><u>定理
+4：奇異值分解 (Single Value Decomposition)</u></font></h2>
+<p>給定有限維內積空間<span
+class="math inline">\((V,\langle\cdot,\cdot\rangle_V),(W,\langle\cdot,\cdot\rangle_W)\)</span>及線性映射<span
+class="math inline">\(T:V\to W\)</span>，令<span
+class="math inline">\(\mbox{rank}(T)=r\)</span>。則存在<span
+class="math inline">\(V\)</span>和<span
+class="math inline">\(W\)</span>的正交規範基底<span
+class="math inline">\(\{v_1,v_2,\cdots,v_n\}\)</span>和<span
+class="math inline">\(\{u_1,u_2,\cdots,u_m\}\)</span>及實數<span
+class="math inline">\(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r&gt;0\)</span>使得
+<span class="math display">\[
+T(v_i)=\left\{
+\begin{aligned}
+\sigma_iu_i&amp;,1\leq i\leq r\\
+0&amp;,i&gt;r
+\end{aligned}
+\right.
+\]</span> 並且<span class="math inline">\(\sigma_i\)</span>是被<span
+class="math inline">\(T\)</span>唯一決定的：<span
+class="math inline">\(v_i\)</span>是<span class="math inline">\(T^\ast
+T\)</span>的特徵向量，並且相應的特徵值<span
+class="math inline">\(\lambda_i\)</span>為 <span class="math display">\[
+\lambda_i=\left\{
+\begin{aligned}
+\sigma_i^2&amp;,\mbox{ for }1\leq i\leq r\\
+0&amp;,\mbox{ for }i&gt;r
+\end{aligned}
+\right.
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：由註記2，我們知道<span
+class="math inline">\(T^\ast
+T\)</span>是正定的(故由定義也是自伴隨的)，且由註記3有<span
+class="math inline">\(\mbox{rank}(T^\ast
+T)=\mbox{rank}(T)=r\)</span>。則由<a
+href="https://alexthepurplerose.github.io/2024/10/26/linalg-adjoint/">這裡</a>的定理10可知存在由<span
+class="math inline">\(T^\ast T\)</span>的特徵向量構成的<span
+class="math inline">\(V\)</span>的正交規範基底<span
+class="math inline">\(\{v_1,v_2,\cdots,v_n\}\)</span>。令相應的特徵值為<span
+class="math inline">\(\lambda_i\)</span>，即<span
+class="math inline">\(T^\ast T(v_i)=\lambda_iv_i\)</span>。由於<span
+class="math inline">\(T^\ast T\)</span>是正定的，故<span
+class="math inline">\(\lambda_i\geq 0\)</span>(見<a
+href="https://alexthepurplerose.github.io/2024/10/26/linalg-adjoint/">這裡</a>的註記13)。不失一般性可以令<span
+class="math inline">\(\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_r&gt;0\)</span>，且<span
+class="math inline">\(\forall i&gt;r\)</span>, <span
+class="math inline">\(\lambda_i=0\)</span>。而對於<span
+class="math inline">\(1\leq i\leq r\)</span>，令<span
+class="math inline">\(\sigma_i=\sqrt{\lambda_i}\)</span>，並令 <span
+class="math display">\[
+u_i=\frac{1}{\sigma_i}T(v_i)
+\]</span> 即<span class="math inline">\(T(v_i)=\sigma_iu_i,\forall 1\leq
+i\leq r\)</span>。考慮<span
+class="math inline">\(\{u_1,u_2,\cdots,u_r\}\)</span>，則<span
+class="math inline">\(\forall 1\leq i\leq r\)</span>，有 <span
+class="math display">\[
+\begin{aligned}
+\langle
+u_i,u_j\rangle_W&amp;=\left\langle\frac{1}{\sigma_i}T(v_i),\frac{1}{\sigma_j}T(v_j)\right\rangle_W\\
+&amp;=\frac{1}{\sigma_i\sigma_j}\langle T(v_i),T(v_j)\rangle_W\\
+&amp;=\frac{1}{\sigma_i\sigma_j}\langle T^\ast T(v_i),v_j\rangle_V\\
+&amp;=\frac{\lambda_i}{\sigma_i\sigma_j}\langle v_i,v_j\rangle_V\\
+&amp;=\frac{\lambda_i}{\sigma_i\sigma_j}\delta_{ij}=\delta_{ij}
+\end{aligned}
+\]</span> 關於最後一個等號，若<span class="math inline">\(i\neq
+j\)</span>，則 <span class="math display">\[
+0=\delta_{ij}=\frac{\lambda_i}{\sigma_i\sigma_j}\delta_{ij}
+\]</span> 而若<span class="math inline">\(i=j\)</span>，則 <span
+class="math display">\[
+1=\frac{\lambda_i}{\sqrt{\lambda_i}\sqrt{\lambda_i}}=\frac{\lambda_i}{\sigma_i\sigma_j}\delta_{ij}
+\]</span> 故有 <span class="math display">\[
+\frac{\lambda_i}{\sigma_i\sigma_j}\delta_{ij}=\delta_{ij}
+\]</span> 故知<span
+class="math inline">\(\{u_1,u_2,\cdots,u_r\}\)</span>是正交規範的，由<a
+href="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/">這裡</a>的註記9-2知<span
+class="math inline">\(\{u_1,u_2,\cdots,u_r\}\)</span>是線性獨立的。我們可以把<span
+class="math inline">\(\{u_1,u_2,\cdots,u_r\}\)</span>擴張成<span
+class="math inline">\(W\)</span>的正交規範基底<span
+class="math inline">\(\{u_1,u_2,\cdots,u_m\}\)</span>(可以用格蘭-施密特正交化過程做到這件事，見<a
+href="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/">這裡</a>的定理10)。最後，由於對於所有<span
+class="math inline">\(i&gt;r\)</span>有<span
+class="math inline">\(T^\ast T(v_i)=0\)</span>且由註記3的證明過程知<span
+class="math inline">\(N(T)=N(T^\ast T)\)</span>，我們有<span
+class="math inline">\(T(v_i)=0,\forall
+i&gt;r\)</span>。於是可知這裡建構的<span
+class="math inline">\(\{v_1,\cdots,v_n\}\)</span>, <span
+class="math inline">\(\{u_1,\cdots,u_m\}\)</span>和<span
+class="math inline">\(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r&gt;0\)</span>是滿足要求的。<br>
+接著，我們希望說明這樣的<span
+class="math inline">\(\sigma_i\)</span>是唯一的。假設存在<span
+class="math inline">\(V\)</span>的正交規範基底<span
+class="math inline">\(\{v_1,v_2,\cdots,v_n\}\)</span>及<span
+class="math inline">\(W\)</span>的正交規範基底<span
+class="math inline">\(\{u_1,u_2,\cdots,u_m\}\)</span>使得 <span
+class="math display">\[
+T(v_i)=\left\{
+\begin{aligned}
+\sigma_iu_i&amp;,1\leq i\leq r\\
+0&amp;,i&gt;r
+\end{aligned}
+\right.
+\]</span> 則 <span class="math display">\[
+\langle T^\ast(u_i),v_j\rangle_V=\langle u_i,T(v_j)\rangle_W=\left\{
+\begin{aligned}
+\sigma_i&amp;,\mbox{ if }i=j\leq r\\
+0&amp;,\mbox{ otherwise}
+\end{aligned}
+\right.
+\]</span> 故由<a
+href="https://alexthepurplerose.github.io/2024/10/08/linalg-inner/">這裡</a>的定理9有
+<span class="math display">\[
+T^\ast(u_i)=\sum_{j=1}^n\langle T^\ast(u_i),v_j\rangle_V v_j=\left\{
+\begin{aligned}
+\sigma_iv_i&amp;,\mbox{ if }i\leq r\\
+0&amp;,\mbox{ otherwise}
+\end{aligned}
+\right.
+\]</span> 故對於<span class="math inline">\(1\leq i\leq r\)</span>，有
+<span class="math display">\[
+T^\ast T(v_i)=T^\ast(\sigma_iu_i)=\sigma_iT^\ast(u_i)=\sigma_i^2v_i
+\]</span> 且<span class="math inline">\(i&gt;r\)</span>時<span
+class="math inline">\(T^\ast T(v_i)=0\)</span>，故<span
+class="math inline">\(\sigma_i^2\)</span>一定要是<span
+class="math inline">\(T^\ast T\)</span>的特徵值，即<span
+class="math inline">\(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r&gt;0\)</span>是唯一的。<font size="1">QED</font></p>
+<h3 id="定義-4-1奇異值-singular-value"><font color=#008000><u>定義
+4-1：奇異值 (Singular Value)</u></font></h3>
+<p>我們稱定理3中的<span class="math inline">\(\lambda_i\)</span>為<span
+class="math inline">\(T\)</span>的奇異值。</p>
+<h3 id="定理-4-2矩陣的奇異值分解"><font color=#ff1493><u>定理
+4-2：矩陣的奇異值分解</u></font></h3>
+<p>給定矩陣<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，其中<span
+class="math inline">\(\mbox{rank}(A)=r\)</span>，並令<span
+class="math inline">\(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r&gt;0\)</span>為<span
+class="math inline">\(L_A\)</span>的奇異值。並定義矩陣<span
+class="math inline">\(\Sigma\in M_{m\times n}(F)\)</span>為 <span
+class="math display">\[
+\Sigma=\left(
+\begin{array}{ccc|c}
+\sigma_1 &amp; &amp; 0 &amp; 0\\
+&amp; \ddots &amp; &amp; 0\\
+0 &amp; &amp; \sigma_r &amp; 0\\
+\hline
+0 &amp; \cdots &amp; 0 &amp; 0
+\end{array}
+\right)
+\]</span> 則存在么正矩陣<span class="math inline">\(U\in M_{m\times
+M}(F)\)</span>和<span class="math inline">\(V\in M_{n\times
+n}(F)\)</span>使得<span class="math inline">\(A=U\Sigma
+V^\ast\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮<span
+class="math inline">\(T=L_A:F^n\to F^m\)</span>。則由定理4知存在<span
+class="math inline">\(F^n\)</span>的正交規範基底<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_n\}\)</span>與<span
+class="math inline">\(F^m\)</span>的正交規範基底<span
+class="math inline">\(\gamma=\{u_1,u_2,\cdots,u_m\}\)</span>使得 <span
+class="math display">\[
+T(v_i)=\left\{
+\begin{aligned}
+\sigma_iu_i&amp;,\mbox{ for }1\leq i\leq r\\
+0&amp;,\mbox{ otherwise}
+\end{aligned}
+\right.
+\]</span> 故由定義<span
+class="math inline">\(\Sigma=[L_A]_\beta^\gamma\)</span>。令<span
+class="math inline">\(\delta\)</span>為<span
+class="math inline">\(F^n\)</span>或<span
+class="math inline">\(F^m\)</span>的標準基底(這裡稍微濫用一點符號)，則由<a
+href="https://alexthepurplerose.github.io/2024/12/07/linalg-unitary/">這裡</a>的定理6的證明過程知<span
+class="math inline">\([I]_\gamma^\delta\)</span>和<span
+class="math inline">\([I]_\beta^\delta\)</span>都是么正的。令<span
+class="math inline">\(U=[I]_\gamma^\delta\)</span>, <span
+class="math inline">\(V=[I]_\beta^\delta\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+{[L_A]}_\delta&amp;=[I]_\gamma^\delta[L_A]_\beta^\gamma[I]^\beta_\delta\\
+&amp;=U\Sigma V^{-1}=U\Sigma V^\ast
+\end{aligned}
+\]</span> 又<span
+class="math inline">\([L_A]_\delta=A\)</span>，故有<span
+class="math inline">\(A=U\Sigma
+V^\ast\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="極分解"><font color=#b8860b>極分解</font></h1>
+</center>
+<h2 id="定理-5極分解-polar-decomposition"><font color=#ff1493><u>定理
+5：極分解 (Polar Decomposition)</u></font></h2>
+<p>給定矩陣<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，則存在么正矩陣<span class="math inline">\(W\in
+M_{n\times n}(F)\)</span>與半正定矩陣<span class="math inline">\(P\in
+M_{n\times n}(F)\)</span>使得<span
+class="math inline">\(A=WP\)</span>。且若<span
+class="math inline">\(A\)</span>可逆，則這樣的分解是唯一的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定理4-2知存在么正的<span
+class="math inline">\(U,V\)</span>使得 <span class="math display">\[
+A=U\Sigma V^\ast=U(V^\ast V)\Sigma V^\ast=UV^\ast(V\Sigma V^\ast)
+\]</span> 其中<span
+class="math inline">\(\Sigma\)</span>的定義可見定理4-2。令<span
+class="math inline">\(W=UV^\ast\)</span>, <span
+class="math inline">\(P=V\Sigma V^\ast\)</span>。因為<span
+class="math inline">\(\Sigma\)</span>顯然是半正定的，故對於所有<span
+class="math inline">\(x\in F^n\)</span>，有 <span
+class="math display">\[
+\langle V\Sigma V^\ast(x),x\rangle=\langle
+\Sigma(V^\ast(x)),V^\ast(x)\rangle\geq 0
+\]</span> 即<span
+class="math inline">\(P\)</span>也是半正定的。另一方面，我們有 <span
+class="math display">\[
+WW^\ast=(UV^\ast)(VU^\ast)=UIU^\ast=I=W^\ast W
+\]</span> 故<span class="math inline">\(W\)</span>是么正的。<br> 若<span
+class="math inline">\(A\)</span>可逆，則假設存在么正的<span
+class="math inline">\(W,Z\)</span>與半正定的<span
+class="math inline">\(P,Q\)</span>使得<span
+class="math inline">\(A=WP=ZQ\)</span>。由於<span
+class="math inline">\(A,W,Z\)</span>都可逆，故<span
+class="math inline">\(P\)</span>和<span
+class="math inline">\(Q\)</span>也可逆。並且 <span
+class="math display">\[
+QP^{-1}=Z^{-1}W=Z^\ast W
+\]</span> 由於<span class="math inline">\(W,Z\)</span>是么正的，故<span
+class="math inline">\(QP^{-1}\)</span>也是么正的，即 <span
+class="math display">\[
+\begin{aligned}
+I&amp;=(Z^\ast W)^\ast(Z^\ast W)\\
+&amp;=(QP^{-1})^\ast(QP^{-1})\\
+&amp;=(P^{-1})^\ast Q^\ast QP^{-1}
+\end{aligned}
+\]</span> 又由於<span
+class="math inline">\(Q\)</span>是半正定的，故由定義知<span
+class="math inline">\(Q\)</span>是自伴隨的，即<span
+class="math inline">\(I=(P^{-1})^\ast QQP^{-1}\)</span>。而又<span
+class="math inline">\(I=I^\ast\)</span>，故 <span
+class="math display">\[
+I=PP^{-1}=(P^{-1})^\ast P^\ast=(P^{-1})^\ast P
+\]</span> 即<span class="math inline">\((P^{-1})^\ast=P^{-1}\)</span>
+i.e. <span class="math inline">\(I=P^{-1}QQP^{-1}\)</span> i.e. <span
+class="math inline">\(P^2=Q^2\)</span>。而這在已知<span
+class="math inline">\(P\)</span>和<span
+class="math inline">\(Q\)</span>都是半正定矩陣的前提下會導致<span
+class="math inline">\(P=Q\)</span>(詳略)，故也有<span
+class="math inline">\(Z=W\)</span>，即<span
+class="math inline">\(A\)</span>的極分解是唯一的。<font size="1">QED</font></p>
 
     </div>
 
@@ -310,7 +614,11 @@ class="math inline">\(T:V\to W\)</span>。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A5%87%E7%95%B0%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">奇異值分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1"><span class="nav-number">1.1.</span> <span class="nav-text">註記 1</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%A3%E7%BE%A9%E4%BC%B4%E9%9A%A8%E6%98%A0%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">廣義伴隨映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1"><span class="nav-number">1.1.</span> <span class="nav-text">註記 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2"><span class="nav-number">1.2.</span> <span class="nav-text">註記 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.3.</span> <span class="nav-text">註記 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A5%87%E7%95%B0%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">奇異值分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4%E5%A5%87%E7%95%B0%E5%80%BC%E5%88%86%E8%A7%A3-single-value-decomposition"><span class="nav-number">2.1.</span> <span class="nav-text">定理
+4：奇異值分解 (Single Value Decomposition)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E5%A5%87%E7%95%B0%E5%80%BC-singular-value"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義
+4-1：奇異值 (Singular Value)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4-2%E7%9F%A9%E9%99%A3%E7%9A%84%E5%A5%87%E7%95%B0%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">2.1.2.</span> <span class="nav-text">定理
+4-2：矩陣的奇異值分解</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A5%B5%E5%88%86%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">極分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E6%A5%B5%E5%88%86%E8%A7%A3-polar-decomposition"><span class="nav-number">3.1.</span> <span class="nav-text">定理
+5：極分解 (Polar Decomposition)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
