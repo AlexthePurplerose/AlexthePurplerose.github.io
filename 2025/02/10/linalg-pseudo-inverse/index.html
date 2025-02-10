@@ -20,20 +20,23 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於偽反矩陣的定義與相關定理。">
+  <meta name="description" content="這份筆記是關於偽逆映射的定義與相關應用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="線性代數：偽反矩陣">
+<meta property="og:title" content="線性代數：偽逆映射">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2025/02/10/linalg-pseudo-inverse/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於偽反矩陣的定義與相關定理。">
+<meta property="og:description" content="這份筆記是關於偽逆映射的定義與相關應用。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2025-02-10T06:05:46.000Z">
-<meta property="article:modified_time" content="2025-02-10T06:09:55.386Z">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/02/10/linalg-pseudo-inverse/moore.jpeg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/02/10/linalg-pseudo-inverse/penrose.jpg">
+<meta property="article:published_time" content="2025-02-10T06:31:05.000Z">
+<meta property="article:modified_time" content="2025-02-10T07:25:48.568Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
 <meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2025/02/10/linalg-pseudo-inverse/moore.jpeg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2025/02/10/linalg-pseudo-inverse/">
 
@@ -48,7 +51,7 @@
   };
 </script>
 
-  <title>線性代數：偽反矩陣 | 永蔚Alex</title>
+  <title>線性代數：偽逆映射 | 永蔚Alex</title>
   
 
 
@@ -182,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          線性代數：偽反矩陣
+          線性代數：偽逆映射
         </h1>
 
         <div class="post-meta">
@@ -193,7 +196,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2025-02-10 14:05:46 / 修改時間：14:09:55" itemprop="dateCreated datePublished" datetime="2025-02-10T14:05:46+08:00">2025-02-10</time>
+              <time title="創建時間：2025-02-10 14:31:05 / 修改時間：15:25:48" itemprop="dateCreated datePublished" datetime="2025-02-10T14:31:05+08:00">2025-02-10</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,7 +223,228 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於偽反矩陣的定義與相關定理。 <span id="more"></span><br></p>
+        <p>這份筆記是關於偽逆映射的定義與相關應用。 <span id="more"></span><br></p>
+<center>
+<h1 id="偽逆映射"><font color=#b8860b>偽逆映射</font></h1>
+</center>
+<h2
+id="定義-1偽逆映射-pseudo-inverse-transformation"><font color=#008000><u>定義
+1：偽逆映射 (Pseudo-Inverse Transformation)</u></font></h2>
+<p>給定有限維內積空間<span
+class="math inline">\((V,\langle\cdot,\cdot\rangle_V)\)</span>與<span
+class="math inline">\((W,\langle\cdot,\cdot\rangle_W)\)</span>並考慮線性映射<span
+class="math inline">\(T:V\to W\)</span>。我們知道 <span
+class="math display">\[
+V=N(T)\oplus N(T)^\perp, W=R(T)\oplus R(T)^\perp
+\]</span> 定義<span
+class="math inline">\(L=T|_{N(T)^\perp}\)</span>，則由於 <span
+class="math display">\[
+\dim N(T)^\perp=\dim V-\dim N(T)=\dim R(T)
+\]</span> 故知<span class="math inline">\(L\)</span>是<span
+class="math inline">\(N(T)^\perp\)</span>和<span
+class="math inline">\(R(T)\)</span>間的同構映射，即<span
+class="math inline">\(L\)</span>可逆。則我們定義<span
+class="math inline">\(T\)</span>的偽逆矩陣<span
+class="math inline">\(T^+:W\to V\)</span>為如下定義的線性映射： <span
+class="math display">\[
+T^+(y)=\left\{
+\begin{aligned}
+L^{-1}(y)&amp;,\mbox{ if }y\in R(T)\\
+0&amp;,\mbox{ if }y\in R(T)^\perp
+\end{aligned}
+\right.
+\]</span> 這樣的偽逆映射也稱為摩爾-潘洛斯逆映射(Moore-Penrose
+Inverse)。</p>
+<img src="moore.jpeg" width="25%" height="25%">
+<center>
+圖1 Eliakim Hastings Moore
+</center>
+<img src="penrose.jpg" width="25%" height="25%">
+<center>
+圖2 Roger Penrose
+</center>
+<h2 id="註記-2"><font color=#0000FF><u>註記 2</u></font></h2>
+<p>給定有限維內積空間<span
+class="math inline">\((V,\langle\cdot,\cdot\rangle_V)\)</span>與<span
+class="math inline">\((W,\langle\cdot,\cdot\rangle_W)\)</span>並考慮線性映射<span
+class="math inline">\(T:V\to W\)</span>。由<a
+href="https://alexthepurplerose.github.io/2025/02/09/linalg-SVD-polar/">這裡</a>的定理4知我們可以對<span
+class="math inline">\(T\)</span>做奇異值分解，即存在<span
+class="math inline">\(V\)</span>的正交規範基底<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_n\}\)</span>和<span
+class="math inline">\(W\)</span>的正交規範基底<span
+class="math inline">\(\gamma=\{u_1,u_2,\cdots,u_m\}\)</span>及<span
+class="math inline">\(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r&gt;0\)</span>使得
+<span class="math display">\[
+T(v_i)=\left\{
+\begin{aligned}
+\sigma_iu_i&amp;,\mbox{ for }1\leq i\leq r\\
+0&amp;,\mbox{ otherwise}
+\end{aligned}
+\right.
+\]</span> 則<span class="math inline">\(T\)</span>的偽逆<span
+class="math inline">\(T^+\)</span>滿足 <span class="math display">\[
+T^+(u_i)=\left\{
+\begin{aligned}
+\frac{1}{\sigma_i}v_i&amp;,\mbox{ for }1\leq i\leq r\\
+0&amp;,\mbox{ otherwise}
+\end{aligned}
+\right.
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：對於所有<span
+class="math inline">\(1\leq i\leq n\)</span>，都有<span
+class="math inline">\(T(v_i)\in R(T)\)</span>。故由定義 <span
+class="math display">\[
+T^+(T(v_i))=L^{-1}(T(v_i))=v_i
+\]</span> 但同時當<span class="math inline">\(1\leq i\leq
+r\)</span>時又有 <span class="math display">\[
+T^+(T(v_i))=T^+(\sigma_iu_i)=\sigma_iT^+(u_i)
+\]</span> 故有<span
+class="math inline">\(T^+(u_i)=\frac{1}{\sigma_i}v_i\)</span>。而由於<span
+class="math inline">\(L^{-1}:R(T)\xrightarrow{\sim}
+N(T)^\perp\)</span>是同構映射，故<span
+class="math inline">\(\mbox{rank}(T)=\mbox{rank}(T^+)\)</span>。於是對於<span
+class="math inline">\(i&gt;r\)</span>，有<span
+class="math inline">\(T^+(u_i)=0\)</span>。<font size="1">QED</font></p>
+<h2 id="註記-3"><font color=#0000FF><u>註記 3</u></font></h2>
+<p>給定矩陣<span class="math inline">\(A\in M_{m\times
+n}(F)\)</span>，其中<span
+class="math inline">\(\mbox{rank}(A)=r\)</span>。考慮由<span
+class="math inline">\(A\)</span>導出的線性映射<span
+class="math inline">\(L_A:F^n\to F^m\)</span>。由<a
+href="https://alexthepurplerose.github.io/2025/02/09/linalg-SVD-polar/">這裡</a>的定理4-2知我們可以對<span
+class="math inline">\(A\)</span>做奇異值分解，即存在么正矩陣<span
+class="math inline">\(U,V\)</span>與<span
+class="math inline">\(\sigma_1\geq\sigma_2\geq\cdots\geq\sigma_r\)</span>使得
+<span class="math display">\[
+A=U\left(
+\begin{array}{ccc|c}
+\sigma_1 &amp; &amp; 0 &amp; 0\\
+&amp; \ddots &amp; &amp; 0\\
+0 &amp; &amp; \sigma_r &amp; 0\\
+\hline
+0 &amp; \cdots &amp; 0 &amp; 0
+\end{array}
+\right)V^\ast
+\]</span> 考慮<span class="math inline">\(L_A\)</span>的偽逆映射<span
+class="math inline">\((L_A)^+:F^m\to F^n\)</span>，則其對應的矩陣為
+<span class="math display">\[
+A^+=V\left(
+\begin{array}{ccc|c}
+\frac{1}{\sigma_1} &amp; &amp; 0 &amp; 0\\
+&amp; \ddots &amp; &amp; 0\\
+0 &amp; &amp; \frac{1}{\sigma_r} &amp; 0\\
+\hline
+0 &amp; \cdots &amp; 0 &amp; 0
+\end{array}
+\right)U^\ast
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：只要檢查對於所有<span
+class="math inline">\(x\in N(L_A)^\perp\)</span>都有<span
+class="math inline">\(A^+A(x)=x\)</span>即可。詳略。<font size="1">QED</font></p>
+<h3
+id="定義-3-1偽逆矩陣-pseudo-inverse-matirx"><font color=#008000><u>定義
+3-1：偽逆矩陣 (Pseudo-Inverse Matirx)</u></font></h3>
+<p>註記3中的<span class="math inline">\(A^+\)</span>稱為<span
+class="math inline">\(A\)</span>的偽逆矩陣。</p>
+<h2 id="引理-4"><font color=#0000FF><u>引理 4</u></font></h2>
+<p>給定有限維內積空間<span
+class="math inline">\((V,\langle\cdot,\cdot\rangle_V)\)</span>與<span
+class="math inline">\((W,\langle\cdot,\cdot\rangle_W)\)</span>並考慮線性映射<span
+class="math inline">\(T:V\to W\)</span>。我們知道 <span
+class="math display">\[
+V=N(T)\oplus N(T)^\perp, W=R(T)\oplus R(T)^\perp
+\]</span> 考慮<span class="math inline">\(T\)</span>的偽逆映射<span
+class="math inline">\(T^+\)</span>，則<span
+class="math inline">\(T^+T\)</span>是<span
+class="math inline">\(V\)</span>在<span
+class="math inline">\(N(T)^\perp\)</span>上的正交投影，<span
+class="math inline">\(TT^+\)</span>是<span
+class="math inline">\(W\)</span>在<span
+class="math inline">\(R(T)\)</span>上的正交投影。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(L=T|_{N(T)^\perp}:N(T)^\perp\xrightarrow{\sim}R(T)\)</span>。則對於所有<span
+class="math inline">\(x\in N(T)^\perp\)</span>，有 <span
+class="math display">\[
+T^+T(x)=L^{-1}L(x)=x
+\]</span> 且對於所有<span class="math inline">\(x\in
+N(T)\)</span>，有<span class="math inline">\(T^+T(x)=0\)</span>，故<span
+class="math inline">\(R(T^+T)=N(T)^\perp\)</span>。又因為<span
+class="math inline">\(L\)</span>是一對一的，故<span
+class="math inline">\(N(T^+T)=N(T)\)</span>，於是有<span
+class="math inline">\(R(T^+T)=N(T^+T)^\perp\)</span>。又因為<span
+class="math inline">\(V\)</span>是有限維的，故有<span
+class="math inline">\((N(T^+T)^\perp)^\perp=N(T^+T)\)</span>，故 <span
+class="math display">\[
+R(T^+T)^\perp=(N(T^+T)^\perp)^\perp=N(T^+T)
+\]</span> 最後，由<span class="math inline">\(T^+\)</span>的定義有 <span
+class="math display">\[
+(T^+T)^2=T^+(TT^+)T=T^+T
+\]</span> 故知<span class="math inline">\(T^+T\)</span>是<span
+class="math inline">\(V\)</span>在<span
+class="math inline">\(N(T)^\perp\)</span>上的正交投影。同理可得<span
+class="math inline">\(TT^+\)</span>是<span
+class="math inline">\(W\)</span>在<span
+class="math inline">\(R(T)\)</span>上的正交投影。<font size="1">QED</font></p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>給定矩陣<span class="math inline">\(A\in M_{m\times
+n}(F)\)</span>，對於<span class="math inline">\(b\in
+F^m\)</span>，考慮線性方程組<span
+class="math inline">\(Ax=b\)</span>。令<span
+class="math inline">\(A^+\)</span>為<span
+class="math inline">\(A\)</span>的偽逆矩陣，並令<span
+class="math inline">\(z=A^+b\)</span>，則： <br>1. 若<span
+class="math inline">\(Ax=b\)</span>有解，則<span
+class="math inline">\(z\)</span>是<span
+class="math inline">\(Ax=b\)</span>的解，且<span
+class="math inline">\(z\)</span>是所有<span
+class="math inline">\(Ax=b\)</span>的解中範數最小的。 <br>2. 若<span
+class="math inline">\(Ax=b\)</span>無解，則<span
+class="math inline">\(z\)</span>是對解的最佳估計。即對於所有<span
+class="math inline">\(y\in F^n\)</span>，都有 <span
+class="math display">\[
+0&lt;\|Az-b\|\leq\|Ay-b\|
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 考慮映射<span
+class="math inline">\(T=L_A:F^n\to F^m\)</span>及其偽逆映射<span
+class="math inline">\(T^+=(L_A)^+:F^m\to F^n\)</span>。由<span
+class="math inline">\(Ax=b\)</span>有解可知<span
+class="math inline">\(b\in R(T)\)</span>，則 <span
+class="math display">\[
+Az=A(A^+b)=L_A(L_A)^+b
+\]</span> 但由引理4知<span
+class="math inline">\(L_A(L_A)^+\)</span>是<span
+class="math inline">\(F^m\)</span>在<span
+class="math inline">\(R(L_A)\)</span>上的正交投影，且<span
+class="math inline">\(b\in R(L_A)\)</span>，故<span
+class="math inline">\(Az=b\)</span>，即<span
+class="math inline">\(z\)</span>是解。 <br>令<span
+class="math inline">\(y\)</span>也是<span
+class="math inline">\(Ax=b\)</span>的解。由引理4知<span
+class="math inline">\(T^+T\)</span>是<span
+class="math inline">\(F^n\)</span>在<span
+class="math inline">\(N(T)^\perp\)</span>上的正交投影，且 <span
+class="math display">\[
+T^+T(y)=A^+Ay=A^+b=z
+\]</span> 故<span class="math inline">\(z\)</span>是<span
+class="math inline">\(y\)</span>在<span
+class="math inline">\(N(T)^\perp\)</span>上的正交投影 i.e. 若令<span
+class="math inline">\(y=y&#39;+z\)</span>，則<span
+class="math inline">\(y&#39;\in N(T)\)</span>。於是由<a
+href="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/">這裡</a>的註記2-1有
+<span class="math display">\[
+\|y\|=\|y-0\|\geq\|y-y&#39;\|=\|z\|
+\]</span> <br>2. 我們有<span
+class="math inline">\(Az=AA^+b=TT^+(b)\)</span>。由引理4知<span
+class="math inline">\(TT^+\)</span>是<span
+class="math inline">\(F^m\)</span>在<span
+class="math inline">\(R(L_A)\)</span>上的正交投影，即<span
+class="math inline">\(Az=\mbox{Proj}_{R(T)}(b)\)</span>。故由<a
+href="https://alexthepurplerose.github.io/2024/10/24/linalg-ortho-projection/">這裡</a>的註記2-1可知對於所有<span
+class="math inline">\(y\in F^n, Ay\in R(T)\)</span>，我們都有 <span
+class="math display">\[
+0&lt;\|Az-b\|\leq\|Ay-b\|
+\]</span> <font size="1">QED</font></p>
 
     </div>
 
@@ -303,6 +527,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%BD%E9%80%86%E6%98%A0%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">偽逆映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%81%BD%E9%80%86%E6%98%A0%E5%B0%84-pseudo-inverse-transformation"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：偽逆映射 (Pseudo-Inverse Transformation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2"><span class="nav-number">1.2.</span> <span class="nav-text">註記 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.3.</span> <span class="nav-text">註記 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E5%81%BD%E9%80%86%E7%9F%A9%E9%99%A3-pseudo-inverse-matirx"><span class="nav-number">1.3.1.</span> <span class="nav-text">定義
+3-1：偽逆矩陣 (Pseudo-Inverse Matirx)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">引理 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
