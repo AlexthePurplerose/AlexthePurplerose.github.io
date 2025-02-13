@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於雙線性形式的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-02-11T06:31:05.000Z">
-<meta property="article:modified_time" content="2025-02-13T11:43:02.937Z">
+<meta property="article:modified_time" content="2025-02-13T12:23:04.095Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-02-13 19:43:02" itemprop="dateModified" datetime="2025-02-13T19:43:02+08:00">2025-02-13</time>
+                <time title="修改時間：2025-02-13 20:23:04" itemprop="dateModified" datetime="2025-02-13T20:23:04+08:00">2025-02-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -556,9 +556,132 @@ b &amp; d
 a &amp; b\\
 c &amp; d
 \end{array}
+\right)\\
+&amp;=\left(
+\begin{array}{cc}
+ac+ac &amp; bc+ad\\
+bc+ad &amp; bd+bd
+\end{array}
 \right)
 \end{aligned}
+\]</span> 但在<span
+class="math inline">\(F=\mathbb{Z}_2\)</span>中一定有<span
+class="math inline">\(ac+ac=bd+bd=0\)</span>，矛盾。故<span
+class="math inline">\(H\)</span>不是可對角化的。</p>
+<h2 id="引理-11"><font color=#0000FF><u>引理 11</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>與對稱雙線性形式<span
+class="math inline">\(0\neq H\in B(V)\)</span>，其中<span
+class="math inline">\(\mbox{char}(F)\neq 2\)</span>(意即在<span
+class="math inline">\(F\)</span>中<span class="math inline">\(1+1\neq
+0\)</span>)。則存在<span class="math inline">\(x\in V\)</span>使得<span
+class="math inline">\(H(x,x)\neq 0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(H\)</span>不是零，故存在<span
+class="math inline">\(u,v\in V\)</span>使得<span
+class="math inline">\(H(u,v)\neq 0\)</span>。若<span
+class="math inline">\(H(u,u)\neq 0\)</span>或<span
+class="math inline">\(H(v,v)\neq 0\)</span>，則引理得證。而若<span
+class="math inline">\(H(u,u)=H(v,v)=0\)</span>，則考慮<span
+class="math inline">\(x=u+v\)</span>，則 <span class="math display">\[
+\begin{aligned}
+H(x,x)&amp;=\underbrace{H(u,u)}_{=0}+\underbrace{H(v,v)}_{=0}+H(u,v)+H(v,u)\\
+&amp;=2H(u,v)
+\end{aligned}
+\]</span> 由於在<span class="math inline">\(F\)</span>中<span
+class="math inline">\(1+1\neq 0\)</span>且<span
+class="math inline">\(H(u,v)\neq 0\)</span>，故<span
+class="math inline">\(2H(u,v)\neq 0\)</span>，即<span
+class="math inline">\(H(x,x)\neq
+0\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-12"><font color=#ff1493><u>定理 12</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的有限維向量空間<span
+class="math inline">\(V\)</span>，其中<span
+class="math inline">\(\mbox{char}(F)\neq 2\)</span>，則<span
+class="math inline">\(V\)</span>上的每一個對稱雙線性形式都可對角化。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(\dim V\)</span>做數學歸納法。 <br>1. <span
+class="math inline">\(\dim V=1\)</span>時，結論是顯然的。 <br>2.
+假設當<span class="math inline">\(\dim
+V&lt;n\)</span>時定理都成立，則當<span class="math inline">\(\dim
+V=n\)</span>時，令<span class="math inline">\(H\)</span>是<span
+class="math inline">\(V\)</span>上的非零對稱雙線性形式。則由引理11，存在<span
+class="math inline">\(x\in V\)</span>使得<span
+class="math inline">\(H(x,x)\neq 0\)</span>。令<span
+class="math inline">\(L_x(y)=H(x,y)\)</span>。由註記1-1知<span
+class="math inline">\(L_x:V\to F\)</span>是線性映射，且<span
+class="math inline">\(L_x(x)=H(x,x)\neq 0\)</span>。則由於<span
+class="math inline">\(\mbox{rank}(L_x)\)</span>至多是<span
+class="math inline">\(\dim F\)</span>，而<span
+class="math inline">\(\dim F=1\)</span>，故<span
+class="math inline">\(\mbox{rank}(L_x)=1\)</span>。於是有 <span
+class="math display">\[
+\dim N(L_x)=n-1
+\]</span> 考慮<span class="math inline">\(H|_{N(L_x)}:N(L_x)\times
+N(L_x)\to F\)</span>為一<span
+class="math inline">\(N(L_x)\)</span>上的雙線性形式。則依據歸納假設，存在<span
+class="math inline">\(N(L_x)\)</span>的基底<span
+class="math inline">\(\beta=\{v_1,v_2,\cdots,v_{n-1}\}\)</span>使得<span
+class="math inline">\(\Psi_\beta(H|_{N(L_x)})\)</span>是對角矩陣，即<span
+class="math inline">\(\forall i\neq j, 1\leq i,j\leq n-1\)</span>, <span
+class="math inline">\(H(v_i,v_j)=0\)</span>。 <br>接著，由於<span
+class="math inline">\(L_x(x)\neq 0\)</span>，故<span
+class="math inline">\(x\notin N(L_x)\)</span>，令<span
+class="math inline">\(v_n=x\)</span>。則<span
+class="math inline">\(\beta&#39;=\{v_1,v_2,\cdots,v_{n-1},v_n=x\}\)</span>是<span
+class="math inline">\(V\)</span>的基底。則因為<span
+class="math inline">\(\mbox{rank}(L_x)=1\)</span>，故 <span
+class="math display">\[
+H(v_n,v_i)=H(v_i,v_n)=L_x(v_i)=0,\forall 1\leq i\leq n-1
+\]</span> 故知<span
+class="math inline">\(\Psi_{\beta&#39;}(H)\)</span>是對稱矩陣。
+<br>由數學歸納法，我們可知此定理對任意<span class="math inline">\(\dim
+V=n\)</span>都成立。<font size="1">QED</font></p>
+<h3 id="推論-12-1"><font color=#0000FF><u>推論 12-1</u></font></h3>
+<p>給定對稱矩陣<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，其中<span class="math inline">\(\mbox{char}(F)\neq
+2\)</span>。則<span
+class="math inline">\(A\)</span>和某個對角矩陣是合同的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定理4知<span
+class="math inline">\(\Psi_\beta\)</span>是<span
+class="math inline">\(B(F^n)\)</span>和<span
+class="math inline">\(M_{n\times
+n}(F)\)</span>間的同構映射，故存在對稱雙線性形式<span
+class="math inline">\(H\in B(V)\)</span>使得<span
+class="math inline">\(\Psi_\beta(H)=A\)</span>。由定理12知存在<span
+class="math inline">\(F^n\)</span>的基底<span
+class="math inline">\(\gamma\)</span>使得<span
+class="math inline">\(\Psi_\gamma(H)=D\)</span>是對角矩陣。故由定理8知<span
+class="math inline">\(A\)</span>和<span
+class="math inline">\(D\)</span>是合同的。<font size="1">QED</font></p>
+<center>
+<h1
+id="對稱矩陣的對角化"><font color=#b8860b>對稱矩陣的對角化</font></h1>
+</center>
+<h2 id="註記-13"><font color=#0000FF><u>註記 13</u></font></h2>
+<p>給定對稱矩陣<span class="math inline">\(A\in M_{n\times
+n}(F)\)</span>，其中<span class="math inline">\(\mbox{char}(F)\neq
+2\)</span>。則由推論12-1知<span
+class="math inline">\(A\)</span>和某個對角矩陣是合同的，即存在可逆矩陣<span
+class="math inline">\(Q\)</span>與對角矩陣<span
+class="math inline">\(D\)</span>使得<span
+class="math inline">\(Q^tAQ=D\)</span>。又由於<span
+class="math inline">\(Q\)</span>是可逆的，故<span
+class="math inline">\(Q\)</span>可表為一連串基本矩陣的乘積，即 <span
+class="math display">\[
+Q=E_1E_2\cdots E_k, Q^t=E_k^tE_{k-1}^t\cdots E_1^t
 \]</span></p>
+<h3 id="例-13-1"><font color=#ffa500><u>例 13-1</u></font></h3>
+<p>考慮矩陣 <span class="math display">\[
+A=\left(
+\begin{array}{ccc}
+1 &amp; -1 &amp; 3\\
+-1 &amp; 2 &amp; 1\\
+3 &amp; 1 &amp; 1
+\end{array}
+\right)
+\]</span> 我們想把<span
+class="math inline">\(A\)</span>給對角化。由註記13知</p>
 
     </div>
 
@@ -649,7 +772,7 @@ c &amp; d
 Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">註記 4-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%90%88%E5%90%8C-congruent"><span class="nav-number">1.5.</span> <span class="nav-text">定義 5：合同
 (Congruent)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">1.6.</span> <span class="nav-text">定理 6</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8D%E7%A8%B1%E9%9B%99%E7%B7%9A%E6%80%A7%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">對稱雙線性形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%B0%8D%E7%A8%B1%E9%9B%99%E7%B7%9A%E6%80%A7%E5%BD%A2%E5%BC%8F-symmetric-bilinear-form"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 7：對稱雙線性形式 (Symmetric Bilinear Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.2.</span> <span class="nav-text">定理 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E5%8F%AF%E5%B0%8D%E8%A7%92%E5%8C%96-diagonalizable"><span class="nav-number">2.3.</span> <span class="nav-text">定義
-9：可對角化 (Diagonalizable)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">2.4.</span> <span class="nav-text">註記 10</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-10-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">例 10-1</span></a></li></ol></li></ol></li></ol></div>
+9：可對角化 (Diagonalizable)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">2.4.</span> <span class="nav-text">註記 10</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-10-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">例 10-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-11"><span class="nav-number">2.5.</span> <span class="nav-text">引理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.6.</span> <span class="nav-text">定理 12</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-12-1"><span class="nav-number">2.6.1.</span> <span class="nav-text">推論 12-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8D%E7%A8%B1%E7%9F%A9%E9%99%A3%E7%9A%84%E5%B0%8D%E8%A7%92%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">對稱矩陣的對角化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13"><span class="nav-number">3.1.</span> <span class="nav-text">註記 13</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-13-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">例 13-1</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
