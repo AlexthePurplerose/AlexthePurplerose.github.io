@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於二次形式的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-02-15T06:31:05.000Z">
-<meta property="article:modified_time" content="2025-02-16T04:26:14.662Z">
+<meta property="article:modified_time" content="2025-02-16T04:33:59.644Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-02-16 12:26:14" itemprop="dateModified" datetime="2025-02-16T12:26:14+08:00">2025-02-16</time>
+                <time title="修改時間：2025-02-16 12:33:59" itemprop="dateModified" datetime="2025-02-16T12:33:59+08:00">2025-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -303,7 +303,18 @@ v_i,v_j\rangle}_{=\delta_{ij}}\\
 &amp;=\sum_{i=1}^n(Q^t)_{ki}Q_{il}=\delta_{kl}
 \end{aligned}
 \]</span> 故知<span class="math inline">\(\beta\)</span>是<span
-class="math inline">\(V\)</span>的正交規範基底。</p>
+class="math inline">\(V\)</span>的正交規範基底。並且對於<span
+class="math inline">\(x,y\in V\)</span>，由<a
+href="https://alexthepurplerose.github.io/2025/02/11/linalg-bilinear/">這裡</a>的註記4-2及<a
+href="https://alexthepurplerose.github.io/2025/02/11/linalg-bilinear/">這裡</a>的定理6有
+<span class="math display">\[
+\begin{aligned}
+H(x,y)&amp;=[\phi_\gamma(x)]^tA[\phi_\gamma(y)]\\
+&amp;=[\phi_\beta(x)]^tQ^tAQ[\phi_\beta(y)]\\
+&amp;=[\phi_\beta(x)]^tD[\phi_\beta(y)]
+\end{aligned}
+\]</span> 即<span
+class="math inline">\(\Psi_\beta(H)=D\)</span>是對角矩陣。<font size="1">QED</font></p>
 
     </div>
 
