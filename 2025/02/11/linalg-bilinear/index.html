@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於雙線性形式的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-02-11T06:31:05.000Z">
-<meta property="article:modified_time" content="2025-02-16T04:30:16.633Z">
+<meta property="article:modified_time" content="2025-02-16T08:57:15.634Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-02-16 12:30:16" itemprop="dateModified" datetime="2025-02-16T12:30:16+08:00">2025-02-16</time>
+                <time title="修改時間：2025-02-16 16:57:15" itemprop="dateModified" datetime="2025-02-16T16:57:15+08:00">2025-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -392,7 +392,8 @@ n}(F)\)</span>。若存在可逆矩陣<span class="math inline">\(Q\in
 M_{n\times n}(F)\)</span>使得<span
 class="math inline">\(B=Q^tAQ\)</span>，則稱<span
 class="math inline">\(A\)</span>和<span
-class="math inline">\(B\)</span>是合同的。</p>
+class="math inline">\(B\)</span>是合同的。可以記為<span
+class="math inline">\(A\sim B\)</span>。</p>
 <h2 id="定理-6"><font color=#ff1493><u>定理 6</u></font></h2>
 <p>給定<span class="math inline">\(F\)</span>上的向量空間<span
 class="math inline">\(V\)</span>，其中<span class="math inline">\(\dim
@@ -789,6 +790,43 @@ Q=\left(
 \end{array}
 \right)
 \]</span> 就會有<span class="math inline">\(D=Q^tAQ\)</span>。</p>
+<center>
+<h1 id="二次形式"><font color=#b8860b>二次形式</font></h1>
+</center>
+<h2 id="定義-14二次形式-quadratic-form"><font color=#008000><u>定義
+14：二次形式 (Quadratic Form)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>，考慮函數<span
+class="math inline">\(K:V\to F\)</span>。若存在對稱雙線性形式<span
+class="math inline">\(H\in B(V)\)</span>使得<span
+class="math inline">\(\forall x\in V\)</span>, <span
+class="math inline">\(K(x)=H(x,x)\)</span>，則稱<span
+class="math inline">\(K\)</span>為二次形式。</p>
+<h3 id="註記-14-1"><font color=#0000FF><u>註記 14-1</u></font></h3>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>及二次形式<span
+class="math inline">\(K:V\to F\)</span>，且<span
+class="math inline">\(\mbox{char}(F)\neq 2\)</span>。令雙線性形式<span
+class="math inline">\(H\in B(V)\)</span>滿足<span
+class="math inline">\(K(x)=H(x,x),\forall x\in V\)</span>。則對於<span
+class="math inline">\(x,y\in V\)</span>，有 <span
+class="math display">\[
+\begin{aligned}
+\frac{1}{2}(K(x+y)-K(x)-K(y))&amp;=\frac{1}{2}(H(x+y,x+y)-H(x,x)-H(y,y))\\
+&amp;=\frac{1}{2}(H(x,y)+H(y,x))=H(x,y)
+\end{aligned}
+\]</span> 也就是說，當<span class="math inline">\(\mbox{char}(F)\neq
+2\)</span>時，可以用<span class="math inline">\(K\)</span>表示回<span
+class="math inline">\(H\)</span>。</p>
+<h4 id="註記-14-1-1"><font color=#0000FF><u>註記 14-1-1</u></font></h4>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V\)</span>及二次形式<span
+class="math inline">\(K:V\to F\)</span>，且<span
+class="math inline">\(\mbox{char}(F)\neq 2\)</span>。令雙線性形式<span
+class="math inline">\(H\in B(V)\)</span>滿足<span
+class="math inline">\(K(x)=H(x,x),\forall x\in
+V\)</span>。由註記1-1可知這樣的<span
+class="math inline">\(H\)</span>是唯一的。</p>
 
     </div>
 
@@ -813,8 +851,8 @@ Q=\left(
       <i class="fa fa-chevron-left"></i> 線性代數：偽逆映射
     </a></div>
       <div class="post-nav-item">
-    <a href="/2025/02/15/linalg-quad-form/" rel="next" title="線性代數：二次形式">
-      線性代數：二次形式 <i class="fa fa-chevron-right"></i>
+    <a href="/2025/02/15/linalg-quad-form/" rel="next" title="線性代數：西爾維斯特慣性定理">
+      線性代數：西爾維斯特慣性定理 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -882,7 +920,8 @@ Q=\left(
 Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">註記 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">註記 4-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E5%90%88%E5%90%8C-congruent"><span class="nav-number">1.5.</span> <span class="nav-text">定義 5：合同
 (Congruent)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6"><span class="nav-number">1.6.</span> <span class="nav-text">定理 6</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8D%E7%A8%B1%E9%9B%99%E7%B7%9A%E6%80%A7%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">對稱雙線性形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%B0%8D%E7%A8%B1%E9%9B%99%E7%B7%9A%E6%80%A7%E5%BD%A2%E5%BC%8F-symmetric-bilinear-form"><span class="nav-number">2.1.</span> <span class="nav-text">定義
 7：對稱雙線性形式 (Symmetric Bilinear Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.2.</span> <span class="nav-text">定理 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E5%8F%AF%E5%B0%8D%E8%A7%92%E5%8C%96-diagonalizable"><span class="nav-number">2.3.</span> <span class="nav-text">定義
-9：可對角化 (Diagonalizable)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">2.4.</span> <span class="nav-text">註記 10</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-10-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">例 10-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-11"><span class="nav-number">2.5.</span> <span class="nav-text">引理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.6.</span> <span class="nav-text">定理 12</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-12-1"><span class="nav-number">2.6.1.</span> <span class="nav-text">推論 12-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8D%E7%A8%B1%E7%9F%A9%E9%99%A3%E7%9A%84%E5%B0%8D%E8%A7%92%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">對稱矩陣的對角化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13"><span class="nav-number">3.1.</span> <span class="nav-text">註記 13</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-13-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">例 13-1</span></a></li></ol></li></ol></li></ol></div>
+9：可對角化 (Diagonalizable)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-10"><span class="nav-number">2.4.</span> <span class="nav-text">註記 10</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-10-1"><span class="nav-number">2.4.1.</span> <span class="nav-text">例 10-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-11"><span class="nav-number">2.5.</span> <span class="nav-text">引理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">2.6.</span> <span class="nav-text">定理 12</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-12-1"><span class="nav-number">2.6.1.</span> <span class="nav-text">推論 12-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8D%E7%A8%B1%E7%9F%A9%E9%99%A3%E7%9A%84%E5%B0%8D%E8%A7%92%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">對稱矩陣的對角化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13"><span class="nav-number">3.1.</span> <span class="nav-text">註記 13</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-13-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">例 13-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E5%BD%A2%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">二次形式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-14%E4%BA%8C%E6%AC%A1%E5%BD%A2%E5%BC%8F-quadratic-form"><span class="nav-number">4.1.</span> <span class="nav-text">定義
+14：二次形式 (Quadratic Form)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-14-1"><span class="nav-number">4.1.1.</span> <span class="nav-text">註記 14-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-14-1-1"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">註記 14-1-1</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
