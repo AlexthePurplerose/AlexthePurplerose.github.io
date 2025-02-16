@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於二次空間的定義與性質及其相關應用。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-02-16T10:50:06.000Z">
-<meta property="article:modified_time" content="2025-02-16T11:30:54.167Z">
+<meta property="article:modified_time" content="2025-02-16T12:58:04.826Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2025-02-16 18:50:06 / 修改時間：19:30:54" itemprop="dateCreated datePublished" datetime="2025-02-16T18:50:06+08:00">2025-02-16</time>
+              <time title="創建時間：2025-02-16 18:50:06 / 修改時間：20:58:04" itemprop="dateCreated datePublished" datetime="2025-02-16T18:50:06+08:00">2025-02-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -331,7 +331,7 @@ H(x,y)=[\phi_\beta(x)]^tA[\phi_\beta(y)]
 \]</span> 且由定義易知<span
 class="math inline">\(\phi_\beta\)</span>是<span
 class="math inline">\(V\)</span>到<span
-class="math inline">\(F\)</span>的同構映射。我們接著分兩部分說明此定理。
+class="math inline">\(F^n\)</span>的同構映射。我們接著分兩部分說明此定理。
 <br>1. 若<span class="math inline">\(\det(A)=0\)</span>，則<span
 class="math inline">\(det(A^t)=0\)</span>且<span
 class="math inline">\(N(A)\neq\{0\}\)</span>, <span
@@ -340,7 +340,136 @@ class="math inline">\(0\neq v\in N(A)\)</span>使得<span
 class="math inline">\(Av=0\)</span>，且存在<span
 class="math inline">\(0\neq v&#39;\in N(A^t)\)</span>使得<span
 class="math inline">\(A^tv&#39;=0\)</span> i.e. <span
-class="math inline">\((v&#39;)^tA=0\)</span>，故有</p>
+class="math inline">\((v&#39;)^tA=0\)</span>，故有 <span
+class="math display">\[
+\forall w\in V,
+H(v&#39;,w)=[\phi_\beta(v&#39;)]^tA[\phi_\beta(w)]=\underbrace{(v&#39;)^tA}_{=0}[\phi_\beta(w)]=0
+\]</span> 即<span class="math inline">\(H\)</span>是退化的。 <br>2.
+若<span class="math inline">\(\det(A)\neq 0\)</span>，則<span
+class="math inline">\(\{Aw:w\in F^n\}=F^n\)</span>。並且對於<span
+class="math inline">\(v,w\in V\)</span>，我們有 <span
+class="math display">\[
+H(v,w)=v^tAw
+\]</span> 若對於所有<span class="math inline">\(w\in V\)</span>有<span
+class="math inline">\(H(v,w)=v^tAw=0\)</span>，則因為<span
+class="math inline">\(Aw\)</span>遍歷<span
+class="math inline">\(F^n\)</span>，故這等同於<span
+class="math inline">\(v^tw=0,\forall w\in V\)</span>，即有<span
+class="math inline">\(v=0\)</span>。於是由註記3-1可知<span
+class="math inline">\(H\)</span>是非退化的。<font size="1">QED</font></p>
+<center>
+<h1
+id="二次空間間的態射"><font color=#b8860b>二次空間間的態射</font></h1>
+</center>
+<h2 id="定義-4態射-morphism"><font color=#008000><u>定義 4：態射
+(Morphism)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的向量空間<span
+class="math inline">\(V,W\)</span>，並給定線性映射<span
+class="math inline">\(T:V\to W\)</span>，並給定對稱雙線性形式<span
+class="math inline">\(H_V\in B(V), H_W\in B(W)\)</span>。若對於所有<span
+class="math inline">\(v_1,v_2\in V\)</span>，<span
+class="math inline">\(T\)</span>都滿足 <span class="math display">\[
+H_V(v_1,v_2)=H_W(T(v_1),T(v_2))
+\]</span> 則稱<span class="math inline">\(T\)</span>是<span
+class="math inline">\((V,H_V)\)</span>到<span
+class="math inline">\((W,H_W)\)</span>的態射。</p>
+<h2 id="定義-5等距嵌入-isometric-embedding"><font color=#008000><u>定義
+5：等距嵌入 (Isometric Embedding)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V,H_V)\)</span>, <span
+class="math inline">\((W,H_W)\)</span>與態射<span
+class="math inline">\(T:V\to W\)</span>。若<span
+class="math inline">\(T\)</span>是一對一的，則稱<span
+class="math inline">\(T\)</span>是等距嵌入。</p>
+<h2 id="定義-6等距同構-isometry"><font color=#008000><u>定義 6：等距同構
+(Isometry)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V,H_V)\)</span>, <span
+class="math inline">\((W,H_W)\)</span>與態射<span
+class="math inline">\(T:V\to W\)</span>。若<span
+class="math inline">\(T\)</span>是同構映射，則稱<span
+class="math inline">\(T\)</span>是等距同構。</p>
+<h3 id="性質-6-1"><font color=#0000FF><u>性質 6-1</u></font></h3>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V,H_V)\)</span>, <span
+class="math inline">\((W,H_W)\)</span>與態射<span
+class="math inline">\(T:V\to W\)</span>。若<span
+class="math inline">\(H_V\)</span>是非退化的，則<span
+class="math inline">\(T\)</span>是等距嵌入。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(v\in V\)</span>使得<span
+class="math inline">\(T(v)=0\)</span>。則對於所有<span
+class="math inline">\(v&#39;\in V\)</span>，有 <span
+class="math display">\[
+H_V(v,v&#39;)=H_W(T(v),T(v&#39;))=0
+\]</span> 但<span class="math inline">\(H_V\)</span>是非退化的，故<span
+class="math inline">\(v=0\)</span>，即<span
+class="math inline">\(T\)</span>是一對一的。<font size="1">QED</font></p>
+<center>
+<h1
+id="二次空間中的正交"><font color=#b8860b>二次空間中的正交</font></h1>
+</center>
+<h2
+id="定義-7正交直和-orthogonal-direct-sum"><font color=#008000><u>定義
+7：正交直和 (Orthogonal Direct Sum)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V,H_V)\)</span>, <span
+class="math inline">\((W,H_W)\)</span>，我們將<span
+class="math inline">\(V\)</span>和<span
+class="math inline">\(W\)</span>的正交直和定義為 <span
+class="math display">\[
+V\oplus W=\{(v,w):v\in V,w\in W\}
+\]</span> 並定義<span class="math inline">\(H_{V\oplus W}\)</span>為
+<span class="math display">\[
+H_{V\oplus W}((v_1,w_1),(v_2,w_2))=H_V(v_1,v_2)+H_W(w_1,w_2),\forall
+(v_1,w_1),(v_2,w_2)\in V\oplus W
+\]</span> 則易知<span class="math inline">\(H_{V\oplus
+W}\)</span>也是對稱的，即<span class="math inline">\((V\oplus
+W,H_{V\oplus W})\)</span>也是一個二次空間。</p>
+<h2 id="定義-8正交子集-orthogonal-subspaces"><font color=#008000><u>定義
+8：正交子集 (Orthogonal Subspaces)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V,H_V)\)</span>，並考慮其子空間<span
+class="math inline">\(W_1\subseteq V\)</span>, <span
+class="math inline">\(W_2\subseteq V\)</span>。若對於所有<span
+class="math inline">\(w_1\in W_1,w_2\in W_2\)</span>有<span
+class="math inline">\(H_V(w_1,w_2)=0\)</span>，則我們說<span
+class="math inline">\(W_1\)</span>和<span
+class="math inline">\(W_2\)</span>是正交子集，記做<span
+class="math inline">\(W_1\perp W_2\)</span>。</p>
+<h2
+id="定義-9正交補餘-orthogonal-complement"><font color=#008000><u>定義
+9：正交補餘 (Orthogonal Complement)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V,H_V)\)</span>，並考慮其子空間<span
+class="math inline">\(W\subseteq V\)</span>。則定義<span
+class="math inline">\(W\)</span>的正交補餘為 <span
+class="math display">\[
+W^\perp=\{v\in V:H_V(v,w)=0,\forall w\in W\}
+\]</span></p>
+<center>
+<h1
+id="二次空間中的同向"><font color=#b8860b>二次空間中的同向</font></h1>
+</center>
+<h2 id="定義-10同向-isotropic"><font color=#008000><u>定義 10：同向
+(Isotropic)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V,H)\)</span>。若<span class="math inline">\(v\in
+V\)</span>滿足<span
+class="math inline">\(Q(v)=H(v,v)=0\)</span>，則我們說<span
+class="math inline">\(v\)</span>是同向的。若<span
+class="math inline">\(V\)</span>中存在<span class="math inline">\(v\in
+V\)</span>使得<span
+class="math inline">\(v\)</span>是同向的，則我們也說<span
+class="math inline">\(V\)</span>是同向的。</p>
+<h2 id="定義-11完全同向-totally-isotropic"><font color=#008000><u>定義
+11：完全同向 (Totally Isotropic)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V,H)\)</span>與其子空間<span
+class="math inline">\(W\subseteq V\)</span>。若對於所有<span
+class="math inline">\(w_1,w_2\in W\)</span>有<span
+class="math inline">\(H(w_1,w_2)=0\)</span>，則稱<span
+class="math inline">\(W\)</span>是完全同向的。</p>
 
     </div>
 
@@ -429,7 +558,15 @@ class="math inline">\((v&#39;)^tA=0\)</span>，故有</p>
 Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E9%9D%9E%E9%80%80%E5%8C%96-nondegenerate"><span class="nav-number">1.3.</span> <span class="nav-text">定義
 3：非退化 (Nondegenerate)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">註記 3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-2%E9%80%80%E5%8C%96%E9%9B%99%E7%B7%9A%E6%80%A7%E5%BD%A2%E5%BC%8F-degenerate-bilinear-form"><span class="nav-number">1.3.2.</span> <span class="nav-text">例
 3-2：退化雙線性形式 (Degenerate Bilinear Form)
-</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-3"><span class="nav-number">1.3.3.</span> <span class="nav-text">性質 3-3</span></a></li></ol></li></ol></li></ol></div>
+</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-3"><span class="nav-number">1.3.3.</span> <span class="nav-text">性質 3-3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E7%A9%BA%E9%96%93%E9%96%93%E7%9A%84%E6%85%8B%E5%B0%84"><span class="nav-number">2.</span> <span class="nav-text">二次空間間的態射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%85%8B%E5%B0%84-morphism"><span class="nav-number">2.1.</span> <span class="nav-text">定義 4：態射
+(Morphism)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E7%AD%89%E8%B7%9D%E5%B5%8C%E5%85%A5-isometric-embedding"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+5：等距嵌入 (Isometric Embedding)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E7%AD%89%E8%B7%9D%E5%90%8C%E6%A7%8B-isometry"><span class="nav-number">2.3.</span> <span class="nav-text">定義 6：等距同構
+(Isometry)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-6-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">性質 6-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E7%A9%BA%E9%96%93%E4%B8%AD%E7%9A%84%E6%AD%A3%E4%BA%A4"><span class="nav-number">3.</span> <span class="nav-text">二次空間中的正交</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E6%AD%A3%E4%BA%A4%E7%9B%B4%E5%92%8C-orthogonal-direct-sum"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+7：正交直和 (Orthogonal Direct Sum)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E6%AD%A3%E4%BA%A4%E5%AD%90%E9%9B%86-orthogonal-subspaces"><span class="nav-number">3.2.</span> <span class="nav-text">定義
+8：正交子集 (Orthogonal Subspaces)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E6%AD%A3%E4%BA%A4%E8%A3%9C%E9%A4%98-orthogonal-complement"><span class="nav-number">3.3.</span> <span class="nav-text">定義
+9：正交補餘 (Orthogonal Complement)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E7%A9%BA%E9%96%93%E4%B8%AD%E7%9A%84%E5%90%8C%E5%90%91"><span class="nav-number">4.</span> <span class="nav-text">二次空間中的同向</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E5%90%8C%E5%90%91-isotropic"><span class="nav-number">4.1.</span> <span class="nav-text">定義 10：同向
+(Isotropic)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E5%AE%8C%E5%85%A8%E5%90%8C%E5%90%91-totally-isotropic"><span class="nav-number">4.2.</span> <span class="nav-text">定義
+11：完全同向 (Totally Isotropic)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
