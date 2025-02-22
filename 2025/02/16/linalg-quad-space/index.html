@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於二次空間的定義與性質及其相關應用。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-02-16T10:50:06.000Z">
-<meta property="article:modified_time" content="2025-02-21T11:18:22.177Z">
+<meta property="article:modified_time" content="2025-02-22T07:15:57.954Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-02-21 19:18:22" itemprop="dateModified" datetime="2025-02-21T19:18:22+08:00">2025-02-21</time>
+                <time title="修改時間：2025-02-22 15:15:57" itemprop="dateModified" datetime="2025-02-22T15:15:57+08:00">2025-02-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,7 +262,10 @@ B(V)\)</span>。若<span class="math inline">\(L_H\)</span>是<span
 class="math inline">\(V\)</span>和<span
 class="math inline">\(V^\ast\)</span>間的同構映射，則我們稱<span
 class="math inline">\(H\)</span>是非退化的。否則，我們稱<span
-class="math inline">\(H\)</span>是退化的。</p>
+class="math inline">\(H\)</span>是退化的。類似的，若在二次空間<span
+class="math inline">\((V,H)\)</span>中<span
+class="math inline">\(H\)</span>是非退化的，則我們也稱二次空間<span
+class="math inline">\((V,H)\)</span>是非退化的。</p>
 <h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
 <p>給定<span class="math inline">\(F\)</span>上的有限維向量空間<span
 class="math inline">\(V\)</span>，由<a
@@ -543,6 +546,56 @@ class="math inline">\(W=(\mbox{rad}(V))^\perp\)</span>知<span
 class="math inline">\(\mbox{rad}(V)\cap W=\{0\}\)</span>，矛盾。故<span
 class="math inline">\(\mbox{rad}(W)=\{0\}\)</span>，即<span
 class="math inline">\(W\)</span>是非退化的。<font size="1">QED</font></p>
+<h2 id="性質-15"><font color=#0000FF><u>性質 15</u></font></h2>
+<p>給定二次空間<span
+class="math inline">\((V,H)\)</span>，並考慮非退化子空間<span
+class="math inline">\(W\subseteq V\)</span>。則對於二次空間<span
+class="math inline">\((W,H|_W)\)</span>和<span
+class="math inline">\((W^\perp,H|_{W^\perp})\)</span>，有<span
+class="math inline">\(V=W\oplus W^\perp\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(W\)</span>是非退化的，故<span
+class="math inline">\(\mbox{rad}(W)=\{0\}\)</span>。但又由定義有<span
+class="math inline">\(\mbox{rad}(W)=W\cap W^\perp\)</span>，故<span
+class="math inline">\(W\cap W^\perp=\{0\}\)</span>。接著，考慮<span
+class="math inline">\(W\oplus W^\perp\subseteq
+V\)</span>，我們希望說明<span class="math inline">\(V=W\oplus
+W^\perp\)</span>。<br> 給定<span class="math inline">\(z\in
+V\)</span>，對於任意<span class="math inline">\(w\in
+W\)</span>，定義<span
+class="math inline">\(Z(w)=H(z,w)\)</span>。則<span
+class="math inline">\(Z\in\mathscr{L}(W,F)=W^\ast\)</span>。又因為<span
+class="math inline">\(W\)</span>是非退化的，故<span
+class="math inline">\(L_H:W\to W^\ast\)</span>是映成的，即存在<span
+class="math inline">\(\tilde{w}\in W\)</span>使得 <span
+class="math display">\[
+Z(w)=H(z,w)=H(\tilde{w},w),\forall w\in W
+\]</span> 故對於所有<span class="math inline">\(w\in W\)</span>有<span
+class="math inline">\(H(z-\tilde{w},w)=0\)</span>，於是<span
+class="math inline">\(z-\tilde{w}\in W^\perp\)</span>，即 <span
+class="math display">\[
+z=\underbrace{\tilde{w}}_{\in W}+\underbrace{z-\tilde{w}}_{\in W^\perp}
+\]</span> 於是確實會有<span class="math inline">\(V=W\oplus
+W^\perp\)</span>(嚴格上來說應該是<span class="math inline">\(V\simeq
+W\oplus W^\perp\)</span>，但這並沒有關係)。<font size="1">QED</font></p>
+<h2 id="性質-16"><font color=#0000FF><u>性質 16</u></font></h2>
+<p>給定有限維非退化二次空間<span
+class="math inline">\((V,H_V)\)</span>與其子空間<span
+class="math inline">\(W\subseteq V\)</span>，則： <br>1. <span
+class="math inline">\(\dim W+\dim W^\perp=\dim V\)</span> <br>2. <span
+class="math inline">\((W^\perp)^\perp=W\)</span><br></p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 考慮線性映射<span
+class="math inline">\(L:V\to W^\ast\)</span>滿足 <span
+class="math display">\[
+L(v)(w)=H(v,w),\forall v\in V,w\in W
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+N(L)&amp;=\{v\in V:H_V(v,\cdot)\mbox{是}W^\ast\mbox{中的零映射}\}\\
+&amp;=\{v\in V:\forall w\in W,H(v,w)=0\}=W^\perp
+\end{aligned}
+\]</span> 然而因為<span
+class="math inline">\(H_V\)</span>是非退化的，故<span
+class="math inline">\(L_H:V\to V^\ast\)</span>是同構映射。</p>
 
     </div>
 
@@ -641,7 +694,7 @@ Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="
 (Isotropic)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E5%AE%8C%E5%85%A8%E5%90%8C%E5%90%91-totally-isotropic"><span class="nav-number">4.2.</span> <span class="nav-text">定義
 11：完全同向 (Totally Isotropic)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B9%E5%88%86%E8%A7%A3"><span class="nav-number">5.</span> <span class="nav-text">根分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-12%E6%A0%B9-radical"><span class="nav-number">5.1.</span> <span class="nav-text">定義 12：根
 (Radical)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-12-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">註記 12-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13"><span class="nav-number">5.2.</span> <span class="nav-text">註記 13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-14%E6%A0%B9%E5%88%86%E8%A7%A3-radical-splitting"><span class="nav-number">5.3.</span> <span class="nav-text">性質
-14：根分解 (Radical Splitting)</span></a></li></ol></li></ol></div>
+14：根分解 (Radical Splitting)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-15"><span class="nav-number">5.4.</span> <span class="nav-text">性質 15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-16"><span class="nav-number">5.5.</span> <span class="nav-text">性質 16</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
