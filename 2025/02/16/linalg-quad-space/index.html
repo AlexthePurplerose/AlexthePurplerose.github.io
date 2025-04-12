@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/02/16/linalg-quad-space/quaddie.jpg">
 <meta property="article:published_time" content="2025-02-16T10:50:06.000Z">
-<meta property="article:modified_time" content="2025-04-09T17:32:58.699Z">
+<meta property="article:modified_time" content="2025-04-12T18:55:25.869Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-04-10 01:32:58" itemprop="dateModified" datetime="2025-04-10T01:32:58+08:00">2025-04-10</time>
+                <time title="修改時間：2025-04-13 02:55:25" itemprop="dateModified" datetime="2025-04-13T02:55:25+08:00">2025-04-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -443,6 +443,19 @@ class="math inline">\(V\oplus
 W\)</span>中的元素可以被唯一表示為一個<span
 class="math inline">\(V\)</span>中的元素與一個<span
 class="math inline">\(W\)</span>中的元素。</p>
+<h3 id="註記-7-2"><font color=#0000FF><u>註記 7-2</u></font></h3>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\(V_1\)</span>,<span
+class="math inline">\(V_2\)</span>，並給定<span
+class="math inline">\(V_1\)</span>的基底<span
+class="math inline">\(\beta_1=\{v_1,v_2,\cdots,v_m\}\)</span>與<span
+class="math inline">\(V_2\)</span>的基底<span
+class="math inline">\(\beta_2=\{w_1,w_2,\cdots,w_n\}\)</span>。令<span
+class="math inline">\(V_1\oplus V_2\)</span>的正交直和，則<span
+class="math inline">\(V_1\oplus V_2\)</span>的基底為 <span
+class="math display">\[
+\beta=\{(v_1,0),(v_2,0),\cdots,(v_m,0),(0,w_1),(0,w_2),\cdots,(0,w_n)\}
+\]</span></p>
 <h2 id="定義-8正交子集-orthogonal-subspaces"><font color=#008000><u>定義
 8：正交子集 (Orthogonal Subspaces)</u></font></h2>
 <p>給定<span class="math inline">\(F\)</span>上的二次空間<span
@@ -580,6 +593,15 @@ z=\underbrace{\tilde{w}}_{\in W}+\underbrace{z-\tilde{w}}_{\in W^\perp}
 \]</span> 於是確實會有<span class="math inline">\(V=W\oplus
 W^\perp\)</span>(嚴格上來說應該是<span class="math inline">\(V\simeq
 W\oplus W^\perp\)</span>，但這並沒有關係)。<font size="1">QED</font></p>
+<h3 id="註記-15-1"><font color=#0000FF><u>註記 15-1</u></font></h3>
+<p>給定二次空間<span
+class="math inline">\((V,H)\)</span>，並給定子空間<span
+class="math inline">\((V_1,H|_{V_1}),(V_2,H|_{V_2})\)</span>滿足<span
+class="math inline">\(V=V_1\oplus
+V_2\)</span>(一般向量空間的直和)，則若<span
+class="math inline">\(V_1\perp V_2\)</span>，則作為二次空間有<span
+class="math inline">\(V=V_1\oplus V_2\)</span>。<br>
+(這是註記7-2的另一個版本。)</p>
 <h2 id="性質-16"><font color=#0000FF><u>性質 16</u></font></h2>
 <p>給定有限維非退化二次空間<span
 class="math inline">\((V,H_V)\)</span>與其子空間<span
@@ -624,6 +646,39 @@ class="math display">\[
 \]</span> 即<span class="math inline">\(\dim W=\dim
 (W^\perp)^\perp\)</span>，故<span
 class="math inline">\(W=(W^\perp)^\perp\)</span>。<font size="1">QED</font></p>
+<center>
+<h1 id="雙曲平面"><font color=#b8860b>雙曲平面</font></h1>
+</center>
+<h2 id="定義-17雙曲平面-hyperbolic-plane"><font color=#008000><u>定義
+17：雙曲平面 (Hyperbolic Plane)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V=F^2,H)\)</span>，並令 <span
+class="math display">\[
+Q\left(\left(\begin{array}{c}
+x\\
+y
+\end{array}\right)\right)=xy
+\]</span> 為<span class="math inline">\(V\)</span>上的二次形式。根據<a
+href="https://alexthepurplerose.github.io/2025/02/11/linalg-bilinear/">這裡</a>的註記14-1，<span
+class="math inline">\(Q\)</span>對應到的雙線性形式<span
+class="math inline">\(H\)</span>為 <span class="math display">\[
+H\left(\left(\begin{array}{c}
+x_1\\
+y_1
+\end{array}\right),\left(\begin{array}{c}
+x_2\\
+y_2
+\end{array}\right)\right)=\frac{1}{2}(x_1y_2+x_2y_1)
+\]</span> 則<span class="math inline">\(H\)</span>在<span
+class="math inline">\(V\)</span>的標準基底下的矩陣表示為 <span
+class="math display">\[
+\left(
+\begin{array}{cc}
+0 &amp; 1/2\\
+1/2 &amp; 0
+\end{array}
+\right)
+\]</span></p>
 
     </div>
 
@@ -716,13 +771,14 @@ Form)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="
 (Morphism)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E7%AD%89%E8%B7%9D%E5%B5%8C%E5%85%A5-isometric-embedding"><span class="nav-number">2.2.</span> <span class="nav-text">定義
 5：等距嵌入 (Isometric Embedding)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E7%AD%89%E8%B7%9D%E5%90%8C%E6%A7%8B-isometry"><span class="nav-number">2.3.</span> <span class="nav-text">定義 6：等距同構
 (Isometry)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-6-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">性質 6-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E7%A9%BA%E9%96%93%E4%B8%AD%E7%9A%84%E6%AD%A3%E4%BA%A4"><span class="nav-number">3.</span> <span class="nav-text">二次空間中的正交</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E6%AD%A3%E4%BA%A4%E7%9B%B4%E5%92%8C-orthogonal-direct-sum"><span class="nav-number">3.1.</span> <span class="nav-text">定義
-7：正交直和 (Orthogonal Direct Sum)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 7-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E6%AD%A3%E4%BA%A4%E5%AD%90%E9%9B%86-orthogonal-subspaces"><span class="nav-number">3.2.</span> <span class="nav-text">定義
+7：正交直和 (Orthogonal Direct Sum)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1"><span class="nav-number">3.1.1.</span> <span class="nav-text">註記 7-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-2"><span class="nav-number">3.1.2.</span> <span class="nav-text">註記 7-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E6%AD%A3%E4%BA%A4%E5%AD%90%E9%9B%86-orthogonal-subspaces"><span class="nav-number">3.2.</span> <span class="nav-text">定義
 8：正交子集 (Orthogonal Subspaces)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E6%AD%A3%E4%BA%A4%E8%A3%9C%E9%A4%98-orthogonal-complement"><span class="nav-number">3.3.</span> <span class="nav-text">定義
 9：正交補餘 (Orthogonal Complement)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E7%A9%BA%E9%96%93%E4%B8%AD%E7%9A%84%E5%90%8C%E5%90%91"><span class="nav-number">4.</span> <span class="nav-text">二次空間中的同向</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E5%90%8C%E5%90%91-isotropic"><span class="nav-number">4.1.</span> <span class="nav-text">定義 10：同向
 (Isotropic)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E5%AE%8C%E5%85%A8%E5%90%8C%E5%90%91-totally-isotropic"><span class="nav-number">4.2.</span> <span class="nav-text">定義
 11：完全同向 (Totally Isotropic)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%B9%E5%88%86%E8%A7%A3"><span class="nav-number">5.</span> <span class="nav-text">根分解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-12%E6%A0%B9-radical"><span class="nav-number">5.1.</span> <span class="nav-text">定義 12：根
 (Radical)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-12-1"><span class="nav-number">5.1.1.</span> <span class="nav-text">註記 12-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13"><span class="nav-number">5.2.</span> <span class="nav-text">註記 13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-14%E6%A0%B9%E5%88%86%E8%A7%A3-radical-splitting"><span class="nav-number">5.3.</span> <span class="nav-text">性質
-14：根分解 (Radical Splitting)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-15"><span class="nav-number">5.4.</span> <span class="nav-text">性質 15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-16"><span class="nav-number">5.5.</span> <span class="nav-text">性質 16</span></a></li></ol></li></ol></div>
+14：根分解 (Radical Splitting)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-15"><span class="nav-number">5.4.</span> <span class="nav-text">性質 15</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-15-1"><span class="nav-number">5.4.1.</span> <span class="nav-text">註記 15-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-16"><span class="nav-number">5.5.</span> <span class="nav-text">性質 16</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%99%E6%9B%B2%E5%B9%B3%E9%9D%A2"><span class="nav-number">6.</span> <span class="nav-text">雙曲平面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-17%E9%9B%99%E6%9B%B2%E5%B9%B3%E9%9D%A2-hyperbolic-plane"><span class="nav-number">6.1.</span> <span class="nav-text">定義
+17：雙曲平面 (Hyperbolic Plane)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
