@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="這份筆記是關於雙曲平面的定義與相關定理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="線性代數：雙曲平面">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2025/04/22/linalg-hyperbolic/index.html">
+<meta property="og:site_name" content="永蔚Alex">
+<meta property="og:description" content="這份筆記是關於雙曲平面的定義與相關定理。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-04-22T12:54:00.000Z">
+<meta property="article:modified_time" content="2025-04-22T13:22:11.897Z">
+<meta property="article:author" content="SemperLux">
+<meta property="article:tag" content="Lecture_Notes">
+<meta property="article:tag" content="Linear_Algebra">
+<meta property="article:tag" content="Algebra">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://alexthepurplerose.github.io/2025/04/22/linalg-hyperbolic/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>線性代數：雙曲平面 | 永蔚Alex</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">永蔚Alex</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Nautical Nonsense and Abstract Nonsense</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2025/04/22/linalg-hyperbolic/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SemperLux">
+      <meta itemprop="description" content="永蔚的上課筆記與小小文欄">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永蔚Alex">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          線性代數：雙曲平面
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2025-04-22 20:54:00 / 修改時間：21:22:11" itemprop="dateCreated datePublished" datetime="2025-04-22T20:54:00+08:00">2025-04-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8/" itemprop="url" rel="index"><span itemprop="name">線性代數</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>這份筆記是關於雙曲平面的定義與相關定理。 <span id="more"></span><br></p>
+<center>
+<h1 id="雙曲平面"><font color=#b8860b>雙曲平面</font></h1>
+</center>
+<h2 id="定義-1雙曲平面-hyperbolic-plane"><font color=#008000><u>定義
+1：雙曲平面 (Hyperbolic Plane)</u></font></h2>
+<p>給定<span class="math inline">\(F\)</span>上的二次空間<span
+class="math inline">\((V=F^2,H)\)</span>，並令 <span
+class="math display">\[
+Q\left(\left(\begin{array}{c}
+x\\
+y
+\end{array}\right)\right)=xy
+\]</span> 為<span class="math inline">\(V\)</span>上的二次形式。根據<a
+href="https://alexthepurplerose.github.io/2025/02/11/linalg-bilinear/">這裡</a>的註記14-1，<span
+class="math inline">\(Q\)</span>對應到的雙線性形式<span
+class="math inline">\(H\)</span>為 <span class="math display">\[
+H\left(\left(\begin{array}{c}
+x_1\\
+y_1
+\end{array}\right),\left(\begin{array}{c}
+x_2\\
+y_2
+\end{array}\right)\right)=\frac{1}{2}(x_1y_2+x_2y_1)
+\]</span> 則<span class="math inline">\(H\)</span>在<span
+class="math inline">\(V\)</span>的標準基底下的矩陣表示為 <span
+class="math display">\[
+\left(
+\begin{array}{cc}
+0 &amp; 1/2\\
+1/2 &amp; 0
+\end{array}
+\right)
+\]</span> 這樣的<span
+class="math inline">\((V,H)\)</span>稱為雙曲平面。</p>
+<h3 id="註記-1-1"><font color=#0000FF><u>註記 1-1</u></font></h3>
+<p>考慮體<span class="math inline">\(F\)</span>與兩個線性獨立的向量<span
+class="math inline">\(v_1,v_2\)</span>，則雙曲平面<span
+class="math inline">\((V,H)\)</span>也可定義為<span
+class="math inline">\(V=Fv_1\oplus Fv_2\)</span>(其中<span
+class="math inline">\(Fv_1=\{av_1:a\in F\}\)</span>)與 <span
+class="math display">\[
+H(v_1,v_1)=H(v_2,v_2)=0, H(v_1,v_2)=1
+\]</span></p>
+<h4 id="註記-1-1-1"><font color=#0000FF><u>註記 1-1-1</u></font></h4>
+<p>根據註記1-1，由<a
+href="https://alexthepurplerose.github.io/2025/02/16/linalg-quad-space/">這裡</a>的註記3-1的第4.點易知雙曲平面<span
+class="math inline">\((V,H)\)</span>是非退化的。</p>
+<h2 id="例-2"><font color=#ffa500><u>例 2</u></font></h2>
+<p>考慮三個雙曲平面<span class="math inline">\(\mathbb{H}_1=Fu_1\oplus
+Fu_2\)</span>, <span class="math inline">\(\mathbb{H}_2=Fv_1\oplus
+Fv_2\)</span>, <span class="math inline">\(\mathbb{H}_3=Fw_1\oplus
+Fw_2\)</span>，其對應的二次形式分別為<span
+class="math inline">\(H_1,H_2,H_3\)</span>。並令<span
+class="math inline">\(V=\mathbb{H}_1\oplus\mathbb{H}_2\oplus\mathbb{H}_3\)</span>，則<span
+class="math inline">\(V\)</span>自然會有對稱雙線性形式 <span
+class="math display">\[
+H=H_1+H_2+H_3
+\]</span> 易知<span
+class="math inline">\((V,H)\)</span>也是非退化二次空間。令<span
+class="math inline">\(W=\mathbb{H}_1=Fu_1\oplus Fu_2\subseteq
+V\)</span>，則 <span class="math display">\[
+W^\perp=Fv_1\oplus Fv_2\oplus Fw_1\oplus Fw_2
+\]</span> 易有<span class="math inline">\(V=W\oplus
+W^\perp\)</span>，這和<a
+href="https://alexthepurplerose.github.io/2025/02/16/linalg-quad-space/">這裡</a>的性質15是符合的。<br>
+而今若令<span class="math inline">\(W=Fu_1\oplus Fv_1\)</span>，則<span
+class="math inline">\(W^\perp=Fu_2\oplus
+Fv_2\oplus\mathbb{H}_3\)</span>。很容易可以發現 <span
+class="math display">\[
+\dim W+\dim W^\perp=\dim V
+\]</span> 以及<span
+class="math inline">\((W^\perp)^\perp=W\)</span>，這和<a
+href="https://alexthepurplerose.github.io/2025/02/16/linalg-quad-space/">這裡</a>的性質16也是符合的。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
+              <a href="/tags/Linear-Algebra/" rel="tag"># Linear_Algebra</a>
+              <a href="/tags/Algebra/" rel="tag"># Algebra</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/02/16/linalg-quad-space/" rel="prev" title="線性代數：二次空間">
+      <i class="fa fa-chevron-left"></i> 線性代數：二次空間
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%99%E6%9B%B2%E5%B9%B3%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">雙曲平面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E9%9B%99%E6%9B%B2%E5%B9%B3%E9%9D%A2-hyperbolic-plane"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：雙曲平面 (Hyperbolic Plane)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">註記 1-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-2"><span class="nav-number">1.2.</span> <span class="nav-text">例 2</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SemperLux</p>
+  <div class="site-description" itemprop="description">永蔚的上課筆記與小小文欄</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:hiimlilwei@gmail.com" title="E-Mail → mailto:hiimlilwei@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SemperLux</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
