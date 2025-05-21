@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於雙曲平面的定義與相關定理。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-04-22T12:54:00.000Z">
-<meta property="article:modified_time" content="2025-04-24T11:18:08.337Z">
+<meta property="article:modified_time" content="2025-05-21T17:55:35.157Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-04-24 19:18:08" itemprop="dateModified" datetime="2025-04-24T19:18:08+08:00">2025-04-24</time>
+                <time title="修改時間：2025-05-22 01:55:35" itemprop="dateModified" datetime="2025-05-22T01:55:35+08:00">2025-05-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -344,6 +344,42 @@ class="math inline">\(i\)</span>顯然是一對一的，故<span
 class="math inline">\(i\)</span>是雙曲平面<span
 class="math inline">\(\mathbb{H}=\mbox{span}\{u_1,u_2\}\)</span>到<span
 class="math inline">\(V\)</span>的等距嵌入。<font size="1">QED</font></p>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p>給定非退化二次空間<span
+class="math inline">\((V,H)\)</span>，並考慮完全同向的子空間<span
+class="math inline">\(U\subseteq V\)</span>(意即<span
+class="math inline">\(H|_U\equiv 0\)</span>)，其中<span
+class="math inline">\(U\)</span>的基底為<span
+class="math inline">\(\{u_1,u_2,\cdots,u_m\}\)</span>。則存在完全同向的子空間<span
+class="math inline">\(U&#39;\)</span>，其基底為<span
+class="math inline">\(\{u&#39;_1,u&#39;_2,\cdots,u&#39;m\}\)</span>使得<span
+class="math inline">\(H(u_i,u_j&#39;)=\delta_{ij}\)</span>。且若令 <span
+class="math display">\[
+\langle
+U,U&#39;\rangle=\mbox{span}\{u_1,u_2,\cdots,u_m,u_1&#39;,u_2&#39;,\cdots,u_m&#39;\}
+\]</span> 則<span class="math inline">\(\langle
+U,U&#39;\rangle\)</span>是某<span
+class="math inline">\(m\)</span>個雙曲平面的直和。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對<span
+class="math inline">\(m\)</span>進行數學歸納法。<br> 1. <span
+class="math inline">\(m=1\)</span>時，<span
+class="math inline">\(U\)</span>的基底為<span
+class="math inline">\(\{u_1\}\)</span>。由定理3知存在<span
+class="math inline">\(u_1&#39;\)</span>使得<span
+class="math inline">\(\mbox{span}\{u_1,u_1&#39;\}\)</span>是雙曲平面，即<span
+class="math inline">\(m=1\)</span>時定理成立。 <br>2. 假設<span
+class="math inline">\(\dim U&lt;m\)</span>時定理成立。則<span
+class="math inline">\(\dim U=m\)</span>時，令 <span
+class="math display">\[
+W=\mbox{span}\{u_2,u_3,\cdots,u_m\}
+\]</span> 若<span
+class="math inline">\(W^\perp\subseteq(\mbox{span}\{u_1\})^\perp\)</span>，則
+<span class="math display">\[
+\mbox{span}\{u_1\}=(W^\perp)^\perp=W
+\]</span> 即<span class="math inline">\(u_1\in W\)</span>。矛盾。故<span
+class="math inline">\(W^\perp\nsubseteq(\mbox{span}\{u_1\})^\perp\)</span>，即存在<span
+class="math inline">\(v\in W^\perp\)</span>滿足<span
+class="math inline">\(v\notin(\mbox{span}\{u_1\})^\perp\)</span>。</p>
 
     </div>
 
@@ -427,7 +463,7 @@ class="math inline">\(V\)</span>的等距嵌入。<font size="1">QED</font></p>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9B%99%E6%9B%B2%E5%B9%B3%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">雙曲平面</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E9%9B%99%E6%9B%B2%E5%B9%B3%E9%9D%A2-hyperbolic-plane"><span class="nav-number">1.1.</span> <span class="nav-text">定義
-1：雙曲平面 (Hyperbolic Plane)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">註記 1-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-2"><span class="nav-number">1.2.</span> <span class="nav-text">例 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li></ol></li></ol></div>
+1：雙曲平面 (Hyperbolic Plane)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1-1"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">註記 1-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B-2"><span class="nav-number">1.2.</span> <span class="nav-text">例 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-3"><span class="nav-number">1.3.</span> <span class="nav-text">定理 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
