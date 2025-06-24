@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/06/24/linalg-witt/witt.jpeg">
 <meta property="article:published_time" content="2025-06-24T06:31:39.000Z">
-<meta property="article:modified_time" content="2025-06-24T10:45:24.375Z">
+<meta property="article:modified_time" content="2025-06-24T17:49:36.502Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
@@ -193,10 +193,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2025-06-24 14:31:39 / 修改時間：18:45:24" itemprop="dateCreated datePublished" datetime="2025-06-24T14:31:39+08:00">2025-06-24</time>
+              <time title="創建時間：2025-06-24 14:31:39" itemprop="dateCreated datePublished" datetime="2025-06-24T14:31:39+08:00">2025-06-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2025-06-25 01:49:36" itemprop="dateModified" datetime="2025-06-25T01:49:36+08:00">2025-06-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -236,7 +242,7 @@ V\simeq \mbox{rad}(V)\oplus\left(\bigoplus_{i=1}^I
 \mathbb{H}\right)\oplus V&#39;
 \]</span> 其中<span class="math inline">\(\left(\bigoplus\limits_{i=1}^I
 \mathbb{H}\right)\)</span>是一串雙曲平面的直和，<span
-class="math inline">\(V&#39;\)</span>是不同向(anisotropic)的二次空間。且<span
+class="math inline">\(V&#39;\)</span>是非同向(anisotropic)的二次空間。且<span
 class="math inline">\(I=I(V)\)</span>的值與<span
 class="math inline">\(V&#39;\)</span>的等距同構類和分解的選擇無關。</p>
 <img src="witt.jpeg" width="25%" height="25%">
@@ -252,7 +258,7 @@ V\simeq \mbox{rad}(V)\oplus\left(\bigoplus_{i=1}^{I_1}
 \mbox{rad}(V)\oplus\left(\bigoplus_{i=1}^{I_2} \mathbb{H}\right)\oplus
 V&#39;&#39;
 \]</span> 則<span class="math inline">\(I_1=I_2=I(V)\)</span>且<span
-class="math inline">\(V&#39;\simeq V&#39;&#39;\)</span>。</p>
+class="math inline">\(V&#39;\simeq V&#39;&#39;\)</span>為等距同構。</p>
 <h3 id="定義-1-2偉特指數-witt-index"><font color=#008000><u>定義
 1-2：偉特指數 (Witt Index)</u></font></h3>
 <p>我們將定理1中的<span class="math inline">\(I=I(V)\)</span>稱為<span
@@ -262,7 +268,162 @@ class="math inline">\(V\)</span>的偉特指數。</p>
 href="https://alexthepurplerose.github.io/2025/02/16/linalg-quad-space/">這裡</a>的性質14可知存在某個非退化二次空間<span
 class="math inline">\(W\)</span>滿足 <span class="math display">\[
 V=\mbox{rad}(V)\oplus W
-\]</span> 而由[這裡]的定理4可知存在</p>
+\]</span> 而由<a
+href="https://alexthepurplerose.github.io/2025/04/22/linalg-hyperbolic/">這裡</a>的定理4可知存在某個非同向的二次空間<span
+class="math inline">\(V&#39;\)</span>滿足 <span class="math display">\[
+W=\left(\bigoplus_{i=1}^I \mathbb{H}\right)\oplus V&#39;
+\]</span> 於是，定理1中還需要證明的部分只有「<span
+class="math inline">\(I=I(V)\)</span>的值與<span
+class="math inline">\(V&#39;\)</span>的等距同構類和分解的選擇無關。」</p>
+<h2
+id="定理-2偉特消去定理-witt-cancellation-theorem"><font color=#ff1493><u>定理
+2：偉特消去定理 (Witt Cancellation Theorem)</u></font></h2>
+<p>給定二次空間<span
+class="math inline">\(U_1,U_2,V_1,V_2\)</span>，其中<span
+class="math inline">\(V_1\simeq V_2\)</span>是等距同構的，<span
+class="math inline">\(U_1\oplus V_1\simeq U_2\oplus
+V_2\)</span>是等距同構的，則<span class="math inline">\(U_1\simeq
+U_2\)</span>是等距同構。</p>
+<h3 id="註記-2-1"><font color=#0000FF><u>註記 2-1</u></font></h3>
+<p>延續註記1-1，若有 <span class="math display">\[
+V\simeq \mbox{rad}(V)\oplus\left(\bigoplus_{i=1}^{I_1}
+\mathbb{H}\right)\oplus V&#39;\simeq
+\mbox{rad}(V)\oplus\left(\bigoplus_{i=1}^{I_2} \mathbb{H}\right)\oplus
+V&#39;&#39;
+\]</span> 且若定理2成立，則可以先消去<span
+class="math inline">\(\mbox{rad}(V)\)</span>。即得 <span
+class="math display">\[
+\left(\bigoplus_{i=1}^{I_1} \mathbb{H}\right)\oplus V&#39;\simeq
+\left(\bigoplus_{i=1}^{I_2} \mathbb{H}\right)\oplus V&#39;&#39;
+\]</span> 假設<span class="math inline">\(I_1\neq
+I_2\)</span>，則令<span class="math inline">\(I_1\geq
+I_2\)</span>。由於雙曲平面都等距同構，故由定理2有 <span
+class="math display">\[
+\left(\bigoplus_{i=1}^{I_1-I_2} \mathbb{H}\right)\oplus V&#39;\simeq
+V&#39;&#39;
+\]</span> 假設這個等距同構的映射是<span
+class="math inline">\(T\)</span>，並令二次空間<span
+class="math inline">\(\left(\bigoplus\limits_{i=1}^{I_1-I_2}
+\mathbb{H}\right)\oplus V&#39;\)</span>上的雙線性形式是<span
+class="math inline">\(H_1\)</span>，<span
+class="math inline">\(V&#39;&#39;\)</span>上的雙線性形式是<span
+class="math inline">\(H_2\)</span>。則由雙曲平面的定義知應存在<span
+class="math inline">\(0\neq x\in\left(\bigoplus\limits_{i=1}^{I_1-I_2}
+\mathbb{H}\right)\)</span>滿足 <span class="math display">\[
+0=H_1(x,x)=H_2(T(x),T(x))
+\]</span> 而由定義知<span
+class="math inline">\(T\)</span>應是同構映射，故<span
+class="math inline">\(x\neq 0\)</span>代表<span
+class="math inline">\(T(x)\neq 0\)</span>。即<span
+class="math inline">\(T(x)\)</span>在<span
+class="math inline">\(V&#39;&#39;\)</span>中是同向的。這與<span
+class="math inline">\(V&#39;&#39;\)</span>不同向的假設矛盾。故應有<span
+class="math inline">\(I_1=I_2\)</span>，從而由定理2會有<span
+class="math inline">\(V&#39;\simeq V&#39;&#39;\)</span>等距同構。<br>
+也就是說，只要證明定理2就等於把定理1證完了。</p>
+<center>
+<h1 id="鏡射"><font color=#b8860b>鏡射</font></h1>
+</center>
+<h2 id="定義-3正交群-orthogonal-group"><font color=#008000><u>定義
+3：正交群 (Orthogonal Group)</u></font></h2>
+<p>給定二次空間<span
+class="math inline">\((V,H)\)</span>，考慮等距同構<span
+class="math inline">\(M:(V,H)\to(V,H)\)</span>，我們將所有這樣的等距同構構成的集合稱為<span
+class="math inline">\(V\)</span>的正交群，記為<span
+class="math inline">\(O(V)\)</span>。</p>
+<h3 id="註記-3-1正交群的矩陣表示"><font color=#0000FF><u>註記
+3-1：正交群的矩陣表示</u></font></h3>
+<p>在定義3中，由於<span
+class="math inline">\(M\)</span>是等距同構，故對於所有<span
+class="math inline">\(v_1,v_2\in V\)</span>，其應滿足<span
+class="math inline">\(H(v_1,v_2)=H(M(v_1),M(v_2))\)</span>。我們將<span
+class="math inline">\(H\)</span>在標準基底下的矩陣表示也記為<span
+class="math inline">\(H\)</span>，則<span
+class="math inline">\(V\)</span>的正交群可表示為 <span
+class="math display">\[
+O(V)=\{M\in\mbox{GL}_n|\forall v,w\in V, v^tHw=v^tM^tHMw\}
+\]</span> 或者寫做 <span class="math display">\[
+O(V)=\{M\in\mbox{GL}_n|H=M^tHM\}
+\]</span> 其中<span
+class="math inline">\(\mbox{GL}_n\)</span>為所有<span
+class="math inline">\(n\times n\)</span>可逆矩陣的集合。</p>
+<h2 id="定義-4鏡射-reflection"><font color=#008000><u>定義 4：鏡射
+(Reflection)</u></font></h2>
+<p>給定二次空間<span class="math inline">\((V,H)\)</span>，並給定<span
+class="math inline">\(v\in V\)</span>滿足<span
+class="math inline">\(Q(v)=H(v,v)\neq 0\)</span>，即<span
+class="math inline">\(v\)</span>在<span
+class="math inline">\(V\)</span>中是不同向的。則我們將對於<span
+class="math inline">\(v\)</span>的鏡射<span
+class="math inline">\(\tau_v:V\to V\)</span>定義為 <span
+class="math display">\[
+\tau_v(x)=x-\frac{2(H,x)}{Q(v)}v
+\]</span></p>
+<h3 id="註記-4-1"><font color=#0000FF><u>註記 4-1</u></font></h3>
+<p>可以很容易驗證鏡射<span
+class="math inline">\(\tau_v\)</span>是線性映射。</p>
+<h3 id="性質-4-2"><font color=#0000FF><u>性質 4-2</u></font></h3>
+<p>前提條件同定義4。由於<span
+class="math inline">\(v\)</span>是非同向的，故<span
+class="math inline">\(\mbox{span}\{v\}\)</span>是非退化的。故由<a
+href="https://alexthepurplerose.github.io/2025/02/16/linalg-quad-space/">這裡</a>的性質15有
+<span class="math display">\[
+V=\mbox{span}\{v\}\oplus(\mbox{span}\{v\})^\perp
+\]</span> 其中<span
+class="math inline">\(\mbox{span}\{v\}\)</span>的基底為<span
+class="math inline">\(\{v\}\)</span>，而令<span
+class="math inline">\((\mbox{span}\{v\})^\perp\)</span>的基底為<span
+class="math inline">\(\{e_1,e_2,\cdots,e_{n-1}\}\)</span>，其中<span
+class="math inline">\(n=\dim V\)</span>。則 <span
+class="math display">\[
+\tau_v(v)=v-\frac{2H(v,v)}{Q(v)}v=-v
+\]</span> 且由於對於所有<span class="math inline">\(e_i\)</span>有<span
+class="math inline">\(H(e_i,v)=0\)</span>，故 <span
+class="math display">\[
+\tau_v(e_i)=e_i-\frac{2H(e_i,v)}{Q(v)}v=e_i
+\]</span></p>
+<h3 id="性質-4-3"><font color=#0000FF><u>性質 4-3</u></font></h3>
+<p>很容易可以發現<span
+class="math inline">\(\det(\tau_v)=-1\)</span>。</p>
+<h2 id="引理-5"><font color=#0000FF><u>引理 5</u></font></h2>
+<p>給定二次空間<span class="math inline">\((V,H)\)</span>，並給定<span
+class="math inline">\(x,y\in V\)</span>滿足<span
+class="math inline">\(Q(x)=Q(y)\neq 0\)</span>。則存在<span
+class="math inline">\(M\in O(V)\)</span>使得<span
+class="math inline">\(Mx=y\)</span>。並且可以挑選<span
+class="math inline">\(M\)</span>使得<span
+class="math inline">\(M\)</span>是鏡射或兩個鏡射的合成。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩種狀況討論。<br>
+狀況一：若<span class="math inline">\(Q(x)\neq H(x,y)\)</span>，則 <span
+class="math display">\[
+Q(x-y)=Q(x)-2H(x,y)+Q(y)=2[Q(x)-H(x,y)]\neq 0
+\]</span> 意即<span class="math inline">\(x-y\)</span>在<span
+class="math inline">\(V\)</span>中是非同向的。故可以定義鏡射<span
+class="math inline">\(\tau_{x-y}\)</span>。我們有 <span
+class="math display">\[
+\begin{aligned}
+\tau_{x-y}(x)&amp;=x-\frac{2H(x,x-y)}{Q(x-y)}(x-y)\\
+&amp;=x-\frac{2(Q(x)-H(x,y))}{2(Q(x)-H(x,y))}(x-y)=y
+\end{aligned}
+\]</span> 此即所求。<br> 狀況二：若<span
+class="math inline">\(Q(x)=H(x,y)\)</span>，則由二次形式的定義有<span
+class="math inline">\(Q(x)=Q(-x)\)</span>。且由於<span
+class="math inline">\(Q(x)\neq 0\)</span>，故 <span
+class="math display">\[
+H(x,y)\neq -H(x,y)=H(-x,y)
+\]</span> 則有<span class="math inline">\(Q(-x)=Q(y)\neq
+0\)</span>且<span class="math inline">\(Q(-x)\neq
+H(-x,y)\)</span>。可以回到狀況一，有 <span class="math display">\[
+\tau_{-x-y}(-x)=y
+\]</span> 又<span class="math inline">\(\tau_x(x)=-x\)</span>，故有
+<span class="math display">\[
+\tau_{-x-y}(\tau_x(x))=y
+\]</span> 此即所求。<font size="1">QED</font></p>
+<center>
+<h1
+id="偉特消去定理的證明"><font color=#b8860b>偉特消去定理的證明</font></h1>
+</center>
+<p>我們底下會分四個步驟證明偉特消去定理。<br> 步驟一：</p>
 
     </div>
 
@@ -347,7 +508,11 @@ V=\mbox{rad}(V)\oplus W
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%89%E7%89%B9%E5%88%86%E8%A7%A3%E5%AE%9A%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">偉特分解定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-1%E5%81%89%E7%89%B9%E5%88%86%E8%A7%A3%E5%AE%9A%E7%90%86-witt-decoposition-theorem"><span class="nav-number">1.1.</span> <span class="nav-text">定理
 1：偉特分解定理 (Witt Decoposition Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1-2%E5%81%89%E7%89%B9%E6%8C%87%E6%95%B8-witt-index"><span class="nav-number">1.1.2.</span> <span class="nav-text">定義
-1-2：偉特指數 (Witt Index)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li></ol></li></ol></li></ol></div>
+1-2：偉特指數 (Witt Index)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">註記 1-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-2%E5%81%89%E7%89%B9%E6%B6%88%E5%8E%BB%E5%AE%9A%E7%90%86-witt-cancellation-theorem"><span class="nav-number">1.2.</span> <span class="nav-text">定理
+2：偉特消去定理 (Witt Cancellation Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記 2-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%8F%A1%E5%B0%84"><span class="nav-number">2.</span> <span class="nav-text">鏡射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E6%AD%A3%E4%BA%A4%E7%BE%A4-orthogonal-group"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+3：正交群 (Orthogonal Group)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1%E6%AD%A3%E4%BA%A4%E7%BE%A4%E7%9A%84%E7%9F%A9%E9%99%A3%E8%A1%A8%E7%A4%BA"><span class="nav-number">2.1.1.</span> <span class="nav-text">註記
+3-1：正交群的矩陣表示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%8F%A1%E5%B0%84-reflection"><span class="nav-number">2.2.</span> <span class="nav-text">定義 4：鏡射
+(Reflection)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">性質 4-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-3"><span class="nav-number">2.2.3.</span> <span class="nav-text">性質 4-3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-5"><span class="nav-number">2.3.</span> <span class="nav-text">引理 5</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%81%89%E7%89%B9%E6%B6%88%E5%8E%BB%E5%AE%9A%E7%90%86%E7%9A%84%E8%AD%89%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">偉特消去定理的證明</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
