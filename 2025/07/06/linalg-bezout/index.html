@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於貝祖定理的證明與推廣。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/06/linalg-bezout/bezout.jpg">
 <meta property="article:published_time" content="2025-07-06T06:31:39.000Z">
-<meta property="article:modified_time" content="2025-07-06T08:50:39.694Z">
+<meta property="article:modified_time" content="2025-07-06T11:32:27.072Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Linear_Algebra">
 <meta property="article:tag" content="Algebra">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2025/07/06/linalg-bezout/bezout.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2025/07/06/linalg-bezout/">
 
@@ -193,7 +195,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2025-07-06 14:31:39 / 修改時間：16:50:39" itemprop="dateCreated datePublished" datetime="2025-07-06T14:31:39+08:00">2025-07-06</time>
+              <time title="創建時間：2025-07-06 14:31:39 / 修改時間：19:32:27" itemprop="dateCreated datePublished" datetime="2025-07-06T14:31:39+08:00">2025-07-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,7 +275,7 @@ class="math display">\[
 f(x)=a_0+a_1x+\cdots+a_mx^m, g(x)=b_0+b_1x+\cdots+b_nx^n
 \]</span> 考慮<span class="math inline">\((m+n)\times(m+n)\)</span>矩陣
 <span class="math display">\[
-A=\left(
+R=\left(
 \begin{array}{ccccccc}
 a_0 &amp; a_1 &amp; \cdots &amp; a_m &amp; 0 &amp; \cdots &amp; 0\\
 0 &amp; a_0 &amp; a_1 &amp; \cdots &amp; a_m &amp; 0 &amp; \cdots\\
@@ -289,7 +291,122 @@ b_0 &amp; b_1 &amp; \cdots &amp; b_n &amp; 0 &amp; \cdots &amp; 0\\
 \right)
 \]</span> 則我們將與<span
 class="math inline">\(f,g\)</span>相關的結式定義為<span
-class="math inline">\(R_{f,g}=\det(A)\)</span>。</p>
+class="math inline">\(R_{f,g}=\det(R)\)</span>。</p>
+<h2 id="性質-4"><font color=#0000FF><u>性質 4</u></font></h2>
+<p>給定多項式<span
+class="math inline">\(f,g\in\mathbb{F}[x]\)</span>，其中 <span
+class="math display">\[
+f(x)=a_0+a_1x+\cdots+a_mx^m, g(x)=b_0+b_1x+\cdots+b_nx^n
+\]</span> 則<span class="math inline">\(f,g\)</span>有非常數公因式 iff.
+<span class="math inline">\(R_{f,g}=0\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由高斯引理(引理2)知<span
+class="math inline">\(f,g\)</span>有非常數公因式 iff. 存在<span
+class="math inline">\(0\neq u,v\in\mathbb{F}[x]\)</span>滿足<span
+class="math inline">\(\mbox{deg}(u)&lt;\mbox{deg}(g)\)</span>, <span
+class="math inline">\(\mbox{deg}(v)&lt;\mbox{deg}(f)\)</span>且<span
+class="math inline">\(uf+vg=0\)</span>。記<span
+class="math inline">\(\mathbb{F}[x]_{&lt;n}\)</span>為<span
+class="math inline">\(\mathbb{F}[x]\)</span>中次數小於<span
+class="math inline">\(n\)</span>次的所有多項式的集合。定義映射<span
+class="math inline">\(M:\mathbb{F}[x]_{&lt;n}\oplus\mathbb{F}[x]_{&lt;m}\to\mathbb{F}[x]_{&lt;m+n}\)</span>為
+<span class="math display">\[
+M(\tilde{u},\tilde{v})=\tilde{u}f+\tilde{v}g,\forall\tilde{u}\in\mathbb{F}[x]_{&lt;n},
+\tilde{v}\in\mathbb{F}[x]_{&lt;m}
+\]</span> 取<span
+class="math inline">\(\mathbb{F}[x]_{&lt;n}\oplus\mathbb{F}[x]_{&lt;m}\)</span>的基底為
+<span class="math display">\[
+\beta=\{(1,0),(x,0),\cdots,(x^{n-1},0),(0,1),(x,1),\cdots,(0,x^{m-1})\}
+\]</span> 並取<span
+class="math inline">\(\mathbb{F}[x]_{&lt;m+n}\)</span>的基底為 <span
+class="math display">\[
+\gamma=\{1,x,x^2,\cdots,x^{m+n-1}\}
+\]</span> 則<span class="math inline">\(M\)</span>的矩陣表示為 <span
+class="math display">\[
+[M]_\beta^\gamma=\left(
+\begin{array}{cccccccc}
+a_0 &amp; 0 &amp; \cdots &amp; 0 &amp; b_0 &amp; 0 &amp; \cdots &amp;
+0\\
+a_1 &amp; a_0 &amp; \ddots &amp; \vdots &amp; b_1 &amp; b_0 &amp; \ddots
+&amp; \vdots\\
+\vdots &amp; a_1 &amp; \ddots &amp; 0 &amp; \vdots &amp; b_1 &amp;
+\ddots &amp; 0\\
+a_m &amp; \vdots &amp; \ddots &amp; a_0 &amp; b_n &amp; \vdots &amp;
+\ddots &amp; b_0\\
+0 &amp; a_m &amp; \ddots &amp; a_1 &amp; 0 &amp; b_n &amp; \ddots &amp;
+b_1\\
+\vdots &amp; 0 &amp; \ddots &amp; \vdots &amp; \vdots &amp; 0 &amp;
+\ddots &amp; \vdots\\
+0 &amp; \vdots &amp; \cdots &amp; a_m &amp; 0 &amp; \vdots &amp; \cdots
+&amp; b_n
+\end{array}
+\right)
+\]</span> 令<span
+class="math inline">\([M]_\beta^\gamma=R^t\)</span>。若<span
+class="math inline">\(f,g\)</span>有非常數公因式，則由高斯引理知<span
+class="math inline">\(M\)</span>的核<span
+class="math inline">\(N(M)\neq\{0\}\)</span>。故 <span
+class="math display">\[
+R_{f,g}=\det(R)=\det(R^t)=\det([M]_\beta^\gamma)=0
+\]</span> 並且由於高斯引理的箭頭是雙向的，所以逆敘述也成立，即<span
+class="math inline">\(R_{f,g}=0\)</span>時<span
+class="math inline">\(f,g\)</span>有非常數公因式。<font size="1">QED</font></p>
+<center>
+<h1 id="貝祖定理"><font color=#b8860b>貝祖定理</font></h1>
+</center>
+<h2 id="定義-5消失軌跡-vanishing-locus"><font color=#008000><u>定義
+5：消失軌跡 (Vanishing Locus)</u></font></h2>
+<p>我們定義多項式<span
+class="math inline">\(f\in\mathbb{F}[x,y]\)</span>的消失軌跡為 <span
+class="math display">\[
+V(f)=\{(\alpha,\beta)\in\mathbb{F}^2:f(\alpha,\beta)=0\}
+\]</span> (或者也稱為<span class="math inline">\(f\)</span>的零集合
+(Zero Set)。)</p>
+<h2 id="定理-6貝祖定理-bézouts-theorem"><font color=#ff1493><u>定理
+6：貝祖定理 (Bézout's Theorem)</u></font></h2>
+<p>給定多項式<span
+class="math inline">\(f,g\in\mathbb{C}[x,y]\)</span>，其中<span
+class="math inline">\(\mbox{deg}(f)=m\)</span>, <span
+class="math inline">\(\deg(g)=n\)</span>。若<span
+class="math inline">\(f,g\)</span>有非常數公因式，則<span
+class="math inline">\(V(f)\cap V(g)\)</span>最多只有<span
+class="math inline">\(mn\)</span>個點。</p>
+<img src="bezout.jpg" width="25%" height="25%">
+<center>
+圖1 Étienne Bézout
+</center>
+<h3 id="註記-6-1"><font color=#0000FF><u>註記 6-1</u></font></h3>
+<p>這裡多變數多項式次數的算法是總次數，例如<span
+class="math inline">\(\mbox{deg}(x^2y^3)=5\)</span>。<br></p>
+<p><font color=#8b4513><u>定理6的證明</u></font>：令 <span
+class="math display">\[
+\begin{aligned}
+f(x,y)&amp;=a_0(x)+a_1(x)y+\cdots+a_{m-1}(x)y^{m-1}+a_m(x)y^m,
+a_i(x)\in\mathbb{C}[x]\\
+g(x,y)&amp;=b_0(x)+b_1(x)y+\cdots+b_{n-1}(x)y^{n-1}+b_n(x)y^n,
+b_j(x)\in\mathbb{C}[x]
+\end{aligned}
+\]</span> 由於已經給定了<span
+class="math inline">\(\mbox{deg}(f)=m\)</span>，故<span
+class="math inline">\(\mbox{deg}(a_i(x))\leq m-i\)</span>。同樣的有<span
+class="math inline">\(\mbox{deg}(b_j(x))\leq n-j\)</span>。令 <span
+class="math display">\[
+P_{f,g}=\{\alpha\in\mathbb{C}:\exists\beta\in\mathbb{C}\mbox{ s.t.
+}f(\alpha,\beta)=0=g(\alpha,\beta)\}
+\]</span> 亦即若<span class="math inline">\((\alpha,\beta)\in V(f)\cap
+V(g)\)</span>，則<span class="math inline">\(\alpha\in
+P_{f,g}\)</span>。我們接著需要三個引理。</p>
+<h3 id="引理-6-2"><font color=#0000FF><u>引理 6-2</u></font></h3>
+<p>對於所有<span class="math inline">\(\alpha\in
+P_{f,g}\)</span>，只有有限多個<span
+class="math inline">\(\beta\in\mathbb{C}\)</span>滿足<span
+class="math inline">\((\alpha,\beta)\in V(f)\cap V(g)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若對於某個<span
+class="math inline">\(\alpha_0\in P_{f,g}\)</span>，存在無限多個<span
+class="math inline">\(\beta\in\mathbb{C}\)</span>滿足<span
+class="math inline">\((\alpha,\beta)\in V(f)\cap V(g)\)</span>，則<span
+class="math inline">\(y\)</span>的多項式<span
+class="math inline">\(f(\alpha_0,y)\)</span>和<span
+class="math inline">\(g(\alpha_0,y)\)</span>都會有無限多個根。</p>
 
     </div>
 
@@ -375,7 +492,9 @@ class="math inline">\(R_{f,g}=\det(A)\)</span>。</p>
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B5%90%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">結式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%A4%9A%E9%A0%85%E5%BC%8F%E7%92%B0-polynomial-ring"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：多項式環 (Polynomial Ring)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">註記 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-2%E9%AB%98%E6%96%AF%E5%BC%95%E7%90%86-gauss-lemma"><span class="nav-number">1.2.</span> <span class="nav-text">引理
 2：高斯引理 (Gauss&#39; Lemma)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%B5%90%E5%BC%8F-resultant"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：結式
-(Resultant)</span></a></li></ol></li></ol></div>
+(Resultant)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4"><span class="nav-number">1.4.</span> <span class="nav-text">性質 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B2%9D%E7%A5%96%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">貝祖定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E6%B6%88%E5%A4%B1%E8%BB%8C%E8%B7%A1-vanishing-locus"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+5：消失軌跡 (Vanishing Locus)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-6%E8%B2%9D%E7%A5%96%E5%AE%9A%E7%90%86-b%C3%A9zouts-theorem"><span class="nav-number">2.2.</span> <span class="nav-text">定理
+6：貝祖定理 (Bézout&#39;s Theorem)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%90%86-6-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">引理 6-2</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
