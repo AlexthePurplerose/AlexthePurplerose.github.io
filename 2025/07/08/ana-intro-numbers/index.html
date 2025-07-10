@@ -28,8 +28,9 @@
 <meta property="og:description" content="這份筆記是關於自然數、有理數與實數的建構。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/DeMorgan.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/peano.jpg">
 <meta property="article:published_time" content="2025-07-08T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-09T06:27:41.701Z">
+<meta property="article:modified_time" content="2025-07-10T07:53:02.689Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -200,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-07-09 14:27:41" itemprop="dateModified" datetime="2025-07-09T14:27:41+08:00">2025-07-09</time>
+                <time title="修改時間：2025-07-10 15:53:02" itemprop="dateModified" datetime="2025-07-10T15:53:02+08:00">2025-07-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -287,16 +288,124 @@ I}(B-A_\alpha)
 <center>
 <h1 id="自然數"><font color=#b8860b>自然數</font></h1>
 </center>
-<h2 id="公理-6皮亞諾公理-axioms-of-peano"><font color=#ff1493><u>公理
+<h2 id="公理-6皮亞諾公理-axioms-of-peano"><font color=#008000><u>公理
 6：皮亞諾公理 (Axioms of Peano)</u></font></h2>
 <p>我們將滿足下列五項公理的集合<span
-class="math inline">\(\mathbb{N}\)</span>稱為自然數： <br>1. <span
-class="math inline">\(1\in\mathbb{N}\)</span> (意即<span
+class="math inline">\(\mathbb{N}\)</span>稱為自然數 (Natural Numbers)：
+<br>1. <span class="math inline">\(1\in\mathbb{N}\)</span> (意即<span
 class="math inline">\(\mathbb{N}\)</span>是非空的。) <br>2.
 對於所有<span
 class="math inline">\(k\in\mathbb{N}\)</span>，都存在恰一個<span
 class="math inline">\(k\)</span>的後繼元素(successor)<span
-class="math inline">\(s(k)\in\mathbb{N}\)</span>。</p>
+class="math inline">\(s(k)\in\mathbb{N}\)</span>。 <br>3. 若集合<span
+class="math inline">\(B\subseteq\mathbb{N}\)</span>滿足 <br>  (1) <span
+class="math inline">\(1\in B\)</span> <br>  (2) 若<span
+class="math inline">\(k\in B\)</span>則<span
+class="math inline">\(s(k)\in B\)</span> <br>則<span
+class="math inline">\(B=\mathbb{N}\)</span>(此即數學歸納法)。 <br>4.
+<span class="math inline">\(1\)</span>不是<span
+class="math inline">\(\mathbb{N}\)</span>中任何元素的後繼元素。 <br>5.
+若<span class="math inline">\(\mathbb{N}\)</span>中<span
+class="math inline">\(m\neq n\)</span>，則<span
+class="math inline">\(S(m)\neq S(n)\)</span>。</p>
+<img src="peano.jpg" width="25%" height="25%">
+<center>
+圖2 Giuseppe Peano
+</center>
+<h3
+id="定義-6-1自然數的排序-ordering-of-natural-numbers"><font color=#008000><u>
+定義 6-1：自然數的排序 (Ordering of Natural Numbers)</u></font></h3>
+<p>我們如下定義<span
+class="math inline">\(\mathbb{N}\)</span>中元素的大小排序： <br>1.
+定義<span class="math inline">\(1\)</span>是<span
+class="math inline">\(\mathbb{N}\)</span>中最小的元素。 <br>2. 對於<span
+class="math inline">\(k\in\mathbb{N}\)</span>，定義<span
+class="math inline">\(k&lt;s(k)\)</span>。 <br>於是即有<span
+class="math inline">\(1&lt;s(1)&lt;s(s(1))&lt;s(s(s(1)))\cdots\)</span>。</p>
+<h3
+id="定義-6-2自然數的加法-addition-of-natural-numbers"><font color=#008000><u>
+定義 6-2：自然數的加法 (Addition of Natural Numbers)</u></font></h3>
+<p>我們如下定義<span
+class="math inline">\(\mathbb{N}\)</span>中元素的加法： <br>1. 對於<span
+class="math inline">\(n\in\mathbb{N}\)</span>，定義<span
+class="math inline">\(n+1=s(n)\)</span>。 <br>2. 對於<span
+class="math inline">\(n,m\in\mathbb{N}\)</span>，定義<span
+class="math inline">\(n+(m+1)=(n+m)+1=s(n+m)\)</span>。
+<br>此即用數學歸納法定義加法。</p>
+<h2 id="定義-7半群-semigroup"><font color=#008000><u>定義 7：半群
+(Semigroup)</u></font></h2>
+<p>給定集合<span class="math inline">\(A\)</span>與其上的運算<span
+class="math inline">\(\bigstar\)</span>，若對於所有<span
+class="math inline">\(m,n,p\in A\)</span>滿足 <br>1. <span
+class="math inline">\(m\bigstar n\in A\)</span>  (運算封閉性) <br>2.
+<span class="math inline">\((m\bigstar n)\bigstar p=m\bigstar(n\bigstar
+p)\)</span>  (結合律) <br>則稱<span
+class="math inline">\((A,\bigstar)\)</span>為半群。</p>
+<h3
+id="定義-7-1交換半群-commutative-semigroup"><font color=#008000><u>定義
+7-1：交換半群 (Commutative Semigroup)</u></font></h3>
+<p>給定半群<span
+class="math inline">\((A,\bigstar)\)</span>，若對所有<span
+class="math inline">\(m,n\in A\)</span>有<span
+class="math inline">\(m\bigstar n=n\bigstar m\)</span>，則稱<span
+class="math inline">\((A,\bigstar)\)</span>為交換半群。</p>
+<h2 id="定理-8"><font color=#ff1493><u>定理 8</u></font></h2>
+<p>自然數<span
+class="math inline">\((\mathbb{N},+)\)</span>是交換半群。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分底下三個部分檢查<span
+class="math inline">\((\mathbb{N},+)\)</span>是否滿足交換半群的條件：
+<br>1. 封閉性：這是顯然的。對於<span
+class="math inline">\(m,n\in\mathbb{N}\)</span>，顯然會有<span
+class="math inline">\(m+n\in\mathbb{N}\)</span>。 <br>2.
+結合律：我們希望說明對於任意<span
+class="math inline">\(m,n,k\in\mathbb{N}\)</span>都有 <span
+class="math display">\[
+(n+m)+k=n+(m+k)
+\]</span> 我們對<span class="math inline">\(k\)</span>用數學歸納法。
+<br>  (1) 當<span
+class="math inline">\(k=1\)</span>時，由加法的定義(定義6-2)可知<span
+class="math inline">\((n+m)+1=n+(m+1)\)</span>，即結合律成立。 <br>  (2)
+假設<span class="math inline">\(k=p\geq 1\)</span>時，<span
+class="math inline">\((n+m)+p=n+(m+p)\)</span>，則令<span
+class="math inline">\(n+m=\tilde{n}\)</span>, <span
+class="math inline">\(p=\tilde{m}\)</span>。則 <span
+class="math display">\[
+\begin{aligned}
+(n+m)+(p+1)&amp;=\tilde{n}+(\tilde{m}+1)\\
+&amp;=(\tilde{n}+\tilde{m})+1\\
+&amp;=((n+m)+p)+1\\
+&amp;=(n+(m+p))+1\mbox{  (歸納假設)}\\
+&amp;=n+((m+p)+1)\\
+&amp;=n+(m+(p+1))
+\end{aligned}
+\]</span> 即結合律對<span
+class="math inline">\(k=p+1\)</span>也成立，故由數學歸納法可知結合律對任意<span
+class="math inline">\(k\in\mathbb{N}\)</span>都成立。 <br>3.
+交換律：我們希望說明對於所有<span
+class="math inline">\(m,n\in\mathbb{N}\)</span>有<span
+class="math inline">\(m+n=n+m\)</span>。我們對<span
+class="math inline">\(n\)</span>使用數學歸納法。 <br>  (1) 當<span
+class="math inline">\(n=1\)</span>時，由定義有 <span
+class="math display">\[
+1+m=\underbrace{s(s(s(\cdots(s}_{m\mbox{個}}(1))\cdots)=s(m)=m+1
+\]</span> <br>  (2) 假設當<span class="math inline">\(n=p\geq
+1\)</span>時有<span class="math inline">\(m+p=p+m\)</span>，則由結合律有
+<span class="math display">\[
+\begin{aligned}
+p+(n+1)&amp;=(p+n)+1\\
+&amp;=(n+p)+1\mbox{  (歸納假設)}\\
+&amp;=n+(p+1)\\
+&amp;=n+(1+p)\\
+&amp;=(n+1)+p
+\end{aligned}
+\]</span> 即<span
+class="math inline">\(n=p+1\)</span>時交換律成立，故由數學歸納法可知交換律對任意<span
+class="math inline">\(n\in\mathbb{N}\)</span>都成立。
+<br>由以上三點，可知<span
+class="math inline">\((\mathbb{N},+)\)</span>是交換半群。<font size="1">QED</font></p>
+<center>
+<h1 id="整數"><font color=#b8860b>整數</font></h1>
+</center>
 
     </div>
 
@@ -385,7 +494,11 @@ class="math inline">\(s(k)\in\mathbb{N}\)</span>。</p>
 (Intersection)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4%E9%9B%86%E5%90%88%E5%88%86%E9%85%8D%E5%BE%8B-distributive-properties-of-sets"><span class="nav-number">1.4.</span> <span class="nav-text">定理
 4：集合分配律 (Distributive Properties of Sets)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5%E7%AC%9B%E6%91%A9%E6%A0%B9%E5%BE%8B-de-morgans-law"><span class="nav-number">1.5.</span> <span class="nav-text">定理
 5：笛摩根律 (De Morgan&#39;s Law)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">自然數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E7%90%86-6%E7%9A%AE%E4%BA%9E%E8%AB%BE%E5%85%AC%E7%90%86-axioms-of-peano"><span class="nav-number">2.1.</span> <span class="nav-text">公理
-6：皮亞諾公理 (Axioms of Peano)</span></a></li></ol></li></ol></div>
+6：皮亞諾公理 (Axioms of Peano)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-1%E8%87%AA%E7%84%B6%E6%95%B8%E7%9A%84%E6%8E%92%E5%BA%8F-ordering-of-natural-numbers"><span class="nav-number">2.1.1.</span> <span class="nav-text">
+定義 6-1：自然數的排序 (Ordering of Natural Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-2%E8%87%AA%E7%84%B6%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B3%95-addition-of-natural-numbers"><span class="nav-number">2.1.2.</span> <span class="nav-text">
+定義 6-2：自然數的加法 (Addition of Natural Numbers)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%8D%8A%E7%BE%A4-semigroup"><span class="nav-number">2.2.</span> <span class="nav-text">定義 7：半群
+(Semigroup)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-1%E4%BA%A4%E6%8F%9B%E5%8D%8A%E7%BE%A4-commutative-semigroup"><span class="nav-number">2.2.1.</span> <span class="nav-text">定義
+7-1：交換半群 (Commutative Semigroup)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.3.</span> <span class="nav-text">定理 8</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E6%95%B8"><span class="nav-number">3.</span> <span class="nav-text">整數</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
