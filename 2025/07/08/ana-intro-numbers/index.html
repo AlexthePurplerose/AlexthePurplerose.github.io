@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/DeMorgan.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/peano.jpg">
 <meta property="article:published_time" content="2025-07-08T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-10T07:53:02.689Z">
+<meta property="article:modified_time" content="2025-07-12T09:27:13.533Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-07-10 15:53:02" itemprop="dateModified" datetime="2025-07-10T15:53:02+08:00">2025-07-10</time>
+                <time title="修改時間：2025-07-12 17:27:13" itemprop="dateModified" datetime="2025-07-12T17:27:13+08:00">2025-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -388,7 +388,7 @@ class="math inline">\(n\)</span>使用數學歸納法。 <br>  (1) 當<span
 class="math inline">\(n=1\)</span>時，由定義有 <span
 class="math display">\[
 1+m=\underbrace{s(s(s(\cdots(s}_{m\mbox{個}}(1))\cdots)=s(m)=m+1
-\]</span> <br>  (2) 假設當<span class="math inline">\(n=p\geq
+\]</span>   (2) 假設當<span class="math inline">\(n=p\geq
 1\)</span>時有<span class="math inline">\(m+p=p+m\)</span>，則由結合律有
 <span class="math display">\[
 \begin{aligned}
@@ -403,9 +403,223 @@ class="math inline">\(n=p+1\)</span>時交換律成立，故由數學歸納法�
 class="math inline">\(n\in\mathbb{N}\)</span>都成立。
 <br>由以上三點，可知<span
 class="math inline">\((\mathbb{N},+)\)</span>是交換半群。<font size="1">QED</font></p>
+<h2
+id="定義-9自然數的乘法-multiplication-of-natural-numbers"><font color=#008000><u>定義
+9：自然數的乘法 (Multiplication of Natural Numbers)</u></font></h2>
+<p>我們如下定義<span
+class="math inline">\(\mathbb{N}\)</span>中元素的乘法： <br>1. 對於<span
+class="math inline">\(n\in\mathbb{N}\)</span>，定義<span
+class="math inline">\(n\times 1=n\)</span>。 <br>2. 對於<span
+class="math inline">\(n,m\in\mathbb{N}\)</span>，定義<span
+class="math inline">\(n\times(m+1)=n\times m+n\)</span>。
+<br>和定義6-2中一樣，這裡是用數學歸納法定義乘法。</p>
+<h3
+id="性質-9-1右分配律-right-distributive-property"><font color=#0000FF><u>性質
+9-1：右分配律 (Right-Distributive Property)</u></font></h3>
+<p>對於所有<span
+class="math inline">\(m,n,k\in\mathbb{N}\)</span>，有<span
+class="math inline">\(m(n+k)=mn+mk\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(k\)</span>使用數學歸納法。 <br>1. <span
+class="math inline">\(k=1\)</span>時，由定義有 <span
+class="math display">\[
+m(n+1)=mn+m\cdot 1=mn+n
+\]</span> 即<span class="math inline">\(k=1\)</span>時右分配律成立。
+<br>2. 假設當<span
+class="math inline">\(k=p\)</span>時右分配律成立，則對於<span
+class="math inline">\(k=p+1\)</span>，有 <span class="math display">\[
+\begin{aligned}
+m(n+(p+1))&amp;=m((n+p)+1)\\
+&amp;=m(n+p)+m\\
+&amp;=(mn+mp)+m\mbox{  (歸納假設)}\\
+&amp;=mn+(mp+m)\\
+&amp;=mn+m(p+1)
+\end{aligned}
+\]</span> 即<span
+class="math inline">\(k=p+1\)</span>時右分配律亦成立，故由數學歸納法知右分配律對所有<span
+class="math inline">\(k\in\mathbb{N}\)</span>成立。<font size="1">QED</font></p>
+<h3
+id="性質-9-2左分配律-left-distributive-property"><font color=#0000FF><u>性質
+9-2：左分配律 (Left-Distributive Property)</u></font></h3>
+<p>對於所有<span
+class="math inline">\(m,n,k\in\mathbb{N}\)</span>，有<span
+class="math inline">\((m+n)k=mk+nk\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(k\)</span>使用數學歸納法。 <br>1. <span
+class="math inline">\(k=1\)</span>時，由定義有 <span
+class="math display">\[
+(m+n)\cdot 1=m+n=m\cdot 1+n\cdot 1
+\]</span> 即<span class="math inline">\(k=1\)</span>時左分配律成立。
+<br>2. 假設當<span
+class="math inline">\(k=p\)</span>時左分配律成立，則對於<span
+class="math inline">\(k=p+1\)</span>，有 <span class="math display">\[
+\begin{aligned}
+(m+n)(p+1)&amp;=(m+n)p+(m+n)\cdot 1\\
+&amp;=mp+np+m+n\mbox{  (歸納假設)}\\
+&amp;=(mp+m)+(np+n)\\
+&amp;=m(p+1)+n(p+1)
+\end{aligned}
+\]</span> 即<span
+class="math inline">\(k=p+1\)</span>時左分配律亦成立，故由數學歸納法知左分配律對所有<span
+class="math inline">\(k\in\mathbb{N}\)</span>成立。<font size="1">QED</font></p>
+<h3 id="性質-9-3結合律-associative-property"><font color=#0000FF><u>性質
+9-3：結合律 (Associative Property)</u></font></h3>
+<p>對於所有<span
+class="math inline">\(m,n,k\in\mathbb{N}\)</span>，有<span
+class="math inline">\((mn)k=m(nk)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們對<span
+class="math inline">\(k\)</span>使用數學歸納法。 <br>1. <span
+class="math inline">\(k=1\)</span>時，由定義有 <span
+class="math display">\[
+m(n\cdot 1)=mn=mn\cdot 1
+\]</span> 即<span class="math inline">\(k=1\)</span>時結合律成立。
+<br>2. 假設當<span
+class="math inline">\(k=p\)</span>時結合律成立，則對於<span
+class="math inline">\(k=p+1\)</span>，有 <span class="math display">\[
+\begin{aligned}
+(mn)(p+1)&amp;=(mn)p+mn\\
+&amp;=m(np)+mn\mbox{  (歸納假設)}\\
+&amp;=m(np+n)\mbox{  (右分配律)}\\
+&amp;=m(n(p+1))
+\end{aligned}
+\]</span> 即<span
+class="math inline">\(k=p+1\)</span>時結合律亦成立，故由數學歸納法知結合律對所有<span
+class="math inline">\(k\in\mathbb{N}\)</span>成立。<font size="1">QED</font></p>
+<h3 id="性質-9-4交換律-commutative-property"><font color=#0000FF><u>性質
+9-4：交換律 (Commutative Property)</u></font></h3>
+<p>對於所有<span
+class="math inline">\(m,n\in\mathbb{N}\)</span>，有<span
+class="math inline">\(mn=nm\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們想要對<span
+class="math inline">\(n\)</span>使用數學歸納法，但必須注意到我們在<span
+class="math inline">\(n=1\)</span>時並沒有<span
+class="math inline">\(1\cdot m=m\cdot 1\)</span>，故我們要先對<span
+class="math inline">\(m\)</span>做數學歸納法來證明<span
+class="math inline">\(n=1\)</span>的狀況。 <br>1. <span
+class="math inline">\(m=1\)</span>時，有<span
+class="math inline">\(1\cdot 1=1\cdot 1=1\)</span>。 <br>2. 假設當<span
+class="math inline">\(m=k\)</span>時有<span class="math inline">\(k\cdot
+1=1\cdot k\)</span> (★)，則對於<span
+class="math inline">\(m=k+1\)</span>有 <span class="math display">\[
+\begin{aligned}
+1\cdot(k+1)&amp;=1\cdot k+1\cdot 1\\
+&amp;=k\cdot 1+1\cdot 1\mbox{  (歸納假設(★))}\\
+&amp;=(k+1)\cdot 1\mbox{  (左分配律)}
+\end{aligned}
+\]</span> 即<span class="math inline">\(m=k+1\)</span>時也有<span
+class="math inline">\(1\cdot m=m\cdot
+1\)</span>，故由數學歸納法可知這對任意<span
+class="math inline">\(m\in\mathbb{N}\)</span>都成立。<br>
+接著，我們就可以回到原本的命題對<span
+class="math inline">\(n\)</span>做數學歸納法了。 <br>1. <span
+class="math inline">\(n=1\)</span>時，由上述知有<span
+class="math inline">\(m\cdot 1=1\cdot m\)</span>。 <br>2. 假設當<span
+class="math inline">\(n=k\)</span>時交換律成立 (☆)，則對於<span
+class="math inline">\(n=k+1\)</span>有 <span class="math display">\[
+\begin{aligned}
+m(k+1)&amp;=mk+m\cdot 1\\
+&amp;=km+1\cdot m\mbox{  (歸納假設(☆))}\\
+&amp;=(k+1)m
+\end{aligned}
+\]</span> 即<span
+class="math inline">\(m=k+1\)</span>時交換律亦成立，故由數學歸納法知交換律對所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>成立。<font size="1">QED</font></p>
 <center>
 <h1 id="整數"><font color=#b8860b>整數</font></h1>
 </center>
+<h2 id="定義-10等價關係-equivalent-relation"><font color=#008000><u>定義
+10：等價關係 (Equivalent Relation)</u></font></h2>
+<p>考慮一集合<span class="math inline">\(A\)</span>中的關係<span
+class="math inline">\(\sim\)</span>，若<span
+class="math inline">\(\sim\)</span>滿足以下三個條件，則稱<span
+class="math inline">\(\sim\)</span>為等價關係： <br>1. 反射性
+(Reflexive)：對於所有<span class="math inline">\(x\in
+A\)</span>，有<span class="math inline">\(x\sim x\)</span>。 <br>2.
+對稱性 (Symmetric)：對於所有<span class="math inline">\(x,y\in
+A\)</span>，若<span class="math inline">\(x\sim y\)</span>，則<span
+class="math inline">\(y\sim x\)</span>。 <br>3. 遞移性
+(Transitive)：對於所有<span class="math inline">\(x,y,z\in
+A\)</span>，若<span class="math inline">\(x\sim y\)</span>且<span
+class="math inline">\(y\sim z\)</span>，則<span
+class="math inline">\(x\sim z\)</span>。</p>
+<h2 id="定義-11等價類-equivalent-class"><font color=#008000><u>定義
+11：等價類 (Equivalent Class)</u></font></h2>
+<p>給定集合<span class="math inline">\(A\)</span>與其上的等價關係<span
+class="math inline">\(\sim\)</span>，考慮<span
+class="math inline">\(a\in A\)</span>，我們稱 <span
+class="math display">\[
+[a]=\{x\in A:x\sim a\}
+\]</span> 為一個等價類。</p>
+<h2 id="定理-12"><font color=#ff1493><u>定理 12</u></font></h2>
+<p>給定集合<span class="math inline">\(A\)</span>與其上的等價關係<span
+class="math inline">\(\sim\)</span>，則對於所有<span
+class="math inline">\(a,b\in A\)</span>，要不是<span
+class="math inline">\([a]=[b]\)</span>就是<span
+class="math inline">\([a]\cap[b]=\varnothing\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\([a]\cap[b]\neq\varnothing\)</span>，則應存在<span
+class="math inline">\(c\in[a]\cap[b]\)</span>。由定義知對於所有<span
+class="math inline">\(\overline{a}\in[a]\)</span>，有<span
+class="math inline">\(\overline{a}\sim c\)</span>，同理對於所有<span
+class="math inline">\(\overline{b}\in[b]\)</span>有<span
+class="math inline">\(\overline{b}\sim c\)</span>。故有 <span
+class="math display">\[
+\overline{a}\sim c\sim\overline{b}
+\]</span> 即<span
+class="math inline">\(\overline{a}\sim\overline{b}\)</span>, <span
+class="math inline">\(\forall\overline{a}\in[a],
+\overline{b}\in[b]\)</span>。故由等價類的定義知<span
+class="math inline">\([a]=[b]\)</span>。<font size="1">QED</font></p>
+<h2 id="定義-13整數-integers"><font color=#008000><u>定義 13：整數
+(Integers)</u></font></h2>
+<p>考慮 <span class="math display">\[
+\mathbb{N}\times\mathbb{N}=\{(m,n):m,n\in\mathbb{N}\}
+\]</span> 在其上定義 <span class="math display">\[
+(m_1,n_1)\sim(m_2,n_2)\Leftrightarrow m_1+n_2=m_2+n_1
+\]</span> 可以很容易驗證<span class="math inline">\(\sim\)</span>是<span
+class="math inline">\(\mathbb{N}\times\mathbb{N}\)</span>上的等價關係(底下我們直接把這個等價關係記為「<span
+class="math inline">\(=\)</span>」)。我們將整數<span
+class="math inline">\(\mathbb{Z}\)</span>定義為所有<span
+class="math inline">\(\mathbb{N}\times\mathbb{N}\)</span>關於<span
+class="math inline">\(\sim\)</span>的等價類的集合(這件事可以記做<span
+class="math inline">\(\mathbb{N}\times\mathbb{N}/\sim\)</span>)。</p>
+<h3 id="註記-13-1"><font color=#0000FF><u>註記 13-1</u></font></h3>
+<p>通常來說我們會用映射<span
+class="math inline">\(n\to[(n,1)]\)</span>把<span
+class="math inline">\(\mathbb{N}\)</span>嵌入<span
+class="math inline">\(\mathbb{Z}\)</span>。</p>
+<h3
+id="定義-13-1整數的加法-addition-of-integers"><font color=#008000><u>定義
+13-1：整數的加法 (Addition of Integers)</u></font></h3>
+<p>我們可以將<span
+class="math inline">\(\mathbb{N}\times\mathbb{N}\)</span>上的加法定義為
+<span class="math display">\[
+(m_1,n_1)+(m_2,n_2)=(m_1+m_2,n_1+n_2)
+\]</span> 以此為基礎我們可以將<span
+class="math inline">\(\mathbb{Z}\)</span>上的加法定義為 <span
+class="math display">\[
+[(m_1,n_1)]+[(m_2,n_2)]=[(m_1+m_2,n_1+n_2)]
+\]</span></p>
+<h3
+id="定義-13-2整數的乘法-multiplication-of-integers"><font color=#008000><u>定義
+13-2：整數的乘法 (Multiplication of Integers)</u></font></h3>
+<p><span class="math display">\[
+(m_1,n_1)\times(m_2,n_2)=(m_1m_2+n_1n_2,n_1m_2+m_1n_2)
+\]</span> 於是我們可以找出這個結構中的乘法單位元素與零。對於<span
+class="math inline">\(n\in\mathbb{N}\)</span>，我們令<span
+class="math inline">\(\mathbb{I}=[(n,n+1)]\)</span>，則可以驗證對於所有<span
+class="math inline">\((m,p)\in\mathbb{N}\times\mathbb{N}\)</span>有
+<span class="math display">\[
+(m,p)\times\mathbb{I}=(m,p)
+\]</span> 即<span
+class="math inline">\(\mathbb{I}=[(n,n+1)]\)</span>是<span
+class="math inline">\(\mathbb{N}\times\mathbb{N}\)</span>上的乘法單位元素。類似的可以令<span
+class="math inline">\(\mathbb{O}=[(n,n)]\)</span>，則可以驗證 <span
+class="math display">\[
+(m,p)\times\mathbb{O}=\mathbb{O}
+\]</span> 即<span
+class="math inline">\(\mathbb{O}=[(n,n)]\)</span>是<span
+class="math inline">\(\mathbb{N}\times\mathbb{N}\)</span>上的零。</p>
 
     </div>
 
@@ -498,7 +712,17 @@ class="math inline">\((\mathbb{N},+)\)</span>是交換半群。<font size="1">QE
 定義 6-1：自然數的排序 (Ordering of Natural Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-2%E8%87%AA%E7%84%B6%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B3%95-addition-of-natural-numbers"><span class="nav-number">2.1.2.</span> <span class="nav-text">
 定義 6-2：自然數的加法 (Addition of Natural Numbers)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%8D%8A%E7%BE%A4-semigroup"><span class="nav-number">2.2.</span> <span class="nav-text">定義 7：半群
 (Semigroup)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-1%E4%BA%A4%E6%8F%9B%E5%8D%8A%E7%BE%A4-commutative-semigroup"><span class="nav-number">2.2.1.</span> <span class="nav-text">定義
-7-1：交換半群 (Commutative Semigroup)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.3.</span> <span class="nav-text">定理 8</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E6%95%B8"><span class="nav-number">3.</span> <span class="nav-text">整數</span></a></li></ol></div>
+7-1：交換半群 (Commutative Semigroup)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-8"><span class="nav-number">2.3.</span> <span class="nav-text">定理 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E8%87%AA%E7%84%B6%E6%95%B8%E7%9A%84%E4%B9%98%E6%B3%95-multiplication-of-natural-numbers"><span class="nav-number">2.4.</span> <span class="nav-text">定義
+9：自然數的乘法 (Multiplication of Natural Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-9-1%E5%8F%B3%E5%88%86%E9%85%8D%E5%BE%8B-right-distributive-property"><span class="nav-number">2.4.1.</span> <span class="nav-text">性質
+9-1：右分配律 (Right-Distributive Property)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-9-2%E5%B7%A6%E5%88%86%E9%85%8D%E5%BE%8B-left-distributive-property"><span class="nav-number">2.4.2.</span> <span class="nav-text">性質
+9-2：左分配律 (Left-Distributive Property)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-9-3%E7%B5%90%E5%90%88%E5%BE%8B-associative-property"><span class="nav-number">2.4.3.</span> <span class="nav-text">性質
+9-3：結合律 (Associative Property)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-9-4%E4%BA%A4%E6%8F%9B%E5%BE%8B-commutative-property"><span class="nav-number">2.4.4.</span> <span class="nav-text">性質
+9-4：交換律 (Commutative Property)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E6%95%B8"><span class="nav-number">3.</span> <span class="nav-text">整數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E7%AD%89%E5%83%B9%E9%97%9C%E4%BF%82-equivalent-relation"><span class="nav-number">3.1.</span> <span class="nav-text">定義
+10：等價關係 (Equivalent Relation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E7%AD%89%E5%83%B9%E9%A1%9E-equivalent-class"><span class="nav-number">3.2.</span> <span class="nav-text">定義
+11：等價類 (Equivalent Class)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">3.3.</span> <span class="nav-text">定理 12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13%E6%95%B4%E6%95%B8-integers"><span class="nav-number">3.4.</span> <span class="nav-text">定義 13：整數
+(Integers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-1"><span class="nav-number">3.4.1.</span> <span class="nav-text">註記 13-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13-1%E6%95%B4%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B3%95-addition-of-integers"><span class="nav-number">3.4.2.</span> <span class="nav-text">定義
+13-1：整數的加法 (Addition of Integers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13-2%E6%95%B4%E6%95%B8%E7%9A%84%E4%B9%98%E6%B3%95-multiplication-of-integers"><span class="nav-number">3.4.3.</span> <span class="nav-text">定義
+13-2：整數的乘法 (Multiplication of Integers)</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
