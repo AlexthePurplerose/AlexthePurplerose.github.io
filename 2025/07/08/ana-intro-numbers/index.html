@@ -29,8 +29,9 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/DeMorgan.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/peano.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/archimedes.jpg">
 <meta property="article:published_time" content="2025-07-08T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-13T07:59:49.256Z">
+<meta property="article:modified_time" content="2025-07-18T13:22:34.788Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -201,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-07-13 15:59:49" itemprop="dateModified" datetime="2025-07-13T15:59:49+08:00">2025-07-13</time>
+                <time title="修改時間：2025-07-18 21:22:34" itemprop="dateModified" datetime="2025-07-18T21:22:34+08:00">2025-07-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -582,14 +583,9 @@ class="math inline">\(\mathbb{Z}\)</span>定義為所有<span
 class="math inline">\(\mathbb{N}\times\mathbb{N}\)</span>關於<span
 class="math inline">\(\sim\)</span>的等價類的集合(這件事可以記做<span
 class="math inline">\(\mathbb{N}\times\mathbb{N}/\sim\)</span>)。</p>
-<h3 id="註記-13-1"><font color=#0000FF><u>註記 13-1</u></font></h3>
-<p>通常來說我們會用映射<span
-class="math inline">\(n\to[(n,1)]\)</span>把<span
-class="math inline">\(\mathbb{N}\)</span>嵌入<span
-class="math inline">\(\mathbb{Z}\)</span>。</p>
 <h3
-id="定義-13-2整數的加法-addition-of-integers"><font color=#008000><u>定義
-13-2：整數的加法 (Addition of Integers)</u></font></h3>
+id="定義-13-1整數的加法-addition-of-integers"><font color=#008000><u>定義
+13-1：整數的加法 (Addition of Integers)</u></font></h3>
 <p>我們可以將<span
 class="math inline">\(\mathbb{N}\times\mathbb{N}\)</span>上的加法定義為
 <span class="math display">\[
@@ -599,7 +595,7 @@ class="math inline">\(\mathbb{Z}\)</span>上的加法定義為 <span
 class="math display">\[
 [(m_1,n_1)]+[(m_2,n_2)]=[(m_1+m_2,n_1+n_2)]
 \]</span></p>
-<h4 id="註記-13-2-1"><font color=#0000FF><u>註記 13-2-1</u></font></h4>
+<h4 id="註記-13-1-1"><font color=#0000FF><u>註記 13-1-1</u></font></h4>
 <p>這樣的加法是定義良好的，亦即若給定<span
 class="math inline">\((a,b),(a&#39;,b&#39;)\in[(m_1,n_1)]\)</span>，<span
 class="math inline">\((c,d),(c&#39;,d&#39;)\in[(m_2,n_2)]\)</span>，則
@@ -713,6 +709,206 @@ class="math inline">\([(m_1,n_1)]&gt;[(m_2,n_2)]\)</span>。</p>
 class="math inline">\(\mathbb{Z}\)</span>中的加法單位元素<span
 class="math inline">\(e=[(k,k)]\)</span>，則稱<span
 class="math inline">\([(m,n)]\)</span>是負整數。</p>
+<h4 id="定義-17-1-1相反數-opposite-numbers"><font color=#008000><u>定義
+17-1-1：相反數 (Opposite Numbers)</u></font></h4>
+<p>對於<span
+class="math inline">\([(m,n)]\in\mathbb{Z}\)</span>，我們通常記<span
+class="math inline">\(-[(m,n)]=[(n,m)]\)</span>。</p>
+<h2 id="引理-18"><font color=#0000FF><u>引理 18</u></font></h2>
+<p>給定<span class="math inline">\(a\in\mathbb{Z}\)</span>，若<span
+class="math inline">\(a&gt;e=[(k,k)]\)</span>，則<span
+class="math inline">\(a\geq i=[(k,k+1)]\)</span>(即<span
+class="math inline">\(e=[(k,k)]\)</span>和<span
+class="math inline">\(i=[(k,k+1)]\)</span>之間沒有整數)。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(a=[(m,n)]&gt;e=[(k,k)]\)</span>，則由定義有<span
+class="math inline">\(m+k&gt;n+k\)</span>。由自然數的排序性質可知 <span
+class="math display">\[
+m+k\geq n+k+1
+\]</span> (<span class="math inline">\(m+k\)</span>要大於<span
+class="math inline">\(n+k\)</span>代表它至少要是<span
+class="math inline">\(n+k\)</span>的後繼數)。故 <span
+class="math display">\[
+[(m+n)]\geq[(k,k+1)]=i
+\]</span> 即<span class="math inline">\(a\geq
+i\)</span>。<font size="1">QED</font></p>
+<h3 id="註記-18-1"><font color=#0000FF><u>註記 18-1</u></font></h3>
+<p>用類似引理18的手段，我們可以排出一串整數 <span
+class="math display">\[
+\cdots&lt;[(k,k+2)]&lt;-i=[(k,k+1)]&lt;e=[(k,k)]&lt;i=[(k+1,k)]&lt;[(k+2,k)]\cdots
+\]</span> 它們兩兩之間都沒有其他整數。</p>
+<h2
+id="定義-19自然數嵌入整數-embedding-of-natural-numbers-into-integers"><font color=#008000><u>定義
+19：自然數嵌入整數 (Embedding of Natural Numbers into
+Integers)</u></font></h2>
+<p>對於<span
+class="math inline">\(n\in\mathbb{N}\)</span>，考慮映射<span
+class="math inline">\(\phi:\mathbb{N}\to\mathbb{Z}\)</span>，其中 <span
+class="math display">\[
+\phi(n)=[(n+k,k)]
+\]</span> 其中<span
+class="math inline">\(k\)</span>是任意的自然數(從定義可以很容易知道選擇任何自然數<span
+class="math inline">\(k\)</span>都會映射到同一個等價類)。<br></p>
+<h3 id="性質-19-1"><font color=#0000FF><u>性質 19-1</u></font></h3>
+<p>對於<span
+class="math inline">\(n_1,n_2\in\mathbb{N}\)</span>，有<span
+class="math inline">\(\phi(n_1)+\phi(n_2)=\phi(n_1+n_2)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定義有 <span
+class="math display">\[
+\begin{aligned}
+\phi(n_1)+\phi(n_2)&amp;=[(n_1+k,k)]+[(n_2+q,q)]\\
+&amp;=[(n_1+n_2+k+q,k+q)]\\
+&amp;=\phi(n_1+n_2)
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="性質-19-2"><font color=#0000FF><u>性質 19-2</u></font></h3>
+<p>對於<span
+class="math inline">\(n_1,n_2\in\mathbb{N}\)</span>，有<span
+class="math inline">\(\phi(n_1)\phi(n_2)=\phi(n_1n_2)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由定義有 <span
+class="math display">\[
+\begin{aligned}
+\phi(n_1)\phi(n_2)&amp;=[(n_1+k,k)]\times[(n_2+q,q)]\\
+&amp;=[(n_1+k)(n_2+q)+kq,(n_1+k)q+(n_2+q)k)]\\
+&amp;=[(n_1n_2+\textcolor{red}{kn_2+qn_1+2kq},\textcolor{red}{kn_2+qn_1+2kq})]\\
+&amp;=\phi(n_1n_2)
+\end{aligned}
+\]</span> <font size="1">QED</font></p>
+<h3 id="性質-19-3"><font color=#0000FF><u>性質 19-3</u></font></h3>
+<p><span class="math inline">\(\phi\)</span>是一對一的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於<span
+class="math inline">\(n_1,n_2\in\mathbb{N}\)</span>，若<span
+class="math inline">\(\phi(n_1)=\phi(n_2)\)</span>，則 <span
+class="math display">\[
+[(n_1+k,k)]=[(n_2+q,q)]
+\]</span> 由定義有 <span class="math display">\[
+n_1+k+q=n_2+q+k
+\]</span> 即<span class="math inline">\(n_1=n_2\)</span> i.e. <span
+class="math inline">\(\phi\)</span>是一對一的。<font size="1">QED</font></p>
+<h3 id="註記-19-4"><font color=#0000FF><u>註記 19-4</u></font></h3>
+<p>由性質19-1~19-3可知<span
+class="math inline">\(\phi(\mathbb{N})\subseteq\mathbb{Z}\)</span>和<span
+class="math inline">\(\mathbb{N}\)</span>有一樣的結構，且又有引理18的排序，故我們可以把<span
+class="math inline">\(\mathbb{Z}\)</span>寫成 <span
+class="math display">\[
+\cdots&lt;-2&lt;-1&lt;0&lt;1&lt;2&lt;\cdots
+\]</span> 其中自然數從<span
+class="math inline">\(1\)</span>開始，而<span
+class="math inline">\(-a\)</span>代表<span
+class="math inline">\(a\)</span>的加法反元素。</p>
+<center>
+<h1 id="有理數"><font color=#b8860b>有理數</font></h1>
+</center>
+<h2 id="定義-20有理數-rational-numbers"><font color=#008000><u>定義
+20：有理數 (Rational Numbers)</u></font></h2>
+<p>對於<span class="math inline">\(m\in\mathbb{Z}, 0\neq
+n\in\mathbb{Z}\)</span>，考慮<span
+class="math inline">\((m,n)\in\mathbb{Z}\times\mathbb{Z}\)</span>。定義<span
+class="math inline">\(\mathbb{Z}\times\mathbb{Z}\)</span>上的等價關係<span
+class="math inline">\(\sim\)</span>為 <span class="math display">\[
+(m_1,n_1)\sim(m_2,n_2)\Leftrightarrow m_1n_2=n_1m_2
+\]</span> 可以很容易驗證這是一個等價關係。我們將有理數<span
+class="math inline">\(\mathbb{Q}\)</span>定義為所有<span
+class="math inline">\(\mathbb{Z}\times\mathbb{Z}\)</span>關於<span
+class="math inline">\(\sim\)</span>的等價類的集合(這件事可以記做<span
+class="math inline">\(\mathbb{Z}\times\mathbb{Z}/\sim\)</span>)，而其中等價類<span
+class="math inline">\([(m,n)]\)</span>可以記為<span
+class="math inline">\(m/n\)</span>。</p>
+<h3
+id="定義-20-1有理數的加法-addition-of-rational-numbers"><font color=#008000><u>定義
+20-1：有理數的加法 (Addition of Rational Numbers)</u></font></h3>
+<p>對於<span
+class="math inline">\([(m_1,n_1)],[(m_2,n_2)]\in\mathbb{Q}\)</span>，我們定義
+<span class="math display">\[
+[(m_1,n_1)]+[(m_2,n_2)]=[(m_1n_2+m_2n_1,n_1n_2)]
+\]</span></p>
+<h4 id="註記-20-1-1"><font color=#0000FF><u>註記 20-1-1</u></font></h4>
+<p>對於任意整數<span
+class="math inline">\(n\)</span>，可以很容易驗證<span
+class="math inline">\(e=[(0,n)]\)</span>是<span
+class="math inline">\(\mathbb{Q}\)</span>上的加法單位元素。而對於<span
+class="math inline">\(q=[(m,n)]\in\mathbb{Q}\)</span>，也很容易可以驗證<span
+class="math inline">\(-q=[(-m,n)]\)</span>是其加法反元素。</p>
+<h3
+id="定義-20-2有理數的乘法-multiplication-of-rational-numbers"><font color=#008000><u>定義
+20-2：有理數的乘法 (Multiplication of Rational Numbers)</u></font></h3>
+<p>對於<span
+class="math inline">\([(m_1,n_1)],[(m_2,n_2)]\in\mathbb{Q}\)</span>，我們定義
+<span class="math display">\[
+[(m_1,n_1)]\times[(m_2,n_2)]=[(m_1m_2,n_1n_2)]
+\]</span></p>
+<h4 id="註記-20-2-1"><font color=#0000FF><u>註記 20-2-1</u></font></h4>
+<p>可以很容易驗證<span class="math inline">\(i=[(1,1)]\)</span>是<span
+class="math inline">\(\mathbb{Q}\)</span>上的乘法單位元素。而對於<span
+class="math inline">\(q=[(m,n)]\in(\mathbb{Q}/\{0\})\)</span>(即<span
+class="math inline">\(m,n\neq 0\)</span>)，也很容易可以驗證 <span
+class="math display">\[
+[(m,n)]\times[(n,m)]=i
+\]</span> 即<span class="math inline">\(q\)</span>的乘法反元素為<span
+class="math inline">\(q^{-1}=[(n,m)]\)</span>。</p>
+<h3 id="註記-20-3"><font color=#0000FF><u>註記 20-3</u></font></h3>
+<p>由註記20-1-1與20-2-1可知<span
+class="math inline">\((\mathbb{Q},+)\)</span>與<span
+class="math inline">\((\mathbb{Q},\times)\)</span>是交換群，而<span
+class="math inline">\((\mathbb{Q},+,\times)\)</span>是體(體的定義可以參見<a
+href="https://alexthepurplerose.github.io/2024/08/15/linalg-vector-space/">這裡</a>的定義1)。</p>
+<h3
+id="定義-20-4有理數的排序-ordering-of-rational-numbers"><font color=#008000><u>定義
+20-4：有理數的排序 (Ordering of Rational Numbers)</u></font></h3>
+<p>對於<span
+class="math inline">\([(m,n)]\in\mathbb{Q}\)</span>，若<span
+class="math inline">\(m,n&gt;0\)</span>或<span
+class="math inline">\(m,n&lt;0\)</span>，我們說<span
+class="math inline">\([(m,n)]&gt;0=[(0,k)]\)</span>。而對於<span
+class="math inline">\(a,b\in\mathbb{Q}\)</span>，若<span
+class="math inline">\(a-b=a+(-b)&gt;0\)</span>，則我們稱<span
+class="math inline">\(a&gt;b\)</span>。</p>
+<h2
+id="定義-21整數嵌入有理數-embedding-of-integers-into-rational-numbers"><font color=#008000><u>定義
+21：整數嵌入有理數 (Embedding of Integers into Rational
+Numbers)</u></font></h2>
+<p>對於<span
+class="math inline">\(x\in\mathbb{Z}\)</span>，考慮映射<span
+class="math inline">\(\phi:\mathbb{Z}\to\mathbb{Q}\)</span>，其中 <span
+class="math display">\[
+\phi(x)=[(x,1)]
+\]</span> 類似性質19-1~19-3，可以證明<span
+class="math inline">\(\phi(\mathbb{Z})\)</span>和<span
+class="math inline">\(\mathbb{Z}\)</span>有相同的結構。</p>
+<h2
+id="性質-22阿基米德性質-archimedean-property"><font color=#0000FF><u>性質
+22：阿基米德性質 (Archimedean Property)</u></font></h2>
+<p>I. 對於任何<span
+class="math inline">\(q\in\mathbb{Q}\)</span>，存在<span
+class="math inline">\(\overline{m}\in\mathbb{Z}\)</span>使得<span
+class="math inline">\(q&lt;\overline{m}\)</span>(這裡的<span
+class="math inline">\(\overline{m}\)</span>要先用定義21的<span
+class="math inline">\(\phi\)</span>打到<span
+class="math inline">\(\mathbb{Q}\)</span>上)。 <br>II. 對於有理數<span
+class="math inline">\(q&gt;0\)</span>，存在<span
+class="math inline">\(n\in\mathbb{N}\)</span>使得<span
+class="math inline">\(0&lt;\frac{1}{n}&lt;q\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：<br> I. 若<span
+class="math inline">\(q\leq 0\)</span>，則可以令<span
+class="math inline">\(\overline{m}=1\)</span>。而若<span
+class="math inline">\(q&gt;0\)</span>，則令<span
+class="math inline">\(q=[(m,n)]\)</span>。由於<span
+class="math inline">\(q&gt;0\)</span>，不失一般性可以令<span
+class="math inline">\(m,n&gt;0\)</span>。而很容易可以驗證 <span
+class="math display">\[
+[(m+1,1)]&gt;[(m,n)]
+\]</span> 即可以取<span
+class="math inline">\(\overline{m}=[(m+1,1)]\)</span>。 <br>II. 令<span
+class="math inline">\(q=m_1/n_1\)</span>，不失一般性令<span
+class="math inline">\(m_1,n_1&gt;0\)</span>。很容易可以驗證 <span
+class="math display">\[
+[(m_1,n_1)]&gt;[(1,n_1+1)]
+\]</span> 即可以令<span
+class="math inline">\(n=n_1+1\)</span>。<font size="1">QED</font></p>
+<img src="archimedes.jpg" width="25%" height="25%">
+<center>
+圖3 Archimedes
+</center>
 
     </div>
 
@@ -813,12 +1009,22 @@ class="math inline">\([(m,n)]\)</span>是負整數。</p>
 9-4：交換律 (Commutative Property)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B4%E6%95%B8"><span class="nav-number">3.</span> <span class="nav-text">整數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E7%AD%89%E5%83%B9%E9%97%9C%E4%BF%82-equivalent-relation"><span class="nav-number">3.1.</span> <span class="nav-text">定義
 10：等價關係 (Equivalent Relation)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E7%AD%89%E5%83%B9%E9%A1%9E-equivalent-class"><span class="nav-number">3.2.</span> <span class="nav-text">定義
 11：等價類 (Equivalent Class)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">3.3.</span> <span class="nav-text">定理 12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13%E6%95%B4%E6%95%B8-integers"><span class="nav-number">3.4.</span> <span class="nav-text">定義 13：整數
-(Integers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-1"><span class="nav-number">3.4.1.</span> <span class="nav-text">註記 13-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13-2%E6%95%B4%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B3%95-addition-of-integers"><span class="nav-number">3.4.2.</span> <span class="nav-text">定義
-13-2：整數的加法 (Addition of Integers)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-2-1"><span class="nav-number">3.4.2.1.</span> <span class="nav-text">註記 13-2-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-14%E4%BA%A4%E6%8F%9B%E7%BE%A4-commutative-group"><span class="nav-number">3.5.</span> <span class="nav-text">定義
+(Integers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13-1%E6%95%B4%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B3%95-addition-of-integers"><span class="nav-number">3.4.1.</span> <span class="nav-text">定義
+13-1：整數的加法 (Addition of Integers)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-13-1-1"><span class="nav-number">3.4.1.1.</span> <span class="nav-text">註記 13-1-1</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-14%E4%BA%A4%E6%8F%9B%E7%BE%A4-commutative-group"><span class="nav-number">3.5.</span> <span class="nav-text">定義
 14：交換群 (Commutative Group)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-15"><span class="nav-number">3.6.</span> <span class="nav-text">定理 15</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-16%E6%95%B4%E6%95%B8%E7%9A%84%E4%B9%98%E6%B3%95-multiplication-of-integers"><span class="nav-number">3.7.</span> <span class="nav-text">定義
 16：整數的乘法 (Multiplication of Integers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-16-1"><span class="nav-number">3.7.1.</span> <span class="nav-text">註記 16-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-17%E6%95%B4%E6%95%B8%E7%9A%84%E6%8E%92%E5%BA%8F-ordering-of-integers"><span class="nav-number">3.8.</span> <span class="nav-text">定義
 17：整數的排序 (Ordering of Integers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-17-1%E8%B2%A0%E6%95%B4%E6%95%B8-negative-integers"><span class="nav-number">3.8.1.</span> <span class="nav-text">定義
-17-1：負整數 (Negative Integers)</span></a></li></ol></li></ol></li></ol></div>
+17-1：負整數 (Negative Integers)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-17-1-1%E7%9B%B8%E5%8F%8D%E6%95%B8-opposite-numbers"><span class="nav-number">3.8.1.1.</span> <span class="nav-text">定義
+17-1-1：相反數 (Opposite Numbers)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-18"><span class="nav-number">3.9.</span> <span class="nav-text">引理 18</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-18-1"><span class="nav-number">3.9.1.</span> <span class="nav-text">註記 18-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-19%E8%87%AA%E7%84%B6%E6%95%B8%E5%B5%8C%E5%85%A5%E6%95%B4%E6%95%B8-embedding-of-natural-numbers-into-integers"><span class="nav-number">3.10.</span> <span class="nav-text">定義
+19：自然數嵌入整數 (Embedding of Natural Numbers into
+Integers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-19-1"><span class="nav-number">3.10.1.</span> <span class="nav-text">性質 19-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-19-2"><span class="nav-number">3.10.2.</span> <span class="nav-text">性質 19-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-19-3"><span class="nav-number">3.10.3.</span> <span class="nav-text">性質 19-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-19-4"><span class="nav-number">3.10.4.</span> <span class="nav-text">註記 19-4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%89%E7%90%86%E6%95%B8"><span class="nav-number">4.</span> <span class="nav-text">有理數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-20%E6%9C%89%E7%90%86%E6%95%B8-rational-numbers"><span class="nav-number">4.1.</span> <span class="nav-text">定義
+20：有理數 (Rational Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-20-1%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B3%95-addition-of-rational-numbers"><span class="nav-number">4.1.1.</span> <span class="nav-text">定義
+20-1：有理數的加法 (Addition of Rational Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-20-1-1"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">註記 20-1-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-20-2%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E4%B9%98%E6%B3%95-multiplication-of-rational-numbers"><span class="nav-number">4.1.2.</span> <span class="nav-text">定義
+20-2：有理數的乘法 (Multiplication of Rational Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-20-2-1"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">註記 20-2-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-20-3"><span class="nav-number">4.1.3.</span> <span class="nav-text">註記 20-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-20-4%E6%9C%89%E7%90%86%E6%95%B8%E7%9A%84%E6%8E%92%E5%BA%8F-ordering-of-rational-numbers"><span class="nav-number">4.1.4.</span> <span class="nav-text">定義
+20-4：有理數的排序 (Ordering of Rational Numbers)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-21%E6%95%B4%E6%95%B8%E5%B5%8C%E5%85%A5%E6%9C%89%E7%90%86%E6%95%B8-embedding-of-integers-into-rational-numbers"><span class="nav-number">4.2.</span> <span class="nav-text">定義
+21：整數嵌入有理數 (Embedding of Integers into Rational
+Numbers)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-22%E9%98%BF%E5%9F%BA%E7%B1%B3%E5%BE%B7%E6%80%A7%E8%B3%AA-archimedean-property"><span class="nav-number">4.3.</span> <span class="nav-text">性質
+22：阿基米德性質 (Archimedean Property)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
