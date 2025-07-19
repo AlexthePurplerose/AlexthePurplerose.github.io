@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="這份筆記是關於實數的建構與性質。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分析導論：實數的建構">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2025/07/19/ana-intro-real-numbers/index.html">
+<meta property="og:site_name" content="永蔚Alex">
+<meta property="og:description" content="這份筆記是關於實數的建構與性質。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-07-19T08:34:38.000Z">
+<meta property="article:modified_time" content="2025-07-19T09:39:44.218Z">
+<meta property="article:author" content="SemperLux">
+<meta property="article:tag" content="Lecture_Notes">
+<meta property="article:tag" content="Analysis">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://alexthepurplerose.github.io/2025/07/19/ana-intro-real-numbers/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>分析導論：實數的建構 | 永蔚Alex</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">永蔚Alex</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Nautical Nonsense and Abstract Nonsense</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2025/07/19/ana-intro-real-numbers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SemperLux">
+      <meta itemprop="description" content="永蔚的上課筆記與小小文欄">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永蔚Alex">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          分析導論：實數的建構
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2025-07-19 16:34:38 / 修改時間：17:39:44" itemprop="dateCreated datePublished" datetime="2025-07-19T16:34:38+08:00">2025-07-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">分析</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>這份筆記是關於實數的建構與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="極限"><font color=#b8860b>極限</font></h1>
+</center>
+<h2 id="定義-1序列的極限-limit-of-sequence"><font color=#008000><u>定義
+1：序列的極限 (Limit of Sequence)</u></font></h2>
+<p>給定序列<span
+class="math inline">\(\{b_n\}_{n=1}^\infty\)</span>，若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，都存在自然數<span
+class="math inline">\(N_0&gt;0\)</span>使得對於所有自然數<span
+class="math inline">\(n&gt;N_0\)</span>都有<span
+class="math inline">\(|b_n-L|&lt;\epsilon\)</span>，則我們稱<span
+class="math inline">\(\{b_n\}_{n=1}^\infty\)</span>的極限是<span
+class="math inline">\(L\)</span>，記做 <span class="math display">\[
+\lim_{n\to\infty}b_n=L
+\]</span></p>
+<h3 id="性質-1-1"><font color=#0000FF><u>性質 1-1</u></font></h3>
+<p>給定有理數序列<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>並令<span
+class="math inline">\(x\)</span>為其極限。若<span
+class="math inline">\(x\in\mathbb{Q}\)</span>，則存在<span
+class="math inline">\(M&gt;0\)</span>使得對於所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>有<span
+class="math inline">\(|x_n|&lt;M\)</span>。 <br></p>
+<p><font color=#8b4513><u>證明</u></font>：選定<span
+class="math inline">\(\epsilon=1\)</span>，則由定義知存在<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n&gt;N_0\)</span>有<span
+class="math inline">\(|x_n-x|&lt;\epsilon=1\)</span>。故由三角不等式有
+<span class="math display">\[
+|x_n|&lt;|x|+1,\forall n&gt;N_0
+\]</span> 令 <span class="math display">\[
+M=\max\{|x_1|+1,|x_2+1|,\cdots,|x_{N_0}|+1,|x|+1\}
+\]</span> 即有<span class="math inline">\(|x_n|\leq M,\forall
+n\in\mathbb{N}\)</span>。<font size="1">QED</font></p>
+<h3 id="性質-1-2"><font color=#0000FF><u>性質 1-2</u></font></h3>
+<p>給定有理數序列<span
+class="math inline">\(\{x_n\}_{n=1}^\infty,\{y_n\}_{n=1}^\infty\)</span>並令<span
+class="math inline">\(x,y\)</span>為其極限。若<span
+class="math inline">\(x,y\in\mathbb{Q}\)</span>，則 <br>1. <span
+class="math inline">\(\lim\limits_{n\to\infty}(x_n+y_n)=x+y\)</span>
+<br>2. <span
+class="math inline">\(\lim\limits_{n\to\infty}x_ny_n=xy\)</span><br></p>
+<p><font color=#8b4513><u>證明</u></font>： <br>1. 給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，由定義知應存在<span
+class="math inline">\(N_1\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n&gt;N_1\)</span>都有<span
+class="math inline">\(|x_n-x|&lt;\epsilon/2\)</span>。同理應存在<span
+class="math inline">\(N_2\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n&gt;N_2\)</span>都有<span
+class="math inline">\(|y_n-y|&lt;\epsilon/2\)</span>。令<span
+class="math inline">\(N_0=\max\{N_1,N_2\}\)</span>，則對於所有<span
+class="math inline">\(n&gt;N_0\)</span>，由三角不等式應有 <span
+class="math display">\[
+|(x_n+y_n)-(x+y)|&lt;|x_n-x|+|y_n-y|=\epsilon
+\]</span> 即 <span class="math display">\[
+\lim_{n\to\infty}(x_n+y_n)=x+y
+\]</span> 2. 已知 <span class="math display">\[
+x_ny_n-xy=(x_n-x)y_n+(y_n-y)x
+\]</span> 故由三角不等式有 <span class="math display">\[
+\begin{aligned}
+|x_ny_n-xy|&amp;=|(x_n-x)y_n+(y_n-y)x|\\
+&amp;\leq|x_n-x||y_n|+|y_n-y||x|
+\end{aligned}
+\]</span> 由性質1-1知應存在<span
+class="math inline">\(M&gt;0\)</span>使得對於所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>有<span
+class="math inline">\(|x_n|,|y_n|&lt;M\)</span>，且義肢我們應也可以有<span
+class="math inline">\(|x|,|y|&lt;M\)</span>。故有 <span
+class="math display">\[
+|x_ny_n-xy|\leq M(|x_n-x|+|y_n-y|)
+\]</span> 給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，由於<span
+class="math inline">\(x_n\to x\)</span>, <span
+class="math inline">\(y_n\to y\)</span>，故應存在<span
+class="math inline">\(N_1,N_2\in\mathbb{N}\)</span>使得 <span
+class="math display">\[
+\begin{aligned}
+\forall n&gt;N_1&amp;, |x_n-x|&lt;\frac{\epsilon}{2M}\\
+\forall n&gt;N_2&amp;, |y_n-y|&lt;\frac{\epsilon}{2M}
+\end{aligned}
+\]</span> 令<span
+class="math inline">\(N_0=\max\{N_1,N_2\}\)</span>，則對於所有<span
+class="math inline">\(n&gt;N_0\)</span>有 <span class="math display">\[
+\begin{aligned}
+|x_ny_n-xy|&amp;\leq M|x_n-x|+M|y_n-y|\\
+&amp;&lt;M\left(\frac{\epsilon}{2M}+\frac{\epsilon}{2M}\right)\\
+&amp;=\epsilon
+\end{aligned}
+\]</span> 即 <span class="math display">\[
+\lim_{n\to\infty}x_ny_n=xy
+\]</span> <font size="1">QED</font></p>
+<h3 id="例-1-3"><font color=#ffa500><u>例 1-3</u></font></h3>
+<p>考慮數列 <span class="math display">\[
+x_1=1, x_2=\frac{2+x_1}{1+x_1},
+x_3=\frac{2+x_2}{1+x_2},\cdots,x_{n+1}=\frac{2+x_n}{1+x_n},\cdots
+\]</span> 假設<span
+class="math inline">\(\lim\limits_{n\to\infty}x_n\)</span>存在且<span
+class="math inline">\(\lim\limits_{n\to\infty}x_n=x\in\mathbb{Q}\)</span>，則由性質1-2知
+<span class="math display">\[
+x=\lim_{n\to\infty}x_n=\lim_{n\to\infty}x_{n+1}=\lim_{n\to\infty}\frac{2+x_n}{1+x_n}=\frac{2+x}{1+x}
+\]</span> 整理即得<span
+class="math inline">\(x^2=2\)</span>。我們知道這樣的<span
+class="math inline">\(x\)</span>並不是有理數。</p>
+<center>
+<h1 id="柯西序列與實數"><font color=#b8860b>柯西序列與實數</font></h1>
+</center>
+<h2 id="定義-2柯西序列-cauchy-sequence"><font color=#008000><u>定義
+2：柯西序列 (Cauchy Sequence)</u></font></h2>
+<p>給定序列<span
+class="math inline">\(\{a_n\}_{n=1}^\infty\subseteq\mathbb{Q}\)</span>，若對於所有<span
+class="math inline">\(0&lt;\epsilon\in\mathbb{Q}\)</span>，都存在<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;N_0\)</span>都有<span
+class="math inline">\(|a_m-a_n|&lt;\epsilon\)</span>，則我們稱<span
+class="math inline">\(\{a_n\}_{n=1}^\infty\)</span>是柯西序列。</p>
+<h2
+id="定義-3柯西序列的等價關係-equivalent-relation-of-cauchy-sequences"><font color=#008000><u>定義
+3：柯西序列的等價關係 (Equivalent Relation of Cauchy
+Sequences)</u></font></h2>
+<p>給定兩個有理柯西序列<span class="math inline">\(\{x_n\}_{n=1}^\infty,
+\{y_n\}_{n=1}^\infty\)</span>，若 <span class="math display">\[
+\lim_{n\to\infty}|x_n-y_n|=0
+\]</span> 則我們稱<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>和<span
+class="math inline">\(\{y_n\}_{n=1}^\infty\)</span>等價，記做<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\sim\{y_n\}_{n=1}^\infty\)</span></p>
+<h3 id="註記-3-1"><font color=#0000FF><u>註記 3-1</u></font></h3>
+<p>定義3中的<span
+class="math inline">\(\sim\)</span>確實符合等價關係的定義。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分三個部分檢查這件事。
+<br>1. 反身性：對於所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>，顯然有<span
+class="math inline">\(x_n-x_n=0\)</span>，故 <span
+class="math display">\[
+\lim_{n\to\infty}|x_n-x_n|=0
+\]</span> 即<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\sim\{x_n\}_{n=1}^\infty\)</span>。
+<br>2. 對稱性：若<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\sim\{y_n\}_{n=1}^\infty\)</span>，則
+<span class="math display">\[
+\lim_{n\to\infty}|x_n-y_n|=0=\lim_{n\to\infty}|y_n-x_n|
+\]</span> 即<span
+class="math inline">\(\{y_n\}_{n=1}^\infty\sim\{x_n\}_{n=1}^\infty\)</span>。
+<br>3. 遞移性： 若<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\sim\{y_n\}_{n=1}^\infty\)</span>,
+<span
+class="math inline">\(\{y_n\}_{n=1}^\infty\sim\{z_n\}_{n=1}^\infty\)</span>，則
+<span class="math display">\[
+\lim_{n\to\infty}|x_n-y_n|=\lim_{n\to\infty}|y_n-z_n|=0
+\]</span> 故由三角不等式有 <span class="math display">\[
+\begin{aligned}
+\lim_{n\to\infty}|x_n-z_n|&amp;=\lim_{n\to\infty}|x_n-y_n+y_n-z_n|\\
+&amp;\leq \lim_{n\to\infty}|x_n-y_n|+|y_n-z_n|\\
+&amp;=0
+\end{aligned}
+\]</span> 但<span
+class="math inline">\(|x_n-z_n|\)</span>應該要是正的，故 <span
+class="math display">\[
+\lim_{n\to\infty}|x_n-z_n|=0
+\]</span> 即<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\sim\{z_n\}_{n=1}^\infty\)</span>。<br>
+由以上三點，可知定義3中的<span
+class="math inline">\(\sim\)</span>確為一等價關係。<font size="1">QED</font></p>
+<h2 id="定義-4實數-real-numbers"><font color=#008000><u>定義 4：實數
+(Real Numbers)</u></font></h2>
+<p>令<span
+class="math inline">\(S\)</span>為所有有理柯西序列的集合，我們將實數<span
+class="math inline">\(\mathbb{R}\)</span>定義為<span
+class="math inline">\(S\)</span>上所有等價類的集合，即<span
+class="math inline">\(\mathbb{R}=S/\sim\)</span>。</p>
+<h3
+id="定義-4-1實數的加法-addition-of-real-numbers"><font color=#008000><u>定義
+4-1：實數的加法 (Addition of Real Numbers)</u></font></h3>
+<p>我們將<span class="math inline">\(\mathbb{R}\)</span>上的加法定義為
+<span class="math display">\[
+[\{a_n\}]+[\{b_n\}]=[\{a_n+b_n\}]
+\]</span></p>
+<h3
+id="定義-4-2實數的乘法-multiplication-of-real-numbers"><font color=#008000><u>定義
+4-2：實數的乘法 (Multiplication of Real Numbers)</u></font></h3>
+<p>我們將<span class="math inline">\(\mathbb{R}\)</span>上的乘法定義為
+<span class="math display">\[
+[\{a_n\}]\times[\{b_n\}]=[\{a_nb_n\}]
+\]</span></p>
+<h2 id="註記-5"><font color=#0000FF><u>註記 5</u></font></h2>
+<p>給定有理柯西序列<span
+class="math inline">\(\{a_n\}_{n=1}^\infty\)</span>，若<span
+class="math inline">\(\lim\limits_{n\to\infty}\neq
+0\)</span>，則存在<span class="math inline">\(\delta&gt;0,
+N_0\in\mathbb{N}\)</span>使得底下兩點中有且僅有一點會發生： <br>1.
+對於所有<span class="math inline">\(n&gt;N_0\)</span>，有<span
+class="math inline">\(a_n&gt;\delta\)</span>。 <br>2. 對於所有<span
+class="math inline">\(n&gt;N_0\)</span>，有<span
+class="math inline">\(a_n&lt;-\delta\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
+              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/07/08/ana-intro-numbers/" rel="prev" title="分析導論：自然數、整數與有理數的建構">
+      <i class="fa fa-chevron-left"></i> 分析導論：自然數、整數與有理數的建構
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A5%B5%E9%99%90"><span class="nav-number">1.</span> <span class="nav-text">極限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%BA%8F%E5%88%97%E7%9A%84%E6%A5%B5%E9%99%90-limit-of-sequence"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：序列的極限 (Limit of Sequence)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">性質 1-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">性質 1-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">例 1-3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97%E8%88%87%E5%AF%A6%E6%95%B8"><span class="nav-number">2.</span> <span class="nav-text">柯西序列與實數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97-cauchy-sequence"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+2：柯西序列 (Cauchy Sequence)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E6%9F%AF%E8%A5%BF%E5%BA%8F%E5%88%97%E7%9A%84%E7%AD%89%E5%83%B9%E9%97%9C%E4%BF%82-equivalent-relation-of-cauchy-sequences"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+3：柯西序列的等價關係 (Equivalent Relation of Cauchy
+Sequences)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E5%AF%A6%E6%95%B8-real-numbers"><span class="nav-number">2.3.</span> <span class="nav-text">定義 4：實數
+(Real Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E5%AF%A6%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B3%95-addition-of-real-numbers"><span class="nav-number">2.3.1.</span> <span class="nav-text">定義
+4-1：實數的加法 (Addition of Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-2%E5%AF%A6%E6%95%B8%E7%9A%84%E4%B9%98%E6%B3%95-multiplication-of-real-numbers"><span class="nav-number">2.3.2.</span> <span class="nav-text">定義
+4-2：實數的乘法 (Multiplication of Real Numbers)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">2.4.</span> <span class="nav-text">註記 5</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SemperLux</p>
+  <div class="site-description" itemprop="description">永蔚的上課筆記與小小文欄</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:hiimlilwei@gmail.com" title="E-Mail → mailto:hiimlilwei@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SemperLux</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
