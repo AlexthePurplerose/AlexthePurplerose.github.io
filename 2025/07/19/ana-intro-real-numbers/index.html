@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於實數的建構與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-07-19T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-19T09:39:44.218Z">
+<meta property="article:modified_time" content="2025-07-21T13:00:19.913Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -190,10 +190,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2025-07-19 16:34:38 / 修改時間：17:39:44" itemprop="dateCreated datePublished" datetime="2025-07-19T16:34:38+08:00">2025-07-19</time>
+              <time title="創建時間：2025-07-19 16:34:38" itemprop="dateCreated datePublished" datetime="2025-07-19T16:34:38+08:00">2025-07-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2025-07-21 21:00:19" itemprop="dateModified" datetime="2025-07-21T21:00:19+08:00">2025-07-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -414,7 +420,263 @@ N_0\in\mathbb{N}\)</span>使得底下兩點中有且僅有一點會發生： <br
 class="math inline">\(a_n&gt;\delta\)</span>。 <br>2. 對於所有<span
 class="math inline">\(n&gt;N_0\)</span>，有<span
 class="math inline">\(a_n&lt;-\delta\)</span>。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：</p>
+<p><font color=#8b4513><u>證明</u></font>：我們使用反證法證明此命題，並分成以下兩部分：
+<br>1. 若對於所有<span class="math inline">\(\delta&gt;0,
+N_0\in\mathbb{N}\)</span>都存在<span
+class="math inline">\(n&gt;N_0\)</span>使得<span
+class="math inline">\(-\delta&lt;a_n&lt;\delta\)</span>，則由數列極限的定義知若<span
+class="math inline">\(\lim a_n\)</span>存在則 <span
+class="math display">\[
+\lim_{n\to\infty}a_n=0
+\]</span> 這與假設矛盾。 <br>2. 若對於所有<span
+class="math inline">\(\delta&gt;0, N_0\in\mathbb{N}\)</span>都存在<span
+class="math inline">\(m,n&gt;N_0\)</span>使得<span
+class="math inline">\(a_n&gt;\delta, a_m&lt;-\delta\)</span>，則 <span
+class="math display">\[
+|a_n-a_m|=2\delta
+\]</span> 令<span
+class="math inline">\(\epsilon=\delta\)</span>，則對於所有<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>都存在<span
+class="math inline">\(m,n&gt;N_0\)</span>使得<span
+class="math inline">\(|a_n-a_m|&gt;\epsilon\)</span>。這與<span
+class="math inline">\(\{a_n\}_{n=1}^\infty\)</span>是柯西序列的假設矛盾。
+<br>綜上所述，可知命題中的兩點有且僅有一點會成立。<font size="1">QED</font></p>
+<h2
+id="定義-6實數的排序-ordering-of-real-numbers"><font color=#008000><u>定義
+6：實數的排序 (Ordering of Real Numbers)</u></font></h2>
+<p>對於<span
+class="math inline">\([\{a_n\}]\in\mathbb{R}\)</span>，若存在<span
+class="math inline">\(\delta&gt;0,N_0\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n&gt;N_0\)</span>都有<span
+class="math inline">\(a_n&gt;\delta\)</span>，則說實數<span
+class="math inline">\([\{a_n\}]&gt;0\)</span>(這裡的<span
+class="math inline">\(0\)</span>指的是<span
+class="math inline">\(0=[\{0\}_{n=1}^\infty]\in\mathbb{R}\)</span>)。而對於實數<span
+class="math inline">\([\{a_n\}],[\{b_n\}]\)</span>，若<span
+class="math inline">\([\{a_n\}]-[\{b_n\}]&gt;0\)</span>，則稱<span
+class="math inline">\([\{a_n\}]&gt;[\{b_n\}]\)</span>。</p>
+<h3 id="註記-6-1"><font color=#0000FF><u>註記 6-1</u></font></h3>
+<p>註記5說明這樣定義實數的排序是良好沒有問題的(即不會找到非零實數既不大於零也不小於零)。</p>
+<h3 id="註記-6-2"><font color=#0000FF><u>註記 6-2</u></font></h3>
+<p>可以發現這樣定義的實數排序滿足遞移律，即給定實數<span
+class="math inline">\([\{a_n\}],[\{b_n\}],[\{c_n\}]\)</span>，若<span
+class="math inline">\([\{a_n\}]&gt;[\{b_n\}]\)</span>且<span
+class="math inline">\([\{b_n\}]&gt;[\{c_n\}]\)</span>，則<span
+class="math inline">\([\{a_n\}]&gt;[\{c_n\}]\)</span>。</p>
+<h2
+id="定義-7有理數嵌入實數-embedding-of-rational-numbers-into-real-numbers"><font color=#008000><u>定義
+7：有理數嵌入實數 (Embedding of Rational Numbers into Real
+Numbers)</u></font></h2>
+<p>對於<span
+class="math inline">\(q\in\mathbb{Q}\)</span>，考慮映射<span
+class="math inline">\(\phi:\mathbb{Q}\to\mathbb{R}\)</span>，其中 <span
+class="math display">\[
+\phi(q)=[\{q\}_{n=1}^\infty]\in\mathbb{R}
+\]</span> 類似<a
+href="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/">這裡</a>的性質19-1~19-3，可以證明<span
+class="math inline">\(\phi(\mathbb{Q})\)</span>和<span
+class="math inline">\(\mathbb{Q}\)</span>有相同的結構。</p>
+<center>
+<h1 id="實數完備性"><font color=#b8860b>實數完備性</font></h1>
+</center>
+<h2 id="定義-8完備-complete"><font color=#008000><u>定義 8：完備
+(Complete)</u></font></h2>
+<p>給定集合<span class="math inline">\(A\)</span>，若<span
+class="math inline">\(A\)</span>中的任何柯西序列都有極限且其極限落在<span
+class="math inline">\(A\)</span>中，則稱<span
+class="math inline">\(A\)</span>是完備的。</p>
+<h2 id="引理-9"><font color=#0000FF><u>引理 9</u></font></h2>
+<p>給定有理柯西序列<span
+class="math inline">\(\{a_n\}_{n=1}^\infty\)</span>，則極限<span
+class="math inline">\(\lim\limits_{n\to\infty}a_n\)</span>在<span
+class="math inline">\(\mathbb{R}\)</span>中存在，且其極限為<span
+class="math inline">\([\{a_n\}_{n=1}^\infty]\in\mathbb{R}\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：因為我們是討論實數上的極限，所以在給定<span
+class="math inline">\(\epsilon&gt;0\)</span>的時候我們要給定的也必須是<span
+class="math inline">\(\epsilon=[\{\epsilon_n\}_{n=1}^\infty]\in\mathbb{R}\)</span>，其中<span
+class="math inline">\(\epsilon_n\in\mathbb{Q}\)</span>。由定義6知<span
+class="math inline">\(\epsilon&gt;0\)</span>的意思是存在<span
+class="math inline">\(0&lt;\delta\in\mathbb{Q},N_1\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n&gt;N_1\)</span>有<span
+class="math inline">\(\epsilon_n&gt;\delta\)</span>。並且嚴格上來說因為是考慮<span
+class="math inline">\(\mathbb{R}\)</span>上的事情，故應用<span
+class="math inline">\(\overline{a_m}=\phi(a_m)\in\mathbb{R}\)</span>取代<span
+class="math inline">\(a_m\in\mathbb{Q}\)</span>。<br> 接著，因為<span
+class="math inline">\(\{a_n\}\)</span>是柯西序列，故應存在<span
+class="math inline">\(N_2\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;N_2\)</span>有<span
+class="math inline">\(|a_m-a_n|&lt;\delta\)</span>。於是，對於<span
+class="math inline">\(m&gt;N_2\)</span>，有 <span
+class="math display">\[
+|\overline{a_m}-a|=[\{|a_k-a_m|\}_{k=1}^\infty]=[\{b_j\}_{j=1}^\infty]
+\]</span> 其中 <span class="math display">\[
+b_j=\left\{
+\begin{aligned}
+0&amp;, j\leq N_2\\
+|a_j-a_m|&amp;, j&gt;N_2
+\end{aligned}
+\right.
+\]</span> (去掉前面有限項不會改變柯西序列的等價性)，於是有 <span
+class="math display">\[
+[\{b_j\}_{j=1}^\infty]&lt;\delta&lt;\epsilon
+\]</span> 即對於所有<span class="math inline">\(m&gt;N_2\)</span>有<span
+class="math inline">\(|\overline{a_m}-a|&lt;\epsilon\)</span>，即 <span
+class="math display">\[
+\lim_{m\to\infty}\overline{a_m}=a
+\]</span> <font size="1">QED</font></p>
+<h2 id="定理-10"><font color=#ff1493><u>定理 10</u></font></h2>
+<p>實數是完備的，即所有<span
+class="math inline">\(\mathbb{R}\)</span>上的柯西序列都會在<span
+class="math inline">\(\mathbb{R}\)</span>中有極限。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮實數上的柯西序列<span
+class="math inline">\(\{A_k\}_{k=1}^\infty\subseteq\mathbb{R}\)</span>，其中
+<span class="math display">\[
+A_k=[\{a_j^k\}_{j=1}^\infty], a_j^k\in\mathbb{Q}
+\]</span> 給定<span
+class="math inline">\(\epsilon_1=\frac{1}{2}\)</span>，由於<span
+class="math inline">\(\{A_k\}\)</span>是柯西序列，故存在<span
+class="math inline">\(N_1\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;N_1\)</span>有<span
+class="math inline">\(|A_m-A_n|&lt;\epsilon_1\)</span>。而又因為<span
+class="math inline">\(A_{N_1}\)</span>是<span
+class="math inline">\(\mathbb{Q}\)</span>中的柯西序列，故應存在<span
+class="math inline">\(M_1\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;M_1\)</span>有<span
+class="math inline">\(\left|a_m^{N_1}-a_n^{N_1}\right|&lt;\epsilon_1\)</span>。<br>
+然後，令<span
+class="math inline">\(\epsilon_2=\frac{1}{2^2}\)</span>，則同上所述應存在<span
+class="math inline">\(N_2&gt;N_1\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;N_2\)</span>有<span
+class="math inline">\(|A_m-A_n|&lt;\epsilon_2\)</span>，且也應存在<span
+class="math inline">\(M_2&gt;M_1\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;M_2\)</span>有<span
+class="math inline">\(\left|a_m^{N_2}-a_n^{N_2}\right|&lt;\epsilon_2\)</span>。並且可以挑選夠大的<span
+class="math inline">\(M_2\)</span>使得對於所有<span
+class="math inline">\(m&gt;M_2\)</span>同時也有<span
+class="math inline">\(\left|a_m^{N_1}-a_m^{N_2}\right|&lt;\epsilon_1\)</span>(這是因為<span
+class="math inline">\(|A_{N_1}-A_{N_2}|&lt;\epsilon_1\)</span>)。<br>
+如此迴環往復，對於<span
+class="math inline">\(\epsilon_{l+1}=\frac{1}{2^{l+1}}\)</span>，可以找到<span
+class="math inline">\(N_{l+1}&gt;N_l\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;N_{l+1}\)</span>有 <span
+class="math display">\[
+|A_m-A_n|&lt;\epsilon_{l+1}\;\;\mbox{(★)}
+\]</span> 且可以找到<span
+class="math inline">\(M_{l+1}&gt;M_l\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;M_{l+1}\)</span>有 <span
+class="math display">\[
+\left|a_m^{N_{l+1}}-a_n^{N_{l+1}}\right|&lt;\epsilon_{l+1}\mbox{ and
+}\left|a_m^{N_l}-a_m^{N_{l+1}}\right|&lt;\epsilon_l\;\;\mbox{(☆)}
+\]</span> 接著，我們考慮柯西序列<span
+class="math inline">\(\{a_k\}\)</span>，其中 <span
+class="math display">\[
+a_k=\left\{
+\begin{aligned}
+a_k^{N_1}&amp;,\mbox{ for }k&lt;M_2\\
+a_k^{N_2}&amp;,\mbox{ for }M_2\leq k&lt;M_3\\
+a_k^{N_3}&amp;,\mbox{ for }M_3\leq k&lt;M_4\\
+&amp;\vdots
+\end{aligned}
+\right.
+\]</span> 我們希望說明<span
+class="math inline">\(\{a_k\}_{k=1}^\infty\)</span>是<span
+class="math inline">\(\mathbb{Q}\)</span>中的柯西序列。令 <span
+class="math display">\[
+I_l=\{M_l,M_l+1,M_l+2,\cdots,M_{l+1}-1\}
+\]</span> 則對於<span class="math inline">\(m\in I_l\)</span>，<span
+class="math inline">\(n\in I_{l+1}\)</span>，有 <span
+class="math display">\[
+\begin{aligned}
+|a_m-a_n|&amp;=\left|a_m^{N_l}-a_n^{N_{l+1}}\right|\\
+&amp;\leq\left|a_m^{N_l}-a_n^{N_l}|+|a_n^{N_l}-a_n^{N_{l+1}}\right|\\
+&amp;\leq \epsilon_l+\epsilon_l=\epsilon_{l-1}
+\end{aligned}
+\]</span> 最後一步是來自(☆)。而<span
+class="math inline">\(\epsilon_{l-1}\)</span>有可以任意小，故<span
+class="math inline">\(\{a_k\}_{k=1}^\infty\)</span>為一柯西序列。故我們可以考慮實數<span
+class="math inline">\(A=[\{a_k\}]\)</span>。<br> 接著，我們希望說明
+<span class="math display">\[
+\lim_{k\to\infty}A_k=A
+\]</span> 我們有 <span class="math display">\[
+|A_k-A|\leq |A_k-A_{N_l}|+|A_{N_l}-A|
+\]</span> 由(★)知只要<span
+class="math inline">\(k&gt;N_l\)</span>就會有<span
+class="math inline">\(|A_k-A_{N_l}|&lt;\epsilon_l\)</span>
+(✪)。而對於<span class="math inline">\(j&gt;M_l\)</span>，假設<span
+class="math inline">\(M_i\leq j&lt;M_{i+1}\)</span>，則由(☆)有 <span
+class="math display">\[
+\begin{aligned}
+\left|a_j^{N_l}-a_j\right|&amp;=\left|a_j^{N_l}-a_j^{N_i}\right|\\
+&amp;\leq\left|a_j^{N_l}-a_j^{N_{l+1}}\right|+\left|a_j^{N_{l+1}}-a_j^{N_{l+2}}\right|+\cdots+\left|a_j^{N_{i-1}}-a_j^{N_i}\right|\\
+&amp;\leq\sum_{k=l}^\infty\left|a_j^{N_k}-a_j^{N_{k+1}}\right|\\
+&amp;\leq\sum_{k=l}^\infty\epsilon_k\\
+&amp;=\sum_{k=l}^\infty\frac{1}{2^k}\\
+&amp;&lt;4\epsilon_l
+\end{aligned}
+\]</span> 這對所有夠大的<span
+class="math inline">\(j\)</span>都成立，故<span
+class="math inline">\(|A_{N_l}-A|&lt;4\epsilon_l\)</span>。結合(✪)就有
+<span class="math display">\[
+|A_k-A|&lt;5\epsilon_l
+\]</span> 又<span
+class="math inline">\(\epsilon_l\)</span>可以任意小，故對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(k&gt;N_0\)</span>有<span
+class="math inline">\(|A_k-A|&lt;\epsilon\)</span>。即 <span
+class="math display">\[
+\lim_{k\to\infty}A_k=A
+\]</span> 即實數上的柯西序列<span
+class="math inline">\(A_k\)</span>有極限，且其極限為實數<span
+class="math inline">\(A\)</span>，故可知<span
+class="math inline">\(\mathbb{R}\)</span>是完備的。<font size="1">QED</font></p>
+<center>
+<h1 id="實數序列"><font color=#b8860b>實數序列</font></h1>
+</center>
+<h2 id="定理-11"><font color=#ff1493><u>定理 11</u></font></h2>
+<p>有上界的單調遞增實數數列一定收斂(i.e.極限存在)。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(\mathbb{R}\)</span>上的數列<span
+class="math inline">\(\{a_n\}_{n=1}^\infty\)</span>，且存在<span
+class="math inline">\(M\)</span>使得對於所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>有<span
+class="math inline">\(a_n&lt;M\)</span>。並且對於所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>也應有<span
+class="math inline">\(a_n\leq
+a_{n+1}\)</span>。由定理10知我們只須說明<span
+class="math inline">\(\{a_n\}\)</span>是實數中的柯西序列即可。<br>
+假設<span
+class="math inline">\(\{a_n\}\)</span>不是柯西序列，則存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得對於所有<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>都存在<span
+class="math inline">\(m,n&gt;N_0\)</span>使得<span
+class="math inline">\(|a_m-a_n|\geq\epsilon\)</span>。先令<span
+class="math inline">\(N_0=1\)</span>，則存在<span
+class="math inline">\(m_1&gt;n_1&gt;N_0=1\)</span>使得<span
+class="math inline">\(|a_{m_1}-a_{n_1}|\geq\epsilon\)</span>。再令<span
+class="math inline">\(N_0=m_1+1\)</span>，則存在<span
+class="math inline">\(m_2&gt;n_2&gt;N_0=m_1+1\)</span>使得<span
+class="math inline">\(|a_{m_2}-a_{n_2}|\geq\epsilon\)</span>。如此迴環往復，可以建構<span
+class="math inline">\(\{a_n\}\)</span>的子序列<span
+class="math inline">\(\{a_{m_k}\}_{k=1}^\infty\)</span>。由於<span
+class="math inline">\(\{a_n\}\)</span>單調遞增，故也有<span
+class="math inline">\(\{a_{m_k}\}\)</span>單調遞增。且由於<span
+class="math inline">\(n_{k+1}&gt;m_k+1\)</span>，故 <span
+class="math display">\[
+\epsilon\leq|a_{m_{k+1}}-a_{n_{k+1}}|&lt;|a_{m_{k+1}}-a_{m_k}|
+\]</span> 於是，由三角不等式會有<span
+class="math inline">\(|a_{m_{k+1}}-a_1|\geq
+k\epsilon\)</span>。由阿基米德性質(<a
+href="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/">這裡</a>的性質22)可知存在夠大的<span
+class="math inline">\(k\)</span>使得 <span class="math display">\[
+k\epsilon&gt;M-a_{m_1}
+\]</span> 故 <span class="math display">\[
+a_{m_{k+1}}\geq k\epsilon+a_{m_1}&gt;M
+\]</span> 但<span
+class="math inline">\(\{a_{m_k}\}\subseteq\{a_n\}\)</span>，故<span
+class="math inline">\(\{a_{m_k}\}\)</span>也應有上界<span
+class="math inline">\(M\)</span>。矛盾。故<span
+class="math inline">\(\{a_n\}\)</span>應為柯西序列，即其極限存在。<font size="1">QED</font></p>
 
     </div>
 
@@ -503,7 +765,11 @@ class="math inline">\(a_n&lt;-\delta\)</span>。<br></p>
 Sequences)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">註記 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E5%AF%A6%E6%95%B8-real-numbers"><span class="nav-number">2.3.</span> <span class="nav-text">定義 4：實數
 (Real Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-1%E5%AF%A6%E6%95%B8%E7%9A%84%E5%8A%A0%E6%B3%95-addition-of-real-numbers"><span class="nav-number">2.3.1.</span> <span class="nav-text">定義
 4-1：實數的加法 (Addition of Real Numbers)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4-2%E5%AF%A6%E6%95%B8%E7%9A%84%E4%B9%98%E6%B3%95-multiplication-of-real-numbers"><span class="nav-number">2.3.2.</span> <span class="nav-text">定義
-4-2：實數的乘法 (Multiplication of Real Numbers)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">2.4.</span> <span class="nav-text">註記 5</span></a></li></ol></li></ol></div>
+4-2：實數的乘法 (Multiplication of Real Numbers)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">2.4.</span> <span class="nav-text">註記 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%AF%A6%E6%95%B8%E7%9A%84%E6%8E%92%E5%BA%8F-ordering-of-real-numbers"><span class="nav-number">2.5.</span> <span class="nav-text">定義
+6：實數的排序 (Ordering of Real Numbers)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-1"><span class="nav-number">2.5.1.</span> <span class="nav-text">註記 6-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-2"><span class="nav-number">2.5.2.</span> <span class="nav-text">註記 6-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E6%9C%89%E7%90%86%E6%95%B8%E5%B5%8C%E5%85%A5%E5%AF%A6%E6%95%B8-embedding-of-rational-numbers-into-real-numbers"><span class="nav-number">2.6.</span> <span class="nav-text">定義
+7：有理數嵌入實數 (Embedding of Rational Numbers into Real
+Numbers)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E5%AE%8C%E5%82%99%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">實數完備性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E5%AE%8C%E5%82%99-complete"><span class="nav-number">3.1.</span> <span class="nav-text">定義 8：完備
+(Complete)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-9"><span class="nav-number">3.2.</span> <span class="nav-text">引理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">3.3.</span> <span class="nav-text">定理 10</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E5%BA%8F%E5%88%97"><span class="nav-number">4.</span> <span class="nav-text">實數序列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">4.1.</span> <span class="nav-text">定理 11</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
