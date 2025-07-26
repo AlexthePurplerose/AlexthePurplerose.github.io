@@ -27,13 +27,16 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於拓樸的基本概念與工具。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/euclid.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/ball.jpg">
 <meta property="article:published_time" content="2025-07-26T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-26T07:57:14.615Z">
+<meta property="article:modified_time" content="2025-07-26T09:36:54.112Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
 <meta property="article:tag" content="Analysis_Intro">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/euclid.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/">
 
@@ -193,7 +196,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2025-07-26 16:34:38 / 修改時間：15:57:14" itemprop="dateCreated datePublished" datetime="2025-07-26T16:34:38+08:00">2025-07-26</time>
+              <time title="創建時間：2025-07-26 16:34:38 / 修改時間：17:36:54" itemprop="dateCreated datePublished" datetime="2025-07-26T16:34:38+08:00">2025-07-26</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,15 +225,231 @@
       
         <p>這份筆記是關於拓樸的基本概念與工具。 <span id="more"></span><br></p>
 <center>
-<h1 id="代數基本定理"><font color=#b8860b>代數基本定理</font></h1>
+<h1 id="度量與範數"><font color=#b8860b>度量與範數</font></h1>
 </center>
-<h2 id="定義-1複數-complex-numbers"><font color=#008000><u>定義 1：複數
-(Complex Numbers)</u></font></h2>
-<p>給定<span class="math inline">\(a,b\in\mathbb{R}\)</span>，令<span
-class="math inline">\(c=a+bi\)</span>，其中<span
-class="math inline">\(i^2=-1\)</span>。我們稱這樣的<span
-class="math inline">\(c\)</span>為複數，並記所有複數的集合為<span
-class="math inline">\(\mathbb{C}\)</span>。</p>
+<h2 id="定義-1度量-metric"><font color=#008000><u>定義 1：度量
+(Metric)</u></font></h2>
+<p>給定映射<span class="math inline">\(d:S\times
+S\to\mathbb{R}\)</span>，若<span
+class="math inline">\(d\)</span>滿足以下四點，則我們稱<span
+class="math inline">\(d\)</span>為<span
+class="math inline">\(S\)</span>上的度量(或稱距離 (Distance))。 <br>1.
+對於所有<span class="math inline">\(x,y\in S\)</span>，有<span
+class="math inline">\(d(x,y)\geq 0\)</span>。 <br>2. 對於所有<span
+class="math inline">\(x\in S\)</span>，有<span
+class="math inline">\(d(x,x)=0\)</span>。 <br>3. 對於所有<span
+class="math inline">\(x,y\in S\)</span>，有<span
+class="math inline">\(d(x,y)=d(y,x)\)</span>。 <br>4. (三角不等式)
+對於所有<span class="math inline">\(x,y,z\in S\)</span>，有 <span
+class="math display">\[
+d(x,z)\geq d(x,y)+d(y,z)
+\]</span></p>
+<h3 id="例-1-1歐幾里得距離-euclidean-distance"><font color=#ffa500><u>例
+1-1：歐幾里得距離 (Euclidean Distance)</u></font></h3>
+<p>對於<span class="math inline">\(x=(x_1,x_2,\cdots,x_n),
+y=(y_1,y_2,\cdots,y_n)\in\mathbb{R}^n\)</span>，我們令 <span
+class="math display">\[
+d=\sqrt{\sum_{i=1}^n(x_i-y_i)^2}
+\]</span> 可以檢驗<span class="math inline">\(d\)</span>是<span
+class="math inline">\(\mathbb{R}^n\)</span>中的度量，我們稱其為歐幾里得距離。</p>
+<img src="euclid.jpg" width="25%" height="25%">
+<center>
+圖1 Euclid
+</center>
+<h3 id="例-1-2"><font color=#ffa500><u>例 1-2</u></font></h3>
+<p>對於<span class="math inline">\(x=(x_1,x_2,\cdots,x_n),
+y=(y_1,y_2,\cdots,y_n)\in\mathbb{R}^n\)</span>，我們令 <span
+class="math display">\[
+d=\sqrt[4]{\sum_{i=1}^n(x_i-y_i)^4}
+\]</span> 可以檢驗<span class="math inline">\(d\)</span>是<span
+class="math inline">\(\mathbb{R}^n\)</span>中的度量。</p>
+<h3 id="例-1-3"><font color=#ffa500><u>例 1-3</u></font></h3>
+<p>若<span class="math inline">\(d\)</span>是集合<span
+class="math inline">\(S\subseteq\mathbb{R}^n\)</span>上的度量，則可以檢驗對於<span
+class="math inline">\(\lambda&gt;0\)</span>，<span
+class="math inline">\(\overline{d}=\lambda d\)</span>也是<span
+class="math inline">\(\mathbb{R}^n\)</span>上的度量。</p>
+<h3 id="例-1-4"><font color=#ffa500><u>例 1-4</u></font></h3>
+<p>若<span class="math inline">\(d\)</span>是集合<span
+class="math inline">\(S\subseteq\mathbb{R}^n\)</span>上的度量，則可以檢驗
+<span class="math display">\[
+\tilde{d}=\frac{1+d}{d}
+\]</span> 也是<span
+class="math inline">\(\mathbb{R}^n\)</span>上的測度。</p>
+<h2 id="定義-2範數-norm"><font color=#008000><u>定義 2：範數
+(Norm)</u></font></h2>
+<p>考慮<span class="math inline">\(\mathbb{R}\)</span>上的向量空間<span
+class="math inline">\(S\subseteq\mathbb{R}^n\)</span>，並考慮<span
+class="math inline">\(S\)</span>上的度量<span
+class="math inline">\(d\)</span>。若對於所有<span
+class="math inline">\(x,y\in S,\alpha\in\mathbb{R}\)</span>有 <span
+class="math display">\[
+d(\alpha x,\alpha y)=|\alpha|d(x,y)
+\]</span> 則稱<span class="math inline">\(d\)</span>為<span
+class="math inline">\(S\)</span>上的範數。</p>
+<h3
+id="定義-2-1賦範線性空間-normed-linear-space"><font color=#008000><u>定義
+2-1：賦範線性空間 (Normed Linear Space)</u></font></h3>
+<p>我們稱定義2中的<span
+class="math inline">\((S,d)\)</span>為賦範線性空間。</p>
+<h3 id="例-2-2離散距離-discrete-distance"><font color=#ffa500><u>例
+2-2：離散距離 (Discrete Distance)</u></font></h3>
+<p>令<span
+class="math inline">\(S=\mathbb{R}^2\)</span>，並定義其上的離散距離為
+<span class="math display">\[
+d(x,y)=\left\{
+\begin{aligned}
+0&amp;,\mbox{ if }x\neq y\\
+1&amp;,\mbox{ if }x=y
+\end{aligned}
+\right.\;\;\;,x,y\in\mathbb{R}^2
+\]</span> 可以很容易發現<span
+class="math inline">\(d\)</span>雖然在<span
+class="math inline">\(S\)</span>上是度量但不是一個範數。</p>
+<h3 id="例-2-3"><font color=#ffa500><u>例 2-3</u></font></h3>
+<p>可以檢驗例1-1中的歐幾里得距離就是<span
+class="math inline">\(S\)</span>上的範數。</p>
+<h3 id="例-2-41-範數-one-norm"><font color=#ffa500><u>例 2-4：1-範數
+(One-Norm)</u></font></h3>
+<p>對於<span class="math inline">\(x=(x_1,x_2,\cdots,x_n),
+y=(y_1,y_2,\cdots,y_n)\in\mathbb{R}^n\)</span>，我們定義<span
+class="math inline">\(\mathbb{R}^n\)</span>上的<span
+class="math inline">\(1\)</span>-範數為 <span class="math display">\[
+d_1(x,y)=\sum_{i=1}^n|x_i-y_i|
+\]</span> 可以檢驗<span class="math inline">\(d_1\)</span>是一個<span
+class="math inline">\(\mathbb{R}^n\)</span>上的範數。</p>
+<h3 id="例-2-4無窮範數-infinite-norm"><font color=#ffa500><u>例
+2-4：無窮範數 (Infinite-Norm)</u></font></h3>
+<p>對於<span class="math inline">\(x=(x_1,x_2,\cdots,x_n),
+y=(y_1,y_2,\cdots,y_n)\in\mathbb{R}^n\)</span>，我們定義<span
+class="math inline">\(\mathbb{R}^n\)</span>上的無窮範數為 <span
+class="math display">\[
+d_\infty(x,y)=\max_{1\leq i\leq n}|x_i-y_i|
+\]</span> 可以檢驗<span
+class="math inline">\(d_\infty\)</span>是一個<span
+class="math inline">\(\mathbb{R}^n\)</span>上的範數。</p>
+<h3 id="例-2-5p-範數-p-norm"><font color=#ffa500><u>例 2-5：p-範數
+(p-Norm)</u></font></h3>
+<p>對於<span class="math inline">\(x=(x_1,x_2,\cdots,x_n),
+y=(y_1,y_2,\cdots,y_n)\in\mathbb{R}^n\)</span>，<span
+class="math inline">\(p&gt;1\)</span>，我們定義<span
+class="math inline">\(\mathbb{R}^n\)</span>上的<span
+class="math inline">\(p\)</span>-範數為 <span class="math display">\[
+d_p(x,y)=\left(\sum_{i=1}^n|x_i-y_i|^p\right)^{1/p}
+\]</span> 可以檢驗<span class="math inline">\(d_p\)</span>是一個<span
+class="math inline">\(\mathbb{R}^n\)</span>上的範數。</p>
+<h4 id="註記-2-5-1"><font color=#0000FF><u>註記 2-5-1</u></font></h4>
+<p>之所以要<span
+class="math inline">\(d_\infty\)</span>稱為無限範數是因為<span
+class="math inline">\(p\)</span>-範數中當<span
+class="math inline">\(p\)</span>趨近無限大時有<span
+class="math inline">\(d_p(x,y)\to
+d_\infty(x,y)\)</span>。細節在此就略過了。</p>
+<h4 id="定義-2-5-2"><font color=#008000><u>定義 2-5-2</u></font></h4>
+<p>在<span class="math inline">\(p\)</span>範數中通常會記 <span
+class="math display">\[
+\|a\|_p=d_p(a,0)
+\]</span> 更一般的，對於範數<span
+class="math inline">\(d\)</span>，通常我們會記<span
+class="math inline">\(\|a\|=d(a,0)\)</span>。</p>
+<center>
+<h1 id="開集與閉集"><font color=#b8860b>開集與閉集</font></h1>
+</center>
+<h2 id="定義-3球-ball"><font color=#008000><u>定義 3：球
+(Ball)</u></font></h2>
+<p>給定<span class="math inline">\(x\in\mathbb{R}^n\)</span>並給定<span
+class="math inline">\(\mathbb{R}^n\)</span>上的度量<span
+class="math inline">\(d\)</span>，我們定義以<span
+class="math inline">\(x\)</span>為中心、<span
+class="math inline">\(\epsilon&gt;0\)</span>為半徑的球為 <span
+class="math display">\[
+B_\epsilon(x)=\{y\in\mathbb{R}^n:d(y,x)&lt;\epsilon\}
+\]</span></p>
+<h2 id="定義-4開集-open-set"><font color=#008000><u>定義 4：開集 (Open
+Set)</u></font></h2>
+<p>給定集合<span
+class="math inline">\(A\subseteq\mathbb{R}^n\)</span>。若對於所有<span
+class="math inline">\(x\in A\)</span>都存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(x)\subseteq A\)</span>，則稱<span
+class="math inline">\(A\)</span>是開集。</p>
+<h3 id="性質-4-1"><font color=#0000FF><u>性質 4-1</u></font></h3>
+<p>任意多個(包含無限多個)開集的聯集還是開集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於<span
+class="math inline">\(i\in I\)</span>，令<span
+class="math inline">\(A_i\)</span>為開集並令 <span
+class="math display">\[
+A=\bigcup_{i\in I}A_i
+\]</span> 對於任意<span class="math inline">\(x\in A\)</span>，應有<span
+class="math inline">\(i\in I\)</span>使得<span
+class="math inline">\(x\in A_i\)</span>。由於<span
+class="math inline">\(A_i\)</span>是開集，故應存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(x)\subseteq A_i\subseteq
+A\)</span>。於是可知<span
+class="math inline">\(A\)</span>亦是開集。<font size="1">QED</font></p>
+<h3 id="性質-4-2"><font color=#0000FF><u>性質 4-2</u></font></h3>
+<p>有限多個開集的聯集還是開集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於<span
+class="math inline">\(1\leq i\leq n\)</span>，令<span
+class="math inline">\(A_i\)</span>為開集並令 <span
+class="math display">\[
+A=\bigcap_{i=1}^n A_i
+\]</span> 則對於<span class="math inline">\(x\in
+A\)</span>，應對於所有<span class="math inline">\(1\leq i\leq
+n\)</span>都有<span class="math inline">\(x\in A_i\)</span>。由於<span
+class="math inline">\(A_i\)</span>是開集，故應存在<span
+class="math inline">\(\epsilon_i&gt;0\)</span>使得<span
+class="math inline">\(B_{\epsilon_i}(x)\subseteq A_i\)</span>。接著令
+<span class="math display">\[
+\epsilon=\min\{\epsilon_1,\epsilon_2,\cdots,\epsilon_n\}
+\]</span> 則對於所有<span class="math inline">\(1\leq i\leq
+n\)</span>都應有<span class="math inline">\(B_\epsilon(x)\subseteq
+B_{\epsilon_i}(x)\subseteq A_i\)</span>，故有<span
+class="math inline">\(B_\epsilon(x)\subseteq A\)</span>。對於所有<span
+class="math inline">\(x\in A\)</span>都可以找到這樣的<span
+class="math inline">\(\epsilon&gt;0\)</span>，故<span
+class="math inline">\(A\)</span>是開集。<font size="1">QED</font></p>
+<h3 id="例-4-3"><font color=#ffa500><u>例 4-3</u></font></h3>
+<p>對於任意<span class="math inline">\(x\in\mathbb{R}^n\)</span>，<span
+class="math inline">\(\epsilon&gt;0\)</span>，球<span
+class="math inline">\(B_\epsilon(x)\)</span>都是<span
+class="math inline">\(\mathbb{R}^n\)</span>中的開集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於任意<span
+class="math inline">\(y\in B_\epsilon(x)\)</span>，令 <span
+class="math display">\[
+r=\frac{1}{2}\min\{\|x-y\|,\epsilon-\|x-y\|\}
+\]</span> 其中<span
+class="math inline">\(\|x-y\|=d(x,y)\)</span>是給定的範數。則由下圖2可知<span
+class="math inline">\(B_r(y)\subseteq B_\epsilon(x)\)</span>，即<span
+class="math inline">\(B_\epsilon(x)\)</span>是開集。<font size="1">QED</font></p>
+<img src="ball.jpg" width="25%" height="25%">
+<center>
+圖2
+</center>
+<h3 id="例-4-4"><font color=#ffa500><u>例 4-4</u></font></h3>
+<p>無限多個開集的聯集不一定是開集。在<span
+class="math inline">\(\mathbb{R}\)</span>上考慮 <span
+class="math display">\[
+A_n=B_{1/n}(0)=\left(-\frac{1}{n},\frac{1}{n}\right)
+\]</span> 由例4-3知<span class="math inline">\(A_n\)</span>都是開集。但
+<span class="math display">\[
+\bigcap_{n=1}^\infty A_n=\{0\}
+\]</span> 可以發現這顯然不是開集。</p>
+<h3 id="例-4-5"><font color=#ffa500><u>例 4-5</u></font></h3>
+<p>在<span class="math inline">\(\mathbb{R}^n\)</span>上給定範數<span
+class="math inline">\(\|a\|=d(a,0)\)</span>，並考慮 <span
+class="math display">\[
+A=\{y\in\mathbb{R}^n:0&lt;\|y\|&lt;1\}
+\]</span> (即去掉球心的單位球)則對於所有<span class="math inline">\(z\in
+A\)</span>，令 <span class="math display">\[
+r=\frac{1}{2}\min\{\|z\|,1-\|z\|\}
+\]</span> 類似例4-3可以發現<span class="math inline">\(B_r(z)\subseteq
+A\)</span>，即<span class="math inline">\(A\)</span>是開集。</p>
+<h2 id="註記-5"><font color=#0000FF><u>註記 5</u></font></h2>
+<p>由定義可以知道空集合與宇集合都應該是開集。</p>
+<h2 id="定義-6閉集-closed-set"><font color=#008000><u>定義 6：閉集
+(Closed Set)</u></font></h2>
 
     </div>
 
@@ -313,8 +532,18 @@ class="math inline">\(\mathbb{C}\)</span>。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E6%95%B8%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">代數基本定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E8%A4%87%E6%95%B8-complex-numbers"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：複數
-(Complex Numbers)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BA%A6%E9%87%8F%E8%88%87%E7%AF%84%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">度量與範數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%BA%A6%E9%87%8F-metric"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：度量
+(Metric)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-1%E6%AD%90%E5%B9%BE%E9%87%8C%E5%BE%97%E8%B7%9D%E9%9B%A2-euclidean-distance"><span class="nav-number">1.1.1.</span> <span class="nav-text">例
+1-1：歐幾里得距離 (Euclidean Distance)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-2"><span class="nav-number">1.1.2.</span> <span class="nav-text">例 1-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-3"><span class="nav-number">1.1.3.</span> <span class="nav-text">例 1-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-4"><span class="nav-number">1.1.4.</span> <span class="nav-text">例 1-4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E7%AF%84%E6%95%B8-norm"><span class="nav-number">1.2.</span> <span class="nav-text">定義 2：範數
+(Norm)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E8%B3%A6%E7%AF%84%E7%B7%9A%E6%80%A7%E7%A9%BA%E9%96%93-normed-linear-space"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
+2-1：賦範線性空間 (Normed Linear Space)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-2%E9%9B%A2%E6%95%A3%E8%B7%9D%E9%9B%A2-discrete-distance"><span class="nav-number">1.2.2.</span> <span class="nav-text">例
+2-2：離散距離 (Discrete Distance)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-3"><span class="nav-number">1.2.3.</span> <span class="nav-text">例 2-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-41-%E7%AF%84%E6%95%B8-one-norm"><span class="nav-number">1.2.4.</span> <span class="nav-text">例 2-4：1-範數
+(One-Norm)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-4%E7%84%A1%E7%AA%AE%E7%AF%84%E6%95%B8-infinite-norm"><span class="nav-number">1.2.5.</span> <span class="nav-text">例
+2-4：無窮範數 (Infinite-Norm)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-5p-%E7%AF%84%E6%95%B8-p-norm"><span class="nav-number">1.2.6.</span> <span class="nav-text">例 2-5：p-範數
+(p-Norm)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-5-1"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">註記 2-5-1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-5-2"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">定義 2-5-2</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%96%8B%E9%9B%86%E8%88%87%E9%96%89%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">開集與閉集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%90%83-ball"><span class="nav-number">2.1.</span> <span class="nav-text">定義 3：球
+(Ball)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%96%8B%E9%9B%86-open-set"><span class="nav-number">2.2.</span> <span class="nav-text">定義 4：開集 (Open
+Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">性質 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">性質 4-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-3"><span class="nav-number">2.2.3.</span> <span class="nav-text">例 4-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-4"><span class="nav-number">2.2.4.</span> <span class="nav-text">例 4-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-5"><span class="nav-number">2.2.5.</span> <span class="nav-text">例 4-5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">2.3.</span> <span class="nav-text">註記 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E9%96%89%E9%9B%86-closed-set"><span class="nav-number">2.4.</span> <span class="nav-text">定義 6：閉集
+(Closed Set)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
