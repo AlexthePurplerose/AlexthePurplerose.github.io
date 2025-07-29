@@ -29,8 +29,9 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/euclid.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/ball.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/A.jpg">
 <meta property="article:published_time" content="2025-07-26T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-26T09:36:54.112Z">
+<meta property="article:modified_time" content="2025-07-29T14:31:45.519Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -194,10 +195,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2025-07-26 16:34:38 / 修改時間：17:36:54" itemprop="dateCreated datePublished" datetime="2025-07-26T16:34:38+08:00">2025-07-26</time>
+              <time title="創建時間：2025-07-26 16:34:38" itemprop="dateCreated datePublished" datetime="2025-07-26T16:34:38+08:00">2025-07-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2025-07-29 22:31:45" itemprop="dateModified" datetime="2025-07-29T22:31:45+08:00">2025-07-29</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -446,10 +453,183 @@ A\)</span>，令 <span class="math display">\[
 r=\frac{1}{2}\min\{\|z\|,1-\|z\|\}
 \]</span> 類似例4-3可以發現<span class="math inline">\(B_r(z)\subseteq
 A\)</span>，即<span class="math inline">\(A\)</span>是開集。</p>
-<h2 id="註記-5"><font color=#0000FF><u>註記 5</u></font></h2>
+<h3 id="性質-4-6"><font color=#0000FF><u>性質 4-6</u></font></h3>
 <p>由定義可以知道空集合與宇集合都應該是開集。</p>
-<h2 id="定義-6閉集-closed-set"><font color=#008000><u>定義 6：閉集
+<h2 id="定義-5閉集-closed-set"><font color=#008000><u>定義 5：閉集
 (Closed Set)</u></font></h2>
+<p>給定宇集合<span class="math inline">\(\Omega\)</span>與集合<span
+class="math inline">\(B\subseteq\Omega\)</span>。若<span
+class="math inline">\(\Omega/B\)</span>是開集，則說<span
+class="math inline">\(B\)</span>是閉集。</p>
+<h3 id="性質-5-1"><font color=#0000FF><u>性質 5-1</u></font></h3>
+<p>由定義與性質4-6可知宇集合與空集合都應是閉集。</p>
+<h3 id="性質-5-2"><font color=#0000FF><u>性質 5-2</u></font></h3>
+<p>任意多個(包含無限多個)閉集的交集還是閉集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對性質4-1的證明過程取與宇集合的差集即可。<font size="1">QED</font></p>
+<h3 id="性質-5-3"><font color=#0000FF><u>性質 5-3</u></font></h3>
+<p>有限多個閉集的聯集還是閉集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對性質4-2的證明過程取與宇集合的差集即可。<font size="1">QED</font></p>
+<center>
+<h1 id="內點與邊界"><font color=#b8860b>內點與邊界</font></h1>
+</center>
+<h2 id="定義-6內點-interior-point"><font color=#008000><u>定義 6：內點
+(Interior Point)</u></font></h2>
+<p>給定集合<span
+class="math inline">\(A\subseteq\mathbb{R}^n\)</span>，若對於<span
+class="math inline">\(x\in A\)</span>，存在開集<span
+class="math inline">\(B\)</span>使得<span class="math inline">\(x\in
+B\)</span>且<span class="math inline">\(B\subseteq A\)</span>，則稱<span
+class="math inline">\(x\)</span>是<span
+class="math inline">\(A\)</span>的內點。並且，我們將<span
+class="math inline">\(A\)</span>所有內點的集合記為<span
+class="math inline">\(\mathring{A}\)</span>。</p>
+<h3 id="定義-6-1內部-interior"><font color=#008000><u>定義 6-1：內部
+(Interior)</u></font></h3>
+<p>定義6中的<span
+class="math inline">\(\mathring{A}\)</span>一般稱為<span
+class="math inline">\(A\)</span>的內部。</p>
+<h3 id="註記-6-2內點的等價定義"><font color=#0000FF><u>註記
+6-2：內點的等價定義</u></font></h3>
+<p>由定義易知若<span class="math inline">\(x\)</span>是<span
+class="math inline">\(A\)</span>的內點若且唯若存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(x)\subseteq A\)</span>。</p>
+<h3 id="註記-6-3"><font color=#0000FF><u>註記 6-3</u></font></h3>
+<p>對於集合<span
+class="math inline">\(A\subseteq\mathbb{R}^n\)</span>，由定義知<span
+class="math inline">\(\mathring{A}\)</span>是所有<span
+class="math inline">\(A\)</span>的開子集的聯集，即 <span
+class="math display">\[
+\mathring{A}=\bigcup_B(B\subseteq A, B\mbox{ is open.})
+\]</span></p>
+<h3 id="例-6-4"><font color=#ffa500><u>例 6-4</u></font></h3>
+<p>令 <span class="math display">\[
+A=\{(x,y)\in\mathbb{R}^2:|x|+|y|\leq 1\}
+\]</span> 則 <span class="math display">\[
+\mathring{A}=\{(x,y)\in\mathbb{R}^2:|x|+|y|&lt;1\}
+\]</span></p>
+<h3 id="例-6-5"><font color=#ffa500><u>例 6-5</u></font></h3>
+<p>令 <span class="math display">\[
+A=\{(x,y)\in\mathbb{R}^2:x^2+y^2\leq 1\}
+\]</span> 則 <span class="math display">\[
+\mathring{A}=\{(x,y)\in\mathbb{R}^2:x^2+y^2&lt;1\}
+\]</span></p>
+<h3 id="例-6-6"><font color=#ffa500><u>例 6-6</u></font></h3>
+<p>考慮例2-2中的離散距離<span class="math inline">\(d\)</span>。令 <span
+class="math display">\[
+A=\{a\in\mathbb{Z}^2:d(a,\mathbb{O})\leq 1/2\}
+\]</span> 其中<span
+class="math inline">\(\mathbb{O}=(0,0)\in\mathbb{Z}^2\)</span>。很明顯的<span
+class="math inline">\(A=\{\mathbb{O}\}\)</span>。而對於所有<span
+class="math inline">\(0&lt;\epsilon&lt;1\)</span>，我們有 <span
+class="math display">\[
+B_\epsilon(\mathbb{O})=\{\mathbb{O}\}
+\]</span> 即和<span class="math inline">\(\mathbb{O}\)</span>小於<span
+class="math inline">\(1\)</span>的點只有<span
+class="math inline">\(\mathbb{O}\)</span>自己，其他點和<span
+class="math inline">\(\mathbb{O}\)</span>的距離都是<span
+class="math inline">\(1\)</span>。故<span
+class="math inline">\(A\)</span>雖然只有一個點，但其亦是內點(見下圖3)。</p>
+<img src="A.jpg" width="25%" height="25%">
+<center>
+圖3
+</center>
+<h3 id="例-6-7"><font color=#ffa500><u>例 6-7</u></font></h3>
+<p>一樣考慮例2-2中的離散距離<span class="math inline">\(d\)</span>，令
+<span class="math display">\[
+A=\{a\in\mathbb{Z}^2:d(a,\mathbb{O})\leq 1\}
+\]</span> 則<span
+class="math inline">\(A=\mathbb{Z}^2\)</span>。類似例6-6，若令<span
+class="math inline">\(\epsilon=\frac{1}{2}\)</span>，則對於所有<span
+class="math inline">\(x\in\mathbb{Z}^2=A\)</span>都有<span
+class="math inline">\(B_\epsilon(x)=\{x\}\)</span>。即<span
+class="math inline">\(A=\mathbb{Z}^2\)</span>中每個點都是內點。</p>
+<h2 id="定義-7閉包-closure"><font color=#008000><u>定義 7：閉包
+(Closure)</u></font></h2>
+<p>對於集合<span
+class="math inline">\(A\subseteq\mathbb{R}^n\)</span>，定義<span
+class="math inline">\(A\)</span>的閉包<span
+class="math inline">\(\overline{A}\)</span>為所有包含<span
+class="math inline">\(A\)</span>的閉集的交集，即 <span
+class="math display">\[
+\overline{A}=\bigcap_B(A\subseteq B, B\mbox{ is closed.})
+\]</span></p>
+<h3 id="註記-7-1閉包的等價定義"><font color=#0000FF><u>註記
+7-1：閉包的等價定義</u></font></h3>
+<p><span class="math inline">\(A\)</span>的閉包<span
+class="math inline">\(\overline{A}\)</span>即是包含<span
+class="math inline">\(A\)</span>的最小閉集合(「最小」的意思就是所有包含<span
+class="math inline">\(A\)</span>的閉集都應包含<span
+class="math inline">\(\overline{A}\)</span>)。</p>
+<h3 id="例-7-2"><font color=#ffa500><u>例 7-2</u></font></h3>
+<p>考慮<span
+class="math inline">\(\mathbb{R}^2\)</span>中歐幾里得距離下的球 <span
+class="math display">\[
+B_1(0)=\{a\in\mathbb{R}^2:\|a\|&lt;1\}
+\]</span> 則<span
+class="math inline">\(\overline{B_1(0)}=\{a\in\mathbb{R}^2:\|a\|\leq
+1\}\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分兩部分說明。 <br>1.
+我們想說明<span class="math inline">\(\{a\in\mathbb{R}^2:\|a\|\leq
+1\}\)</span>是閉集。考慮其補集<span
+class="math inline">\(A=\{a\in\mathbb{R}^2:\|a\|&gt;1\}\)</span>。對於任意<span
+class="math inline">\(x\in A\)</span>，令<span
+class="math inline">\(\|x\|=1+q\)</span>，其中<span
+class="math inline">\(q&gt;0\)</span>。則令<span
+class="math inline">\(\epsilon=\frac{q}{2}\)</span>，則由三角不等式知對於<span
+class="math inline">\(y\in B_\epsilon(x)\)</span>有 <span
+class="math display">\[
+\|y\|\geq\|x\|+\|y-x\|\geq 1+q-\epsilon=1+\frac{q}{2}
+\]</span> 故<span class="math inline">\(y\in A\)</span> i.e. <span
+class="math inline">\(B_\epsilon(x)\subseteq
+A\)</span>。於是，我們知道<span
+class="math inline">\(A\)</span>是開集，故其補集<span
+class="math inline">\(\{a\in\mathbb{R}^2:\|a\|\leq
+1\}\)</span>應是閉集。 <br>2. 我們想說明<span
+class="math inline">\(\{a\in\mathbb{R}^2:\|a\|\leq
+1\}\)</span>是所有包含<span
+class="math inline">\(B_1(0)\)</span>的閉集中最小的。考慮任意一個閉集<span
+class="math inline">\(B\supseteq B_1(0)\)</span>。我們知道<span
+class="math inline">\(\mathbb{R}/B\)</span>應是開集，且 <span
+class="math display">\[
+\mathbb{R}^2/B\subseteq\mathbb{R}^2/B_1(0)=\{a\in\mathbb{R}^2:\|a\|\geq
+1\}
+\]</span> 假設<span
+class="math inline">\(\mathbb{R}^2/B\)</span>中有點<span
+class="math inline">\(x\)</span>滿足<span
+class="math inline">\(\|x\|=1\)</span>，則由於這裡用的是歐幾里得距離，故對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都會有<span
+class="math inline">\(y\in B_\epsilon(x)\)</span>使得<span
+class="math inline">\(\|y\|\leq
+1\)</span>(可以用平面圖形去思考這件事)，矛盾。故應有 <span
+class="math display">\[
+\mathbb{R}^2/B\subseteq\{a\in\mathbb{R}^2:\|a\|&gt;1\}
+\]</span> 即<span
+class="math inline">\(B\supseteq\{a\in\mathbb{R}^2:\|a\|\leq
+1\}\)</span>。故可知<span
+class="math inline">\(\{a\in\mathbb{R}^2:\|a\|\leq 1\}\)</span>是<span
+class="math inline">\(B_1(0)\)</span>的閉包。<font size="1">QED</font></p>
+<h2 id="定義-8邊界-boundary"><font color=#008000><u>定義 8：邊界
+(Boundary)</u></font></h2>
+<p>對於集合<span
+class="math inline">\(A\subseteq\mathbb{R}^n\)</span>，令其補集為<span
+class="math inline">\(A^c\)</span>，則定義<span
+class="math inline">\(A\)</span>的邊界為 <span class="math display">\[
+\partial A=\overline{A}\cap\overline{A^c}
+\]</span></p>
+<h3 id="定義-8-1邊界點-boundary-point"><font color=#008000><u>定義
+8-1：邊界點 (Boundary Point)</u></font></h3>
+<p>在定義8中，若點<span class="math inline">\(x\)</span>落在邊界<span
+class="math inline">\(\partial A\)</span>中，則稱<span
+class="math inline">\(x\)</span>為<span
+class="math inline">\(A\)</span>的邊界點。</p>
+<h3 id="註記-8-2邊界的等價定義"><font color=#0000FF><u>註記
+8-2：邊界的等價定義</u></font></h3>
+<p>對於集合<span
+class="math inline">\(A\in\mathbb{R}^n\)</span>，有<span
+class="math inline">\(\partial
+A=\overline{A}/\mathring{A}\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：</p>
 
     </div>
 
@@ -542,8 +722,16 @@ A\)</span>，即<span class="math inline">\(A\)</span>是開集。</p>
 2-4：無窮範數 (Infinite-Norm)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-5p-%E7%AF%84%E6%95%B8-p-norm"><span class="nav-number">1.2.6.</span> <span class="nav-text">例 2-5：p-範數
 (p-Norm)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-5-1"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">註記 2-5-1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-5-2"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">定義 2-5-2</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%96%8B%E9%9B%86%E8%88%87%E9%96%89%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">開集與閉集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%90%83-ball"><span class="nav-number">2.1.</span> <span class="nav-text">定義 3：球
 (Ball)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%96%8B%E9%9B%86-open-set"><span class="nav-number">2.2.</span> <span class="nav-text">定義 4：開集 (Open
-Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">性質 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">性質 4-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-3"><span class="nav-number">2.2.3.</span> <span class="nav-text">例 4-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-4"><span class="nav-number">2.2.4.</span> <span class="nav-text">例 4-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-5"><span class="nav-number">2.2.5.</span> <span class="nav-text">例 4-5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-5"><span class="nav-number">2.3.</span> <span class="nav-text">註記 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E9%96%89%E9%9B%86-closed-set"><span class="nav-number">2.4.</span> <span class="nav-text">定義 6：閉集
-(Closed Set)</span></a></li></ol></li></ol></div>
+Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">性質 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">性質 4-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-3"><span class="nav-number">2.2.3.</span> <span class="nav-text">例 4-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-4"><span class="nav-number">2.2.4.</span> <span class="nav-text">例 4-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-5"><span class="nav-number">2.2.5.</span> <span class="nav-text">例 4-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-6"><span class="nav-number">2.2.6.</span> <span class="nav-text">性質 4-6</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E9%96%89%E9%9B%86-closed-set"><span class="nav-number">2.3.</span> <span class="nav-text">定義 5：閉集
+(Closed Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-5-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">性質 5-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-5-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">性質 5-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-5-3"><span class="nav-number">2.3.3.</span> <span class="nav-text">性質 5-3</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%A7%E9%BB%9E%E8%88%87%E9%82%8A%E7%95%8C"><span class="nav-number">3.</span> <span class="nav-text">內點與邊界</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%85%A7%E9%BB%9E-interior-point"><span class="nav-number">3.1.</span> <span class="nav-text">定義 6：內點
+(Interior Point)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-1%E5%85%A7%E9%83%A8-interior"><span class="nav-number">3.1.1.</span> <span class="nav-text">定義 6-1：內部
+(Interior)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-2%E5%85%A7%E9%BB%9E%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">3.1.2.</span> <span class="nav-text">註記
+6-2：內點的等價定義</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6-3"><span class="nav-number">3.1.3.</span> <span class="nav-text">註記 6-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-6-4"><span class="nav-number">3.1.4.</span> <span class="nav-text">例 6-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-6-5"><span class="nav-number">3.1.5.</span> <span class="nav-text">例 6-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-6-6"><span class="nav-number">3.1.6.</span> <span class="nav-text">例 6-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-6-7"><span class="nav-number">3.1.7.</span> <span class="nav-text">例 6-7</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E9%96%89%E5%8C%85-closure"><span class="nav-number">3.2.</span> <span class="nav-text">定義 7：閉包
+(Closure)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7-1%E9%96%89%E5%8C%85%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">3.2.1.</span> <span class="nav-text">註記
+7-1：閉包的等價定義</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-2"><span class="nav-number">3.2.2.</span> <span class="nav-text">例 7-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E9%82%8A%E7%95%8C-boundary"><span class="nav-number">3.3.</span> <span class="nav-text">定義 8：邊界
+(Boundary)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8-1%E9%82%8A%E7%95%8C%E9%BB%9E-boundary-point"><span class="nav-number">3.3.1.</span> <span class="nav-text">定義
+8-1：邊界點 (Boundary Point)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-2%E9%82%8A%E7%95%8C%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">3.3.2.</span> <span class="nav-text">註記
+8-2：邊界的等價定義</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
