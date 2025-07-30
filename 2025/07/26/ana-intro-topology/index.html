@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/ball.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/A.jpg">
 <meta property="article:published_time" content="2025-07-26T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-29T14:31:45.519Z">
+<meta property="article:modified_time" content="2025-07-30T12:34:09.152Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -203,7 +203,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-07-29 22:31:45" itemprop="dateModified" datetime="2025-07-29T22:31:45+08:00">2025-07-29</time>
+                <time title="修改時間：2025-07-30 20:34:09" itemprop="dateModified" datetime="2025-07-30T20:34:09+08:00">2025-07-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -629,7 +629,112 @@ class="math inline">\(A\)</span>的邊界點。</p>
 class="math inline">\(A\in\mathbb{R}^n\)</span>，有<span
 class="math inline">\(\partial
 A=\overline{A}/\mathring{A}\)</span>。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：</p>
+<p><font color=#8b4513><u>證明</u></font>：我們有 <span
+class="math display">\[
+\begin{aligned}
+\partial A&amp;=\overline{A}\cap\overline{A^c}\\
+&amp;=\overline{A}\cap\left(\bigcap_B(A^c\subseteq B, B\mbox{
+is  closed.})\right)\\
+&amp;=\overline{A}\cap\left(\bigcup_{B^c}(B^c\subseteq A,B\mbox{
+is  open.})\right)^c\;\;\mbox{(★)}\\
+&amp;=\overline{A}\cap(\mathring{A})^c\\
+&amp;=\overline{A}/\mathring{A}
+\end{aligned}
+\]</span> 其中是笛摩根律，詳見<a
+href="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/">這裡</a>的定理5。<font size="1">QED</font></p>
+<h3 id="註記-8-3邊界點的等價定義"><font color=#0000FF><u>註記
+8-3：邊界點的等價定義</u></font></h3>
+<p>對於集合<span
+class="math inline">\(A\in\mathbb{R}^n\)</span>，點<span
+class="math inline">\(x\)</span>是<span
+class="math inline">\(A\)</span>的邊界點 iff. 對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，都存在<span
+class="math inline">\(y\in A\)</span>與<span class="math inline">\(z\in
+A^c\)</span>滿足<span class="math inline">\(y\in
+B_\epsilon(x)\)</span>和<span class="math inline">\(z\in
+B_\epsilon(x)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分成兩部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(x\in\partial A\)</span>，則假設存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(x)\subseteq A\)</span>。這會導致<span
+class="math inline">\(x\in\mathring{A}\)</span>，這與註記8-2不符。而若存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(x)\subseteq A^c\)</span>，則考慮集合
+<span class="math display">\[
+B=\mathbb{R}^n/B_\epsilon(x)
+\]</span> 由於<span
+class="math inline">\(B_\epsilon(x)\)</span>是開集(例4-3)，故<span
+class="math inline">\(B\)</span>應是閉集。而由<span
+class="math inline">\(B_\epsilon(x)\subseteq A^c\)</span>知<span
+class="math inline">\(B\supseteq A\)</span>，故由閉包的定義知<span
+class="math inline">\(x\notin\overline{A}\)</span>，這與定義8不符。故對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，<span
+class="math inline">\(B_\epsilon(x)\cap A\)</span>和<span
+class="math inline">\(B_\epsilon(x)\cap A^c\)</span>都不應是空集。
+<br>「<span class="math inline">\(\Leftarrow\)</span>」：若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，都存在<span
+class="math inline">\(y\in A\)</span>與<span class="math inline">\(z\in
+A^c\)</span>滿足<span class="math inline">\(y\in
+B_\epsilon(x)\)</span>和<span class="math inline">\(z\in
+B_\epsilon(x)\)</span>，則首先就知道<span
+class="math inline">\(x\notin\mathring{A}\)</span>，因為不存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(x)\subseteq
+A\)</span>。接著，任意給定閉集<span class="math inline">\(B\supseteq
+A\)</span>，若<span class="math inline">\(x\notin B\)</span>，則<span
+class="math inline">\(x\in B^c\)</span>。由於<span
+class="math inline">\(B^c\)</span>是開集，故應存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(x)\subseteq
+B^c\)</span>，這與假設矛盾。故應有<span class="math inline">\(x\in
+B\)</span>。而由於閉集<span class="math inline">\(B\supseteq
+A\)</span>是任意給定的，我們有<span
+class="math inline">\(x\in\overline{A}\)</span>，即 <span
+class="math display">\[
+x\in\overline{A}/\mathring{A}=\partial A
+\]</span> <font size="1">QED</font></p>
+<center>
+<h1 id="密聚點"><font color=#b8860b>密聚點</font></h1>
+</center>
+<h2 id="定義-9密聚點-cluster-point"><font color=#008000><u>定義
+9：密聚點 (Cluster Point)</u></font></h2>
+<p>給定集合<span
+class="math inline">\(A\subseteq\mathbb{R}^n\)</span>，考慮點<span
+class="math inline">\(x\in\mathbb{R}^n\)</span>，若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，集合<span
+class="math inline">\((B_\epsilon(x)\cap
+A)/\{x\}\)</span>都非空，則稱<span
+class="math inline">\(x\)</span>為<span
+class="math inline">\(A\)</span>的密聚點(或稱為累積點 (Accumulation
+Point))。</p>
+<h3
+id="定義-9-1數列的邊界點-cluster-point-of-a-sequence"><font color=#008000><u>定義
+9-1：數列的邊界點 (Cluster Point of a Sequence)</u></font></h3>
+<p>考慮數列<span
+class="math inline">\(A=\{a_n\}_{n=1}^\infty\subseteq\mathbb{R}^N\)</span>，考慮點<span
+class="math inline">\(x\in\mathbb{R}^N\)</span>，若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，都存在<span
+class="math inline">\(\{a_n\}\)</span>的子序列<span
+class="math inline">\(\{a_{n_j}\}_{j=1}^\infty\)</span>使得<span
+class="math inline">\(\{a_{n_j}\}_{j=1}^\infty\subseteq
+B_\epsilon(x)\)</span>，則稱<span
+class="math inline">\(x\)</span>是數列<span
+class="math inline">\(A\)</span>的密聚點(注意到這裡考慮的是<span
+class="math inline">\(x\)</span>的鄰域而非去心鄰域)。</p>
+<h3 id="例-9-2"><font color=#ffa500><u>例 9-2</u></font></h3>
+<p>集合<span class="math inline">\(A\)</span>的密聚點可以不落在<span
+class="math inline">\(A\)</span>中。例如考慮<span
+class="math inline">\(A=(0,1)\subseteq\mathbb{R}\)</span>。可以發現對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都有 <span
+class="math display">\[
+(B_\epsilon(0)\cap
+A)/\{0\}=(-\epsilon,\epsilon)\cap(0,1)=(0,\epsilon)\neq\varnothing
+\]</span> 即雖然<span class="math inline">\(0\notin A\)</span>但<span
+class="math inline">\(0\)</span>是<span
+class="math inline">\(A\)</span>的密聚點。類似的，可以發現<span
+class="math inline">\(1\notin A\)</span>也是<span
+class="math inline">\(A\)</span>的密聚點。</p>
 
     </div>
 
@@ -731,7 +836,10 @@ Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="
 7-1：閉包的等價定義</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-7-2"><span class="nav-number">3.2.2.</span> <span class="nav-text">例 7-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E9%82%8A%E7%95%8C-boundary"><span class="nav-number">3.3.</span> <span class="nav-text">定義 8：邊界
 (Boundary)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8-1%E9%82%8A%E7%95%8C%E9%BB%9E-boundary-point"><span class="nav-number">3.3.1.</span> <span class="nav-text">定義
 8-1：邊界點 (Boundary Point)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-2%E9%82%8A%E7%95%8C%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">3.3.2.</span> <span class="nav-text">註記
-8-2：邊界的等價定義</span></a></li></ol></li></ol></li></ol></div>
+8-2：邊界的等價定義</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8-3%E9%82%8A%E7%95%8C%E9%BB%9E%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">3.3.3.</span> <span class="nav-text">註記
+8-3：邊界點的等價定義</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E8%81%9A%E9%BB%9E"><span class="nav-number">4.</span> <span class="nav-text">密聚點</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9%E5%AF%86%E8%81%9A%E9%BB%9E-cluster-point"><span class="nav-number">4.1.</span> <span class="nav-text">定義
+9：密聚點 (Cluster Point)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-9-1%E6%95%B8%E5%88%97%E7%9A%84%E9%82%8A%E7%95%8C%E9%BB%9E-cluster-point-of-a-sequence"><span class="nav-number">4.1.1.</span> <span class="nav-text">定義
+9-1：數列的邊界點 (Cluster Point of a Sequence)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-9-2"><span class="nav-number">4.1.2.</span> <span class="nav-text">例 9-2</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
