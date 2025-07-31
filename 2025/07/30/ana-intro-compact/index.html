@@ -27,13 +27,15 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於緊緻集的定義與性質。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/30/ana-intro-compact/circles.jpg">
 <meta property="article:published_time" content="2025-07-30T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-30T16:20:50.739Z">
+<meta property="article:modified_time" content="2025-07-31T16:01:43.285Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
 <meta property="article:tag" content="Analysis_Intro">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2025/07/30/ana-intro-compact/circles.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2025/07/30/ana-intro-compact/">
 
@@ -199,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-07-31 00:20:50" itemprop="dateModified" datetime="2025-07-31T00:20:50+08:00">2025-07-31</time>
+                <time title="修改時間：2025-08-01 00:01:43" itemprop="dateModified" datetime="2025-08-01T00:01:43+08:00">2025-08-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,15 +302,143 @@ I\)</span>使得 <span class="math display">\[
 M\subseteq\bigcup_{j\in J}U_j
 \]</span></p>
 <h3 id="性質-3-1"><font color=#0000FF><u>性質 3-1</u></font></h3>
-<p>緊緻集必是閉集。<br></p>
+<p>給定集合<span
+class="math inline">\(M\subseteq\Omega\)</span>與其上的度量<span
+class="math inline">\(d\)</span>，若<span
+class="math inline">\(M\)</span>是緊緻集，則<span
+class="math inline">\(M\)</span>必是閉集。<br></p>
 <p><font color=#8b4513><u>證明</u></font>：給定集合<span
 class="math inline">\(M\)</span>與宇集<span
 class="math inline">\(\Omega\)</span>，若<span
 class="math inline">\(M\)</span>緊緻，則給定<span
 class="math inline">\(x\in\Omega/M\)</span>，令 <span
 class="math display">\[
-D_n=\left\{y\in\Omega:\|y-x\|&gt;\frac{1}{n}\right\}
-\]</span></p>
+D_n=\left\{y\in\Omega:d(y,x)&gt;\frac{1}{n}\right\}
+\]</span> 很容易可以知道<span
+class="math inline">\(D_n\)</span>是開集。我們希望說明 <span
+class="math display">\[
+M\subseteq\bigcup_{n=1}^\infty D_n
+\]</span> 對於任意<span class="math inline">\(y\in M\)</span>，由於<span
+class="math inline">\(x\notin M\)</span>，我們有<span
+class="math inline">\(d(x,y)&gt;0\)</span>。由阿基米德性質(<a
+href="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/">這裡</a>的性質22)可知存在<span
+class="math inline">\(m\in\mathbb{N}\)</span>使得 <span
+class="math display">\[
+0&lt;\frac{1}{m}&lt;d(x,y)
+\]</span> 故可知<span class="math inline">\(y\in D_m\)</span>，於是有
+<span class="math display">\[
+y\in\bigcup_{n=1}^\infty D_n
+\]</span> 這對於任意<span class="math inline">\(y\in
+M\)</span>都成立，故 <span class="math display">\[
+M\subseteq\bigcup_{n=1}^\infty D_n
+\]</span> 接著，因為<span
+class="math inline">\(M\)</span>是緊緻集且又有<span
+class="math inline">\(D_1\subseteq D_2\subseteq
+D_3\subseteq\cdots\)</span>，應存在某個<span
+class="math inline">\(m\in\mathbb{N}\)</span>使得 <span
+class="math display">\[
+M\subseteq\bigcup_{n=1}^m D_n
+\]</span> 於是有<span class="math inline">\(B_{1/(m+1)}(x)\cap
+M=\varnothing\)</span>，即<span
+class="math inline">\(B_{1/(m+1)}(x)\subseteq\Omega/M\)</span>。然而任意的<span
+class="math inline">\(x\in\Omega/M\)</span>都可以找到這樣的<span
+class="math inline">\(m\)</span>，故<span
+class="math inline">\(\Omega/M\)</span>是開集，即<span
+class="math inline">\(M\)</span>是閉集。<font size="1">QED</font></p>
+<h3 id="性質-3-2"><font color=#0000FF><u>性質 3-2</u></font></h3>
+<p>緊緻集的任意閉子集都是緊緻的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定宇集<span
+class="math inline">\(\Omega\)</span>中的緊緻集<span
+class="math inline">\(M\)</span>，並給定其閉子集<span
+class="math inline">\(A\)</span>。令<span
+class="math inline">\(\{U_j\}_{j\in I}\)</span>是<span
+class="math inline">\(A\)</span>的一個開覆蓋，即<span
+class="math inline">\(\{U_j\}\)</span>是一堆開集且 <span
+class="math display">\[
+A=\bigcup_{j\in I}U_j
+\]</span> 由於<span class="math inline">\(A\)</span>是閉集，故<span
+class="math inline">\(\Omega/A\)</span>是開集。而 <span
+class="math display">\[
+M\subseteq\Omega=A\cup(\Omega/A)=\left(\bigcup_{j\in
+I}U_j\right)\cup(\Omega/A)
+\]</span> 上式的最右邊是<span
+class="math inline">\(M\)</span>的開覆蓋，而由於<span
+class="math inline">\(M\)</span>是緊緻集，故存在有限集<span
+class="math inline">\(J\subseteq I\)</span>使得 <span
+class="math display">\[
+M\subseteq\left(\bigcup_{j\in J}U_j\right)\cup(\Omega/A)
+\]</span> 又<span class="math inline">\(A\subseteq M\)</span>，故<span
+class="math inline">\(\bigcup\limits_{j\in J}U_j\)</span>是<span
+class="math inline">\(A\)</span>的有限子覆蓋。這對任意的開覆蓋<span
+class="math inline">\(\{U_j\}_{j\in I}\)</span>都成立，故<span
+class="math inline">\(A\)</span>是緊緻集。<font size="1">QED</font></p>
+<h2 id="定義-4有界-bounded"><font color=#008000><u>定義 4：有界
+(Bounded)</u></font></h2>
+<p>給定集合<span class="math inline">\(K\)</span>，若存在<span
+class="math inline">\(R&gt;0\)</span>滿足<span
+class="math inline">\(K\subseteq B_R(0)\)</span>，則稱<span
+class="math inline">\(K\)</span>是有界集。</p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>給定有界閉集<span
+class="math inline">\(M\subseteq\mathbb{R}^N\)</span>，並給定一串開集<span
+class="math inline">\(\{U_j\}_{j\in I}\)</span>滿足<span
+class="math inline">\(M\subseteq\bigcup\limits_{j\in
+I}U_j\)</span>，則存在可數集<span class="math inline">\(J\subseteq
+I\)</span>使得<span class="math inline">\(M\subseteq\bigcup\limits_{j\in
+J}U_j\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(x\in M\)</span>，則必存在<span
+class="math inline">\(j_x\in I\)</span>使得<span
+class="math inline">\(x\in U_{j_x}\)</span>。由於<span
+class="math inline">\(U_{j_x}\)</span>是開集，故存在<span
+class="math inline">\(r_{j_x}\)</span>使得<span
+class="math inline">\(B_{j_x}\subseteq U_{j_x}\)</span>。可以假設<span
+class="math inline">\(r_{j_x}&lt;1\)</span>。而有 <span
+class="math display">\[
+B_{\frac{r_{j_x}}{20}}(x)\subseteq B_{r_{j_x}}(x)\subseteq U_{j_x}
+\]</span> 則應存在<span
+class="math inline">\(q_x\in\mathbb{Q}^N\)</span>使得<span
+class="math inline">\(q_x\in B_{r_{j_x}/20}(x)\)</span>。我們可以記
+<span class="math display">\[
+U_{j_x}=U_{q_x}
+\]</span> 於是有 <span class="math display">\[
+M=\bigcup_{x\in M}\{x\}\subseteq\bigcup_{x\in M}U_{j_x}=\bigcup_{q_x\in
+M\cap\mathbb{Q}^N}U_{q_x}
+\]</span> 這樣看似是找到可數集<span
+class="math inline">\(J=M\cap\mathbb{Q}^N\)</span>了，但這是有問題的。若有<span
+class="math inline">\(x\notin y\)</span>使得<span
+class="math inline">\(q_x=q_y\)</span>，則<span
+class="math inline">\(U_{j_x}\)</span>和<span
+class="math inline">\(U_{j_y}\)</span>可能都會被標記為<span
+class="math inline">\(U_{q_x}\)</span>。從下圖1來看，這樣會導致紅色斜線的部分被丟掉。</p>
+<img src="circles.jpg" width="25%" height="25%">
+<center>
+圖1
+</center>
+<p>對於<span class="math inline">\(q_x=q_y\)</span>的<span
+class="math inline">\(x\neq y\)</span>，底下簡記<span
+class="math inline">\(r_{j_x}=r_x\)</span>，<span
+class="math inline">\(r_{j_y}=r_y\)</span>，有 <span
+class="math display">\[
+\begin{aligned}
+|y-q_y|&amp;&lt;\frac{r_y}{20}\\
+|x-q_x|&amp;&lt;\frac{r_x}{20}
+\end{aligned}
+\]</span> 故 <span class="math display">\[
+\begin{aligned}
+|x-y|&amp;=|x-q_x+q_x-y|\\
+&amp;=|x-q_x+q_y-y|\;\;(q_x=q_y)\\
+&amp;\leq|x-q_x|+|y-q_y|\\
+&amp;&lt;\frac{r_x}{20}+\frac{r_y}{20}\\
+&amp;\leq\frac{2}{20}\max\{r_x,r_y\}
+\end{aligned}
+\]</span> 假設<span class="math inline">\(r_y\geq r_x\)</span>，則<span
+class="math inline">\(|x-y|\leq\frac{2}{20}r_y\)</span>，故有 <span
+class="math display">\[
+x\in B_{\frac{3}{20}r_y}(y)\subseteq B_{r_y}(y)\subseteq U_{j_y}
+\]</span> 依循這個道理，固定<span
+class="math inline">\(x\)</span>和<span
+class="math inline">\(q_x\)</span>。</p>
 
     </div>
 
@@ -332,7 +462,10 @@ D_n=\left\{y\in\Omega:\|y-x\|&gt;\frac{1}{n}\right\}
     <a href="/2025/07/26/ana-intro-topology/" rel="prev" title="分析導論：拓樸">
       <i class="fa fa-chevron-left"></i> 分析導論：拓樸
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2025/08/01/ana-intro-bounds/" rel="next" title="分析導論：最大下界與最小上界">
+      分析導論：最大下界與最小上界 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -393,7 +526,8 @@ D_n=\left\{y\in\Omega:\|y-x\|&gt;\frac{1}{n}\right\}
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%94%B6%E6%96%82%E9%BB%9E%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">收斂點列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E6%94%B6%E6%96%82%E9%BB%9E%E5%88%97-convergence-points-sequence"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：收斂點列 (Convergence Points Sequence)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">引理 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%8A%E7%B7%BB"><span class="nav-number">2.</span> <span class="nav-text">緊緻</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%B7%8A%E7%B7%BB-compact"><span class="nav-number">2.1.</span> <span class="nav-text">定義 3：緊緻
-(Compact)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">性質 3-1</span></a></li></ol></li></ol></li></ol></div>
+(Compact)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">性質 3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">性質 3-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%9C%89%E7%95%8C-bounded"><span class="nav-number">2.2.</span> <span class="nav-text">定義 4：有界
+(Bounded)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">2.3.</span> <span class="nav-text">定理 5</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -407,7 +541,7 @@ D_n=\left\{y\in\Omega:\|y-x\|&gt;\frac{1}{n}\right\}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">106</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
