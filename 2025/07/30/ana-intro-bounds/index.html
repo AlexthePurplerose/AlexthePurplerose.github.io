@@ -23,21 +23,21 @@
   <meta name="description" content="這份筆記是關於上下界與上下極限，及其在實數完備性上的應用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分析導論：最大下界與最小上界">
-<meta property="og:url" content="https://alexthepurplerose.github.io/2025/08/01/ana-intro-bounds/index.html">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2025/07/30/ana-intro-bounds/index.html">
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於上下界與上下極限，及其在實數完備性上的應用。">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/01/ana-intro-bounds/interval.jpg">
-<meta property="article:published_time" content="2025-08-01T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-08-02T09:06:06.687Z">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/30/ana-intro-bounds/interval.jpg">
+<meta property="article:published_time" content="2025-07-30T08:34:38.000Z">
+<meta property="article:modified_time" content="2025-08-02T13:41:18.143Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
 <meta property="article:tag" content="Analysis_Intro">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://alexthepurplerose.github.io/2025/08/01/ana-intro-bounds/interval.jpg">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2025/07/30/ana-intro-bounds/interval.jpg">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/2025/08/01/ana-intro-bounds/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2025/07/30/ana-intro-bounds/">
 
 
 <script id="page-configurations">
@@ -171,7 +171,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2025/08/01/ana-intro-bounds/">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2025/07/30/ana-intro-bounds/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -194,14 +194,14 @@
               </span>
               <span class="post-meta-item-text">發表於</span>
 
-              <time title="創建時間：2025-08-01 16:34:38" itemprop="dateCreated datePublished" datetime="2025-08-01T16:34:38+08:00">2025-08-01</time>
+              <time title="創建時間：2025-07-30 16:34:38" itemprop="dateCreated datePublished" datetime="2025-07-30T16:34:38+08:00">2025-07-30</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-08-02 17:06:06" itemprop="dateModified" datetime="2025-08-02T17:06:06+08:00">2025-08-02</time>
+                <time title="修改時間：2025-08-02 21:41:18" itemprop="dateModified" datetime="2025-08-02T21:41:18+08:00">2025-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -442,6 +442,36 @@ B_n&amp;=\inf\{(-1)^jj\}_{j=n}^\infty=-\infty
 \]</span> 故 <span class="math display">\[
 \limsup_{n\to\infty}a_n=+\infty, \liminf_{n\to\infty}a_n=-\infty
 \]</span></p>
+<h2 id="定理-5"><font color=#ff1493><u>定理 5</u></font></h2>
+<p>給定集合<span
+class="math inline">\(A\subseteq\mathbb{R}\)</span>，若存在<span
+class="math inline">\(A\)</span>有上界<span
+class="math inline">\(M\in\mathbb{R}\)</span>，則<span
+class="math inline">\(A\)</span>有最小上界。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：首先，若<span
+class="math inline">\(M\in A\)</span>，則<span
+class="math inline">\(M\)</span>就應該是<span
+class="math inline">\(A\)</span>的最小上界(不然如果有<span
+class="math inline">\(m&lt;M\)</span>也是上界，則<span
+class="math inline">\(m&lt;M\in
+A\)</span>，直接和上界的定義矛盾)。若<span class="math inline">\(M\notin
+A\)</span>，則對於所有<span class="math inline">\(x\in A\)</span>有<span
+class="math inline">\(x&lt;M\)</span>。考慮一串區間<span
+class="math inline">\([M-1,M],[M-2,M-1],\cdots\)</span>。由於<span
+class="math inline">\(M\)</span>是<span
+class="math inline">\(A\)</span>的上界，故 <span class="math display">\[
+A\cap\left(\bigcup_{j=0}^\infty[M-(j+1),M-j]\right)=A
+\]</span> 可以知道必有<span
+class="math inline">\(j\in\mathbb{N}\cup\{0\}\)</span>使得<span
+class="math inline">\([M-(j+1),M-j]\cap
+A\neq\varnothing\)</span>。挑出這些<span
+class="math inline">\(j\)</span>中最小的那個。令<span
+class="math inline">\(a_1=M-j\)</span>，則<span
+class="math inline">\(M-(j+1)=a_1-1\)</span>。於是有 <span
+class="math display">\[
+\left(\left[a_1-1,a_1-\frac{1}{2}\right]\cup\left[a_1-\frac{1}{2},a_1\right]\right)\cap
+A\neq\varnothing
+\]</span></p>
 
     </div>
 
@@ -462,10 +492,13 @@ B_n&amp;=\inf\{(-1)^jj\}_{j=n}^\infty=-\infty
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2025/07/30/ana-intro-compact/" rel="prev" title="分析導論：緊緻">
-      <i class="fa fa-chevron-left"></i> 分析導論：緊緻
+    <a href="/2025/07/26/ana-intro-topology/" rel="prev" title="分析導論：拓樸">
+      <i class="fa fa-chevron-left"></i> 分析導論：拓樸
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2025/08/01/ana-intro-compact/" rel="next" title="分析導論：緊緻">
+      分析導論：緊緻 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -528,7 +561,7 @@ B_n&amp;=\inf\{(-1)^jj\}_{j=n}^\infty=-\infty
 1：上界與下界 (Upper Bound and Lower Bound)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E6%9C%80%E5%B0%8F%E4%B8%8A%E7%95%8C%E8%88%87%E6%9C%80%E5%A4%A7%E4%B8%8B%E7%95%8C-least-upper-bound-and-greatest-lower-bound"><span class="nav-number">1.2.</span> <span class="nav-text">定義
 2：最小上界與最大下界 (Least Upper Bound and Greatest Lower
 Bound)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">例 2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">註記 2-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.3.</span> <span class="nav-text">註記 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">例 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E4%B8%8A%E6%A5%B5%E9%99%90%E8%88%87%E4%B8%8B%E6%A5%B5%E9%99%90-limit-superior-and-limit-inferior"><span class="nav-number">1.4.</span> <span class="nav-text">定義
-4：上極限與下極限 (Limit Superior and Limit Inferior)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">性質 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">性質 4-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-3"><span class="nav-number">1.4.3.</span> <span class="nav-text">性質 4-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-4"><span class="nav-number">1.4.4.</span> <span class="nav-text">例 4-4</span></a></li></ol></li></ol></li></ol></div>
+4：上極限與下極限 (Limit Superior and Limit Inferior)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">性質 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">性質 4-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-3"><span class="nav-number">1.4.3.</span> <span class="nav-text">性質 4-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-4"><span class="nav-number">1.4.4.</span> <span class="nav-text">例 4-4</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
