@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於實數的建構與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-07-19T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-26T07:27:08.796Z">
+<meta property="article:modified_time" content="2025-08-02T09:12:33.987Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-07-26 15:27:08" itemprop="dateModified" datetime="2025-07-26T15:27:08+08:00">2025-07-26</time>
+                <time title="修改時間：2025-08-02 17:12:33" itemprop="dateModified" datetime="2025-08-02T17:12:33+08:00">2025-08-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -760,6 +760,28 @@ class="math inline">\(\{c_n\}\)</span>是等價的柯西序列 i.e.
 class="math inline">\(a_{n_k}\in[b_n,c_n]\)</span>，故由夾擠引理(引理12)知<span
 class="math inline">\(\{a_{n_k}\}\)</span>也是柯西序列，且其也應收斂至<span
 class="math inline">\(a\)</span>。<font size="1">QED</font></p>
+<h2 id="定理-14"><font color=#ff1493><u>定理 14</u></font></h2>
+<p>若一數列<span
+class="math inline">\(\{a_n\}\)</span>的所有子序列都有收斂到<span
+class="math inline">\(x\in\mathbb{R}\)</span>的子序列，則數列<span
+class="math inline">\(\{a_n\}\)</span>收斂且收斂到<span
+class="math inline">\(x\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：假設<span
+class="math inline">\(\{a_n\}\)</span>不收斂到<span
+class="math inline">\(x\)</span>，則應存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得對於所有<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>都存在<span
+class="math inline">\(n&gt;N\)</span>使得<span
+class="math inline">\(|a_n-x|\geq\epsilon\)</span>。於是，我們可以建構出一個<span
+class="math inline">\(\{a_{n_k}\}_{k=1}^\infty\)</span>滿足 <span
+class="math display">\[
+|a_{n_k}-x|\geq\epsilon,\forall k
+\]</span> 則顯然<span
+class="math inline">\(\{a_{n_k}\}_{k=1}^\infty\)</span>沒有任何子序列能收斂到<span
+class="math inline">\(x\)</span>，矛盾。故應有 <span
+class="math display">\[
+\lim_{n\to\infty}a_n=x
+\]</span> <font size="1">QED</font></p>
 
     </div>
 
@@ -857,7 +879,7 @@ Sequences)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a c
 7：有理數嵌入實數 (Embedding of Rational Numbers into Real
 Numbers)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E5%AE%8C%E5%82%99%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">實數完備性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8%E5%AE%8C%E5%82%99-complete"><span class="nav-number">3.1.</span> <span class="nav-text">定義 8：完備
 (Complete)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-9"><span class="nav-number">3.2.</span> <span class="nav-text">引理 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10"><span class="nav-number">3.3.</span> <span class="nav-text">定理 10</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%A6%E6%95%B8%E5%BA%8F%E5%88%97"><span class="nav-number">4.</span> <span class="nav-text">實數序列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11"><span class="nav-number">4.1.</span> <span class="nav-text">定理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-12%E5%A4%BE%E6%93%A0%E5%BC%95%E7%90%86-squeezing-lemma"><span class="nav-number">4.2.</span> <span class="nav-text">引理
-12：夾擠引理 (Squeezing Lemma)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-13"><span class="nav-number">4.3.</span> <span class="nav-text">定理 13</span></a></li></ol></li></ol></div>
+12：夾擠引理 (Squeezing Lemma)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-13"><span class="nav-number">4.3.</span> <span class="nav-text">定理 13</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14"><span class="nav-number">4.4.</span> <span class="nav-text">定理 14</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

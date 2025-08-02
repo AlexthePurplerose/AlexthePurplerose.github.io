@@ -20,20 +20,22 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於最大下界與最小上界，以及上下極限。">
+  <meta name="description" content="這份筆記是關於上下界與上下極限，及其在實數完備性上的應用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分析導論：最大下界與最小上界">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2025/08/01/ana-intro-bounds/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於最大下界與最小上界，以及上下極限。">
+<meta property="og:description" content="這份筆記是關於上下界與上下極限，及其在實數完備性上的應用。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/01/ana-intro-bounds/interval.jpg">
 <meta property="article:published_time" content="2025-08-01T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-31T16:16:15.696Z">
+<meta property="article:modified_time" content="2025-08-02T09:06:06.687Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
 <meta property="article:tag" content="Analysis_Intro">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2025/08/01/ana-intro-bounds/interval.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2025/08/01/ana-intro-bounds/">
 
@@ -191,10 +193,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2025-08-01 16:34:38 / 修改時間：00:16:15" itemprop="dateCreated datePublished" datetime="2025-08-01T16:34:38+08:00">2025-08-01</time>
+              <time title="創建時間：2025-08-01 16:34:38" itemprop="dateCreated datePublished" datetime="2025-08-01T16:34:38+08:00">2025-08-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2025-08-02 17:06:06" itemprop="dateModified" datetime="2025-08-02T17:06:06+08:00">2025-08-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -220,7 +228,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於最大下界與最小上界，以及上下極限。 <span id="more"></span><br></p>
+        <p>這份筆記是關於上下界與上下極限，及其在實數完備性上的應用。
+<span id="more"></span><br></p>
 <center>
 <h1
 id="最大下界與最小上界"><font color=#b8860b>最大下界與最小上界</font></h1>
@@ -256,7 +265,183 @@ A\)</span>。</p>
 <p>考慮<span
 class="math inline">\(A=\left\{-\frac{1}{n}\right\}_{n=1}^\infty\)</span>，則<span
 class="math inline">\(\sup A=0\)</span>。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：</p>
+<p><font color=#8b4513><u>證明</u></font>：首先，我們可以發現對於所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>有 <span
+class="math display">\[
+-\frac{1}{n}&lt;0
+\]</span> 故<span class="math inline">\(0\)</span>確是<span
+class="math inline">\(A\)</span>的上界。接著，假設<span
+class="math inline">\(M\)</span>也是<span
+class="math inline">\(A\)</span>的上界但<span
+class="math inline">\(M&lt;0\)</span>，則<span
+class="math inline">\(-M&gt;0\)</span>。由阿基米德性質(<a
+href="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/">這裡</a>的性質22)知存在<span
+class="math inline">\(n\in\mathbb{N}\)</span>使得 <span
+class="math display">\[
+0&lt;\frac{1}{n}&lt;-M
+\]</span> 故有<span
+class="math inline">\(M&lt;-\frac{1}{n}\)</span>。然而<span
+class="math inline">\(-\frac{1}{n}\in A\)</span>，這與<span
+class="math inline">\(M\)</span>是<span
+class="math inline">\(A\)</span>的上界的假設矛盾。故<span
+class="math inline">\(0\)</span>是最小上界 i.e. <span
+class="math inline">\(\sup A=0\)</span>。<font size="1">QED</font></p>
+<h3 id="註記-2-2"><font color=#0000FF><u>註記 2-2</u></font></h3>
+<p>對於集合<span
+class="math inline">\(A\subseteq\mathbb{R}\)</span>，若對於所有<span
+class="math inline">\(M\in\mathbb{R}\)</span>都有<span
+class="math inline">\(x\in A\)</span>使得<span
+class="math inline">\(x&gt;M\)</span>。則記<span
+class="math inline">\(\sup A=+\infty\)</span>。類似的，我們也會記<span
+class="math inline">\(\inf A=-\infty\)</span>。</p>
+<h2 id="註記-3"><font color=#0000FF><u>註記 3</u></font></h2>
+<p>給定集合<span
+class="math inline">\(A\subseteq\mathbb{R}\)</span>，若<span
+class="math inline">\(\sup A=m\in\mathbb{R}\)</span>，則對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，有<span
+class="math inline">\((m-\epsilon,m]\cap A\neq\varnothing\)</span>。
+<br>(這是顯然的。)</p>
+<h3 id="例-3-1"><font color=#ffa500><u>例 3-1</u></font></h3>
+<p>考慮<span
+class="math inline">\(A=(0,1)\cup\{2\}\)</span>(見下圖1)，則<span
+class="math inline">\(\sup A=2\)</span>。可以發現對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，確實<span
+class="math inline">\((2-\epsilon,2]\cap
+A=\{2\}\)</span>不是空集合。</p>
+<img src="interval.jpg" width="50%" height="50%">
+<center>
+圖1
+</center>
+<p>從這裡也能看到註記3中<span
+class="math inline">\((m-\epsilon,m]\)</span>的右邊取閉區間是必須的。在這裡如果右邊取開區間就會發生<span
+class="math inline">\((2-\epsilon,2)\cap A=\varnothing\)</span>。</p>
+<h2
+id="定義-4上極限與下極限-limit-superior-and-limit-inferior"><font color=#008000><u>定義
+4：上極限與下極限 (Limit Superior and Limit Inferior)</u></font></h2>
+<p>給定數列<span class="math inline">\(\{a_n\}_{n=1}^\infty\)</span>，令
+<span class="math display">\[
+\begin{aligned}
+A_n&amp;=\sup\{a_j\}_{j=n}^\infty\\
+B_n&amp;=\inf\{a_j\}_{j=n}^\infty
+\end{aligned}
+\]</span> 易知 <span class="math display">\[
+\begin{aligned}
+A_{n+1}=\sup\{a_j\}_{j=n+1}^\infty&amp;\leq\sup\{a_j\}_{j=n}^\infty=A_n\\
+B_{n+1}=\inf\{a_j\}_{j=n+1}^\infty&amp;\geq\inf\{a_j\}_{j=n}^\infty=B_n
+\end{aligned}
+\]</span> (在第一式中，<span
+class="math inline">\(\{a_j\}_{j=n}^\infty\)</span>比<span
+class="math inline">\(\{a_j\}_{j=n+1}^\infty\)</span>多了<span
+class="math inline">\(a_n\)</span>，故若<span
+class="math inline">\(a_n\)</span>比後面所有東西都大的話就會有<span
+class="math inline">\(A_{n+1}\leq A_n\)</span>。第二式同理。)即<span
+class="math inline">\(A_n\)</span>遞減，<span
+class="math inline">\(B_n\)</span>遞增。則定義<span
+class="math inline">\(\{a_n\}\)</span>的上極限為 <span
+class="math display">\[
+\limsup_{n\to\infty}a_n=\lim_{n\to\infty}A_n
+\]</span> 並定義<span class="math inline">\(\{a_n\}\)</span>的下極限為
+<span class="math display">\[
+\liminf_{n\to\infty}a_n=\lim_{n\to\infty}B_n
+\]</span></p>
+<h3 id="性質-4-1"><font color=#0000FF><u>性質 4-1</u></font></h3>
+<p>I. 若<span
+class="math inline">\(\limsup\limits_{n\to\infty}a_n=m\in\mathbb{R}\)</span>，則存在<span
+class="math inline">\(\{a_n\}\)</span>的子序列<span
+class="math inline">\(\{a_{n_j}\}_{j=1}^\infty\)</span>使得<span
+class="math inline">\(\lim\limits_{j\to\infty}a_{n_j}=m\)</span>。<br>
+II. 若<span
+class="math inline">\(\liminf\limits_{n\to\infty}a_n=l\in\mathbb{R}\)</span>，則存在<span
+class="math inline">\(\{a_n\}\)</span>的子序列<span
+class="math inline">\(\{a_{n_k}\}_{k=1}^\infty\)</span>使得<span
+class="math inline">\(\lim\limits_{k\to\infty}a_{n_k}=l\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：這裡只證I.，而II.的證明同理。<br>
+<span
+class="math inline">\(\limsup\limits_{n\to\infty}a_n=m\)</span>代表對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都存在<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n&gt;N_0\)</span>都有<span
+class="math inline">\(|A_n-m|&lt;\epsilon\)</span>。而由註記3知<span
+class="math inline">\(\sup\{a_j\}_{j=n}^\infty=A_n\)</span>代表對於所有<span
+class="math inline">\(\delta&gt;0\)</span>都有<span
+class="math inline">\(n\leq j_\delta\in\mathbb{N}\)</span>使得<span
+class="math inline">\(A_n-\delta&lt;a_{j_\delta}\leq
+A_n\)</span>。今令<span
+class="math inline">\(\delta=\frac{1}{k}\)</span>, <span
+class="math inline">\(k\in\mathbb{N}\)</span>，則考慮數列<span
+class="math inline">\(\{a_{j_{1/k}}\}_{k=1}^\infty\)</span>，有 <span
+class="math display">\[
+\begin{aligned}
+|a_{j_{1/k}}-m|&amp;\leq|a_{j_{1/k}}-A_n|+|A_n-m|\\
+&amp;\leq\frac{1}{k}+\epsilon
+\end{aligned}
+\]</span> 這可以任意小，故 <span class="math display">\[
+\lim_{k\to\infty}a_{j_{1/k}}=m
+\]</span> 即<span
+class="math inline">\(\{a_{j_{1/k}}\}_{k=1}^\infty\)</span>是收斂到<span
+class="math inline">\(m\)</span>的<span
+class="math inline">\(\{a_n\}\)</span>的子序列。<font size="1">QED</font></p>
+<h3 id="性質-4-2"><font color=#0000FF><u>性質 4-2</u></font></h3>
+<p>I. 若<span
+class="math inline">\(\limsup\limits_{n\to\infty}a_n=m\in\mathbb{R}\)</span>，則<span
+class="math inline">\(m\)</span>是<span
+class="math inline">\(\{a_n\}\)</span>最大的密聚點。<br> II. 若<span
+class="math inline">\(\liminf\limits_{n\to\infty}a_n=l\in\mathbb{R}\)</span>，則<span
+class="math inline">\(l\)</span>是<span
+class="math inline">\(\{a_n\}\)</span>最小的密聚點。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：這裡只證I.，而II.的證明同理。<br>
+由性質4-1可知<span class="math inline">\(m\)</span>確為<span
+class="math inline">\(\{a_n\}\)</span>的密聚點。若存在<span
+class="math inline">\(m&#39;&gt;m\)</span>也是<span
+class="math inline">\(\{a_n\}\)</span>的密聚點，則對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，都存在<span
+class="math inline">\(\{a_n\}\)</span>的子序列<span
+class="math inline">\(\{a_{n_j}\}\)</span>使得 <span
+class="math display">\[
+\{a_{n_j}\}_{j=1}^\infty\subseteq B_\epsilon(m&#39;)
+\]</span> 令<span
+class="math inline">\(\epsilon=\frac{m&#39;-m}{2}\)</span>，則對於所有<span
+class="math inline">\(j\in\mathbb{N}\)</span>都有<span
+class="math inline">\(a_{n_j}&gt;m\)</span>。而對於所有<span
+class="math inline">\(N\in\mathbb{N}\)</span>，都有<span
+class="math inline">\(j\)</span>使得<span
+class="math inline">\(n_j&gt;N\)</span>，故 <span
+class="math display">\[
+A_N=\sup\{a_n\}_{n=N}^\infty\geq a_{n_j}\geq m+\epsilon
+\]</span> 故 <span class="math display">\[
+m=\limsup_{n\to\infty}a_n=\lim_{n\to\infty}A_n\geq m+\epsilon&gt;m
+\]</span> 矛盾，故<span class="math inline">\(m\)</span>應是<span
+class="math inline">\(\{a_n\}\)</span>最大的密聚點。<font size="1">QED</font></p>
+<h3 id="性質-4-3"><font color=#0000FF><u>性質 4-3</u></font></h3>
+<p>若 <span class="math display">\[
+\begin{aligned}
+\limsup\limits_{n\to\infty}a_n&amp;=m\in\mathbb{R}\\
+\liminf\limits_{n\to\infty}a_n&amp;=l\in\mathbb{R}
+\end{aligned}
+\]</span> 且<span class="math inline">\(m=l\)</span>，則 <span
+class="math display">\[
+\lim_{n\to\infty}a_n=l=m
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：考慮數列<span
+class="math inline">\(\{A_n\}\)</span>與<span
+class="math inline">\(\{B_n\}\)</span>。可以發現對於所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>都有 <span
+class="math display">\[
+B_n\leq a_n\leq A_n
+\]</span> 而<span class="math inline">\(\lim A_n=\lim
+B_n\)</span>，故由夾擠引理(<a
+href="https://alexthepurplerose.github.io/2025/07/19/ana-intro-real-numbers/">這裡</a>的引理12)就有所欲證的了。<font size="1">QED</font></p>
+<h3 id="例-4-4"><font color=#ffa500><u>例 4-4</u></font></h3>
+<p>上下極限都不一定會好好的存在。考慮數列 <span class="math display">\[
+\{a_n\}=\{(-1)^nn\}=\{-1,2,-3,4,-5,6,\cdots\}
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+A_n&amp;=\sup\{(-1)^jj\}_{j=n}^\infty=+\infty\\
+B_n&amp;=\inf\{(-1)^jj\}_{j=n}^\infty=-\infty
+\end{aligned}
+\]</span> 故 <span class="math display">\[
+\limsup_{n\to\infty}a_n=+\infty, \liminf_{n\to\infty}a_n=-\infty
+\]</span></p>
 
     </div>
 
@@ -342,7 +527,8 @@ class="math inline">\(\sup A=0\)</span>。<br></p>
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E4%B8%8B%E7%95%8C%E8%88%87%E6%9C%80%E5%B0%8F%E4%B8%8A%E7%95%8C"><span class="nav-number">1.</span> <span class="nav-text">最大下界與最小上界</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E4%B8%8A%E7%95%8C%E8%88%87%E4%B8%8B%E7%95%8C-upper-bound-and-lower-bound"><span class="nav-number">1.1.</span> <span class="nav-text">定義
 1：上界與下界 (Upper Bound and Lower Bound)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E6%9C%80%E5%B0%8F%E4%B8%8A%E7%95%8C%E8%88%87%E6%9C%80%E5%A4%A7%E4%B8%8B%E7%95%8C-least-upper-bound-and-greatest-lower-bound"><span class="nav-number">1.2.</span> <span class="nav-text">定義
 2：最小上界與最大下界 (Least Upper Bound and Greatest Lower
-Bound)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">例 2-1</span></a></li></ol></li></ol></li></ol></div>
+Bound)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">例 2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">註記 2-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3"><span class="nav-number">1.3.</span> <span class="nav-text">註記 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">例 3-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E4%B8%8A%E6%A5%B5%E9%99%90%E8%88%87%E4%B8%8B%E6%A5%B5%E9%99%90-limit-superior-and-limit-inferior"><span class="nav-number">1.4.</span> <span class="nav-text">定義
+4：上極限與下極限 (Limit Superior and Limit Inferior)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">性質 4-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-2"><span class="nav-number">1.4.2.</span> <span class="nav-text">性質 4-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-4-3"><span class="nav-number">1.4.3.</span> <span class="nav-text">性質 4-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-4-4"><span class="nav-number">1.4.4.</span> <span class="nav-text">例 4-4</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
