@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/30/ana-intro-bounds/interval.jpg">
 <meta property="article:published_time" content="2025-07-30T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-08-03T08:14:46.424Z">
+<meta property="article:modified_time" content="2025-08-04T15:54:17.480Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-08-03 16:14:46" itemprop="dateModified" datetime="2025-08-03T16:14:46+08:00">2025-08-03</time>
+                <time title="修改時間：2025-08-04 23:54:17" itemprop="dateModified" datetime="2025-08-04T23:54:17+08:00">2025-08-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -568,7 +568,7 @@ id="實數完備性的等價敘述"><font color=#b8860b>實數完備性的等價
 <p>以下四點敘述等價： <br>1. 任何<span
 class="math inline">\(\mathbb{R}\)</span>中的柯西序列都在<span
 class="math inline">\(\mathbb{R}\)</span>中收斂。 <br>2. 任何<span
-class="math inline">\(\mathbb{R}\)</span>中有上界的柯西序列都在<span
+class="math inline">\(\mathbb{R}\)</span>中有上界的單調遞增序列都在<span
 class="math inline">\(\mathbb{R}\)</span>中收斂。 <br>3. 任何<span
 class="math inline">\(\mathbb{R}\)</span>中的有界序列都有在<span
 class="math inline">\(\mathbb{R}\)</span>中收斂的子序列。 <br>4.
@@ -582,7 +582,74 @@ href="https://alexthepurplerose.github.io/2025/07/19/ana-intro-real-numbers/">�
 class="math inline">\(\Rightarrow\)</span>
 3.，但其實是差不多的意思，畢竟有1.<span
 class="math inline">\(\Rightarrow\)</span> 2.)。 <br>3.<span
-class="math inline">\(\Rightarrow\)</span> 1.：</p>
+class="math inline">\(\Rightarrow\)</span> 1.：假設所有<span
+class="math inline">\(\mathbb{R}\)</span>中的有界序列都有收斂子序列<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>，則給定<span
+class="math inline">\(\mathbb{R}\)</span>中的柯西序列。由定義知對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，存在<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;N_0\)</span>都有 <span
+class="math display">\[
+|x_m-x_n|&lt;\epsilon
+\]</span> 我們希望說明<span
+class="math inline">\(\{x_n\}\)</span>是有界序列。選定<span
+class="math inline">\(\epsilon=1\)</span>，則存在<span
+class="math inline">\(N\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;N\)</span>有<span
+class="math inline">\(|x_n-x_m|&lt;1\)</span>。固定<span
+class="math inline">\(m=N\)</span>，則對於所有<span
+class="math inline">\(n&gt;N\)</span>有 <span class="math display">\[
+|x_n|&lt;|x_N|+1
+\]</span> 故可知<span
+class="math inline">\(\{x_n\}\)</span>是有界序列。由假設可知存在收斂子序列<span
+class="math inline">\(\{x_{n_k}\}\)</span>，令其收斂至<span
+class="math inline">\(x\in\mathbb{R}\)</span>。<br> 接著，任意給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，由<span
+class="math inline">\(\{x_n\}\)</span>是柯西序列知存在<span
+class="math inline">\(N_1\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(m,n&gt;N_1\)</span>有 <span
+class="math display">\[
+|x_m-x_n|&lt;\frac{\epsilon}{2}
+\]</span> 而由於<span
+class="math inline">\(\{x_{n_k}\}\)</span>收斂至<span
+class="math inline">\(x\)</span>，故存在<span
+class="math inline">\(K\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(k&gt;K\)</span>有 <span class="math display">\[
+|x_{n_k}-x|&lt;\frac{\epsilon}{2}
+\]</span> 選定夠大的<span class="math inline">\(k&gt;K\)</span>使得<span
+class="math inline">\(n_k&gt;N_1\)</span>，則 <span
+class="math display">\[
+|x_n-x|\leq|x_n-x_{n_k}|+|x_{n_k}-x|&lt;\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+\]</span> 故可知<span class="math inline">\(\{x_n\}\)</span>收斂至<span
+class="math inline">\(x\)</span>。 <br>2.<span
+class="math inline">\(\Rightarrow\)</span> 4.：這個我們在定理5證明過了。
+<br>4.<span class="math inline">\(\Rightarrow\)</span> 2.：給定數列<span
+class="math inline">\(\{a_n\}_{n=1}^\infty\)</span>，其中 <span
+class="math display">\[
+a_1\leq a_2\leq a_3\leq\cdots\leq M
+\]</span> 由假設知<span
+class="math inline">\(\{a_n\}\)</span>有最小上界，令<span
+class="math inline">\(m=\sup\{a_n\}_{n=1}^\infty\)</span>，我們希望說明<span
+class="math inline">\(\lim\limits_{n\to\infty}a_n=m\)</span>。我們知道對於所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>有<span
+class="math inline">\(m\geq a_n\)</span>，且由註記3知對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>應有 <span
+class="math display">\[
+(m-\epsilon,m]\cap\{a_n\}_{n=1}^\infty\neq\varnothing
+\]</span> 挑選<span
+class="math inline">\(a_{n_\epsilon}\in(m-\epsilon,m]\)</span>。由於<span
+class="math inline">\(\{a_n\}\)</span>是單調遞增序列，，故對於所有<span
+class="math inline">\(n\geq n_\epsilon\)</span>，有 <span
+class="math display">\[
+m-\epsilon&lt;a_{n_\epsilon\leq a_n\leq m
+\]</span> 即對於所有<span class="math inline">\(n\geq
+n_\epsilon\)</span>有<span
+class="math inline">\(|a_n-m|&lt;\epsilon\)</span>。且由於<span
+class="math inline">\(\epsilon\)</span>是任意給定的，故有 <span
+class="math display">\[
+\lim_{n\to\infty}a_n=m
+\]</span> 即<span
+class="math inline">\(\{a_n\}\)</span>收斂。<font size="1">QED</font></p>
 
     </div>
 

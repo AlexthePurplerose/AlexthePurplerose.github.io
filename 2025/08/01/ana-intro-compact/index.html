@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/01/ana-intro-compact/circles.jpg">
 <meta property="article:published_time" content="2025-08-01T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-08-02T13:24:02.249Z">
+<meta property="article:modified_time" content="2025-08-04T16:17:52.828Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -201,7 +201,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-08-02 21:24:02" itemprop="dateModified" datetime="2025-08-02T21:24:02+08:00">2025-08-02</time>
+                <time title="修改時間：2025-08-05 00:17:52" itemprop="dateModified" datetime="2025-08-05T00:17:52+08:00">2025-08-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -436,9 +436,47 @@ class="math display">\[
 class="math inline">\(|x-y|\leq\frac{2}{20}r_y\)</span>，故有 <span
 class="math display">\[
 x\in B_{\frac{3}{20}r_y}(y)\subseteq B_{r_y}(y)\subseteq U_{j_y}
-\]</span> 依循這個道理，固定<span
-class="math inline">\(x\)</span>和<span
-class="math inline">\(q_x\)</span>。</p>
+\]</span> 固定<span class="math inline">\(x\)</span>和<span
+class="math inline">\(q_x\)</span>，令<span
+class="math inline">\(A=\{y\in M:q_y=q_x\}\)</span>，並令 <span
+class="math display">\[
+r=\sup_{y\in A}\{r_y\}
+\]</span> 我們有<span class="math inline">\(0&lt;r\leq
+1\)</span>，則必存在<span class="math inline">\(x_0\in A\)</span>使得
+<span class="math display">\[
+r_{x_0}&gt;\frac{19}{20}r
+\]</span> (不然<span
+class="math inline">\(r\)</span>就不是最小上界了)。我們希望說明<span
+class="math inline">\(B_{r_{x_0}}\supseteq A\)</span>。由於<span
+class="math inline">\(q_{x_0}=q_y=q_x\)</span>，故對於<span
+class="math inline">\(y\in A\)</span>有 <span class="math display">\[
+\begin{aligned}
+|y-x_0|&amp;=|y-q_y+q_{x_0}-x_0|\\
+&amp;\leq|y-q_y|+|q_{x_0}-x_0|\\
+&amp;\leq\frac{r_y}{20}+\frac{r_{x_0}}{20}\\
+&amp;\leq\frac{2}{20}r&lt;\frac{19}{20}r
+\end{aligned}
+\]</span> 故<span class="math inline">\(y\in
+B_{r_{x_0}}(x_0)\)</span>，即<span class="math inline">\(A\subseteq
+B_{r_{x_0}}(x_0)\)</span>。接著，我們定義等價關係<span
+class="math inline">\(\sim\)</span>為 <span class="math display">\[
+x\sim y\Leftrightarrow q_x=q_y
+\]</span> 並定義 <span class="math display">\[
+r^x=\sup_{y\sim x}\{r_y\}
+\]</span> 則同上，應存在<span class="math inline">\(x_0\sim
+x\)</span>使得<span
+class="math inline">\(r_{x_0}&gt;\frac{19}{20}r^x\)</span>，且應有 <span
+class="math display">\[
+\{y\}_{y\sim x_0}\subseteq B_{r_{x_0}}(x_0)\subseteq U_{j_{x_0}}
+\]</span> 於是，一整個<span class="math inline">\(\{y\}_{y\sim
+x_0}\)</span>都可以用<span
+class="math inline">\(U_{j_{x_0}}\)</span>來覆蓋，而我們又可以用<span
+class="math inline">\(q_{x_0}\)</span>來標記<span
+class="math inline">\(U_{j_{x_0}}\)</span>，故有 <span
+class="math display">\[
+M\subseteq\bigcup U_{q_{x_0}}
+\]</span> 而<span
+class="math inline">\(\{q_{x_0}\}\subseteq\mathbb{Q}^N\)</span>又是可數集，就有我們要證的了。<font size="1">QED</font></p>
 
     </div>
 
