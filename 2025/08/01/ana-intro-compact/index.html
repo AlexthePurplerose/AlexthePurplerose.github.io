@@ -28,8 +28,9 @@
 <meta property="og:description" content="這份筆記是關於緊緻集的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/01/ana-intro-compact/circles.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/01/ana-intro-compact/lebesgue.jpeg">
 <meta property="article:published_time" content="2025-08-01T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-08-18T17:11:33.482Z">
+<meta property="article:modified_time" content="2025-08-19T18:09:11.906Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -201,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-08-19 01:11:33" itemprop="dateModified" datetime="2025-08-19T01:11:33+08:00">2025-08-19</time>
+                <time title="修改時間：2025-08-20 02:09:11" itemprop="dateModified" datetime="2025-08-20T02:09:11+08:00">2025-08-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -565,8 +566,8 @@ class="math inline">\(X\)</span>中的數列 <span class="math display">\[
 (1,0),(2,0),(3,0),\cdots
 \]</span> 這個數列顯然沒有收斂子序列，及<span
 class="math inline">\(X\)</span>不是序列緊緻的。</p>
-<h2 id="引理-9勒貝格數-lesbegue-number"><font color=#0000FF><u>引理
-9：勒貝格數 (Lesbegue Number)</u></font></h2>
+<h2 id="引理-9勒貝格數-lebesgue-number"><font color=#0000FF><u>引理
+9：勒貝格數 (Lebesgue Number)</u></font></h2>
 <p>給定度量空間中的集合<span class="math inline">\(K\)</span>。若<span
 class="math inline">\(K\)</span>是序列緊緻的，且<span
 class="math inline">\(\{U_j\}_{j\in I}\)</span>是<span
@@ -577,7 +578,187 @@ class="math inline">\(j\in I\)</span>使得 <span class="math display">\[
 B_\epsilon(x)\subseteq U_j
 \]</span> 這個<span
 class="math inline">\(\epsilon\)</span>稱為開覆蓋<span
-class="math inline">\(\{U_j\}_{j\in I}\)</span>的勒貝格數。</p>
+class="math inline">\(\{U_j\}_{j\in I}\)</span>的勒貝格數。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：假設對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都存在<span
+class="math inline">\(x_\epsilon\in K\)</span>使得對於所有<span
+class="math inline">\(j\in I\)</span>有 <span class="math display">\[
+B_\epsilon(x)\nsubseteq U_j\mbox{ (★)}
+\]</span> 則對於<span
+class="math inline">\(n\in\mathbb{N}\)</span>，令<span
+class="math inline">\(\epsilon=1/n\)</span>，並記相對應的<span
+class="math inline">\(x_\epsilon\in K\)</span>為<span
+class="math inline">\(x_n\)</span>。我們有<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\subseteq
+K\)</span>。由於<span
+class="math inline">\(K\)</span>是序列緊緻的，故存在<span
+class="math inline">\(\{x_n\}\)</span>的子序列<span
+class="math inline">\(\{x_{n_j}\}_{j=1}^\infty\)</span>使得其收斂到某個<span
+class="math inline">\(x\in K\)</span>。而由於 <span
+class="math display">\[
+K\subseteq\bigcup_{j\in I}U_j
+\]</span> 故應存在<span class="math inline">\(i\in I\)</span>使得<span
+class="math inline">\(x\in U_i\)</span>。而由於<span
+class="math inline">\(U_i\)</span>是開集，故應存在<span
+class="math inline">\(r&gt;0\)</span>使得 <span class="math display">\[
+x\in B_r(x)\subseteq U_i
+\]</span> 又因為<span class="math inline">\(x_{n_j}\to
+x\)</span>，故應存在<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n_j&gt;N_0\)</span>有 <span
+class="math display">\[
+\|x_{n_j}-x\|&lt;\frac{1}{10}r
+\]</span> 我們可以找到夠大的<span
+class="math inline">\(n_j\)</span>使得<span
+class="math inline">\(n_j&gt;N_0\)</span>的同時有<span
+class="math inline">\(\frac{1}{n_j}&lt;\frac{1}{10}r\)</span>，則 <span
+class="math display">\[
+B_{1/n_j}(x_{n_j})\subseteq B_r(x)\subseteq U_i
+\]</span> 這與一開始的假設(★)矛盾。故開覆蓋<span
+class="math inline">\(\{U_j\}_{j\in
+I}\)</span>應存在某個大於零的勒貝格數。<font size="1">QED</font></p>
+<img src="lebesgue.jpeg" width="25%" height="25%">
+<center>
+圖2 Henri Lebesgue
+</center>
+<h2 id="定義-10完全有界-totally-bounded"><font color=#008000><u>定義
+10：完全有界 (Totally Bounded)</u></font></h2>
+<p>給定度量空間中的集合<span
+class="math inline">\(D\)</span>。若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都存在有限集<span
+class="math inline">\(\{x_j\}_{j=1}^m\subseteq D\)</span>使得 <span
+class="math display">\[
+D\subseteq\bigcup_{j=1}^m B_\epsilon(x_j)
+\]</span> 則稱<span class="math inline">\(D\)</span>是完全有界的。</p>
+<h2 id="引理-11"><font color=#0000FF><u>引理 11</u></font></h2>
+<p>在度量空間中，若一集合<span
+class="math inline">\(K\)</span>序列緊緻，則<span
+class="math inline">\(K\)</span>完全有界。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：假設集合<span
+class="math inline">\(K\)</span>序列緊緻卻不完全有界。則存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得對於所有有限集<span
+class="math inline">\(\{x_j\}_{j=1}^m\subseteq K\)</span>都有 <span
+class="math display">\[
+K/\left(\bigcup_{j=1}^m B_\epsilon(x_j)\right)\neq\varnothing
+\]</span> 於是，可以挑選<span class="math inline">\(x_1\in K\)</span>,
+<span class="math inline">\(x_2\in K/B_\epsilon(x_1)\)</span>, <span
+class="math inline">\(K_3\in K/(B_\epsilon(x_1)\cup
+B_\epsilon(x_2))\)</span>，並如此不斷繼續下去，即 <span
+class="math display">\[
+x_{n+1}\in K/\left(\bigcup_{j=1}^n B_\epsilon(x_j)\right)
+\]</span> 這樣可以建構出數列<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\subseteq
+K\)</span>。由於<span
+class="math inline">\(K\)</span>是序列緊緻的，故存在<span
+class="math inline">\(\{x_n\}\)</span>的子序列<span
+class="math inline">\(\{x_{n_j}\}_{j=1}^\infty\)</span>使得其收斂到某個<span
+class="math inline">\(x\in K\)</span>。於是應存在<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n_j&gt;N_0\)</span>有 <span
+class="math display">\[
+\|x_{n_j}-x\|&lt;\frac{\epsilon}{4}
+\]</span> 於是對於這樣夠大的<span class="math inline">\(j\)</span>有
+<span class="math display">\[
+\begin{aligned}
+\|x_{n_{j+1}}-x_{n_j}\|&amp;\leq\|x_{n_{j+1}}-x\|+\|x-x_{n_j}\|\\
+&amp;&lt;\frac{\epsilon}{4}+\frac{\epsilon}{4}\\
+&amp;=\frac{\epsilon}{2}\\
+&amp;&lt;\epsilon
+\end{aligned}
+\]</span> 即<span class="math inline">\(x_{n_{j+1}}\in
+B_\epsilon(x_{n_j})\)</span>，矛盾。故<span
+class="math inline">\(K\)</span>應是完全有界的。<font size="1">QED</font></p>
+<h2 id="引理-12"><font color=#0000FF><u>引理 12</u></font></h2>
+<p>在度量空間中，若一集合<span
+class="math inline">\(K\)</span>緊緻，則<span
+class="math inline">\(K\)</span>完全有界。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：首先，顯然對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，有 <span
+class="math display">\[
+K\subseteq\bigcup_{x\in K}B_\epsilon(x)
+\]</span> 而上式的右手邊是<span
+class="math inline">\(K\)</span>的一個開覆蓋。由於<span
+class="math inline">\(K\)</span>是緊緻的，故應存在有限集<span
+class="math inline">\(\{x_j\}_{j=1}^m\subseteq K\)</span>使得 <span
+class="math display">\[
+K\subseteq\bigcup_{j=1}^m B_\epsilon(x_j)
+\]</span> 即<span
+class="math inline">\(K\)</span>是完全有界的。<font size="1">QED</font></p>
+<h2
+id="定理-13波爾札諾-魏爾斯特拉斯定理-bolzano-weierstrass-theorem"><font color=#ff1493><u>定理
+13：波爾札諾-魏爾斯特拉斯定理 (Bolzano Weierstrass
+Theorem)</u></font></h2>
+<p>在度量空間中(底下就假設是<span
+class="math inline">\(\mathbb{R}^N\)</span>)，序列緊緻和緊緻是等價定義。<br></p>
+<p><font color=#8b4513><u>證明1</u></font>：我們分成兩個部分證明。
+<br>「序列緊緻<span
+class="math inline">\(\Rightarrow\)</span>緊緻」：給定序列緊緻集<span
+class="math inline">\(M\subseteq\mathbb{R}^N\)</span>，由註記8可知<span
+class="math inline">\(M\)</span>一定是有界閉集。令 <span
+class="math display">\[
+M\subseteq\bigcup_{j\in I}U_j
+\]</span> 為<span class="math inline">\(M\)</span>的開覆蓋。由於<span
+class="math inline">\(M\)</span>是有界閉集，故由定理5知存在可數集<span
+class="math inline">\(J\subseteq I\)</span>使得 <span
+class="math display">\[
+M\subseteq\bigcup_{j\in J}U_j
+\]</span> 假設<span
+class="math inline">\(M\)</span>不是緊緻的，即找不到有限子覆蓋，則<span
+class="math inline">\(J\)</span>不能是有限集，應有<span
+class="math inline">\(|J|=|\mathbb{N}|\)</span>。既然如此，其實令<span
+class="math inline">\(J=\mathbb{N}\)</span>也無妨。由假設知對於所有<span
+class="math inline">\(n\in\mathbb{N}\)</span>，必有 <span
+class="math display">\[
+M\nsubseteq\bigcup_{j=1}^n U_j
+\]</span> 即存在<span class="math inline">\(x_n\in M\)</span>使得 <span
+class="math display">\[
+x_n\notin\bigcup_{j=1}^n U_j\mbox{ (☆)}
+\]</span> 考慮數列<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\subseteq
+M\)</span>。由於<span
+class="math inline">\(M\)</span>是序列緊緻的，故存在<span
+class="math inline">\(\{x_n\}\)</span>的子序列<span
+class="math inline">\(\{x_{n_k}\}_{k=1}^\infty\)</span>使得其收斂到某個<span
+class="math inline">\(x\in M\)</span>。而由於 <span
+class="math display">\[
+M\subseteq\bigcup_{j=1}^\infty U_j
+\]</span> 故應存在<span
+class="math inline">\(l\in\mathbb{N}\)</span>使得<span
+class="math inline">\(x\in U_l\)</span>，於是對於所有<span
+class="math inline">\(m\geq l\)</span>有 <span class="math display">\[
+x\in\bigcup_{j=1}^m U_j
+\]</span> 又由於<span
+class="math inline">\(U_l\)</span>是開集，故應存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(x)\subseteq U_l\)</span>。且由於<span
+class="math inline">\(x_{n_k}\to x\)</span>，故應存在<span
+class="math inline">\(N_0\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n_k&gt;N_0\)</span>有<span
+class="math inline">\(x_{n_k}\in B_\epsilon(x)\)</span>。故對於任意<span
+class="math inline">\(m\geq l\)</span>有 <span class="math display">\[
+x_{n_k}\in B_\epsilon(x)\subseteq U_l\subseteq\bigcup_{j=1}^m U_j
+\]</span> 即當<span class="math inline">\(n_k\)</span>同時也比<span
+class="math inline">\(l\)</span>大時會導致 <span class="math display">\[
+x_{n_k}\subseteq\bigcup_{j=1}^{n_k}U_j
+\]</span> 這與假設(☆)矛盾，故應存在有限集<span
+class="math inline">\(J\)</span>使得 <span class="math display">\[
+M\subseteq\bigcup_{j\in J}U_j
+\]</span> 即<span class="math inline">\(M\)</span>是緊緻的。
+<br>「緊緻<span
+class="math inline">\(\Rightarrow\)</span>序列緊緻」：給定緊緻集<span
+class="math inline">\(K\subseteq\mathbb{R}^N\)</span>，我們可以給定序列<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\subseteq
+K\)</span>，並且對於<span
+class="math inline">\(l\in\mathbb{N}\)</span>，令<span
+class="math inline">\(\epsilon=\frac{1}{2^l}\)</span>。由引理12可知對於所有<span
+class="math inline">\(\epsilon_l\)</span>都應存在序列 <span
+class="math display">\[
+\{x_j^l\}_{j=1}^{l^\ast}\subseteq K
+\]</span> (其中<span
+class="math inline">\(l^\ast\in\mathbb{N}\)</span>)使得 <span
+class="math display">\[
+K\subseteq\bigcup_{j=1}^{l^\ast}B_{\epsilon_l}(x_j^l)
+\]</span></p>
 
     </div>
 
@@ -664,8 +845,11 @@ class="math inline">\(\{U_j\}_{j\in I}\)</span>的勒貝格數。</p>
 1：收斂點列 (Convergence Points Sequence)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-2"><span class="nav-number">1.2.</span> <span class="nav-text">引理 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B7%8A%E7%B7%BB"><span class="nav-number">2.</span> <span class="nav-text">緊緻</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E7%B7%8A%E7%B7%BB-compact"><span class="nav-number">2.1.</span> <span class="nav-text">定義 3：緊緻
 (Compact)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">性質 3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-2"><span class="nav-number">2.1.2.</span> <span class="nav-text">性質 3-2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E6%9C%89%E7%95%8C-bounded"><span class="nav-number">2.2.</span> <span class="nav-text">定義 4：有界
 (Bounded)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">2.3.</span> <span class="nav-text">定理 5</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B3%A2%E7%88%BE%E6%9C%AD%E8%AB%BE-%E9%AD%8F%E7%88%BE%E6%96%AF%E7%89%B9%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">波爾札諾-魏爾斯特拉斯定理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%BA%8F%E5%88%97%E7%B7%8A%E7%B7%BB-sequentially-compact"><span class="nav-number">3.1.</span> <span class="nav-text">定義
-6：序列緊緻 (Sequentially Compact)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7"><span class="nav-number">3.2.</span> <span class="nav-text">引理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">3.3.</span> <span class="nav-text">註記 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-8-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">例 8-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-9%E5%8B%92%E8%B2%9D%E6%A0%BC%E6%95%B8-lesbegue-number"><span class="nav-number">3.4.</span> <span class="nav-text">引理
-9：勒貝格數 (Lesbegue Number)</span></a></li></ol></li></ol></div>
+6：序列緊緻 (Sequentially Compact)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-7"><span class="nav-number">3.2.</span> <span class="nav-text">引理 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">3.3.</span> <span class="nav-text">註記 8</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-8-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">例 8-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-9%E5%8B%92%E8%B2%9D%E6%A0%BC%E6%95%B8-lebesgue-number"><span class="nav-number">3.4.</span> <span class="nav-text">引理
+9：勒貝格數 (Lebesgue Number)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10%E5%AE%8C%E5%85%A8%E6%9C%89%E7%95%8C-totally-bounded"><span class="nav-number">3.5.</span> <span class="nav-text">定義
+10：完全有界 (Totally Bounded)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-11"><span class="nav-number">3.6.</span> <span class="nav-text">引理 11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-12"><span class="nav-number">3.7.</span> <span class="nav-text">引理 12</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-13%E6%B3%A2%E7%88%BE%E6%9C%AD%E8%AB%BE-%E9%AD%8F%E7%88%BE%E6%96%AF%E7%89%B9%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86-bolzano-weierstrass-theorem"><span class="nav-number">3.8.</span> <span class="nav-text">定理
+13：波爾札諾-魏爾斯特拉斯定理 (Bolzano Weierstrass
+Theorem)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
