@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於連續函數與微分的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-08-23T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-08-24T14:40:00.800Z">
+<meta property="article:modified_time" content="2025-08-25T18:01:18.911Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-08-24 22:40:00" itemprop="dateModified" datetime="2025-08-24T22:40:00+08:00">2025-08-24</time>
+                <time title="修改時間：2025-08-26 02:01:18" itemprop="dateModified" datetime="2025-08-26T02:01:18+08:00">2025-08-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,27 +250,157 @@ class="math inline">\(f:\Omega_1\to\Omega_2\)</span>。若對於所有開集<spa
 class="math inline">\(B\subseteq\Omega_2\)</span>都有<span
 class="math inline">\(f^{-1}(B)\subseteq\Omega_1\)</span>也是開集，則稱<span
 class="math inline">\(f\)</span>是連續函數。</p>
-<h3 id="註記-2-1連續函數的等價定義i"><font color=#0000FF><u>註記
-2-1：連續函數的等價定義I</u></font></h3>
+<h3
+id="定義-2-1逐點連續-pointwise-continuous"><font color=#008000><u>定義
+2-1：逐點連續 (Pointwise Continuous)</u></font></h3>
 <p>給定空間<span class="math inline">\(\Omega_1\)</span>和<span
 class="math inline">\(\Omega_2\)</span>，其中<span
 class="math inline">\(\Omega_1\)</span>上有範數<span
 class="math inline">\(\|\cdot\|_1\)</span>，<span
 class="math inline">\(\Omega_2\)</span>上有範數<span
-class="math inline">\(\|\cdot\|_2\)</span>。考慮函數<span
-class="math inline">\(f:\Omega_1\to\Omega_2\)</span>，則<span
+class="math inline">\(\|\cdot\|_2\)</span>。給定<span
+class="math inline">\(x_0\in\Omega_1\)</span>，若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都存在<span
+class="math inline">\(\delta&gt;0\)</span>使得對於所有滿足<span
+class="math inline">\(\|x-x_0\|_1&lt;\delta\)</span>的<span
+class="math inline">\(x\in\Omega_1\)</span>都有<span
+class="math inline">\(\|f(x)-f(x_0)\|_2&lt;\epsilon\)</span>，則稱<span
+class="math inline">\(f\)</span>在點<span
+class="math inline">\(x_0\)</span>連續。</p>
+<h3 id="註記-2-2連續的等價定義i"><font color=#0000FF><u>註記
+2-2：連續的等價定義I</u></font></h3>
+<p>給定空間<span class="math inline">\(\Omega_1\)</span>和<span
+class="math inline">\(\Omega_2\)</span>，其中<span
+class="math inline">\(\Omega_1\)</span>上有範數<span
+class="math inline">\(\|\cdot\|_1\)</span>，<span
+class="math inline">\(\Omega_2\)</span>上有範數<span
+class="math inline">\(\|\cdot\|_2\)</span>。給定函數<span
+class="math inline">\(f:X\subseteq\Omega_1\to\Omega_2\)</span>，則<span
+class="math inline">\(f\)</span>是連續函數(定義2) iff. <span
+class="math inline">\(f\)</span>在所有點<span class="math inline">\(x\in
+X\)</span>上連續(定義2-1)。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分兩部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(f\)</span>在定義2下連續，則給定<span
+class="math inline">\(x_0\in X\)</span>與<span
+class="math inline">\(\epsilon&gt;0\)</span>。考慮<span
+class="math inline">\(\Omega_2\)</span>中的球 <span
+class="math display">\[
+B_\epsilon(f(x_0))=\{y\in\Omega_2:\|y-f(x_0)\|&lt;\epsilon\}
+\]</span> 這是一個<span
+class="math inline">\(\Omega_2\)</span>中的開集，故由定義知<span
+class="math inline">\(f^{-1}(B_\epsilon(f(x_0)))\)</span>是<span
+class="math inline">\(\Omega_1\)</span>中的開集。由於<span
+class="math inline">\(f(x_0)\in B_\epsilon(f(x_0))\)</span>，故 <span
+class="math display">\[
+x_0\in f^{-1}(B_\epsilon(f(x_0)))
+\]</span> 而由<span
+class="math inline">\(f^{-1}(B_\epsilon(f(x_0)))\)</span>是<span
+class="math inline">\(\Omega_1\)</span>中的開集可知應存在<span
+class="math inline">\(\delta&gt;0\)</span>使得 <span
+class="math display">\[
+B_\delta(x_0)\subseteq f^{-1}(B_\epsilon(f(x_0)))
+\]</span> 意即對於所有滿足<span
+class="math inline">\(\|x-x_0\|_1&lt;\delta\)</span>的<span
+class="math inline">\(x\in X\)</span>都有<span
+class="math inline">\(\|f(x)-f(x_0)\|_2&lt;\epsilon\)</span>，即<span
+class="math inline">\(f\)</span>在點<span
+class="math inline">\(x_0\)</span>上連續，而這對所有<span
+class="math inline">\(x_0\in X\)</span>都成立。 <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：若<span
+class="math inline">\(f\)</span>在所有點<span class="math inline">\(x\in
+X\)</span>上連續(定義2-1)，則給定開集<span
+class="math inline">\(U\subseteq\Omega_2\)</span>，考慮<span
+class="math inline">\(x\in f^{-1}(U)\)</span>。由於<span
+class="math inline">\(f(x)\in U\)</span>且<span
+class="math inline">\(U\)</span>是開集，故應存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得 <span
+class="math display">\[
+B_\epsilon(f(x))\subseteq U
+\]</span> 另外，由逐點連續的定義知存在<span
+class="math inline">\(\delta&gt;0\)</span>使得 <span
+class="math display">\[
+f(B_\delta(x))\subseteq B_\epsilon(f(x))
+\]</span> 故有 <span class="math display">\[
+B_\delta(x)\subseteq f^{-1}(U)
+\]</span> 對於所有的<span class="math inline">\(x\in
+f^{-1}(U)\)</span>都可以找到這樣的<span
+class="math inline">\(\delta\)</span>，故<span
+class="math inline">\(f\)</span>在定義2下是連續函數。<font size="1">QED</font></p>
+<h3 id="註記-2-3連續的等價定義ii"><font color=#0000FF><u>註記
+2-3：連續的等價定義II</u></font></h3>
+<p>給定空間<span class="math inline">\(\Omega_1\)</span>和<span
+class="math inline">\(\Omega_2\)</span>，其中<span
+class="math inline">\(\Omega_1\)</span>上有範數<span
+class="math inline">\(\|\cdot\|_1\)</span>，<span
+class="math inline">\(\Omega_2\)</span>上有範數<span
+class="math inline">\(\|\cdot\|_2\)</span>。給定函數<span
+class="math inline">\(f:X\subseteq\Omega_1\to\Omega_2\)</span>，則<span
 class="math inline">\(f\)</span>是連續函數 iff. 對於所有收斂到<span
-class="math inline">\(x\in\Omega_1\)</span>的數列<span
+class="math inline">\(x\in X\)</span>的數列<span
 class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>都有 <span
 class="math display">\[
 \lim_{n\to\infty}f(x_n)=f(x)
-\]</span> (注意這裡討論<span class="math inline">\(x_n\to
+\]</span> (注意我們討論<span class="math inline">\(x_n\to
 x\)</span>時用的是<span
 class="math inline">\(\|\cdot\|_1\)</span>，而討論<span
 class="math inline">\(f(x_n)\to f(x)\)</span>時用的是<span
 class="math inline">\(\|\cdot\|_2\)</span>。)<br></p>
-<p><font color=#8b4513><u>證明</u></font>：我們分兩個部分證明。
-<br>「<span class="math inline">\(\Rightarrow\)</span>」：</p>
+<p><font color=#8b4513><u>證明</u></font>：我們分兩部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：若<span
+class="math inline">\(f\)</span>是連續函數，則由註記2-2知給定<span
+class="math inline">\(x\in X\)</span>，對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都存在<span
+class="math inline">\(\delta&gt;0\)</span>使得對於所有滿足<span
+class="math inline">\(\|y-x\|_1&lt;\delta\)</span>的<span
+class="math inline">\(y\in X\)</span>都有<span
+class="math inline">\(\|f(y)-f(x)\|_2&lt;\epsilon\)</span>
+(★)。接著，給定收斂到<span class="math inline">\(x\in
+X\)</span>的數列<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>，我們知道存在<span
+class="math inline">\(N\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n&gt;N\)</span>都有 <span class="math display">\[
+\|x_n-x\|_1&lt;\delta
+\]</span> 結合(★)，我們知道對於<span
+class="math inline">\(n&gt;N\)</span>有 <span class="math display">\[
+\|f(x_n)-f(x)\|_2&lt;\epsilon
+\]</span> 意即 <span class="math display">\[
+\lim_{n\to\infty}f(x_n)=f(x)
+\]</span> <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：給定<span
+class="math inline">\(x\in X\)</span>，假設對於所有數列<span
+class="math inline">\(x_n\to x\)</span>都有<span
+class="math inline">\(f(x_n)\to f(x)\)</span>。假設<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x\)</span>不連續，即存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得對於所有<span
+class="math inline">\(\delta&gt;0\)</span>都有 <span
+class="math display">\[
+\|f(y)-f(x)\|_2&gt;\epsilon\mbox{ for some }\|y-x\|_1&lt;\delta
+\]</span> 則對於<span
+class="math inline">\(\delta=1/n\)</span>，我們可以記相應的<span
+class="math inline">\(y\)</span>為<span
+class="math inline">\(x_n\)</span>。於是我們有一個數列<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>滿足 <span
+class="math display">\[
+\forall n, \|x_n-x\|_1&lt;\frac{1}{n}, \|f(x_n)-f(x)\|_2&gt;\epsilon
+\]</span> 即<span class="math inline">\(x_n\to x\)</span>但<span
+class="math inline">\(f(x_n)\nrightarrow
+f(x)\)</span>，這與假設矛盾，故<span
+class="math inline">\(f\)</span>應在<span
+class="math inline">\(x\)</span>連續。<font size="1">QED</font></p>
+<h3 id="例-2-4"><font color=#ffa500><u>例 2-4</u></font></h3>
+<p>考慮上的函數<span class="math inline">\(f(x)=x\)</span>，<span
+class="math inline">\(f:X\to X\)</span>，其中<span
+class="math inline">\(X\)</span>上的範數為<span
+class="math inline">\(\|\cdot\|\)</span>。則給定<span
+class="math inline">\(x_0\in X\)</span>，對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，令<span
+class="math inline">\(\delta=\epsilon\)</span>。當<span
+class="math inline">\(\|x-x_0\|&lt;\delta\)</span>時，有 <span
+class="math display">\[
+\|f(x)-f(x_0)\|=\|x-x_0\|&lt;\delta=\epsilon
+\]</span> 故可知<span class="math inline">\(f\)</span>是連續函數。</p>
 
     </div>
 
@@ -355,8 +485,10 @@ class="math inline">\(\|\cdot\|_2\)</span>。)<br></p>
       <div class="post-toc-wrap sidebar-panel">
           <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%A3%E7%BA%8C%E5%87%BD%E6%95%B8"><span class="nav-number">1.</span> <span class="nav-text">連續函數</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%89%8D%E5%83%8F-pre-image"><span class="nav-number">1.1.</span> <span class="nav-text">定義 1：前像
 (Pre-image)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E9%80%A3%E7%BA%8C%E5%87%BD%E6%95%B8-continuous-function"><span class="nav-number">1.2.</span> <span class="nav-text">定義
-2：連續函數 (Continuous Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-1%E9%80%A3%E7%BA%8C%E5%87%BD%E6%95%B8%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9i"><span class="nav-number">1.2.1.</span> <span class="nav-text">註記
-2-1：連續函數的等價定義I</span></a></li></ol></li></ol></li></ol></div>
+2：連續函數 (Continuous Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E9%80%90%E9%BB%9E%E9%80%A3%E7%BA%8C-pointwise-continuous"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
+2-1：逐點連續 (Pointwise Continuous)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-2%E9%80%A3%E7%BA%8C%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9i"><span class="nav-number">1.2.2.</span> <span class="nav-text">註記
+2-2：連續的等價定義I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-3%E9%80%A3%E7%BA%8C%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9ii"><span class="nav-number">1.2.3.</span> <span class="nav-text">註記
+2-3：連續的等價定義II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-4"><span class="nav-number">1.2.4.</span> <span class="nav-text">例 2-4</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
