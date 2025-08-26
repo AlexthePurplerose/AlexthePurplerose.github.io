@@ -28,7 +28,7 @@
 <meta property="og:description" content="這份筆記是關於連續函數與微分的定義與性質。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-08-23T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-08-25T18:01:18.911Z">
+<meta property="article:modified_time" content="2025-08-26T08:27:25.410Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-08-26 02:01:18" itemprop="dateModified" datetime="2025-08-26T02:01:18+08:00">2025-08-26</time>
+                <time title="修改時間：2025-08-26 16:27:25" itemprop="dateModified" datetime="2025-08-26T16:27:25+08:00">2025-08-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -390,8 +390,8 @@ f(x)\)</span>，這與假設矛盾，故<span
 class="math inline">\(f\)</span>應在<span
 class="math inline">\(x\)</span>連續。<font size="1">QED</font></p>
 <h3 id="例-2-4"><font color=#ffa500><u>例 2-4</u></font></h3>
-<p>考慮上的函數<span class="math inline">\(f(x)=x\)</span>，<span
-class="math inline">\(f:X\to X\)</span>，其中<span
+<p>考慮<span class="math inline">\(X\)</span>上的函數<span
+class="math inline">\(f(x)=x\)</span>，其中<span
 class="math inline">\(X\)</span>上的範數為<span
 class="math inline">\(\|\cdot\|\)</span>。則給定<span
 class="math inline">\(x_0\in X\)</span>，對於所有<span
@@ -401,6 +401,151 @@ class="math inline">\(\|x-x_0\|&lt;\delta\)</span>時，有 <span
 class="math display">\[
 \|f(x)-f(x_0)\|=\|x-x_0\|&lt;\delta=\epsilon
 \]</span> 故可知<span class="math inline">\(f\)</span>是連續函數。</p>
+<h3 id="例-2-5"><font color=#ffa500><u>例 2-5</u></font></h3>
+<p>考慮<span class="math inline">\(X\to\mathbb{R}\)</span>的函數<span
+class="math inline">\(f(x)=\|x\|\)</span>。則給定<span
+class="math inline">\(x_0\in X\)</span>，對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>，令<span
+class="math inline">\(\delta=\epsilon\)</span>。當<span
+class="math inline">\(\|x-x_0\|&lt;\delta\)</span>時，由三角不等式有
+<span class="math display">\[
+\|f(x)-f(x_0)\|=\left|\|x\|-\|x_0\|\right|\leq\|x-x_0\|&lt;\delta=\epsilon
+\]</span> 故<span class="math inline">\(f\)</span>是連續函數。</p>
+<h3 id="性質-2-6"><font color=#0000FF><u>性質 2-6</u></font></h3>
+<p>考慮連續函數<span class="math inline">\(f:X\to Y\)</span>。若<span
+class="math inline">\(K\)</span>是<span
+class="math inline">\(X\)</span>中的緊緻集，則<span
+class="math inline">\(f(K)\)</span>是<span
+class="math inline">\(Y\)</span>中的緊緻集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：令<span
+class="math inline">\(\{U_j\}_{j\in I}\)</span>是<span
+class="math inline">\(f(K)\)</span>上的開覆蓋，由<span
+class="math inline">\(f\)</span>的連續性知<span
+class="math inline">\(f^{-1}(U_j)\)</span>是<span
+class="math inline">\(X\)</span>中的開集。而 <span
+class="math display">\[
+f(K)\subseteq\bigcup_{j\in I}U_j
+\]</span> 故有 <span class="math display">\[
+f^{-1}(f(K))\subseteq f^{-1}\left(\bigcup_{j\in I}U_j\right)
+\]</span> 於是有 <span class="math display">\[
+K\subseteq f^{-1}(f(K))\subseteq \bigcup_{j\in I}f^{-1}(U_j)
+\]</span> (前像的聯集是聯集的前像)。而<span
+class="math inline">\(K\)</span>是緊緻集，<span
+class="math inline">\(\bigcup_{j\in
+I}f^{-1}(U_j)\)</span>是其開覆蓋，故應存在有限集<span
+class="math inline">\(J\subseteq I\)</span>使得 <span
+class="math display">\[
+K\subseteq\bigcup_{j\in J}f^{-1}(U_j)
+\]</span> 故 <span class="math display">\[
+f(K)\subseteq \bigcup_{j\in J}f(f^{-1}(U_j))\subseteq\bigcup_{j\in J}U_j
+\]</span> 故可知<span class="math inline">\(f(K)\)</span>有有限子覆蓋
+i.e. <span
+class="math inline">\(f(K)\)</span>是緊緻集。<font size="1">QED</font></p>
+<h3 id="性質-2-7"><font color=#0000FF><u>性質 2-7</u></font></h3>
+<p>考慮連續函數<span class="math inline">\(f:X\to Y\)</span>與<span
+class="math inline">\(g:Y\to Z\)</span>，則合成函數<span
+class="math inline">\(g(f(x))\)</span>是<span class="math inline">\(X\to
+Z\)</span>的連續函數。<br></p>
+<p><font color=#8b4513><u>證明1</u></font>：令<span
+class="math inline">\(B\subseteq Z\)</span>是開集，考慮<span
+class="math inline">\([g(f)]^{-1}(B)=f^{-1}(g^{-1}(B))\)</span>。因為<span
+class="math inline">\(B\)</span>是開集且<span
+class="math inline">\(g\)</span>連續，故由定義知<span
+class="math inline">\(g^{-1}(B)\subseteq Y\)</span>是開集。而又由於<span
+class="math inline">\(f\)</span>連續，故 <span class="math display">\[
+f^{-1}(g^{-1}(B))\subseteq X
+\]</span> 也是開集，故函數<span class="math inline">\(g(f):X\to
+Z\)</span>是連續函數。<font size="1">QED</font></p>
+<p><br><font color=#8b4513><u>證明2</u></font>：給定<span
+class="math inline">\(x\in X\)</span>，令<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>是收斂到<span
+class="math inline">\(x\)</span>的數列。考慮<span
+class="math inline">\(\{g(f(x_n))\}_{n=1}^\infty\)</span>。由於<span
+class="math inline">\(f\)</span>是連續函數，故<span
+class="math inline">\(\{f(x_n)\}_{n=1}^\infty\)</span>是<span
+class="math inline">\(Y\)</span>中的收斂數列且 <span
+class="math display">\[
+\lim_{n\to\infty}f(x_n)=f(x)
+\]</span> 又由於<span
+class="math inline">\(g\)</span>是連續函數，故<span
+class="math inline">\(\{g(f(x_n))\}_{n=1}^\infty\)</span>是<span
+class="math inline">\(Z\)</span>中的收斂數列，且 <span
+class="math display">\[
+\lim_{n\to\infty}g(f(x_n))=g(f(x))
+\]</span> 故由定義知<span class="math inline">\(g(f):X\to
+Z\)</span>是連續的。<font size="1">QED</font></p>
+<h3 id="性質-2-8"><font color=#0000FF><u>性質 2-8</u></font></h3>
+<p>若函數<span class="math inline">\(f,g:X\to Y\)</span>都連續，則<span
+class="math inline">\(f\pm g\)</span>也是連續函數。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(x\in X\)</span>，令<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>是<span
+class="math inline">\(X\)</span>中收斂至<span
+class="math inline">\(x\)</span>的數列。則 <span class="math display">\[
+\begin{aligned}
+\lim_{n\to\infty}(f\pm g)(x_n)&amp;=\lim_{n\to\infty}(f(x_n)\pm
+g(x_n))\\
+&amp;=\lim_{n\to\infty}f(x_n)\pm\lim_{n\to\infty}g(x_n)\mbox{
+(因為}f(x_n),g(x_n)\mbox{ 都收斂)}\\
+&amp;=f(x)\pm g(x)=(f\pm g)(x)
+\end{aligned}
+\]</span> 故知<span class="math inline">\(f\pm
+g\)</span>是連續函數。<font size="1">QED</font></p>
+<h3 id="性質-2-9"><font color=#0000FF><u>性質 2-9</u></font></h3>
+<p>若函數<span class="math inline">\(f,g:X\to Y\)</span>都連續，則<span
+class="math inline">\(fg\)</span>也是連續函數。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(x\in X\)</span>，令<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>是<span
+class="math inline">\(X\)</span>中收斂至<span
+class="math inline">\(x\)</span>的數列。則有 <span
+class="math display">\[
+\begin{aligned}
+\lim_{n\to\infty}(fg)(x_n)&amp;=\lim_{n\to\infty}(f(x_n)g(x_n))\\
+&amp;=\lim_{n\to\infty}f(x_n)\lim_{n\to\infty}g(x_n)\\
+&amp;=f(x)g(x)=(fg)(x)
+\end{aligned}
+\]</span> 故知<span
+class="math inline">\(fg\)</span>是連續函數。<font size="1">QED</font></p>
+<h3 id="性質-2-10"><font color=#0000FF><u>性質 2-10</u></font></h3>
+<p>若函數<span class="math inline">\(f,g:X\to Y\)</span>都連續，則<span
+class="math inline">\(f/g\)</span>在<span class="math inline">\(g(x)\neq
+0\)</span>的地方也是連續函數。<br>
+(證明過程與性質2-9類似，在此略過。)</p>
+<center>
+<h1 id="連通"><font color=#b8860b>連通</font></h1>
+</center>
+<h2 id="定義-3分割-seperate"><font color=#008000><u>定義 3：分割
+(Seperate)</u></font></h2>
+<p>給定集合<span class="math inline">\(A\)</span>，若存在開集<span
+class="math inline">\(B_1,B_2\)</span>使得<span
+class="math inline">\(B_1\cap A\neq\varnothing\)</span>, <span
+class="math inline">\(B_2\cap A\neq\varnothing\)</span>, <span
+class="math inline">\(B_1\cap B_2=\varnothing\)</span>且 <span
+class="math display">\[
+A=(B_1\cap A)\cup(B_2\cap A)
+\]</span> 則稱<span class="math inline">\(B_1,B_2\)</span>分割<span
+class="math inline">\(A\)</span>。</p>
+<h2 id="定義-4連通-connected"><font color=#008000><u>定義 4：連通
+(Connected)</u></font></h2>
+<p>給定集合<span class="math inline">\(A\)</span>，若存在開集<span
+class="math inline">\(B_1,B_2\)</span>分割<span
+class="math inline">\(A\)</span>，則稱<span
+class="math inline">\(A\)</span>是不連通的。否則，我們稱<span
+class="math inline">\(A\)</span>是連通的。</p>
+<h2 id="定義-5路徑連通-path-connected"><font color=#008000><u>定義
+5：路徑連通 (Path Connected)</u></font></h2>
+<p>給定集合<span class="math inline">\(A\subseteq
+X\)</span>。若對於所有<span class="math inline">\(x_1\neq x_2\in
+A\)</span>都存在連續函數<span class="math inline">\(\gamma:[0,1]\to
+A\)</span>使得<span
+class="math inline">\(\gamma(0)=x_1,\gamma(1)=x_2\)</span>，則稱<span
+class="math inline">\(A\)</span>是路徑連通的。</p>
+<h2 id="註記-6"><font color=#0000FF><u>註記 6</u></font></h2>
+<p>若<span class="math inline">\(A\subseteq
+X\)</span>是路徑連通集，則<span
+class="math inline">\(A\)</span>是連通集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：</p>
 
     </div>
 
@@ -488,7 +633,10 @@ class="math display">\[
 2：連續函數 (Continuous Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-1%E9%80%90%E9%BB%9E%E9%80%A3%E7%BA%8C-pointwise-continuous"><span class="nav-number">1.2.1.</span> <span class="nav-text">定義
 2-1：逐點連續 (Pointwise Continuous)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-2%E9%80%A3%E7%BA%8C%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9i"><span class="nav-number">1.2.2.</span> <span class="nav-text">註記
 2-2：連續的等價定義I</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-2-3%E9%80%A3%E7%BA%8C%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9ii"><span class="nav-number">1.2.3.</span> <span class="nav-text">註記
-2-3：連續的等價定義II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-4"><span class="nav-number">1.2.4.</span> <span class="nav-text">例 2-4</span></a></li></ol></li></ol></li></ol></div>
+2-3：連續的等價定義II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-4"><span class="nav-number">1.2.4.</span> <span class="nav-text">例 2-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-5"><span class="nav-number">1.2.5.</span> <span class="nav-text">例 2-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-6"><span class="nav-number">1.2.6.</span> <span class="nav-text">性質 2-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-7"><span class="nav-number">1.2.7.</span> <span class="nav-text">性質 2-7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-8"><span class="nav-number">1.2.8.</span> <span class="nav-text">性質 2-8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-9"><span class="nav-number">1.2.9.</span> <span class="nav-text">性質 2-9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-10"><span class="nav-number">1.2.10.</span> <span class="nav-text">性質 2-10</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%A3%E9%80%9A"><span class="nav-number">2.</span> <span class="nav-text">連通</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%88%86%E5%89%B2-seperate"><span class="nav-number">2.1.</span> <span class="nav-text">定義 3：分割
+(Seperate)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%80%A3%E9%80%9A-connected"><span class="nav-number">2.2.</span> <span class="nav-text">定義 4：連通
+(Connected)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E8%B7%AF%E5%BE%91%E9%80%A3%E9%80%9A-path-connected"><span class="nav-number">2.3.</span> <span class="nav-text">定義
+5：路徑連通 (Path Connected)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6"><span class="nav-number">2.4.</span> <span class="nav-text">註記 6</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
