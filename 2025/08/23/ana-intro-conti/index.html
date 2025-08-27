@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這份筆記是關於連續函數與微分的定義與性質。">
+  <meta name="description" content="這份筆記是關於連續函數與其應用。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分析導論：微分與連續函數">
+<meta property="og:title" content="分析導論：連續函數">
 <meta property="og:url" content="https://alexthepurplerose.github.io/2025/08/23/ana-intro-conti/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這份筆記是關於連續函數與微分的定義與性質。">
+<meta property="og:description" content="這份筆記是關於連續函數與其應用。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2025-08-23T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-08-26T08:27:25.410Z">
+<meta property="article:modified_time" content="2025-08-27T09:25:48.814Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>分析導論：微分與連續函數 | 永蔚Alex</title>
+  <title>分析導論：連續函數 | 永蔚Alex</title>
   
 
 
@@ -182,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          分析導論：微分與連續函數
+          分析導論：連續函數
         </h1>
 
         <div class="post-meta">
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-08-26 16:27:25" itemprop="dateModified" datetime="2025-08-26T16:27:25+08:00">2025-08-26</time>
+                <time title="修改時間：2025-08-27 17:25:48" itemprop="dateModified" datetime="2025-08-27T17:25:48+08:00">2025-08-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,7 +226,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這份筆記是關於連續函數與微分的定義與性質。 <span id="more"></span><br></p>
+        <p>這份筆記是關於連續函數與其應用。 <span id="more"></span><br></p>
 <center>
 <h1 id="連續函數"><font color=#b8860b>連續函數</font></h1>
 </center>
@@ -541,11 +541,288 @@ A\)</span>都存在連續函數<span class="math inline">\(\gamma:[0,1]\to
 A\)</span>使得<span
 class="math inline">\(\gamma(0)=x_1,\gamma(1)=x_2\)</span>，則稱<span
 class="math inline">\(A\)</span>是路徑連通的。</p>
-<h2 id="註記-6"><font color=#0000FF><u>註記 6</u></font></h2>
+<h2 id="引理-6"><font color=#0000FF><u>引理 6</u></font></h2>
+<p>閉區間<span
+class="math inline">\([0,1]\subseteq\mathbb{R}\)</span>是連通的。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：假設存在開集<span
+class="math inline">\(B_1,B_2\)</span>分割<span
+class="math inline">\([0,1]\)</span>。不失一般性，假設<span
+class="math inline">\(1\in B_2\)</span>。我們可以讓<span
+class="math inline">\(B_1\)</span>有上界<span
+class="math inline">\(1\)</span>，於是我們知道<span
+class="math inline">\(B_1\)</span>有最小上界(見<a
+href="https://alexthepurplerose.github.io/2025/07/30/ana-intro-bounds/">這裡</a>的定理5)，且由<span
+class="math inline">\(B_1\cap[0,1]\neq\varnothing\)</span>可知該最小上界應介於<span
+class="math inline">\([0,1]\)</span>中，記其為<span
+class="math inline">\(s\)</span>。 <br>我們希望說明<span
+class="math inline">\(s\notin B_1\)</span>且<span
+class="math inline">\(s\notin B_2\)</span>。假設<span
+class="math inline">\(s\in B_1\)</span>，由於<span
+class="math inline">\(B_1\)</span>是開集，故存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(s)\subseteq B_1\)</span>。於是，有<span
+class="math inline">\(s+\frac{\epsilon}{2}\in B_1\)</span>且<span
+class="math inline">\(s&lt;s+\frac{\epsilon}{2}\)</span>，這與<span
+class="math inline">\(s\)</span>是<span
+class="math inline">\(B_1\)</span>上界的假設矛盾，故<span
+class="math inline">\(s\notin B_1\)</span>。<br> 接著，若有<span
+class="math inline">\(s\in B_2\)</span>，則由於<span
+class="math inline">\(B_2\)</span>是開集，故應存在<span
+class="math inline">\(\epsilon&gt;0\)</span>使得<span
+class="math inline">\(B_\epsilon(s)\subseteq B_2\)</span>。這會導致<span
+class="math inline">\(s-\frac{\epsilon}{2}\in B_2\)</span>，即<span
+class="math inline">\(s-\frac{\epsilon}{2}\notin
+B_1\)</span>。事實上，對於所有<span
+class="math inline">\(\delta&lt;\frac{\epsilon}{2}\)</span>都會有<span
+class="math inline">\(s-\delta\notin B_1\)</span>，即 <span
+class="math display">\[
+\left(s-\frac{\epsilon}{2},s\right]\cap B_1=\varnothing
+\]</span> 這與<a
+href="https://alexthepurplerose.github.io/2025/07/30/ana-intro-bounds/">這裡</a>的註記3矛盾。故應有<span
+class="math inline">\(s\notin B_2\)</span>。<br> 於是，我們有<span
+class="math inline">\(s\notin B_1\cup B_2\)</span>，但<span
+class="math inline">\(s\in [0,1]\)</span>，這與<span
+class="math inline">\(B_1,B_2\)</span>分割<span
+class="math inline">\([0,1]\)</span>的假設矛盾，故<span
+class="math inline">\([0,1]\)</span>應是連通的。<font size="1">QED</font></p>
+<h2 id="註記-7"><font color=#0000FF><u>註記 7</u></font></h2>
 <p>若<span class="math inline">\(A\subseteq
 X\)</span>是路徑連通集，則<span
 class="math inline">\(A\)</span>是連通集。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：</p>
+<p><font color=#8b4513><u>證明</u></font>：假設存在開集<span
+class="math inline">\(B_1,B_2\)</span>分割<span
+class="math inline">\(A\)</span>。給定<span class="math inline">\(x_1\in
+B_1\cap A\)</span>, <span class="math inline">\(x_2\in B_2\cap
+A\)</span>，由<span
+class="math inline">\(A\)</span>是路徑連通知存在連續函數<span
+class="math inline">\(\gamma:[0,1]\to A\)</span>滿足<span
+class="math inline">\(\gamma(0)=x_1\)</span>, <span
+class="math inline">\(\gamma(1)=x_2\)</span>。由於<span
+class="math inline">\(A\subseteq B_1\cup B_2\)</span>，故 <span
+class="math display">\[
+[0,1]\subseteq\gamma^{-1}(B_1)\cup\gamma^{-1}(B_2)
+\]</span> 由於<span
+class="math inline">\(B_1,B_2\)</span>都是開集且<span
+class="math inline">\(\gamma\)</span>是連續函數，我們知道<span
+class="math inline">\(\gamma^{-1}(B_1)\)</span>和<span
+class="math inline">\(\gamma^{-1}(B_2)\)</span>也是開集。且由<span
+class="math inline">\(B_1\cap B_2=\varnothing\)</span>知<span
+class="math inline">\(\gamma^{-1}(B_1)\cap\gamma^{-1}(B_2)=\varnothing\)</span>，故知<span
+class="math inline">\(\gamma^{-1}(B_1)\)</span>和<span
+class="math inline">\(\gamma^{-1}(B_2)\)</span>分割<span
+class="math inline">\([0,1]\)</span>。但由引理6我們知道<span
+class="math inline">\([0,1]\)</span>是連通的，矛盾。故<span
+class="math inline">\(A\)</span>應是連通的。<font size="1">QED</font></p>
+<h2 id="註記-8"><font color=#0000FF><u>註記 8</u></font></h2>
+<p>給定連續函數<span class="math inline">\(f:X\to Y\)</span>。若<span
+class="math inline">\(A\subseteq X\)</span>是連通集，則<span
+class="math inline">\(f(A)\subseteq Y\)</span>也是連通集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\(f(A)\)</span>不是連通集，則存在開集<span
+class="math inline">\(B_1,B_2\subseteq Y\)</span>分割<span
+class="math inline">\(f(A)\)</span>。則 <span class="math display">\[
+A\subseteq f^{-1}(B_1)\cup f^{-1}(B_2)
+\]</span> 由<span class="math inline">\(f\)</span>連續可知<span
+class="math inline">\(f^{-1}(B_1)\)</span>和<span
+class="math inline">\(f^{-1}(B_2)\)</span>都是<span
+class="math inline">\(X\)</span>中的開集。且由<span
+class="math inline">\(B_1\cap B_2=\varnothing\)</span>可知<span
+class="math inline">\(f^{-1}(B_1)\cap
+f^{-1}(B_2)=\varnothing\)</span>，故知<span
+class="math inline">\(f^{-1}(B_1)\)</span>和<span
+class="math inline">\(f^{-1}(B_2)\)</span>分割<span
+class="math inline">\(A\)</span>。這與<span
+class="math inline">\(A\)</span>是連通集的假設矛盾，故<span
+class="math inline">\(f(A)\)</span>也應是連通集。<font size="1">QED</font></p>
+<h2 id="註記-9"><font color=#0000FF><u>註記 9</u></font></h2>
+<p>給定連續函數<span class="math inline">\(f:X\to Y\)</span>。若<span
+class="math inline">\(A\subseteq X\)</span>是路徑連通集，則<span
+class="math inline">\(f(A)\subseteq Y\)</span>也是路徑連通集。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由<span
+class="math inline">\(A\)</span>路徑連通可知對於所有<span
+class="math inline">\(x_1\neq x_2\in A\)</span>都存在連續函數<span
+class="math inline">\(\gamma:[0,1]\to A\)</span>滿足<span
+class="math inline">\(\gamma(0)=x_1\)</span>, <span
+class="math inline">\(\gamma(1)=x_2\)</span>。則對於<span
+class="math inline">\(f(x_1),f(x_2)\in f(A)\)</span>，有 <span
+class="math display">\[
+f(\gamma(0))=f(x_1), f(\gamma(1))=f(x_2)
+\]</span> 由於<span
+class="math inline">\(f\)</span>是連續函數，故由性質2-7知<span
+class="math inline">\(f(\gamma)\)</span>也是連續函數，即<span
+class="math inline">\(f(A)\)</span>是路徑連通的。<font size="1">QED</font></p>
+<center>
+<h1 id="連續函數的性質"><font color=#b8860b>連續函數的性質</font></h1>
+</center>
+<h2
+id="定理-10中間值定理-intermediate-value-theorem"><font color=#ff1493><u>定理
+10：中間值定理 (Intermediate Value Theorem)</u></font></h2>
+<p>給定連續函數<span
+class="math inline">\(f:X\to\mathbb{R}\)</span>，其中<span
+class="math inline">\(X\)</span>是度量空間，並給定<span
+class="math inline">\(X\)</span>中的連通集<span
+class="math inline">\(A\)</span>。若對於<span
+class="math inline">\(x_1,x_2\in A\)</span>有<span
+class="math inline">\(f(x_1)&lt;f(x_2)\)</span>，則對於所有<span
+class="math inline">\(c\in(f(x_1),f(x_2))\)</span>都存在<span
+class="math inline">\(x\in A\)</span>使得<span
+class="math inline">\(f(x)=c\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：假設存在<span
+class="math inline">\(c\in(f(x_1),f(x_2))\)</span>使得<span
+class="math inline">\(c\notin f(A)\)</span>，則因為<span
+class="math inline">\(A\)</span>連通，故由註記8知<span
+class="math inline">\(f(A)\)</span>也連通。而由於<span
+class="math inline">\(f(x_1),f(x_2)\in f(A)\)</span>且<span
+class="math inline">\(f(x_1)&lt;c\)</span>，故<span
+class="math inline">\(f(x_1)\in(-\infty,c)\)</span>。同理有<span
+class="math inline">\(f(x_2)\in(c,\infty)\)</span>。<br> 接著，因為<span
+class="math inline">\(c\notin f(A)\)</span>，故<span
+class="math inline">\(f(A)\subseteq(-\infty,c)\cup(c,\infty)\)</span>。且
+<span class="math display">\[
+\begin{aligned}
+f(x_1)\in f(A)\cap(-\infty,c)&amp;\Rightarrow
+f(A)\cap(-\infty,c)\neq\varnothing\\
+f(x_2)\in f(A)\cap(c,\infty)&amp;\Rightarrow
+f(A)\cap(c,\infty)\neq\varnothing
+\end{aligned}
+\]</span> 故可知<span class="math inline">\((-\infty,c)\)</span>和<span
+class="math inline">\((c,\infty)\)</span>分割<span
+class="math inline">\(f(A)\)</span> i.e. <span
+class="math inline">\(f(A)\)</span>是不連通的，矛盾。故應有<span
+class="math inline">\(c\in f(A)\)</span> i.e. 對於所有<span
+class="math inline">\(f(x_1)&lt;c&lt;f(x_2)\)</span>都應存在<span
+class="math inline">\(x\in A\)</span>使得<span
+class="math inline">\(f(x)=c\)</span>。<font size="1">QED</font></p>
+<h2
+id="定義-11極大值與極小值-maximal-value-and-minimal-value"><font color=#008000><u>定義
+11：極大值與極小值 (Maximal Value and Minimal Value)</u></font></h2>
+<p>考慮函數<span
+class="math inline">\(f:X\to\mathbb{R}\)</span>並給定集合<span
+class="math inline">\(A\subseteq X\)</span>。若存在<span
+class="math inline">\(x_1\in A\)</span>使得對於所有<span
+class="math inline">\(x\in A\)</span>都有<span
+class="math inline">\(f(x)\leq f(x_1)\)</span>，則稱<span
+class="math inline">\(f(x_1)\)</span>為<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(A\)</span>上的極大值。 <br>類似的若存在<span
+class="math inline">\(x_2\in A\)</span>使得對於所有<span
+class="math inline">\(x\in A\)</span>都有<span
+class="math inline">\(f(x)\geq f(x_2)\)</span>，則稱<span
+class="math inline">\(f(x_2)\)</span>為<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(A\)</span>上的極小值。</p>
+<h3
+id="定義-11-1極大值點與極小值點-maximal-point-and-minimal-point"><font color=#008000><u>定義
+11-1：極大值點與極小值點 (Maximal Point and Minimal
+Point)</u></font></h3>
+<p>定義11中的<span class="math inline">\(x_1\)</span>和<span
+class="math inline">\(x_2\)</span>分別稱為<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(A\)</span>上的極大值點與極小值點。</p>
+<h2 id="定理-12"><font color=#ff1493><u>定理 12</u></font></h2>
+<p>考慮連續函數<span
+class="math inline">\(f:X\to\mathbb{R}\)</span>，並給定緊緻集<span
+class="math inline">\(A\subseteq X\)</span>，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(A\)</span>上存在極小值點與極大值點。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由性質2-6知<span
+class="math inline">\(f(A)\)</span>也是緊緻集。由波雷爾-海涅定理(<a
+href="https://alexthepurplerose.github.io/2025/08/01/ana-intro-compact/">這裡</a>的定理14)可知<span
+class="math inline">\(f(A)\)</span>應是<span
+class="math inline">\(\mathbb{R}\)</span>中的有界閉集。由<a
+href="https://alexthepurplerose.github.io/2025/07/30/ana-intro-bounds/">這裡</a>的定理5可知存在<span
+class="math inline">\(m,M\in\mathbb{R}\)</span>使得 <span
+class="math display">\[
+m=\inf_{y\in A}f(y), M=\sup_{y\in A}f(y)
+\]</span> 這表示對於所有<span class="math inline">\(y\in
+A\)</span>有<span class="math inline">\(m\leq
+f(y)\)</span>且對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都存在<span
+class="math inline">\(z\in A\)</span>使得<span
+class="math inline">\(f(z)&lt;m+\epsilon\)</span>。對於<span
+class="math inline">\(n\in\mathbb{N}\)</span>，令<span
+class="math inline">\(\epsilon=\frac{1}{n}\)</span>，則總是存在<span
+class="math inline">\(z_n\)</span>使得 <span class="math display">\[
+m\leq f(z_n)&lt;m+\frac{1}{n}
+\]</span> 考慮數列<span class="math inline">\(\{z_n\}\)</span>，可以知道
+<span class="math display">\[
+\lim_{n\to\infty}f(z_n)=m
+\]</span> 且由於<span
+class="math inline">\(A\)</span>是緊緻的，故由波爾札諾 -
+魏爾斯特拉斯定理(<a
+href="https://alexthepurplerose.github.io/2025/08/01/ana-intro-compact/">這裡</a>的定理13)知<span
+class="math inline">\(A\)</span>是序列緊緻的。故存在<span
+class="math inline">\(\{z_n\}\)</span>的子序列<span
+class="math inline">\(\{z_{n_j}\}_{j=1}^\infty\)</span>使得 <span
+class="math display">\[
+\lim_{j\to\infty}z_{n_j}=z\in A
+\]</span> 又由於<span
+class="math inline">\(f\)</span>是連續的，故由註記2-3知 <span
+class="math display">\[
+f(z)=\lim_{j\to\infty}f(z_{n_j})=m
+\]</span> 而由<span
+class="math inline">\(f(A)\)</span>是緊緻集(i.e.序列緊緻集)知<span
+class="math inline">\(m\in A\)</span>，故<span
+class="math inline">\(A\)</span>存在極小值與極小值點。同理<span
+class="math inline">\(A\)</span>有存在極大值與極大值點。<font size="1">QED</font></p>
+<center>
+<h1 id="均勻連續"><font color=#b8860b>均勻連續</font></h1>
+</center>
+<h2
+id="定義-13均勻連續-uniformly-continuous"><font color=#008000><u>定義
+13：均勻連續 (Uniformly Continuous)</u></font></h2>
+<p>給定函數<span
+class="math inline">\(f:A\subseteq\mathbb{R}^N\to\mathbb{R}\)</span>。若對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都存在<span
+class="math inline">\(\delta&gt;0\)</span>使得對於所有滿足<span
+class="math inline">\(\|x-y\|&lt;\delta\)</span>的<span
+class="math inline">\(x,y\in A\)</span>都有<span
+class="math inline">\(|f(x)-f(y)|&lt;\delta\)</span>，則稱<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(A\)</span>上均勻連續。</p>
+<h2 id="定理-14"><font color=#ff1493><u>定理 14</u></font></h2>
+<p>給定連續函數<span
+class="math inline">\(f:A\subseteq\mathbb{R}^N\to\mathbb{R}\)</span>，其中<span
+class="math inline">\(A\)</span>是緊緻集，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(A\)</span>上均勻連續。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，考慮<span
+class="math inline">\(A\)</span>中的每一點<span
+class="math inline">\(x\in A\)</span>。由於<span
+class="math inline">\(f\)</span>連續，故可以找到<span
+class="math inline">\(\delta_x\)</span>使得當<span
+class="math inline">\(|y-x|&lt;\delta_x\)</span>時有 <span
+class="math display">\[
+|f(y)-f(x)|&lt;\frac{\epsilon}{2}\mbox{ (☆)}
+\]</span> 接著我們知道 <span class="math display">\[
+A\subseteq\bigcup_{x\in A}B_{\frac{\delta_x}{4}}(x)
+\]</span> 是<span class="math inline">\(A\)</span>的開覆蓋。由於<span
+class="math inline">\(A\)</span>是緊緻集，故存在有限集<span
+class="math inline">\(\{x_j\}_{j=1}^m\subseteq A\)</span>使得 <span
+class="math display">\[
+A\subseteq\bigcup_{j=1}^m B_{\frac{\delta_{x_j}}{4}}(x_j)
+\]</span> 於是，可以令 <span class="math display">\[
+\delta=\min_{1\leq j\leq m}\left\{\frac{1}{4}\delta_{x_j}\right\}
+\]</span> 則對於所有<span class="math inline">\(x,y\in
+A\)</span>，若有<span
+class="math inline">\(\|x-y\|&lt;\delta\)</span>，可知存在<span
+class="math inline">\(1\leq j\leq m\)</span>使得<span
+class="math inline">\(x\in B_{\frac{\delta_{x_j}}{4}}(x_j)\)</span>且
+<span class="math display">\[
+\|x-y\|&lt;\delta\leq\frac{\delta_{x_j}}{4}
+\]</span> 即有<span class="math inline">\(y\in
+B_{\frac{\delta_{x_j}}{2}}(x_j)\)</span>。於是，由於<span
+class="math inline">\(\|x-x_j\|&lt;\delta_{x_j}\)</span>且<span
+class="math inline">\(\|x_j-y\|&lt;\delta_{x_j}\)</span>，故由(☆)有
+<span class="math display">\[
+\begin{aligned}
+|f(x)-f(y)|&amp;\leq|f(x)-f(x_j)|+|f(x_j)-f(y)|\\
+&amp;&lt;\frac{\epsilon}{2}+\frac{\epsilon}{2}\\
+&amp;=\epsilon
+\end{aligned}
+\]</span> 於是可知<span class="math inline">\(f\)</span>在<span
+class="math inline">\(A\)</span>上均勻連續。<font size="1">QED</font></p>
 
     </div>
 
@@ -636,7 +913,12 @@ class="math inline">\(A\)</span>是連通集。<br></p>
 2-3：連續的等價定義II</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-4"><span class="nav-number">1.2.4.</span> <span class="nav-text">例 2-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-5"><span class="nav-number">1.2.5.</span> <span class="nav-text">例 2-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-6"><span class="nav-number">1.2.6.</span> <span class="nav-text">性質 2-6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-7"><span class="nav-number">1.2.7.</span> <span class="nav-text">性質 2-7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-8"><span class="nav-number">1.2.8.</span> <span class="nav-text">性質 2-8</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-9"><span class="nav-number">1.2.9.</span> <span class="nav-text">性質 2-9</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-10"><span class="nav-number">1.2.10.</span> <span class="nav-text">性質 2-10</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%A3%E9%80%9A"><span class="nav-number">2.</span> <span class="nav-text">連通</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%88%86%E5%89%B2-seperate"><span class="nav-number">2.1.</span> <span class="nav-text">定義 3：分割
 (Seperate)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-4%E9%80%A3%E9%80%9A-connected"><span class="nav-number">2.2.</span> <span class="nav-text">定義 4：連通
 (Connected)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-5%E8%B7%AF%E5%BE%91%E9%80%A3%E9%80%9A-path-connected"><span class="nav-number">2.3.</span> <span class="nav-text">定義
-5：路徑連通 (Path Connected)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-6"><span class="nav-number">2.4.</span> <span class="nav-text">註記 6</span></a></li></ol></li></ol></div>
+5：路徑連通 (Path Connected)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%90%86-6"><span class="nav-number">2.4.</span> <span class="nav-text">引理 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-7"><span class="nav-number">2.5.</span> <span class="nav-text">註記 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-8"><span class="nav-number">2.6.</span> <span class="nav-text">註記 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-9"><span class="nav-number">2.7.</span> <span class="nav-text">註記 9</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%A3%E7%BA%8C%E5%87%BD%E6%95%B8%E7%9A%84%E6%80%A7%E8%B3%AA"><span class="nav-number">3.</span> <span class="nav-text">連續函數的性質</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-10%E4%B8%AD%E9%96%93%E5%80%BC%E5%AE%9A%E7%90%86-intermediate-value-theorem"><span class="nav-number">3.1.</span> <span class="nav-text">定理
+10：中間值定理 (Intermediate Value Theorem)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11%E6%A5%B5%E5%A4%A7%E5%80%BC%E8%88%87%E6%A5%B5%E5%B0%8F%E5%80%BC-maximal-value-and-minimal-value"><span class="nav-number">3.2.</span> <span class="nav-text">定義
+11：極大值與極小值 (Maximal Value and Minimal Value)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-11-1%E6%A5%B5%E5%A4%A7%E5%80%BC%E9%BB%9E%E8%88%87%E6%A5%B5%E5%B0%8F%E5%80%BC%E9%BB%9E-maximal-point-and-minimal-point"><span class="nav-number">3.2.1.</span> <span class="nav-text">定義
+11-1：極大值點與極小值點 (Maximal Point and Minimal
+Point)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-12"><span class="nav-number">3.3.</span> <span class="nav-text">定理 12</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9D%87%E5%8B%BB%E9%80%A3%E7%BA%8C"><span class="nav-number">4.</span> <span class="nav-text">均勻連續</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-13%E5%9D%87%E5%8B%BB%E9%80%A3%E7%BA%8C-uniformly-continuous"><span class="nav-number">4.1.</span> <span class="nav-text">定義
+13：均勻連續 (Uniformly Continuous)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-14"><span class="nav-number">4.2.</span> <span class="nav-text">定理 14</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
