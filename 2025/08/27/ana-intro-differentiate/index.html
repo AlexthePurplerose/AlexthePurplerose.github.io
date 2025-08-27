@@ -20,22 +20,22 @@
     var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="這裡是永蔚的幾何學導論筆記！">
+  <meta name="description" content="這份筆記是關於微分的定義與性質。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2023郭孝豪 幾何學導論筆記">
-<meta property="og:url" content="https://alexthepurplerose.github.io/2024/04/18/2023-geometry-intro/index.html">
+<meta property="og:title" content="分析導論：微分">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2025/08/27/ana-intro-differentiate/index.html">
 <meta property="og:site_name" content="永蔚Alex">
-<meta property="og:description" content="這裡是永蔚的幾何學導論筆記！">
+<meta property="og:description" content="這份筆記是關於微分的定義與性質。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2024-04-17T16:29:37.000Z">
-<meta property="article:modified_time" content="2024-04-17T17:44:52.000Z">
+<meta property="article:published_time" content="2025-08-27T08:34:38.000Z">
+<meta property="article:modified_time" content="2025-08-27T11:05:12.508Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
-<meta property="article:tag" content="Geometry">
-<meta property="article:tag" content="Geometry_Intro">
+<meta property="article:tag" content="Analysis">
+<meta property="article:tag" content="Analysis_Intro">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://alexthepurplerose.github.io/2024/04/18/2023-geometry-intro/">
+<link rel="canonical" href="https://alexthepurplerose.github.io/2025/08/27/ana-intro-differentiate/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>2023郭孝豪 幾何學導論筆記 | 永蔚Alex</title>
+  <title>分析導論：微分 | 永蔚Alex</title>
   
 
 
@@ -169,7 +169,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2024/04/18/2023-geometry-intro/">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2025/08/27/ana-intro-differentiate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -182,7 +182,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2023郭孝豪 幾何學導論筆記
+          分析導論：微分
         </h1>
 
         <div class="post-meta">
@@ -193,7 +193,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2024-04-18 00:29:37 / 修改時間：01:44:52" itemprop="dateCreated datePublished" datetime="2024-04-18T00:29:37+08:00">2024-04-18</time>
+              <time title="創建時間：2025-08-27 16:34:38 / 修改時間：19:05:12" itemprop="dateCreated datePublished" datetime="2025-08-27T16:34:38+08:00">2025-08-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -205,7 +205,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%B9%BE%E4%BD%95/" itemprop="url" rel="index"><span itemprop="name">幾何</span></a>
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">分析</span></a>
                 </span>
             </span>
 
@@ -220,9 +220,137 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>這裡是永蔚的幾何學導論筆記！<span id="more"></span><br> [曲線]<br> [正則曲面]<br>
-[曲面上的積分]<br> [高斯映射]<br> [向量場]<br> [內蘊幾何]<br>
-[高斯-博內定理]</p>
+        <p>這份筆記是關於微分的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="可微"><font color=#b8860b>可微</font></h1>
+</center>
+<h2 id="定義-1大o函數-big-o-function"><font color=#008000><u>定義
+1：大O函數 (Big-O Function)</u></font></h2>
+<p>若函數<span class="math inline">\(k(h)\)</span>滿足 <span
+class="math display">\[
+\lim_{|h|\to 0}\frac{|k(h)|}{|h|}=\alpha&lt;\infty
+\]</span> 且<span class="math inline">\(\alpha&gt;0\)</span>，則記<span
+class="math inline">\(k(h)=O(h)\)</span>。</p>
+<h3 id="例-1-1"><font color=#ffa500><u>例 1-1</u></font></h3>
+<p>考慮函數<span class="math inline">\(k(h)=2|h|\)</span>，我們有 <span
+class="math display">\[
+\lim_{|h|\to 0}\frac{|k(h)|}{|h|}=2&lt;\infty
+\]</span> 故有<span class="math inline">\(k(h)=O(h)\)</span>。</p>
+<h2 id="定義-2小o函數-small-o-function"><font color=#008000><u>定義
+2：小o函數 (Small-o Function)</u></font></h2>
+<p>若函數<span class="math inline">\(g(h)\)</span>滿足 <span
+class="math display">\[
+\lim_{|h|\to 0}\frac{|g(h)|}{|h|}=0
+\]</span> 則記<span class="math inline">\(g(h)=o(h)\)</span>。</p>
+<h3 id="例-2-1"><font color=#ffa500><u>例 2-1</u></font></h3>
+<p>對於<span class="math inline">\(\epsilon&gt;0\)</span>，考慮函數<span
+class="math inline">\(g(h)=|h|^{1+\epsilon}\)</span>。則 <span
+class="math display">\[
+\lim_{|h|\to 0}\frac{|g(h)|}{|h|}=\lim_{|h|\to 0}|h|^\epsilon=0
+\]</span> 故有<span class="math inline">\(g(h)=o(h)\)</span>。</p>
+<h2 id="定義-3可微-differentiable"><font color=#008000><u>定義 3：可微
+(Differentiable)</u></font></h2>
+<p>考慮函數<span
+class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span>。對於<span
+class="math inline">\(x=x_0\in\mathbb{R}\)</span>，若存在<span
+class="math inline">\(A\in\mathbb{R}\)</span>使得 <span
+class="math display">\[
+f(x_0+h)=f(x_0)+Ah+o(h)
+\]</span> 則稱<span class="math inline">\(f\)</span>在<span
+class="math inline">\(x=x_0\)</span>可微。</p>
+<h3 id="定義-3-1導數-derivative"><font color=#008000><u>定義 3-1：導數
+(Derivative)</u></font></h3>
+<p>我們稱定義3中的<span class="math inline">\(A\)</span>為<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x=x_0\)</span>的導數。</p>
+<h3 id="註記-3-2可微的等價定義"><font color=#0000FF><u>註記
+3-2：可微的等價定義</u></font></h3>
+<p>考慮函數<span
+class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span>，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x=x_0\)</span>可微 iff. 極限 <span
+class="math display">\[
+\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}
+\]</span> 存在。且<span class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>的導數即為 <span
+class="math display">\[
+f&#39;(x_0)=\frac{df}{dx}(x_0)=\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：我們分兩個部分證明。
+<br>「<span class="math inline">\(\Rightarrow\)</span>」：若有<span
+class="math inline">\(f(x_0+h)=f(x_0)+Ah+o(h)\)</span>，則 <span
+class="math display">\[
+\begin{aligned}
+\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}&amp;=\lim_{h\to
+0}\left(A+\frac{o(h)}{h}\right)\\
+&amp;=A+\lim_{h\to 0}\frac{o(h)}{h}=A
+\end{aligned}
+\]</span> 即所求的極限存在且<span
+class="math inline">\(A=f&#39;(x_0)\)</span>。 <br>「<span
+class="math inline">\(\Leftarrow\)</span>」：若極限 <span
+class="math display">\[
+\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}
+\]</span> 存在，則令該極限為<span
+class="math inline">\(A\)</span>。我們有 <span class="math display">\[
+\begin{aligned}
+f(x_0+h)&amp;=f(x_0)+\frac{f(x_0+h)-f(x_0)}{h}\cdot h\\
+&amp;=f(x_0)+Ah+\left(\frac{f(x_0+h)-f(x_0)}{h}-A\right)\cdot h
+\end{aligned}
+\]</span> 我們令 <span class="math display">\[
+g(h)=\left(\frac{f(x_0+h)-f(x_0)}{h}-A\right)\cdot h
+\]</span> 則 <span class="math display">\[
+\begin{aligned}
+\lim_{h\to 0}\frac{g(h)}{h}&amp;=\lim_{h\to
+0}\left(\frac{f(x_0+h)-f(x_0)}{h}-A\right)\\
+&amp;=\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}-\lim_{h\to
+0}\frac{f(x_0+h)-f(x_0)}{h}=0
+\end{aligned}
+\]</span> 故有<span class="math inline">\(g(h)=o(h)\)</span>，即有<span
+class="math inline">\(f(x_0+h)=f(x_0)+Ah+o(h)\)</span>。<font size="1">QED</font></p>
+<h2 id="註記-4"><font color=#0000FF><u>註記 4</u></font></h2>
+<p>考慮函數<span
+class="math inline">\(f:\mathbb{R}\to\mathbb{R}\)</span>，若<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>可微，則<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>連續。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：若<span
+class="math inline">\(f\)</span>不在<span
+class="math inline">\(x_0\)</span>連續，則極限 <span
+class="math display">\[
+\lim_{h\to 0}f(x_0+h)-f(x_0)
+\]</span> 不等於零(或可能根本不存在)，如此極限 <span
+class="math display">\[
+\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}
+\]</span> 就勢必不會存在，這與<span
+class="math inline">\(f\)</span>在<span
+class="math inline">\(x_0\)</span>可微的假設矛盾。故<span
+class="math inline">\(f\)</span>應在<span
+class="math inline">\(x_0\)</span>連續。<font size="1">QED</font></p>
+<center>
+<h1 id="鏈鎖律"><font color=#b8860b>鏈鎖律</font></h1>
+</center>
+<h2 id="定理-4鏈鎖律-chain-rule"><font color=#ff1493><u>定理 4：鏈鎖律
+(Chain Rule)</u></font></h2>
+<p>給定可微函數<span
+class="math inline">\(g,f:\mathbb{R}\to\mathbb{R}\)</span>，且<span
+class="math inline">\(f\)</span>的定義域包含<span
+class="math inline">\(g\)</span>的值域，則 <span class="math display">\[
+[f(g(x))]&#39;=g&#39;(x)f&#39;(g(x))
+\]</span></p>
+<p><font color=#8b4513><u>證明1</u></font>：對於<span
+class="math inline">\(x=x_0\)</span>，我們有 <span
+class="math display">\[
+\lim_{h\to 0}\frac{f(g(x_0+h))-f(g(x_0))}{h}=\lim_{h\to
+0}\frac{f(g(x_0+h))-f(g(x_0))}{g(x_0+h)-g(x_0)}\times\frac{g(x_0+h)-g(x_0)}{h}
+\]</span> 由於<span class="math inline">\(g\)</span>在<span
+class="math inline">\(x_0\)</span>可微，故由註記4知<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(x_0\)</span>連續。故 <span class="math display">\[
+\lim_{h\to
+0}\frac{f(g(x_0+h))-f(g(x_0))}{g(x_0+h)-g(x_0)}=\lim_{g(x_0+h)-g(x_0)\to
+0}\frac{f(g(x_0+h))-f(g(x_0))}{g(x_0+h)-g(x_0)}
+\]</span></p>
 
     </div>
 
@@ -233,8 +361,8 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
-              <a href="/tags/Geometry/" rel="tag"># Geometry</a>
-              <a href="/tags/Geometry-Intro/" rel="tag"># Geometry_Intro</a>
+              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+              <a href="/tags/Analysis-Intro/" rel="tag"># Analysis_Intro</a>
           </div>
 
         
@@ -243,13 +371,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2024/04/18/2024-functional-II/" rel="prev" title="2024王振男 泛函分析筆記">
-      <i class="fa fa-chevron-left"></i> 2024王振男 泛函分析筆記
+    <a href="/2025/08/23/ana-intro-conti/" rel="prev" title="分析導論：連續函數">
+      <i class="fa fa-chevron-left"></i> 分析導論：連續函數
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2024/04/18/2021-linear-algebra/" rel="next" title="2021莊武諺 線性代數筆記">
-      2021莊武諺 線性代數筆記 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -308,6 +433,13 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E5%BE%AE"><span class="nav-number">1.</span> <span class="nav-text">可微</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%A4%A7o%E5%87%BD%E6%95%B8-big-o-function"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：大O函數 (Big-O Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-1-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">例 1-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2%E5%B0%8Fo%E5%87%BD%E6%95%B8-small-o-function"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：小o函數 (Small-o Function)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">例 2-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E5%8F%AF%E5%BE%AE-differentiable"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：可微
+(Differentiable)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3-1%E5%B0%8E%E6%95%B8-derivative"><span class="nav-number">1.3.1.</span> <span class="nav-text">定義 3-1：導數
+(Derivative)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-3-2%E5%8F%AF%E5%BE%AE%E7%9A%84%E7%AD%89%E5%83%B9%E5%AE%9A%E7%BE%A9"><span class="nav-number">1.3.2.</span> <span class="nav-text">註記
+3-2：可微的等價定義</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A8%BB%E8%A8%98-4"><span class="nav-number">1.4.</span> <span class="nav-text">註記 4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%8F%88%E9%8E%96%E5%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">鏈鎖律</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4%E9%8F%88%E9%8E%96%E5%BE%8B-chain-rule"><span class="nav-number">2.1.</span> <span class="nav-text">定理 4：鏈鎖律
+(Chain Rule)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
