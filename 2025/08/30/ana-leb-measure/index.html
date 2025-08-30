@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"alexthepurplerose.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="這份筆記是關於勒貝格測度的定義與性質。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分析：勒貝格測度">
+<meta property="og:url" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/index.html">
+<meta property="og:site_name" content="永蔚Alex">
+<meta property="og:description" content="這份筆記是關於勒貝格測度的定義與性質。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/outer.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/cantorset.png">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/cantor.jpg">
+<meta property="article:published_time" content="2025-08-30T08:34:38.000Z">
+<meta property="article:modified_time" content="2025-08-30T09:27:50.693Z">
+<meta property="article:author" content="SemperLux">
+<meta property="article:tag" content="Lecture_Notes">
+<meta property="article:tag" content="Analysis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/outer.jpg">
+
+<link rel="canonical" href="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>分析：勒貝格測度 | 永蔚Alex</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">永蔚Alex</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Nautical Nonsense and Abstract Nonsense</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="SemperLux">
+      <meta itemprop="description" content="永蔚的上課筆記與小小文欄">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永蔚Alex">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          分析：勒貝格測度
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2025-08-30 16:34:38 / 修改時間：17:27:50" itemprop="dateCreated datePublished" datetime="2025-08-30T16:34:38+08:00">2025-08-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/" itemprop="url" rel="index"><span itemprop="name">筆記</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AD%86%E8%A8%98/%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">分析</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>這份筆記是關於勒貝格測度的定義與性質。 <span id="more"></span><br></p>
+<center>
+<h1 id="勒貝格外測度"><font color=#b8860b>勒貝格外測度</font></h1>
+</center>
+<h2 id="定義-1區間的大小-size-of-intervals"><font color=#008000><u>定義
+1：區間的大小 (Size of Intervals)</u></font></h2>
+<p>對於<span class="math inline">\(\mathbb{R}\)</span>上的開區間<span
+class="math inline">\((a,b)\)</span>，我們定義其大小為 <span
+class="math display">\[
+|(a,b)|=b-a
+\]</span></p>
+<h2
+id="定義-2mathbbr上的勒貝格外測度-lebesgue-outer-measure-on-mathbbr"><font color=#008000><u>定義
+2：<span class="math inline">\(\mathbb{R}\)</span>上的勒貝格外測度
+(Lebesgue Outer Measure on <span
+class="math inline">\(\mathbb{R}\)</span>)</u></font></h2>
+<p>給定集合<span
+class="math inline">\(A\subseteq\mathbb{R}\)</span>，我們將其勒貝格外測度定義為
+<span class="math display">\[
+m^\ast(A)=\inf\left\{\sum_{k=1}^\infty|I_k|:A\subseteq\bigcup_{k=1}^\infty
+I_k,\;I_k\mbox{ are open intervals on }\mathbb{R}\right\}
+\]</span> 若<span
+class="math inline">\(\sum\limits_{k=1}^\infty|I_k|\)</span>總是發散，則記<span
+class="math inline">\(m^\ast(A)=\infty\)</span>。</p>
+<h3 id="性質-2-1"><font color=#0000FF><u>性質 2-1</u></font></h3>
+<p><span class="math display">\[
+m^\ast(\varnothing)=0
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>, <span
+class="math inline">\(a\in\mathbb{R}\)</span>，都有<span
+class="math inline">\(\varnothing\subseteq(a-\epsilon,a+\epsilon)\)</span>，故
+<span class="math display">\[
+m^\ast(\varnothing)\leq 2\epsilon
+\]</span> 這對任意小的<span
+class="math inline">\(\epsilon&gt;0\)</span>都成立，故<span
+class="math inline">\(m^\ast(\varnothing)=0\)</span>。<font size="1">QED</font></p>
+<h3
+id="性質-2-2勒貝格外測度的單調性-monotonocity-of-lebesgue-outer-measure"><font color=#0000FF><u>性質
+2-2：勒貝格外測度的單調性 (Monotonocity of Lebesgue Outer
+Measure)</u></font></h3>
+<p>給定集合<span
+class="math inline">\(A,B\subseteq\mathbb{R}\)</span>。若<span
+class="math inline">\(A\subseteq B\)</span>，則<span
+class="math inline">\(m^\ast(A)\leq m^\ast(B)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：對於一個<span
+class="math inline">\(B\)</span>的開區間覆蓋<span
+class="math inline">\(\{I_k\}_{k=1}^\infty\)</span>，我們總是有 <span
+class="math display">\[
+A\subseteq B\subseteq \bigcup_{k=1}^\infty I_k
+\]</span> 故由定義有 <span class="math display">\[
+m^\ast(A)\leq\sum_{k=1}^\infty|I_k|
+\]</span> 故有 <span class="math display">\[
+m^\ast(A)\leq\inf\left\{\sum_{k=1}^\infty|I_k|\right\}=m^\ast(B)
+\]</span> <font size="1">QED</font></p>
+<h3
+id="性質-2-3勒貝格外測度的次可加性-subadditivity-of-lebesgue-outer-measure"><font color=#0000FF><u>性質
+2-3：勒貝格外測度的次可加性 (Subadditivity of Lebesgue Outer
+Measure)</u></font></h3>
+<p>給定<span class="math inline">\(\mathbb{R}\)</span>上的集族<span
+class="math inline">\(\{A_i\}_{i=1}^\infty\)</span>且對於所有<span
+class="math inline">\(i\in\mathbb{N}\)</span>都有<span
+class="math inline">\(m^\ast(A_i)&lt;\infty\)</span>，則我們有 <span
+class="math display">\[
+m^\ast\left(\bigcup_{i=1}^\infty A_i\right)\leq\sum_{i=1}^\infty
+m^\ast(A_i)
+\]</span></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，對於<span
+class="math inline">\(i\in\mathbb{N}\)</span>，由定義知可以選定<span
+class="math inline">\(A_i\)</span>的開區間覆蓋<span
+class="math inline">\(\left\{I^i_k\right\}_{k=1}^\infty\)</span>使得
+<span class="math display">\[
+\sum_{k=1}^\infty\left|I_k^i\right|\leq
+m^\ast(A_i)+\frac{\epsilon}{2^i}, A_i\subseteq\bigcup_{k=1}^\infty I_k^i
+\]</span> 故有 <span class="math display">\[
+\bigcup_{i=1}^\infty A_i\subseteq
+\bigcup_{i=1}^\infty\bigcup_{k=1}^\infty I_k^i
+\]</span> 於是有 <span class="math display">\[
+\begin{aligned}
+m^\ast\left(\bigcup_{i=1}^\infty
+A_i\right)&amp;\leq\sum_{i=1}^\infty\sum_{k=1}^\infty\left|I_k^i\right|\\
+&amp;\leq\sum_{i=1}^\infty
+\left[m^\ast(A_i)+\frac{\epsilon}{2^i}\right]\\
+&amp;=\sum_{i=1}^\infty m^\ast(A_i)+\epsilon
+\end{aligned}
+\]</span> 這對所有<span
+class="math inline">\(\epsilon&gt;0\)</span>都成立，故 <span
+class="math display">\[
+m^\ast\left(\bigcup_{i=1}^\infty A_i\right)\leq\sum_{i=1}^\infty
+m^\ast(A_i)
+\]</span> <font size="1">QED</font></p>
+<h3
+id="定義-2-4mathbbrn上的勒貝格外測度-lebesgue-outer-measure-on-mathbbrn"><font color=#008000><u>定義
+2-4：<span class="math inline">\(\mathbb{R}^n\)</span>上的勒貝格外測度
+(Lebesgue Outer Measure on <span
+class="math inline">\(\mathbb{R}^n\)</span>)</u></font></h3>
+<p>在<span
+class="math inline">\(\mathbb{R}^2\)</span>中，考慮如下圖1的開矩形<span
+class="math inline">\(R=(a,b)\times(c,d)\)</span>，定義<span
+class="math inline">\(R\)</span>的大小為 <span class="math display">\[
+|R|=(b-a)\cdot(d-c)
+\]</span></p>
+<img src="outer.jpg" width="25%" height="25%">
+<center>
+圖1
+</center>
+<p>我們稱這樣的矩形為開矩形 (Open Rectangle)，我們即將<span
+class="math inline">\(A\subseteq\mathbb{R}^2\)</span>的勒貝格外測度定義為
+<span class="math display">\[
+m^\ast(A)=\inf\left\{\sum_{k=1}^\infty|R_k|:A\subseteq\bigcup_{k=1}^\infty
+R_k, R_k\mbox{ are open rectangles on }\mathbb{R}^2\right\}
+\]</span> 類似的，我們可以定義<span
+class="math inline">\(\mathbb{R}^n\)</span>上的「開矩形」的大小為 <span
+class="math display">\[
+B=\prod_{i=1}^n|b_i-a_i|
+\]</span> 並可以類似的定義<span
+class="math inline">\(\mathbb{R}^n\)</span>上的勒貝格外測度。於是，我們即定義了<span
+class="math inline">\(\mathbb{R}^n\)</span>上的任何集合的勒貝格外測度。</p>
+<h2 id="定義-3零集合-zero-set"><font color=#008000><u>定義 3：零集合
+(Zero Set)</u></font></h2>
+<p>若一集合<span
+class="math inline">\(Z\subseteq\mathbb{R}^n\)</span>滿足<span
+class="math inline">\(m^\ast(Z)=0\)</span>，則稱<span
+class="math inline">\(Z\)</span>是零集合。</p>
+<h3 id="性質-3-1"><font color=#0000FF><u>性質 3-1</u></font></h3>
+<p>零集合的子集也是零集合。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：這可以直接由性質2-2得到。<font size="1">QED</font></p>
+<h3 id="性質-3-2"><font color=#0000FF><u>性質 3-2</u></font></h3>
+<p>若集族<span
+class="math inline">\(\{A_i\}_{i=1}^\infty\)</span>中都是零集合，則
+<span class="math display">\[
+A=\bigcup_{i=1}^\infty A_i
+\]</span> 也是零集合。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：這可以直接由性質2-3得到。<font size="1">QED</font></p>
+<h3 id="例-3-3"><font color=#ffa500><u>例 3-3</u></font></h3>
+<p>給定<span class="math inline">\(a\in\mathbb{R}\)</span>，令 <span
+class="math display">\[
+P_i(a)=\{(x_1,x_2,\cdots,x_{i-1},a,x_{i+1},\cdots,x_n)\in\mathbb{R}^n:x_j\in\mathbb{R},
+\forall j\neq i\}\subseteq\mathbb{R}^n
+\]</span> 則<span class="math inline">\(P_i(a)\)</span>是<span
+class="math inline">\(\mathbb{R}^n\)</span>中的零集合。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，考慮<span
+class="math inline">\(\mathbb{R}^n\)</span>上的開矩形 <span
+class="math display">\[
+R_k=(k,k+1)\times(k,k+1)\times\cdots\times(k,k+1)\times\underbrace{\left(a-\frac{\epsilon}{2^{|k|+1}},a+\frac{\epsilon}{2^{|k|+1}}\right)}_{\mbox{(★)}}\times(k,k+1)\times\cdots\times(k,k+1)
+\]</span> 其中<span
+class="math inline">\(k\in\mathbb{Z}\)</span>，且(★)是第<span
+class="math inline">\(i\)</span>位。顯然有 <span class="math display">\[
+P_i(a)=\bigcup_{k=-\infty}^\infty R_k
+\]</span> 故由定義有 <span class="math display">\[
+m^\ast(P_i(a))\leq\sum_{k=-\infty}^\infty
+|R_k|=\sum_{k=-\infty}^\infty\frac{\epsilon}{2^{|k|}}=3\epsilon
+\]</span> 這對於任意小的<span
+class="math inline">\(\epsilon\)</span>都成立，故<span
+class="math inline">\(P_i(a)\)</span>是<span
+class="math inline">\(\mathbb{R}^n\)</span>中的零集合。<font size="1">QED</font></p>
+<h3 id="例-3-4"><font color=#ffa500><u>例 3-4</u></font></h3>
+<p>有理數集<span class="math inline">\(\mathbb{Q}\)</span>是<span
+class="math inline">\(\mathbb{R}\)</span>中的零集合。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(\mathbb{Q}\)</span>是可數集(見<a
+href="https://alexthepurplerose.github.io/2025/07/23/ana-intro-cardinality/">這裡</a>的例2-3)，故我們可以將所有有理數進行編號，即
+<span class="math display">\[
+\mathbb{Q}=\{q_1,q_2,q_3,\cdots\}=\{q_n\}_{n=1}^\infty
+\]</span> 於是，對於<span
+class="math inline">\(\epsilon&gt;0\)</span>，可以考慮開區間 <span
+class="math display">\[
+I_n=\left(q_n-\frac{\epsilon}{2^{n+1}},q_n+\frac{\epsilon}{2^{n+1}}\right)
+\]</span> 顯然有 <span class="math display">\[
+\mathbb{Q}\subseteq\bigcup_{n=1}^\infty I_n
+\]</span> 故由定義有 <span class="math display">\[
+m^\ast(\mathbb{Q})\leq\sum_{n=1}^\infty|I_n|=\sum_{n=1}^\infty\frac{\epsilon}{2^n}=\epsilon
+\]</span> 這對任意小的<span
+class="math inline">\(\epsilon&gt;0\)</span>都成立，故<span
+class="math inline">\(\mathbb{Q}\)</span>是<span
+class="math inline">\(\mathbb{R}\)</span>中的零集合。<font size="1">QED</font></p>
+<h3 id="例-3-5康托集-cantor-set"><font color=#ffa500><u>例 3-5：康托集
+(Cantor Set)</u></font></h3>
+<p>考慮<span
+class="math inline">\(I_0=[0,1]\in\mathbb{R}\)</span>。我們去掉該區間中間<span
+class="math inline">\(1/3\)</span>的部分，即<span
+class="math inline">\((1/3,2/3)\)</span>，我們就剩下 <span
+class="math display">\[
+I_1=\left[0,\frac{1}{3}\right]\cup\left[\frac{2}{3},1\right]
+\]</span> 再把<span
+class="math inline">\(I_1\)</span>中兩個區間的中間<span
+class="math inline">\(1/3\)</span>的部份去掉，我們就剩下 <span
+class="math display">\[
+I_2=\left[0,\frac{1}{9}\right]\cup\left[\frac{2}{9},\frac{1}{3}\right]\cup\left[\frac{2}{3},\frac{7}{9}\right]\cup\left[\frac{8}{9},1\right]
+\]</span> 如此重複無限多次，最後還留下來的點集我們稱作康托集，記做<span
+class="math inline">\(C\)</span>。這個建構康托集的步驟可以參考下圖2。</p>
+<img src="cantorset.png" width="50%" height="50%">
+<center>
+圖2
+</center>
+<p>顯然對於<span class="math inline">\(n\geq 0\)</span>會有 <span
+class="math display">\[
+|I_n|=\frac{2^n}{3^n}
+\]</span> 而對於所有<span class="math inline">\(n\geq
+0\)</span>都會有<span class="math inline">\(C\subseteq I_n\)</span> i.e.
+<span class="math inline">\(m^\ast(C)\leq |I_n|\)</span>，而<span
+class="math inline">\(n\)</span>任意大時<span
+class="math inline">\((2/3)^n\)</span>又可以任意小，故<span
+class="math inline">\(C\)</span>是<span
+class="math inline">\(\mathbb{R}\)</span>中的零集合。</p>
+<img src="cantor.jpg" width="25%" height="25%">
+<center>
+圖3 Georg Cantor
+</center>
+<h2 id="定理-4"><font color=#ff1493><u>定理 4</u></font></h2>
+<p>給定<span
+class="math inline">\(I=[a,b]\subseteq\mathbb{R}\)</span>，則<span
+class="math inline">\(m^\ast(I)=b-a\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：給定<span
+class="math inline">\(\epsilon&gt;0\)</span>，考慮 <span
+class="math display">\[
+I\subseteq\left(a-\frac{\epsilon}{2},b+\frac{\epsilon}{2}\right)
+\]</span> 於是對於所有<span
+class="math inline">\(\epsilon&gt;0\)</span>有 <span
+class="math display">\[
+m^\ast(I)\leq b-a+\epsilon
+\]</span> 即<span class="math inline">\(m^\ast(I)\leq b-a\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Lecture-Notes/" rel="tag"># Lecture_Notes</a>
+              <a href="/tags/Analysis/" rel="tag"># Analysis</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2025/08/29/ana-intro-alg-funda/" rel="prev" title="分析導論：代數基本定理">
+      <i class="fa fa-chevron-left"></i> 分析導論：代數基本定理
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8B%92%E8%B2%9D%E6%A0%BC%E5%A4%96%E6%B8%AC%E5%BA%A6"><span class="nav-number">1.</span> <span class="nav-text">勒貝格外測度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-1%E5%8D%80%E9%96%93%E7%9A%84%E5%A4%A7%E5%B0%8F-size-of-intervals"><span class="nav-number">1.1.</span> <span class="nav-text">定義
+1：區間的大小 (Size of Intervals)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2mathbbr%E4%B8%8A%E7%9A%84%E5%8B%92%E8%B2%9D%E6%A0%BC%E5%A4%96%E6%B8%AC%E5%BA%A6-lebesgue-outer-measure-on-mathbbr"><span class="nav-number">1.2.</span> <span class="nav-text">定義
+2：\(\mathbb{R}\)上的勒貝格外測度
+(Lebesgue Outer Measure on \(\mathbb{R}\))</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">性質 2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-2%E5%8B%92%E8%B2%9D%E6%A0%BC%E5%A4%96%E6%B8%AC%E5%BA%A6%E7%9A%84%E5%96%AE%E8%AA%BF%E6%80%A7-monotonocity-of-lebesgue-outer-measure"><span class="nav-number">1.2.2.</span> <span class="nav-text">性質
+2-2：勒貝格外測度的單調性 (Monotonocity of Lebesgue Outer
+Measure)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-2-3%E5%8B%92%E8%B2%9D%E6%A0%BC%E5%A4%96%E6%B8%AC%E5%BA%A6%E7%9A%84%E6%AC%A1%E5%8F%AF%E5%8A%A0%E6%80%A7-subadditivity-of-lebesgue-outer-measure"><span class="nav-number">1.2.3.</span> <span class="nav-text">性質
+2-3：勒貝格外測度的次可加性 (Subadditivity of Lebesgue Outer
+Measure)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-2-4mathbbrn%E4%B8%8A%E7%9A%84%E5%8B%92%E8%B2%9D%E6%A0%BC%E5%A4%96%E6%B8%AC%E5%BA%A6-lebesgue-outer-measure-on-mathbbrn"><span class="nav-number">1.2.4.</span> <span class="nav-text">定義
+2-4：\(\mathbb{R}^n\)上的勒貝格外測度
+(Lebesgue Outer Measure on \(\mathbb{R}^n\))</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E9%9B%B6%E9%9B%86%E5%90%88-zero-set"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：零集合
+(Zero Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">性質 3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">性質 3-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-3"><span class="nav-number">1.3.3.</span> <span class="nav-text">例 3-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-4"><span class="nav-number">1.3.4.</span> <span class="nav-text">例 3-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-5%E5%BA%B7%E6%89%98%E9%9B%86-cantor-set"><span class="nav-number">1.3.5.</span> <span class="nav-text">例 3-5：康托集
+(Cantor Set)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">SemperLux</p>
+  <div class="site-description" itemprop="description">永蔚的上課筆記與小小文欄</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">110</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="mailto:hiimlilwei@gmail.com" title="E-Mail → mailto:hiimlilwei@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SemperLux</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
