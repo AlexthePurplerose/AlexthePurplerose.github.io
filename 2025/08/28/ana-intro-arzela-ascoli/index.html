@@ -27,13 +27,16 @@
 <meta property="og:site_name" content="永蔚Alex">
 <meta property="og:description" content="這份筆記是關於阿爾澤拉-阿斯科利定理的證明。">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/28/ana-intro-arzela-ascoli/arzela.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/28/ana-intro-arzela-ascoli/ascoli.jpg">
 <meta property="article:published_time" content="2025-08-28T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-09-02T07:12:15.702Z">
+<meta property="article:modified_time" content="2025-09-02T11:51:29.424Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
 <meta property="article:tag" content="Analysis_Intro">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alexthepurplerose.github.io/2025/08/28/ana-intro-arzela-ascoli/arzela.jpg">
 
 <link rel="canonical" href="https://alexthepurplerose.github.io/2025/08/28/ana-intro-arzela-ascoli/">
 
@@ -199,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-09-02 15:12:15" itemprop="dateModified" datetime="2025-09-02T15:12:15+08:00">2025-09-02</time>
+                <time title="修改時間：2025-09-02 19:51:29" itemprop="dateModified" datetime="2025-09-02T19:51:29+08:00">2025-09-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,12 +259,78 @@ class="math inline">\(\{f_k\}\)</span>是一致有界的。</p>
 id="定理-3阿爾澤拉-阿斯科利定理-arzelàascoli-theorem"><font color=#ff1493><u>定理
 3：阿爾澤拉-阿斯科利定理 (Arzelà–Ascoli Theorem)</u></font></h2>
 <p>給定函數序列<span
-class="math inline">\(\{f_k:[a,b]\subseteq\mathbb{R}\to\mathbb{R}\}_{k=1}^\infty\)</span>，則<span
+class="math inline">\(\{f_k:[a,b]\subseteq\mathbb{R}\to\mathbb{R}\}_{k=1}^\infty\)</span>，若<span
 class="math inline">\(\{f_k\}\)</span>在<span
-class="math inline">\([a,b]\)</span>上一致有界且等度連續 iff. <span
+class="math inline">\([a,b]\)</span>上一致有界且等度連續，則<span
 class="math inline">\(\{f_n\}\)</span>有在<span
-class="math inline">\([a,b]\)</span>上均勻收斂的子序列。<br></p>
-<p><font color=#8b4513><u>證明</u></font>：</p>
+class="math inline">\([a,b]\)</span>上一致收斂的子序列。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：由於<span
+class="math inline">\(\mathbb{Q}\)</span>可數(見<a
+href="https://alexthepurplerose.github.io/2025/07/23/ana-intro-cardinality/">這裡</a>的例2-3)，故可以將<span
+class="math inline">\([a,b]\)</span>中的所有有理數排列成數列<span
+class="math inline">\(\{x_n\}_{n=1}^\infty\)</span>。由於<span
+class="math inline">\(\{f_k\}\)</span>一致有界，故點集<span
+class="math inline">\(\{f_k(x_1)\}_{k=1}^\infty\)</span>有界。故由<a
+href="https://alexthepurplerose.github.io/2025/07/19/ana-intro-real-numbers/">這裡</a>的定理13知應存在子序列<span
+class="math inline">\(\{f^1_k\}_{k_1\in\mathbb{N}}\)</span>使得<span
+class="math inline">\(\{f^1_k(x_1)\}\)</span>收斂。同理<span
+class="math inline">\(\{f^1_k\}\)</span>應存在子序列<span
+class="math inline">\(\{f^2_k\}_{k\in\mathbb{N}}\)</span>使得<span
+class="math inline">\(\{f^2_k(x_2)\}\)</span>收斂。<br>
+如此迴環往復，可以造出一串序列 <span class="math display">\[
+\{f^1_k\}\supseteq\{f^2_k\}\supseteq\{f^3_k\}\supseteq\cdots
+\]</span> 且給定<span
+class="math inline">\(n\in\mathbb{N}\)</span>，我們知道對於所有<span
+class="math inline">\(1\leq i\leq n\)</span>，點列<span
+class="math inline">\(\{f^n_k(x_i)\}\)</span>都收斂。我們接著考慮<span
+class="math inline">\(\{f_k\}\)</span>的子序列<span
+class="math inline">\(\{f^m_m\}_{m=1}^\infty\)</span>，易知<span
+class="math inline">\(\{f^m_m\}\)</span>在所有有理數上都收斂。<br>
+接著，給定<span
+class="math inline">\(\epsilon&gt;0\)</span>及有理數<span
+class="math inline">\(x_k\in[a,b]\)</span>，應存在<span
+class="math inline">\(N\in\mathbb{N}\)</span>使得對於所有<span
+class="math inline">\(n,m&gt;N\)</span>都有 <span
+class="math display">\[
+\left|f^n_n(x_k)-f^m_m(x_k)\right|&lt;\frac{\epsilon}{3}\mbox{ (☆)}
+\]</span> 而由於<span
+class="math inline">\(\{f^m_m\}\)</span>是等度連續的，故應存在<span
+class="math inline">\(\delta&gt;0\)</span>使得對於所有<span
+class="math inline">\(m\in\mathbb{N}\)</span>和所有滿足<span
+class="math inline">\(|x-y|&lt;\delta\)</span>的<span
+class="math inline">\(x,y\in[a,b]\)</span>都有 <span
+class="math display">\[
+|f^m_m(x)-f^m_m(y)|&lt;\frac{\epsilon}{3}\mbox{ (★)}
+\]</span> 最後，我們知道 <span class="math display">\[
+[a,b]\subseteq\bigcup_{x\in[a,b]}B_\delta(x)
+\]</span> 是<span
+class="math inline">\([a,b]\)</span>的開覆蓋。由於<span
+class="math inline">\([a,b]\)</span>是緊緻集，故其應存在有限子覆蓋。令此覆蓋為
+<span class="math display">\[
+\{B_\delta(y_1),B_\delta(y_2),\cdots,B_\delta(y_J)\}
+\]</span> 其中<span
+class="math inline">\(y_1,y_2,\cdots,y_J\in[a,b]\)</span>。對於所有<span
+class="math inline">\(1\leq j\leq J\)</span>，都應存在某個有理數<span
+class="math inline">\(x_{k_j}\in B_\delta(y_j)\)</span>。於是，對於<span
+class="math inline">\(t\in[a,b]\)</span>，應存在某個<span
+class="math inline">\(j\)</span>使得<span class="math inline">\(t\in
+B_\delta(y_j)\)</span>，於是 <span class="math display">\[
+\begin{aligned}
+|f_n^n(t)-f_m^m(t)|&amp;\leq|f_n^n(t)-f_n^n(x_{k_j})|+|f_n^n(x_{k_j})-f_m^m(x_{k_j})|+|f_m^m(x_{k_j})-f_m^m(t)|\\
+&amp;&lt;\underbrace{\frac{\epsilon}{3}}_{\mbox{(★)}}+\underbrace{\frac{\epsilon}{3}}_{\mbox{(☆)}}+\underbrace{\frac{\epsilon}{3}}_{\mbox{(★)}}\\
+&amp;=\epsilon
+\end{aligned}
+\]</span> 這對夠大的<span
+class="math inline">\(n,m\)</span>都成立，故<span
+class="math inline">\(\{f_m^m\}\)</span>是一致收斂的。<font size="1">QED</font></p>
+<img src="arzela.jpg" width="25%" height="25%">
+<center>
+圖1 Cesare Arzelà
+</center>
+<img src="ascoli.jpg" width="25%" height="25%">
+<center>
+圖2 Giulio Ascoli
+</center>
 
     </div>
 
