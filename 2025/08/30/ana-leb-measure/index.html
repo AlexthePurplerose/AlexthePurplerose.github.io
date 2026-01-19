@@ -30,8 +30,12 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/outer.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/cantorset.png">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/cantor.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/XA.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/E1234.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/Eout.jpg">
+<meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/Ein.jpg">
 <meta property="article:published_time" content="2025-08-30T08:34:38.000Z">
-<meta property="article:modified_time" content="2026-01-19T06:45:02.575Z">
+<meta property="article:modified_time" content="2026-01-19T09:32:35.142Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -202,7 +206,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2026-01-19 14:45:02" itemprop="dateModified" datetime="2026-01-19T14:45:02+08:00">2026-01-19</time>
+                <time title="修改時間：2026-01-19 17:32:35" itemprop="dateModified" datetime="2026-01-19T17:32:35+08:00">2026-01-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -572,7 +576,259 @@ class="math inline">\(A\subseteq\mathbb{R}^n\)</span>，若對於所有集合<sp
 class="math inline">\(X\subseteq\mathbb{R}^n\)</span>都有 <span
 class="math display">\[
 m^\ast(X)=m^\ast(X\cap A)+m^\ast(X\backslash A)
-\]</span></p>
+\]</span> 則稱<span
+class="math inline">\(A\)</span>是勒貝格可測集(見下圖4)。另外，我們記<span
+class="math inline">\(M(\mathbb{R}^n)\)</span>為<span
+class="math inline">\(\mathbb{R}^n\)</span>中所有勒貝格可測集的集合。</p>
+<img src="XA.jpg" width="50%" height="50%">
+<center>
+圖4
+</center>
+<h3 id="定義-6-1勒貝格測度-lebesgue-measure"><font color=#008000><u>定義
+6-1：勒貝格測度 (Lebesgue Measure)</u></font></h3>
+<p>若<span
+class="math inline">\(A\subseteq\mathbb{R}^n\)</span>勒貝格可測，則定義其勒貝格測度為<span
+class="math inline">\(|A|=m^\ast(A)\)</span>。</p>
+<center>
+<h1 id="外測度"><font color=#b8860b>外測度</font></h1>
+</center>
+<h2 id="定義-7外測度-outer-measure"><font color=#008000><u>定義
+7：外測度 (Outer Measure)</u></font></h2>
+<p>給定集合<span class="math inline">\(M\)</span>，令<span
+class="math inline">\(2^M\)</span>為<span
+class="math inline">\(M\)</span>的冪集合(即<span
+class="math inline">\(M\)</span>所有子集的集合)。考慮函數<span
+class="math inline">\(W:2^M\to[0,\infty]\)</span>，若<span
+class="math inline">\(W\)</span>滿足 <br>1. <span
+class="math inline">\(W(\varnothing)=0\)</span> <br>2. (單調性) 若<span
+class="math inline">\(A\subseteq B\)</span>，則<span
+class="math inline">\(W(A)\leq W(B)\)</span>。 <br>3. (次可加性)
+給定<span class="math inline">\(A_1,A_2,\cdots\subseteq M\)</span>，有
+<span class="math display">\[
+W\left(\bigcup_{i=1}^\infty A_i\right)\leq\sum_{i=1}^\infty W(A_i)
+\]</span> 則稱<span class="math inline">\(W\)</span>是外測度。</p>
+<h3 id="定義-7-1可測-measurable"><font color=#008000><u>定義 7-1：可測
+(Measurable)</u></font></h3>
+<p>給定<span class="math inline">\(M\)</span>上的外測度<span
+class="math inline">\(W\)</span>與集合<span
+class="math inline">\(A\subseteq M\)</span>。若對於所有<span
+class="math inline">\(X\subseteq M\)</span>都有 <span
+class="math display">\[
+W(X)=W(X\cap A)+W(X\backslash A)
+\]</span> 則稱<span class="math inline">\(A\)</span>是<span
+class="math inline">\(W\)</span>-可測的。</p>
+<h2 id="定義-8sigma-代數-sigma-algebra"><font color=#008000><u>定義
+8：<span class="math inline">\(\sigma\)</span>-代數 (<span
+class="math inline">\(\sigma\)</span>-Algebra)</u></font></h2>
+<p>給定集族<span class="math inline">\(M\)</span>(即集合的集合)，若
+<br>1. <span class="math inline">\(\varnothing\in M\)</span> <br>2.
+給定<span class="math inline">\(E\in M\)</span>，有<span
+class="math inline">\(E^c\in M\)</span> <br>3. 給定<span
+class="math inline">\(E_1,E_2,\cdots\in M\)</span>，有<span
+class="math inline">\(\bigcup\limits_{i=1}^\infty E_i\in M\)</span>
+<br>則稱<span class="math inline">\(M\)</span>是<span
+class="math inline">\(\sigma\)</span>-代數。</p>
+<h2 id="定理-9"><font color=#ff1493><u>定理 9</u></font></h2>
+<p>給定外測度<span class="math inline">\(W\)</span>，記所有<span
+class="math inline">\(W\)</span>-可測的集合構成的集族為<span
+class="math inline">\(M\)</span>，則<span
+class="math inline">\(M\)</span>是<span
+class="math inline">\(\sigma\)</span>-代數。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：我們一項一項檢查<span
+class="math inline">\(M\)</span>是否滿足<span
+class="math inline">\(\sigma\)</span>-代數的定義。 <br>1.
+我們想說明<span class="math inline">\(\varnothing\in
+M\)</span>。事實上，我們可以說明任何滿足<span
+class="math inline">\(W(Z)=0\)</span>的集合<span
+class="math inline">\(Z\)</span>都可測。給定一集<span
+class="math inline">\(X\)</span>。首先由<span
+class="math inline">\(W\)</span>的次可加性可知 <span
+class="math display">\[
+W(X)\leq W(X\cap Z)+W(X\backslash Z)
+\]</span> 又<span class="math inline">\(W(Z)=0\)</span>，由<span
+class="math inline">\(W\)</span>的單調性可知<span
+class="math inline">\(0=W(Z)\geq W(X\cap Z)\geq 0\)</span> i.e. <span
+class="math inline">\(W(X\cap Z)=0\)</span>及<span
+class="math inline">\(W(X)\geq W(X\backslash Z)\)</span>。故 <span
+class="math display">\[
+W(X)\geq\underbrace{W(X\cap Z)}_{=0}+W(X\backslash Z)=W(X\backslash Z)
+\]</span> 於是有<span class="math inline">\(W(X)=W(X\cap
+Z)+W(X\backslash Z)\)</span>，意即任何零集合都是可測的。 <br>2.
+給定可測集<span
+class="math inline">\(A\)</span>。由定義知對所有集合<span
+class="math inline">\(X\)</span>有 <span class="math display">\[
+\begin{aligned}
+W(X)&amp;=W(X\cap A)+W(X\backslash A)\\
+&amp;=W(X\backslash(A^c))+W(X\cap(A^c))
+\end{aligned}
+\]</span> 即<span class="math inline">\(A\)</span>的補集<span
+class="math inline">\(A^c\)</span>也是可測集。 <br>3-1.
+我們首先要說明若<span
+class="math inline">\(E_1,E_2\)</span>可測，則<span
+class="math inline">\(E_1\backslash
+E_2\)</span>也可測。考慮①②③④如下圖5所示。</p>
+<img src="E1234.jpg" width="25%" height="25%">
+<center>
+圖5
+</center>
+<p>考慮②③④，由<span class="math inline">\(E_1\)</span>可測知<span
+class="math inline">\(\mbox{②③④}=\mbox{②}+\mbox{③④}\)</span>(這裡②③④是<span
+class="math inline">\(W(\mbox{②③④})\)</span>的簡記，以此類推)。而由<span
+class="math inline">\(E_2\)</span>可測知<span
+class="math inline">\(\mbox{③④}=\mbox{③}+\mbox{④}\)</span>。故 <span
+class="math display">\[
+\mbox{①}+\mbox{②③④}=\mbox{①}+\mbox{②}+\mbox{③}+\mbox{④}
+\]</span> 同理， <span class="math display">\[
+\begin{aligned}
+\mbox{①②③④}&amp;=\mbox{①②}+\mbox{③④}\;\;(E_1\mbox{可測})\\
+&amp;=\mbox{①}+\mbox{②}+\mbox{③}+\mbox{④}
+\end{aligned}
+\]</span> 於是有<span
+class="math inline">\(\mbox{①②③④}=\mbox{①}+\mbox{②③④}\)</span>，即 <span
+class="math display">\[
+W(X)=W(X\cap(E_1\backslash E_2))+W(X\backslash(E_1\backslash E_2))
+\]</span> 即<span class="math inline">\(E_1\backslash
+E_2\)</span>是可測的(☆☆)。又 <span class="math display">\[
+(E_1\cup E_2)^c=E_1^c\cap E_2^c=E_1^c\backslash E_2
+\]</span> 由於<span
+class="math inline">\(E_1^c\)</span>可測，故由上述知<span
+class="math inline">\(E_1^c\backslash E_2\)</span>也是可測的。故<span
+class="math inline">\((E_1\cup E_2)^c\)</span>可測，而由第2.點可知<span
+class="math inline">\(E_1\cup
+E_2\)</span>是可測的。而使用數學歸納法可知給定有限多個可測集<span
+class="math inline">\(E_1,E_2,\cdots,E_N\)</span>，<span
+class="math inline">\(\bigcup\limits_{k=1}^N E_k\)</span>也可測(★★)。
+<br>3-2. 接著我們想說明若<span
+class="math inline">\(\{E_i\}_{i=1}^\infty\)</span>全部可測且互斥(即兩兩的交集都是空集)，則<span
+class="math inline">\(E=\bigcup\limits_{i=1}^\infty
+E_i\)</span>也可測。首先，若<span
+class="math inline">\(E_1,E_2\)</span>可測且互斥，則由可測的定義知 <span
+class="math display">\[
+W(E_1\cup E_2)=W(E_1)+W(E_2)
+\]</span> 而給定<span
+class="math inline">\(k\in\mathbb{N}\)</span>，由上述知<span
+class="math inline">\(F=\bigcup\limits_{i=1}^k
+E_k\)</span>可測。故對於任意集合<span
+class="math inline">\(X\)</span>，有 <span class="math display">\[
+\begin{aligned}
+W(X)&amp;=W(X\cap F)+W(X\backslash F)\\
+&amp;\geq W(X\cap F)+W(X\backslash E)\;\;(F\subseteq E)\mbox{(☆)}
+\end{aligned}
+\]</span> 又考慮<span class="math inline">\(E_1,E_2\)</span>，因為<span
+class="math inline">\(E_1\)</span>可測，故 <span class="math display">\[
+W(X\cap(E_1\cup E_2))=W(X\cap E_1)+W(X\cap E_2)
+\]</span> 而由數學歸納法可知 <span class="math display">\[
+W(X\cap F)=\sum_{i=1}^k W(X\cap E_i)
+\]</span> 故由(☆)可知對於任意<span
+class="math inline">\(k\in\mathbb{N}\)</span>有 <span
+class="math display">\[
+W(X)\geq\sum_{i=1}^kW(X\cap E_i)+W(X\backslash E)
+\]</span> 於是， <span class="math display">\[
+W(X)\geq\sum_{i=1}^\infty W(X\cap E_i)+W(X\backslash E)
+\]</span> 而由<span class="math inline">\(W\)</span>的次可加性知<span
+class="math inline">\(W(X)\leq\sum\limits_{i=1}^\infty W(X\cap
+E_i)+W(X\backslash E)\)</span>，故 <span class="math display">\[
+W(X)=\sum_{i=1}^\infty W(X\cap E_i)+W(X\backslash E)\mbox{(✪)}
+\]</span> 在上式中把<span class="math inline">\(X\)</span>換成<span
+class="math inline">\(X\cap E\)</span>，有 <span class="math display">\[
+\begin{aligned}
+W(X\cap E)&amp;=\sum_{i=1}^\infty W(\underbrace{(X\cap E)\cap
+E_i}_{=W\cap E_i})+W(\underbrace{(X\cap E)\backslash
+E}_{=\varnothing})\\
+&amp;=\sum_{i=1}^\infty W(X\cap E_i)
+\end{aligned}
+\]</span> 結合(✪)，即有<span class="math inline">\(W(X)=W(X\cap
+E)+W(X\backslash E)\)</span> i.e. <span
+class="math inline">\(E\)</span>是可測的。
+<br>3-3.今給定任意的可測集<span
+class="math inline">\(E_1,E_2,\cdots\)</span>(不一定可測)，我們想說<span
+class="math inline">\(E=\bigcup\limits_{i=1}^\infty
+E_i\)</span>也是可測的。令 <span class="math display">\[
+\widetilde{E_i}=E_i\backslash(E_1\cup E_2\cup\cdots\cup E_{i-1})
+\]</span> 有<span
+class="math inline">\(E=\bigcup\limits_{i=1}^\infty\widetilde{E_i}\)</span>。由定義可知<span
+class="math inline">\(\{\widetilde{E_i}\}_{i=1}^\infty\)</span>全部互斥。而由(★★)知<span
+class="math inline">\(E_i\)</span>和<span class="math inline">\(E_1\cup
+E_2\cup\cdots E_{i-1}\)</span>都可測，故由(☆☆)知<span
+class="math inline">\(\widetilde{E_i}=E_i\backslash(E_1\cup
+E_2\cup\cdots\cup E_{i-1})\)</span>也是可測的。於是由3-2可知<span
+class="math inline">\(E\)</span>是可測的。
+<br>綜上1.~3.點所述，我們知道可測集族<span
+class="math inline">\(M\)</span>是<span
+class="math inline">\(\sigma\)</span>-代數。<font size="1">QED</font></p>
+<center>
+<h1 id="單調連續性"><font color=#b8860b>單調連續性</font></h1>
+</center>
+<h2 id="定義-10"><font color=#008000><u>定義 10</u></font></h2>
+<p>(I)給定集族<span
+class="math inline">\(E_1,E_2,\cdots\)</span>，若<span
+class="math inline">\(E_1\subseteq E_2\subseteq
+E_3\cdots\)</span>且<span
+class="math inline">\(E=\bigcup\limits_{i=1}^\infty
+E_i\)</span>，則記<span class="math inline">\(E_k\nearrow E\)</span>。
+<br>(II)給定集族<span
+class="math inline">\(E_1,E_2,\cdots\)</span>，若<span
+class="math inline">\(E_1\supseteq E_2\supseteq
+E_3\cdots\)</span>且<span
+class="math inline">\(E=\bigcap\limits_{i=1}^\infty
+E_i\)</span>，則記<span class="math inline">\(E_k\searrow
+E\)</span>。</p>
+<h2
+id="定理-11單調連續性-monotone-continuity"><font color=#ff1493><u>定理
+11：單調連續性 (Monotone Continuity)</u></font></h2>
+<p>(I)給定集族<span
+class="math inline">\(E_1,E_2,\cdots\)</span>，若<span
+class="math inline">\(E_k\nearrow E\)</span>，則<span
+class="math inline">\(W(E_k)\)</span>單調遞增到<span
+class="math inline">\(W(E)\)</span>。 <br>(II)給定集族<span
+class="math inline">\(E_1,E_2,\cdots\)</span>，若<span
+class="math inline">\(E_k\searrow E\)</span>且存在某個<span
+class="math inline">\(k_0\in\mathbb{N}\)</span>滿足<span
+class="math inline">\(W(E_{k_0})&lt;+\infty\)</span>，則<span
+class="math inline">\(W(E_k)\)</span>單調遞減到<span
+class="math inline">\(W(E)\)</span>。<br></p>
+<p><font color=#8b4513><u>證明</u></font>：(I)考慮<span
+class="math inline">\(\widetilde{E_1}=E_1\)</span>. <span
+class="math inline">\(\widetilde{E_k}=E+k\backslash
+E_{k-1}\)</span>，則<span
+class="math inline">\(E=\bigcup\limits_{i=1}^\infty\widetilde{E_i}\)</span>(見下圖6)。</p>
+<img src="Eout.jpg" width="25%" height="25%">
+<center>
+圖6
+</center>
+<p>由上(✪)知<span class="math inline">\(W(E)=\sum\limits_{i=1}^\infty
+W(\widetilde{E_i})\)</span>，即<span
+class="math inline">\(k\)</span>趨近無限大時，部分和<span
+class="math inline">\(\sum\limits_{i=1}^k
+W(\widetilde{E_i})\)</span>單調遞增至<span
+class="math inline">\(W(E)\)</span>。又<span
+class="math inline">\(W(E_k)=\sum\limits_{i=1}^k
+W(\widetilde{E_i})\)</span>，故可知<span
+class="math inline">\(W(E_k)\)</span>單調遞增至<span
+class="math inline">\(W(E)\)</span>。 <br>(II)不失一般性，假設<span
+class="math inline">\(W(E_1)&lt;+\infty\)</span>。我們可以把<span
+class="math inline">\(E_1\)</span>寫成<span
+class="math inline">\(E_1=\left(\bigcup\limits_{i=1}^\infty\widetilde{E_i}\right)\cup
+E\)</span>，其中<span
+class="math inline">\(\widetilde{E_i}=E_i\backslash
+E_{i+1}\)</span>(見下圖7)。</p>
+<img src="Ein.jpg" width="25%" height="25%">
+<center>
+圖7
+</center>
+<p>由上(✪)知<span class="math inline">\(W(E_1)=\sum\limits_{i=1}^\infty
+W(\widetilde{E_i})+W(E)\)</span>。而由<span
+class="math inline">\(W(E_1)&lt;+\infty\)</span>知<span
+class="math inline">\(\sum\limits_{i=1}^\infty
+W(\widetilde{E_i})&lt;+\infty\)</span>。故知<span
+class="math inline">\(k\)</span>趨近無限大時，<span
+class="math inline">\(\sum\limits_{i=k}^\infty
+W(\widetilde{E_i})\)</span>單調遞減至<span
+class="math inline">\(0\)</span>。但 <span class="math display">\[
+W(E_k)=\underbrace{\sum_{i=k}^\infty W(\widetilde{E_i})}_{\to 0}+W(E)
+\]</span> 故可知<span
+class="math inline">\(W(E_k)\)</span>單調遞減至<span
+class="math inline">\(W(E)\)</span>。<font size="1">QED</font></p>
 
     </div>
 
@@ -666,7 +922,12 @@ Measure)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" hre
 (Lebesgue Outer Measure on \(\mathbb{R}^n\))</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E9%9B%B6%E9%9B%86%E5%90%88-zero-set"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：零集合
 (Zero Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">性質 3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">性質 3-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-3"><span class="nav-number">1.3.3.</span> <span class="nav-text">例 3-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-4"><span class="nav-number">1.3.4.</span> <span class="nav-text">例 3-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-5%E5%BA%B7%E6%89%98%E9%9B%86-cantor-set"><span class="nav-number">1.3.5.</span> <span class="nav-text">例 3-5：康托集
 (Cantor Set)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">推論 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%8B%92%E8%B2%9D%E6%A0%BC%E5%8F%AF%E6%B8%AC%E9%9B%86-lebesgue-measurable-set"><span class="nav-number">1.6.</span> <span class="nav-text">定義
-6：勒貝格可測集 (Lebesgue Measurable Set)</span></a></li></ol></li></ol></div>
+6：勒貝格可測集 (Lebesgue Measurable Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6-1%E5%8B%92%E8%B2%9D%E6%A0%BC%E6%B8%AC%E5%BA%A6-lebesgue-measure"><span class="nav-number">1.6.1.</span> <span class="nav-text">定義
+6-1：勒貝格測度 (Lebesgue Measure)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%96%E6%B8%AC%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">外測度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7%E5%A4%96%E6%B8%AC%E5%BA%A6-outer-measure"><span class="nav-number">2.1.</span> <span class="nav-text">定義
+7：外測度 (Outer Measure)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-7-1%E5%8F%AF%E6%B8%AC-measurable"><span class="nav-number">2.1.1.</span> <span class="nav-text">定義 7-1：可測
+(Measurable)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-8sigma-%E4%BB%A3%E6%95%B8-sigma-algebra"><span class="nav-number">2.2.</span> <span class="nav-text">定義
+8：\(\sigma\)-代數 (\(\sigma\)-Algebra)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-9"><span class="nav-number">2.3.</span> <span class="nav-text">定理 9</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%AE%E8%AA%BF%E9%80%A3%E7%BA%8C%E6%80%A7"><span class="nav-number">3.</span> <span class="nav-text">單調連續性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-10"><span class="nav-number">3.1.</span> <span class="nav-text">定義 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-11%E5%96%AE%E8%AA%BF%E9%80%A3%E7%BA%8C%E6%80%A7-monotone-continuity"><span class="nav-number">3.2.</span> <span class="nav-text">定理
+11：單調連續性 (Monotone Continuity)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
