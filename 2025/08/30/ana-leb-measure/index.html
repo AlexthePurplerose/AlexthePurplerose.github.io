@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/cantorset.png">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/08/30/ana-leb-measure/cantor.jpg">
 <meta property="article:published_time" content="2025-08-30T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-09-30T13:02:24.322Z">
+<meta property="article:modified_time" content="2026-01-19T06:45:02.575Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -202,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-09-30 21:02:24" itemprop="dateModified" datetime="2025-09-30T21:02:24+08:00">2025-09-30</time>
+                <time title="修改時間：2026-01-19 14:45:02" itemprop="dateModified" datetime="2026-01-19T14:45:02+08:00">2026-01-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -564,6 +564,15 @@ class="math display">\[
 class="math inline">\(\{R_k\}_{k=1}^N\)</span>都成立，故<span
 class="math inline">\(m^\ast(R)\geq(b-a)(d-c)\)</span>，故有<span
 class="math inline">\(m^\ast(R)=(b-a)(d-c)\)</span>。<font size="1">QED</font></p>
+<h2
+id="定義-6勒貝格可測集-lebesgue-measurable-set"><font color=#008000><u>定義
+6：勒貝格可測集 (Lebesgue Measurable Set)</u></font></h2>
+<p>給定一集<span
+class="math inline">\(A\subseteq\mathbb{R}^n\)</span>，若對於所有集合<span
+class="math inline">\(X\subseteq\mathbb{R}^n\)</span>都有 <span
+class="math display">\[
+m^\ast(X)=m^\ast(X\cap A)+m^\ast(X\backslash A)
+\]</span></p>
 
     </div>
 
@@ -656,7 +665,8 @@ Measure)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" hre
 2-4：\(\mathbb{R}^n\)上的勒貝格外測度
 (Lebesgue Outer Measure on \(\mathbb{R}^n\))</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-3%E9%9B%B6%E9%9B%86%E5%90%88-zero-set"><span class="nav-number">1.3.</span> <span class="nav-text">定義 3：零集合
 (Zero Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">性質 3-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%B3%AA-3-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">性質 3-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-3"><span class="nav-number">1.3.3.</span> <span class="nav-text">例 3-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-4"><span class="nav-number">1.3.4.</span> <span class="nav-text">例 3-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B-3-5%E5%BA%B7%E6%89%98%E9%9B%86-cantor-set"><span class="nav-number">1.3.5.</span> <span class="nav-text">例 3-5：康托集
-(Cantor Set)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">推論 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li></ol></li></ol></div>
+(Cantor Set)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-4"><span class="nav-number">1.4.</span> <span class="nav-text">定理 4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A8%E8%AB%96-4-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">推論 4-1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%90%86-5"><span class="nav-number">1.5.</span> <span class="nav-text">定理 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E7%BE%A9-6%E5%8B%92%E8%B2%9D%E6%A0%BC%E5%8F%AF%E6%B8%AC%E9%9B%86-lebesgue-measurable-set"><span class="nav-number">1.6.</span> <span class="nav-text">定義
+6：勒貝格可測集 (Lebesgue Measurable Set)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -715,7 +725,7 @@ Measure)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" hre
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2025</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

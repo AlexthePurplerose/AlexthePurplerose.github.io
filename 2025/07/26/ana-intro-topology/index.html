@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/ball.jpg">
 <meta property="og:image" content="https://alexthepurplerose.github.io/2025/07/26/ana-intro-topology/A.jpg">
 <meta property="article:published_time" content="2025-07-26T08:34:38.000Z">
-<meta property="article:modified_time" content="2025-07-30T12:34:09.152Z">
+<meta property="article:modified_time" content="2026-01-19T07:00:16.883Z">
 <meta property="article:author" content="SemperLux">
 <meta property="article:tag" content="Lecture_Notes">
 <meta property="article:tag" content="Analysis">
@@ -203,7 +203,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2025-07-30 20:34:09" itemprop="dateModified" datetime="2025-07-30T20:34:09+08:00">2025-07-30</time>
+                <time title="修改時間：2026-01-19 15:00:16" itemprop="dateModified" datetime="2026-01-19T15:00:16+08:00">2026-01-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -459,7 +459,7 @@ A\)</span>，即<span class="math inline">\(A\)</span>是開集。</p>
 (Closed Set)</u></font></h2>
 <p>給定宇集合<span class="math inline">\(\Omega\)</span>與集合<span
 class="math inline">\(B\subseteq\Omega\)</span>。若<span
-class="math inline">\(\Omega/B\)</span>是開集，則說<span
+class="math inline">\(\Omega\backslash B\)</span>是開集，則說<span
 class="math inline">\(B\)</span>是閉集。</p>
 <h3 id="性質-5-1"><font color=#0000FF><u>性質 5-1</u></font></h3>
 <p>由定義與性質4-6可知宇集合與空集合都應是閉集。</p>
@@ -590,20 +590,19 @@ class="math inline">\(\{a\in\mathbb{R}^2:\|a\|\leq
 1\}\)</span>是所有包含<span
 class="math inline">\(B_1(0)\)</span>的閉集中最小的。考慮任意一個閉集<span
 class="math inline">\(B\supseteq B_1(0)\)</span>。我們知道<span
-class="math inline">\(\mathbb{R}/B\)</span>應是開集，且 <span
+class="math inline">\(\mathbb{R}\backslash B\)</span>應是開集，且 <span
 class="math display">\[
-\mathbb{R}^2/B\subseteq\mathbb{R}^2/B_1(0)=\{a\in\mathbb{R}^2:\|a\|\geq
-1\}
-\]</span> 假設<span
-class="math inline">\(\mathbb{R}^2/B\)</span>中有點<span
-class="math inline">\(x\)</span>滿足<span
+\mathbb{R}^2\backslash B\subseteq\mathbb{R}^2\backslash
+B_1(0)=\{a\in\mathbb{R}^2:\|a\|\geq 1\}
+\]</span> 假設<span class="math inline">\(\mathbb{R}^2\backslash
+B\)</span>中有點<span class="math inline">\(x\)</span>滿足<span
 class="math inline">\(\|x\|=1\)</span>，則由於這裡用的是歐幾里得距離，故對於所有<span
 class="math inline">\(\epsilon&gt;0\)</span>都會有<span
 class="math inline">\(y\in B_\epsilon(x)\)</span>使得<span
 class="math inline">\(\|y\|\leq
 1\)</span>(可以用平面圖形去思考這件事)，矛盾。故應有 <span
 class="math display">\[
-\mathbb{R}^2/B\subseteq\{a\in\mathbb{R}^2:\|a\|&gt;1\}
+\mathbb{R}^2\backslash B\subseteq\{a\in\mathbb{R}^2:\|a\|&gt;1\}
 \]</span> 即<span
 class="math inline">\(B\supseteq\{a\in\mathbb{R}^2:\|a\|\leq
 1\}\)</span>。故可知<span
@@ -628,7 +627,7 @@ class="math inline">\(A\)</span>的邊界點。</p>
 <p>對於集合<span
 class="math inline">\(A\in\mathbb{R}^n\)</span>，有<span
 class="math inline">\(\partial
-A=\overline{A}/\mathring{A}\)</span>。<br></p>
+A=\overline{A}\backslash\mathring{A}\)</span>。<br></p>
 <p><font color=#8b4513><u>證明</u></font>：我們有 <span
 class="math display">\[
 \begin{aligned}
@@ -638,7 +637,7 @@ is  closed.})\right)\\
 &amp;=\overline{A}\cap\left(\bigcup_{B^c}(B^c\subseteq A,B\mbox{
 is  open.})\right)^c\;\;\mbox{(★)}\\
 &amp;=\overline{A}\cap(\mathring{A})^c\\
-&amp;=\overline{A}/\mathring{A}
+&amp;=\overline{A}\backslash\mathring{A}
 \end{aligned}
 \]</span> 其中是笛摩根律，詳見<a
 href="https://alexthepurplerose.github.io/2025/07/08/ana-intro-numbers/">這裡</a>的定理5。<font size="1">QED</font></p>
@@ -662,7 +661,7 @@ class="math inline">\(x\in\mathring{A}\)</span>，這與註記8-2不符。而若
 class="math inline">\(\epsilon&gt;0\)</span>使得<span
 class="math inline">\(B_\epsilon(x)\subseteq A^c\)</span>，則考慮集合
 <span class="math display">\[
-B=\mathbb{R}^n/B_\epsilon(x)
+B=\mathbb{R}^n\backslash B_\epsilon(x)
 \]</span> 由於<span
 class="math inline">\(B_\epsilon(x)\)</span>是開集(例4-3)，故<span
 class="math inline">\(B\)</span>應是閉集。而由<span
@@ -692,7 +691,7 @@ B\)</span>。而由於閉集<span class="math inline">\(B\supseteq
 A\)</span>是任意給定的，我們有<span
 class="math inline">\(x\in\overline{A}\)</span>，即 <span
 class="math display">\[
-x\in\overline{A}/\mathring{A}=\partial A
+x\in\overline{A}\backslash\mathring{A}=\partial A
 \]</span> <font size="1">QED</font></p>
 <center>
 <h1 id="密聚點"><font color=#b8860b>密聚點</font></h1>
@@ -704,7 +703,7 @@ class="math inline">\(A\subseteq\mathbb{R}^n\)</span>，考慮點<span
 class="math inline">\(x\in\mathbb{R}^n\)</span>，若對於所有<span
 class="math inline">\(\epsilon&gt;0\)</span>，集合<span
 class="math inline">\((B_\epsilon(x)\cap
-A)/\{x\}\)</span>都非空，則稱<span
+A)\backslash\{x\}\)</span>都非空，則稱<span
 class="math inline">\(x\)</span>為<span
 class="math inline">\(A\)</span>的密聚點(或稱為累積點 (Accumulation
 Point))。</p>
@@ -729,7 +728,7 @@ class="math inline">\(A=(0,1)\subseteq\mathbb{R}\)</span>。可以發現對於�
 class="math inline">\(\epsilon&gt;0\)</span>都有 <span
 class="math display">\[
 (B_\epsilon(0)\cap
-A)/\{0\}=(-\epsilon,\epsilon)\cap(0,1)=(0,\epsilon)\neq\varnothing
+A)\backslash\{0\}=(-\epsilon,\epsilon)\cap(0,1)=(0,\epsilon)\neq\varnothing
 \]</span> 即雖然<span class="math inline">\(0\notin A\)</span>但<span
 class="math inline">\(0\)</span>是<span
 class="math inline">\(A\)</span>的密聚點。類似的，可以發現<span
@@ -901,7 +900,7 @@ Set)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2025</span>
+  <span itemprop="copyrightYear">2026</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
